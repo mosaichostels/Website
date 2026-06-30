@@ -900,6 +900,12 @@
             }
         }
 
+        @media (min-width: 769px) {
+            .nav-links {
+                display: flex !important;
+            }
+        }
+
         @media (max-width: 768px) {
             nav {
                 height: 70px;
@@ -907,7 +913,7 @@
             }
 
             .nav-links {
-                display: none;
+                display: none !important;
             }
 
             .nav-hamburger {

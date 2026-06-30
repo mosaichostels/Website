@@ -575,6 +575,31 @@ button + input {
     }
 }
 
+/* ─── NAVBAR RESPONSIVE ─── */
+@media (min-width: 769px) {
+    .nav-links {
+        display: flex !important;
+    }
+
+    .nav-hamburger {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none !important;
+    }
+
+    .nav-hamburger {
+        display: flex !important;
+    }
+
+    .nav-links.active {
+        display: flex !important;
+    }
+}
+
 @media (max-width: 480px) {
     nav {
         height: 60px;
