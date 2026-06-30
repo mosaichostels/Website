@@ -158,8 +158,8 @@
         /* GALLERY */
         .gallery-masonry {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
             margin-top: 60px;
         }
 
@@ -170,22 +170,28 @@
             aspect-ratio: 1;
             cursor: pointer;
             background: var(--border);
-            transition: all 0.3s ease;
+            transition: all 0.2s ease-out;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
         .gallery-item:nth-child(5) { grid-column: span 2; }
         .gallery-item:nth-child(8) { grid-row: span 2; }
 
+        .gallery-item:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: transform 0.2s ease-out;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.08);
+            transform: scale(1.02);
         }
 
         .gallery-overlay {
@@ -209,6 +215,85 @@
             font-family: 'Google Sans', sans-serif;
             font-size: 18px;
             font-weight: 400;
+        }
+
+        /* MODAL */
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.2s ease-out;
+        }
+
+        .modal-backdrop.modal-open {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 90%;
+            max-width: 900px;
+            height: auto;
+            max-height: 90vh;
+            margin: auto;
+            transform: scale(0.95);
+            transition: transform 0.2s ease-out;
+        }
+
+        .modal-backdrop.modal-open .modal-container {
+            transform: scale(1);
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .modal-caption {
+            color: white;
+            font-size: 14px;
+            margin-top: 16px;
+            text-align: center;
+            font-family: 'Google Sans', sans-serif;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 36px;
+            font-weight: 300;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--gold);
+        }
+
+        .modal-close:focus {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
         }
 
         /* FOOTER */
@@ -256,17 +341,24 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
+        @media (max-width: 1024px) {
+            .gallery-masonry { grid-template-columns: repeat(2, 1fr); }
+            .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(5) { grid-column: span 1; }
+            .gallery-item:nth-child(8) { grid-row: span 1; }
+            .modal-close { top: 20px; }
+        }
+
         @media (max-width: 768px) {
             nav { padding: 0 20px; height: 70px; }
             .hero-section { margin-top: 70px; height: 250px; }
             .hero-section h1 { font-size: 36px; }
             section { padding: 60px 20px; }
             h2 { font-size: 32px; }
-            .gallery-masonry { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-            .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
-            .gallery-item:nth-child(5) { grid-column: span 1; }
-            .gallery-item:nth-child(8) { grid-row: span 1; }
+            .gallery-masonry { grid-template-columns: 1fr; gap: 12px; }
             .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .modal-image { max-height: 70vh; }
+            .modal-close { top: 10px; font-size: 28px; }
         }
     </style>
     <link rel="stylesheet" href="styles/global.css">
@@ -294,39 +386,39 @@
         <h2>Spaces & Moments</h2>
         <div class="gallery-masonry">
             <div class="gallery-item">
-                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Private Room">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Private Room" loading="lazy" onclick="openModal(this.src, this.alt, 'Private Room')">
                 <div class="gallery-overlay"><div class="gallery-title">Private Room</div></div>
             </div>
             <div class="gallery-item">
-                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_1933-2-scaled.jpg" alt="8-Bed Dorm">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_1933-2-scaled.jpg" alt="8-Bed Dorm" loading="lazy" onclick="openModal(this.src, this.alt, '8-Bed Dorm')">
                 <div class="gallery-overlay"><div class="gallery-title">8-Bed Dorm</div></div>
             </div>
             <div class="gallery-item">
-                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2723-2-scaled.jpg" alt="6-Bed Dorm">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2723-2-scaled.jpg" alt="6-Bed Dorm" loading="lazy" onclick="openModal(this.src, this.alt, '6-Bed Dorm')">
                 <div class="gallery-overlay"><div class="gallery-title">6-Bed Dorm</div></div>
             </div>
             <div class="gallery-item">
-                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2733-3-scaled.jpg" alt="4-Bed Dorm">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2733-3-scaled.jpg" alt="4-Bed Dorm" loading="lazy" onclick="openModal(this.src, this.alt, '4-Bed Dorm')">
                 <div class="gallery-overlay"><div class="gallery-title">4-Bed Dorm</div></div>
             </div>
             <div class="gallery-item">
-                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1920-scaled.jpg" alt="Female Dorm">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1920-scaled.jpg" alt="Female Dorm" loading="lazy" onclick="openModal(this.src, this.alt, '6-Bed Female Dorm')">
                 <div class="gallery-overlay"><div class="gallery-title">6-Bed Female Dorm</div></div>
             </div>
             <div class="gallery-item">
-                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg" alt="Rooftop">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg" alt="Rooftop" loading="lazy" onclick="openModal(this.src, this.alt, 'Rooftop Terrace')">
                 <div class="gallery-overlay"><div class="gallery-title">Rooftop Terrace</div></div>
             </div>
             <div class="gallery-item">
-                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2733-3-scaled.jpg" alt="Common Area">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2733-3-scaled.jpg" alt="Common Area" loading="lazy" onclick="openModal(this.src, this.alt, 'Common Area')">
                 <div class="gallery-overlay"><div class="gallery-title">Common Area</div></div>
             </div>
             <div class="gallery-item">
-                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Lounge">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Lounge" loading="lazy" onclick="openModal(this.src, this.alt, 'Lounge')">
                 <div class="gallery-overlay"><div class="gallery-title">Lounge</div></div>
             </div>
             <div class="gallery-item">
-                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_1933-2-scaled.jpg" alt="Bathroom">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_1933-2-scaled.jpg" alt="Facilities" loading="lazy" onclick="openModal(this.src, this.alt, 'Facilities')">
                 <div class="gallery-overlay"><div class="gallery-title">Facilities</div></div>
             </div>
         </div>
@@ -394,6 +486,7 @@
             });
         });
     </script>
+    <script src="components/modal.js"></script>
     <script src="components/loader.js"></script>
 </body>
 </html>
