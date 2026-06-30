@@ -237,6 +237,11 @@
             background: rgba(0, 0, 0, 0.1);
         }
 
+        .gallery-item:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+
         /* ─── MODAL STYLING ─── */
         .modal-backdrop {
             display: none;
@@ -511,14 +516,14 @@
         <p>Discover the spaces, moments, and connections that make Mosaic special. Click any image to view full size.</p>
         <span class="gallery-label">Our Spaces</span>
         <div class="image-gallery">
-            <div class="gallery-item">
-                <img src="images/IMG_1930.JPG" alt="Open hostel common space with natural light" loading="lazy" onclick="openModal('images/IMG_1930.JPG', 'Open hostel common space with natural light', 'Common Gathering Space')">
+            <div class="gallery-item" tabindex="0" role="button" aria-label="Open hostel common space with natural light — click to enlarge" onclick="openModal('images/IMG_1930.JPG', 'Open hostel common space with natural light', 'Common Gathering Space')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('images/IMG_1930.JPG','Open hostel common space with natural light','Common Gathering Space')}">
+                <img src="images/IMG_1930.JPG" alt="Open hostel common space with natural light" loading="lazy">
             </div>
-            <div class="gallery-item">
-                <img src="images/IMG_1912.JPG" alt="Comfortable common area for guests to relax" loading="lazy" onclick="openModal('images/IMG_1912.JPG', 'Comfortable common area for guests to relax', 'Lounge Area')">
+            <div class="gallery-item" tabindex="0" role="button" aria-label="Comfortable common area for guests to relax — click to enlarge" onclick="openModal('images/IMG_1912.JPG', 'Comfortable common area for guests to relax', 'Lounge Area')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('images/IMG_1912.JPG','Comfortable common area for guests to relax','Lounge Area')}">
+                <img src="images/IMG_1912.JPG" alt="Comfortable common area for guests to relax" loading="lazy">
             </div>
-            <div class="gallery-item">
-                <img src="images/IMG_1934.JPG" alt="Well-designed communal space" loading="lazy" onclick="openModal('images/IMG_1934.JPG', 'Well-designed communal space', 'Community Space')">
+            <div class="gallery-item" tabindex="0" role="button" aria-label="Well-designed communal space — click to enlarge" onclick="openModal('images/IMG_1934.JPG', 'Well-designed communal space', 'Community Space')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal('images/IMG_1934.JPG','Well-designed communal space','Community Space')}">
+                <img src="images/IMG_1934.JPG" alt="Well-designed communal space" loading="lazy">
             </div>
         </div>
     </section>
