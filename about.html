@@ -100,38 +100,234 @@
             font-size: 56px;
             font-weight: 400;
         }
+
+        /* ─── SECTION SPACING ─── */
         section {
-            padding: 100px 60px;
+            padding: 80px 60px;
             max-width: 1400px;
             margin: 0 auto;
         }
+
+        /* ─── SECTION DIVIDERS ─── */
+        section + section {
+            border-top: 1px solid var(--border);
+            margin-top: 0;
+            padding-top: 80px;
+        }
+
+        /* ─── HEADING HIERARCHY ─── */
+        .section-label {
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-bottom: 24px;
+            display: block;
+        }
+
         h2 {
             font-family: 'Google Sans', sans-serif;
             font-size: 42px;
-            font-weight: 400;
+            font-weight: 700;
+            color: var(--ink);
             margin-bottom: 32px;
         }
+
+        h3 {
+            font-family: 'Google Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--ink);
+            margin-top: 32px;
+            margin-bottom: 24px;
+        }
+
+        /* ─── PARAGRAPH STYLING ─── */
+        p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+            color: var(--ink);
+            max-width: 65ch;
+        }
+
+        .content-text p {
+            color: var(--ink);
+        }
+
+        /* ─── BLOCKQUOTE STYLING ─── */
+        blockquote {
+            font-style: italic;
+            color: var(--teal-dark);
+            border-left: 4px solid var(--gold);
+            padding-left: 24px;
+            margin: 32px 0;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* ─── CONTENT GRID ─── */
         .content-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
-            margin-top: 60px;
+            margin-top: 32px;
+            align-items: center;
         }
+
         .content-grid img {
             width: 100%;
             border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
-        .content-text p {
-            font-size: 16px;
-            margin-bottom: 20px;
-            line-height: 1.8;
-            color: var(--text-muted);
+
+        /* ─── IMAGE GALLERY ─── */
+        .gallery-label {
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-bottom: 24px;
+            margin-top: 48px;
+            display: block;
         }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            aspect-ratio: 4 / 3;
+            cursor: pointer;
+            transition: transform 0.2s ease-out;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0);
+            transition: background 0.2s ease-out;
+        }
+
+        .gallery-item:hover::after {
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        /* ─── MODAL STYLING ─── */
+        .modal-backdrop {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+
+        .modal-backdrop.modal-open {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-container {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 32px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+            z-index: 2001;
+        }
+
+        .modal-close:hover {
+            color: var(--gold);
+        }
+
+        .modal-close:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        .modal-caption {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            margin-top: 16px;
+            text-align: center;
+            max-width: 90vw;
+        }
+
+        /* ─── FOOTER ─── */
         footer {
             background: var(--ink);
             color: white;
             padding: 80px 60px 40px;
         }
+
         .footer-grid {
             max-width: 1400px;
             margin: 0 auto;
@@ -140,6 +336,7 @@
             gap: 60px;
             margin-bottom: 60px;
         }
+
         .footer-col h3 {
             font-family: 'Google Sans', sans-serif;
             font-size: 18px;
@@ -147,6 +344,7 @@
             margin-bottom: 24px;
             color: var(--gold-light);
         }
+
         .footer-col a {
             display: block;
             color: rgba(255, 255, 255, 0.6);
@@ -155,9 +353,11 @@
             margin-bottom: 12px;
             transition: color 0.3s ease;
         }
+
         .footer-col a:hover {
             color: var(--gold-light);
         }
+
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 40px;
@@ -165,12 +365,93 @@
             font-size: 12px;
             color: rgba(255, 255, 255, 0.5);
         }
+
+        /* ─── RESPONSIVE DESIGN ─── */
+        @media (max-width: 1024px) {
+            section {
+                padding: 80px 40px;
+            }
+
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
-            nav { padding: 0 20px; height: 70px; }
-            section { padding: 60px 20px; }
-            h2 { font-size: 32px; }
-            .content-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
+            nav {
+                padding: 0 20px;
+                height: 70px;
+            }
+
+            section {
+                padding: 80px 20px;
+            }
+
+            .hero-section {
+                margin-top: 70px;
+                height: 250px;
+            }
+
+            .hero-section h1 {
+                font-size: 42px;
+            }
+
+            h2 {
+                font-size: 32px;
+                margin-bottom: 24px;
+            }
+
+            h3 {
+                font-size: 20px;
+            }
+
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .image-gallery {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .gallery-item {
+                aspect-ratio: 4 / 3;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .modal-close {
+                top: -35px;
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            section {
+                padding: 60px 16px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            p {
+                font-size: 15px;
+                line-height: 1.7;
+            }
+
+            blockquote {
+                font-size: 16px;
+                padding-left: 16px;
+            }
         }
     </style>
     <link rel="stylesheet" href="styles/global.css">
@@ -194,26 +475,51 @@
     </div>
 
     <section>
+        <span class="section-label">Our Foundation</span>
         <h2>Our Story</h2>
         <div class="content-grid">
-            <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg" alt="Mosaic Hostel">
+            <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg" alt="Mosaic Hostel exterior and entrance" loading="lazy">
             <div class="content-text">
                 <p>Mosaic Hostel Varanasi was founded with a simple mission: to create a space where travelers from around the world can come together, share stories, and experience the magic of Varanasi like locals.</p>
                 <p>Located steps from the sacred Ghats, our hostel is more than just a place to stay. It's a community where cultures collide, friendships form, and memories are created that last a lifetime.</p>
-                <p>Each room, each tile, each corner of Mosaic represents a different piece of the world. Together, we create something beautiful—a mosaic of human connection and shared experience.</p>
+                <blockquote>Each room, each tile, each corner of Mosaic represents a different piece of the world. Together, we create something beautiful—a mosaic of human connection and shared experience.</blockquote>
             </div>
         </div>
     </section>
 
     <section>
+        <span class="section-label">What Matters</span>
         <h2>Our Values</h2>
         <div class="content-grid">
             <div class="content-text">
-                <p><strong>Community First:</strong> We believe in the power of connection. Every event, activity, and design choice is made to bring travelers together.</p>
-                <p><strong>Cultural Respect:</strong> Varanasi is a sacred city. We honor its traditions while creating a bridge between locals and visitors.</p>
-                <p><strong>Safety & Comfort:</strong> Your well-being matters. We provide secure rooms, reliable WiFi, and 24/7 support so you can focus on adventure.</p>
+                <h3>Community First</h3>
+                <p>We believe in the power of connection. Every event, activity, and design choice is made to bring travelers together and create meaningful experiences.</p>
+
+                <h3>Cultural Respect</h3>
+                <p>Varanasi is a sacred city with deep spiritual significance. We honor its traditions while creating a bridge between locals and visitors, fostering mutual understanding.</p>
+
+                <h3>Safety & Comfort</h3>
+                <p>Your well-being matters to us. We provide secure rooms, reliable WiFi, and 24/7 support so you can focus on adventure and making memories.</p>
             </div>
-            <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Our Values">
+            <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Common area where guests gather and connect" loading="lazy">
+        </div>
+    </section>
+
+    <section>
+        <span class="section-label">Gallery</span>
+        <h2>Experience Mosaic</h2>
+        <p>Discover the spaces, moments, and connections that make Mosaic special. Click any image to view full size.</p>
+        <span class="gallery-label">Our Spaces</span>
+        <div class="image-gallery">
+            <div class="gallery-item">
+                <img src="images/IMG_1930.JPG" alt="Open hostel common space with natural light" loading="lazy" onclick="openModal('images/IMG_1930.JPG', 'Open hostel common space with natural light', 'Common Gathering Space')">
+            </div>
+            <div class="gallery-item">
+                <img src="images/IMG_1912.JPG" alt="Comfortable common area for guests to relax" loading="lazy" onclick="openModal('images/IMG_1912.JPG', 'Comfortable common area for guests to relax', 'Lounge Area')">
+            </div>
+            <div class="gallery-item">
+                <img src="images/IMG_1934.JPG" alt="Well-designed communal space" loading="lazy" onclick="openModal('images/IMG_1934.JPG', 'Well-designed communal space', 'Community Space')">
+            </div>
         </div>
     </section>
 
@@ -259,6 +565,7 @@
             cursorRing.style.left = crx + 'px'; cursorRing.style.top = cry + 'px';
         });
     </script>
+    <script src="components/modal.js"></script>
     <script src="components/loader.js"></script>
 </body>
 </html>
