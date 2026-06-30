@@ -131,20 +131,27 @@
         /* Links */
         a {
             color: var(--gold);
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
+            text-decoration: none;
             text-underline-offset: 4px;
-            transition: color 150ms ease-out;
+            transition: color 150ms ease-out, text-decoration-color 150ms ease-out;
         }
 
         a:hover {
-            color: #8B6914;
+            color: var(--gold);
+            text-decoration: underline;
+            text-decoration-thickness: 2px;
         }
 
-        a:focus {
+        a:focus-visible {
             outline: 3px solid var(--gold);
             outline-offset: 2px;
             border-radius: 2px;
+        }
+
+        /* ponytail: footer links are white, suppress gold hover */
+        .footer-col a:hover {
+            text-decoration: none;
+            color: rgba(255,255,255,0.9);
         }
 
         /* Strong & Emphasis */
@@ -362,9 +369,9 @@
         <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at:</p>
         <p>
             <strong>Mosaic Hostel Varanasi</strong><br>
-            Email: <a href="mailto:mosaichostels@gmail.com" style="color: var(--gold); text-decoration: none;">mosaichostels@gmail.com</a><br>
-            Phone: <a href="tel:+919125492225" style="color: var(--gold); text-decoration: none;">+91 91254 92225</a><br>
-            WhatsApp: <a href="https://wa.me/919125492225" style="color: var(--gold); text-decoration: none;">Message us</a>
+            Email: <a href="mailto:mosaichostels@gmail.com">mosaichostels@gmail.com</a><br>
+            Phone: <a href="tel:+919125492225">+91 91254 92225</a><br>
+            WhatsApp: <a href="https://wa.me/919125492225">Message us</a>
         </p>
 
         <h3>Policy Updates</h3>
