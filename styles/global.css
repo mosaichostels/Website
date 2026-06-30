@@ -5,12 +5,15 @@
 :root {
     --gold: #C88A0A;
     --gold-light: #E8B044;
+    --gold-dark: #8B6914;
     --cream: #FAF4EA;
+    --cream-dark: #EBE0D1;
     --ink: #1A1208;
     --ink-dark: #0F0A05;
     --border: #E0D5C7;
     --teal: #2A6B7A;
     --teal-light: #2D9AAA;
+    --teal-dark: #1E4D55;
     --burgundy: #8B1C1C;
     --sage: #3D6B3A;
     --cobalt: #1A3A6B;
