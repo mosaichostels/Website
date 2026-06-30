@@ -2,30 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mosaic Hostels — Curated Traveler Experiences</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Mosaic Hostel Varanasi — Premium Stays in Sacred Varanasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
     <style>
         :root {
-            --cream: #F5F1EB;
-            --ink: #2B2520;
-            --ink-light: #5A5450;
-            --gold: #B8860B;
-            --border: #D9D0C7;
-            --teal: #2C5561;
-            --burg: #6B3E3E;
-
-            /* Traveler tile colors */
-            --color-br: #FF6B6B;
-            --color-in: #FFA500;
-            --color-eg: #FFD700;
-            --color-au: #4A90E2;
-            --color-jp: #2E7D32;
-            --color-pl: #9C27B0;
-            --color-mag: #FF1493;
-            --color-cy: #00CED1;
-            --color-or: #FF4500;
-            --color-lime: #32CD32;
+            --gold: #C88A0A;
+            --gold-light: #E8B044;
+            --cream: #FAF4EA;
+            --ink: #1A1208;
+            --ink-dark: #0F0A05;
+            --border: #E0D5C7;
+            --teal: #2A6B7A;
+            --teal-light: #2D9AAA;
+            --burgundy: #8B1C1C;
+            --sage: #3D6B3A;
+            --cobalt: #1A3A6B;
+            --text-muted: #999;
         }
 
         * {
@@ -34,96 +27,77 @@
             box-sizing: border-box;
         }
 
-        html, body {
-            font-family: 'Lato', sans-serif;
-            background: var(--cream);
-            color: var(--ink);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
         html {
             scroll-behavior: smooth;
         }
 
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        h1 { font-size: 72px; line-height: 1.1; }
-        h2 { font-size: 52px; margin-bottom: 50px; }
-        h3 { font-size: 28px; }
-
         body {
-            font-size: 15px;
-            font-weight: 300;
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
         }
 
-        label, .label {
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        /* FOCUS STYLES FOR KEYBOARD NAV */
+        *:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
         }
 
-        /* Layout */
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 60px;
-        }
-
-        section {
-            padding: 120px 0;
-        }
-
-        /* Navigation */
-        .navbar {
+        /* ─── NAVBAR ─── */
+        nav {
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(245, 241, 235, 0.98);
-            backdrop-filter: blur(12px);
-            padding: 24px 60px;
+            width: 100%;
+            height: 80px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 999;
+            padding: 0 60px;
+            background: rgba(250, 244, 234, 0.95);
+            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            z-index: 1000;
+            transition: all 0.3s ease;
         }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 900;
+        nav.scrolled {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-logo:hover, .nav-logo:focus-visible {
             color: var(--gold);
-            cursor: pointer;
         }
 
-        .nav-list {
+        .nav-links {
             display: flex;
-            gap: 50px;
+            gap: 48px;
             list-style: none;
         }
 
-        .nav-link {
-            text-decoration: none;
+        .nav-links a {
             color: var(--ink);
-            font-weight: 400;
+            text-decoration: none;
             font-size: 13px;
+            font-weight: 500;
             letter-spacing: 1px;
             text-transform: uppercase;
-            cursor: pointer;
             position: relative;
-            transition: color 400ms ease;
+            transition: color 0.3s ease;
+            padding: 8px 0;
         }
 
-        .nav-link::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
             bottom: -6px;
@@ -131,33 +105,745 @@
             width: 0;
             height: 2px;
             background: var(--gold);
-            transition: width 500ms ease;
+            transition: width 0.3s ease;
         }
 
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
+        .nav-links a:hover, .nav-links a:focus-visible {
             color: var(--gold);
         }
 
-        /* Pages */
-        .page {
+        .nav-links a:hover::after, .nav-links a:focus-visible::after {
+            width: 100%;
+        }
+
+        .nav-book {
+            padding: 14px 32px;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            min-width: 48px;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-book:hover, .nav-book:focus-visible {
+            background: #a06e08;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(200, 138, 10, 0.2);
+        }
+
+        .nav-hamburger {
             display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 12px 8px;
+            min-width: 48px;
+            min-height: 48px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            align-items: center;
+            justify-content: center;
         }
 
-        .page.active {
+        .nav-hamburger:focus-visible {
+            outline: 2px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        .nav-hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--ink);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             display: block;
-            animation: fadeInPage 700ms ease-out;
         }
 
-        @keyframes fadeInPage {
+        .nav-hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .nav-hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* ─── CUSTOM CURSOR ─── */
+        #cursor {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: multiply;
+        }
+
+        #cursor-ring {
+            position: fixed;
+            width: 36px;
+            height: 36px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.05s ease-out;
+        }
+
+        /* ─── HERO SECTION ─── */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 700px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .hero-video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.65;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(26, 18, 8, 0.25) 0%,
+                rgba(26, 18, 8, 0.55) 50%,
+                rgba(26, 18, 8, 0.8) 100%
+            );
+            z-index: 1;
+        }
+
+        .hero-stripe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            display: flex;
+            gap: 0;
+            z-index: 2;
+        }
+
+        .hero-stripe span {
+            flex: 1;
+            background: var(--gold);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            
+            padding: 40px 20px;
+        }
+
+        .hero-subtitle {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .hero-subtitle::before,
+        .hero-subtitle::after {
+            content: '';
+            width: 30px;
+            height: 1px;
+            background: var(--gold-light);
+        }
+
+        h1 {
+            font-family: 'Crimson Text', serif;
+            font-size: 72px;
+            font-weight: 400;
+            color: white;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            margin-top: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 48px;
+            letter-spacing: 0.5px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            animation: pulse 2s infinite;
+            z-index: 3;
+        }
+
+        .scroll-indicator p {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+        }
+
+        .scroll-indicator::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 32px;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6), transparent);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
+            50% { transform: translateX(-50%) translateY(8px); opacity: 0.5; }
+        }
+
+        /* ─── MOSAIC STRIPE DIVIDERS ─── */
+        .tile-divider {
+            height: 5px;
+            display: flex;
+            gap: 1px;
+            width: 100%;
+        }
+
+        .tile-divider span {
+            flex: 1;
+            border-radius: 1px;
+        }
+
+        /* ─── STATS SECTION ─── */
+        .stats {
+            background: var(--cream);
+            padding: 60px 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .stat:nth-child(1) { animation-delay: 0.1s; }
+        .stat:nth-child(2) { animation-delay: 0.2s; }
+        .stat:nth-child(3) { animation-delay: 0.3s; }
+        .stat:nth-child(4) { animation-delay: 0.4s; }
+
+        .stat-number {
+            font-family: 'Crimson Text', serif;
+            font-size: 56px;
+            font-weight: 400;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* ─── SECTIONS ─── */
+        section {
+            padding: 80px 20px;
+            
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: 56px;
+            font-weight: 400;
+            color: var(--ink);
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        section h2 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .section-subtitle {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-divider {
+            width: 120px;
+            height: 3px;
+            display: flex;
+            gap: 2px;
+            margin: 24px auto 0;
+        }
+
+        .section-divider span {
+            flex: 1;
+            border-radius: 1px;
+        }
+
+        /* ─── ROOMS GRID ─── */
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .room-card {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            perspective: 1000px;
+            transition: transform 0.3s ease;
+            min-height: 250px;
+        }
+
+        .room-card:focus-within {
+            outline: 2px solid var(--gold);
+            outline-offset: 4px;
+        }
+
+        .room-card.featured {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .room-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .room-card:hover .room-image, .room-card:focus-within .room-image {
+            transform: scale(1.08);
+            filter: brightness(0.75);
+        }
+
+        .room-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            display: flex;
+            gap: 1px;
+            opacity: 0;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            z-index: 2;
+        }
+
+        .room-card:hover .room-accent, .room-card:focus-within .room-accent {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        .room-accent span {
+            flex: 1;
+            border-radius: 1px;
+        }
+
+        .room-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to top,
+                rgba(26, 18, 8, 0.9) 0%,
+                transparent 60%
+            );
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 32px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .room-card:hover .room-overlay, .room-card:focus-within .room-overlay {
+            opacity: 1;
+        }
+
+        .room-tag {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            margin-bottom: 8px;
+            transform: translateY(16px);
+            transition: transform 0.4s ease 0.05s;
+        }
+
+        .room-card:hover .room-tag, .room-card:focus-within .room-tag {
+            transform: translateY(0);
+        }
+
+        .room-name {
+            font-family: 'Crimson Text', serif;
+            font-size: 20px;
+            font-weight: 400;
+            color: white;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            transform: translateY(16px);
+            transition: transform 0.4s ease;
+        }
+
+        .room-card:hover .room-name, .room-card:focus-within .room-name {
+            transform: translateY(0);
+        }
+
+        .room-meta {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+            transform: translateY(16px);
+            transition: transform 0.4s ease 0.1s;
+        }
+
+        .room-card:hover .room-meta, .room-card:focus-within .room-meta {
+            transform: translateY(0);
+        }
+
+        /* ─── PHILOSOPHY SECTION ─── */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 60px;
+            margin-top: 60px;
+        }
+
+        .philosophy-item {
+            text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .philosophy-item:nth-child(1) { animation-delay: 0.2s; }
+        .philosophy-item:nth-child(2) { animation-delay: 0.3s; }
+        .philosophy-item:nth-child(3) { animation-delay: 0.4s; }
+
+        .philosophy-icon {
+            width: 100px;
+            height: 100px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin: 0 auto 40px;
+        }
+
+        .philosophy-icon span {
+            border-radius: 4px;
+            background: var(--gold);
+        }
+
+        .philosophy-item h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 22px;
+            font-weight: 400;
+            color: var(--ink);
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+        }
+
+        .philosophy-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+        }
+
+        /* ─── EXPERIENCE SECTION ─── */
+        .experience {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 0 -20px;
+            padding: 0 20px;
+        }
+
+        .experience-bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .experience-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(26, 18, 8, 0.7) 0%,
+                rgba(26, 18, 8, 0.5) 50%,
+                rgba(26, 18, 8, 0.7) 100%
+            );
+            z-index: 1;
+        }
+
+        .experience-content {
+            position: relative;
+            z-index: 2;
+            
+            color: white;
+        }
+
+        .experience-content h2 {
+            color: white;
+            font-size: 56px;
+            margin-bottom: 24px;
+        }
+
+        .experience-content h2 em {
+            color: var(--gold-light);
+        }
+
+        .experience-content p {
+            font-size: 16px;
+            line-height: 1.9;
+            margin-bottom: 40px;
+            color: rgba(255, 255, 255, 0.9);
+            letter-spacing: 0.3px;
+        }
+
+        /* ─── TESTIMONIALS ─── */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            position: relative;
+            border-top: 4px solid var(--gold);
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial:focus-within {
+            box-shadow: 0 8px 24px rgba(200, 138, 10, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .testimonial:nth-child(1) { animation-delay: 0.1s; }
+        .testimonial:nth-child(2) { animation-delay: 0.2s; }
+        .testimonial:nth-child(3) { animation-delay: 0.3s; }
+
+        .testimonial-quote {
+            font-size: 14px;
+            line-height: 1.8;
+            color: var(--ink);
+            margin-bottom: 24px;
+            font-style: italic;
+            letter-spacing: 0.3px;
+        }
+
+        .testimonial-author {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        /* ─── CTA SECTION ─── */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(200, 138, 10, 0.05), rgba(42, 107, 122, 0.05));
+            padding: 80px 20px;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+            margin: 0 -20px;
+        }
+
+        .cta-section h2 {
+            font-size: 48px;
+            margin-bottom: 24px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button, .btn-primary, .btn-secondary {
+            padding: 16px 48px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: white;
+        }
+
+        .btn-primary:hover, .btn-primary:focus-visible {
+            background: #a06e08;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(200, 138, 10, 0.25);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--ink);
+            border: 2px solid var(--ink);
+        }
+
+        .btn-secondary:hover, .btn-secondary:focus-visible {
+            background: var(--ink);
+            color: white;
+        }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--ink);
+            color: white;
+            padding: 60px 20px 40px;
+        }
+
+        .footer-grid {
+            
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: var(--gold-light);
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 13px;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+        }
+
+        .footer-col a:hover, .footer-col a:focus-visible {
+            color: var(--gold-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* ─── ANIMATIONS ─── */
+        @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -165,101 +851,650 @@
             }
         }
 
-        /* Canvas */
-        canvas {
-            display: block;
-            background: var(--cream);
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 0 40px;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            section {
+                padding: 60px 40px;
+            }
+
+            section h2 {
+                font-size: 42px;
+            }
+
+            .rooms-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+
+            .room-card.featured {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+
+            .philosophy-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
         }
 
-        /* Footer */
-        footer {
-            background: var(--ink);
-            color: var(--cream);
-            padding: 80px 60px;
-            text-align: center;
-            margin-top: 120px;
+        @media (max-width: 768px) {
+            nav {
+                height: 70px;
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-hamburger {
+                display: flex;
+            }
+
+            .nav-links.active {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--cream);
+                flex-direction: column;
+                padding: 20px;
+                gap: 12px;
+                display: flex;
+                border-bottom: 1px solid var(--border);
+                max-height: calc(100vh - 70px);
+                overflow-y: auto;
+            }
+
+            .nav-links a {
+                padding: 12px 0;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 500px;
+                margin-top: 70px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            section h2 {
+                font-size: 32px;
+            }
+
+            .rooms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .room-card.featured {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience {
+                height: 400px;
+            }
+
+            .experience-content h2 {
+                font-size: 36px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                height: 60px;
+                padding: 0 16px;
+            }
+
+            h1 {
+                font-size: 28px;
+                margin-bottom: 16px;
+            }
+
+            .hero p {
+                font-size: 14px;
+                margin-bottom: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 10px;
+                gap: 8px;
+            }
+
+            .hero-subtitle::before,
+            .hero-subtitle::after {
+                width: 20px;
+            }
+
+            .stats {
+                padding: 40px 16px;
+            }
+
+            .stats-grid {
+                gap: 30px;
+            }
+
+            .stat-number {
+                font-size: 42px;
+            }
+
+            section {
+                padding: 50px 16px;
+            }
+
+            section h2 {
+                font-size: 24px;
+                margin-bottom: 32px;
+            }
+
+            .section-header {
+                margin-bottom: 40px;
+            }
+
+            .scroll-indicator {
+                display: none;
+            }
         }
     </style>
+    <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">MOSAIC</div>
-        <ul class="nav-list">
-            <li><a class="nav-link active" data-page="home">Home</a></li>
-            <li><a class="nav-link" data-page="community">Community</a></li>
-            <li><a class="nav-link" data-page="gallery">Gallery</a></li>
-            <li><a class="nav-link" data-page="stories">Stories</a></li>
-            <li><a class="nav-link" data-page="contact">Contact</a></li>
-            <li><a class="nav-link" data-page="booking">Book</a></li>
+    <!-- CUSTOM CURSOR -->
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-logo">MOSAIC</a>
+        <ul class="nav-links" id="navLinks" role="menubar">
+            <li role="none"><a href="#rooms" role="menuitem">Rooms</a></li>
+            <li role="none"><a href="#experience" role="menuitem">Experience</a></li>
+            <li role="none"><a href="#guests" role="menuitem">Guests</a></li>
+            <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
         </ul>
+        <button class="nav-hamburger" id="navHam" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <button class="nav-book" aria-label="Book a room" onclick="document.getElementById('rooms').scrollIntoView({behavior:'smooth'})">Book Now</button>
     </nav>
 
-    <!-- Home Page -->
-    <div id="home" class="page active">
-        <canvas id="canvas-home"></canvas>
-        <section class="container" style="margin-top: 60px;">
-            <h2>Why Mosaic</h2>
-            <!-- Content to come -->
-        </section>
-    </div>
+    <!-- HERO -->
+    <section class="hero" role="banner" aria-label="Welcome to Mosaic Hostel">
+        <div class="hero-stripe" id="heroStripe"></div>
+        <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
+            <source src="images/hero-video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay" aria-hidden="true"></div>
 
-    <!-- Community Page -->
-    <div id="community" class="page">
-        <canvas id="canvas-community"></canvas>
-        <section class="container">
-            <!-- Content to come -->
-        </section>
-    </div>
+        <div class="hero-content">
+            <div class="hero-subtitle">Where Culture Meets Comfort</div>
+            <h1>Each Guest a Piece.<br>Each Story a Tile.</h1>
+            <p>Together, we make something beautiful. Experience Varanasi from the heart of the Ghats.</p>
+        </div>
 
-    <!-- Gallery Page -->
-    <div id="gallery" class="page">
-        <canvas id="canvas-gallery"></canvas>
-        <section class="container">
-            <!-- Content to come -->
-        </section>
-    </div>
+        <div class="scroll-indicator" aria-hidden="true">
+            <p>Scroll</p>
+        </div>
+    </section>
 
-    <!-- Stories Page -->
-    <div id="stories" class="page">
-        <canvas id="canvas-stories"></canvas>
-        <section class="container">
-            <!-- Content to come -->
-        </section>
-    </div>
-
-    <!-- Contact Page -->
-    <div id="contact" class="page">
-        <canvas id="canvas-contact"></canvas>
-        <section class="container">
-            <!-- Content to come -->
-        </section>
-    </div>
-
-    <!-- Booking Page -->
-    <div id="booking" class="page">
-        <canvas id="canvas-booking"></canvas>
-        <section class="container">
-            <!-- Content to come -->
-        </section>
-    </div>
-
-    <!-- Modal for Gallery Lightbox -->
-    <div id="imageModal" class="modal">
-        <div class="modal-content">
-            <button class="modal-close">✕</button>
-            <div id="modalImage"></div>
-            <p id="modalCaption"></p>
+    <!-- STATS -->
+    <div class="stats" role="region" aria-label="Hostel statistics">
+        <div class="stats-grid">
+            <div class="stat">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Happy Guests</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">4.9★</div>
+                <div class="stat-label">Average Rating</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">5</div>
+                <div class="stat-label">Room Types</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">Est. 2025</div>
+                <div class="stat-label">Varanasi</div>
+            </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2026 Mosaic Hostels. Where diverse travelers unite.</p>
+    <div class="tile-divider" id="divider1" aria-hidden="true"></div>
+
+    <!-- ROOMS -->
+    <section id="rooms" role="region" aria-label="Room types and accommodations">
+        <div class="section-header">
+            <div class="section-subtitle">Our Spaces</div>
+            <h2>Every Room,<br>a <em>Unique Tile</em></h2>
+            <div class="section-divider" id="roomsDivider" aria-hidden="true"></div>
+        </div>
+
+        <div class="rooms-grid" role="list">
+            <div class="room-card featured" role="listitem" tabindex="0">
+                <div class="room-accent" id="roomAccent1" aria-hidden="true"></div>
+                <img class="room-image" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Private Room with ensuite bathroom">
+                <div class="room-overlay">
+                    <div class="room-tag">Private</div>
+                    <div class="room-name">Private Room</div>
+                    <div class="room-meta">AC · Ensuite · WiFi · Lockers</div>
+                </div>
+            </div>
+
+            <div class="room-card" role="listitem" tabindex="0">
+                <div class="room-accent" id="roomAccent2" aria-hidden="true"></div>
+                <img class="room-image" src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_1933-2-scaled.jpg" alt="8-Bed Mixed Dorm">
+                <div class="room-overlay">
+                    <div class="room-tag">Mixed Dorm</div>
+                    <div class="room-name">8-Bed Dorm</div>
+                    <div class="room-meta">AC · Lockers · WiFi</div>
+                </div>
+            </div>
+
+            <div class="room-card" role="listitem" tabindex="0">
+                <div class="room-accent" id="roomAccent3" aria-hidden="true"></div>
+                <img class="room-image" src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2723-2-scaled.jpg" alt="6-Bed Mixed Dorm">
+                <div class="room-overlay">
+                    <div class="room-tag">Mixed Dorm</div>
+                    <div class="room-name">6-Bed Dorm</div>
+                    <div class="room-meta">AC · Lockers · WiFi</div>
+                </div>
+            </div>
+
+            <div class="room-card" role="listitem" tabindex="0">
+                <div class="room-accent" id="roomAccent4" aria-hidden="true"></div>
+                <img class="room-image" src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2733-3-scaled.jpg" alt="4-Bed Mixed Dorm">
+                <div class="room-overlay">
+                    <div class="room-tag">Mixed Dorm</div>
+                    <div class="room-name">4-Bed Dorm</div>
+                    <div class="room-meta">AC · Lockers · WiFi</div>
+                </div>
+            </div>
+
+            <div class="room-card" role="listitem" tabindex="0">
+                <div class="room-accent" id="roomAccent5" aria-hidden="true"></div>
+                <img class="room-image" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1920-scaled.jpg" alt="6-Bed Female Dorm for ladies only">
+                <div class="room-overlay">
+                    <div class="room-tag">Ladies Only</div>
+                    <div class="room-name">6-Bed Female Dorm</div>
+                    <div class="room-meta">AC · Lockers · WiFi · Secure</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="tile-divider" id="divider2" aria-hidden="true"></div>
+
+    <!-- PHILOSOPHY -->
+    <section role="region" aria-label="Why choose Mosaic Hostel">
+        <div class="section-header">
+            <div class="section-subtitle">Our Values</div>
+            <h2>Why Travelers<br>Choose <em>Mosaic</em></h2>
+            <div class="section-divider" id="philDivider" aria-hidden="true"></div>
+        </div>
+
+        <div class="philosophy-grid" role="list">
+            <div class="philosophy-item" role="listitem">
+                <div class="philosophy-icon" id="philIcon1" aria-hidden="true"></div>
+                <h3>Heart of Varanasi</h3>
+                <p>Steps from the Ghats, at the centre of one of the world's most ancient and spiritual cities.</p>
+            </div>
+            <div class="philosophy-item" role="listitem">
+                <div class="philosophy-icon" id="philIcon2" aria-hidden="true"></div>
+                <h3>Community First</h3>
+                <p>Travellers from every corner meet here — sharing stories, making friends, exploring together.</p>
+            </div>
+            <div class="philosophy-item" role="listitem">
+                <div class="philosophy-icon" id="philIcon3" aria-hidden="true"></div>
+                <h3>Safe & Comfortable</h3>
+                <p>Clean rooms, reliable WiFi, hot showers, 24h security. Everything you need to rest well.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" role="region" aria-label="The Varanasi experience">
+        <div class="experience">
+            <img class="experience-bg" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg" alt="Rooftop view of Varanasi">
+            <div class="experience-overlay" aria-hidden="true"></div>
+            <div class="experience-content">
+                <div class="section-subtitle">The Varanasi Experience</div>
+                <h2>More Than<br>a <em>Place to Sleep</em></h2>
+                <p>Wake up steps from the Ghats. Watch the Ganga Aarti from our rooftop. Join walking tours, cooking classes, and sunrise boat rides — all curated by locals who love this city.</p>
+                <button class="btn-primary" aria-label="View our photo gallery">Explore Gallery</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="guests" role="region" aria-label="Guest testimonials">
+        <div class="section-header">
+            <div class="section-subtitle">Guest Stories</div>
+            <h2>Each Guest,<br>a <em>Piece of Our Mosaic</em></h2>
+            <div class="section-divider" id="testiDivider" aria-hidden="true"></div>
+        </div>
+
+        <div class="testimonials-grid" role="list">
+            <div class="testimonial" role="listitem" tabindex="0">
+                <div class="testimonial-quote">"The vibe here is unlike any other hostel in India. Great location, warm staff, and the kind of people you actually want to travel with."</div>
+                <div class="testimonial-author">— Priya S., Mumbai</div>
+            </div>
+            <div class="testimonial" role="listitem" tabindex="0">
+                <div class="testimonial-quote">"Best hostel stay I've had in India. Clean, social, perfectly located — the rooftop view of Varanasi at sunset is something else."</div>
+                <div class="testimonial-author">— James L., London</div>
+            </div>
+            <div class="testimonial" role="listitem" tabindex="0">
+                <div class="testimonial-quote">"Warm, welcoming and full of energy. Met some of my favourite travel friends here. Already planning to come back."</div>
+                <div class="testimonial-author">— Aiko T., Tokyo</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section" role="region" aria-label="Call to action">
+        <h2>Begin Your Mosaic Story</h2>
+        <p>Experience Varanasi like never before. Book your stay today and become part of our growing community of global travelers.</p>
+        <div class="cta-buttons">
+            <button class="btn-primary" aria-label="Book your stay now">Book Your Stay</button>
+            <button class="btn-secondary" aria-label="Contact us for more information">Get in Touch</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Mosaic Hostel</h3>
+                <p style="font-size: 13px; line-height: 1.8; color: rgba(255, 255, 255, 0.6);">Varanasi's premier hostel steps from the sacred Ghats. Where travelers from around the world become lifelong friends.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <nav aria-label="Footer navigation">
+                    <a href="#rooms">Rooms</a>
+                    <a href="#experience">Experience</a>
+                    <a href="gallery.html">Gallery</a>
+                    <a href="blog.html">Blog</a>
+                </nav>
+            </div>
+            <div class="footer-col">
+                <h3>Connect</h3>
+                <nav aria-label="Social media">
+                    <a href="https://wa.me/919125492225" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                    <a href="mailto:mosaichostels@gmail.com">Email</a>
+                    <a href="https://www.instagram.com/mosaichostels" target="_blank" rel="noopener noreferrer">Instagram</a>
+                </nav>
+            </div>
+            <div class="footer-col">
+                <h3>Legal</h3>
+                <nav aria-label="Legal pages">
+                    <a href="privacy.html">Privacy</a>
+                    <a href="about.html">About</a>
+                    <a href="contact.html">Contact</a>
+                </nav>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Mosaic Hostel Varanasi. All rights reserved. Made with ♥ in Varanasi</p>
+        </div>
     </footer>
 
     <script>
-        // JavaScript will be added in later tasks
+        // ─── CUSTOM CURSOR ───
+        const cursor = document.getElementById('cursor');
+        const cursorRing = document.getElementById('cursor-ring');
+        let cursorX = 0, cursorY = 0, cursorRingX = 0, cursorRingY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            cursorX = e.clientX;
+            cursorY = e.clientY;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+
+            cursorRingX += (cursorX - cursorRingX) * 0.2;
+            cursorRingY += (cursorY - cursorRingY) * 0.2;
+            cursorRing.style.left = cursorRingX + 'px';
+            cursorRing.style.top = cursorRingY + 'px';
+        });
+
+        document.querySelectorAll('a, button, .room-card, .testimonial, input, select, textarea').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.width = '16px';
+                cursor.style.height = '16px';
+                cursorRing.style.width = '48px';
+                cursorRing.style.height = '48px';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.width = '10px';
+                cursor.style.height = '10px';
+                cursorRing.style.width = '36px';
+                cursorRing.style.height = '36px';
+            });
+        });
+
+        // ─── MOBILE MENU ───
+        const navHam = document.getElementById('navHam');
+        const navLinks = document.getElementById('navLinks');
+
+        navHam.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            navHam.classList.toggle('active');
+            navHam.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+        });
+
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                navHam.classList.remove('active');
+                navHam.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close menu on Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                navHam.classList.remove('active');
+                navHam.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // ─── NAVBAR SCROLL EFFECT ───
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 100);
+        }, { passive: true });
+
+        // ─── 3D TILT ON ROOM CARDS ───
+        document.querySelectorAll('.room-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width - 0.5) * 15;
+                const y = ((e.clientY - rect.top) / rect.height - 0.5) * -15;
+                card.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${y}deg) scale(1.03)`;
+                card.style.transition = 'transform 0.1s ease-out';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateY(0) rotateX(0) scale(1)';
+                card.style.transition = 'transform 0.4s ease';
+            });
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.click();
+                }
+            });
+        });
+
+        // ─── STAT COUNTER ANIMATION ───
+        function animateCounter(element) {
+            const text = element.textContent;
+            const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+            if (!num || text.includes('★') || text.includes('Est')) return;
+
+            const suffix = text.replace(/[\d.]/g, '');
+            let current = 0;
+            const duration = 2000;
+            const start = Date.now();
+
+            function update() {
+                const elapsed = Date.now() - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const easeOut = 1 - Math.pow(1 - progress, 3);
+                current = Math.round(easeOut * num);
+                element.textContent = current + suffix;
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            update();
+        }
+
+        const statObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounter(entry.target);
+                    statObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.stat-number').forEach(el => statObserver.observe(el));
+
+        // ─── PARALLAX ON EXPERIENCE SECTION ───
+        const experienceBg = document.querySelector('.experience-bg');
+        window.addEventListener('scroll', () => {
+            if (!experienceBg) return;
+            const rect = experienceBg.closest('.experience').getBoundingClientRect();
+            const scrolled = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+            experienceBg.style.transform = `translateY(${(scrolled - 0.5) * 50}px) scale(1.05)`;
+        }, { passive: true });
+
+        // ─── SCROLL REVEAL ANIMATIONS ───
+        const reveals = document.querySelectorAll('.philosophy-item, .testimonial, .stat');
+        const revealObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'none';
+                    void entry.target.offsetWidth;
+                    entry.target.style.animation = '';
+                }
+            });
+        }, { threshold: 0.15 });
+
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // ─── MOSAIC TILE FILLS ───
+        const COLORS = {
+            gold: ['#C88A0A', '#E8B044', '#D4930F', '#F0C060'],
+            teal: ['#1A6B7A', '#2D9AAA', '#0D4A55'],
+            burgundy: ['#8B1A1A', '#A02020', '#6B1010'],
+            cobalt: ['#1A3A6B', '#2A5A9B', '#0D1A40'],
+            brown: ['#5C3A1E', '#7A4F2A', '#3A2010'],
+            sage: ['#3D6B3A', '#2D5A2A'],
+        };
+
+        const ALL_COLORS = [...COLORS.gold, ...COLORS.teal, ...COLORS.burgundy, ...COLORS.cobalt, ...COLORS.brown, ...COLORS.sage];
+
+        function randomColor(palette) {
+            return palette[Math.floor(Math.random() * palette.length)];
+        }
+
+        function fillTileDivider(elementId, colors = ALL_COLORS) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            colors.forEach(color => {
+                const span = document.createElement('span');
+                span.style.background = color;
+                el.appendChild(span);
+            });
+        }
+
+        function fillTileAccent(elementId, colorPalette) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            for (let i = 0; i < 20; i++) {
+                const span = document.createElement('span');
+                span.style.background = randomColor(colorPalette);
+                span.style.flex = '1';
+                el.appendChild(span);
+            }
+        }
+
+        function fillTileIcon(elementId, colorPalette) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            for (let i = 0; i < 16; i++) {
+                const span = document.createElement('span');
+                span.style.background = randomColor(colorPalette);
+                el.appendChild(span);
+            }
+        }
+
+        fillTileDivider('heroStripe', ALL_COLORS.slice(0, 10));
+        fillTileDivider('roomsDivider', [COLORS.gold[0], COLORS.burgundy[0], COLORS.teal[0], COLORS.cobalt[0], COLORS.brown[0]]);
+        fillTileDivider('philDivider', [COLORS.gold[0], COLORS.burgundy[0], COLORS.teal[0], COLORS.cobalt[0], COLORS.brown[0]]);
+        fillTileDivider('testiDivider', [COLORS.gold[0], COLORS.burgundy[0], COLORS.teal[0], COLORS.cobalt[0], COLORS.brown[0]]);
+        fillTileDivider('divider1', ALL_COLORS);
+        fillTileDivider('divider2', ALL_COLORS);
+
+        const roomPalettes = [
+            [...COLORS.gold, ...COLORS.teal],
+            [...COLORS.teal, ...COLORS.cobalt],
+            [...COLORS.burgundy, ...COLORS.gold],
+            [...COLORS.cobalt, ...COLORS.sage],
+            [...COLORS.sage, ...COLORS.gold],
+        ];
+        [1, 2, 3, 4, 5].forEach(i => {
+            fillTileAccent(`roomAccent${i}`, roomPalettes[i - 1]);
+        });
+
+        fillTileIcon('philIcon1', [...COLORS.gold, ...COLORS.teal]);
+        fillTileIcon('philIcon2', [...COLORS.burgundy, ...COLORS.cobalt]);
+        fillTileIcon('philIcon3', [...COLORS.sage, ...COLORS.gold]);
     </script>
+    <script src="components/loader.js"></script>
 </body>
 </html>
