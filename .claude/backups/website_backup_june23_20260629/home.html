@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home — Mosaic Hostel Varanasi</title>
+    <style>
+    :root {
+      --gold: #C88A0A;
+      --gold-lt: #E8B044;
+      --cream: #FAF4EA;
+      --ink: #1A1208;
+      --ink2: #0F0A05;
+      --border: #E0D5C7;
+      --muted: #999;
+      --teal: #2A6B7A;
+      --burg: #8B1C1C;
+    }
+/* ── HERO SECTION ── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 96px;
+}
+
+.hero-top-stripe {
+  position: absolute;
+  top: 96px;
+  left: 0;
+  right: 0;
+  height: 5px;
+  display: flex;
+  z-index: 2;
+}
+
+.hero-top-stripe span {
+  flex: 1;
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0.6;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(26, 18, 8, 0.3) 0%,
+    rgba(26, 18, 8, 0.6) 50%,
+    rgba(26, 18, 8, 0.8) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 60px 40px;
+  max-width: 800px;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.tile-icon {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 60px;
+  height: 12px;
+}
+
+.tile-icon span {
+  flex: 0 0 8px;
+  height: 8px;
+  border-radius: 1px;
+}
+
+.hero-tagline {
+  font-family: 'Cinzel', serif;
+  font-size: 42px;
+  font-weight: 400;
+  color: white;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  margin-bottom: 32px;
+}
+
+.hero-divider {
+  display: flex;
+  gap: 2px;
+  height: 3px;
+  width: 120px;
+  margin: 32px auto 0;
+}
+
+.hero-divider span {
+  flex: 1;
+  border-radius: 1px;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 3;
+  animation: pulse 2s infinite;
+}
+
+.scroll-text {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateX(-50%) translateY(8px);
+  }
+}
+
+/* ── STATS BAND ── */
+.stats-band {
+  display: flex;
+  flex-wrap: wrap;
+  background: var(--parch);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 60px 80px;
+  gap: 40px;
+  justify-content: center;
+  text-align: center;
+}
+
+.stat {
+  flex: 1;
+  min-width: 160px;
+  padding: 20px 30px;
+}
+
+.stat-num {
+  font-family: 'Cinzel', serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.stat-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── SECTION HEADERS ── */
+.section {
+  padding: 80px 80px 0;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-eyebrow {
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.title-tile-line {
+  display: flex;
+  gap: 2px;
+  height: 3px;
+  width: 140px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.title-tile-line span {
+  flex: 1;
+  border-radius: 1px;
+}
+
+/* ── TILE ACCENT DIVIDERS ── */
+.tile-accent {
+  display: flex;
+  height: 5px;
+  gap: 1px;
+}
+
+.tile-accent span {
+  flex: 1;
+}
+
+/* ── ROOMS SECTION ── */
+.rooms-wrap {
+  padding-bottom: 0;
+}
+
+.rooms-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 20px;
+  padding: 0 80px 80px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.room-card {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+  min-height: 300px;
+  cursor: none;
+  transition: transform 0.3s ease;
+}
+
+.room-card.hero-card {
+  grid-column: span 1;
+  grid-row: span 2;
+  aspect-ratio: 1;
+}
+
+.room-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.room-card:hover .room-photo {
+  transform: scale(1.06);
+  filter: brightness(0.8);
+}
+
+.room-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(26, 18, 8, 0.85) 0%,
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.35s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+}
+
+.room-card:hover .room-overlay {
+  opacity: 1;
+}
+
+.room-tag {
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 8px;
+  transform: translateY(8px);
+  transition: transform 0.3s 0.05s;
+}
+
+.room-card:hover .room-tag {
+  transform: translateY(0);
+}
+
+.room-name {
+  font-family: 'Cinzel', serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: white;
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+  transform: translateY(6px);
+  transition: transform 0.3s;
+}
+
+.room-card:hover .room-name {
+  transform: translateY(0);
+}
+
+.room-meta {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.7);
+  transform: translateY(6px);
+  transition: transform 0.3s 0.05s;
+}
+
+.room-card:hover .room-meta {
+  transform: translateY(0);
+}
+
+.room-top-accent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  display: flex;
+  gap: 1px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 2;
+}
+
+.room-card:hover .room-top-accent {
+  transform: scaleX(1);
+}
+
+.room-top-accent span {
+  flex: 1;
+}
+
+/* ── PHILOSOPHY SECTION ── */
+.philosophy {
+  background: var(--cream);
+  padding: 80px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.philosophy-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.phil-col {
+  text-align: center;
+}
+
+.phil-tile-icon {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 32px;
+}
+
+.phil-tile-icon span {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+}
+
+.phil-title {
+  font-family: 'Cinzel', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.phil-body {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+  letter-spacing: 0.5px;
+}
+
+/* ── EXPERIENCE SECTION ── */
+.experience {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.exp-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.exp-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(26, 18, 8, 0.7) 0%,
+    rgba(26, 18, 8, 0.5) 50%,
+    rgba(26, 18, 8, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+.exp-content {
+  position: relative;
+  z-index: 2;
+  padding: 60px 120px;
+  max-width: 700px;
+  color: white;
+}
+
+.exp-eyebrow {
+  font-size: 10px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  margin-bottom: 16px;
+}
+
+.exp-title {
+  font-family: 'Cinzel', serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: white;
+  letter-spacing: 2px;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.exp-title em {
+  font-style: italic;
+  color: var(--gold-lt);
+}
+
+.exp-body {
+  font-size: 14px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+}
+
+.exp-tile-strip {
+  display: flex;
+  gap: 2px;
+  height: 3px;
+  width: 140px;
+  margin: 24px auto;
+  justify-content: center;
+}
+
+.exp-tile-strip span {
+  flex: 1;
+  border-radius: 1px;
+}
+
+.btn-light {
+  display: inline-block;
+  padding: 14px 40px;
+  background: var(--gold);
+  color: white;
+  text-decoration: none;
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  transition: background 0.3s, transform 0.2s;
+  cursor: none;
+  border: none;
+}
+
+.btn-light:hover {
+  background: #a06e08;
+  transform: translateY(-2px);
+}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal-delay-1 {
+  transition-delay: 0.15s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.3s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.45s;
+}
+
+.reveal.visible.reveal-delay-1 {
+  transition-delay: 0.15s;
+}
+
+.reveal.visible.reveal-delay-2 {
+  transition-delay: 0.3s;
+}
+
+.reveal.visible.reveal-delay-3 {
+  transition-delay: 0.45s;
+}
+
+/* ════════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .hero {
+    padding-top: 80px;
+    min-height: 500px;
+  }
+
+  .hero-tagline {
+    font-size: 32px;
+    letter-spacing: 1px;
+  }
+
+  .hero-top-stripe {
+    top: 80px;
+  }
+
+  .stats-band {
+    padding: 50px 40px;
+    gap: 30px;
+  }
+
+  .stat {
+    min-width: 140px;
+  }
+
+  .stat-num {
+    font-size: 36px;
+  }
+
+  .section {
+    padding: 60px 40px 0;
+  }
+
+  .section-title {
+    font-size: 36px;
+    letter-spacing: 2px;
+  }
+
+  .section-head {
+    margin-bottom: 48px;
+  }
+
+  .rooms-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    padding: 0 40px 60px;
+  }
+
+  .room-card.hero-card {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .room-card {
+    min-height: 280px;
+  }
+
+  .philosophy {
+    padding: 60px 40px;
+  }
+
+  .philosophy-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .phil-tile-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 24px;
+  }
+
+  .experience {
+    height: 500px;
+  }
+
+  .exp-content {
+    padding: 60px 60px;
+  }
+
+  .exp-title {
+    font-size: 36px;
+  }
+
+  .testi-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .testi-wrap {
+    padding: 60px 40px;
+  }
+
+  .booking {
+    padding: 60px 40px;
+  }
+
+  .booking-title {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    padding-top: 60px;
+    min-height: 400px;
+  }
+
+  .hero-tagline {
+    font-size: 22px;
+    margin-bottom: 24px;
+  }
+
+  .hero-eyebrow {
+    flex-direction: column;
+    gap: 12px;
+    font-size: 9px;
+  }
+
+  .hero-top-stripe {
+    top: 60px;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  .stats-band {
+    flex-wrap: wrap;
+    padding: 40px 16px;
+    gap: 20px;
+  }
+
+  .stat {
+    flex: 1 1 45%;
+    min-width: auto;
+  }
+
+  .stat-num {
+    font-size: 28px;
+  }
+
+  .stat-label {
+    font-size: 9px;
+  }
+
+  .section {
+    padding: 48px 16px 0;
+  }
+
+  .section-title {
+    font-size: 26px;
+    letter-spacing: 1px;
+  }
+
+  .section-head {
+    margin-bottom: 28px;
+  }
+
+  .section-eyebrow {
+    font-size: 9px;
+  }
+
+  .rooms-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 0 16px 48px;
+  }
+
+  .room-card.hero-card {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .room-card {
+    min-height: 220px;
+    aspect-ratio: 4/3;
+  }
+
+  .room-name {
+    font-size: 14px;
+  }
+
+  .room-tag {
+    font-size: 8px;
+  }
+
+  .philosophy {
+    padding: 48px 16px;
+    border: none;
+  }
+
+  .philosophy-inner {
+    gap: 32px;
+  }
+
+  .phil-col {
+    text-align: left;
+  }
+
+  .phil-tile-icon {
+    margin: 0 0 16px;
+  }
+
+  .phil-title {
+    font-size: 16px;
+  }
+
+  .phil-body {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .experience {
+    height: 380px;
+  }
+
+  .exp-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 18, 8, 0.8) 0%,
+      rgba(26, 18, 8, 0.95) 100%
+    );
+  }
+
+  .exp-content {
+    padding: 40px 20px;
+  }
+
+  .exp-title {
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+
+  .exp-eyebrow {
+    font-size: 9px;
+  }
+
+  .exp-body {
+    font-size: 13px;
+    margin-bottom: 24px;
+  }
+
+  .btn-light {
+    padding: 12px 32px;
+    font-size: 9px;
+    letter-spacing: 3px;
+  }
+
+  .testi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testi-wrap {
+    padding: 48px 16px;
+  }
+
+  .testi-card {
+    padding: 24px 20px;
+  }
+
+  .booking {
+    padding: 48px 16px;
+  }
+
+  .booking-title {
+    font-size: 24px;
+    letter-spacing: 1px;
+  }
+
+  .booking-btns {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .btn-gold,
+  .btn-outline-light {
+    text-align: center;
+  }
+
+  footer {
+    padding: 40px 16px 24px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+    </style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3K992L4ZT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H3K992L4ZT');
+    </script>
+</head>
+<body>
+    <nav id="mainNav">
+  <div class="nav-logo">
+    <img src="https://www.mosaichostels.com/wp-content/uploads/2025/08/Logo-Transperent.webp" alt="Mosaic Hostel">
+  </div>
+  <div class="nav-links">
+    <a href="https://www.mosaichostels.com/">Home</a>
+    <a href="https://www.mosaichostels.com/gallery/">Gallery</a>
+    <a href="https://www.mosaichostels.com/about/">About</a>
+    <a href="https://www.mosaichostels.com/contact/">Contact</a>
+  </div>
+  <button class="nav-hamburger" id="navHam" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <a href="https://www.mosaichostels.com/book-now/" class="nav-book">Book Now</a>
+</nav>
+
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+    <main>
+    <!-- ════════ HERO ════════ -->
+<section class="hero">
+  <!-- Tile colour stripe — logo arch reference -->
+  <div class="hero-top-stripe" id="heroStripe"></div>
+
+  <!-- Real hostel video -->
+  <video class="hero-video" autoplay muted loop playsinline>
+    <source src="https://www.mosaichostels.com/wp-content/uploads/2025/10/Home-Page-Video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <div class="tile-icon" id="heroTileL"></div>
+      Where Culture Meets Comfort
+      <div class="tile-icon" id="heroTileR"></div>
+    </div>
+
+    <p class="hero-tagline">Each guest a piece. Each story a tile.<br>Together, we make something beautiful.</p>
+    <div class="hero-divider" id="heroDivider"></div>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-text">Scroll</div>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ════════ STATS BAND ════════ -->
+<div class="stats-band">
+  <div class="stat reveal"><div class="stat-num">500+</div><div class="stat-label">Happy Guests</div></div>
+  <div class="stat reveal reveal-delay-1"><div class="stat-num">4.9 ★</div><div class="stat-label">Average Rating</div></div>
+  <div class="stat reveal reveal-delay-2"><div class="stat-num">5</div><div class="stat-label">Room Types</div></div>
+  <div class="stat reveal reveal-delay-3"><div class="stat-num">2025</div><div class="stat-label">Est. Varanasi</div></div>
+</div>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div1"></div>
+
+<!-- ════════ ROOMS ════════ -->
+<div class="rooms-wrap reveal">
+  <div class="section">
+    <div class="section-head">
+      <div class="section-eyebrow">Our Spaces</div>
+      <div class="section-title">Every Room,<br>a <em>Unique Tile</em></div>
+      <div class="title-tile-line" id="roomsTileLine"></div>
+    </div>
+  </div>
+  <div class="rooms-grid">
+    <!-- Card 1 — large: Private Room -->
+    <div class="room-card hero-card">
+      <div class="room-top-accent" id="ra1"></div>
+      <img class="room-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Private Room">
+      <div class="room-overlay">
+        <div class="room-tag">Private</div>
+        <div class="room-name">Private Room</div>
+        <div class="room-meta">AC · Ensuite · WiFi · Lockers</div>
+      </div>
+    </div>
+    <!-- Card 2: 8-Bed Mixed Dorm -->
+    <div class="room-card">
+      <div class="room-top-accent" id="ra2"></div>
+      <img class="room-photo" src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_1933-2-scaled.jpg" alt="8-Bed Mixed Dorm">
+      <div class="room-overlay">
+        <div class="room-tag">Mixed Dorm</div>
+        <div class="room-name">8-Bed Dorm</div>
+        <div class="room-meta">AC · Lockers · WiFi · Shared Bath</div>
+      </div>
+    </div>
+    <!-- Card 3: 6-Bed Mixed Dorm -->
+    <div class="room-card">
+      <div class="room-top-accent" id="ra3"></div>
+      <img class="room-photo" src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2723-2-scaled.jpg" alt="6-Bed Mixed Dorm">
+      <div class="room-overlay">
+        <div class="room-tag">Mixed Dorm</div>
+        <div class="room-name">6-Bed Dorm</div>
+        <div class="room-meta">AC · Lockers · WiFi · Shared Bath</div>
+      </div>
+    </div>
+    <!-- Card 4: 4-Bed Mixed Dorm -->
+    <div class="room-card">
+      <div class="room-top-accent" id="ra4"></div>
+      <img class="room-photo" src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2733-3-scaled.jpg" alt="4-Bed Mixed Dorm">
+      <div class="room-overlay">
+        <div class="room-tag">Mixed Dorm</div>
+        <div class="room-name">4-Bed Dorm</div>
+        <div class="room-meta">AC · Lockers · WiFi · Shared Bath</div>
+      </div>
+    </div>
+    <!-- Card 5: 6-Bed Female Dorm -->
+    <div class="room-card">
+      <div class="room-top-accent" id="ra5"></div>
+      <img class="room-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1920-scaled.jpg" alt="6-Bed Female Dorm">
+      <div class="room-overlay">
+        <div class="room-tag">Ladies Only</div>
+        <div class="room-name">6-Bed Female Dorm</div>
+        <div class="room-meta">AC · Lockers · WiFi · Secure</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div2"></div>
+
+<!-- ════════ PHILOSOPHY ════════ -->
+<div class="philosophy reveal">
+  <div class="philosophy-inner">
+    <div class="phil-col">
+      <div class="phil-tile-icon" id="pt1"></div>
+      <div class="phil-title">Heart of Varanasi</div>
+      <div class="phil-body">Situated steps from the Ghats, we put you at the centre of one of the world's most ancient and spiritual cities.</div>
+    </div>
+    <div class="phil-col">
+      <div class="phil-tile-icon" id="pt2"></div>
+      <div class="phil-title">Community First</div>
+      <div class="phil-body">Travellers from every corner of the world meet here — sharing stories, making friends, and exploring together.</div>
+    </div>
+    <div class="phil-col">
+      <div class="phil-tile-icon" id="pt3"></div>
+      <div class="phil-title">Safe & Comfortable</div>
+      <div class="phil-body">Clean rooms, reliable WiFi, hot showers, 24h security. Everything you need to rest well before your next adventure.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ EXPERIENCE (full bleed) ════════ -->
+<div class="experience reveal">
+  <img class="exp-photo" id="expPhoto"
+    src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg" alt="Experience">
+  <div class="exp-overlay"></div>
+  <div class="exp-content">
+    <div class="exp-eyebrow">The Varanasi Experience</div>
+    <h2 class="exp-title">More Than<br>a <em>Place to Sleep</em></h2>
+    <p class="exp-body">Wake up steps from the Ghats. Watch the Ganga Aarti from our rooftop. Join walking tours, cooking classes, and sunrise boat rides — all curated by locals who love this city.</p>
+    <div class="exp-tile-strip" id="expStrip"></div>
+    <a class="btn-light" href="/gallery">Explore Gallery</a>
+  </div>
+</div>
+
+<!-- ════════ TESTIMONIALS ════════ -->
+<div class="testi-wrap reveal">
+  <div class="section-head">
+    <div class="section-eyebrow">Guest Stories</div>
+    <div class="section-title">Each Guest, a<br><em>Piece of Our Mosaic</em></div>
+    <div class="title-tile-line" id="testiTileLine"></div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card reveal">
+      <div class="testi-accent" id="ta1"></div>
+      <div class="testi-quote">"The vibe here is unlike any other hostel in India. Great location, warm staff, and the kind of people you actually want to travel with."</div>
+      <div class="testi-name">— Priya S., Mumbai</div>
+    </div>
+    <div class="testi-card reveal reveal-delay-1">
+      <div class="testi-accent" id="ta2"></div>
+      <div class="testi-quote">"Best hostel stay I've had in India. Clean, social, perfectly located — the rooftop view of Varanasi at sunset is something else."</div>
+      <div class="testi-name">— James L., London</div>
+    </div>
+    <div class="testi-card reveal reveal-delay-2">
+      <div class="testi-accent" id="ta3"></div>
+      <div class="testi-quote">"Warm, welcoming and full of energy. Met some of my favourite travel friends here. Already planning to come back."</div>
+      <div class="testi-name">— Aiko T., Tokyo</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ BOOKING CTA ════════ -->
+<div class="booking">
+  <div class="booking-stripe" id="bookStripe"></div>
+  <div class="booking-content reveal">
+    <div class="booking-eyebrow">Ready to Stay?</div>
+    <div class="booking-title">Begin Your <span>Mosaic</span> Story</div>
+    <div class="booking-sub">Varanasi · India · Est. 2025</div>
+    <div class="booking-btns">
+      <a class="btn-gold" href="#">Book Your Stay</a>
+      <a class="btn-outline-light" href="#">Get in Touch</a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ FOOTER ════════ -->    </main>
+    <footer>
+  <div class="footer-top">
+    <div class="footer-logo">
+      <img loading="lazy" src="https://www.mosaichostels.com/wp-content/uploads/2025/08/Logo-Transperent.webp" alt="Mosaic Hostel">
+      <div class="footer-tagline">Hostel in Varanasi near Assi Ghat</div>
+    </div>
+    <div class="footer-links">
+      <div class="footer-heading">Explore</div>
+      <a href="https://www.mosaichostels.com/gallery/">Gallery</a>
+      <a href="https://www.mosaichostels.com/about/">About Us</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-links">
+      <div class="footer-heading">Connect</div>
+      <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
+      <a href="mailto:mosaichostels@gmail.com">Email Us</a>
+      <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+    </div>
+    <div class="footer-links">
+      <div class="footer-heading">Book</div>
+      <a href="https://www.booking.com/hotel/in/mosaic-hostel-varanasi.html" target="_blank">Booking.com</a>
+      <a href="https://www.hostelworld.com/hostels/p/335875" target="_blank">Hostelworld</a>
+      <a href="https://www.agoda.com/en-za/mosaic-hostel-varanasi" target="_blank">Agoda</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Mosaic Hostel Varanasi. All rights reserved.</div>
+    <div class="footer-tile-strip" id="footerStrip"></div>
+    <div class="footer-copy">Made with ♥ in Varanasi</div>
+  </div>
+</footer>
+    <script>
+    // ── COLOUR PALETTE (logo) ──
+const PAL = {
+  gold:   ['#C8860A','#E8B84B','#D4930F','#F0C060'],
+  teal:   ['#1A6B7A','#2D9AAA','#0D4A55'],
+  burg:   ['#8B1A1A','#A02020','#6B1010'],
+  cobalt: ['#1A3A6B','#2A5A9B','#0D1A40'],
+  brown:  ['#5C3A1E','#7A4F2A','#3A2010'],
+  sage:   ['#3D6B3A','#2D5A2A'],
+};
+const LOGO_COLORS = ['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+
+// Fill a strip with logo colours
+function fillStrip(id, colors){
+  const el=document.getElementById(id);
+  if(!el) return;
+  colors.forEach(c=>{ const s=document.createElement('span'); s.style.flex='1'; s.style.background=c; el.appendChild(s); });
+}
+// Fill a small icon grid
+function fillIcon(id, palette){
+  const el=document.getElementById(id);
+  if(!el) return;
+  const n=el.style.gridTemplateColumns?el.style.gridTemplateColumns.match(/\d+px/g).length:3;
+  const rows=el.style.gridTemplateRows?el.style.gridTemplateRows.match(/\d+px/g).length:3;
+  const count=(n||3)*(rows||3);
+  for(let i=0;i<count;i++){
+    const s=document.createElement('span'); s.style.background=pick(palette); s.style.borderRadius='2px'; s.style.display='block'; el.appendChild(s);
+  }
+}
+
+// Hero stripe
+fillStrip('heroStripe', LOGO_COLORS);
+
+// Hero tile icons
+['heroTileL','heroTileR'].forEach(id=>{
+  const el=document.getElementById(id);
+  if(!el) return;
+  LOGO_COLORS.slice(0,9).forEach(c=>{ const s=document.createElement('span'); s.style.background=c; s.style.borderRadius='1px'; el.appendChild(s); });
+});
+
+// Hero divider
+fillStrip('heroDivider', ['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E']);
+
+// Dividers
+['div1','div2','div3','div4'].forEach(id=>fillStrip(id, LOGO_COLORS));
+
+// Title tile lines
+['roomsTileLine','galTileLine','testiTileLine'].forEach(id=>fillStrip(id, ['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E']));
+
+// Room accent bars
+const roomPals=[
+  [...PAL.gold,...PAL.teal],
+  [...PAL.teal,...PAL.cobalt],
+  [...PAL.burg,...PAL.gold],
+  [...PAL.cobalt,...PAL.sage],
+  [...PAL.sage,...PAL.gold],
+];
+[1,2,3,4,5].forEach(i=>{
+  const el=document.getElementById('ra'+i);
+  if(!el) return;
+  const pal=roomPals[(i-1)%roomPals.length];
+  for(let k=0;k<20;k++){const s=document.createElement('span');s.style.flex='1';s.style.background=pick(pal);el.appendChild(s);}
+});
+
+// Philosophy icons (4×4)
+[['pt1',PAL.gold,...PAL.teal],['pt2',...PAL.burg,...PAL.cobalt],['pt3',...PAL.sage,...PAL.gold]].forEach(([id,...pal])=>{
+  const el=document.getElementById(id);
+  if(!el) return;
+  for(let i=0;i<16;i++){const s=document.createElement('span');s.style.background=pick(pal);s.style.borderRadius='2px';s.style.display='block';el.appendChild(s);}
+});
+
+// Experience strip
+fillStrip('expStrip', LOGO_COLORS);
+
+// Gallery left border already CSS
+
+// Testimonial accent bars
+[['ta1',PAL.gold,PAL.teal],['ta2',PAL.burg,PAL.cobalt],['ta3',PAL.sage,PAL.gold]].forEach(([id,p1,p2])=>{
+  const el=document.getElementById(id);
+  if(!el) return;
+  for(let k=0;k<20;k++){const s=document.createElement('span');s.style.flex='1';s.style.background=pick([...p1,...p2]);el.appendChild(s);}
+});
+
+// Booking stripe — full rainbow
+fillStrip('bookStripe', [...LOGO_COLORS,...LOGO_COLORS]);
+
+// Footer strip
+fillStrip('footerStrip', ['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
+
+// ── CUSTOM CURSOR ──
+const cur=document.getElementById('cursor');
+const ring=document.getElementById('cursor-ring');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px';
+  ring.style.left=e.clientX+'px'; ring.style.top=e.clientY+'px';
+});
+document.querySelectorAll('a,button,.room-card,.gal-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cur.style.width='20px'; cur.style.height='20px';
+    ring.style.width='50px'; ring.style.height='50px';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cur.style.width='10px'; cur.style.height='10px';
+    ring.style.width='36px'; ring.style.height='36px';
+  });
+});
+
+// ── NAV SCROLL ──
+const nav=document.getElementById('mainNav');
+window.addEventListener('scroll',()=>{
+  nav.classList.toggle('scrolled', window.scrollY>80);
+});
+
+// ── SCROLL REVEAL ──
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// ── PARALLAX on experience photo ──
+const expPhoto=document.getElementById('expPhoto');
+window.addEventListener('scroll',()=>{
+  if(!expPhoto) return;
+  const rect=expPhoto.closest('.experience').getBoundingClientRect();
+  const pct=(window.innerHeight-rect.top)/(window.innerHeight+rect.height);
+  expPhoto.style.transform=`translateY(${(pct-0.5)*40}px)`;
+},{passive:true});
+
+// ── SCROLL PROGRESS BAR ──
+const progressBar=document.createElement('div');
+progressBar.style.cssText='position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#C8860A,#8B1A1A,#1A6B7A);z-index:9999;width:0%;transition:width 0.1s;pointer-events:none;';
+document.body.appendChild(progressBar);
+window.addEventListener('scroll',()=>{
+  const pct=(window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  progressBar.style.width=pct+'%';
+},{passive:true});
+
+// ── STAT COUNTER ANIMATION ──
+const statNums=document.querySelectorAll('.stat-num');
+const statObserver=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting) return;
+    const el=entry.target;
+    const text=el.textContent;
+    const num=parseFloat(text.replace(/[^0-9.]/g,''));
+    if(!num||text.includes('★')||text.includes('Est')) return;
+    const suffix=text.replace(/[\d.]/g,'');
+    let start=0; const dur=1800;
+    const step=ts=>{
+      if(!start) start=ts;
+      const prog=Math.min((ts-start)/dur,1);
+      const ease=1-Math.pow(1-prog,3);
+      el.textContent=Math.round(ease*num)+suffix;
+      if(prog<1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+    statObserver.unobserve(el);
+  });
+},{threshold:0.5});
+statNums.forEach(el=>statObserver.observe(el));
+
+// ── 3D TILT on room cards ──
+document.querySelectorAll('.room-card').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const rect=card.getBoundingClientRect();
+    const x=((e.clientX-rect.left)/rect.width-0.5)*12;
+    const y=((e.clientY-rect.top)/rect.height-0.5)*-12;
+    card.style.transform=`perspective(800px) rotateY(${x}deg) rotateX(${y}deg) scale(1.02)`;
+    card.style.transition='transform 0.1s';
+  });
+  card.addEventListener('mouseleave',()=>{
+    card.style.transform='perspective(800px) rotateY(0) rotateX(0) scale(1)';
+    card.style.transition='transform 0.4s ease';
+  });
+});
+
+// ── MAGNETIC BUTTONS ──
+document.querySelectorAll('.btn-gold,.btn-primary,.hero-cta,.nav-book').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const rect=btn.getBoundingClientRect();
+    const x=(e.clientX-rect.left-rect.width/2)*0.25;
+    const y=(e.clientY-rect.top-rect.height/2)*0.25;
+    btn.style.transform=`translate(${x}px,${y}px)`;
+    btn.style.transition='transform 0.1s';
+  });
+  btn.addEventListener('mouseleave',()=>{
+    btn.style.transform='translate(0,0)';
+    btn.style.transition='transform 0.4s ease';
+  });
+});
+
+// ── RIPPLE on buttons ──
+document.querySelectorAll('.btn-gold,.btn-primary,.hero-cta,.nav-book').forEach(btn=>{
+  btn.style.overflow='hidden';btn.style.position='relative';
+  btn.addEventListener('click',e=>{
+    const r=document.createElement('span');
+    const rect=btn.getBoundingClientRect();
+    const size=Math.max(rect.width,rect.height)*2;
+    r.style.cssText=`position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:rgba(255,255,255,0.25);transform:translate(-50%,-50%) scale(0);left:${e.clientX-rect.left}px;top:${e.clientY-rect.top}px;animation:ripple 0.6s ease-out forwards;pointer-events:none;`;
+    btn.appendChild(r);
+    setTimeout(()=>r.remove(),700);
+  });
+});
+const rippleStyle=document.createElement('style');
+rippleStyle.textContent='@keyframes ripple{to{transform:translate(-50%,-50%) scale(1);opacity:0;}}';
+document.head.appendChild(rippleStyle);
+
+// ── ACTIVE NAV LINK on scroll ──
+const sections=[{id:'hero',a:'Home'},{id:'rooms-wrap',a:'Stay'}];
+const navLinks=document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY+120;
+  navLinks.forEach(a=>a.style.color='');
+},{passive:true});
+
+
+
+(function(){
+  var ham=document.getElementById('navHam');
+  var nl=document.querySelector('.nav-links');
+  if(!ham||!nl)return;
+  ham.addEventListener('click',function(){
+    nl.classList.toggle('open');ham.classList.toggle('open');
+    document.body.style.overflow=nl.classList.contains('open')?'hidden':'';
+  });
+  nl.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      nl.classList.remove('open');ham.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  });
+})();    </script>
+</body>
+</html>
+    

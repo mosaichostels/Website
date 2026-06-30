@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Mosaic Hostel Varanasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&amp;family=Jost:wght@200;300;400;500&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&amp;family=Jost:wght@200;300;400;500&amp;display=swap"></noscript>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#C8860A;--gold-lt:#E8B84B;
+  --teal:#1A6B7A;--burg:#8B1A1A;--cobalt:#1A3A6B;
+  --brown:#5C3A1E;--sage:#3D6B3A;
+  --ink:#1A1208;--ink2:#2E2416;
+  --cream:#FAF4EA;--parch:#F2E8D5;
+  --muted:#7A6A50;--border:rgba(200,134,10,0.15);
+  --wa:#25D366;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+#cursor{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:multiply;}
+#cursor-ring{position:fixed;width:36px;height:36px;border-radius:50%;border:1px solid rgba(200,134,10,0.5);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .08s linear,top .08s linear,width .3s,height .3s;}
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#C8860A,#8B1A1A,#1A6B7A);z-index:9999;width:0%;pointer-events:none;}
+.tile-accent{display:flex;height:5px;}
+.tile-accent span{flex:1;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 64px;height:96px;
+  background:rgba(250,244,234,0.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(20px);
+}
+.nav-logo img{height:130px;width:auto;}
+.nav-links{display:flex;gap:40px;}
+.nav-links a{
+  font-size:10px;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  padding-bottom:4px;position:relative;transition:color .25s;
+}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:100%;height:1px;background:var(--gold);transition:right .3s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{right:0;}
+.nav-links a.active{color:var(--gold);}
+.nav-links a.active::after{right:0;}
+.nav-book{
+  padding:10px 28px;background:var(--gold);color:white;border:none;cursor:none;
+  font-family:'Jost';font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  transition:background .25s;text-decoration:none;display:inline-block;
+}
+.nav-book:hover{background:#A06E08;}
+
+/* ── PAGE HERO ── */
+.page-hero{
+  padding-top:96px;background:var(--ink);
+  position:relative;overflow:hidden;
+  text-align:center;padding-bottom:100px;
+}
+.page-hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 49px,rgba(200,134,10,0.04) 49px,rgba(200,134,10,0.04) 50px),
+    repeating-linear-gradient(90deg,transparent,transparent 49px,rgba(200,134,10,0.04) 49px,rgba(200,134,10,0.04) 50px);
+}
+.page-hero-stripe{position:absolute;top:96px;left:0;right:0;height:5px;display:flex;}
+.page-hero-stripe span{flex:1;}
+.page-hero-content{position:relative;z-index:1;padding:72px 24px 0;}
+.page-eyebrow{font-size:10px;letter-spacing:7px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.page-title{font-family:'Cinzel',serif;font-size:64px;font-weight:400;color:white;letter-spacing:6px;line-height:1;margin-bottom:20px;}
+.page-sub{font-size:14px;font-weight:300;letter-spacing:2px;color:rgba(255,255,255,0.45);}
+
+/* ── MAIN GRID ── */
+.contact-wrap{
+  max-width:1200px;margin:-64px auto 0;
+  padding:0 80px 100px;
+  display:grid;grid-template-columns:1fr 1.4fr;
+  gap:48px;position:relative;z-index:5;
+}
+
+/* ── CONTACT CARDS ── */
+.contact-cards{display:flex;flex-direction:column;gap:16px;}
+
+.contact-card{
+  background:white;border:1px solid var(--border);
+  padding:36px 40px;position:relative;overflow:hidden;
+  transition:transform .3s,box-shadow .3s;cursor:none;
+}
+.contact-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(200,134,10,0.1);}
+
+/* tile accent top bar */
+.cc-accent{
+  position:absolute;top:0;left:0;right:0;height:4px;
+  display:flex;gap:1px;
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .4s ease;
+}
+.contact-card:hover .cc-accent{transform:scaleX(1);}
+.cc-accent span{flex:1;}
+
+.cc-label{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--muted);margin-bottom:12px;}
+.cc-main{font-family:'Cinzel',serif;font-size:22px;font-weight:400;color:var(--ink);margin-bottom:8px;letter-spacing:1px;}
+.cc-sub{font-size:12px;color:var(--muted);letter-spacing:.5px;line-height:1.7;}
+
+/* WhatsApp card */
+.card-wa{border-color:rgba(37,211,102,0.2);}
+.card-wa:hover{box-shadow:0 12px 40px rgba(37,211,102,0.1);}
+.wa-cta{
+  display:inline-flex;align-items:center;gap:12px;
+  margin-top:20px;
+  padding:13px 32px;background:var(--wa);color:white;
+  font-family:'Jost';font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  text-decoration:none;cursor:none;transition:background .25s,transform .2s;
+}
+.wa-cta:hover{background:#1DAA56;transform:translateY(-1px);}
+.wa-cta svg{width:18px;height:18px;flex-shrink:0;}
+
+/* Email card */
+.email-cta{
+  display:inline-flex;align-items:center;gap:10px;
+  margin-top:20px;
+  padding:12px 28px;border:1px solid var(--ink);color:var(--ink);
+  font-family:'Jost';font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  text-decoration:none;cursor:none;transition:all .3s;
+}
+.email-cta:hover{background:var(--ink);color:white;}
+
+/* Info rows */
+.info-rows{display:flex;flex-direction:column;gap:12px;margin-top:4px;}
+.info-row{display:flex;gap:14px;align-items:flex-start;}
+.info-dot{width:7px;height:7px;border-radius:2px;flex-shrink:0;margin-top:5px;}
+.info-label{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:2px;}
+.info-val{font-size:13px;color:var(--ink);}
+
+/* ── CONTACT FORM ── */
+.form-wrap{
+  background:white;border:1px solid var(--border);
+  padding:56px 52px;position:relative;overflow:hidden;
+}
+.form-tile-strip{position:absolute;top:0;left:0;right:0;height:5px;display:flex;}
+.form-tile-strip span{flex:1;}
+
+.form-eyebrow{font-size:10px;letter-spacing:7px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+.form-title{font-family:'Cinzel',serif;font-size:32px;font-weight:400;color:var(--ink);letter-spacing:2px;margin-bottom:8px;}
+.form-sub{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:36px;}
+
+.field{margin-bottom:24px;}
+.field label{
+  display:block;font-size:9px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px;
+}
+.field input,
+.field select,
+.field textarea{
+  width:100%;
+  padding:13px 16px;
+  border:1px solid var(--border);
+  background:var(--cream);
+  font-family:'Jost';font-size:13px;font-weight:300;color:var(--ink);
+  outline:none;
+  transition:border-color .25s,background .25s;
+  appearance:none;
+  cursor:none;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+  border-color:var(--gold);
+  background:white;
+}
+.field textarea{height:120px;resize:vertical;}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A6A50' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;}
+
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+
+.form-submit{
+  width:100%;padding:16px;
+  background:var(--gold);color:white;border:none;cursor:none;
+  font-family:'Jost';font-size:10px;letter-spacing:5px;text-transform:uppercase;
+  transition:background .25s,transform .2s;
+  margin-top:8px;
+}
+.form-submit:hover{background:#A06E08;transform:translateY(-1px);}
+
+/* Success / error states */
+.form-msg{
+  display:none;margin-top:20px;padding:16px;
+  font-size:12px;letter-spacing:1px;text-align:center;
+}
+.form-msg.success{background:rgba(37,211,102,0.08);border:1px solid rgba(37,211,102,0.3);color:#1DAA56;}
+.form-msg.error{background:rgba(139,26,26,0.06);border:1px solid rgba(139,26,26,0.2);color:var(--burg);}
+
+/* ── MAP (full width) ── */
+.map-section{position:relative;height:400px;overflow:hidden;}
+.map-section iframe{width:100%;height:100%;border:none;display:block;filter:sepia(15%) contrast(0.92);}
+.map-strip{position:absolute;top:0;left:0;right:0;height:5px;display:flex;z-index:2;}
+.map-strip span{flex:1;}
+
+/* ── LOCATION STRIP ── */
+.loc-strip{
+  background:var(--ink);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.loc-item{padding:44px 24px;text-align:center;border-right:1px solid rgba(255,255,255,0.06);}
+.loc-item:last-child{border-right:none;}
+.loc-label{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:10px;}
+.loc-val{font-size:15px;color:var(--gold-lt);letter-spacing:.5px;}
+
+/* ── FOOTER ── */
+footer{background:#1A1208;padding:48px 80px 28px;}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:40px;}
+.footer-logo img{height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;}
+.footer-links-wrap{display:flex;gap:64px;}
+.footer-col h4{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.footer-col a{display:block;font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none;margin-bottom:10px;transition:color .2s;letter-spacing:.5px;}
+.footer-col a:hover{color:white;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:20px;display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:1px;}
+.footer-strip{display:flex;gap:2px;width:80px;height:4px;}
+.footer-strip span{flex:1;border-radius:1px;}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-d1{transition-delay:.1s;}.reveal-d2{transition-delay:.2s;}
+
+
+
+/* ── RESPONSIVE ── */
+@media(hover:none),(pointer:coarse){body{cursor:auto;}#cursor,#cursor-ring{display:none!important;}a,button{cursor:pointer!important;}}
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;padding:10px;background:none;border:none;cursor:pointer;z-index:10001;flex-shrink:0;}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .3s,opacity .3s;}
+.nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px);}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:translateX(-10px);}
+.nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px);}
+@media(max-width:1024px){
+  nav{padding:0 32px;height:80px;justify-content:flex-start;}
+  .nav-logo img{height:72px;}
+  .nav-links{display:none;position:fixed;top:80px;left:0;right:0;bottom:0;z-index:9998;background:rgba(250,244,234,0.99);flex-direction:column;align-items:center;justify-content:center;gap:32px;backdrop-filter:none;-webkit-backdrop-filter:none;}
+  .nav-links.open{display:flex;}
+  .nav-links a{font-size:13px!important;letter-spacing:4px;color:var(--ink)!important;text-transform:uppercase;}
+  .nav-hamburger{margin-left:auto;display:flex;}
+  .nav-book{font-size:9px!important;padding:8px 14px!important;letter-spacing:3px;}
+}
+@media(max-width:767px){
+  nav{
+    padding:0 16px;height:60px;
+    background:rgba(250,244,234,0.99)!important;
+    backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+    border-bottom:1px solid rgba(200,134,10,0.15)!important;
+    transform:translateZ(0);-webkit-transform:translateZ(0);
+  }
+  .nav-logo img{height:52px;}
+  .nav-links{top:60px;}
+}
+@media(max-width:1024px){
+  .page-hero{padding-top:80px;}
+  .contact-wrap{grid-template-columns:1fr;padding:0 40px 60px;gap:36px;}
+  .field-row{grid-template-columns:1fr;}
+  .loc-strip{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:767px){
+  .page-title{font-size:36px;letter-spacing:3px;}.page-hero{padding-top:60px;}
+  .contact-wrap{padding:0 16px 40px;gap:24px;}
+  .field-row{grid-template-columns:1fr;}
+  .loc-strip{grid-template-columns:1fr;}
+  footer{padding:40px 16px 24px;}
+  .footer-top{flex-direction:column;gap:24px;}.footer-links-wrap{flex-direction:column;gap:16px;}
+}
+
+/* ── RESPONSIVE ADDITIONS ── */
+@media(max-width:1024px){footer{padding:40px 40px 24px;}.footer-links-wrap{gap:40px;}.page-title{font-size:46px;letter-spacing:4px;}.map-section{height:320px;}.page-sub{font-size:13px;}}
+@media(max-width:767px){.form-wrap{padding:36px 20px;}.contact-card{padding:28px 24px;}.map-section{height:240px;}}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3K992L4ZT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-H3K992L4ZT');</script>
+
+<!-- Mosaic SEO Suite -->
+<meta name="description" content="Contact Mosaic Hostel Varanasi. WhatsApp: +91-9125492225. Email: mosaichostels@gmail.com. Near Assi Ghat, Varanasi.">
+<link rel="canonical" href="https://www.mosaichostels.com/contact/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta property="og:site_name" content="Mosaic Hostel Varanasi">
+<meta property="og:title"       content="Contact — Mosaic Hostel Varanasi">
+<meta property="og:description" content="Contact Mosaic Hostel Varanasi. WhatsApp: +91-9125492225. Email: mosaichostels@gmail.com. Near Assi Ghat, Varanasi.">
+<meta property="og:url"         content="https://www.mosaichostels.com/contact/">
+<meta property="og:type"        content="website">
+<meta property="og:image"       content="https://www.mosaichostels.com/wp-content/uploads/2026/06/mosaic-hostel-og-image.png">
+<meta property="og:locale"      content="en_IN">
+<meta name="twitter:card"  content="summary_large_image">
+<meta name="twitter:title" content="Contact — Mosaic Hostel Varanasi">
+<meta name="twitter:image" content="https://www.mosaichostels.com/wp-content/uploads/2026/06/mosaic-hostel-og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","name":"Contact Mosaic Hostel Varanasi","url":"https://www.mosaichostels.com/contact/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.mosaichostels.com/"},{"@type":"ListItem","position":2,"name":"Contact — Mosaic Hostel Varanasi","item":"https://www.mosaichostels.com/contact/"}]}</script>
+</head>
+<body>
+<h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Contact Mosaic Hostel Varanasi</h1>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="progress"></div>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">
+    <a href="https://www.mosaichostels.com/" style="display:block;">
+      <img src="https://www.mosaichostels.com/wp-content/uploads/2025/08/Logo-Transperent.webp" alt="Mosaic Hostel">
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="https://www.mosaichostels.com/">Home</a>
+    <a href="https://www.mosaichostels.com/gallery/">Gallery</a>
+    <a href="https://www.mosaichostels.com/blog/">Blog</a>
+    <a href="https://www.mosaichostels.com/about/">About</a>
+    <a href="https://www.mosaichostels.com/contact/" class="active">Contact</a>
+    </div>
+  <button class="nav-hamburger" id="navHam" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <a href="https://www.mosaichostels.com/book-now/" class="nav-book">Book Now</a>
+</nav><main role="main">
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="page-hero-stripe" id="heroStripe"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">We'd Love to Hear From You</div>
+    <div class="page-title">Get in Touch</div>
+    <div class="page-sub">Questions, bookings, or just a hello — we're always here</div>
+  </div>
+</div>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div0"></div>
+
+<!-- ── CONTACT GRID ── -->
+<div class="contact-wrap">
+
+  <!-- LEFT: CARDS -->
+  <div class="contact-cards">
+
+    <!-- WhatsApp -->
+    <div class="contact-card card-wa reveal">
+      <div class="cc-accent" data-pal="wa"></div>
+      <div class="cc-label">Fastest Response</div>
+      <div class="cc-main">WhatsApp Us</div>
+      <div class="cc-sub">We typically reply within minutes. Best for bookings, queries, and anything urgent.</div>
+      <a class="wa-cta" href="https://wa.me/919125492225?text=Hi!%20I'd%20like%20to%20know%20more%20about%20Mosaic%20Hostel%20Varanasi." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.514 5.842L.057 23.428a.75.75 0 0 0 .906.94l5.733-1.498A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.65-.499-5.17-1.373l-.37-.213-3.845 1.004 1.029-3.733-.228-.378A9.937 9.937 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        +91 91254 92225
+      </a>
+    </div>
+
+    <!-- Email -->
+    <div class="contact-card reveal reveal-d1">
+      <div class="cc-accent" data-pal="gold-teal"></div>
+      <div class="cc-label">Email</div>
+      <div class="cc-main">mosaichostels@gmail.com</div>
+      <div class="cc-sub">For detailed enquiries, group bookings, or partnerships. We reply within 24 hours.</div>
+      <a class="email-cta" href="mailto:mosaichostels@gmail.com">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Send Email
+      </a>
+    </div>
+
+    <!-- Location & Hours -->
+    <div class="contact-card reveal reveal-d2">
+      <div class="cc-accent" data-pal="cobalt-sage"></div>
+      <div class="cc-label">Find Us</div>
+      <div class="cc-main">B1/85C, Assi Ghat Rd, Bhelupur</div>
+      <div class="info-rows" style="margin-top:16px;">
+        <div class="info-row">
+          <div class="info-dot" style="background:var(--gold)"></div>
+          <div>
+            <div class="info-label">Address</div>
+            <div class="info-val">B1/85C, Assi Ghat Rd, Anandbagh, Bhelupur, Varanasi, UP 221005</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-dot" style="background:var(--teal)"></div>
+          <div>
+            <div class="info-label">Check-in / Check-out</div>
+            <div class="info-val">1:00 PM · 10:30 AM</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-dot" style="background:var(--burg)"></div>
+          <div>
+            <div class="info-label">Reception</div>
+            <div class="info-val">Open 24 hours</div>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="info-dot" style="background:var(--cobalt)"></div>
+          <div>
+            <div class="info-label">Instagram</div>
+            <div class="info-val"><a href="https://www.instagram.com/mosaichostels" target="_blank" style="color:var(--ink);text-decoration:none;">@mosaichostels</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: FORM -->
+  <div class="form-wrap reveal">
+    <div class="form-tile-strip" id="formStrip"></div>
+    <div class="form-eyebrow">Send a Message</div>
+    <div class="form-title">We'll Get Back to You</div>
+    <div class="form-sub">Fill in the form and we'll respond within 24 hours. For urgent queries, WhatsApp is faster.</div>
+
+    <form id="contactForm" action="https://formsubmit.co/mosaichostels@gmail.com" method="POST">
+      <!-- FormSubmit config -->
+      <input type="hidden" name="_subject" value="New message from mosaichostels.com contact form">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://www.mosaichostels.com/contact/?sent=1">
+      <input type="text" name="_honey" style="display:none">
+
+      <div class="field-row">
+        <div class="field">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="first_name" placeholder="Riya" required>
+        </div>
+        <div class="field">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="last_name" placeholder="Sharma">
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="field">
+        <label for="topic">Topic</label>
+        <select id="topic" name="topic">
+          <option value="">Select a topic</option>
+          <option value="booking">Booking Enquiry</option>
+          <option value="group">Group Booking</option>
+          <option value="checkin">Check-in / Check-out</option>
+          <option value="experiences">Experiences &amp; Activities</option>
+          <option value="partnership">Partnership / Press</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell us what you need..." required></textarea>
+      </div>
+
+      <button type="submit" class="form-submit">Send Message</button>
+      <div class="form-msg" id="formMsg"></div>
+    </form>
+  </div>
+
+</div>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div1"></div>
+
+<!-- ── MAP ── -->
+<div class="map-section">
+  <div class="map-strip" id="mapStrip"></div>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.0!2d83.0031634!3d25.2872587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e31ef166d9b91%3A0x96411370098acc3b!2sMosaic%20Hostel%20Varanasi!5e0!3m2!1sen!2sin!4v1735000000000!5m2!1sen!2sin"
+    allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+<!-- ── LOCATION STRIP ── -->
+<div class="loc-strip">
+  <div class="loc-item">
+    <div class="loc-label">Location</div>
+    <div class="loc-val">Near Assi Ghat, Varanasi</div>
+  </div>
+  <div class="loc-item">
+    <div class="loc-label">Check-in</div>
+    <div class="loc-val">1:00 PM</div>
+  </div>
+  <div class="loc-item">
+    <div class="loc-label">Check-out</div>
+    <div class="loc-val">10:30 AM</div>
+  </div>
+  <div class="loc-item">
+    <div class="loc-label">Reception</div>
+    <div class="loc-val">24 Hours</div>
+  </div>
+</div>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div2"></div>
+
+<!-- ── FOOTER ── -->
+</main><footer>
+  <div class="footer-top">
+    <img src="https://www.mosaichostels.com/wp-content/uploads/2025/08/Logo-Transperent.webp" alt="Mosaic Hostel" style="height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;">
+    <div class="footer-links-wrap">
+      <div class="footer-col">
+        <h4>Stay</h4>
+        <a href="#">Private Room</a>
+        <a href="#">8-Bed Mixed Dorm</a>
+        <a href="#">6-Bed Mixed Dorm</a>
+        <a href="#">4-Bed Mixed Dorm</a>
+        <a href="#">6-Bed Female Dorm</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="https://www.mosaichostels.com/gallery/">Gallery</a>
+        <a href="https://www.mosaichostels.com/about/">About Us</a>
+        <a href="#">Experiences</a>
+        <a href="https://www.mosaichostels.com/contact/">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
+        <a href="mailto:mosaichostels@gmail.com">Email Us</a>
+        <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Mosaic Hostel Varanasi. All rights reserved.</div>
+    <div class="footer-strip" id="footerStrip"></div>
+    <div class="footer-copy">Made with ♥ in Varanasi</div>
+  </div>
+</footer>
+
+<script>
+const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
+const PALS={
+  'wa':['#25D366','#1DAA56','#128C7E','#075E54'],
+  'gold-teal':['#C8860A','#E8B84B','#1A6B7A','#2D9AAA'],
+  'cobalt-sage':['#1A3A6B','#2A5A9B','#3D6B3A','#2D5A2A'],
+};
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
+function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
+
+fillById('heroStripe',LOGO_COLORS);
+['div0','div1','div2'].forEach(id=>fillById(id,LOGO_COLORS));
+fillById('formStrip',LOGO_COLORS);
+fillById('mapStrip',LOGO_COLORS);
+fillById('footerStrip',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
+
+// Card accent bars
+document.querySelectorAll('.cc-accent').forEach(el=>{
+  const pal=PALS[el.dataset.pal]||LOGO_COLORS;
+  for(let i=0;i<20;i++){const s=document.createElement('span');s.style.flex='1';s.style.background=pick(pal);el.appendChild(s);}
+});
+
+// Custom cursor
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+  ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';
+});
+document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='48px';ring.style.height='48px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
+});
+
+// Scroll progress
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  prog.style.width=((window.scrollY/(document.body.scrollHeight-window.innerHeight))*100)+'%';
+},{passive:true});
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Magnetic buttons
+document.querySelectorAll('.wa-cta,.email-cta,.nav-book,.form-submit').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*0.2}px,${(e.clientY-r.top-r.height/2)*0.2}px)`;
+  });
+  btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+});
+
+// Show success if redirected back with ?sent=1
+if(window.location.search.includes('sent=1')){
+  const msg=document.getElementById('formMsg');
+  msg.textContent='Message sent! We\'ll be in touch within 24 hours.';
+  msg.className='form-msg success';
+  msg.style.display='block';
+  document.getElementById('contactForm').style.display='none';
+}
+
+
+
+(function(){
+  var ham=document.getElementById('navHam');
+  var nl=document.querySelector('.nav-links');
+  if(!ham||!nl)return;
+  ham.addEventListener('click',function(){
+    nl.classList.toggle('open');ham.classList.toggle('open');
+    document.body.style.overflow=nl.classList.contains('open')?'hidden':'';
+  });
+  nl.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      nl.classList.remove('open');ham.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  });
+})();
+</script>
+</body>
+</html>
+

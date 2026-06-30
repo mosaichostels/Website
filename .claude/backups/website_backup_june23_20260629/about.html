@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us — Mosaic Hostel Varanasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&amp;family=Jost:wght@200;300;400;500&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&amp;family=Jost:wght@200;300;400;500&amp;display=swap"></noscript>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#C8860A;--gold-lt:#E8B84B;
+  --teal:#1A6B7A;--burg:#8B1A1A;--cobalt:#1A3A6B;
+  --brown:#5C3A1E;--sage:#3D6B3A;
+  --ink:#1A1208;--ink2:#2E2416;
+  --cream:#FAF4EA;--parch:#F2E8D5;
+  --muted:#7A6A50;--border:rgba(200,134,10,0.15);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+#cursor{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:multiply;}
+#cursor-ring{position:fixed;width:36px;height:36px;border-radius:50%;border:1px solid rgba(200,134,10,0.5);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .08s linear,top .08s linear,width .3s,height .3s;}
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#C8860A,#8B1A1A,#1A6B7A);z-index:9999;width:0%;pointer-events:none;}
+
+.tile-accent{display:flex;height:5px;}
+.tile-accent span{flex:1;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 64px;height:96px;
+  background:rgba(250,244,234,0.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(20px);
+}
+.nav-logo img{height:130px;width:auto;}
+.nav-links{display:flex;gap:40px;}
+.nav-links a{
+  font-size:10px;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  padding-bottom:4px;position:relative;transition:color .25s;
+}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:100%;height:1px;background:var(--gold);transition:right .3s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{right:0;}
+.nav-links a.active{color:var(--gold);}
+.nav-links a.active::after{right:0;}
+.nav-book{
+  padding:10px 28px;background:var(--gold);color:white;border:none;cursor:none;
+  font-family:'Jost';font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  transition:background .25s;
+}
+.nav-book:hover{background:#A06E08;}
+
+/* ── PAGE HERO ── */
+.page-hero{
+  padding-top:96px;background:var(--ink);
+  position:relative;overflow:hidden;
+  text-align:center;padding-bottom:100px;
+}
+.page-hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 49px,rgba(200,134,10,0.04) 49px,rgba(200,134,10,0.04) 50px),
+    repeating-linear-gradient(90deg,transparent,transparent 49px,rgba(200,134,10,0.04) 49px,rgba(200,134,10,0.04) 50px);
+}
+.page-hero-stripe{position:absolute;top:96px;left:0;right:0;height:5px;display:flex;}
+.page-hero-stripe span{flex:1;}
+.page-hero-content{position:relative;z-index:1;padding:72px 24px 0;}
+.page-eyebrow{font-size:10px;letter-spacing:7px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.page-title{
+  font-family:'Cinzel',serif;font-size:64px;font-weight:400;
+  color:white;letter-spacing:6px;line-height:1;margin-bottom:20px;
+}
+.page-sub{font-size:14px;font-weight:300;letter-spacing:2px;color:rgba(255,255,255,0.45);}
+
+/* ── STORY SECTION ── */
+.story{
+  max-width:1100px;margin:0 auto;
+  padding:100px 80px;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:96px;align-items:center;
+}
+.story-text{}
+.story-eyebrow{font-size:10px;letter-spacing:7px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:14px;}
+.story-eyebrow::after{content:'';flex:1;max-width:48px;height:1px;background:var(--border);}
+.story-title{font-family:'Cinzel',serif;font-size:44px;font-weight:400;color:var(--ink);letter-spacing:2px;line-height:1.1;margin-bottom:28px;}
+.story-title em{font-style:normal;color:var(--gold);}
+.tile-line{display:flex;gap:2px;height:4px;width:80px;margin-bottom:32px;}
+.tile-line span{flex:1;border-radius:1px;}
+.story-body{font-size:15px;color:var(--muted);line-height:1.95;letter-spacing:0.2px;}
+.story-body p+p{margin-top:18px;}
+
+.story-photo-stack{position:relative;height:560px;}
+.story-photo-main{
+  position:absolute;right:0;top:0;
+  width:78%;height:460px;
+  object-fit:cover;
+}
+.story-photo-accent{
+  position:absolute;left:0;bottom:0;
+  width:50%;height:280px;
+  object-fit:cover;
+  border:6px solid var(--cream);
+}
+/* Est. badge */
+.est-badge{
+  position:absolute;right:16px;bottom:60px;
+  width:100px;height:100px;border-radius:50%;
+  background:var(--gold);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  z-index:2;
+}
+.est-label{font-size:8px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.7);}
+.est-year{font-family:'Cinzel',serif;font-size:22px;color:white;letter-spacing:2px;}
+
+/* ── TILE DIVIDER ── */
+/* (reuse .tile-accent) */
+
+/* ── VALUES STRIP ── */
+.values{
+  background:var(--parch);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:80px;
+  position:relative;overflow:hidden;
+}
+.values::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(200,134,10,0.04) 39px,rgba(200,134,10,0.04) 40px),
+    repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(200,134,10,0.04) 39px,rgba(200,134,10,0.04) 40px);
+  pointer-events:none;
+}
+.values-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;max-width:1100px;margin:0 auto;
+}
+.val-col{
+  padding:40px 48px;
+  border-right:1px solid var(--border);
+  text-align:center;
+}
+.val-col:last-child{border-right:none;}
+.val-icon{
+  display:inline-grid;grid-template-columns:repeat(4,10px);grid-template-rows:repeat(4,10px);gap:2px;
+  margin-bottom:24px;
+}
+.val-icon span{border-radius:2px;display:block;}
+.val-title{font-family:'Cinzel',serif;font-size:20px;font-weight:400;color:var(--ink);margin-bottom:14px;letter-spacing:1px;}
+.val-body{font-size:13px;color:var(--muted);line-height:1.9;}
+
+/* ── FULL BLEED PHOTO ── */
+.fullbleed{
+  position:relative;height:480px;overflow:hidden;
+  display:flex;align-items:center;
+}
+.fb-photo{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;
+  transition:transform .1s linear;
+}
+.fb-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(26,18,8,0.88) 0%,rgba(26,18,8,0.5) 50%,transparent 100%);
+}
+.fb-content{
+  position:relative;z-index:2;padding:0 100px;max-width:580px;
+}
+.fb-eyebrow{font-size:10px;letter-spacing:6px;text-transform:uppercase;color:var(--gold-lt);margin-bottom:16px;}
+.fb-title{font-family:'Cinzel',serif;font-size:42px;font-weight:400;color:white;line-height:1.1;margin-bottom:20px;letter-spacing:2px;}
+.fb-body{font-size:14px;color:rgba(255,255,255,0.6);line-height:1.85;}
+.fb-strip{display:flex;gap:2px;height:4px;width:100%;margin-top:28px;}
+.fb-strip span{flex:1;border-radius:1px;}
+
+/* ── STATS ── */
+.stats{
+  background:var(--ink);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat{
+  padding:52px 24px;text-align:center;
+  border-right:1px solid rgba(255,255,255,0.06);
+  transition:background .3s;
+}
+.stat:last-child{border-right:none;}
+.stat:hover{background:var(--ink2);}
+.stat-num{font-family:'Cinzel',serif;font-size:48px;font-weight:400;color:var(--gold-lt);line-height:1;}
+.stat-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:8px;}
+
+/* ── WHY MOSAIC ── */
+.why{
+  max-width:800px;margin:0 auto;
+  padding:100px 80px;text-align:center;
+}
+.why-eyebrow{font-size:10px;letter-spacing:7px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.why-title{font-family:'Cinzel',serif;font-size:44px;font-weight:400;color:var(--ink);letter-spacing:2px;margin-bottom:28px;line-height:1.1;}
+.why-title em{font-style:normal;color:var(--gold);}
+.why-tile-line{display:flex;gap:2px;height:4px;width:80px;margin:0 auto 32px;}
+.why-tile-line span{flex:1;border-radius:1px;}
+.why-body{font-size:15px;color:var(--muted);line-height:2;letter-spacing:0.2px;}
+
+/* Large decorative tile grid */
+.deco-tiles{
+  display:inline-grid;grid-template-columns:repeat(6,18px);grid-template-rows:repeat(6,18px);gap:3px;
+  margin:48px auto 0;
+}
+.deco-tiles span{border-radius:3px;display:block;transition:opacity .3s;}
+
+/* ── LOCATION ── */
+.location{
+  background:var(--parch);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:80px;
+}
+.location-inner{
+  max-width:1100px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.location-text .section-eyebrow{font-size:10px;letter-spacing:7px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:14px;}
+.location-text .section-eyebrow::after{content:'';flex:1;max-width:48px;height:1px;background:var(--border);}
+.location-title{font-family:'Cinzel',serif;font-size:36px;font-weight:400;color:var(--ink);letter-spacing:2px;margin-bottom:28px;line-height:1.1;}
+.loc-details{display:flex;flex-direction:column;gap:18px;}
+.loc-row{display:flex;gap:16px;align-items:flex-start;}
+.loc-dot{width:8px;height:8px;border-radius:2px;background:var(--gold);flex-shrink:0;margin-top:5px;}
+.loc-info{}
+.loc-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.loc-val{font-size:14px;color:var(--ink);letter-spacing:0.3px;}
+
+.location-map{
+  position:relative;height:320px;overflow:hidden;
+  border:1px solid var(--border);
+}
+.location-map iframe{width:100%;height:100%;border:none;filter:sepia(20%) contrast(0.9);}
+/* tile overlay strip at top of map */
+.map-strip{position:absolute;top:0;left:0;right:0;height:4px;display:flex;z-index:2;}
+.map-strip span{flex:1;}
+
+/* ── BOOKING CTA ── */
+.cta-section{
+  background:var(--ink);padding:100px 80px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.cta-section::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 49px,rgba(200,134,10,0.04) 49px,rgba(200,134,10,0.04) 50px),
+    repeating-linear-gradient(90deg,transparent,transparent 49px,rgba(200,134,10,0.04) 49px,rgba(200,134,10,0.04) 50px);
+  pointer-events:none;
+}
+.cta-stripe{position:absolute;top:0;left:0;right:0;height:5px;display:flex;}
+.cta-stripe span{flex:1;}
+.cta-content{position:relative;z-index:1;}
+.cta-eyebrow{font-size:10px;letter-spacing:7px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.cta-title{font-family:'Cinzel',serif;font-size:52px;font-weight:400;color:white;margin-bottom:16px;line-height:1;letter-spacing:3px;}
+.cta-title em{font-style:normal;color:var(--gold-lt);}
+.cta-sub{font-size:12px;letter-spacing:4px;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:52px;}
+.cta-btns{display:flex;gap:16px;justify-content:center;}
+.btn-gold{
+  padding:16px 56px;background:var(--gold);color:white;
+  font-family:'Jost';font-size:10px;letter-spacing:5px;text-transform:uppercase;
+  border:none;cursor:none;text-decoration:none;display:inline-block;
+  transition:background .3s,transform .2s;
+}
+.btn-gold:hover{background:#A06E08;transform:translateY(-2px);}
+.btn-outline{
+  padding:16px 40px;border:1px solid rgba(255,255,255,0.3);color:rgba(255,255,255,0.7);
+  font-family:'Jost';font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  text-decoration:none;display:inline-block;cursor:none;transition:all .3s;
+}
+.btn-outline:hover{border-color:white;color:white;}
+
+/* ── FOOTER ── */
+footer{background:#1A1208;padding:48px 80px 28px;}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:40px;}
+.footer-logo img{height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;}
+.footer-links-wrap{display:flex;gap:64px;}
+.footer-col h4{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.footer-col a{display:block;font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none;margin-bottom:10px;transition:color .2s;letter-spacing:.5px;}
+.footer-col a:hover{color:white;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:20px;display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:1px;}
+.footer-strip{display:flex;gap:2px;width:80px;height:4px;}
+.footer-strip span{flex:1;border-radius:1px;}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+.reveal-d1{transition-delay:.1s;}.reveal-d2{transition-delay:.2s;}.reveal-d3{transition-delay:.3s;}
+
+
+
+/* ── RESPONSIVE ── */
+@media(hover:none),(pointer:coarse){body{cursor:auto;}#cursor,#cursor-ring{display:none!important;}a,button{cursor:pointer!important;}}
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;padding:10px;background:none;border:none;cursor:pointer;z-index:10001;flex-shrink:0;}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .3s,opacity .3s;}
+.nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px);}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:translateX(-10px);}
+.nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px);}
+@media(max-width:1024px){
+  nav{padding:0 32px;height:80px;justify-content:flex-start;}
+  .nav-logo img{height:72px;}
+  .nav-links{display:none;position:fixed;top:80px;left:0;right:0;bottom:0;z-index:9998;background:rgba(250,244,234,0.99);flex-direction:column;align-items:center;justify-content:center;gap:32px;backdrop-filter:none;-webkit-backdrop-filter:none;}
+  .nav-links.open{display:flex;}
+  .nav-links a{font-size:13px!important;letter-spacing:4px;color:var(--ink)!important;text-transform:uppercase;}
+  .nav-hamburger{margin-left:auto;display:flex;}
+  .nav-book{font-size:9px!important;padding:8px 14px!important;letter-spacing:3px;}
+}
+@media(max-width:767px){
+  nav{
+    padding:0 16px;height:60px;
+    background:rgba(250,244,234,0.99)!important;
+    backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+    border-bottom:1px solid rgba(200,134,10,0.15)!important;
+    transform:translateZ(0);-webkit-transform:translateZ(0);
+  }
+  .nav-logo img{height:52px;}
+  .nav-links{top:60px;}
+}
+@media(max-width:1024px){
+  .page-hero{padding-top:80px;}
+  .story{grid-template-columns:1fr;padding:60px 40px;gap:40px;}
+  .values-grid{grid-template-columns:1fr 1fr;}
+  .stats{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:767px){
+  .page-title{font-size:36px;letter-spacing:3px;}.page-hero{padding-top:60px;}
+  .story{padding:40px 16px;gap:28px;}
+  .values-grid{grid-template-columns:1fr;}
+  .val-card{padding:28px 16px;}
+  .stats{grid-template-columns:1fr 1fr;}
+  .fullbleed{height:260px;}
+  footer{padding:40px 16px 24px;}
+  .footer-top{flex-direction:column;gap:24px;}.footer-links-wrap{flex-direction:column;gap:16px;}
+}
+
+/* ── RESPONSIVE ADDITIONS ── */
+@media(max-width:1024px){.story-title{font-size:34px;}.why-title{font-size:34px;}.fb-content{padding:0 48px;}.fb-title{font-size:32px;}.values{padding:60px 40px;}.location{padding:60px 40px;}.location-inner{grid-template-columns:1fr;gap:40px;}.cta-section{padding:60px 40px;}.cta-title{font-size:40px;letter-spacing:2px;}.why{padding:60px 40px;}footer{padding:40px 40px 24px;}.footer-links-wrap{gap:40px;}.page-title{font-size:46px;letter-spacing:4px;}.page-hero{padding:80px 40px 48px;}.page-sub{font-size:13px;}.stat-num{font-size:36px;}}
+@media(max-width:767px){.story-title{font-size:26px;letter-spacing:1px;}.why-title{font-size:26px;letter-spacing:1px;}.fb-content{padding:0 20px;}.fb-title{font-size:26px;letter-spacing:1px;}.values{padding:40px 16px;}.val-col{padding:24px 16px;}.location{padding:40px 16px;}.location-inner{grid-template-columns:1fr;gap:28px;}.location-map{height:220px;}.cta-section{padding:48px 16px;}.cta-title{font-size:26px;letter-spacing:1px;}.cta-btns{flex-direction:column;gap:12px;align-items:stretch;}.btn-gold,.btn-outline{display:block;text-align:center;}.why{padding:40px 16px;}.story-photo-stack{height:360px;}.story-photo-main{height:300px;}.story-photo-accent{width:55%;height:180px;}footer{padding:40px 16px 24px;}}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3K992L4ZT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-H3K992L4ZT');</script>
+
+<!-- Mosaic SEO Suite -->
+<meta name="description" content="Mosaic Hostel is a boutique backpacker hostel near Assi Ghat, Varanasi. Learn about our story and team.">
+<link rel="canonical" href="https://www.mosaichostels.com/about/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta property="og:site_name" content="Mosaic Hostel Varanasi">
+<meta property="og:title"       content="About Us — Mosaic Hostel Varanasi">
+<meta property="og:description" content="Mosaic Hostel is a boutique backpacker hostel near Assi Ghat, Varanasi. Learn about our story and team.">
+<meta property="og:url"         content="https://www.mosaichostels.com/about/">
+<meta property="og:type"        content="website">
+<meta property="og:image"       content="https://www.mosaichostels.com/wp-content/uploads/2026/06/mosaic-hostel-og-image.png">
+<meta property="og:locale"      content="en_IN">
+<meta name="twitter:card"  content="summary_large_image">
+<meta name="twitter:title" content="About Us — Mosaic Hostel Varanasi">
+<meta name="twitter:image" content="https://www.mosaichostels.com/wp-content/uploads/2026/06/mosaic-hostel-og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":["LodgingBusiness","LocalBusiness"],"name":"Mosaic Hostel Varanasi","url":"https://www.mosaichostels.com/","telephone":"+91-9125492225","email":"mosaichostels@gmail.com","address":{"@type":"PostalAddress","streetAddress":"B1/85C, Assi Ghat Rd, Anandbagh, Bhelupur","addressLocality":"Varanasi","addressRegion":"Uttar Pradesh","postalCode":"221005","addressCountry":"IN"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.mosaichostels.com/"},{"@type":"ListItem","position":2,"name":"About Us — Mosaic Hostel Varanasi","item":"https://www.mosaichostels.com/about/"}]}</script>
+</head>
+<body>
+<h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">About Mosaic Hostel Varanasi</h1>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="progress"></div>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">
+    <a href="https://www.mosaichostels.com/" style="display:block;">
+      <img src="https://www.mosaichostels.com/wp-content/uploads/2025/08/Logo-Transperent.webp" alt="Mosaic Hostel">
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="https://www.mosaichostels.com/">Home</a>
+    <a href="https://www.mosaichostels.com/gallery/">Gallery</a>
+    <a href="https://www.mosaichostels.com/blog/">Blog</a>
+    <a href="https://www.mosaichostels.com/about/" class="active">About</a>
+    <a href="https://www.mosaichostels.com/contact/">Contact</a>
+    </div>
+  <button class="nav-hamburger" id="navHam" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <a href="https://www.mosaichostels.com/book-now/" class="nav-book">Book Now</a>
+</nav><main role="main">
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="page-hero-stripe" id="heroStripe"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">Est. 2025 · Varanasi</div>
+    <div class="page-title">Our Story</div>
+    <div class="page-sub">A hostel born from a love of travel, community, and this ancient city</div>
+  </div>
+</div>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div0"></div>
+
+<!-- ── STORY SECTION ── -->
+<div class="story reveal">
+  <div class="story-text">
+    <div class="story-eyebrow">How It Began</div>
+    <div class="story-title">Built for<br>Curious <em>Wanderers</em></div>
+    <div class="tile-line" id="storyLine"></div>
+    <div class="story-body">
+      <p>Mosaic Hostel was born from a simple belief — that the best travel experiences happen when strangers become friends. We opened our doors in Varanasi in 2025, in the heart of one of the world's oldest living cities, steps from the sacred Ghats of the Ganga.</p>
+      <p>We chose Varanasi because no city on earth offers a richer, more alive experience for the curious traveller. Ancient temples, winding alleys, sunrise boat rides, the Ganga Aarti — it is a city that stays with you long after you leave.</p>
+      <p>Our name comes from the idea that every guest who walks through our doors is a unique piece — different backgrounds, different stories, different destinations — and together, we form something colourful and whole. A mosaic.</p>
+    </div>
+  </div>
+  <div class="story-photo-stack">
+    <img class="story-photo-main" src="https://www.mosaichostels.com/wp-content/uploads/2026/04/IMG-20251228-WA0140.jpg" alt="The Common Room">
+    <img loading="lazy" class="story-photo-accent" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg" alt="Ghat Walk">
+    <div class="est-badge">
+      <div class="est-label">Est.</div>
+      <div class="est-year">2025</div>
+    </div>
+  </div>
+</div>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div1"></div>
+
+<!-- ── VALUES ── -->
+<div class="values reveal">
+  <div class="values-grid">
+    <div class="val-col">
+      <div class="val-icon" id="vi1"></div>
+      <div class="val-title">Heart of Varanasi</div>
+      <div class="val-body">We sit steps from Assi Ghat — the southern anchor of Varanasi's waterfront. The city's rhythm, its temples, its food and its light are all right at your door.</div>
+    </div>
+    <div class="val-col">
+      <div class="val-icon" id="vi2"></div>
+      <div class="val-title">Community First</div>
+      <div class="val-body">We design every space for connection — the common room, the rooftop, the shared table. Guests arrive as strangers and leave as friends. That is the only metric we care about.</div>
+    </div>
+    <div class="val-col">
+      <div class="val-icon" id="vi3"></div>
+      <div class="val-title">Safe &amp; Comfortable</div>
+      <div class="val-body">Clean beds, hot showers, reliable WiFi, 24-hour security and a team that knows your name. We take care of the essentials so you can focus on the adventure.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FULL BLEED PHOTO ── -->
+<div class="fullbleed">
+  <img loading="lazy" class="fb-photo" id="fbPhoto" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/PXL_20260119_065635066.MP_-scaled.jpg" alt="The Rooftop">
+  <div class="fb-overlay"></div>
+  <div class="fb-content reveal">
+    <div class="fb-eyebrow">The Rooftop</div>
+    <div class="fb-title">Where Varanasi<br>Opens Up</div>
+    <div class="fb-body">Our rooftop is where the day begins and ends — morning chai with a view of the city waking up, evening conversations as the lights come on across the Ghats.</div>
+    <div class="fb-strip" id="fbStrip"></div>
+  </div>
+</div>
+
+<!-- ── STATS ── -->
+<div class="stats">
+  <div class="stat reveal">
+    <div class="stat-num" data-count="500">0</div>
+    <div class="stat-label">Happy Guests</div>
+  </div>
+  <div class="stat reveal reveal-d1">
+    <div class="stat-num">4.9 ★</div>
+    <div class="stat-label">Average Rating</div>
+  </div>
+  <div class="stat reveal reveal-d2">
+    <div class="stat-num" data-count="5">0</div>
+    <div class="stat-label">Room Types</div>
+  </div>
+  <div class="stat reveal reveal-d3">
+    <div class="stat-num">2025</div>
+    <div class="stat-label">Est. Varanasi</div>
+  </div>
+</div>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div2"></div>
+
+<!-- ── WHY MOSAIC ── -->
+<div class="why reveal">
+  <div class="why-eyebrow">The Name</div>
+  <div class="why-title">Why <em>Mosaic</em>?</div>
+  <div class="why-tile-line" id="whyLine"></div>
+  <div class="why-body">
+    A mosaic is made of many different pieces — each one distinct, each one carrying its own colour and story — but it is only when they come together that something truly beautiful emerges.<br><br>
+    That is exactly what happens here. Guests from every corner of the world — solo travellers, backpackers, digital nomads, families — each unique, each on their own journey. When they meet at Mosaic, something unexpected and wonderful takes shape.<br><br>
+    Every stay adds a tile to our story.
+  </div>
+  <div class="deco-tiles" id="decoTiles"></div>
+</div>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div3"></div>
+
+<!-- ── LOCATION ── -->
+<div class="location reveal">
+  <div class="location-inner">
+    <div class="location-text">
+      <div class="section-eyebrow">Find Us</div>
+      <div class="location-title">Near Assi Ghat,<br>Varanasi</div>
+      <div class="loc-details">
+        <div class="loc-row">
+          <div class="loc-dot" style="background:var(--gold)"></div>
+          <div class="loc-info">
+            <div class="loc-label">Address</div>
+            <div class="loc-val">Near Assi Ghat, Varanasi, Uttar Pradesh 221005</div>
+          </div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-dot" style="background:var(--teal)"></div>
+          <div class="loc-info">
+            <div class="loc-label">Check-in / Check-out</div>
+            <div class="loc-val">1:00 PM · 10:30 AM</div>
+          </div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-dot" style="background:var(--burg)"></div>
+          <div class="loc-info">
+            <div class="loc-label">Reception</div>
+            <div class="loc-val">Open 24 hours</div>
+          </div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-dot" style="background:var(--cobalt)"></div>
+          <div class="loc-info">
+            <div class="loc-label">WhatsApp</div>
+            <div class="loc-val">+91 91254 92225</div>
+          </div>
+        </div>
+        <div class="loc-row">
+          <div class="loc-dot" style="background:var(--sage)"></div>
+          <div class="loc-info">
+            <div class="loc-label">Email</div>
+            <div class="loc-val">mosaichostels@gmail.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="location-map">
+      <div class="map-strip" id="mapStrip"></div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.0!2d83.0031634!3d25.2872587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e31ef166d9b91%3A0x96411370098acc3b!2sMosaic%20Hostel%20Varanasi!5e0!3m2!1sen!2sin!4v1735000000000!5m2!1sen!2sin"
+        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+</div>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div4"></div>
+
+<!-- ── CTA ── -->
+<div class="cta-section">
+  <div class="cta-stripe" id="ctaStripe"></div>
+  <div class="cta-content reveal">
+    <div class="cta-eyebrow">Ready to Join?</div>
+    <div class="cta-title">Add Your Tile<br>to Our <em>Mosaic</em></div>
+    <div class="cta-sub">Varanasi · India · Est. 2025</div>
+    <div class="cta-btns">
+      <a class="btn-gold" href="https://www.mosaichostels.com/book-now/">Book Your Stay</a>
+      <a class="btn-outline" href="https://wa.me/919125492225?text=Hi!%20I'd%20like%20to%20know%20more%20about%20Mosaic%20Hostel." target="_blank">Chat on WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+</main><footer>
+  <div class="footer-top">
+    <img loading="lazy" src="https://www.mosaichostels.com/wp-content/uploads/2025/08/Logo-Transperent.webp" alt="Mosaic Hostel" style="height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;">
+    <div class="footer-links-wrap">
+      <div class="footer-col">
+        <h4>Stay</h4>
+        <a href="#">Private Room</a>
+        <a href="#">8-Bed Mixed Dorm</a>
+        <a href="#">6-Bed Mixed Dorm</a>
+        <a href="#">4-Bed Mixed Dorm</a>
+        <a href="#">6-Bed Female Dorm</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="https://www.mosaichostels.com/gallery/">Gallery</a>
+        <a href="https://www.mosaichostels.com/about/">About Us</a>
+        <a href="#">Experiences</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
+        <a href="mailto:mosaichostels@gmail.com">Email Us</a>
+        <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Mosaic Hostel Varanasi. All rights reserved.</div>
+    <div class="footer-strip" id="footerStrip"></div>
+    <div class="footer-copy">Made with ♥ in Varanasi</div>
+  </div>
+</footer>
+
+<script>
+const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
+const PAL={gold:['#C8860A','#E8B84B','#D4930F'],teal:['#1A6B7A','#2D9AAA'],burg:['#8B1A1A','#A02020'],cobalt:['#1A3A6B','#2A5A9B'],sage:['#3D6B3A','#2D5A2A'],brown:['#5C3A1E','#7A4F2A']};
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
+function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
+
+fillById('heroStripe',LOGO_COLORS);
+['div0','div1','div2','div3','div4'].forEach(id=>fillById(id,LOGO_COLORS));
+fillById('storyLine',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
+fillById('whyLine',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
+fillById('fbStrip',LOGO_COLORS);
+fillById('footerStrip',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
+fillById('mapStrip',LOGO_COLORS);
+fillById('ctaStripe',[...LOGO_COLORS,...LOGO_COLORS]);
+
+// Value icons (4×4)
+[
+  ['vi1',...PAL.gold,...PAL.teal],
+  ['vi2',...PAL.burg,...PAL.cobalt],
+  ['vi3',...PAL.sage,...PAL.gold],
+].forEach(([id,...pal])=>{
+  const el=document.getElementById(id);if(!el)return;
+  for(let i=0;i<16;i++){const s=document.createElement('span');s.style.background=pick(pal);s.style.borderRadius='2px';s.style.display='block';el.appendChild(s);}
+});
+
+// Deco tile grid (6×6)
+const deco=document.getElementById('decoTiles');
+if(deco){
+  for(let i=0;i<36;i++){
+    const s=document.createElement('span');
+    s.style.background=pick(LOGO_COLORS);
+    s.style.borderRadius='3px';
+    s.style.display='block';
+    s.style.opacity=String(0.3+Math.random()*0.7);
+    deco.appendChild(s);
+  }
+  // animate tiles on hover
+  deco.addEventListener('mouseenter',()=>{
+    deco.querySelectorAll('span').forEach(s=>{
+      setTimeout(()=>{s.style.background=pick(LOGO_COLORS);s.style.opacity=String(0.3+Math.random()*0.7);},Math.random()*300);
+    });
+  });
+}
+
+// Custom cursor
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+  ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';
+});
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='48px';ring.style.height='48px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
+});
+
+// Scroll progress
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  prog.style.width=((window.scrollY/(document.body.scrollHeight-window.innerHeight))*100)+'%';
+},{passive:true});
+
+// Parallax on fullbleed
+const fbPhoto=document.getElementById('fbPhoto');
+window.addEventListener('scroll',()=>{
+  if(!fbPhoto)return;
+  const rect=fbPhoto.closest('.fullbleed').getBoundingClientRect();
+  const pct=(window.innerHeight-rect.top)/(window.innerHeight+rect.height);
+  fbPhoto.style.transform=`translateY(${(pct-0.5)*40}px)`;
+},{passive:true});
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Stat counter
+const statObs=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(!entry.isIntersecting)return;
+    const el=entry.target;
+    const target=parseInt(el.dataset.count);
+    if(!target)return;
+    const suffix=el.textContent.replace(/[\d]/g,'');
+    let start=null;const dur=1600;
+    const step=ts=>{
+      if(!start)start=ts;
+      const prog=Math.min((ts-start)/dur,1);
+      const ease=1-Math.pow(1-prog,3);
+      el.textContent=Math.round(ease*target)+(target===500?'+':'');
+      if(prog<1)requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+    statObs.unobserve(el);
+  });
+},{threshold:0.5});
+document.querySelectorAll('.stat-num[data-count]').forEach(el=>statObs.observe(el));
+
+// Magnetic CTAs
+document.querySelectorAll('.btn-gold,.btn-outline,.nav-book').forEach(btn=>{
+  btn.addEventListener('mousemove',e=>{
+    const r=btn.getBoundingClientRect();
+    btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*0.2}px,${(e.clientY-r.top-r.height/2)*0.2}px)`;
+  });
+  btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+});
+
+
+
+(function(){
+  var ham=document.getElementById('navHam');
+  var nl=document.querySelector('.nav-links');
+  if(!ham||!nl)return;
+  ham.addEventListener('click',function(){
+    nl.classList.toggle('open');ham.classList.toggle('open');
+    document.body.style.overflow=nl.classList.contains('open')?'hidden':'';
+  });
+  nl.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      nl.classList.remove('open');ham.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  });
+})();
+</script>
+</body>
+</html>
+
