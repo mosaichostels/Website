@@ -33,29 +33,173 @@
         #cursor-ring { position: fixed; width: 36px; height: 36px; border: 2px solid var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; }
         .hero { background: linear-gradient(135deg, rgba(26, 18, 8, 0.7), rgba(26, 18, 8, 0.85)), url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover; height: 300px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; }
         .hero h1 { font-family: 'Google Sans', sans-serif; font-size: 56px; font-weight: 400; }
-        section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
+        section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
         h2 { font-family: 'Google Sans', sans-serif; font-size: 42px; font-weight: 400; margin-bottom: 60px; }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-        .contact-info h3 { font-size: 18px; margin-bottom: 24px; }
-        .info-item { margin-bottom: 32px; }
-        .info-item strong { color: var(--gold); }
-        form { background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+
+        /* Mobile-first: 1-column layout (form first, then contact info) */
+        .contact-grid { display: flex; flex-direction: column; gap: 40px; }
+
+        .contact-info { order: 2; }
+        .contact-info h2 { font-size: 28px; margin-bottom: 24px; }
+
+        form { order: 1; background: white; padding: 20px; border-radius: 8px; }
+        form h2 { font-size: 28px; }
+
         .form-group { margin-bottom: 24px; }
-        label { display: block; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 600; }
-        input, textarea { width: 100%; padding: 12px 16px; background: #f9f7f3; border: 1px solid var(--border); border-radius: 4px; font-family: inherit; font-size: 14px; transition: all 0.3s; }
-        input:focus, textarea:focus { outline: none; border-color: var(--gold); background: white; box-shadow: 0 0 0 3px rgba(200, 138, 10, 0.1); }
-        button { width: 100%; padding: 12px 24px; background: var(--gold); color: white; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; border: none; border-radius: 4px; cursor: pointer; transition: all 0.3s; }
-        button:hover { background: #a06e08; transform: translateY(-2px); }
+
+        label {
+            display: block;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 16px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 16px;
+            min-height: 48px;
+            transition: all 150ms ease-out;
+            color: var(--ink);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        input::placeholder, textarea::placeholder {
+            color: var(--text-muted, rgba(0, 0, 0, 0.5));
+            font-style: italic;
+        }
+
+        input:focus, textarea:focus {
+            outline: 3px solid var(--gold);
+            outline-offset: 2px;
+            background: white;
+            border-color: var(--gold);
+        }
+
+        button {
+            padding: 12px 32px;
+            min-height: 48px;
+            min-width: 48px;
+            width: 100%;
+            background: var(--gold);
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 150ms ease-out;
+        }
+
+        button:hover {
+            background: #a06e08;
+        }
+
+        button:focus {
+            outline: 3px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        .info-item { margin-bottom: 24px; }
+        .info-item:last-child { margin-bottom: 0; }
+
+        .info-item strong {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        .info-item p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--ink);
+        }
+
+        .info-item a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 150ms ease-out;
+        }
+
+        .info-item a:hover, .info-item a:focus {
+            color: var(--gold);
+        }
+
         footer { background: var(--ink); color: white; padding: 80px 60px 40px; }
         .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 60px; margin-bottom: 60px; }
         .footer-col h3 { font-family: 'Google Sans', sans-serif; font-size: 18px; margin-bottom: 24px; color: var(--gold-light); }
         .footer-col a { display: block; color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 13px; margin-bottom: 16px; transition: color 0.3s; }
         .footer-col a:hover { color: var(--gold-light); }
         .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 40px; text-align: center; font-size: 12px; color: rgba(255, 255, 255, 0.5); }
-        @media (max-width: 768px) {
+
+        /* Tablet: 768px – still 1-column */
+        @media (min-width: 768px) {
+            section { padding: 60px 40px; }
+        }
+
+        /* Desktop: 1024px+ – 2-column grid (info left, form right) */
+        @media (min-width: 1024px) {
+            section { padding: 100px 60px; }
+
+            .contact-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+                align-items: flex-start;
+            }
+
+            .contact-info {
+                order: 1;
+                background: var(--cream);
+                padding: 32px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                position: sticky;
+                top: 100px;
+            }
+
+            .contact-info h2 {
+                font-size: 28px;
+                margin-bottom: 32px;
+            }
+
+            form {
+                order: 2;
+                background: white;
+                padding: 40px;
+                border-radius: 8px;
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            }
+
+            form h2 {
+                font-size: 28px;
+                margin-bottom: 32px;
+            }
+
+            button { width: auto; }
+
+            h2 { margin-bottom: 0; }
+        }
+
+        @media (max-width: 767px) {
             nav { padding: 0 20px; height: 70px; }
-            section { padding: 60px 20px; }
-            .contact-grid { grid-template-columns: 1fr; }
             .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -89,15 +233,15 @@
                 </div>
                 <div class="info-item">
                     <strong>Phone</strong>
-                    <p><a href="tel:+919125492225" style="color: inherit;">+91 91254 92225</a></p>
+                    <p><a href="tel:+919125492225" aria-label="Call Mosaic Hostel at +91 91254 92225">+91 91254 92225</a></p>
                 </div>
                 <div class="info-item">
                     <strong>Email</strong>
-                    <p><a href="mailto:mosaichostels@gmail.com" style="color: inherit;">mosaichostels@gmail.com</a></p>
+                    <p><a href="mailto:mosaichostels@gmail.com" aria-label="Email Mosaic Hostel">mosaichostels@gmail.com</a></p>
                 </div>
                 <div class="info-item">
                     <strong>WhatsApp</strong>
-                    <p><a href="https://wa.me/919125492225" style="color: inherit;">Message us on WhatsApp</a></p>
+                    <p><a href="https://wa.me/919125492225" aria-label="Message Mosaic Hostel on WhatsApp">Message us on WhatsApp</a></p>
                 </div>
                 <div class="info-item">
                     <strong>Hours</strong>
@@ -108,22 +252,22 @@
             <form>
                 <h2>Send us a Message</h2>
                 <div class="form-group">
-                    <label>Name</label>
-                    <input type="text" required>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-help">
                 </div>
                 <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-help">
                 </div>
                 <div class="form-group">
-                    <label>Subject</label>
-                    <input type="text" required>
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required aria-required="true" aria-describedby="subject-help">
                 </div>
                 <div class="form-group">
-                    <label>Message</label>
-                    <textarea rows="6" required></textarea>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required aria-required="true" aria-describedby="message-help"></textarea>
                 </div>
-                <button type="submit">Send Message</button>
+                <button type="submit" aria-label="Send message form">Send Message</button>
             </form>
         </div>
     </section>
