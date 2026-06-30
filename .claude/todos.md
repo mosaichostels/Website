@@ -182,4 +182,19 @@
 **Completed:** 2/15 tasks (13%)  
 **In Progress:** Font system, modal implementation  
 **Quality Gates:** Lighthouse ≥90, WCAG AA, 8px grid, Google Sans font  
-**Next:** Dispatch Task 8 (gallery.html) after font change
+---
+
+## KNOWN ISSUES (Session 5 Continued)
+
+### Navbar Display Issue
+- ✅ Deployed: Logo image + nav-links + Book button to all 7 pages
+- ✅ HTML correct on server
+- ✅ CSS correct (all elements have right properties per JavaScript)
+- ❌ Nav-links not visible in user's browser (desktop view)
+- **Possible causes:** 
+  - Viewport ≤768px (mobile breakpoint hiding nav-links)
+  - Browser cache not clearing
+  - Rendering issue with fixed positioning
+- **Resolution:** User to test in different browser/incognito, verify viewport width
+
+**Next:** Task 14 (Lighthouse audit) if navbar displays, else debug navbar rendering
