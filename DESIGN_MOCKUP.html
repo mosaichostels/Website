@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mosaic Hostel - Design Mockup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Mosaic Theme Colors */
+            --color-primary: #B85C3C;      /* Rust/Teracotta */
+            --color-primary-light: #D97548;
+            --color-secondary: #2E5090;    /* Ocean Blue */
+            --color-accent: #6BA76B;       /* Sage Green */
+            --color-neutral-cream: #F5F1E8;
+            --color-neutral-gray: #D9D5CC;
+            --color-text-dark: #2C2420;
+            --color-text-light: #7A7269;
+            --color-error: #C1440E;
+            --color-success: #5A8C3E;
+
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+
+            /* Typography */
+            --font-heading: 'Playfair Display SC', serif;
+            --font-body: 'Karla', sans-serif;
+            --font-size-sm: 12px;
+            --font-size-base: 16px;
+            --font-size-lg: 18px;
+            --font-size-xl: 24px;
+            --font-size-2xl: 32px;
+            --font-size-3xl: 48px;
+
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.15);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.2);
+
+            /* Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap');
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-neutral-cream);
+            color: var(--color-text-dark);
+            line-height: 1.6;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        .grid {
+            display: grid;
+            gap: var(--space-lg);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            box-shadow: var(--shadow-sm);
+            z-index: 100;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md) 0;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-2xl);
+            color: var(--color-primary);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-xl);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-text-dark);
+            text-decoration: none;
+            font-size: var(--font-size-base);
+            transition: color 200ms ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--color-primary);
+            transition: width 200ms ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(0,0,0,0.1) 50%, transparent 70%);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            animation: fadeInUp 600ms ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--space-md);
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-lg);
+            opacity: 0.95;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            font-family: var(--font-body);
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 200ms ease;
+            gap: var(--space-sm);
+        }
+
+        .btn-primary {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--color-primary-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .btn-accent {
+            background: var(--color-accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background: #5A9260;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Section */
+        .section {
+            padding: var(--space-2xl) 0;
+            animation: fadeIn 600ms ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-2xl);
+            color: var(--color-primary);
+            margin-bottom: var(--space-lg);
+            position: relative;
+            padding-left: var(--space-md);
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--color-primary), var(--color-accent));
+            border-radius: var(--radius-sm);
+        }
+
+        /* Card Styles - Geometric Mosaic */
+        .card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 300ms ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--color-neutral-gray), var(--color-neutral-cream));
+        }
+
+        .card-content {
+            padding: var(--space-lg);
+        }
+
+        .card-title {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-lg);
+            color: var(--color-text-dark);
+            margin-bottom: var(--space-sm);
+        }
+
+        .card-meta {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-light);
+            margin-bottom: var(--space-md);
+        }
+
+        .card-description {
+            font-size: var(--font-size-base);
+            color: var(--color-text-light);
+            line-height: 1.6;
+        }
+
+        /* Gallery Grid - Mosaic Style */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-lg);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .gallery-filters {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: var(--space-sm) var(--space-lg);
+            border: 2px solid var(--color-primary);
+            background: transparent;
+            color: var(--color-primary);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 200ms ease;
+        }
+
+        .filter-btn.active {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        .filter-btn:hover {
+            background: var(--color-primary);
+            color: white;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        label {
+            display: block;
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+            color: var(--color-text-dark);
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--color-neutral-gray);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: var(--font-size-base);
+            transition: border-color 200ms ease;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 3px rgba(184, 92, 60, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Testimonial/Story Card */
+        .story-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-lg);
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--color-primary);
+        }
+
+        .story-card-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            margin-bottom: var(--space-md);
+        }
+
+        .story-card-quote {
+            font-size: var(--font-size-base);
+            color: var(--color-text-light);
+            font-style: italic;
+            margin-bottom: var(--space-md);
+        }
+
+        .story-card-author {
+            font-weight: 600;
+            color: var(--color-text-dark);
+            font-size: var(--font-size-sm);
+        }
+
+        /* Blog List */
+        .blog-item {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: var(--space-lg);
+            align-items: center;
+            padding: var(--space-lg);
+            background: white;
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-lg);
+            transition: transform 200ms ease;
+        }
+
+        .blog-item:hover {
+            transform: translateX(4px);
+        }
+
+        .blog-thumbnail {
+            width: 100%;
+            height: 180px;
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, var(--color-neutral-gray), var(--color-accent));
+            object-fit: cover;
+        }
+
+        .blog-content h3 {
+            font-family: var(--font-heading);
+            font-size: var(--font-size-xl);
+            color: var(--color-text-dark);
+            margin-bottom: var(--space-sm);
+        }
+
+        .blog-meta {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-light);
+            margin-bottom: var(--space-md);
+        }
+
+        .blog-excerpt {
+            color: var(--color-text-light);
+            margin-bottom: var(--space-md);
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-text-dark);
+            color: white;
+            padding: var(--space-2xl) 0;
+            margin-top: var(--space-2xl);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer-section h4 {
+            margin-bottom: var(--space-md);
+            font-family: var(--font-heading);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: var(--space-sm);
+            transition: color 200ms ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--color-primary);
+        }
+
+        /* Page Sections */
+        .page {
+            display: none;
+            animation: fadeIn 400ms ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: var(--space-md);
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero h1 {
+                font-size: var(--font-size-2xl);
+            }
+
+            .blog-item {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        /* Mosaic Pattern Background */
+        .mosaic-pattern {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mosaic-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(45deg, transparent 48%, var(--color-primary) 49%, var(--color-primary) 51%, transparent 52%),
+                linear-gradient(-45deg, transparent 48%, var(--color-accent) 49%, var(--color-accent) 51%, transparent 52%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px;
+            opacity: 0.05;
+            z-index: 0;
+        }
+
+        .section > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Interactive Elements */
+        .room-feature {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+
+        .feature-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .page-indicator {
+            position: fixed;
+            bottom: var(--space-lg);
+            right: var(--space-lg);
+            background: var(--color-primary);
+            color: white;
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-sm);
+            z-index: 50;
+        }
+
+        /* Scroll Animation */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 500ms ease;
+        }
+
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="logo">Mosaic</a>
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showPage('home')">Home</a></li>
+                    <li><a href="#" onclick="showPage('gallery')">Gallery</a></li>
+                    <li><a href="#" onclick="showPage('book')">Book Now</a></li>
+                    <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+                    <li><a href="#" onclick="showPage('about')">About</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Where Cultures & Stories Collide</h1>
+                <p>Experience Varanasi like a local. Connect with travelers from around the world.</p>
+                <button class="btn btn-primary" onclick="showPage('book')">Book Your Stay</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Rooms Preview -->
+            <section class="section mosaic-pattern">
+                <h2 class="section-title">Our Room Types</h2>
+                <div class="gallery-grid">
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">6-Bed Female Dorm</h3>
+                            <p class="card-meta">Perfect for solo travelers</p>
+                            <p class="card-description">Cozy shared dormitory with individual reading lamps and lockers. Meet other female travelers.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">8-Bed Mixed Dorm</h3>
+                            <p class="card-meta">Social & affordable</p>
+                            <p class="card-description">Large social dormitory designed for group bonding. Common areas encourage friendship.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Private Double</h3>
+                            <p class="card-meta">Intimate & comfortable</p>
+                            <p class="card-description">Elegant private room with attached bathroom. Balcony views of the Ghat.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Guest Stories -->
+            <section class="section mosaic-pattern">
+                <h2 class="section-title">Traveler Stories</h2>
+                <div class="gallery-grid">
+                    <div class="story-card">
+                        <div class="story-card-avatar"></div>
+                        <p class="story-card-quote">"I came alone and left with a family. The energy at Mosaic is magical!"</p>
+                        <p class="story-card-author">— Sophie, France</p>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-card-avatar"></div>
+                        <p class="story-card-quote">"The best hostel in Varanasi. Clean, safe, and incredible rooftop sunsets."</p>
+                        <p class="story-card-author">— Marco, Italy</p>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-card-avatar"></div>
+                        <p class="story-card-quote">"Staff helped me understand local culture. Every day was an adventure!"</p>
+                        <p class="story-card-author">— Priya, Canada</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Mosaic -->
+            <section class="section mosaic-pattern">
+                <h2 class="section-title">Why Choose Mosaic</h2>
+                <div class="gallery-grid">
+                    <div class="room-feature">
+                        <div class="feature-icon">🎨</div>
+                        <div>
+                            <h4>Artistic Vibe</h4>
+                            <p>Colorful walls, local art, and cultural experiences woven throughout.</p>
+                        </div>
+                    </div>
+                    <div class="room-feature">
+                        <div class="feature-icon">🤝</div>
+                        <div>
+                            <h4>Community First</h4>
+                            <p>Daily events, group dinners, and activities to build genuine connections.</p>
+                        </div>
+                    </div>
+                    <div class="room-feature">
+                        <div class="feature-icon">🏞️</div>
+                        <div>
+                            <h4>Ghat Access</h4>
+                            <p>Prime location steps from the spiritual heart of Varanasi.</p>
+                        </div>
+                    </div>
+                    <div class="room-feature">
+                        <div class="feature-icon">🔒</div>
+                        <div>
+                            <h4>Safe & Clean</h4>
+                            <p>24/7 security, daily housekeeping, and modern amenities.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- GALLERY PAGE -->
+    <div id="gallery" class="page">
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">Photo Gallery</h2>
+                <div class="gallery-filters">
+                    <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+                    <button class="filter-btn" onclick="filterGallery('rooms')">Rooms</button>
+                    <button class="filter-btn" onclick="filterGallery('common')">Common Areas</button>
+                    <button class="filter-btn" onclick="filterGallery('rooftop')">Rooftop</button>
+                </div>
+                <div class="gallery-grid">
+                    <div class="card gallery-item" data-filter="rooms">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Female Dorm</h3>
+                        </div>
+                    </div>
+                    <div class="card gallery-item" data-filter="rooms">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Private Double</h3>
+                        </div>
+                    </div>
+                    <div class="card gallery-item" data-filter="common">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Common Lounge</h3>
+                        </div>
+                    </div>
+                    <div class="card gallery-item" data-filter="rooftop">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Rooftop Sunset</h3>
+                        </div>
+                    </div>
+                    <div class="card gallery-item" data-filter="common">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Kitchen</h3>
+                        </div>
+                    </div>
+                    <div class="card gallery-item" data-filter="rooftop">
+                        <div class="card-image"></div>
+                        <div class="card-content">
+                            <h3 class="card-title">Rooftop Breakfast</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- BOOK NOW PAGE -->
+    <div id="book" class="page">
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">Book Your Stay at Mosaic</h2>
+                <div class="grid-2">
+                    <div>
+                        <form onsubmit="handleBooking(event)">
+                            <div class="form-group">
+                                <label>Room Type *</label>
+                                <select required>
+                                    <option value="">Select a room type</option>
+                                    <option value="female-dorm">6-Bed Female Dorm ($8/night)</option>
+                                    <option value="mixed-dorm">8-Bed Mixed Dorm ($7/night)</option>
+                                    <option value="private">Private Double ($25/night)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Check-in Date *</label>
+                                <input type="date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Check-out Date *</label>
+                                <input type="date" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" placeholder="Your full name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Email *</label>
+                                <input type="email" placeholder="your@email.com" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Phone *</label>
+                                <input type="tel" placeholder="+1 (555) 000-0000" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Special Requests</label>
+                                <textarea placeholder="Any special needs or questions?"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">Complete Booking</button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <div class="card" style="background: var(--color-neutral-cream);">
+                            <div class="card-content">
+                                <h3 class="card-title">Booking Summary</h3>
+                                <div style="margin-top: var(--space-lg);">
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-md); padding-bottom: var(--space-md); border-bottom: 1px solid var(--color-neutral-gray);">
+                                        <span>Room Type:</span>
+                                        <strong>Select above</strong>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-md); padding-bottom: var(--space-md); border-bottom: 1px solid var(--color-neutral-gray);">
+                                        <span>Number of Nights:</span>
+                                        <strong>-</strong>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; margin-bottom: var(--space-md); padding-bottom: var(--space-md); border-bottom: 1px solid var(--color-neutral-gray);">
+                                        <span>Total Price:</span>
+                                        <strong style="color: var(--color-primary); font-size: var(--font-size-lg);">Calculating...</strong>
+                                    </div>
+                                </div>
+
+                                <div style="background: white; padding: var(--space-md); border-radius: var(--radius-md); margin-top: var(--space-lg);">
+                                    <h4 style="margin-bottom: var(--space-md);">What's Included:</h4>
+                                    <ul style="list-style: none;">
+                                        <li style="margin-bottom: var(--space-sm);">✓ Free WiFi</li>
+                                        <li style="margin-bottom: var(--space-sm);">✓ Daily breakfast</li>
+                                        <li style="margin-bottom: var(--space-sm);">✓ Rooftop access</li>
+                                        <li style="margin-bottom: var(--space-sm);">✓ Free lockers</li>
+                                        <li>✓ Community events</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- BLOG PAGE -->
+    <div id="blog" class="page">
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">Travel Stories & Tips</h2>
+                <div>
+                    <div class="blog-item">
+                        <div class="blog-thumbnail"></div>
+                        <div class="blog-content">
+                            <h3>The Best Time to Visit Varanasi</h3>
+                            <p class="blog-meta">July 15, 2024 • 8 min read</p>
+                            <p class="blog-excerpt">Varanasi is a city that transforms with the seasons. Discover the best months to experience the spiritual essence of the Ghat, the vibrant festivals, and when to avoid the crowds...</p>
+                            <button class="btn btn-accent">Read More →</button>
+                        </div>
+                    </div>
+
+                    <div class="blog-item">
+                        <div class="blog-thumbnail"></div>
+                        <div class="blog-content">
+                            <h3>Solo Travel Essentials: What We Learned</h3>
+                            <p class="blog-meta">July 8, 2024 • 12 min read</p>
+                            <p class="blog-excerpt">Traveling solo can be intimidating, but it's one of the most rewarding experiences. Our community shares lessons learned, safety tips, and how hostels become homes when you're far from home...</p>
+                            <button class="btn btn-accent">Read More →</button>
+                        </div>
+                    </div>
+
+                    <div class="blog-item">
+                        <div class="blog-thumbnail"></div>
+                        <div class="blog-content">
+                            <h3>Connecting with Local Culture: A Traveler's Guide</h3>
+                            <p class="blog-meta">June 30, 2024 • 10 min read</p>
+                            <p class="blog-excerpt">Beyond the tourist attractions, Varanasi has a rich culture waiting to be explored. Learn how to respectfully immerse yourself in local traditions, food, and stories from our guests...</p>
+                            <button class="btn btn-accent">Read More →</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page">
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">About Mosaic Hostel</h2>
+                <div class="grid-2">
+                    <div>
+                        <h3 style="font-family: var(--font-heading); font-size: var(--font-size-xl); margin-bottom: var(--space-md);">Our Story</h3>
+                        <p style="margin-bottom: var(--space-md); line-height: 1.8;">Mosaic was born from a simple belief: travel is about connection, not just accommodation. Like the art form that inspired our name, we bring together people from different backgrounds, cultures, and stories to create something beautiful and meaningful.</p>
+                        <p style="margin-bottom: var(--space-md); line-height: 1.8;">Located in the spiritual heart of Varanasi, Mosaic serves as a bridge between visitors and locals, between ancient traditions and modern travelers.</p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)); border-radius: var(--radius-lg); height: 300px; display: flex; align-items: center; justify-content: center; color: white; text-align: center;">
+                        <p style="font-size: var(--font-size-2xl); font-family: var(--font-heading);">Our Vision</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: var(--space-2xl); padding: var(--space-xl); background: white; border-radius: var(--radius-lg); border-left: 4px solid var(--color-accent);">
+                    <h3 style="font-family: var(--font-heading); margin-bottom: var(--space-md);">What Makes Us Different</h3>
+                    <div class="gallery-grid">
+                        <div>
+                            <strong style="color: var(--color-primary);">🎨 Artistic Soul</strong>
+                            <p style="color: var(--color-text-light); margin-top: var(--space-sm);">Every corner celebrates art, culture, and creativity.</p>
+                        </div>
+                        <div>
+                            <strong style="color: var(--color-secondary);">🌍 Global Community</strong>
+                            <p style="color: var(--color-text-light); margin-top: var(--space-sm);">We foster connections between travelers from 50+ countries.</p>
+                        </div>
+                        <div>
+                            <strong style="color: var(--color-accent);">❤️ Responsible Tourism</strong>
+                            <p style="color: var(--color-text-light); margin-top: var(--space-sm);">We give back to local communities and support sustainable travel.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact" class="page">
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="grid-2">
+                    <form onsubmit="handleContact(event)">
+                        <div class="form-group">
+                            <label>Name *</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email *</label>
+                            <input type="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Subject *</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message *</label>
+                            <textarea required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+                    </form>
+
+                    <div>
+                        <div class="card" style="margin-bottom: var(--space-lg);">
+                            <div class="card-content">
+                                <h3 class="card-title">Contact Info</h3>
+                                <div style="margin-top: var(--space-lg);">
+                                    <p style="margin-bottom: var(--space-lg);">
+                                        <strong>Address</strong><br>
+                                        Mosaic Hostel, Varanasi<br>
+                                        Uttar Pradesh, India
+                                    </p>
+                                    <p style="margin-bottom: var(--space-lg);">
+                                        <strong>Email</strong><br>
+                                        <a href="mailto:info@mosaichostels.com" style="color: var(--color-primary); text-decoration: none;">info@mosaichostels.com</a>
+                                    </p>
+                                    <p>
+                                        <strong>Phone</strong><br>
+                                        +91 XXXX XXXX XX
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-content">
+                                <h3 class="card-title">Hours</h3>
+                                <div style="margin-top: var(--space-lg);">
+                                    <p style="display: flex; justify-content: space-between; margin-bottom: var(--space-sm);">
+                                        <span>Check-in:</span>
+                                        <strong>2:00 PM</strong>
+                                    </p>
+                                    <p style="display: flex; justify-content: space-between; margin-bottom: var(--space-sm);">
+                                        <span>Check-out:</span>
+                                        <strong>11:00 AM</strong>
+                                    </p>
+                                    <p style="display: flex; justify-content: space-between;">
+                                        <span>Reception:</span>
+                                        <strong>24/7</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- PRIVACY PAGE -->
+    <div id="privacy" class="page">
+        <div class="container">
+            <section class="section">
+                <h2 class="section-title">Privacy Policy</h2>
+                <div style="background: white; padding: var(--space-xl); border-radius: var(--radius-lg); max-width: 800px;">
+                    <h3 style="margin-top: var(--space-lg); margin-bottom: var(--space-md);">1. Information We Collect</h3>
+                    <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.8;">We collect information you provide directly, such as booking details, contact information, and preferences when you use our services.</p>
+
+                    <h3 style="margin-top: var(--space-lg); margin-bottom: var(--space-md);">2. How We Use Your Information</h3>
+                    <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.8;">Your information helps us provide better services, communicate updates, and personalize your experience at Mosaic Hostel.</p>
+
+                    <h3 style="margin-top: var(--space-lg); margin-bottom: var(--space-md);">3. Data Security</h3>
+                    <p style="color: var(--color-text-light); margin-bottom: var(--space-lg); line-height: 1.8;">We implement industry-standard security measures to protect your personal information from unauthorized access.</p>
+
+                    <h3 style="margin-top: var(--space-lg); margin-bottom: var(--space-md);">4. Your Rights</h3>
+                    <p style="color: var(--color-text-light); line-height: 1.8;">You have the right to access, update, or delete your personal information. Please contact us for any requests.</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>Mosaic Hostel</h4>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: var(--space-md);">Where cultures collide and stories begin.</p>
+                    <p style="color: rgba(255,255,255,0.5); font-size: var(--font-size-sm);">© 2024 Mosaic Hostel. All rights reserved.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPage('book')">Book Now</a></li>
+                        <li><a href="#" onclick="showPage('gallery')">Gallery</a></li>
+                        <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+                        <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="showPage('privacy')">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cancellation Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Page Indicator -->
+    <div class="page-indicator" id="pageIndicator">HOME</div>
+
+    <script>
+        // Page Navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+
+            // Show selected page
+            const page = document.getElementById(pageId);
+            if (page) {
+                page.classList.add('active');
+                document.getElementById('pageIndicator').textContent = pageId.toUpperCase();
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Gallery Filter
+        function filterGallery(filter) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            items.forEach(item => {
+                if (filter === 'all' || item.dataset.filter === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        // Form Handlers
+        function handleBooking(e) {
+            e.preventDefault();
+            alert('Booking received! We will confirm via email shortly.');
+            e.target.reset();
+        }
+
+        function handleContact(e) {
+            e.preventDefault();
+            alert('Message sent! We\'ll get back to you within 24 hours.');
+            e.target.reset();
+        }
+
+        // Scroll Animation
+        const revealElements = document.querySelectorAll('.scroll-reveal');
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

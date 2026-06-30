@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mosaic Hostel — Interactive Design</title>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E11D48;
+            --primary-light: #FB7185;
+            --primary-dark: #881337;
+            --accent: #2563EB;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --purple: #A855F7;
+            --cyan: #06B6D4;
+
+            --bg: #FFF1F2;
+            --surface: #FFFFFF;
+            --border: #FECDD3;
+            --text: #1F2937;
+            --text-light: #6B7280;
+
+            --font-heading: 'Playfair Display SC', serif;
+            --font-body: 'Karla', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: var(--font-body);
+            color: var(--text);
+            line-height: 1.6;
+            background: var(--bg);
+            overflow-x: hidden;
+        }
+
+        /* MOSAIC HERO — Animated tiles background */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--purple) 100%);
+            color: white;
+            padding: clamp(3rem, 10vh, 6rem) 1rem;
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Animated tile background pattern */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                linear-gradient(45deg, transparent 30%, rgba(255,255,255,.1) 50%, transparent 70%),
+                linear-gradient(-45deg, transparent 30%, rgba(255,255,255,.1) 50%, transparent 70%);
+            background-size: 80px 80px;
+            animation: tileShift 20s linear infinite;
+        }
+
+        @keyframes tileShift {
+            0% { background-position: 0 0, 0 0; }
+            100% { background-position: 80px 80px, -80px 80px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero::before { animation: none; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 800px;
+            animation: fadeInUp 800ms ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            opacity: 0.95;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 800ms ease-out 200ms both;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 200ms ease-out;
+            min-height: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle, rgba(255,255,255,.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 200ms;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 2px solid white;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-3px);
+        }
+
+        /* SCROLL INDICATOR */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .scroll-indicator { animation: none; opacity: 0.5; }
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        /* MOSAIC GRID SECTION */
+        .section {
+            padding: clamp(2rem, 8vw, 4rem) 1rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: clamp(1.5rem, 4vw, 3rem);
+            text-align: center;
+            color: var(--primary-dark);
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--purple));
+            border-radius: 2px;
+        }
+
+        /* MOSAIC TILE GRID — Asymmetric layout */
+        .mosaic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(1.5rem, 3vw, 2.5rem);
+            margin-bottom: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .mosaic-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .mosaic-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .mosaic-tile {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            animation: tileReveal 600ms ease-out backwards;
+        }
+
+        @keyframes tileReveal {
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Stagger each tile */
+        .mosaic-tile:nth-child(1) { animation-delay: 100ms; }
+        .mosaic-tile:nth-child(2) { animation-delay: 150ms; }
+        .mosaic-tile:nth-child(3) { animation-delay: 200ms; }
+        .mosaic-tile:nth-child(4) { animation-delay: 250ms; }
+        .mosaic-tile:nth-child(5) { animation-delay: 300ms; }
+        .mosaic-tile:nth-child(6) { animation-delay: 350ms; }
+        .mosaic-tile:nth-child(7) { animation-delay: 400ms; }
+        .mosaic-tile:nth-child(8) { animation-delay: 450ms; }
+        .mosaic-tile:nth-child(9) { animation-delay: 500ms; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .mosaic-tile {
+                animation: none !important;
+            }
+        }
+
+        .mosaic-tile:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(225, 29, 72, 0.2);
+        }
+
+        .tile-image {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        /* Color rotation for each tile */
+        .mosaic-tile:nth-child(1) .tile-image { background: linear-gradient(135deg, #E11D48, #FB7185); }
+        .mosaic-tile:nth-child(2) .tile-image { background: linear-gradient(135deg, #2563EB, #06B6D4); }
+        .mosaic-tile:nth-child(3) .tile-image { background: linear-gradient(135deg, #10B981, #059669); }
+        .mosaic-tile:nth-child(4) .tile-image { background: linear-gradient(135deg, #A855F7, #9333EA); }
+        .mosaic-tile:nth-child(5) .tile-image { background: linear-gradient(135deg, #F59E0B, #D97706); }
+        .mosaic-tile:nth-child(6) .tile-image { background: linear-gradient(135deg, #EC4899, #DB2777); }
+        .mosaic-tile:nth-child(7) .tile-image { background: linear-gradient(135deg, #06B6D4, #0891B2); }
+        .mosaic-tile:nth-child(8) .tile-image { background: linear-gradient(135deg, #8B5CF6, #7C3AED); }
+        .mosaic-tile:nth-child(9) .tile-image { background: linear-gradient(135deg, #6366F1, #4F46E5); }
+
+        .tile-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: patternShift 15s linear infinite;
+        }
+
+        @keyframes patternShift {
+            from { transform: translate(0, 0); }
+            to { transform: translate(60px, 60px); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .tile-image::before { animation: none; }
+        }
+
+        .tile-content {
+            padding: clamp(1rem, 3vw, 1.5rem);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tile-meta {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tile-title {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+            color: var(--primary-dark);
+        }
+
+        .tile-description {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .tile-cta {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 200ms ease-out;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tile-cta:hover {
+            color: var(--primary);
+            transform: translateX(4px);
+        }
+
+        .tile-cta::after {
+            content: '→';
+            transition: transform 200ms ease-out;
+        }
+
+        .tile-cta:hover::after {
+            transform: translateX(4px);
+        }
+
+        /* STATS SECTION — Color-blocked tiles */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .stat-tile {
+            padding: 2rem;
+            border-radius: 12px;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            animation: tileReveal 600ms ease-out backwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-tile::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,.1), transparent 50%);
+            pointer-events: none;
+        }
+
+        .stat-tile:nth-child(1) {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            animation-delay: 0ms;
+        }
+
+        .stat-tile:nth-child(2) {
+            background: linear-gradient(135deg, var(--accent), #1D4ED8);
+            animation-delay: 100ms;
+        }
+
+        .stat-tile:nth-child(3) {
+            background: linear-gradient(135deg, var(--success), #059669);
+            animation-delay: 200ms;
+        }
+
+        .stat-tile:nth-child(4) {
+            background: linear-gradient(135deg, var(--warning), #D97706);
+            animation-delay: 300ms;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+            text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.95;
+        }
+
+        /* TESTIMONIALS — Overlapping cards */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--primary);
+            transition: all 300ms ease-out;
+            animation: tileReveal 600ms ease-out backwards;
+        }
+
+        .testimonial:nth-child(1) { animation-delay: 0ms; border-left-color: var(--primary); }
+        .testimonial:nth-child(2) { animation-delay: 100ms; border-left-color: var(--accent); }
+        .testimonial:nth-child(3) { animation-delay: 200ms; border-left-color: var(--success); }
+
+        .testimonial:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 24px rgba(225, 29, 72, 0.15);
+        }
+
+        .stars {
+            color: var(--warning);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+        }
+
+        .quote {
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-style: italic;
+        }
+
+        .author {
+            font-weight: 600;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+        }
+
+        .author-role {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--purple) 100%);
+            color: white;
+            padding: clamp(2.5rem, 8vw, 4rem) 1.5rem;
+            text-align: center;
+            border-radius: 16px;
+            margin: 4rem auto;
+            max-width: 600px;
+            animation: fadeInUp 800ms ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 80% 20%, rgba(255,255,255,.1), transparent);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2::after {
+            display: none;
+        }
+
+        .cta-section p {
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: opacity 200ms ease-out;
+        }
+
+        footer a:hover {
+            opacity: 0.8;
+        }
+
+        /* GUTENBERG BLOCK MARKERS */
+        .block-marker {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: rgba(16, 185, 129, 0.9);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-family: monospace;
+            z-index: 10;
+            font-weight: 600;
+        }
+
+        section {
+            position: relative;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* PARALLAX EFFECT (respects prefers-reduced-motion) */
+        @supports (animation: parallax) {
+            @media (prefers-reduced-motion: no-preference) {
+                .mosaic-tile {
+                    perspective: 1000px;
+                }
+
+                .mosaic-tile:hover {
+                    --parallax: rotateX(2deg) rotateY(-2deg);
+                    transform: var(--parallax) translateY(-12px) scale(1.02);
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO BLOCK -->
+    <div class="hero">
+        <div class="block-marker">Hero Block</div>
+        <div class="hero-content">
+            <h1>Mosaic Hostel</h1>
+            <p>Where Diversity Creates Community. Backpackers, Solo Travelers & Adventurers Unite.</p>
+            <div class="cta-group">
+                <button class="btn btn-primary">Book Now</button>
+                <button class="btn btn-secondary">Explore</button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </div>
+
+    <!-- STATS SECTION -->
+    <section class="section">
+        <div class="block-marker">Stats Block</div>
+        <h2>Why Backpackers Choose Us</h2>
+        <div class="stats-grid">
+            <div class="stat-tile">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Happy Guests</span>
+            </div>
+            <div class="stat-tile">
+                <span class="stat-number">4.9★</span>
+                <span class="stat-label">Rating</span>
+            </div>
+            <div class="stat-tile">
+                <span class="stat-number">8+</span>
+                <span class="stat-label">Languages</span>
+            </div>
+            <div class="stat-tile">
+                <span class="stat-number">5yrs+</span>
+                <span class="stat-label">Established</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG MOSAIC GRID -->
+    <section class="section">
+        <div class="block-marker">Blog Grid Block</div>
+        <h2>Travel Stories & Guides</h2>
+        <div class="mosaic-grid">
+            <div class="mosaic-tile">
+                <div class="tile-image">📍</div>
+                <div class="tile-content">
+                    <div class="tile-meta">June 2, 2026</div>
+                    <div class="tile-title">Best Time to Visit Varanasi</div>
+                    <div class="tile-description">Month by month guide covering weather, festivals, crowds, and insider planning tips.</div>
+                    <a href="#" class="tile-cta">Read More</a>
+                </div>
+            </div>
+
+            <div class="mosaic-tile">
+                <div class="tile-image">🧳</div>
+                <div class="tile-content">
+                    <div class="tile-meta">May 26, 2026</div>
+                    <div class="tile-title">Solo Female Travel Safety</div>
+                    <div class="tile-description">Honest safety guide with practical tips, best areas to stay, and navigating the Ghats.</div>
+                    <a href="#" class="tile-cta">Read More</a>
+                </div>
+            </div>
+
+            <div class="mosaic-tile">
+                <div class="tile-image">🚤</div>
+                <div class="tile-content">
+                    <div class="tile-meta">May 19, 2026</div>
+                    <div class="tile-title">7 Must-Do Experiences</div>
+                    <div class="tile-description">Subah-e-Banaras, boat rides, BHU campus, and the ancient lanes of Kashi.</div>
+                    <a href="#" class="tile-cta">Read More</a>
+                </div>
+            </div>
+
+            <div class="mosaic-tile">
+                <div class="tile-image">🏞️</div>
+                <div class="tile-content">
+                    <div class="tile-meta">May 12, 2026</div>
+                    <div class="tile-title">Assi Ghat Guide</div>
+                    <div class="tile-description">Authentic atmosphere, close to all ghats, walkable neighbourhood perfect for your stay.</div>
+                    <a href="#" class="tile-cta">Read More</a>
+                </div>
+            </div>
+
+            <div class="mosaic-tile">
+                <div class="tile-image">🎭</div>
+                <div class="tile-content">
+                    <div class="tile-meta">May 5, 2026</div>
+                    <div class="tile-title">Top Varanasi Experiences</div>
+                    <div class="tile-description">Ganga Aarti, Subah-e-Banaras, ancient lanes of Kashi, and spiritual awakening.</div>
+                    <a href="#" class="tile-cta">Read More</a>
+                </div>
+            </div>
+
+            <div class="mosaic-tile">
+                <div class="tile-image">🌅</div>
+                <div class="tile-content">
+                    <div class="tile-meta">April 28, 2026</div>
+                    <div class="tile-title">Backpacker's Assi Guide</div>
+                    <div class="tile-description">Morning ceremonies, boat rides, chai spots, walking routes, and where to stay.</div>
+                    <a href="#" class="tile-cta">Read More</a>
+                </div>
+            </div>
+
+            <div class="mosaic-tile">
+                <div class="tile-image">✨</div>
+                <div class="tile-content">
+                    <div class="tile-meta">April 21, 2026</div>
+                    <div class="tile-title">Why We Love Mosaic</div>
+                    <div class="tile-description">Rooftop views, amazing community atmosphere, and helpful staff. Home away from home.</div>
+                    <a href="#" class="tile-cta">Read More</a>
+                </div>
+            </div>
+
+            <div class="mosaic-tile">
+                <div class="tile-image">🏨</div>
+                <div class="tile-content">
+                    <div class="tile-meta">April 14, 2026</div>
+                    <div class="tile-title">Living Near Assi Ghat</div>
+                    <div class="tile-description">What to expect — neighbourhood, morning rituals, local food, and perfect stay locations.</div>
+                    <a href="#" class="tile-cta">Read More</a>
+                </div>
+            </div>
+
+            <div class="mosaic-tile">
+                <div class="tile-image">🌟</div>
+                <div class="tile-content">
+                    <div class="tile-meta">April 7, 2026</div>
+                    <div class="tile-title">Best Hostels in Varanasi</div>
+                    <div class="tile-description">Comprehensive comparison, reviews, and why Mosaic stands out for community-focused travelers.</div>
+                    <a href="#" class="tile-cta">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="section">
+        <div class="block-marker">Testimonials Block</div>
+        <h2>What Guests Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <div class="quote">"Best hostel experience ever! The rooftop views are stunning, and everyone feels like family. Can't wait to come back!"</div>
+                <div class="author">Sarah M.</div>
+                <div class="author-role">Solo Traveler, UK</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <div class="quote">"Perfect location, amazing vibes, super helpful staff. Met people from 15 countries. Mosaic is where memories are made."</div>
+                <div class="author">Marco T.</div>
+                <div class="author-role">Backpacker, Italy</div>
+            </div>
+
+            <div class="testimonial">
+                <div class="stars">★★★★★</div>
+                <div class="quote">"Great value, incredible community, and authentic Varanasi experience. This is home. Every traveler should stay here once."</div>
+                <div class="author">Priya L.</div>
+                <div class="author-role">Explorer, Australia</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section">
+        <div class="block-marker">CTA Block</div>
+        <div class="cta-section">
+            <h2>Ready to Join the Mosaic Family?</h2>
+            <p>Book your stay and become part of a diverse, welcoming community of travelers from around the world.</p>
+            <button class="btn btn-primary" style="color: var(--primary);">Check Availability</button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="block-marker">Footer Block</div>
+        <p style="margin-bottom: 1.5rem;">© 2026 Mosaic Hostel, Varanasi. Where Diversity Creates Community.</p>
+        <div>
+            <a href="#">Contact</a>
+            <a href="#">Rooms</a>
+            <a href="#">Blog</a>
+            <a href="#">Book</a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll + interactive feedback
+        document.querySelectorAll('.btn, .tile-cta').forEach(el => {
+            el.addEventListener('click', (e) => {
+                if (el.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    // Visual feedback
+                    el.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        el.style.transform = '';
+                    }, 150);
+                }
+            });
+        });
+
+        // Parallax effect on scroll (respects prefers-reduced-motion)
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (!prefersReducedMotion) {
+            window.addEventListener('scroll', () => {
+                const tiles = document.querySelectorAll('.mosaic-tile');
+                tiles.forEach((tile, i) => {
+                    const rect = tile.getBoundingClientRect();
+                    const scrollPercent = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+                    if (scrollPercent > 0 && scrollPercent < 1) {
+                        tile.style.opacity = Math.max(0.7, scrollPercent);
+                    }
+                });
+            });
+        }
+
+        console.log('🎨 Mosaic Interactive Design Loaded');
+        console.log('✨ Features: Staggered animations, parallax, tile reveal, color blocking');
+        console.log('✅ Gutenberg-ready blocks marked throughout');
+        console.log('🎯 Accessibility: Focus management, reduced-motion support, 44px touch targets');
+    </script>
+</body>
+</html>
