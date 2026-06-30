@@ -1119,7 +1119,7 @@
         <div class="rooms-grid" role="list">
             <div class="room-card featured" role="listitem" tabindex="0">
                 <div class="room-accent" id="roomAccent1" aria-hidden="true"></div>
-                <img class="room-image" src="images/IMG_1930.JPG" alt="Common room with open seating" loading="lazy">
+                <img class="room-image" src="images/IMG_1930.JPG" alt="Common room with open seating" loading="lazy" data-modal-src="images/IMG_1930.JPG" data-modal-alt="Common room with open seating" data-modal-title="Gathering Area">
                 <div class="room-overlay">
                     <div class="room-tag">Common Space</div>
                     <div class="room-name">Gathering Area</div>
@@ -1129,7 +1129,7 @@
 
             <div class="room-card" role="listitem" tabindex="0">
                 <div class="room-accent" id="roomAccent2" aria-hidden="true"></div>
-                <img class="room-image" src="images/IMG_1923.JPG" alt="8-Bed Mixed Dorm with bunk beds" loading="lazy">
+                <img class="room-image" src="images/IMG_1923.JPG" alt="8-Bed Mixed Dorm with bunk beds" loading="lazy" data-modal-src="images/IMG_1923.JPG" data-modal-alt="8-Bed Mixed Dorm with bunk beds" data-modal-title="8-Bed Dorm">
                 <div class="room-overlay">
                     <div class="room-tag">Mixed Dorm</div>
                     <div class="room-name">8-Bed Dorm</div>
@@ -1139,7 +1139,7 @@
 
             <div class="room-card" role="listitem" tabindex="0">
                 <div class="room-accent" id="roomAccent3" aria-hidden="true"></div>
-                <img class="room-image" src="images/IMG_1934.JPG" alt="Common area lounge space" loading="lazy">
+                <img class="room-image" src="images/IMG_1934.JPG" alt="Common area lounge space" loading="lazy" data-modal-src="images/IMG_1934.JPG" data-modal-alt="Common area lounge space" data-modal-title="Common Room">
                 <div class="room-overlay">
                     <div class="room-tag">Lounge</div>
                     <div class="room-name">Common Room</div>
@@ -1149,7 +1149,7 @@
 
             <div class="room-card" role="listitem" tabindex="0">
                 <div class="room-accent" id="roomAccent4" aria-hidden="true"></div>
-                <img class="room-image" src="images/IMG_1912.JPG" alt="Bright common area with windows" loading="lazy">
+                <img class="room-image" src="images/IMG_1912.JPG" alt="Bright common area with windows" loading="lazy" data-modal-src="images/IMG_1912.JPG" data-modal-alt="Bright common area with windows" data-modal-title="Social Hub">
                 <div class="room-overlay">
                     <div class="room-tag">Lounge</div>
                     <div class="room-name">Social Hub</div>
@@ -1159,7 +1159,7 @@
 
             <div class="room-card" role="listitem" tabindex="0">
                 <div class="room-accent" id="roomAccent5" aria-hidden="true"></div>
-                <img class="room-image" src="images/IMG_1920.JPG" alt="Private room with comfortable bedding" loading="lazy">
+                <img class="room-image" src="images/IMG_1920.JPG" alt="Private room with comfortable bedding" loading="lazy" data-modal-src="images/IMG_1920.JPG" data-modal-alt="Private room with comfortable bedding" data-modal-title="Private Room">
                 <div class="room-overlay">
                     <div class="room-tag">Private</div>
                     <div class="room-name">Private Room</div>
@@ -1496,6 +1496,32 @@
         fillTileIcon('philIcon2', [...COLORS.burgundy, ...COLORS.cobalt]);
         fillTileIcon('philIcon3', [...COLORS.sage, ...COLORS.gold]);
     </script>
+
+    <!-- ─── IMAGE MODAL INTEGRATION ─── -->
+    <script>
+        // Attach click handlers to all room card images
+        document.querySelectorAll('.room-image[data-modal-src]').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const src = img.dataset.modalSrc;
+                const alt = img.dataset.modalAlt;
+                const title = img.dataset.modalTitle;
+                openModal(src, alt, title);
+            });
+            // Add keyboard support for room cards
+            img.closest('.room-card').addEventListener('keydown', (e) => {
+                if ((e.key === 'Enter' || e.key === ' ') && e.target === img.closest('.room-card')) {
+                    e.preventDefault();
+                    const src = img.dataset.modalSrc;
+                    const alt = img.dataset.modalAlt;
+                    const title = img.dataset.modalTitle;
+                    openModal(src, alt, title);
+                }
+            });
+        });
+    </script>
+    <script src="components/modal.js"></script>
     <script src="components/loader.js"></script>
 </body>
 </html>
