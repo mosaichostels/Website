@@ -51,13 +51,18 @@
         }
 
         .nav-logo {
-            font-family: 'Google Sans', sans-serif;
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--ink);
-            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease;
+            height: 40px;
+        }
+
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 4px;
         }
 
         .nav-logo:hover, .nav-logo:focus-visible {
@@ -1050,7 +1055,7 @@
 
     <!-- NAVBAR -->
     <nav id="navbar" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="nav-logo">MOSAIC</a>
+        <a href="index.html" class="nav-logo"><img src="images/PHOTO-2025-08-30-20-52-21.jpg" alt="Mosaic Hostel Logo" style="height: 40px; width: auto;"></a>
         <ul class="nav-links" id="navLinks" role="menubar">
             <li role="none"><a href="#rooms" role="menuitem">Rooms</a></li>
             <li role="none"><a href="#experience" role="menuitem">Experience</a></li>
