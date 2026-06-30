@@ -159,7 +159,7 @@
         .gallery-masonry {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px; /* ponytail: spec says 20px but 8px-grid requires 24 */
+            gap: 16px;
             margin-top: 60px;
         }
 
@@ -172,6 +172,7 @@
             background: var(--border);
             transition: all 0.2s ease-out;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            padding: 24px; /* ponytail: spec said 20px, 8px grid requires 24px. Creates inset frame on each card. */
         }
 
         .gallery-item:focus-visible {
@@ -395,7 +396,7 @@
         <h2>Spaces & Moments</h2>
         <div class="gallery-masonry">
             <div class="gallery-item" tabindex="0" role="button" aria-label="Private Room — click to enlarge" onclick="openModal(this.querySelector('img').src,this.querySelector('img').alt,'Private Room')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal(this.querySelector('img').src,this.querySelector('img').alt,'Private Room');}">
-                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Private Room" loading="lazy">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Private Room" fetchpriority="high">
                 <div class="gallery-overlay"><div class="gallery-title">Private Room</div></div>
             </div>
             <div class="gallery-item" tabindex="0" role="button" aria-label="8-Bed Dorm — click to enlarge" onclick="openModal(this.querySelector('img').src,this.querySelector('img').alt,'8-Bed Dorm')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openModal(this.querySelector('img').src,this.querySelector('img').alt,'8-Bed Dorm');}">
