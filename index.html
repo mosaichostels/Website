@@ -6,7 +6,179 @@
     <title>Mosaic Hostels — Curated Traveler Experiences</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Placeholder for CSS — will add in later tasks */
+        :root {
+            --cream: #F5F1EB;
+            --ink: #2B2520;
+            --ink-light: #5A5450;
+            --gold: #B8860B;
+            --border: #D9D0C7;
+            --teal: #2C5561;
+            --burg: #6B3E3E;
+
+            /* Traveler tile colors */
+            --color-br: #FF6B6B;
+            --color-in: #FFA500;
+            --color-eg: #FFD700;
+            --color-au: #4A90E2;
+            --color-jp: #2E7D32;
+            --color-pl: #9C27B0;
+            --color-mag: #FF1493;
+            --color-cy: #00CED1;
+            --color-or: #FF4500;
+            --color-lime: #32CD32;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: 'Lato', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h1 { font-size: 72px; line-height: 1.1; }
+        h2 { font-size: 52px; margin-bottom: 50px; }
+        h3 { font-size: 28px; }
+
+        body {
+            font-size: 15px;
+            font-weight: 300;
+        }
+
+        label, .label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        section {
+            padding: 120px 0;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(245, 241, 235, 0.98);
+            backdrop-filter: blur(12px);
+            padding: 24px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 999;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--gold);
+            cursor: pointer;
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 50px;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: 400;
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            position: relative;
+            transition: color 400ms ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 500ms ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--gold);
+        }
+
+        /* Pages */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeInPage 700ms ease-out;
+        }
+
+        @keyframes fadeInPage {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Canvas */
+        canvas {
+            display: block;
+            background: var(--cream);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ink);
+            color: var(--cream);
+            padding: 80px 60px;
+            text-align: center;
+            margin-top: 120px;
+        }
     </style>
 </head>
 <body>
