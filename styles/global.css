@@ -394,6 +394,90 @@ button + input {
     padding-left: 12px;
 }
 
+/* ─── IMAGE MODAL LIGHTBOX ─── */
+.modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(26, 18, 8, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 20px;
+}
+
+.modal-backdrop.modal-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-container {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    animation: modalSlideIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 36px;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    min-width: 40px;
+    min-height: 40px;
+}
+
+.modal-close:hover, .modal-close:focus-visible {
+    transform: scale(1.1) rotate(90deg);
+    color: var(--gold);
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-caption {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.5px;
+    margin-top: 12px;
+}
+
 /* ─── ANIMATIONS ─── */
 @keyframes fadeInUp {
     from {
