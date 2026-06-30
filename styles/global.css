@@ -284,7 +284,7 @@ p {
     letter-spacing: 0.3px;
 }
 
-/* ─── BUTTONS ─── */
+/* ─── BUTTONS (Micro-interactions: 150ms ease-out) ─── */
 button, .btn-primary, .btn-secondary {
     padding: 16px 24px;
     font-size: 12px;
@@ -294,7 +294,7 @@ button, .btn-primary, .btn-secondary {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 150ms ease-out;
     min-height: 48px;
     display: inline-flex;
     align-items: center;
@@ -308,7 +308,7 @@ button, .btn-primary, .btn-secondary {
 
 .btn-primary:hover, .btn-primary:focus-visible {
     background: #a06e08;
-    transform: translateY(-2px);
+    transform: scale(1.02) translateY(-2px);
     box-shadow: 0 12px 30px rgba(200, 138, 10, 0.25);
 }
 
@@ -321,6 +321,7 @@ button, .btn-primary, .btn-secondary {
 .btn-secondary:hover, .btn-secondary:focus-visible {
     background: var(--ink);
     color: white;
+    transform: scale(1.02);
 }
 
 /* ─── FORMS ─── */
@@ -351,6 +352,17 @@ label {
     color: var(--gold);
     margin-bottom: 8px;
     font-weight: 600;
+    transition: all 80ms ease-out;
+}
+
+/* Card hover effect: 200ms ease-out with lift */
+.card {
+    transition: all 200ms ease-out;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* ─── ANIMATIONS ─── */
@@ -368,6 +380,18 @@ label {
 @keyframes pulse {
     0%, 100% { transform: translateX(-50%) translateY(0); opacity: 1; }
     50% { transform: translateX(-50%) translateY(8px); opacity: 0.5; }
+}
+
+/* Respect user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* ─── RESPONSIVE ─── */
