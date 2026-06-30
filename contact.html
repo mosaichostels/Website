@@ -39,11 +39,23 @@
         /* Mobile-first: 1-column layout (form first, then contact info) */
         .contact-grid { display: flex; flex-direction: column; gap: 40px; }
 
-        .contact-info { order: 2; }
+        /* ponytail: card styles base — applied at all breakpoints, desktop overrides padding only */
+        .contact-info {
+            background: var(--cream);
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
         .contact-info h2 { font-size: 28px; margin-bottom: 24px; }
 
-        form { order: 1; background: white; padding: 20px; border-radius: 8px; }
+        form { background: white; padding: 20px; border-radius: 8px; }
         form h2 { font-size: 28px; }
+
+        /* ARIA live region — hidden until populated */
+        #form-status { border-radius: 4px; font-size: 14px; line-height: 1.5; }
+        #form-status:not(:empty) { padding: 12px 16px; margin-bottom: 16px; }
+        #form-status.success { background: #d4edda; color: #155724; }
+        #form-status.error { background: #f8d7da; color: #721c24; }
 
         .form-group { margin-bottom: 24px; }
 
@@ -165,12 +177,11 @@
                 align-items: flex-start;
             }
 
+            /* Form is first in DOM (correct mobile screen-reader order);
+               on desktop push contact-info to the left column */
             .contact-info {
-                order: 1;
-                background: var(--cream);
+                order: -1;
                 padding: 32px;
-                border-radius: 8px;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
                 position: sticky;
                 top: 100px;
             }
@@ -181,7 +192,6 @@
             }
 
             form {
-                order: 2;
                 background: white;
                 padding: 40px;
                 border-radius: 8px;
@@ -194,8 +204,6 @@
             }
 
             button { width: auto; }
-
-            h2 { margin-bottom: 0; }
         }
 
         @media (max-width: 767px) {
@@ -225,6 +233,28 @@
 
     <section>
         <div class="contact-grid">
+            <form aria-label="Contact form">
+                <h2>Send us a Message</h2>
+                <div role="alert" aria-live="polite" id="form-status"></div>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required aria-required="true"></textarea>
+                </div>
+                <button type="submit">Send Message</button>
+            </form>
+
             <div class="contact-info">
                 <h2>Contact Information</h2>
                 <div class="info-item">
@@ -248,27 +278,6 @@
                     <p>Reception: 24/7<br>Check-in: 2:00 PM<br>Check-out: 11:00 AM</p>
                 </div>
             </div>
-
-            <form>
-                <h2>Send us a Message</h2>
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-help">
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-help">
-                </div>
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required aria-required="true" aria-describedby="subject-help">
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required aria-required="true" aria-describedby="message-help"></textarea>
-                </div>
-                <button type="submit" aria-label="Send message form">Send Message</button>
-            </form>
         </div>
     </section>
 
@@ -313,9 +322,21 @@
             crx += (cx - crx) * 0.2; cry += (cy - cry) * 0.2;
             cursorRing.style.left = crx + 'px'; cursorRing.style.top = cry + 'px';
         });
-        document.querySelector('form').addEventListener('submit', (e) => {
+        const form = document.querySelector('form');
+        const status = document.getElementById('form-status');
+
+        form.addEventListener('submit', (e) => {
             e.preventDefault();
-            alert('Message sent! We will get back to you soon.');
+            const invalid = [...form.querySelectorAll('[required]')].filter(f => !f.value.trim());
+            if (invalid.length) {
+                status.className = 'error';
+                status.textContent = 'Please fill in all required fields.';
+                invalid[0].focus();
+                return;
+            }
+            status.className = 'success';
+            status.textContent = 'Message sent! We will get back to you soon.';
+            form.reset();
         });
     </script>
     <script src="components/loader.js"></script>
