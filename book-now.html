@@ -195,31 +195,39 @@
 
         label {
             display: block;
-            font-size: 12px;
-            letter-spacing: 2px;
+            font-size: 13px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             color: var(--gold);
             margin-bottom: 8px;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         input, select, textarea {
             width: 100%;
-            padding: 12px 16px;
+            padding: 16px;
+            min-height: 48px;
             background: #f9f7f3;
             border: 1px solid var(--border);
             border-radius: 4px;
             color: var(--ink);
             font-family: 'Google Sans', sans-serif;
-            font-size: 14px;
+            font-size: 16px;
             transition: all 0.3s ease;
+        }
+
+        textarea {
+            min-height: auto;
+            padding: 16px;
         }
 
         input:focus, select:focus, textarea:focus {
             outline: none;
             border-color: var(--gold);
             background: white;
-            box-shadow: 0 0 0 3px rgba(200, 138, 10, 0.1);
+            box-shadow: 0 0 0 3px rgba(200, 138, 10, 0.2);
+            outline: 3px solid var(--gold);
+            outline-offset: 2px;
         }
 
         .form-row {
@@ -230,46 +238,65 @@
 
         button {
             padding: 12px 24px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 1px;
             text-transform: uppercase;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.15s ease-out;
+            min-height: 48px;
+            min-width: 48px;
         }
 
         .btn-primary {
             background: var(--gold);
             color: white;
             width: 100%;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
         }
 
         .btn-primary:hover {
-            background: #a06e08;
+            background: #8B6914;
             transform: translateY(-2px);
             box-shadow: 0 12px 30px rgba(200, 138, 10, 0.25);
+        }
+
+        .btn-primary:focus, .btn-primary:active {
+            outline: 3px solid var(--gold);
+            outline-offset: 2px;
+            background: var(--gold);
         }
 
         /* ─── BOOKING SUMMARY ─── */
         .booking-summary {
             background: white;
-            padding: 40px;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 100px;
             height: fit-content;
+            z-index: 900;
+        }
+
+        .booking-summary.sticky-scroll {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .summary-title {
             font-family: 'Google Sans', sans-serif;
-            font-size: 24px;
-            font-weight: 400;
+            font-size: 20px;
+            font-weight: 600;
             color: var(--ink);
-            margin-bottom: 24px;
-            padding-bottom: 24px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
             border-bottom: 2px solid var(--border);
         }
 
@@ -336,6 +363,10 @@
             text-align: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            min-height: 240px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .room-option:hover {
@@ -344,10 +375,25 @@
             transform: translateY(-4px);
         }
 
+        .room-option:focus-within {
+            outline: 3px solid var(--gold);
+            outline-offset: 2px;
+        }
+
+        .room-option input:checked ~ h3,
+        .room-option input:checked ~ .room-capacity,
+        .room-option input:checked ~ .room-price {
+            color: var(--gold);
+        }
+
+        .room-option input:checked {
+            border-color: var(--gold);
+        }
+
         .room-option h3 {
             font-family: 'Google Sans', sans-serif;
-            font-size: 18px;
-            font-weight: 400;
+            font-size: 20px;
+            font-weight: 600;
             color: var(--ink);
             margin-bottom: 8px;
         }
@@ -361,16 +407,17 @@
         }
 
         .room-price {
-            font-size: 24px;
+            font-size: 18px;
             color: var(--gold);
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 16px;
         }
 
         .room-features {
-            font-size: 12px;
+            font-size: 14px;
             color: var(--text-muted);
             line-height: 1.8;
+            margin-bottom: 16px;
         }
 
         /* ─── FOOTER ─── */
@@ -426,6 +473,7 @@
 
             .booking-summary {
                 position: static;
+                margin-top: 32px;
             }
 
             .rooms-grid {
@@ -453,20 +501,72 @@
             }
 
             .booking-form {
-                padding: 24px;
+                padding: 20px;
+            }
+
+            .booking-form h2 {
+                font-size: 28px;
+                margin-bottom: 24px;
+            }
+
+            .form-group {
+                margin-bottom: 20px;
             }
 
             .form-row {
                 grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            input, select, textarea {
+                font-size: 16px;
+                min-height: 48px;
+                padding: 16px;
+            }
+
+            .btn-primary {
+                font-size: 16px;
+                padding: 14px 20px;
             }
 
             .rooms-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
 
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            section {
+                padding: 40px 16px;
+            }
+
+            .booking-form {
+                padding: 16px;
+            }
+
+            .booking-form h2 {
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            input, select, textarea {
+                font-size: 16px;
+                min-height: 48px;
+                padding: 14px 12px;
+            }
+
+            label {
+                font-size: 12px;
+            }
+
+            .btn-primary {
+                font-size: 14px;
+                padding: 12px 16px;
             }
         }
     </style>
@@ -498,36 +598,41 @@
         <h2 style="font-family: 'Google Sans', sans-serif; font-size: 42px; font-weight: 400; margin-bottom: 40px;">Select Your Room</h2>
 
         <div class="rooms-grid">
-            <div class="room-option">
+            <label class="room-option">
+                <input type="radio" name="room_select" value="female" style="display: none;" aria-label="6-Bed Female Dorm">
                 <h3>6-Bed Female Dorm</h3>
                 <div class="room-capacity">Ladies Only</div>
                 <div class="room-price">₹400<span style="font-size: 14px; font-weight: 400;">/night</span></div>
                 <div class="room-features">AC · Lockers · WiFi · Secure · Shared Bath</div>
-            </div>
-            <div class="room-option">
+            </label>
+            <label class="room-option">
+                <input type="radio" name="room_select" value="4bed" style="display: none;" aria-label="4-Bed Mixed Dorm">
                 <h3>4-Bed Dorm</h3>
                 <div class="room-capacity">Mixed</div>
                 <div class="room-price">₹450<span style="font-size: 14px; font-weight: 400;">/night</span></div>
                 <div class="room-features">AC · Lockers · WiFi · Shared Bath</div>
-            </div>
-            <div class="room-option">
+            </label>
+            <label class="room-option">
+                <input type="radio" name="room_select" value="6bed" style="display: none;" aria-label="6-Bed Mixed Dorm">
                 <h3>6-Bed Dorm</h3>
                 <div class="room-capacity">Mixed</div>
                 <div class="room-price">₹380<span style="font-size: 14px; font-weight: 400;">/night</span></div>
                 <div class="room-features">AC · Lockers · WiFi · Shared Bath</div>
-            </div>
-            <div class="room-option">
+            </label>
+            <label class="room-option">
+                <input type="radio" name="room_select" value="8bed" style="display: none;" aria-label="8-Bed Mixed Dorm">
                 <h3>8-Bed Dorm</h3>
                 <div class="room-capacity">Mixed</div>
                 <div class="room-price">₹350<span style="font-size: 14px; font-weight: 400;">/night</span></div>
                 <div class="room-features">AC · Lockers · WiFi · Shared Bath</div>
-            </div>
-            <div class="room-option">
+            </label>
+            <label class="room-option">
+                <input type="radio" name="room_select" value="private" style="display: none;" aria-label="Private Double Room">
                 <h3>Private Room</h3>
                 <div class="room-capacity">Double</div>
                 <div class="room-price">₹800<span style="font-size: 14px; font-weight: 400;">/night</span></div>
                 <div class="room-features">AC · Private Bath · WiFi · Lockers</div>
-            </div>
+            </label>
         </div>
     </section>
 
@@ -538,18 +643,18 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Check-in Date</label>
-                        <input type="date" required>
+                        <label for="checkin">Check-in Date</label>
+                        <input type="date" id="checkin" name="checkin" aria-label="Check-in date" required>
                     </div>
                     <div class="form-group">
-                        <label>Check-out Date</label>
-                        <input type="date" required>
+                        <label for="checkout">Check-out Date</label>
+                        <input type="date" id="checkout" name="checkout" aria-label="Check-out date" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Room Type</label>
-                    <select required>
+                    <label for="room-type">Room Type</label>
+                    <select id="room-type" name="room_type" aria-label="Select room type" required>
                         <option value="">Select a room</option>
                         <option value="female">6-Bed Female Dorm — ₹400/night</option>
                         <option value="4bed">4-Bed Mixed Dorm — ₹450/night</option>
@@ -561,32 +666,32 @@
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Number of Guests</label>
-                        <input type="number" min="1" max="8" value="1" required>
+                        <label for="guests">Number of Guests</label>
+                        <input type="number" id="guests" name="guests" min="1" max="8" value="1" aria-label="Number of guests" required>
                     </div>
                     <div class="form-group">
-                        <label>Phone Number</label>
-                        <input type="tel" placeholder="+91 XXXXX XXXXX" required>
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX" aria-label="Phone number" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" placeholder="Your full name" required>
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" aria-label="Full name" required>
                     </div>
                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" placeholder="your@email.com" required>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" aria-label="Email address" required>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label>Special Requests</label>
-                    <textarea placeholder="Any special requests?" rows="4"></textarea>
+                    <label for="requests">Special Requests</label>
+                    <textarea id="requests" name="requests" placeholder="Any special requests?" rows="4" aria-label="Special requests (optional)"></textarea>
                 </div>
 
-                <button type="submit" class="btn-primary">Complete Booking →</button>
+                <button type="submit" class="btn-primary" aria-label="Submit booking">Complete Booking →</button>
             </form>
 
             <div class="booking-summary">
