@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery — Mosaic Hostel Varanasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #C88A0A;
+            --gold-light: #E8B044;
+            --cream: #FAF4EA;
+            --ink: #1A1208;
+            --ink-dark: #0F0A05;
+            --border: #E0D5C7;
+            --teal: #2A6B7A;
+            --teal-light: #2D9AAA;
+            --burgundy: #8B1C1C;
+            --sage: #3D6B3A;
+            --cobalt: #1A3A6B;
+            --text-muted: #999;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            background: rgba(250, 244, 234, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-book {
+            padding: 12px 24px;
+            background: var(--gold);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .nav-book:hover {
+            background: #a06e08;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(200, 138, 10, 0.2);
+        }
+
+        /* CURSOR */
+        #cursor {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: multiply;
+        }
+
+        #cursor-ring {
+            position: fixed;
+            width: 36px;
+            height: 36px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* HERO */
+        .hero-section {
+            background: linear-gradient(135deg, rgba(26, 18, 8, 0.7), rgba(26, 18, 8, 0.85)),
+                        url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .hero-section h1 {
+            font-family: 'Crimson Text', serif;
+            font-size: 56px;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        /* MAIN */
+        section {
+            padding: 100px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: 42px;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
+        /* GALLERY */
+        .gallery-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 60px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            background: var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        .gallery-item:nth-child(5) { grid-column: span 2; }
+        .gallery-item:nth-child(8) { grid-row: span 2; }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 18, 8, 0.6);
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 10;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-title {
+            color: white;
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--ink);
+            color: white;
+            padding: 80px 60px 40px;
+        }
+
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: var(--gold-light);
+        }
+
+        .footer-col a {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 13px;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; height: 70px; }
+            .hero-section { margin-top: 70px; height: 250px; }
+            .hero-section h1 { font-size: 36px; }
+            section { padding: 60px 20px; }
+            h2 { font-size: 32px; }
+            .gallery-masonry { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+            .gallery-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+            .gallery-item:nth-child(5) { grid-column: span 1; }
+            .gallery-item:nth-child(8) { grid-row: span 1; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+    </style>
+    <link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <nav>
+        <a href="index.html" class="nav-logo">MOSAIC</a>
+        <ul class="nav-links">
+            <li><a href="index.html#rooms">Rooms</a></li>
+            <li><a href="book-now.html">Book</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="nav-book">Book Now</button>
+    </nav>
+
+    <div class="hero-section">
+        <h1>Our Gallery</h1>
+    </div>
+
+    <section>
+        <h2>Spaces & Moments</h2>
+        <div class="gallery-masonry">
+            <div class="gallery-item">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Private Room">
+                <div class="gallery-overlay"><div class="gallery-title">Private Room</div></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_1933-2-scaled.jpg" alt="8-Bed Dorm">
+                <div class="gallery-overlay"><div class="gallery-title">8-Bed Dorm</div></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2723-2-scaled.jpg" alt="6-Bed Dorm">
+                <div class="gallery-overlay"><div class="gallery-title">6-Bed Dorm</div></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2733-3-scaled.jpg" alt="4-Bed Dorm">
+                <div class="gallery-overlay"><div class="gallery-title">4-Bed Dorm</div></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1920-scaled.jpg" alt="Female Dorm">
+                <div class="gallery-overlay"><div class="gallery-title">6-Bed Female Dorm</div></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg" alt="Rooftop">
+                <div class="gallery-overlay"><div class="gallery-title">Rooftop Terrace</div></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2733-3-scaled.jpg" alt="Common Area">
+                <div class="gallery-overlay"><div class="gallery-title">Common Area</div></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Lounge">
+                <div class="gallery-overlay"><div class="gallery-title">Lounge</div></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_1933-2-scaled.jpg" alt="Bathroom">
+                <div class="gallery-overlay"><div class="gallery-title">Facilities</div></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Mosaic Hostel</h3>
+                <p style="font-size: 13px; line-height: 1.8; color: rgba(255, 255, 255, 0.6);">Varanasi's premier hostel steps from the sacred Ghats.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <a href="index.html">Home</a>
+                <a href="book-now.html">Book Now</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h3>Connect</h3>
+                <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
+                <a href="mailto:mosaichostels@gmail.com">Email</a>
+                <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+            </div>
+            <div class="footer-col">
+                <h3>Book</h3>
+                <a href="https://www.booking.com/hotel/in/mosaic-hostel-varanasi.html" target="_blank">Booking.com</a>
+                <a href="https://www.hostelworld.com/hostels/p/335875" target="_blank">Hostelworld</a>
+                <a href="https://www.agoda.com/en-za/mosaic-hostel-varanasi" target="_blank">Agoda</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Mosaic Hostel Varanasi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        const cursorRing = document.getElementById('cursor-ring');
+        let cursorX = 0, cursorY = 0, crX = 0, crY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            cursorX = e.clientX;
+            cursorY = e.clientY;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            crX += (cursorX - crX) * 0.2;
+            crY += (cursorY - crY) * 0.2;
+            cursorRing.style.left = crX + 'px';
+            cursorRing.style.top = crY + 'px';
+        });
+
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.style.width = '16px';
+                cursor.style.height = '16px';
+                cursorRing.style.width = '48px';
+                cursorRing.style.height = '48px';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.style.width = '10px';
+                cursor.style.height = '10px';
+                cursorRing.style.width = '36px';
+                cursorRing.style.height = '36px';
+            });
+        });
+    </script>
+    <script src="components/loader.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Mosaic Hostel Varanasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #C88A0A;
+            --gold-light: #E8B044;
+            --cream: #FAF4EA;
+            --ink: #1A1208;
+            --border: #E0D5C7;
+            --teal: #2A6B7A;
+            --text-muted: #999;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            background: rgba(250, 244, 234, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+        .nav-logo {
+            font-family: 'Crimson Text', serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--ink);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+        .nav-book {
+            padding: 12px 24px;
+            background: var(--gold);
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .nav-book:hover {
+            background: #a06e08;
+            transform: translateY(-2px);
+        }
+        #cursor {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: multiply;
+        }
+        #cursor-ring {
+            position: fixed;
+            width: 36px;
+            height: 36px;
+            border: 2px solid var(--gold);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, rgba(26, 18, 8, 0.7), rgba(26, 18, 8, 0.85)),
+                        url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+        .hero-section h1 {
+            font-family: 'Crimson Text', serif;
+            font-size: 56px;
+            font-weight: 400;
+        }
+        section {
+            padding: 100px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h2 {
+            font-family: 'Crimson Text', serif;
+            font-size: 42px;
+            font-weight: 400;
+            margin-bottom: 32px;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 60px;
+        }
+        .content-grid img {
+            width: 100%;
+            border-radius: 8px;
+        }
+        .content-text p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+        footer {
+            background: var(--ink);
+            color: white;
+            padding: 80px 60px 40px;
+        }
+        .footer-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+        .footer-col h3 {
+            font-family: 'Crimson Text', serif;
+            font-size: 18px;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: var(--gold-light);
+        }
+        .footer-col a {
+            display: block;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 13px;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+        }
+        .footer-col a:hover {
+            color: var(--gold-light);
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; height: 70px; }
+            section { padding: 60px 20px; }
+            h2 { font-size: 32px; }
+            .content-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    <link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+    <nav>
+        <a href="index.html" class="nav-logo">MOSAIC</a>
+        <ul class="nav-links">
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="book-now.html">Book</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <button class="nav-book">Book Now</button>
+    </nav>
+
+    <div class="hero-section">
+        <h1>About Mosaic</h1>
+    </div>
+
+    <section>
+        <h2>Our Story</h2>
+        <div class="content-grid">
+            <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg" alt="Mosaic Hostel">
+            <div class="content-text">
+                <p>Mosaic Hostel Varanasi was founded with a simple mission: to create a space where travelers from around the world can come together, share stories, and experience the magic of Varanasi like locals.</p>
+                <p>Located steps from the sacred Ghats, our hostel is more than just a place to stay. It's a community where cultures collide, friendships form, and memories are created that last a lifetime.</p>
+                <p>Each room, each tile, each corner of Mosaic represents a different piece of the world. Together, we create something beautiful—a mosaic of human connection and shared experience.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Our Values</h2>
+        <div class="content-grid">
+            <div class="content-text">
+                <p><strong>Community First:</strong> We believe in the power of connection. Every event, activity, and design choice is made to bring travelers together.</p>
+                <p><strong>Cultural Respect:</strong> Varanasi is a sacred city. We honor its traditions while creating a bridge between locals and visitors.</p>
+                <p><strong>Safety & Comfort:</strong> Your well-being matters. We provide secure rooms, reliable WiFi, and 24/7 support so you can focus on adventure.</p>
+            </div>
+            <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Our Values">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Mosaic Hostel</h3>
+                <p style="font-size: 13px; color: rgba(255, 255, 255, 0.6);">Where cultures collide. Where friends are made.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Navigate</h3>
+                <a href="index.html">Home</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h3>Connect</h3>
+                <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
+                <a href="mailto:mosaichostels@gmail.com">Email</a>
+                <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+            </div>
+            <div class="footer-col">
+                <h3>Legal</h3>
+                <a href="privacy.html">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="contact.html">Support</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Mosaic Hostel Varanasi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        const cursorRing = document.getElementById('cursor-ring');
+        let cx = 0, cy = 0, crx = 0, cry = 0;
+        document.addEventListener('mousemove', (e) => {
+            cx = e.clientX; cy = e.clientY;
+            cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
+            crx += (cx - crx) * 0.2; cry += (cy - cry) * 0.2;
+            cursorRing.style.left = crx + 'px'; cursorRing.style.top = cry + 'px';
+        });
+    </script>
+    <script src="components/loader.js"></script>
+</body>
+</html>

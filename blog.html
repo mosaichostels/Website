@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Mosaic Hostel Varanasi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Text:ital@0;1&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #C88A0A;
+            --cream: #FAF4EA;
+            --ink: #1A1208;
+            --border: #E0D5C7;
+            --text-muted: #999;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            background: rgba(250, 244, 234, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+        .nav-logo { font-family: 'Crimson Text', serif; font-size: 26px; font-weight: 700; color: var(--ink); text-decoration: none; }
+        .nav-links { display: flex; gap: 48px; list-style: none; }
+        .nav-links a { color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-book { padding: 12px 24px; background: var(--gold); color: white; border: none; border-radius: 4px; cursor: pointer; }
+        #cursor { position: fixed; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; z-index: 9999; mix-blend-mode: multiply; }
+        #cursor-ring { position: fixed; width: 36px; height: 36px; border: 2px solid var(--gold); border-radius: 50%; z-index: 9999; }
+        .hero { background: linear-gradient(135deg, rgba(26,18,8,0.7), rgba(26,18,8,0.85)), url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover; height: 300px; display: flex; align-items: center; justify-content: center; color: white; margin-top: 80px; text-align: center; }
+        .hero h1 { font-family: 'Crimson Text', serif; font-size: 56px; }
+        section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
+        h2 { font-family: 'Crimson Text', serif; font-size: 42px; margin-bottom: 60px; }
+        .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .blog-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: all 0.3s; }
+        .blog-card:hover { transform: translateY(-8px); box-shadow: 0 12px 40px rgba(0,0,0,0.1); }
+        .blog-image { width: 100%; height: 300px; object-fit: cover; }
+        .blog-content { padding: 32px; }
+        .blog-date { font-size: 12px; color: var(--text-muted); letter-spacing: 2px; text-transform: uppercase; }
+        .blog-title { font-family: 'Crimson Text', serif; font-size: 24px; margin: 16px 0; }
+        .blog-excerpt { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+        .read-more { display: inline-block; margin-top: 16px; color: var(--gold); text-decoration: none; font-weight: 600; transition: all 0.3s; }
+        .read-more:hover { transform: translateX(4px); }
+        footer { background: var(--ink); color: white; padding: 80px 60px 40px; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 60px; margin-bottom: 60px; }
+        .footer-col h3 { font-family: 'Crimson Text', serif; font-size: 18px; margin-bottom: 24px; color: #E8B044; }
+        .footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; margin-bottom: 16px; }
+        .footer-col a:hover { color: #E8B044; }
+        @media (max-width: 768px) {
+            nav { padding: 0 20px; height: 70px; }
+            section { padding: 60px 20px; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+    <link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+    <nav>
+        <a href="index.html" class="nav-logo">MOSAIC</a>
+        <ul class="nav-links">
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="book-now.html">Book</a></li>
+        </ul>
+        <button class="nav-book">Book Now</button>
+    </nav>
+
+    <div class="hero">
+        <h1>Our Blog</h1>
+    </div>
+
+    <section>
+        <h2>Stories from Varanasi</h2>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg" alt="Blog Post">
+                <div class="blog-content">
+                    <div class="blog-date">June 30, 2025</div>
+                    <h3 class="blog-title">The Magic of Ganga Aarti</h3>
+                    <p class="blog-excerpt">Experience the spiritual essence of Varanasi through the evening ritual that has captivated pilgrims for centuries.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_1933-2-scaled.jpg" alt="Blog Post">
+                <div class="blog-content">
+                    <div class="blog-date">June 28, 2025</div>
+                    <h3 class="blog-title">Top 5 Hidden Gems in Varanasi</h3>
+                    <p class="blog-excerpt">Discover the lesser-known corners of the city that locals love, away from the typical tourist trails.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2723-2-scaled.jpg" alt="Blog Post">
+                <div class="blog-content">
+                    <div class="blog-date">June 25, 2025</div>
+                    <h3 class="blog-title">Travel Tips for First-Time Visitors</h3>
+                    <p class="blog-excerpt">Make the most of your Varanasi experience with these practical tips and local insights from our staff.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+            <div class="blog-card">
+                <img src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2733-3-scaled.jpg" alt="Blog Post">
+                <div class="blog-content">
+                    <div class="blog-date">June 22, 2025</div>
+                    <h3 class="blog-title">Hostel Life: Stories from Our Guests</h3>
+                    <p class="blog-excerpt">Read inspiring stories from travelers who found community, adventure, and friendship at Mosaic Hostel.</p>
+                    <a href="#" class="read-more">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>Mosaic</h3>
+                <p style="font-size: 13px; color: rgba(255,255,255,0.6);">Where stories come together.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Explore</h3>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact.html">Contact</a>
+            </div>
+            <div class="footer-col">
+                <h3>Connect</h3>
+                <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+                <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
+                <a href="mailto:mosaichostels@gmail.com">Email</a>
+            </div>
+            <div class="footer-col">
+                <h3>More</h3>
+                <a href="privacy.html">Privacy</a>
+                <a href="book-now.html">Book</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.5);">
+            <p>© 2025 Mosaic Hostel Varanasi</p>
+        </div>
+    </footer>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        const cursorRing = document.getElementById('cursor-ring');
+        let cx = 0, cy = 0, crx = 0, cry = 0;
+        document.addEventListener('mousemove', (e) => {
+            cx = e.clientX; cy = e.clientY;
+            cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
+            crx += (cx - crx) * 0.2; cry += (cy - cry) * 0.2;
+            cursorRing.style.left = crx + 'px'; cursorRing.style.top = cry + 'px';
+        });
+    </script>
+    <script src="components/loader.js"></script>
+</body>
+</html>
