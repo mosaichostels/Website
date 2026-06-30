@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery — Mosaic Hostel Varanasi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&amp;family=Jost:wght@200;300;400;500&amp;display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&amp;family=Jost:wght@200;300;400;500&amp;display=swap"></noscript>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#C8860A;--gold-lt:#E8B84B;
+  --teal:#1A6B7A;--burg:#8B1A1A;--cobalt:#1A3A6B;
+  --brown:#5C3A1E;--sage:#3D6B3A;
+  --ink:#1A1208;--cream:#FAF4EA;--parch:#F2E8D5;
+  --muted:#7A6A50;--border:rgba(200,134,10,0.15);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
+#cursor{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:multiply;}
+#cursor-ring{position:fixed;width:36px;height:36px;border-radius:50%;border:1px solid rgba(200,134,10,0.5);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .08s linear,top .08s linear,width .3s,height .3s;}
+#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#C8860A,#8B1A1A,#1A6B7A);z-index:9999;width:0%;pointer-events:none;}
+
+.tile-accent{display:flex;height:5px;}
+.tile-accent span{flex:1;}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 64px;height:96px;
+  background:rgba(250,244,234,0.97);
+  border-bottom:1px solid var(--border);
+  backdrop-filter:blur(20px);
+}
+.nav-logo img{height:130px;width:auto;}
+.nav-links{display:flex;gap:40px;}
+.nav-links a{
+  font-size:10px;letter-spacing:3.5px;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;
+  padding-bottom:4px;position:relative;transition:color .25s;
+}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:100%;height:1px;background:var(--gold);transition:right .3s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a:hover::after{right:0;}
+.nav-links a.active{color:var(--gold);}
+.nav-links a.active::after{right:0;}
+.nav-book{
+  padding:10px 28px;background:var(--gold);color:white;border:none;cursor:none;
+  font-family:'Jost';font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  transition:background .25s;
+}
+.nav-book:hover{background:#A06E08;}
+
+/* ── PAGE HERO ── */
+.page-hero{
+  padding-top:96px;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+  text-align:center;padding-bottom:80px;
+}
+.page-hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 49px,rgba(200,134,10,0.04) 49px,rgba(200,134,10,0.04) 50px),
+    repeating-linear-gradient(90deg,transparent,transparent 49px,rgba(200,134,10,0.04) 49px,rgba(200,134,10,0.04) 50px);
+}
+.page-hero-stripe{position:absolute;top:96px;left:0;right:0;height:5px;display:flex;}
+.page-hero-stripe span{flex:1;}
+.page-hero-content{position:relative;z-index:1;padding:72px 24px 0;}
+.page-eyebrow{font-size:10px;letter-spacing:7px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.page-title{
+  font-family:'Cinzel',serif;font-size:64px;font-weight:400;
+  color:white;letter-spacing:6px;line-height:1;margin-bottom:16px;
+}
+.page-sub{
+  font-size:14px;font-weight:300;letter-spacing:2px;color:rgba(255,255,255,0.5);
+  margin-bottom:0;
+}
+
+/* ── FILTER BAR ── */
+.filter-bar{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:56px 24px 40px;flex-wrap:wrap;
+}
+.filter-btn{
+  padding:10px 28px;
+  border:1px solid var(--border);
+  background:transparent;color:var(--muted);
+  font-family:'Jost';font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  cursor:none;transition:all .25s;
+}
+.filter-btn:hover{border-color:var(--gold);color:var(--ink);}
+.filter-btn.active{background:var(--gold);border-color:var(--gold);color:white;}
+.filter-count{
+  font-size:9px;letter-spacing:2px;color:var(--muted);
+  margin-left:24px;padding-left:24px;border-left:1px solid var(--border);
+  align-self:center;
+}
+
+/* ── MASONRY GRID ── */
+.gallery-wrap{
+  padding:0 32px 100px;
+  max-width:1400px;margin:0 auto;
+}
+.masonry{
+  columns:4;column-gap:3px;
+}
+@media(max-width:1100px){.masonry{columns:3;}}
+@media(max-width:720px){.masonry{columns:2;}}
+@media(max-width:480px){.masonry{columns:1;}}
+
+.gal-item{
+  break-inside:avoid;
+  position:relative;overflow:hidden;
+  margin-bottom:3px;
+  cursor:none;
+  display:block;
+}
+.gal-item.hidden{display:none;}
+
+.gal-photo{
+  display:block;width:100%;height:auto;
+  transition:transform .6s cubic-bezier(.25,.46,.45,.94);
+  vertical-align:bottom;
+  filter:brightness(0.97);
+}
+.gal-item:hover .gal-photo{transform:scale(1.04);filter:brightness(0.85);}
+
+/* Overlay */
+.gal-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(26,18,8,0.85) 0%,transparent 55%);
+  opacity:0;transition:opacity .35s;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:20px;
+}
+.gal-item:hover .gal-overlay{opacity:1;}
+
+/* Tile accent bar — sweep in from left on hover */
+.gal-accent{
+  position:absolute;top:0;left:0;right:0;height:4px;
+  display:flex;gap:1px;
+  transform:scaleX(0);transform-origin:left;
+  transition:transform .45s cubic-bezier(.25,.46,.45,.94);
+}
+.gal-item:hover .gal-accent{transform:scaleX(1);}
+.gal-accent span{flex:1;}
+
+.gal-label{
+  font-family:'Cinzel',serif;font-size:14px;font-weight:400;
+  color:white;letter-spacing:1px;
+  transform:translateY(6px);
+  transition:transform .3s;
+}
+.gal-item:hover .gal-label{transform:translateY(0);}
+.gal-cat-tag{
+  font-size:9px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--gold-lt);margin-bottom:6px;
+  transform:translateY(8px);transition:transform .3s .05s;
+}
+.gal-item:hover .gal-cat-tag{transform:translateY(0);}
+
+/* Expand icon */
+.gal-expand{
+  position:absolute;top:16px;right:16px;
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(200,134,10,0.85);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:scale(0.7);
+  transition:opacity .3s,transform .3s;
+}
+.gal-item:hover .gal-expand{opacity:1;transform:scale(1);}
+.gal-expand svg{width:14px;height:14px;fill:white;}
+
+/* ── LIGHTBOX ── */
+#lightbox{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(26,18,8,0.97);
+  display:none;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:24px;
+}
+#lightbox.open{display:flex;}
+#lb-close{
+  position:absolute;top:24px;right:32px;
+  font-size:10px;letter-spacing:5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);
+  cursor:none;border:none;background:none;
+  transition:color .2s;
+}
+#lb-close:hover{color:white;}
+#lb-img-wrap{
+  position:relative;max-width:90vw;max-height:80vh;
+  display:flex;align-items:center;justify-content:center;
+}
+#lb-img{
+  max-width:90vw;max-height:80vh;
+  object-fit:contain;
+  display:block;
+}
+#lb-info{
+  margin-top:20px;text-align:center;
+}
+#lb-title{
+  font-family:'Cinzel',serif;font-size:18px;font-weight:400;
+  color:white;letter-spacing:2px;margin-bottom:6px;
+}
+#lb-cat{
+  font-size:9px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--gold);
+}
+#lb-strip{display:flex;gap:2px;width:120px;height:3px;margin:14px auto 0;}
+#lb-strip span{flex:1;border-radius:1px;}
+
+/* nav arrows */
+.lb-nav{
+  position:absolute;top:50%;transform:translateY(-50%);
+  font-size:24px;color:rgba(255,255,255,0.4);
+  cursor:none;border:none;background:none;
+  transition:color .2s;padding:16px;
+  line-height:1;
+}
+.lb-nav:hover{color:var(--gold);}
+#lb-prev{left:-60px;}
+#lb-next{right:-60px;}
+#lb-counter{
+  position:absolute;bottom:24px;left:50%;transform:translateX(-50%);
+  font-size:10px;letter-spacing:4px;color:rgba(255,255,255,0.3);
+}
+
+/* ── STATS STRIP ── */
+.stats-strip{
+  background:var(--parch);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  display:grid;grid-template-columns:repeat(3,1fr);
+  text-align:center;padding:48px 80px;margin-bottom:0;
+}
+.stat-item{padding:16px;border-right:1px solid var(--border);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:'Cinzel',serif;font-size:36px;font-weight:400;color:var(--gold);}
+.stat-label{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+
+/* ── FOOTER ── */
+footer{background:#1A1208;padding:48px 80px 28px;}
+.footer-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:40px;}
+.footer-logo img{height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;}
+.footer-links-wrap{display:flex;gap:64px;}
+.footer-col h4{font-size:9px;letter-spacing:5px;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.footer-col a{display:block;font-size:12px;color:rgba(255,255,255,0.4);text-decoration:none;margin-bottom:10px;transition:color .2s;letter-spacing:.5px;}
+.footer-col a:hover{color:white;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:20px;display:flex;justify-content:space-between;align-items:center;}
+.footer-copy{font-size:11px;color:rgba(255,255,255,0.2);letter-spacing:1px;}
+.footer-strip{display:flex;gap:2px;width:80px;height:4px;}
+.footer-strip span{flex:1;border-radius:1px;}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* No Results */
+.no-results{
+  text-align:center;padding:80px 24px;
+  font-size:13px;letter-spacing:2px;color:var(--muted);
+  display:none;
+}
+
+
+
+/* ── RESPONSIVE ── */
+@media(hover:none),(pointer:coarse){body{cursor:auto;}#cursor,#cursor-ring{display:none!important;}a,button{cursor:pointer!important;}}
+.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;padding:10px;background:none;border:none;cursor:pointer;z-index:10001;flex-shrink:0;}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:transform .3s,opacity .3s;}
+.nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4.5px,4.5px);}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:translateX(-10px);}
+.nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4.5px,-4.5px);}
+@media(max-width:1024px){
+  nav{padding:0 32px;height:80px;justify-content:flex-start;}
+  .nav-logo img{height:72px;}
+  .nav-links{display:none;position:fixed;top:80px;left:0;right:0;bottom:0;z-index:9998;background:rgba(250,244,234,0.99);flex-direction:column;align-items:center;justify-content:center;gap:32px;backdrop-filter:none;-webkit-backdrop-filter:none;}
+  .nav-links.open{display:flex;}
+  .nav-links a{font-size:13px!important;letter-spacing:4px;color:var(--ink)!important;text-transform:uppercase;}
+  .nav-hamburger{margin-left:auto;display:flex;}
+  .nav-book{font-size:9px!important;padding:8px 14px!important;letter-spacing:3px;}
+}
+@media(max-width:767px){
+  nav{
+    padding:0 16px;height:60px;
+    background:rgba(250,244,234,0.99)!important;
+    backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+    border-bottom:1px solid rgba(200,134,10,0.15)!important;
+    transform:translateZ(0);-webkit-transform:translateZ(0);
+  }
+  .nav-logo img{height:52px;}
+  .nav-links{top:60px;}
+}
+@media(max-width:1024px){.page-hero{padding-top:80px;}}
+@media(max-width:767px){
+  .page-title{font-size:36px;letter-spacing:3px;}.page-hero{padding-top:60px;}
+  .filter-bar{padding:32px 16px 24px;gap:6px;}
+  footer{padding:40px 16px 24px;}
+  .footer-top{flex-direction:column;gap:24px;}.footer-links-wrap{flex-direction:column;gap:16px;}
+}
+
+/* ── RESPONSIVE ADDITIONS ── */
+@media(max-width:1024px){.stats-strip{padding:40px 40px;grid-template-columns:1fr 1fr;}.stat-item:nth-child(2){border-right:none;}.gallery-wrap{padding:0 16px 60px;}footer{padding:40px 40px 24px;}.footer-links-wrap{gap:40px;}.page-title{font-size:46px;letter-spacing:4px;}.page-sub{font-size:13px;}.filter-bar{padding:32px 40px 24px;}}
+@media(max-width:767px){.stats-strip{grid-template-columns:1fr;padding:32px 16px;}.stat-item{border-right:none;border-bottom:1px solid var(--border);padding:20px 16px;}.stat-item:last-child{border-bottom:none;}.gallery-wrap{padding:0 8px 48px;}footer{padding:40px 16px 24px;}}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3K992L4ZT"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-H3K992L4ZT');</script>
+
+<!-- Mosaic SEO Suite -->
+<meta name="description" content="Photos of Mosaic Hostel Varanasi — dorm rooms, private rooms, rooftop, and the Assi Ghat neighbourhood.">
+<link rel="canonical" href="https://www.mosaichostels.com/gallery/">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+<meta property="og:site_name" content="Mosaic Hostel Varanasi">
+<meta property="og:title"       content="Photo Gallery — Mosaic Hostel Varanasi">
+<meta property="og:description" content="Photos of Mosaic Hostel Varanasi — dorm rooms, private rooms, rooftop, and the Assi Ghat neighbourhood.">
+<meta property="og:url"         content="https://www.mosaichostels.com/gallery/">
+<meta property="og:type"        content="website">
+<meta property="og:image"       content="https://www.mosaichostels.com/wp-content/uploads/2026/06/mosaic-hostel-og-image.png">
+<meta property="og:locale"      content="en_IN">
+<meta name="twitter:card"  content="summary_large_image">
+<meta name="twitter:title" content="Photo Gallery — Mosaic Hostel Varanasi">
+<meta name="twitter:image" content="https://www.mosaichostels.com/wp-content/uploads/2026/06/mosaic-hostel-og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageGallery","name":"Mosaic Hostel Varanasi Photo Gallery","url":"https://www.mosaichostels.com/gallery/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.mosaichostels.com/"},{"@type":"ListItem","position":2,"name":"Photo Gallery — Mosaic Hostel Varanasi","item":"https://www.mosaichostels.com/gallery/"}]}</script>
+</head>
+<body>
+<h1 style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">Gallery — Mosaic Hostel Varanasi</h1>
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="progress"></div>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">
+    <a href="https://www.mosaichostels.com/" style="display:block;">
+      <img src="https://www.mosaichostels.com/wp-content/uploads/2025/08/Logo-Transperent.webp" alt="Mosaic Hostel">
+    </a>
+  </div>
+  <div class="nav-links">
+    <a href="https://www.mosaichostels.com/">Home</a>
+    <a href="https://www.mosaichostels.com/gallery/" class="active">Gallery</a>
+    <a href="https://www.mosaichostels.com/blog/">Blog</a>
+    <a href="https://www.mosaichostels.com/about/">About</a>
+    <a href="https://www.mosaichostels.com/contact/">Contact</a>
+    </div>
+  <button class="nav-hamburger" id="navHam" aria-label="Open menu"><span></span><span></span><span></span></button>
+  <a href="https://www.mosaichostels.com/book-now/" class="nav-book">Book Now</a>
+</nav><main role="main">
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="page-hero-stripe" id="heroStripe"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">The Visual Story</div>
+    <div class="page-title">Gallery</div>
+    <div class="page-sub">Life at Mosaic Hostel &amp; the soul of Varanasi</div>
+  </div>
+</div>
+
+
+<!-- ── BOOK CTA ── -->
+<section style="background:var(--ink);padding:72px 40px;text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(200,134,10,0.03) 40px,rgba(200,134,10,0.03) 41px);"></div>
+  <div style="position:relative;max-width:640px;margin:0 auto;">
+    <div style="font-size:9px;letter-spacing:6px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Stay With Us</div>
+    <h2 style="font-family:'Cinzel',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;color:#fff;letter-spacing:2px;line-height:1.2;margin-bottom:16px;">Like What You See?</h2>
+    <p style="color:rgba(255,255,255,0.6);font-size:0.95rem;line-height:1.7;margin-bottom:12px;">Private rooms &amp; dorms near Assi Ghat, Varanasi. Rated <strong style="color:var(--gold-lt);">4.9★</strong> by 500+ guests.</p>
+    <p style="color:rgba(255,255,255,0.4);font-size:0.8rem;margin-bottom:32px;">Affordable stays · AC · Free WiFi · Rooftop · 24h Reception</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a href="/book-now/" style="display:inline-block;padding:14px 40px;background:var(--gold);color:#fff;text-decoration:none;font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Jost',sans-serif;transition:background .25s;" onmouseover="this.style.background='#A06E08'" onmouseout="this.style.background='var(--gold)'">Book Now</a>
+      <a href="/contact/" style="display:inline-block;padding:13px 36px;border:1px solid rgba(200,134,10,0.5);color:rgba(255,255,255,0.7);text-decoration:none;font-size:10px;letter-spacing:4px;text-transform:uppercase;font-family:'Jost',sans-serif;transition:all .25s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='#fff'" onmouseout="this.style.borderColor='rgba(200,134,10,0.5)';this.style.color='rgba(255,255,255,0.7)'">Ask a Question</a>
+    </div>
+    <div style="margin-top:24px;display:flex;gap:32px;justify-content:center;flex-wrap:wrap;">
+      <div style="text-align:center;">
+        <div style="font-size:1.4rem;font-weight:700;color:#fff;">4.9★</div>
+        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);">Rating</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:1.4rem;font-weight:700;color:#fff;">500+</div>
+        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);">Guests</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:1.4rem;font-weight:700;color:#fff;">2 min</div>
+        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);">Walk to Ghat</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:1.4rem;font-weight:700;color:#fff;">5 Types</div>
+        <div style="font-size:0.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,0.4);">Room Options</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TILE DIVIDER ── -->
+<div class="tile-accent" id="div0"></div>
+
+<!-- ── FILTER BAR ── -->
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="rooms">Rooms</button>
+  <button class="filter-btn" data-filter="entrance">Entrance</button>
+  <button class="filter-btn" data-filter="common">Common Areas</button>
+  <button class="filter-btn" data-filter="life">Hostel Life</button>
+  <span class="filter-count" id="photoCount">19 Photos</span>
+</div>
+
+<!-- ── GALLERY GRID ── -->
+<div class="gallery-wrap">
+  <div class="masonry" id="masonryGrid">
+
+    <!-- ROOMS -->
+    <div class="gal-item" data-cat="rooms" data-title="Private Room" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg">
+      <div class="gal-accent" data-pal="gold-teal"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1931-1-scaled.jpg" alt="Private Room" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Rooms</div>
+        <div class="gal-label">Private Room</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="rooms" data-title="Private Room" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1920-scaled.jpg">
+      <div class="gal-accent" data-pal="teal-cobalt"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1920-scaled.jpg" alt="Private Room" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Rooms</div>
+        <div class="gal-label">Private Room</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="rooms" data-title="Hostel Dorm Room" data-full="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_1933-2-scaled.jpg">
+      <div class="gal-accent" data-pal="cobalt-sage"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_1933-2-scaled.jpg" alt="Hostel Dorm Room" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Rooms</div>
+        <div class="gal-label">Hostel Dorm Room</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="rooms" data-title="Dorm Beds" data-full="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2723-2-scaled.jpg">
+      <div class="gal-accent" data-pal="burg-gold"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2723-2-scaled.jpg" alt="Dorm Beds" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Rooms</div>
+        <div class="gal-label">Dorm Beds</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="rooms" data-title="Dorm Bed Detail" data-full="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2733-3-scaled.jpg">
+      <div class="gal-accent" data-pal="sage-gold"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_2733-3-scaled.jpg" alt="Dorm Bed Detail" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Rooms</div>
+        <div class="gal-label">Dorm Bed Detail</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+
+    <!-- ENTRANCE -->
+    <div class="gal-item" data-cat="entrance" data-title="Entrance" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_4451-scaled.jpg">
+      <div class="gal-accent" data-pal="gold-teal"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_4451-scaled.jpg" alt="Entrance" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Entrance</div>
+        <div class="gal-label">Entrance</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="entrance" data-title="Entrance Door" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_4450-scaled.jpg">
+      <div class="gal-accent" data-pal="teal-cobalt"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_4450-scaled.jpg" alt="Entrance Door" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Entrance</div>
+        <div class="gal-label">Entrance Door</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+
+    <!-- COMMON -->
+    <div class="gal-item" data-cat="common" data-title="Common Room" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1294-scaled.jpg">
+      <div class="gal-accent" data-pal="cobalt-sage"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1294-scaled.jpg" alt="Common Room" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Common Areas</div>
+        <div class="gal-label">Common Room</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="common" data-title="Common Room" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1934-scaled.jpg">
+      <div class="gal-accent" data-pal="gold-teal"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1934-scaled.jpg" alt="Common Room" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Common Areas</div>
+        <div class="gal-label">Common Room</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="common" data-title="Games & Chill" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1928-scaled.jpg">
+      <div class="gal-accent" data-pal="teal-cobalt"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1928-scaled.jpg" alt="Games & Chill" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Common Areas</div>
+        <div class="gal-label">Games & Chill</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="common" data-title="Open Space" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1930-scaled.jpg">
+      <div class="gal-accent" data-pal="cobalt-sage"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1930-scaled.jpg" alt="Open Space" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Common Areas</div>
+        <div class="gal-label">Open Space</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="common" data-title="Common Room" data-full="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_1912-2-scaled.jpg">
+      <div class="gal-accent" data-pal="burg-gold"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2025/11/IMG_1912-2-scaled.jpg" alt="Common Room" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Common Areas</div>
+        <div class="gal-label">Common Room</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="common" data-title="Good Times" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1223-scaled.jpg">
+      <div class="gal-accent" data-pal="sage-gold"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1223-scaled.jpg" alt="Good Times" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Common Areas</div>
+        <div class="gal-label">Good Times</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="common" data-title="Wall Art" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/PXL_20260119_065635066.MP_-scaled.jpg">
+      <div class="gal-accent" data-pal="gold-teal"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/PXL_20260119_065635066.MP_-scaled.jpg" alt="Wall Art" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Common Areas</div>
+        <div class="gal-label">Wall Art</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="common" data-title="Wall Art" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/PXL_20260119_064603355.MP_-scaled.jpg">
+      <div class="gal-accent" data-pal="teal-cobalt"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/PXL_20260119_064603355.MP_-scaled.jpg" alt="Wall Art" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Common Areas</div>
+        <div class="gal-label">Wall Art</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="common" data-title="Wall Art" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/PXL_20260119_064300909.MP_-scaled.jpg">
+      <div class="gal-accent" data-pal="cobalt-sage"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/PXL_20260119_064300909.MP_-scaled.jpg" alt="Wall Art" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Common Areas</div>
+        <div class="gal-label">Wall Art</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="common" data-title="Wall Art" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/123e2e1a-479c-4a38-9634-fcbb95683f8b1-scaled.jpg">
+      <div class="gal-accent" data-pal="gold-teal"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/123e2e1a-479c-4a38-9634-fcbb95683f8b1-scaled.jpg" alt="Wall Art" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Common Areas</div>
+        <div class="gal-label">Wall Art</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+
+    <!-- LIFE -->
+    <div class="gal-item" data-cat="life" data-title="Ghat Walk" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg">
+      <div class="gal-accent" data-pal="teal-cobalt"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg" alt="Ghat Walk" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Hostel Life</div>
+        <div class="gal-label">Ghat Walk</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+    <div class="gal-item" data-cat="life" data-title="Bonfire Night" data-full="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1316-scaled.jpg">
+      <div class="gal-accent" data-pal="cobalt-sage"></div>
+      <img class="gal-photo" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1316-scaled.jpg" alt="Bonfire Night" loading="lazy">
+      <div class="gal-overlay">
+        <div class="gal-cat-tag">Hostel Life</div>
+        <div class="gal-label">Bonfire Night</div>
+      </div>
+      <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+    </div>
+
+  </div><!-- end masonry -->
+  <div class="no-results" id="noResults">No photos in this category.</div>
+</div>
+
+<!-- ── TILE DIVIDER ── -->
+<div class="tile-accent" id="div1"></div>
+
+<!-- ── LIGHTBOX ── -->
+<div id="lightbox">
+  <button id="lb-close">✕ Close</button>
+  <div id="lb-img-wrap">
+    <button class="lb-nav" id="lb-prev">&#8592;</button>
+    <img loading="lazy" id="lb-img" src="" alt="">
+    <button class="lb-nav" id="lb-next">&#8594;</button>
+  </div>
+  <div id="lb-info">
+    <div id="lb-title"></div>
+    <div id="lb-cat"></div>
+    <div id="lb-strip"></div>
+  </div>
+  <div id="lb-counter"></div>
+</div>
+
+<!-- ── FOOTER ── -->
+</main><footer>
+  <div class="footer-top">
+    <img loading="lazy" src="https://www.mosaichostels.com/wp-content/uploads/2025/08/Logo-Transperent.webp" alt="Mosaic Hostel" style="height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;">
+    <div class="footer-links-wrap">
+      <div class="footer-col">
+        <h4>Stay</h4>
+        <a href="#">Private Room</a>
+        <a href="#">8-Bed Mixed Dorm</a>
+        <a href="#">6-Bed Mixed Dorm</a>
+        <a href="#">4-Bed Mixed Dorm</a>
+        <a href="#">6-Bed Female Dorm</a>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="https://www.mosaichostels.com/gallery/">Gallery</a>
+        <a href="#">About Us</a>
+        <a href="#">Experiences</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
+        <a href="mailto:hello@mosaichostels.com">Email Us</a>
+        <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Mosaic Hostel Varanasi. All rights reserved.</div>
+    <div class="footer-strip" id="footerStrip"></div>
+    <div class="footer-copy">Made with ♥ in Varanasi</div>
+  </div>
+</footer>
+
+<script>
+const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
+const PALS={
+  'gold-teal': ['#C8860A','#E8B84B','#D4930F','#1A6B7A','#2D9AAA'],
+  'teal-cobalt':['#1A6B7A','#2D9AAA','#0D4A55','#1A3A6B','#2A5A9B'],
+  'burg-gold': ['#8B1A1A','#A02020','#6B1010','#C8860A','#E8B84B'],
+  'cobalt-sage':['#1A3A6B','#2A5A9B','#3D6B3A','#2D5A2A'],
+  'sage-gold':  ['#3D6B3A','#2D5A2A','#C8860A','#E8B84B'],
+};
+function pick(a){return a[Math.floor(Math.random()*a.length)];}
+function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
+function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
+
+// tile dividers
+fillById('heroStripe',LOGO_COLORS);
+fillById('div0',LOGO_COLORS);
+fillById('div1',LOGO_COLORS);
+fillById('footerStrip',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
+
+// gallery item accent bars
+document.querySelectorAll('.gal-accent').forEach(el=>{
+  const pal=PALS[el.dataset.pal]||PALS['gold-teal'];
+  for(let i=0;i<20;i++){const s=document.createElement('span');s.style.flex='1';s.style.background=pick(pal);el.appendChild(s);}
+});
+
+// Custom cursor
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+  ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';
+});
+document.querySelectorAll('a,button,.gal-item').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='48px';ring.style.height='48px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
+});
+
+// Scroll progress
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  prog.style.width=((window.scrollY/(document.body.scrollHeight-window.innerHeight))*100)+'%';
+},{passive:true});
+
+// ── FILTER ──
+const items=Array.from(document.querySelectorAll('.gal-item'));
+const countEl=document.getElementById('photoCount');
+const noRes=document.getElementById('noResults');
+
+function applyFilter(cat){
+  let visible=0;
+  items.forEach(item=>{
+    const match=cat==='all'||item.dataset.cat===cat;
+    item.classList.toggle('hidden',!match);
+    if(match) visible++;
+  });
+  countEl.textContent=visible+' Photo'+(visible!==1?'s':'');
+  noRes.style.display=visible===0?'block':'none';
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilter(btn.dataset.filter);
+  });
+});
+
+// init count
+countEl.textContent=items.length+' Photos';
+
+// ── LIGHTBOX ──
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lb-img');
+const lbTitle=document.getElementById('lb-title');
+const lbCat=document.getElementById('lb-cat');
+const lbStrip=document.getElementById('lb-strip');
+const lbCounter=document.getElementById('lb-counter');
+let currentIdx=0;
+
+function getVisible(){return items.filter(i=>!i.classList.contains('hidden'));}
+
+function openLightbox(idx){
+  const visible=getVisible();
+  if(!visible[idx]) return;
+  currentIdx=idx;
+  const item=visible[idx];
+  lbImg.src=item.dataset.full||item.querySelector('.gal-photo').src;
+  lbImg.alt=item.dataset.title;
+  lbTitle.textContent=item.dataset.title;
+  lbCat.textContent=item.querySelector('.gal-cat-tag').textContent;
+  // fill strip
+  lbStrip.innerHTML='';
+  fillStrip(lbStrip,LOGO_COLORS.slice(0,6));
+  lbCounter.textContent=(idx+1)+' / '+visible.length;
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeLightbox(){
+  lb.classList.remove('open');
+  document.body.style.overflow='';
+  lbImg.src='';
+}
+
+function navigate(dir){
+  const visible=getVisible();
+  currentIdx=(currentIdx+dir+visible.length)%visible.length;
+  openLightbox(currentIdx);
+}
+
+items.forEach((item,i)=>{
+  item.addEventListener('click',()=>{
+    const visible=getVisible();
+    const visIdx=visible.indexOf(item);
+    openLightbox(visIdx);
+  });
+});
+
+document.getElementById('lb-close').addEventListener('click',closeLightbox);
+document.getElementById('lb-prev').addEventListener('click',()=>navigate(-1));
+document.getElementById('lb-next').addEventListener('click',()=>navigate(1));
+lb.addEventListener('click',e=>{if(e.target===lb)closeLightbox();});
+document.addEventListener('keydown',e=>{
+  if(!lb.classList.contains('open')) return;
+  if(e.key==='ArrowLeft') navigate(-1);
+  if(e.key==='ArrowRight') navigate(1);
+  if(e.key==='Escape') closeLightbox();
+});
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.05});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// Magnetic nav-book
+const navBook=document.querySelector('.nav-book');
+if(navBook){
+  navBook.addEventListener('mousemove',e=>{
+    const r=navBook.getBoundingClientRect();
+    const x=(e.clientX-r.left-r.width/2)*0.2;
+    const y=(e.clientY-r.top-r.height/2)*0.2;
+    navBook.style.transform=`translate(${x}px,${y}px)`;
+  });
+  navBook.addEventListener('mouseleave',()=>{navBook.style.transform='';});
+}
+
+
+
+(function(){
+  var ham=document.getElementById('navHam');
+  var nl=document.querySelector('.nav-links');
+  if(!ham||!nl)return;
+  ham.addEventListener('click',function(){
+    nl.classList.toggle('open');ham.classList.toggle('open');
+    document.body.style.overflow=nl.classList.contains('open')?'hidden':'';
+  });
+  nl.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click',function(){
+      nl.classList.remove('open');ham.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  });
+})();
+</script>
+</body>
+</html>
+

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mosaic Hostels - Budget Hostel in Varanasi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-primary: #E11D48;
+      --color-primary-light: #FB7185;
+      --color-primary-dark: #881337;
+      --color-accent: #2563EB;
+      --color-success: #10B981;
+      --color-bg: #FFF1F2;
+      --color-surface: #FFFFFF;
+      --color-border: #FECDD3;
+      --color-text-primary: #1F2937;
+      --color-text-secondary: #6B7280;
+      --font-heading: 'Playfair Display SC', serif;
+      --font-body: 'Karla', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text-primary);
+      background-color: var(--color-bg);
+      line-height: 1.6;
+    }
+
+    /* Navigation */
+    nav {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--color-text-primary);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 150ms ease-out;
+    }
+
+    nav a:hover {
+      color: var(--color-primary);
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 150ms ease-out;
+      min-height: 44px;
+      min-width: 44px;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(225, 29, 72, 0.3);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 60vh;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="p" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="100" height="100" fill="rgba(255,255,255,0.05)"/><circle cx="50" cy="50" r="30" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23p)"/></svg>');
+      opacity: 0.5;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-heading);
+      font-size: 48px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.2;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 32px;
+      opacity: 0.95;
+      text-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: bounce 2s infinite;
+      color: white;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(12px); }
+    }
+
+    /* Section */
+    section {
+      padding: 64px 48px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 48px;
+      color: var(--color-primary-dark);
+    }
+
+    /* Facts Grid */
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+
+    .fact-card {
+      text-align: center;
+      padding: 32px 24px;
+      background: var(--color-surface);
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      transition: all 150ms ease-out;
+    }
+
+    .fact-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 8px 16px rgba(225, 29, 72, 0.15);
+    }
+
+    .fact-number {
+      font-family: var(--font-heading);
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .fact-label {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      font-weight: 500;
+    }
+
+    /* Rooms Grid */
+    .rooms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+
+    .room-card {
+      background: var(--color-surface);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      transition: all 150ms ease-out;
+      cursor: pointer;
+    }
+
+    .room-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(225, 29, 72, 0.2);
+    }
+
+    .room-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-accent) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 48px;
+    }
+
+    .room-content {
+      padding: 24px;
+    }
+
+    .room-type {
+      font-family: var(--font-heading);
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--color-primary-dark);
+    }
+
+    .room-details {
+      font-size: 14px;
+      color: var(--color-text-secondary);
+      margin-bottom: 16px;
+    }
+
+    .room-price {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: 16px;
+    }
+
+    .room-cta {
+      background: var(--color-accent);
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 150ms ease-out;
+      width: 100%;
+    }
+
+    .room-cta:hover {
+      background: #1D4ED8;
+    }
+
+    /* Testimonials */
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .testimonial-card {
+      background: var(--color-surface);
+      padding: 32px;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+    }
+
+    .stars {
+      color: #F59E0B;
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+
+    .testimonial-text {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      color: var(--color-text-primary);
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--color-primary-dark);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      color: white;
+      text-align: center;
+      padding: 64px 48px;
+      border-radius: 16px;
+    }
+
+    .cta-section h2 {
+      color: white;
+      margin-bottom: 24px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--color-primary);
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 150ms ease-out;
+    }
+
+    .btn-secondary:hover {
+      background: var(--color-bg);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-text-primary);
+      color: white;
+      padding: 48px;
+      text-align: center;
+      margin-top: 64px;
+    }
+
+    footer a {
+      color: var(--color-primary-light);
+      text-decoration: none;
+      transition: color 150ms ease-out;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav {
+        padding: 0 16px;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      section {
+        padding: 48px 16px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      .facts-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cta-section {
+        padding: 48px 16px;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .hero {
+        height: 50vh;
+      }
+
+      .hero h1 {
+        font-size: 24px;
+      }
+
+      nav {
+        padding: 0 12px;
+      }
+
+      section {
+        padding: 32px 12px;
+      }
+
+      .facts-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rooms-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Mosaic</div>
+    <ul>
+      <li><a href="#rooms">Rooms</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="btn-primary">Book Now</button>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to Mosaic</h1>
+      <p>Budget Hostel in Varanasi near Assi Ghat</p>
+      <button class="btn-primary">Book Your Stay</button>
+    </div>
+    <div class="scroll-indicator">↓</div>
+  </section>
+
+  <!-- Quick Facts -->
+  <section>
+    <div class="facts-grid">
+      <div class="fact-card">
+        <div class="fact-number">500+</div>
+        <div class="fact-label">Guests This Month</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-number">4.8★</div>
+        <div class="fact-label">Guest Rating</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-number">12</div>
+        <div class="fact-label">Languages Spoken</div>
+      </div>
+      <div class="fact-card">
+        <div class="fact-number">5+</div>
+        <div class="fact-label">Years in Service</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rooms -->
+  <section id="rooms">
+    <h2>Our Rooms & Accommodations</h2>
+    <div class="rooms-grid">
+      <div class="room-card">
+        <div class="room-image">🛏️</div>
+        <div class="room-content">
+          <div class="room-type">6-Bed Female Dorm</div>
+          <div class="room-details">6 beds • Shared bathroom</div>
+          <div class="room-price">₹350/night</div>
+          <button class="room-cta">View Details</button>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-image">🛏️</div>
+        <div class="room-content">
+          <div class="room-type">8-Bed Mixed Dorm</div>
+          <div class="room-details">8 beds • Shared bathroom</div>
+          <div class="room-price">₹300/night</div>
+          <button class="room-cta">View Details</button>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-image">🛏️</div>
+        <div class="room-content">
+          <div class="room-type">Private Double Room</div>
+          <div class="room-details">Double bed • En-suite bathroom</div>
+          <div class="room-price">₹1,200/night</div>
+          <button class="room-cta">View Details</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <h2>What Guests Say</h2>
+    <div class="testimonials">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Best hostel in Varanasi! The staff is incredibly helpful and the rooftop views are amazing."</p>
+        <div class="testimonial-author">— Sarah, UK</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Great location near Assi Ghat, clean rooms, and so many travelers to meet. Highly recommended!"</p>
+        <div class="testimonial-author">— Marco, Italy</div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"Perfect for solo travelers. Made friends from all around the world. Will definitely return!"</p>
+        <div class="testimonial-author">— Priya, Canada</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Preview -->
+  <section id="blog">
+    <h2>Travel Guides & Stories</h2>
+    <div class="rooms-grid" style="margin-top: 32px;">
+      <div class="room-card">
+        <div class="room-image">📖</div>
+        <div class="room-content">
+          <div class="room-type">Best Time to Visit Varanasi</div>
+          <div class="room-details">Month by month guide • 5 min read</div>
+          <button class="room-cta">Read More</button>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-image">📖</div>
+        <div class="room-content">
+          <div class="room-type">7 Must-Do Experiences</div>
+          <div class="room-details">Near Mosaic Hostel • 8 min read</div>
+          <button class="room-cta">Read More</button>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-image">📖</div>
+        <div class="room-content">
+          <div class="room-type">Solo Female Travel Guide</div>
+          <div class="room-details">Safety tips & local insights • 10 min read</div>
+          <button class="room-cta">Read More</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="cta-section">
+      <h2>Ready to Join the Mosaic Family?</h2>
+      <p style="font-size: 18px; margin-bottom: 32px; opacity: 0.95;">Experience authentic Varanasi with backpackers from around the world</p>
+      <div class="cta-buttons">
+        <button class="btn-primary">Book Your Stay Now</button>
+        <button class="btn-secondary">Contact Us</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Mosaic Hostels. All rights reserved.</p>
+    <p style="margin-top: 16px; font-size: 14px;">
+      <a href="#contact">Contact</a> •
+      <a href="#about">About</a> •
+      <a href="#privacy">Privacy</a> •
+      <a href="#terms">Terms</a>
+    </p>
+  </footer>
+</body>
+</html>

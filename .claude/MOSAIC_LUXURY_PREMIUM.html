@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mosaic Hostel Varanasi — Premium backpacker accommodation with rooftop views, community vibes, and unforgettable experiences near Assi Ghat.">
+    <title>Mosaic Hostel — Premium Backpacker Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&family=Playfair+Display+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #E11D48;
+            --primary-light: #FB7185;
+            --primary-dark: #881337;
+            --accent: #2563EB;
+            --accent-light: #60A5FA;
+            --success: #10B981;
+            --warning: #F59E0B;
+            --purple: #A855F7;
+            --cyan: #06B6D4;
+            --pink: #EC4899;
+            --indigo: #6366F1;
+
+            --bg: #FFF1F2;
+            --surface: #FFFFFF;
+            --border: #FECDD3;
+            --text: #1F2937;
+            --text-light: #6B7280;
+
+            --font-heading: 'Playfair Display SC', serif;
+            --font-body: 'Karla', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: linear-gradient(135deg, #FFF1F2 0%, #FAF9F7 50%, #FFF5F7 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* HERO — Ultra Premium */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #E11D48 0%, #881337 25%, #6B0E2A 50%, #A855F7 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(251, 113, 133, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 0%, rgba(37, 99, 235, 0.2) 0%, transparent 50%);
+            animation: heroGlow 8s ease-in-out infinite;
+        }
+
+        @keyframes heroGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            animation: patternFloat 20s linear infinite;
+        }
+
+        @keyframes patternFloat {
+            from { transform: translate(0, 0) rotate(0deg); }
+            to { transform: translate(60px, 60px) rotate(180deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+            color: white;
+        }
+
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 12vw, 5.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 0 12px 40px rgba(0,0,0,0.3), 0 4px 16px rgba(0,0,0,0.2);
+            animation: heroTitleSlide 1s cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+        }
+
+        @keyframes heroTitleSlide {
+            from {
+                opacity: 0;
+                transform: translateY(60px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 3.5vw, 1.6rem);
+            opacity: 0.95;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            text-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 300ms backwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            min-height: 50px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.3px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(255,255,255,.4), transparent 70%);
+            opacity: 0;
+            transition: opacity 200ms;
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #FFFFFF 0%, #F3F4F6 100%);
+            color: var(--primary);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 20px 48px rgba(0,0,0,0.25);
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.12);
+            color: white;
+            border: 2px solid rgba(255,255,255,0.4);
+            backdrop-filter: blur(12px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            border-color: rgba(255,255,255,0.6);
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(255,255,255,0.15);
+        }
+
+        /* SCROLL INDICATOR */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: floatDown 3s ease-in-out infinite;
+            opacity: 0.9;
+        }
+
+        @keyframes floatDown {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(16px); }
+        }
+
+        .scroll-indicator svg {
+            width: 32px;
+            height: 32px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+        }
+
+        /* SECTION */
+        .section {
+            padding: clamp(4rem, 12vw, 6rem) 1.5rem;
+            max-width: 1500px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.25rem, 7vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: clamp(2.5rem, 6vw, 4rem);
+            text-align: center;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--accent) 50%, var(--purple) 100%);
+            border-radius: 3px;
+            filter: drop-shadow(0 4px 12px rgba(225, 29, 72, 0.3));
+        }
+
+        /* MOSAIC GRID — Premium tiles */
+        .mosaic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 1024px) {
+            .mosaic-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .mosaic-tile {
+            background: var(--surface);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border: 1px solid rgba(225, 29, 72, 0.1);
+            animation: tileReveal 700ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+            transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06), 0 2px 8px rgba(225, 29, 72, 0.05);
+        }
+
+        @keyframes tileReveal {
+            from {
+                opacity: 0;
+                transform: translateY(50px) rotateX(10deg) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) rotateX(0) scale(1);
+            }
+        }
+
+        .mosaic-tile:nth-child(1) { animation-delay: 0ms; }
+        .mosaic-tile:nth-child(2) { animation-delay: 80ms; }
+        .mosaic-tile:nth-child(3) { animation-delay: 160ms; }
+        .mosaic-tile:nth-child(4) { animation-delay: 240ms; }
+        .mosaic-tile:nth-child(5) { animation-delay: 320ms; }
+        .mosaic-tile:nth-child(6) { animation-delay: 400ms; }
+        .mosaic-tile:nth-child(7) { animation-delay: 480ms; }
+        .mosaic-tile:nth-child(8) { animation-delay: 560ms; }
+        .mosaic-tile:nth-child(9) { animation-delay: 640ms; }
+
+        .mosaic-tile:hover {
+            transform: translateY(-16px) scale(1.03) rotateZ(1deg);
+            box-shadow: 0 32px 64px rgba(225, 29, 72, 0.25), 0 8px 20px rgba(0,0,0,0.1);
+            border-color: var(--accent);
+        }
+
+        .tile-image {
+            width: 100%;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Premium gradient backgrounds */
+        .mosaic-tile:nth-child(1) .tile-image {
+            background: linear-gradient(135deg, #E11D48 0%, #FB7185 50%, #EC4899 100%);
+        }
+        .mosaic-tile:nth-child(2) .tile-image {
+            background: linear-gradient(135deg, #2563EB 0%, #06B6D4 50%, #0891B2 100%);
+        }
+        .mosaic-tile:nth-child(3) .tile-image {
+            background: linear-gradient(135deg, #10B981 0%, #059669 50%, #047857 100%);
+        }
+        .mosaic-tile:nth-child(4) .tile-image {
+            background: linear-gradient(135deg, #A855F7 0%, #9333EA 50%, #7E22CE 100%);
+        }
+        .mosaic-tile:nth-child(5) .tile-image {
+            background: linear-gradient(135deg, #F59E0B 0%, #D97706 50%, #B45309 100%);
+        }
+        .mosaic-tile:nth-child(6) .tile-image {
+            background: linear-gradient(135deg, #EC4899 0%, #DB2777 50%, #BE185D 100%);
+        }
+        .mosaic-tile:nth-child(7) .tile-image {
+            background: linear-gradient(135deg, #06B6D4 0%, #0891B2 50%, #0E7490 100%);
+        }
+        .mosaic-tile:nth-child(8) .tile-image {
+            background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 50%, #6D28D9 100%);
+        }
+        .mosaic-tile:nth-child(9) .tile-image {
+            background: linear-gradient(135deg, #6366F1 0%, #4F46E5 50%, #4338CA 100%);
+        }
+
+        .tile-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23fff' fill-opacity='0.08'%3E%3Cpath d='M0 0h40v40H0z'/%3E%3C/g%3E%3C/svg%3E");
+            animation: patternMove 25s linear infinite;
+        }
+
+        @keyframes patternMove {
+            from { transform: translate(0, 0); }
+            to { transform: translate(40px, 40px); }
+        }
+
+        .tile-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 70%, rgba(255,255,255,.2), transparent);
+            pointer-events: none;
+        }
+
+        .tile-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tile-meta {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .tile-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: var(--primary-dark);
+        }
+
+        .tile-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .tile-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 200ms ease-out;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            position: relative;
+            width: fit-content;
+        }
+
+        .tile-link::after {
+            content: '→';
+            transition: transform 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-weight: 800;
+        }
+
+        .tile-link:hover {
+            color: var(--primary);
+        }
+
+        .tile-link:hover::after {
+            transform: translateX(8px);
+        }
+
+        /* STATS — Premium cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .stat-card {
+            padding: 2.5rem;
+            border-radius: 18px;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+            animation: tileReveal 700ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-card:nth-child(1) {
+            background: linear-gradient(135deg, rgba(225, 29, 72, 0.8) 0%, rgba(251, 113, 133, 0.6) 100%);
+            animation-delay: 0ms;
+            box-shadow: 0 12px 32px rgba(225, 29, 72, 0.3);
+        }
+
+        .stat-card:nth-child(2) {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.8) 0%, rgba(96, 165, 250, 0.6) 100%);
+            animation-delay: 100ms;
+            box-shadow: 0 12px 32px rgba(37, 99, 235, 0.3);
+        }
+
+        .stat-card:nth-child(3) {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.8) 0%, rgba(5, 150, 105, 0.6) 100%);
+            animation-delay: 200ms;
+            box-shadow: 0 12px 32px rgba(16, 185, 129, 0.3);
+        }
+
+        .stat-card:nth-child(4) {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.8) 0%, rgba(217, 119, 6, 0.6) 100%);
+            animation-delay: 300ms;
+            box-shadow: 0 12px 32px rgba(245, 158, 11, 0.3);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 24px 48px rgba(0,0,0,0.2);
+        }
+
+        .stat-number {
+            font-size: 3.25rem;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-heading);
+            text-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            letter-spacing: 0.5px;
+        }
+
+        /* TESTIMONIALS */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .testimonial {
+            background: var(--surface);
+            padding: 2.5rem;
+            border-radius: 18px;
+            border: 1px solid rgba(225, 29, 72, 0.1);
+            border-left: 6px solid var(--primary);
+            transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: tileReveal 700ms cubic-bezier(0.34, 1.56, 0.64, 1) backwards;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 5rem;
+            opacity: 0.05;
+            font-family: var(--font-heading);
+        }
+
+        .testimonial:nth-child(1) { animation-delay: 0ms; border-left-color: var(--primary); }
+        .testimonial:nth-child(2) { animation-delay: 100ms; border-left-color: var(--accent); }
+        .testimonial:nth-child(3) { animation-delay: 200ms; border-left-color: var(--success); }
+
+        .testimonial:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 24px 48px rgba(225, 29, 72, 0.15);
+            border-left-color: var(--primary);
+        }
+
+        .stars {
+            color: var(--warning);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+        }
+
+        .quote {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .author {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+        }
+
+        .author-role {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* CTA */
+        .cta-container {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 25%, var(--purple) 75%, var(--cyan) 100%);
+            color: white;
+            padding: clamp(4rem, 12vw, 6rem) 2rem;
+            text-align: center;
+            border-radius: 24px;
+            margin: 4rem auto;
+            max-width: 800px;
+            animation: ctaFloat 800ms cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(225, 29, 72, 0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @keyframes ctaFloat {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .cta-container::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(251, 113, 133, 0.3), transparent),
+                        radial-gradient(circle at 80% 80%, rgba(168, 85, 247, 0.2), transparent);
+            animation: ctaGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes ctaGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .cta-container h2 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 6vw, 3rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+
+        .cta-container p {
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
+        footer {
+            background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
+            color: white;
+            padding: 3.5rem 1.5rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        footer a {
+            color: var(--primary-light);
+            text-decoration: none;
+            margin: 0 1.5rem;
+            transition: all 200ms ease-out;
+            font-weight: 600;
+            position: relative;
+        }
+
+        footer a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        footer a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        footer p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        /* FOCUS & ACCESSIBILITY */
+        .btn:focus-visible {
+            outline: 3px solid white;
+            outline-offset: 3px;
+        }
+
+        .tile-link:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 2px;
+        }
+
+        footer a:focus-visible {
+            outline: 2px solid var(--primary-light);
+            outline-offset: 4px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .cta-group {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        /* DARK MODE */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #0F0F0F;
+            }
+
+            .section-title {
+                color: var(--primary-light);
+            }
+
+            .tile-title {
+                color: var(--primary-light);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero" role="banner">
+        <div class="hero-content">
+            <h1>Mosaic Hostel</h1>
+            <p>Where Diversity Creates Community. Backpackers, Solo Travelers & Adventurers Unite.</p>
+            <div class="cta-group">
+                <button class="btn btn-primary">Book Now</button>
+                <button class="btn btn-secondary">Explore</button>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5v14M19 12l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+    </header>
+
+    <main>
+        <!-- STATS -->
+        <section class="section">
+            <h2 class="section-title">Why Backpackers Choose Mosaic</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Happy Guests</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">4.9★</span>
+                    <span class="stat-label">Rating</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">8+</span>
+                    <span class="stat-label">Languages</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">5yrs</span>
+                    <span class="stat-label">Established</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOG MOSAIC -->
+        <section class="section">
+            <h2 class="section-title">Travel Stories & Guides</h2>
+            <div class="mosaic-grid">
+                <article class="mosaic-tile">
+                    <div class="tile-image">📍</div>
+                    <div class="tile-content">
+                        <span class="tile-meta">June 2, 2026</span>
+                        <h3 class="tile-title">Best Time to Visit Varanasi</h3>
+                        <p class="tile-description">Month-by-month guide covering weather, festivals, crowds, and insider tips for every season in this spiritual city.</p>
+                        <a href="#" class="tile-link">Read More</a>
+                    </div>
+                </article>
+
+                <article class="mosaic-tile">
+                    <div class="tile-image">🧳</div>
+                    <div class="tile-content">
+                        <span class="tile-meta">May 26, 2026</span>
+                        <h3 class="tile-title">Solo Female Travel Safety</h3>
+                        <p class="tile-description">Honest safety guide with practical tips, best areas to stay, and confidently navigating the sacred Ghats.</p>
+                        <a href="#" class="tile-link">Read More</a>
+                    </div>
+                </article>
+
+                <article class="mosaic-tile">
+                    <div class="tile-image">🚤</div>
+                    <div class="tile-content">
+                        <span class="tile-meta">May 19, 2026</span>
+                        <h3 class="tile-title">7 Must-Do Experiences</h3>
+                        <p class="tile-description">Subah-e-Banaras, sacred boat rides, BHU campus, and ancient lanes. Unforgettable memories await.</p>
+                        <a href="#" class="tile-link">Read More</a>
+                    </div>
+                </article>
+
+                <article class="mosaic-tile">
+                    <div class="tile-image">🏞️</div>
+                    <div class="tile-content">
+                        <span class="tile-meta">May 12, 2026</span>
+                        <h3 class="tile-title">Assi Ghat Complete Guide</h3>
+                        <p class="tile-description">Authentic neighborhood, walkable streets, close to all major ghats. The perfect base for exploration.</p>
+                        <a href="#" class="tile-link">Read More</a>
+                    </div>
+                </article>
+
+                <article class="mosaic-tile">
+                    <div class="tile-image">🎭</div>
+                    <div class="tile-content">
+                        <span class="tile-meta">May 5, 2026</span>
+                        <h3 class="tile-title">Top Varanasi Experiences</h3>
+                        <p class="tile-description">Ganga Aarti rituals, spiritual Subah-e-Banaras, ancient Kashi lanes. Cultural immersion guaranteed.</p>
+                        <a href="#" class="tile-link">Read More</a>
+                    </div>
+                </article>
+
+                <article class="mosaic-tile">
+                    <div class="tile-image">🌅</div>
+                    <div class="tile-content">
+                        <span class="tile-meta">April 28, 2026</span>
+                        <h3 class="tile-title">Backpacker's Assi Guide</h3>
+                        <p class="tile-description">Morning ceremonies, sacred boat rides, chai spots, walking routes. Budget-friendly recommendations included.</p>
+                        <a href="#" class="tile-link">Read More</a>
+                    </div>
+                </article>
+
+                <article class="mosaic-tile">
+                    <div class="tile-image">✨</div>
+                    <div class="tile-content">
+                        <span class="tile-meta">April 21, 2026</span>
+                        <h3 class="tile-title">Why Love Mosaic</h3>
+                        <p class="tile-description">Rooftop views, community vibes, helpful staff. It's home away from home for travelers worldwide.</p>
+                        <a href="#" class="tile-link">Read More</a>
+                    </div>
+                </article>
+
+                <article class="mosaic-tile">
+                    <div class="tile-image">🏨</div>
+                    <div class="tile-content">
+                        <span class="tile-meta">April 14, 2026</span>
+                        <h3 class="tile-title">Living Near Assi Ghat</h3>
+                        <p class="tile-description">Neighborhood overview, morning rituals, local food scene. Where authentic experiences happen daily.</p>
+                        <a href="#" class="tile-link">Read More</a>
+                    </div>
+                </article>
+
+                <article class="mosaic-tile">
+                    <div class="tile-image">🌟</div>
+                    <div class="tile-content">
+                        <span class="tile-meta">April 7, 2026</span>
+                        <h3 class="tile-title">Best Hostels in Varanasi</h3>
+                        <p class="tile-description">Comprehensive comparisons and reviews. Discover why Mosaic stands out for community-focused travelers.</p>
+                        <a href="#" class="tile-link">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="section">
+            <h2 class="section-title">What Guests Say</h2>
+            <div class="testimonials-grid">
+                <blockquote class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Best hostel experience ever! The rooftop views are stunning, the community vibes unmatched, and staff treats you like family. Can't wait to return!"</p>
+                    <footer>
+                        <strong class="author">Sarah M.</strong>
+                        <div class="author-role">Solo Traveler, UK</div>
+                    </footer>
+                </blockquote>
+
+                <blockquote class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Perfect location on Assi Ghat. The atmosphere is incredible — met people from 15 countries in one week. This is where memories are made!"</p>
+                    <footer>
+                        <strong class="author">Marco T.</strong>
+                        <div class="author-role">Backpacker, Italy</div>
+                    </footer>
+                </blockquote>
+
+                <blockquote class="testimonial">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"Great value, incredible community, authentic experience. This hostel captures the true spirit of hospitality. Every traveler should stay here!"</p>
+                    <footer>
+                        <strong class="author">Priya L.</strong>
+                        <div class="author-role">Explorer, Australia</div>
+                    </footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="section">
+            <div class="cta-container">
+                <h2>Ready to Join the Mosaic Family?</h2>
+                <p>Book your stay and become part of a diverse, welcoming community of travelers from around the world.</p>
+                <button class="btn btn-primary">Check Availability</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Mosaic Hostel, Varanasi. Where Diversity Creates Community.</p>
+        <nav>
+            <a href="#contact">Contact</a>
+            <a href="#rooms">Rooms</a>
+            <a href="#blog">Blog</a>
+            <a href="#book">Book</a>
+        </nav>
+    </footer>
+</body>
+</html>
