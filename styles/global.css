@@ -40,8 +40,12 @@ body {
 }
 
 /* FOCUS STYLES FOR KEYBOARD NAV */
-*:focus-visible {
-    outline: 2px solid var(--gold);
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--gold);
     outline-offset: 2px;
 }
 
@@ -301,6 +305,7 @@ button, .btn-primary, .btn-secondary {
     cursor: pointer;
     transition: all 150ms ease-out;
     min-height: 48px;
+    min-width: 48px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -368,6 +373,25 @@ label {
 .card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ─── TOUCH TARGET SPACING (8px minimum gap) ─── */
+button + button,
+button + a,
+a + button,
+a + a,
+input + input,
+input + button,
+button + input {
+    margin-left: 8px;
+}
+
+/* ─── ARIA LIVE REGIONS ─── */
+[role="alert"],
+[aria-live="polite"],
+[aria-live="assertive"] {
+    border-left: 3px solid var(--gold);
+    padding-left: 12px;
 }
 
 /* ─── ANIMATIONS ─── */
