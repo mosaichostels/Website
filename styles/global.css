@@ -361,10 +361,21 @@ button, .btn-primary, .btn-secondary {
     color: white;
 }
 
-.btn-primary:hover, .btn-primary:focus-visible {
+.btn-primary:hover {
     background: #a06e08;
-    transform: scale(1.02) translateY(-2px);
+    transform: translateY(-3px);
     box-shadow: 0 12px 30px rgba(200, 138, 10, 0.25);
+}
+
+.btn-primary:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 2px;
+    box-shadow: 0 12px 30px rgba(200, 138, 10, 0.25);
+}
+
+.btn-primary:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(200, 138, 10, 0.15);
 }
 
 .btn-secondary {
@@ -373,10 +384,20 @@ button, .btn-primary, .btn-secondary {
     border: 2px solid var(--ink);
 }
 
-.btn-secondary:hover, .btn-secondary:focus-visible {
+.btn-secondary:hover {
     background: var(--ink);
     color: white;
-    transform: scale(1.02);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(45, 45, 45, 0.15);
+}
+
+.btn-secondary:focus-visible {
+    outline: 3px solid var(--ink);
+    outline-offset: 2px;
+}
+
+.btn-secondary:active {
+    transform: translateY(-1px);
 }
 
 /* ─── FORMS ─── */
