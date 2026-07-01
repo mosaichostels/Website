@@ -3,9 +3,9 @@
 **Stack:** HTML5/CSS3/Vanilla JS (static site - 7 pages), 8px spacing grid, single global.css source-of-truth
 **Business Type:** Hospitality/Lodging (Premium Budget Hostel)
 **Goal:** Complete redesign: Lighthouse ≥90 (all metrics), WCAG AA, premium visual feel
-**Design:** Modern Mosaic Premium (Crimson Text serif + Inter sans, #C88A0A gold accents, mosaic aesthetics, 150-300ms micro-interactions)
-**Current Status:** Phase 2 (Page Updates) - Batches 3-4 executing with image integration
-**Updated:** 2026-06-30 (Session 5: Image selection, resuming page updates with photo assets)
+**Design:** Modern Mosaic Premium (Google Sans, #946510 gold accents, mosaic aesthetics, 150-300ms micro-interactions)
+**Current Status:** COMPLETE — All 7 pages verified Lighthouse ≥90 desktop + mobile, WCAG AA
+**Updated:** 2026-07-01 (Session 6: Task 8 — Lighthouse verification + performance fixes)
 
 ## Architecture
 - **Pages:** 7 (index, gallery, blog, book-now, about, contact, privacy) — all static HTML

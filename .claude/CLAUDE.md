@@ -5,12 +5,12 @@
 - **GitHub Repo:** https://github.com/mosaichostels/Website
 - **GitHub Account:** mosaichostels
 - **Branch:** main
-- **Status:** Deployed 2026-06-30
+- **Status:** Deployed 2026-07-01
 
 ## Project Status
-- **Phase:** Production (Batches 1-4 complete)
-- **Last Deploy:** 2026-06-30 (19 commits)
-- **Lighthouse Target:** ≥90 all pages (pending audit)
+- **Phase:** COMPLETE — Lighthouse ≥90 verified, WCAG AA confirmed
+- **Last Deploy:** 2026-07-01 (Task 8 — performance audit + fixes, commit aaba174)
+- **Lighthouse Result:** ALL PASS — ≥90 desktop and mobile on all 7 pages
 
 ## Key Files
 - **Global Styles:** styles/global.css (single source of truth)
