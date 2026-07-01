@@ -31,7 +31,7 @@
         .nav-book:hover { background: #a06e08; }
         #cursor { position: fixed; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; mix-blend-mode: multiply; }
         #cursor-ring { position: fixed; width: 36px; height: 36px; border: 2px solid var(--gold); border-radius: 50%; pointer-events: none; z-index: 9999; }
-        .hero { background: linear-gradient(135deg, rgba(26, 18, 8, 0.7), rgba(26, 18, 8, 0.85)), url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover; height: 300px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; }
+        .hero { background: linear-gradient(135deg, rgba(26, 18, 8, 0.7), rgba(26, 18, 8, 0.85)), url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover; aspect-ratio: 16 / 9; max-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; }
         .hero h1 { font-family: 'Google Sans', sans-serif; font-size: 56px; font-weight: 400; }
         section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
         h2 { font-family: 'Google Sans', sans-serif; font-size: 42px; font-weight: 400; margin-bottom: 60px; }
@@ -208,6 +208,7 @@
 
         @media (max-width: 767px) {
             nav { padding: 0 20px; height: 70px; }
+            .hero { aspect-ratio: 4 / 3; max-height: 300px; }
             .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
