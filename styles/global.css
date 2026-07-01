@@ -744,6 +744,33 @@ button + input {
     }
 }
 
+/* ─── ACCESSIBILITY: SKIP LINK ─── */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--gold);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 1001;
+    font-weight: 600;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* ─── ACCESSIBILITY: SCROLL INDICATOR ─── */
+.scroll-indicator {
+    display: none;
+}
+
+/* ─── MAIN CONTENT SPACING (account for fixed navbar) ─── */
+main {
+    margin-top: 80px;
+}
+
 /* ─── ACCESSIBILITY: RESPECT MOTION PREFERENCES ─── */
 @media (prefers-reduced-motion: reduce) {
     * {
@@ -754,5 +781,12 @@ button + input {
 
     .room-card {
         transform: none !important;
+    }
+}
+
+/* Mobile adjustments for navbar spacing */
+@media (max-width: 480px) {
+    main {
+        margin-top: 60px;
     }
 }
