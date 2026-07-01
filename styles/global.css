@@ -654,3 +654,16 @@ button + input {
         font-size: 16px;
     }
 }
+
+/* ─── ACCESSIBILITY: RESPECT MOTION PREFERENCES ─── */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .room-card {
+        transform: none !important;
+    }
+}
