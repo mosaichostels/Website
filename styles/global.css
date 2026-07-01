@@ -99,7 +99,10 @@ nav.scrolled {
     text-transform: uppercase;
     position: relative;
     transition: color 0.3s ease;
-    padding: 8px 0;
+    padding: 12px 16px; /* ponytail: was 8px 0 → ~29px tall; 12px*2+13px line ≥ 44px WCAG AA */
+    min-height: 44px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-links a::after {
@@ -236,13 +239,15 @@ footer {
 }
 
 .footer-col a {
-    display: block;
+    display: flex;
+    align-items: center;
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     font-size: 13px;
     margin-bottom: 16px;
     transition: color 0.3s ease;
     padding: 8px 0;
+    min-height: 44px; /* ponytail: WCAG AA touch target */
 }
 
 .footer-col a:hover, .footer-col a:focus-visible {
@@ -452,8 +457,8 @@ button + input {
     align-items: center;
     justify-content: center;
     transition: all 0.2s ease;
-    min-width: 40px;
-    min-height: 40px;
+    min-width: 44px; /* ponytail: was 40px, WCAG AA requires ≥44px */
+    min-height: 44px;
 }
 
 .modal-close:hover, .modal-close:focus-visible {
