@@ -1,24 +1,18 @@
-# SDD Progress Ledger — Tasks 8-13
+# SDD Progress Ledger — Tasks 1-8 (Lighthouse ≥90 + WCAG AA)
 
-**Started:** 2026-06-30
-**Tasks:** 8-13 (6 pages: gallery, blog, book-now, about, contact, privacy)
-**Quality Gates:** Lighthouse ≥90, WCAG AA, 8px grid, Google Sans font
+**Started:** 2026-07-01
+**Plan:** 2026-07-01-lighthouse-wcag-aa.md
+**Base commit:** 82d582c
+**Tasks:** 8 total covering accessibility, responsive design, performance
+**Quality Gates:** Lighthouse ≥90 all pages, WCAG AA compliance
 
 ## Progress
 
-
-Task 8: complete (commits 145b82f..cfa3d98, review clean)
-Task 9: complete (commits cfa3d98..7f5c4c0, review clean)
-Task 10: complete (commits 7f5c4c0..9a809f9, review clean)
-Task 11: complete (commits 9a809f9..1a98a83, review clean)
-Task 12: complete (commits 1a98a83..889255e, review clean)
-Task 13: complete (commits 889255e..83c63d7, review clean)
-
-## Final Status
-All Tasks 8-13 APPROVED ✅
-- Task 8: gallery.html (145b82f..cfa3d98)
-- Task 9: blog.html (cfa3d98..7f5c4c0)
-- Task 10: book-now.html (7f5c4c0..9a809f9)
-- Task 11: about.html (9a809f9..1a98a83)
-- Task 12: contact.html (1a98a83..889255e)
-- Task 13: privacy.html (889255e..83c63d7)
+- [ ] Task 1: Color Contrast Audit & Fix
+- [ ] Task 2: Heading Hierarchy Audit & Fix  
+- [ ] Task 3: Touch Target Size Audit & Fix
+- [ ] Task 4: Hero Image Aspect Ratio & CLS Prevention
+- [ ] Task 5: Mobile Responsive Breakpoints & Section Padding
+- [ ] Task 6: Font Loading Optimization
+- [ ] Task 7: Custom Cursor Performance Audit
+- [ ] Task 8: Lighthouse Verification All Pages
