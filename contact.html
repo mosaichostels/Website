@@ -8,69 +8,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap"></noscript>
-        <style>
-.hero { background: linear-gradient(135deg, rgba(26, 18, 8, 0.7), rgba(26, 18, 8, 0.85)), url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover; aspect-ratio: 16 / 9; max-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; }
+    <link rel="stylesheet" href="styles/global.css">
+</head>
+<body>
+    <style>
+        .hero { background: linear-gradient(135deg, rgba(26, 18, 8, 0.7), rgba(26, 18, 8, 0.85)), url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover; aspect-ratio: 16 / 9; max-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; }
         .hero h1 { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; font-size: 56px; font-weight: 400; }
-
-        /* Mobile-first: 1-column layout (form first, then contact info) */
         .contact-grid { display: flex; flex-direction: column; gap: 40px; }
-
-        /* ponytail: card styles base — applied at all breakpoints, desktop overrides padding only */
-        .contact-info {
         .contact-info h2 { font-size: 28px; margin-bottom: 24px; }
-
-
-        /* ARIA live region — hidden until populated */
         #form-status { border-radius: 4px; font-size: 14px; line-height: 1.5; }
         #form-status:not(:empty) { padding: 12px 16px; margin-bottom: 16px; }
         #form-status.success { background: #d4edda; color: #155724; }
         #form-status.error { background: #f8d7da; color: #721c24; }
-
         .form-group { margin-bottom: 24px; }
-
-
-
-
-
-
-
-
-
-        .info-item { margin-bottom: 24px; }
-        .info-item:last-child { margin-bottom: 0; }
-
-        .info-item strong {
-
-        .info-item p {
-
-        .info-item a {
-
-        .info-item a:hover, .info-item a:focus {
-
-
-        /* Tablet: 768px – still 1-column */
         @media (min-width: 768px) {
             section { padding: 60px 40px; }
-
-        /* Desktop: 1024px+ – 2-column grid (info left, form right) */
+        }
         @media (min-width: 1024px) {
             section { padding: 100px 60px; }
-
-            .contact-grid {
-
-            /* Form is first in DOM (correct mobile screen-reader order);
-            .contact-info {
-
-            .contact-info h2 {
-
-
-
-
+            .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        }
         @media (max-width: 767px) {
             nav { padding: 0 20px; height: 70px; }
             .hero { aspect-ratio: 4 / 3; max-height: 300px; }
+        }
     </style>
-    <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
     <main>
@@ -130,37 +92,6 @@
     </section>
 
     </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h3>Mosaic</h3>
-                <p style="font-size: 13px; color: rgba(255, 255, 255, 0.6);">Steps from sacred Ghats.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Pages</h3>
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="blog.html">Blog</a>
-            </div>
-            <div class="footer-col">
-                <h3>Social</h3>
-                <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
-                <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
-                <a href="https://www.facebook.com/mosaichostels" target="_blank">Facebook</a>
-            </div>
-            <div class="footer-col">
-                <h3>Legal</h3>
-                <a href="privacy.html">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">FAQ</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Mosaic Hostel. All rights reserved.</p>
-        </div>
-    </footer>
 
     <script>
         const form = document.querySelector('form');
