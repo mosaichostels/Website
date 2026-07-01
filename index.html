@@ -234,9 +234,17 @@
 
         document.querySelectorAll('.stat-number').forEach(el => statObserver.observe(el));
 
-        // ─── PARALLAX ON EXPERIENCE SECTION ───
+        // ─── PARALLAX ON HERO & EXPERIENCE SECTIONS ───
         const experienceBg = document.querySelector('.experience-bg');
+        const heroVideo = document.querySelector('.hero-video');
         window.addEventListener('scroll', () => {
+            // Hero parallax
+            if (heroVideo) {
+                const heroRect = heroVideo.closest('.hero').getBoundingClientRect();
+                const scrollProgress = Math.max(0, Math.min(1, 1 - heroRect.top / window.innerHeight));
+                heroVideo.style.transform = `translateY(${scrollProgress * 30}px) scale(${1 + scrollProgress * 0.1})`;
+            }
+            // Experience parallax
             if (!experienceBg) return;
             const rect = experienceBg.closest('.experience').getBoundingClientRect();
             const scrolled = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
@@ -247,10 +255,13 @@
         const reveals = document.querySelectorAll('.philosophy-item, .testimonial, .stat');
         const revealObserver = new IntersectionObserver(entries => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = 'none';
+                if (entry.isIntersecting && !entry.target.dataset.revealed) {
+                    entry.target.dataset.revealed = 'true';
+                    const index = Array.from(reveals).indexOf(entry.target);
+                    const delay = (index % 3) * 0.1;
+                    entry.target.style.animation = `none`;
                     void entry.target.offsetWidth;
-                    entry.target.style.animation = '';
+                    entry.target.style.animation = `fadeInUp 0.6s ease-out ${delay}s both`;
                 }
             });
         }, { threshold: 0.15 });
