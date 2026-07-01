@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="styles/global.css">
     <link rel="icon" type="image/png" href="images/mosaic-logo.png">
+    <link rel="canonical" href="https://mosaichostels.com/book-now.html">
 </head>
 <body>
     <main>
@@ -171,10 +172,42 @@
     </main>
 
     <script>
-        // Form handling
         const form = document.querySelector('form');
+        const summary = document.querySelector('.booking-summary');
+        const inputs = form.querySelectorAll('input, select, textarea');
+
+        function updateSummary() {
+            const roomType = form.querySelector('select[name="room_type"]').value;
+            const roomLabel = form.querySelector(`option[value="${roomType}"]`)?.textContent || 'Select above';
+            const checkin = form.querySelector('input[name="checkin"]').value;
+            const checkout = form.querySelector('input[name="checkout"]').value;
+
+            summary.querySelector('.summary-row:nth-child(1) strong').textContent = roomLabel;
+            summary.querySelector('.summary-row:nth-child(2) strong').textContent = checkin || '—';
+            summary.querySelector('.summary-row:nth-child(3) strong').textContent = checkout || '—';
+
+            if (checkin && checkout) {
+                const d1 = new Date(checkin);
+                const d2 = new Date(checkout);
+                const nights = Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24));
+                summary.querySelector('.summary-row:nth-child(4) strong').textContent = nights > 0 ? nights : '—';
+                if (nights > 0 && roomType) {
+                    const prices = { female: 400, '4bed': 450, '6bed': 380, '8bed': 350, private: 800 };
+                    const total = nights * (prices[roomType] || 0);
+                    summary.querySelector('.summary-price-value').textContent = total > 0 ? '₹' + total : '₹0';
+                }
+            }
+        }
+
+        inputs.forEach(input => input.addEventListener('change', updateSummary));
+
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+            const invalid = [...form.querySelectorAll('[required]')].filter(f => !f.value?.trim());
+            if (invalid.length) {
+                invalid[0].focus();
+                return;
+            }
             alert('Booking submitted! You will be redirected to complete payment.');
             window.open('https://www.booking.com/hotel/in/mosaic-hostel-varanasi.html', '_blank');
         });
