@@ -1,11 +1,11 @@
 # Project Context
-**Name:** Mosaic Hostel Varanasi Website Redesign
-**Stack:** HTML5/CSS3/Vanilla JS (static site - 7 pages), 8px spacing grid, single global.css source-of-truth
+**Name:** Mosaic Hostel Varanasi Static Website Redesign
+**Stack:** HTML5/CSS3/Vanilla JS (static site - 7 pages), 8px spacing grid, unified components, single global.css
 **Business Type:** Hospitality/Lodging (Premium Budget Hostel)
-**Goal:** Complete redesign: Lighthouse ≥90 (all metrics), WCAG AA, premium visual feel
+**Goal:** Lighthouse ≥90 (all metrics), WCAG AA, lean maintainable codebase
 **Design:** Modern Mosaic Premium (Google Sans, #946510 gold accents, mosaic aesthetics, 150-300ms micro-interactions)
-**Current Status:** COMPLETE — All 7 pages verified Lighthouse ≥90 desktop + mobile, WCAG AA
-**Updated:** 2026-07-01 (Session 6: Task 8 — Lighthouse verification + performance fixes)
+**Current Status:** Phase 1 Cleanup Complete — Removed 523 lines broken CSS, hardcoded components consolidated
+**Updated:** 2026-07-01 (Phase 1: -523 lines broken/duplicate CSS, all secondary pages cleaned, loader.js single-source-of-truth)
 
 ## Architecture
 - **Pages:** 7 (index, gallery, blog, book-now, about, contact, privacy) — all static HTML

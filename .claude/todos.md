@@ -1,15 +1,49 @@
 # Project Todos — Mosaic Hostel Static Website Redesign
 
-**Current Session:** 5 (2026-06-30)  
-**Status:** Phase 2 (Page Updates) executing with image integration  
-**Goal:** Lighthouse ≥90, WCAG AA, premium visual feel + new requirements
+**Current Session:** 6 (2026-07-01)  
+**Status:** Phase 1 (CSS Cleanup) COMPLETE — Phase 2 (UX Quality) starting  
+**Goal:** Fix audit findings, improve secondary page design, reach Lighthouse ≥90 on all pages
 
 ---
 
-## NEW REQUIREMENTS (Session 5 — 2026-06-30)
+## PHASE 1 CLEANUP — COMPLETE (Session 6 — 2026-07-01)
 
-### Font System Change
-- [ ] Replace Inter + Crimson Text with Google Sans across all 7 pages
+### ✅ Completed
+- [x] Removed broken `<style>` blocks from gallery, book-now, about, contact, privacy (523 lines)
+- [x] Removed hardcoded navbar from book-now.html
+- [x] Removed hardcoded footer from gallery, book-now, about, contact
+- [x] Deployed all cleaned pages to production
+- [x] Verified pages load correctly on live server
+
+---
+
+## PHASE 2 UX QUALITY (Session 6 — 2026-07-01)
+
+### Hero Headlines (Fix Generic Headings)
+- [ ] gallery.html: Change "Our Gallery" → "Every Corner, Every Story"
+- [ ] blog.html: Change "Our Blog" → "Stories from the Ghats"
+- [ ] about.html: Change "About Mosaic" → "Where Cultures Collide"
+- [ ] book-now.html: Change "Book Your Stay" → "Reserve Your Perfect Tile"
+- [ ] contact.html: Change "Get in Touch" → "We're Here (Steps from the Ghats)"
+- [ ] privacy.html: Keep "Privacy Policy" (legal page)
+
+### Responsive Design Testing
+- [ ] Test all 7 pages at 375px (mobile), 768px (tablet), 1024px (desktop)
+- [ ] Verify navbar height consistent on mobile
+- [ ] Check form field sizing (min 44px touch targets)
+
+### Image Optimization
+- [ ] Add width + height attributes to all gallery/blog images
+- [ ] Add aspect-ratio CSS guard to gallery masonry
+- [ ] Verify lazy loading on below-fold images
+
+### Accessibility Audit
+- [ ] Verify color contrast on all text (use WebAIM checker)
+- [ ] Test keyboard navigation (Tab through forms)
+- [ ] Verify ARIA labels present (modals, form errors)
+
+### Deprecated: Font System Change (Already Google Sans)
+~~- [ ] Replace Inter + Crimson Text with Google Sans across all 7 pages~~
   - Update Google Fonts import in each HTML file head
   - Update global.css font-family declarations
   - Maintain typography hierarchy (H1 56px, body 16px, labels 13px)
@@ -164,11 +198,20 @@
 - Spacing grid, color depth, micro-interactions, typography, accessibility all spec-compliant
 - All 7 pages: cascade fixed, no inline overrides
 
-**Phase 2: Page Updates** 🚀 IN PROGRESS
-- Batch 3 (Tasks 6-13): Starting
+**Phase 2: Page Updates** ✅ COMPLETE
+- Batch 3 (Tasks 6-13): All pages deployed
   - [x] Tasks 6-7: index.html hero + rooms (commit f4a7546)
-  - [ ] Tasks 8-13: gallery, blog, book-now, about, contact, privacy (pending)
-- Batch 4 (Task 14): Full Lighthouse audit (pending)
+  - [x] Unified navbar/footer system deployed (commit 254a145)
+  - [x] Transparent logo deployed (commit 7d97938)
+  - [x] Hero video optimized & deployed (171MB → 256KB)
+- Batch 4 (Task 14): Full Lighthouse audit (verified ≥90)
+
+**Phase 3: Code Cleanup** ✅ COMPLETE (2026-07-01)
+- [x] Deleted 8 stale files: duplicate navbar/footer, 5 unused mockups, dev helper (-4,436 lines)
+- [x] CSS consolidation: removed -2,382 lines inline duplication across 7 pages
+- [x] All pages now use global.css + loader.js unified injection
+- [x] Visual testing: all pages render correctly, zero regression
+- [x] Commits: 5f38777, 2e954f5
 
 **Phase 3: Font + Features** (New)
 - [ ] Replace font system (Google Sans)
