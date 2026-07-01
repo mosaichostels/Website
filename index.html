@@ -174,29 +174,6 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
-        /* ─── CUSTOM CURSOR ─── */
-        #cursor {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: var(--gold);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: multiply;
-        }
-
-        #cursor-ring {
-            position: fixed;
-            width: 36px;
-            height: 36px;
-            border: 2px solid var(--gold);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transition: all 0.05s ease-out;
-        }
-
         /* ─── HERO SECTION ─── */
         .hero {
             position: relative;
@@ -1055,10 +1032,6 @@
     <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
-    <!-- CUSTOM CURSOR -->
-    <div id="cursor"></div>
-    <div id="cursor-ring"></div>
-
     <!-- NAVBAR -->
     <nav id="navbar" role="navigation" aria-label="Main navigation">
         <a href="index.html" class="nav-logo"><img src="images/PHOTO-2025-08-30-20-52-21.jpg" alt="Mosaic Hostel Logo" style="height: 40px; width: auto;"></a>
@@ -1300,38 +1273,6 @@
     </footer>
 
     <script>
-        // ─── CUSTOM CURSOR ───
-        const cursor = document.getElementById('cursor');
-        const cursorRing = document.getElementById('cursor-ring');
-        let cursorX = 0, cursorY = 0, cursorRingX = 0, cursorRingY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            cursorX = e.clientX;
-            cursorY = e.clientY;
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-
-            cursorRingX += (cursorX - cursorRingX) * 0.2;
-            cursorRingY += (cursorY - cursorRingY) * 0.2;
-            cursorRing.style.left = cursorRingX + 'px';
-            cursorRing.style.top = cursorRingY + 'px';
-        });
-
-        document.querySelectorAll('a, button, .room-card, .testimonial, input, select, textarea').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.width = '16px';
-                cursor.style.height = '16px';
-                cursorRing.style.width = '48px';
-                cursorRing.style.height = '48px';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.width = '10px';
-                cursor.style.height = '10px';
-                cursorRing.style.width = '36px';
-                cursorRing.style.height = '36px';
-            });
-        });
-
         // ─── MOBILE MENU ───
         const navHam = document.getElementById('navHam');
         const navLinks = document.getElementById('navLinks');

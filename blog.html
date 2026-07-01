@@ -28,8 +28,6 @@
         .nav-links a { color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: var(--gold); }
         .nav-book { padding: 12px 24px; background: var(--gold); color: white; border: none; border-radius: 4px; cursor: pointer; }
-        #cursor { position: fixed; width: 10px; height: 10px; background: var(--gold); border-radius: 50%; z-index: 9999; mix-blend-mode: multiply; }
-        #cursor-ring { position: fixed; width: 36px; height: 36px; border: 2px solid var(--gold); border-radius: 50%; z-index: 9999; }
         .hero { background: linear-gradient(135deg, rgba(26,18,8,0.7), rgba(26,18,8,0.85)), url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover; aspect-ratio: 16 / 9; max-height: 400px; display: flex; align-items: center; justify-content: center; color: white; margin-top: 80px; text-align: center; }
         .hero h1 { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; font-size: 56px; }
         section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
@@ -60,8 +58,6 @@
     <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
-    <div id="cursor"></div>
-    <div id="cursor-ring"></div>
     <nav>
         <a href="index.html" class="nav-logo"><img src="images/PHOTO-2025-08-30-20-52-21.jpg" alt="Mosaic Hostel Logo" style="height: 40px; width: auto;"></a>
         <ul class="nav-links">
@@ -152,17 +148,6 @@
         </div>
     </footer>
 
-    <script>
-        const cursor = document.getElementById('cursor');
-        const cursorRing = document.getElementById('cursor-ring');
-        let cx = 0, cy = 0, crx = 0, cry = 0;
-        document.addEventListener('mousemove', (e) => {
-            cx = e.clientX; cy = e.clientY;
-            cursor.style.left = cx + 'px'; cursor.style.top = cy + 'px';
-            crx += (cx - crx) * 0.2; cry += (cy - cry) * 0.2;
-            cursorRing.style.left = crx + 'px'; cursorRing.style.top = cry + 'px';
-        });
-    </script>
     <script src="components/loader.js"></script>
 </body>
 </html>

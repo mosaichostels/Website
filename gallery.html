@@ -99,28 +99,6 @@
             box-shadow: 0 8px 20px rgba(200, 138, 10, 0.2);
         }
 
-        /* CURSOR */
-        #cursor {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: var(--gold);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            mix-blend-mode: multiply;
-        }
-
-        #cursor-ring {
-            position: fixed;
-            width: 36px;
-            height: 36px;
-            border: 2px solid var(--gold);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-        }
-
         /* HERO */
         .hero-section {
             background: linear-gradient(135deg, rgba(26, 18, 8, 0.7), rgba(26, 18, 8, 0.85)),
@@ -375,9 +353,6 @@
     <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
-    <div id="cursor"></div>
-    <div id="cursor-ring"></div>
-
     <nav>
         <a href="index.html" class="nav-logo"><img src="images/PHOTO-2025-08-30-20-52-21.jpg" alt="Mosaic Hostel Logo" style="height: 40px; width: auto;"></a>
         <ul class="nav-links">
@@ -470,37 +445,6 @@
         </div>
     </footer>
 
-    <script>
-        const cursor = document.getElementById('cursor');
-        const cursorRing = document.getElementById('cursor-ring');
-        let cursorX = 0, cursorY = 0, crX = 0, crY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            cursorX = e.clientX;
-            cursorY = e.clientY;
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-            crX += (cursorX - crX) * 0.2;
-            crY += (cursorY - crY) * 0.2;
-            cursorRing.style.left = crX + 'px';
-            cursorRing.style.top = crY + 'px';
-        });
-
-        document.querySelectorAll('a, button, .gallery-item').forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursor.style.width = '16px';
-                cursor.style.height = '16px';
-                cursorRing.style.width = '48px';
-                cursorRing.style.height = '48px';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursor.style.width = '10px';
-                cursor.style.height = '10px';
-                cursorRing.style.width = '36px';
-                cursorRing.style.height = '36px';
-            });
-        });
-    </script>
     <script src="components/modal.js"></script>
     <script src="components/loader.js"></script>
 </body>
