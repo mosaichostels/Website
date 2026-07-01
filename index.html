@@ -11,23 +11,9 @@
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap"></noscript>
     <link rel="preload" as="image" href="images/IMG_4450.JPG">
     <link rel="stylesheet" href="styles/global.css">
+    <link rel="icon" type="image/png" href="images/mosaic-logo.png">
 </head>
 <body>
-    <!-- NAVBAR -->
-    <nav id="navbar" role="navigation" aria-label="Main navigation">
-        <a href="index.html" class="nav-logo"><img src="images/mosaic-logo.png" alt="Mosaic Hostel Logo" style="height: 40px; width: auto;"></a>
-        <ul class="nav-links" id="navLinks" role="menubar">
-            <li role="none"><a href="#rooms" role="menuitem">Rooms</a></li>
-            <li role="none"><a href="#experience" role="menuitem">Experience</a></li>
-            <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
-        </ul>
-        <button class="nav-hamburger" id="navHam" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <button class="nav-book" aria-label="Book a room" onclick="document.getElementById('rooms').scrollIntoView({behavior:'smooth'})">Book Now</button>
-    </nav>
 
     <main>
 
@@ -169,7 +155,7 @@
     <!-- EXPERIENCE -->
     <section id="experience" role="region" aria-label="The Varanasi experience">
         <div class="experience">
-            <img class="experience-bg" src="https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg" alt="Rooftop view of Varanasi" width="1200" height="800" style="aspect-ratio: 3/2;">
+            <img class="experience-bg" src="https://mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg" alt="Rooftop view of Varanasi" width="1200" height="800" style="aspect-ratio: 3/2;">
             <div class="experience-overlay" aria-hidden="true"></div>
             <div class="experience-content">
                 <div class="section-subtitle">The Varanasi Experience</div>
@@ -192,78 +178,7 @@
 
     </main>
 
-    <!-- FOOTER -->
-    <footer role="contentinfo">
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h3>Mosaic Hostel</h3>
-                <p style="font-size: 13px; line-height: 1.8; color: rgba(255, 255, 255, 0.6);">Varanasi's premier hostel steps from the sacred Ghats. Where travelers from around the world become lifelong friends.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Explore</h3>
-                <nav aria-label="Footer navigation">
-                    <a href="#rooms">Rooms</a>
-                    <a href="#experience">Experience</a>
-                    <a href="gallery.html">Gallery</a>
-                    <a href="blog.html">Blog</a>
-                </nav>
-            </div>
-            <div class="footer-col">
-                <h3>Connect</h3>
-                <nav aria-label="Social media">
-                    <a href="https://wa.me/919125492225" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                    <a href="mailto:mosaichostels@gmail.com">Email</a>
-                    <a href="https://www.instagram.com/mosaichostels" target="_blank" rel="noopener noreferrer">Instagram</a>
-                </nav>
-            </div>
-            <div class="footer-col">
-                <h3>Legal</h3>
-                <nav aria-label="Legal pages">
-                    <a href="privacy.html">Privacy</a>
-                    <a href="about.html">About</a>
-                    <a href="contact.html">Contact</a>
-                </nav>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Mosaic Hostel Varanasi. All rights reserved. Made with ♥ in Varanasi</p>
-        </div>
-    </footer>
-
     <script>
-        // ─── MOBILE MENU ───
-        const navHam = document.getElementById('navHam');
-        const navLinks = document.getElementById('navLinks');
-
-        navHam.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            navHam.classList.toggle('active');
-            navHam.setAttribute('aria-expanded', navLinks.classList.contains('active'));
-        });
-
-        navLinks.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                navHam.classList.remove('active');
-                navHam.setAttribute('aria-expanded', 'false');
-            });
-        });
-
-        // Close menu on Escape
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                navHam.classList.remove('active');
-                navHam.setAttribute('aria-expanded', 'false');
-            }
-        });
-
-        // ─── NAVBAR SCROLL EFFECT ───
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            navbar.classList.toggle('scrolled', window.scrollY > 100);
-        }, { passive: true });
-
         // ─── 3D TILT ON ROOM CARDS ───
         document.querySelectorAll('.room-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
