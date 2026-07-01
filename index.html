@@ -64,12 +64,10 @@
 
     <!-- HERO -->
     <section class="hero" role="banner" aria-label="Welcome to Mosaic Hostel">
-        <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
-            <source src="images/hero-video.webm" type="video/webm">
-            <source src="images/hero-video.mp4" type="video/mp4">
-            Your browser doesn't support HTML5 video.
+        <video class="hero-video" autoplay muted loop playsinline aria-hidden="true" poster="images/IMG_4450.JPG">
+            <source src="/videos/13263912_3840_2160_60fps.mp4" type="video/mp4">
+            <img class="hero-bg" src="images/IMG_4450.JPG" alt="Mosaic Hostel entrance with Varanasi Ghats view" aria-hidden="true" fetchpriority="high" loading="eager" width="1080" height="810">
         </video>
-        <img class="hero-bg" src="images/IMG_4450.JPG" alt="Mosaic Hostel entrance with Varanasi Ghats view" aria-hidden="true" fetchpriority="high" loading="eager" width="1080" height="810">
         <div class="hero-stripe" id="heroStripe"></div>
         <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -201,7 +199,6 @@
     <!-- EXPERIENCE -->
     <section id="experience" role="region" aria-label="The Varanasi experience">
         <div class="experience">
-            <img class="experience-bg" src="images/IMG_4451.JPG" alt="Rooftop view of Varanasi" width="1200" height="800" style="aspect-ratio: 3/2;">
             <div class="experience-overlay" aria-hidden="true"></div>
             <div class="experience-content">
                 <div class="section-subtitle">The Varanasi Experience</div>
@@ -240,70 +237,6 @@
         </div>
     </section>
 
-    <div class="tile-divider" id="divider3" aria-hidden="true"></div>
-
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" role="region" aria-label="Guest testimonials">
-        <div class="section-header">
-            <div class="section-subtitle">Guest Stories</div>
-            <h2>Loved by<br><em>Travelers Worldwide</em></h2>
-        </div>
-        <div class="testimonials-grid" role="list">
-            <div class="testimonial" role="listitem">
-                <div class="testimonial-stars">★★★★★</div>
-                <p>"Mosaic felt like a home away from home. The team is incredible, the location is unbeatable, and the community here is something special."</p>
-                <div class="testimonial-author">— Sarah, Australia</div>
-            </div>
-            <div class="testimonial" role="listitem">
-                <div class="testimonial-stars">★★★★★</div>
-                <p>"Best hostel experience in Varanasi. Clean rooms, friendly staff, and the rooftop views of the Ghats are stunning. Highly recommend!"</p>
-                <div class="testimonial-author">— Marco, Italy</div>
-            </div>
-            <div class="testimonial" role="listitem">
-                <div class="testimonial-stars">★★★★★</div>
-                <p>"Made friends from 15 different countries here. The social events are well-organized and everyone is genuinely welcoming. Will return!"</p>
-                <div class="testimonial-author">— Priya, India</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BLOG PREVIEW -->
-    <section id="blog-preview" role="region" aria-label="Latest travel stories">
-        <div class="section-header">
-            <div class="section-subtitle">Travel Stories</div>
-            <h2>Explore Varanasi<br>Through <em>Guest Stories</em></h2>
-        </div>
-        <div class="blog-preview-grid" role="list">
-            <article class="blog-preview-card" role="listitem">
-                <img src="images/IMG_4451.JPG" alt="Ganga Aarti ceremony" width="400" height="300" loading="lazy">
-                <div class="blog-preview-content">
-                    <h3>Witnessing the Sacred Ganga Aarti</h3>
-                    <p>Experience the spiritual magic of Varanasi's most iconic ceremony. Learn what makes it unforgettable and how to witness it respectfully.</p>
-                    <a href="blog.html" class="read-more">Read Story →</a>
-                </div>
-            </article>
-            <article class="blog-preview-card" role="listitem">
-                <img src="images/IMG_1934.JPG" alt="Hostel common area" width="400" height="300" loading="lazy">
-                <div class="blog-preview-content">
-                    <h3>Community Events at Mosaic</h3>
-                    <p>From cooking classes with local chefs to rooftop movie nights — discover the activities that make Mosaic more than just a place to stay.</p>
-                    <a href="blog.html" class="read-more">Read Story →</a>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- NEWSLETTER -->
-    <section id="newsletter" role="region" aria-label="Newsletter signup" class="newsletter-section">
-        <div class="newsletter-content">
-            <h2>Stay Connected</h2>
-            <p>Get travel tips, local insights, and exclusive Mosaic updates delivered to your inbox.</p>
-            <form class="newsletter-form" aria-label="Email newsletter signup">
-                <input type="email" placeholder="your@email.com" required aria-label="Email address">
-                <button type="submit" class="btn-primary" aria-label="Subscribe to newsletter">Subscribe</button>
-            </form>
-        </div>
-    </section>
 
 <!-- CTA -->
     <div class="cta-section" role="region" aria-label="Call to action">
@@ -520,6 +453,6 @@
         });
     </script>
     <script src="components/modal.js"></script>
-    <script src="components/loader.js"></script>
+    <script src="/components/loader.js"></script>
 </body>
 </html>
