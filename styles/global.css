@@ -905,8 +905,9 @@ button + input {
 }
 
 .blog-hero h1 {
-    font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
+    font-family: 'Playfair Display', serif;
     font-size: 56px;
+    font-weight: 700;
 }
 
 .blog-grid {
