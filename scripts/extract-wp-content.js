@@ -6,7 +6,9 @@ const path = require('path');
 // ponytail: simple regex-based SQL parser, good enough for WordPress dumps.
 // Upgrade path: use a real SQL parser library if schema changes materially.
 
-const SQL_FILE = path.join(__dirname, '../untitled folder/u738123768_V6VvD.mosaichostels-com.20260623142824.sql');
+// Accept SQL file path from command-line argument, default to fYZdV (58.9MB with published content)
+const DEFAULT_SQL = path.join(__dirname, '../untitled folder/u738123768_fYZdV.20260623142824.sql');
+const SQL_FILE = process.argv[2] || DEFAULT_SQL;
 const OUTPUT_DIR = path.join(__dirname, '../tmp');
 
 // Ensure output directory exists
@@ -278,7 +280,7 @@ function extractMeta(sqlContent) {
  */
 function main() {
   try {
-    console.log('Reading SQL backup...');
+    console.log(`Reading SQL backup: ${SQL_FILE}`);
     const sqlContent = fs.readFileSync(SQL_FILE, 'utf-8');
 
     console.log('Extracting posts and pages...');
