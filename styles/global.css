@@ -1534,6 +1534,16 @@ main {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
+.hamburger:hover {
+    opacity: 0.7;
+}
+
+.hamburger:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
 /* ─── NAVBAR RESPONSIVE ─── */
 @media (max-width: 1023px) {
     .nav-container {
