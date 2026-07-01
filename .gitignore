@@ -1,3 +1,4 @@
 images/hero-video.mp4
 .playwright-mcp/
 *.png
+!images/mosaic-logo.png
