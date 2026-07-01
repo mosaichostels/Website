@@ -8,442 +8,97 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap"></noscript>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        <style>
+/* ─── NAVBAR ─── */
 
-        html {
-            scroll-behavior: smooth;
-        }
 
-        body {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            background: var(--cream);
-            color: var(--ink);
-            line-height: 1.6;
-        }
 
-        /* ─── NAVBAR ─── */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 60px;
-            background: rgba(250, 244, 234, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
 
-        nav.scrolled {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
 
-        .nav-logo {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--ink);
-            letter-spacing: 2px;
-            text-decoration: none;
-        }
 
-        .nav-links {
-            display: flex;
-            gap: 48px;
-            list-style: none;
-        }
 
-        .nav-links a {
-            color: var(--ink);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            position: relative;
-            transition: color 0.3s ease;
-        }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
 
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-book {
-            padding: 12px 24px;
-            background: var(--gold);
-            color: white;
-            text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .nav-book:hover {
-            background: #a06e08;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(200, 138, 10, 0.2);
-        }
 
         /* ─── MAIN CONTENT ─── */
         .hero-section {
-            background: linear-gradient(135deg, rgba(26, 18, 8, 0.7), rgba(26, 18, 8, 0.85)),
-                        url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover;
-            aspect-ratio: 16 / 9;
-            max-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 80px;
-        }
 
         .hero-section h1 {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 56px;
-            font-weight: 400;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
 
         .hero-section p {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.9);
-            letter-spacing: 0.5px;
-        }
 
         /* ─── BOOKING SECTION ─── */
-        section {
-            padding: 100px 60px;
             
-            margin: 0 auto;
-        }
 
         .booking-container {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 60px;
-        }
 
         .booking-form {
-            background: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        }
 
         .booking-form h2 {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 36px;
-            font-weight: 400;
-            color: var(--ink);
-            margin-bottom: 32px;
-        }
 
         .form-group {
-            margin-bottom: 24px;
-        }
 
-        label {
-            display: block;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
 
-        input, select, textarea {
-            width: 100%;
-            padding: 16px;
-            min-height: 48px;
-            background: #f9f7f3;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            color: var(--ink);
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
 
-        textarea {
-            min-height: auto;
-            padding: 16px;
-        }
 
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--gold);
-            background: white;
-            box-shadow: 0 0 0 3px rgba(200, 138, 10, 0.2);
-            outline: 3px solid var(--gold);
-            outline-offset: 2px;
-        }
 
         .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
 
-        button {
-            padding: 12px 24px;
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.15s ease-out;
-            min-height: 48px;
-            min-width: 48px;
-        }
 
-        .btn-primary {
-            background: var(--gold);
-            color: white;
-            width: 100%;
-            padding: 12px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            font-weight: 700;
-        }
 
-        .btn-primary:hover {
-            background: #8B6914;
-            transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(200, 138, 10, 0.25);
-        }
 
-        .btn-primary:focus, .btn-primary:active {
-            outline: 3px solid var(--gold);
-            outline-offset: 2px;
-            background: var(--gold);
-        }
 
         /* ─── BOOKING SUMMARY ─── */
         .booking-summary {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 100px;
-            height: fit-content;
-            z-index: 900;
-        }
 
         .booking-summary.sticky-scroll {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
 
         .summary-title {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: 16px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid var(--border);
-        }
 
         .summary-row {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 14px;
-        }
 
         .summary-row strong {
-            color: var(--gold);
-            font-weight: 600;
-        }
 
         .summary-price {
-            background: linear-gradient(135deg, rgba(200, 138, 10, 0.05), rgba(42, 107, 122, 0.05));
-            padding: 24px;
-            border-radius: 8px;
-            margin: 20px 0;
-            text-align: center;
-        }
 
         .summary-price-label {
-            font-size: 11px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
 
         .summary-price-value {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 48px;
-            font-weight: 400;
-            color: var(--gold);
-        }
 
         .summary-price-currency {
-            font-size: 20px;
-        }
 
         /* ─── ROOMS GRID ─── */
         .rooms-section h2 {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 42px;
-            font-weight: 400;
-            margin-bottom: 16px;
-        }
 
         .rooms-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 60px;
-        }
 
         .room-option {
-            background: white;
-            border: 2px solid var(--border);
-            border-radius: 8px;
-            padding: 24px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            min-height: 240px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
 
         .room-option:hover {
-            border-color: var(--gold);
-            box-shadow: 0 8px 24px rgba(200, 138, 10, 0.15);
-            transform: translateY(-4px);
-        }
 
         .room-option:focus-within {
-            outline: 3px solid var(--gold);
-            outline-offset: 2px;
-        }
 
         .room-option input:checked ~ h3,
         .room-option input:checked ~ .room-capacity,
         .room-option input:checked ~ .room-price {
-            color: var(--gold);
-        }
 
         .room-option input:checked {
-            border-color: var(--gold);
-        }
 
         .room-option h3 {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: 8px;
-        }
 
         .room-capacity {
-            font-size: 12px;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-        }
 
         .room-price {
-            font-size: 18px;
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
 
         .room-features {
-            font-size: 16px;
-            color: var(--text-muted);
-            line-height: 1.8;
-            margin-bottom: 16px;
-        }
 
         /* ─── FOOTER ─── */
-        footer {
-            background: var(--ink);
-            color: white;
-            padding: 80px 60px 40px;
-        }
 
-        .footer-grid {
             
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 60px;
-            margin-bottom: 60px;
-        }
 
-        .footer-col h3 {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 18px;
-            font-weight: 400;
-            margin-bottom: 24px;
-            color: var(--gold-light);
-        }
 
-        .footer-col a {
-            display: block;
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            font-size: 13px;
-            margin-bottom: 12px;
-            transition: color 0.3s ease;
-        }
 
-        .footer-col a:hover {
-            color: var(--gold-light);
-        }
 
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 40px;
-            text-align: center;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.5);
-        }
 
         /* ─── RESPONSIVE ─── */
         @media (max-width: 1024px) {
@@ -452,14 +107,8 @@
             }
 
             .booking-summary {
-                position: static;
-                margin-top: 32px;
-            }
 
             .rooms-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
 
         @media (max-width: 768px) {
             nav {
@@ -468,58 +117,22 @@
             }
 
             .hero-section {
-                margin-top: 70px;
-                aspect-ratio: 4 / 3;
-                max-height: 300px;
-            }
 
             .hero-section h1 {
-                font-size: 36px;
-            }
 
-            section {
-                padding: 60px 20px;
-            }
 
             .booking-form {
-                padding: 20px;
-            }
 
             .booking-form h2 {
-                font-size: 28px;
-                margin-bottom: 24px;
-            }
 
             .form-group {
-                margin-bottom: 20px;
-            }
 
             .form-row {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
 
-            input, select, textarea {
-                font-size: 16px;
-                min-height: 48px;
-                padding: 16px;
-            }
 
-            .btn-primary {
-                font-size: 16px;
-                padding: 14px 20px;
-            }
 
             .rooms-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-        }
 
         @media (max-width: 375px) {
             section {
@@ -527,29 +140,8 @@
             }
 
             .booking-form {
-                padding: 16px;
-            }
 
             .booking-form h2 {
-                font-size: 24px;
-                margin-bottom: 20px;
-            }
-
-            input, select, textarea {
-                font-size: 16px;
-                min-height: 48px;
-                padding: 14px 12px;
-            }
-
-            label {
-                font-size: 12px;
-            }
-
-            .btn-primary {
-                font-size: 14px;
-                padding: 12px 16px;
-            }
-        }
     </style>
     <link rel="stylesheet" href="styles/global.css">
 </head>

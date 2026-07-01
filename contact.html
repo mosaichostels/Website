@@ -8,49 +8,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap"></noscript>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; background: var(--cream); color: var(--ink); }
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 60px;
-            background: rgba(250, 244, 234, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-        .nav-logo { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; font-size: 26px; font-weight: 700; color: var(--ink); text-decoration: none; }
-        .nav-links { display: flex; gap: 48px; list-style: none; }
-        .nav-links a { color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--gold); }
-        .nav-book { padding: 12px 24px; background: var(--gold); color: white; font-size: 12px; border-radius: 4px; border: none; cursor: pointer; transition: all 0.3s; }
-        .nav-book:hover { background: #a06e08; }
-        .hero { background: linear-gradient(135deg, rgba(26, 18, 8, 0.7), rgba(26, 18, 8, 0.85)), url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover; aspect-ratio: 16 / 9; max-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; }
+        <style>
+.hero { background: linear-gradient(135deg, rgba(26, 18, 8, 0.7), rgba(26, 18, 8, 0.85)), url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover; aspect-ratio: 16 / 9; max-height: 400px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; margin-top: 80px; }
         .hero h1 { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; font-size: 56px; font-weight: 400; }
-        section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-        h2 { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; font-size: 42px; font-weight: 400; margin-bottom: 60px; }
 
         /* Mobile-first: 1-column layout (form first, then contact info) */
         .contact-grid { display: flex; flex-direction: column; gap: 40px; }
 
         /* ponytail: card styles base — applied at all breakpoints, desktop overrides padding only */
         .contact-info {
-            background: var(--cream);
-            padding: 16px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
         .contact-info h2 { font-size: 28px; margin-bottom: 24px; }
 
-        form { background: white; padding: 20px; border-radius: 8px; }
-        form h2 { font-size: 28px; }
 
         /* ARIA live region — hidden until populated */
         #form-status { border-radius: 4px; font-size: 14px; line-height: 1.5; }
@@ -60,173 +28,51 @@
 
         .form-group { margin-bottom: 24px; }
 
-        label {
-            display: block;
-            font-size: 13px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
 
-        input, textarea {
-            width: 100%;
-            padding: 16px;
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 16px;
-            min-height: 48px;
-            transition: all 150ms ease-out;
-            color: var(--ink);
-        }
 
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
 
-        input::placeholder, textarea::placeholder {
-            color: var(--text-muted, rgba(0, 0, 0, 0.5));
-            font-style: italic;
-        }
 
-        input:focus, textarea:focus {
-            outline: 3px solid var(--gold);
-            outline-offset: 2px;
-            background: white;
-            border-color: var(--gold);
-        }
 
-        button {
-            padding: 12px 32px;
-            min-height: 48px;
-            min-width: 48px;
-            width: 100%;
-            background: var(--gold);
-            color: white;
-            font-weight: 700;
-            font-size: 18px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 150ms ease-out;
-        }
 
-        button:hover {
-            background: #a06e08;
-        }
 
-        button:focus {
-            outline: 3px solid var(--gold);
-            outline-offset: 2px;
-        }
 
         .info-item { margin-bottom: 24px; }
         .info-item:last-child { margin-bottom: 0; }
 
         .info-item strong {
-            display: block;
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--gold);
-            margin-bottom: 4px;
-        }
 
         .info-item p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--ink);
-        }
 
         .info-item a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 150ms ease-out;
-        }
 
         .info-item a:hover, .info-item a:focus {
-            color: var(--gold);
-        }
 
-        footer { background: var(--ink); color: white; padding: 80px 60px 40px; }
-        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 60px; margin-bottom: 60px; }
-        .footer-col h3 { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; font-size: 18px; margin-bottom: 24px; color: var(--gold-light); }
-        .footer-col a { display: block; color: rgba(255, 255, 255, 0.6); text-decoration: none; font-size: 13px; margin-bottom: 16px; transition: color 0.3s; }
-        .footer-col a:hover { color: var(--gold-light); }
-        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 40px; text-align: center; font-size: 12px; color: rgba(255, 255, 255, 0.5); }
 
         /* Tablet: 768px – still 1-column */
         @media (min-width: 768px) {
             section { padding: 60px 40px; }
-        }
 
         /* Desktop: 1024px+ – 2-column grid (info left, form right) */
         @media (min-width: 1024px) {
             section { padding: 100px 60px; }
 
             .contact-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 32px;
-                align-items: flex-start;
-            }
 
             /* Form is first in DOM (correct mobile screen-reader order);
-               on desktop push contact-info to the left column */
             .contact-info {
-                order: -1;
-                padding: 32px;
-                position: sticky;
-                top: 100px;
-            }
 
             .contact-info h2 {
-                font-size: 28px;
-                margin-bottom: 32px;
-            }
 
-            form {
-                background: white;
-                padding: 40px;
-                border-radius: 8px;
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            }
 
-            form h2 {
-                font-size: 28px;
-                margin-bottom: 32px;
-            }
 
-            button { width: auto; }
-        }
 
         @media (max-width: 767px) {
             nav { padding: 0 20px; height: 70px; }
             .hero { aspect-ratio: 4 / 3; max-height: 300px; }
-            .footer-grid { grid-template-columns: 1fr; }
-        }
     </style>
     <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="nav-logo"><img src="images/mosaic-logo.png" alt="Mosaic Hostel Logo" style="height: 40px; width: auto;"></a>
-        <ul class="nav-links">
-            <li><a href="about.html">About</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="book-now.html">Book</a></li>
-            <li><a href="blog.html">Blog</a></li>
-        </ul>
-        <button class="nav-book">Book Now</button>
-    </nav>
-
     <main>
 
     <div class="hero">

@@ -8,353 +8,63 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap"></noscript>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; background: var(--cream); color: var(--ink); line-height: 1.6; }
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 60px;
-            background: rgba(250, 244, 234, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-        .nav-logo {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 26px;
-            font-weight: 700;
-            color: var(--ink);
-            letter-spacing: 2px;
-            text-decoration: none;
-        }
-        .nav-links {
-            display: flex;
-            gap: 48px;
-            list-style: none;
-        }
-        .nav-links a {
-            color: var(--ink);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s ease;
-        }
-        .nav-links a:hover {
-            color: var(--gold);
-        }
-        .nav-book {
-            padding: 12px 24px;
-            background: var(--gold);
-            color: white;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-        .nav-book:hover {
-            background: #a06e08;
-            transform: translateY(-2px);
-        }
-        .hero-section {
-            background: linear-gradient(135deg, rgba(26, 18, 8, 0.7), rgba(26, 18, 8, 0.85)),
-                        url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover;
-            aspect-ratio: 16 / 9;
-            max-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            margin-top: 80px;
-        }
+        <style>
+.hero-section {
         .hero-section h1 {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 56px;
-            font-weight: 400;
-        }
 
         /* ─── SECTION SPACING ─── */
-        section {
-            padding: 80px 60px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
 
         /* ─── SECTION DIVIDERS ─── */
-        section + section {
-            border-top: 1px solid var(--border);
-            margin-top: 0;
-            padding-top: 80px;
-        }
 
         /* ─── HEADING HIERARCHY ─── */
         .section-label {
-            font-size: 13px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--gold);
-            margin-bottom: 24px;
-            display: block;
-        }
 
-        h2 {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            color: var(--ink);
-            margin-bottom: 32px;
-        }
 
-        h3 {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--ink);
-            margin-top: 32px;
-            margin-bottom: 24px;
-        }
 
         /* ─── PARAGRAPH STYLING ─── */
-        p {
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 16px;
-            color: var(--ink);
-            max-width: 65ch;
-        }
 
         .content-text p {
-            color: var(--ink);
-        }
 
         /* ─── BLOCKQUOTE STYLING ─── */
-        blockquote {
-            font-style: italic;
-            color: var(--teal-dark);
-            border-left: 4px solid var(--gold);
-            padding-left: 24px;
-            margin: 32px 0;
-            font-size: 18px;
-            line-height: 1.8;
-        }
 
         /* ─── CONTENT GRID ─── */
         .content-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            margin-top: 32px;
-            align-items: center;
-        }
 
         .content-grid img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
 
         /* ─── IMAGE GALLERY ─── */
         .gallery-label {
-            font-size: 13px;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--gold);
-            margin-bottom: 24px;
-            margin-top: 48px;
-            display: block;
-        }
 
         .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-top: 32px;
-        }
 
         .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            aspect-ratio: 4 / 3;
-            cursor: pointer;
-            transition: transform 0.2s ease-out;
-        }
 
         .gallery-item:hover {
-            transform: scale(1.02);
-        }
 
         .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
 
         .gallery-item::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0);
-            transition: background 0.2s ease-out;
-        }
 
         .gallery-item:hover::after {
-            background: rgba(0, 0, 0, 0.1);
-        }
 
         .gallery-item:focus-visible {
-            outline: 2px solid var(--gold);
-            outline-offset: 2px;
-        }
 
         /* ─── MODAL STYLING ─── */
-        .modal-backdrop {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease-out;
-        }
 
-        .modal-backdrop.modal-open {
-            display: flex;
-            opacity: 1;
-        }
 
-        .modal-container {
-            position: relative;
-            max-width: 90vw;
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: modalSlideIn 0.3s ease-out;
-        }
 
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
 
-        .modal-image {
-            max-width: 100%;
-            max-height: 80vh;
-            object-fit: contain;
-            border-radius: 4px;
-        }
 
-        .modal-close {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 32px;
-            cursor: pointer;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: color 0.2s ease;
-            z-index: 2001;
-        }
 
-        .modal-close:hover {
-            color: var(--gold);
-        }
 
-        .modal-close:focus-visible {
-            outline: 2px solid var(--gold);
-            outline-offset: 2px;
-        }
 
-        .modal-caption {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 14px;
-            margin-top: 16px;
-            text-align: center;
-            max-width: 90vw;
-        }
 
         /* ─── FOOTER ─── */
-        footer {
-            background: var(--ink);
-            color: white;
-            padding: 80px 60px 40px;
-        }
 
-        .footer-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 60px;
-            margin-bottom: 60px;
-        }
 
-        .footer-col h3 {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 18px;
-            font-weight: 400;
-            margin-bottom: 24px;
-            color: var(--gold-light);
-        }
 
-        .footer-col a {
-            display: block;
-            color: rgba(255, 255, 255, 0.6);
-            text-decoration: none;
-            font-size: 13px;
-            margin-bottom: 12px;
-            transition: color 0.3s ease;
-        }
 
-        .footer-col a:hover {
-            color: var(--gold-light);
-        }
 
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 40px;
-            text-align: center;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.5);
-        }
 
         /* ─── RESPONSIVE DESIGN ─── */
         @media (max-width: 1024px) {
@@ -363,9 +73,6 @@
             }
 
             .image-gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
 
         @media (max-width: 768px) {
             nav {
@@ -373,92 +80,29 @@
                 height: 70px;
             }
 
-            section {
-                padding: 80px 20px;
-            }
 
             .hero-section {
-                margin-top: 70px;
-                aspect-ratio: 4 / 3;
-                max-height: 300px;
-            }
 
             .hero-section h1 {
-                font-size: 42px;
-            }
 
-            h2 {
-                font-size: 32px;
-                margin-bottom: 24px;
-            }
 
-            h3 {
-                font-size: 20px;
-            }
 
             .content-grid {
-                grid-template-columns: 1fr;
-                gap: 32px;
-            }
 
             .image-gallery {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
 
             .gallery-item {
-                aspect-ratio: 4 / 3;
-            }
 
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
 
-            .modal-close {
-                top: -35px;
-                font-size: 28px;
-            }
-        }
 
         @media (max-width: 375px) {
             section {
                 padding: 60px 16px;
             }
-
-            h2 {
-                font-size: 28px;
-            }
-
-            h3 {
-                font-size: 18px;
-            }
-
-            p {
-                font-size: 15px;
-                line-height: 1.7;
-            }
-
-            blockquote {
-                font-size: 16px;
-                padding-left: 16px;
-            }
-        }
     </style>
     <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="nav-logo"><img src="images/mosaic-logo.png" alt="Mosaic Hostel Logo" style="height: 40px; width: auto;"></a>
-        <ul class="nav-links">
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="book-now.html">Book</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="blog.html">Blog</a></li>
-        </ul>
-        <button class="nav-book">Book Now</button>
-    </nav>
-
     <main>
 
     <div class="hero-section">

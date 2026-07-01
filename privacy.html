@@ -8,30 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap"></noscript>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; background: var(--cream); color: var(--ink); }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 60px;
-            background: rgba(250, 244, 234, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-        .nav-logo { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; font-size: 26px; font-weight: 700; color: var(--ink); text-decoration: none; }
-        .nav-links { display: flex; gap: 48px; list-style: none; }
-        .nav-links a { color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 500; }
-        .nav-book { padding: 12px 24px; background: var(--gold); color: white; border: none; border-radius: 4px; cursor: pointer; }
+        <style>
+/* Navigation */
 
 
         /* Hero Section */
@@ -39,278 +17,61 @@
         .hero h1 { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; font-size: 56px; }
 
         /* Typography: Hierarchy */
-        section { padding: 100px 60px; max-width: 900px; margin: 0 auto; }
 
-        h2 {
-            font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-            font-size: 42px;
-            font-weight: 700;
-            color: var(--ink);
-            letter-spacing: 1px;
-            margin-bottom: 24px;
-            margin-top: 60px;
-        }
 
-        h2:first-child { margin-top: 0; }
 
-        h3 {
-            font-size: 24px;
-            font-weight: 600;
-            color: var(--ink);
-            letter-spacing: 0.5px;
-            margin-bottom: 16px;
-            margin-top: 32px;
-        }
 
-        h4 {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--ink);
-            margin-bottom: 12px;
-            margin-top: 24px;
-        }
 
         /* Paragraphs */
-        p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--ink);
-            margin-bottom: 20px;
-            max-width: 65ch;
-        }
 
         /* Section Dividers */
-        h2 + p { margin-top: -20px; }
-        h3 { position: relative; }
-        h3:not(:first-of-type) {
-            border-top: 1px solid var(--border);
-            padding-top: 24px;
-            margin-top: 60px;
-        }
 
         /* Lists */
-        ul, ol {
-            margin-left: 24px;
-            margin-bottom: 20px;
-            max-width: 65ch;
-        }
 
-        ul {
-            list-style: none;
-        }
 
-        ul li {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--ink);
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 24px;
-        }
 
-        ul li:before {
-            content: "●";
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-            font-size: 14px;
-        }
 
-        ol {
-            list-style: decimal;
-            color: var(--ink);
-        }
 
-        ol li {
-            font-size: 16px;
-            line-height: 1.8;
-            color: var(--ink);
-            margin-bottom: 12px;
-        }
 
         /* Links */
-        a {
-            color: var(--gold);
-            text-decoration: none;
-            text-underline-offset: 4px;
-            transition: color 150ms ease-out, text-decoration-color 150ms ease-out;
-        }
 
-        a:hover {
-            color: var(--gold);
-            text-decoration: underline;
-            text-decoration-thickness: 2px;
-        }
 
-        a:focus-visible {
-            outline: 3px solid var(--gold);
-            outline-offset: 2px;
-            border-radius: 2px;
-        }
 
         /* ponytail: footer links are white, suppress gold hover */
-        .footer-col a:hover {
-            text-decoration: none;
-            color: rgba(255,255,255,0.9);
-        }
 
         /* Strong & Emphasis */
-        strong {
-            font-weight: 700;
-            color: var(--ink);
-        }
 
-        em {
-            font-style: italic;
-            color: var(--ink);
-        }
 
-        mark {
-            background: rgba(200, 138, 10, 0.2);
-            padding: 2px 4px;
-            border-radius: 2px;
-        }
 
         /* Code Blocks */
-        code {
-            font-family: 'Monaco', 'Courier New', monospace;
-            font-size: 14px;
-            background: #F0EBE3;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: var(--ink);
-        }
 
-        pre {
-            font-family: 'Monaco', 'Courier New', monospace;
-            font-size: 14px;
-            background: #F0EBE3;
-            padding: 12px 16px;
-            border-radius: 4px;
-            color: var(--ink);
-            overflow-x: auto;
-            margin: 20px 0;
-        }
 
-        pre code {
-            background: none;
-            padding: 0;
-        }
 
         /* Blockquotes */
-        blockquote {
-            font-style: italic;
-            color: #1E4D55;
-            border-left: 4px solid var(--gold);
-            padding-left: 24px;
-            margin: 24px 0;
-            font-size: 16px;
-        }
 
         /* Footer */
-        footer { background: var(--ink); color: white; padding: 80px 60px 40px; }
-        .footer-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 60px; margin-bottom: 60px; }
-        .footer-col h3 { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; font-size: 16px; margin-bottom: 16px; color: #E8B044; }
-        .footer-col a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 12px; display: block; margin-bottom: 16px; }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             nav { padding: 0 20px; height: 70px; }
             .hero { aspect-ratio: 4 / 3; max-height: 300px; }
 
-            section {
-                padding: 60px 20px;
-                max-width: 100%;
-            }
 
-            h2 {
-                font-size: 32px;
-                letter-spacing: 0.5px;
-                margin-top: 48px;
-            }
 
-            h3 {
-                font-size: 20px;
-                letter-spacing: 0.25px;
-                margin-top: 40px;
-            }
 
-            h3:not(:first-of-type) {
-                padding-top: 20px;
-                margin-top: 48px;
-            }
 
-            p {
-                font-size: 15px;
-                max-width: 100%;
-            }
 
-            ul, ol {
-                max-width: 100%;
-            }
 
-            .footer-grid { grid-template-columns: 1fr; }
-        }
 
         @media (max-width: 375px) {
             nav {
                 padding: 0 16px;
                 height: 70px;
             }
-
-            section {
-                padding: 40px 16px;
-                max-width: 100%;
-            }
-
-            h2 {
-                font-size: 28px;
-                letter-spacing: 0.5px;
-                margin-top: 40px;
-                margin-bottom: 16px;
-            }
-
-            h3 {
-                font-size: 18px;
-                margin-top: 32px;
-            }
-
-            h3:not(:first-of-type) {
-                padding-top: 16px;
-                margin-top: 40px;
-            }
-
-            p {
-                font-size: 14px;
-                line-height: 1.7;
-                margin-bottom: 16px;
-                max-width: 100%;
-            }
-
-            ul, ol {
-                max-width: 100%;
-                margin-left: 20px;
-            }
-
-            ul li { padding-left: 20px; }
-
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-        }
     </style>
     <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="nav-logo"><img src="images/mosaic-logo.png" alt="Mosaic Hostel Logo" style="height: 40px; width: auto;"></a>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="book-now.html">Book</a></li>
-        </ul>
-        <button class="nav-book">Book Now</button>
-    </nav>
-
     <main>
 
     <div class="hero">
@@ -379,37 +140,6 @@
     </section>
 
     </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h3>Mosaic</h3>
-                <p style="font-size: 12px; color: rgba(255,255,255,0.6);">Hostel in Varanasi</p>
-            </div>
-            <div class="footer-col">
-                <h3>Pages</h3>
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="contact.html">Contact</a>
-                <a href="blog.html">Blog</a>
-            </div>
-            <div class="footer-col">
-                <h3>Legal</h3>
-                <a href="#">Terms</a>
-                <a href="privacy.html">Privacy</a>
-                <a href="#">Cancellation</a>
-            </div>
-            <div class="footer-col">
-                <h3>Book</h3>
-                <a href="book-now.html">Direct Booking</a>
-                <a href="https://www.booking.com/hotel/in/mosaic-hostel-varanasi.html" target="_blank">Booking.com</a>
-                <a href="https://www.hostelworld.com/hostels/p/335875" target="_blank">Hostelworld</a>
-            </div>
-        </div>
-        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.5);">
-            <p>© 2025 Mosaic Hostel Varanasi. All rights reserved.</p>
-        </div>
-    </footer>
 
     <script src="components/loader.js"></script>
 </body>
