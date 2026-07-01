@@ -37,6 +37,10 @@
     box-sizing: border-box;
 }
 
+*:not(input):not(textarea) {
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px;
@@ -2274,6 +2278,9 @@ h3 {
     font-weight: 600;
     margin-bottom: 0.5rem;
     color: var(--ink);
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    transition: color 0.3s ease;
 }
 
 .form-input {
