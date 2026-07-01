@@ -1,140 +1,95 @@
 # Project Context
-**Name:** Mosaic Hostel Varanasi Static Website Redesign
-**Stack:** HTML5/CSS3/Vanilla JS (static site - 7 pages), 8px spacing grid, unified components, single global.css
-**Business Type:** Hospitality/Lodging (Premium Budget Hostel)
-**Goal:** Lighthouse ≥90 (all metrics), WCAG AA, lean maintainable codebase
-**Design:** Modern Mosaic Premium (Google Sans, #946510 gold accents, mosaic aesthetics, 150-300ms micro-interactions)
-**Current Status:** Phase 1 Cleanup Complete — Removed 523 lines broken CSS, hardcoded components consolidated
-**Updated:** 2026-07-01 (Phase 1: -523 lines broken/duplicate CSS, all secondary pages cleaned, loader.js single-source-of-truth)
 
-## Architecture
-- **Pages:** 7 (index, gallery, blog, book-now, about, contact, privacy) — all static HTML
-- **Styles:** styles/global.css (single source of truth for spacing, color, typography, accessibility, micro-interactions)
-- **Components:** components/loader.js (navbar/footer initialization), custom cursor behavior
-- **Images Directory:** /images/ (11 photos with assignments below)
+**Name:** Mosaic Hostel Varanasi — Premium Static Website  
+**Status:** ✅ PRODUCTION COMPLETE (2026-07-01)  
+**Stack:** HTML5 + CSS3 + Vanilla JS (7 static pages, no backend)  
+**Business:** Premium Budget Hostel (Varanasi, India)  
+**Goal:** Lighthouse ≥90 all pages, WCAG AA accessibility, maintainable codebase  
+**Updated:** 2026-07-01
 
-## Image Assignments (2026-06-30)
-- **Logo:** PHOTO-2025-08-30-20-52-21.jpg
-- **Entrance:** IMG_4450.JPG, IMG_4451.JPG
-- **Common Room:** IMG_1934.JPG, IMG_1912.JPG, IMG_1928.JPG
-- **Dorm Photos:** IMG_1923.JPG, IMG_1933.JPG
-- **Private Room:** IMG_1920.JPG, IMG_1931.JPG
-- **Open Space:** IMG_1930.JPG
-- **Future:** More photos incoming
+## Architecture (Current)
 
-## Design System (Active)
-- **8px Spacing Grid:** 8, 16, 24, 32, 40, 48, 56, 60px only
-- **Typography:** H1 56px, H2 42px, H3 24px, body 16px, labels 13px (Crimson Text serif + Inter sans)
-- **Colors:** Gold #C88A0A (+ light #E8B044, dark #8B6914), Teal #2A6B7A (+ light #2D9AAA, dark #1E4D55), Cream #FAF4EA (+ dark #EBE0D1)
-- **Micro-Interactions:** 150-300ms duration, ease-out enter/ease-in exit, 48px touch targets, 3px gold focus outlines
-- **Responsive:** 375px (mobile), 768px (tablet), 1024px (desktop), 1440px (wide)
-- **Accessibility:** WCAG AA (4.5:1 contrast, keyboard nav, ARIA labels, prefers-reduced-motion support)
+**Pages (7 static HTML files):**
+- `index.html` — Homepage: hero, rooms grid, stats, CTA
+- `gallery.html` — Image gallery with modal lightbox
+- `blog.html` — Blog post listing + articles
+- `book-now.html` — Booking form + room selection
+- `about.html` — Story, values, team info
+- `contact.html` — Contact form + location/hours
+- `privacy.html` — Privacy policy
 
-## Phase 1: COMPLETE ✅
-- ✅ 4 Code Snippets deployed (IDs: 70-73)
-- ✅ H1 unhidden via CSS override
-- ✅ CTA buttons fixed (/book-now/, /contact/)
-- ✅ Button touch targets 48×48px
-- ✅ Robots.txt sitemap declaration active
-- Expected gain: +40% crawl efficiency, +15-20% GSC impressions/week
+**Styling (Single Source of Truth):**
+- `styles/global.css` — All colors, typography, spacing, responsive breakpoints, accessibility
+- Design system: 8px grid, gold/cream/teal palette, 150-300ms micro-interactions
+- Responsive: 375px (mobile), 768px (tablet), 1024px (desktop), 1440px (wide)
 
-## Working Credentials
-**REST API Auth:** Confirmed working with:
-- Email: mosaichostels@gmail.com
-- App Password: Eqot iIE7 WUKI 2Num BIa5 vXJJ
-- User ID: 1 (admin)
-- Method: Basic Auth + Code Snippets REST endpoint
+**Components (Vanilla JS):**
+- `components/loader.js` — Navbar/footer DOM injection (fallback if HTML not found)
+- `components/modal.js` — Image lightbox (click-to-enlarge, escape/click-to-close)
+- `components/navbar.html` — Navigation template (logo, links, hamburger)
+- `components/footer.html` — Footer template (links, hours, contact info)
 
-## Final Solution Architecture
-- **Type:** Standalone Python scheduler (NO plugins)
-- **Trigger:** Weekly cron job (Monday 2 AM UTC)
-- **Flow:** GA analysis → Post prioritization → SEO fixes → Change report
-- **Execution Time:** ~2-5 minutes
-- **Reports:** `seo-reports/seo-run-YYYY-MM-DD_HH-MM-SS.md`
+**Images (11 photos + logo):**
+- Hero/entrance: IMG_4450.JPG (1200×800)
+- Rooms: IMG_1920.JPG, IMG_1923.JPG, IMG_1930.JPG, IMG_1931.JPG, IMG_1933.JPG, IMG_1934.JPG
+- Common areas: IMG_1912.JPG, IMG_1928.JPG
+- Logo: PHOTO-2025-08-30-20-52-21.jpg (transparent PNG)
+- All optimized with width/height/aspect-ratio for CLS prevention
 
-## Completed Components
-- ✅ Full SEO audit (7 critical issues fixed)
-- ✅ Main orchestrator: `schedule_seo_automation.py` (master scheduler)
-- ✅ Core tasks: `mosaic.py` (expand, schema, bylines, sitemap)
-- ✅ Analytics engine: `analytics_scheduler.py` (GA prioritization)
-- ✅ Setup guide: `SETUP.md` (complete configuration walkthrough)
-- ✅ Cron integration (automatic weekly execution)
+## Design System
 
-## ✅ COMPLETE IMPLEMENTATION - PRODUCTION READY (2026-06-26)
+**Typography:**
+- H1: 56px, weight 700 (Playfair Display SC or serif)
+- H2: 42px, weight 700
+- H3: 24px, weight 600
+- Body: 16px, weight 400, line-height 1.6
+- Labels: 13px, weight 600, uppercase
+- Fallback font stack: Georgia/serif for headings, -apple-system/sans for body
 
-**LIVE & ACTIVE:**
-- ✅ 4 blog posts (8,300+ words) — indexed, live, internal linked
-- ✅ Room content — integrated into homepage ("Our Rooms & Accommodations" section)
-  - **Note:** Separate /rooms page returns HTTP 200 but renders empty (theme bug: page.php doesn't call the_content())
-  - **Workaround:** Room descriptions live in homepage via Gutenberg blocks (database → REST API verified)
-  - **Cache Issue:** Content added but LiteSpeed caching old homepage; clear via WP Admin or wait 24-48hrs
-  - HotelRoom schema (Snippet 69) still targets /rooms for SEO
-- ✅ Homepage internal links — 5 blog links active
-- ✅ 7 code snippets (IDs 69-75) — ALL ACTIVE & DEPLOYED (+ utilities 78-81)
-  - H1 Unhide (74)
-  - Sitemap Regeneration (71)
-  - Meta Descriptions Injection (72)
-  - CTA Button Fix (73)
-  - BlogPosting Schema (75)
-  - HotelRoom Schema (69)
-  - LocalBusiness Schema (70)
+**Color Palette:**
+- **Primary:** Gold #946510 (warm, hospitality), light #E8B044, dark #8B6914
+- **Secondary:** Teal #2A6B7A (trust, water), light #2D9AAA, dark #1E4D55
+- **Neutral:** Cream #FAF4EA, ink #2D2D2D, gray #6E6E6E
+- **Feedback:** Success green #4CAF50, error red #F44336
 
-**CLEANUP COMPLETE:**
-- Deleted 8 obsolete/test snippets (59-64)
-- Renamed all 7 SEO snippets for clarity
-- 17 active snippets remaining (7 Mosaic + 10 theme/plugin)
-- Full documentation created
+**Spacing (8px Grid):**
+- Increments: 8, 16, 24, 32, 40, 48, 56, 64px
+- Section padding: 60px top/bottom (desktop), 40px (mobile)
+- Gap between items: 16px (compact), 24px (generous), 32px (sections)
 
-**Implementation Status:** ✅ 100% COMPLETE. All Phase 0-4 tasks delivered. All snippets active. Ready for monitoring phase.
+**Responsive Breakpoints:**
+- Mobile: ≤480px (single column, 16px padding)
+- Tablet: 481-768px (2 columns, 20px padding)
+- Desktop: 769-1024px (3 columns, 24px padding)
+- Wide: ≥1440px (4-5 columns, 32px padding)
 
----
+**Accessibility (WCAG AA):**
+- Color contrast: 4.5:1 minimum (text on background)
+- Touch targets: 44×44px minimum (mobile), 48×48px (buttons)
+- Focus outline: 3px solid gold (#946510), 2px offset
+- Keyboard nav: Tab order natural, no traps, Escape closes modals
+- Motion: Respects `prefers-reduced-motion` (no auto-animations)
+- Interactive: ARIA labels, semantic HTML, screen reader tested
 
-## ✅ COMPLETED: Room Type Image Update (2026-06-25)
-**Task:** Change "6-Bed Female Dorm" homepage image IMG_1920-scaled.jpg → IMG_2723-2-scaled.jpg
+## Completed Phases
 
-**Solution Deployed:** Code Snippet via REST API
-- **Endpoint:** /code-snippets/v1/snippets (discovered after initial research)
-- **Snippet ID:** 78
-- **Status:** ACTIVE & DEPLOYED
-- **Method:** jQuery-based replacement on wp_enqueue_scripts hook
-- **Effect:** Replaces image src on page load in browser
+**Phase 1: CSS Cleanup** ✅ (2026-06-30)
+- Removed 523 lines broken/duplicate CSS
+- Consolidated navbar/footer (no hardcoding)
+- Single global.css source of truth
 
-**Credentials Used:**
-- Email: mosaichostels@gmail.com
-- App Password: kQSa kbSQ GRO1 deSF oLMW uHUJ (saved to ~/.env)
-- User ID: 1 (admin)
+**Phase 2: UX Quality** ✅ (2026-06-30)
+- Brand voice: 5 secondary page heroes rewritten
+- Image optimization: width/height/aspect-ratio added (prevents CLS)
+- Accessibility audit: WCAG AA verified
 
-**Discovery Process:**
-1. ❌ Initial attempt: wp/v2/posts REST endpoint created regular posts (not snippets)
-2. ✅ Found: /code-snippets/v1/snippets REST API endpoint exists & works
-3. ✅ Created snippet with PHP output buffering, then jQuery approach
-4. ✅ Deployed via code-snippets REST endpoint with active=true
+**Phase 3: Visual Polish** ✅ (2026-07-01)
+- Navbar visibility fixed (CSS cascade issue resolved)
+- Stats grid layout corrected
+- Scroll indicator hidden
+- Lighthouse ≥90 all 7 pages verified
 
-**Verification:** User should see image change when browsing https://www.mosaichostels.com/ in any browser
-
----
-
-## ✅ SESSION 2 (2026-06-28): Fixed Empty Pages & Footer CSS via Systematic Debugging
-
-**Issue 1: Book Now & Other Pages Return Empty (HTTP 200, Content-Length: 0)**
-- **Root Cause:** Nested function calls in single echo fail due to side effects in mosaic_dynamic_nav/footer/inject_seo
-- **Solution:** Changed from nested calls to step-by-step variable assignment
-- **Example:** `echo func_a(func_b(func_c()))` → `$x = func_c(); $y = func_b($x); echo func_a($y);`
-- **Evidence:** Diagnostic wrapper using step-by-step approach output 33,536 bytes successfully
-- **Applied To:** Snippets 50, 51, 52, 55 (49 already fixed in previous session)
-
-**Issue 2: Footer Links Blue Instead of Light Gray**
-- **Root Cause:** Footer CSS rule missing on pages 49-52, 55 (only in Snippet 53/Home)
-- **Solution:** Added CSS inline to Snippet 34's mosaic_dynamic_footer function (global) + Snippet 55 footer HTML
-- **CSS Rule:** `.footer-links a { color: rgba(255,255,255,0.4); text-decoration: none; }`
-- **Applied To:** Snippet 34 (globally) + special handling for Snippet 55 (different footer structure)
-
-**Files Ready on Desktop:**
-- snippet-50-FIXED-STEPWISE.txt (Gallery)
-- snippet-51-FIXED-STEPWISE.txt (About)
-- snippet-52-FIXED-STEPWISE.txt (Contact)
-- snippet-55-FIXED-WITH-CSS.txt (Blog — different structure, CSS added directly)
-- snippet-34-FIXED-WITH-CSS.txt (Nav Helper — CSS in footer function)
-- SNIPPET-UPDATES-COMPLETE-GUIDE.txt (Complete instructions)
-
-**Status:** Ready for user to apply fixes in WordPress Admin. All 5 snippets have been tested for correctness.
+**Deployment Status:**
+- Live: mosaichostels.com (Hostinger)
+- Last commit: dc25495 (2026-07-01, homepage CSS fixes)
+- FTP method: lftp to mosaichostels.com (FTP creds in ~/.env)
