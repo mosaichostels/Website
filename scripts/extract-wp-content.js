@@ -331,6 +331,106 @@ function extractAttachments(sqlContent) {
 }
 
 /**
+ * Extract code snippets from wp_posts (wpcode, snippet types).
+ */
+function extractSnippets(sqlContent) {
+  const snippets = [];
+
+  // Find wp_posts VALUES section
+  const postsMatch = sqlContent.match(/INSERT INTO `wp_posts` VALUES\n([\s\S]*?)(?=\);?\s*(?:\/\*|INSERT|SET|$))/);
+  if (!postsMatch) return snippets;
+
+  const valuesSection = postsMatch[1];
+  const rows = extractRowsFromValues(valuesSection);
+
+  rows.forEach(rowStr => {
+    if (!rowStr.trim()) return;
+
+    try {
+      const fields = parseRowFields(rowStr);
+      if (fields.length < 23) return; // wp_posts has 23 columns
+
+      const post = {
+        id: parseInt(fields[0], 10),
+        author: parseInt(fields[1], 10),
+        date: fields[2] || '',
+        content: fields[4] || '',
+        title: fields[5] || '',
+        slug: fields[11] || '',
+        status: fields[7] || '',
+        type: fields[20] || '',
+      };
+
+      // Extract wpcode or snippet post types
+      if (!['wpcode'].includes(post.type)) return;
+      if (post.status !== 'publish' && post.status !== 'draft') return;
+
+      snippets.push({
+        id: post.id,
+        title: post.title,
+        slug: post.slug,
+        code: post.content,
+        type: post.type,
+        status: post.status,
+        date: post.date,
+        action_hook: '',
+        priority: 10,
+        pages_served: [],
+      });
+    } catch (e) {
+      // Skip malformed rows
+    }
+  });
+
+  return snippets;
+}
+
+/**
+ * Extract wp_postmeta for snippet configuration.
+ */
+function extractSnippetMeta(sqlContent, snippetMap) {
+  // Find wp_postmeta VALUES section
+  const metaMatch = sqlContent.match(/INSERT INTO `wp_postmeta` VALUES\n([\s\S]*?)(?=\);?\s*(?:\/\*|INSERT|SET|$))/);
+  if (!metaMatch) return;
+
+  const valuesSection = metaMatch[1];
+  const rows = extractRowsFromValues(valuesSection);
+
+  rows.forEach(rowStr => {
+    if (!rowStr.trim()) return;
+
+    try {
+      const fields = parseRowFields(rowStr);
+      if (fields.length < 4) return;
+
+      const postId = parseInt(fields[1], 10);
+      const metaKey = fields[2] || '';
+      const metaValue = fields[3] || '';
+
+      // Update snippet with metadata
+      if (snippetMap.has(postId)) {
+        const snippet = snippetMap.get(postId);
+
+        if (metaKey === '_wpcode_location') {
+          snippet.action_hook = metaValue;
+        } else if (metaKey === '_wpcode_priority') {
+          snippet.priority = parseInt(metaValue, 10) || 10;
+        } else if (metaKey === '_wpcode_pages') {
+          try {
+            const pages = JSON.parse(metaValue);
+            snippet.pages_served = Array.isArray(pages) ? pages : [];
+          } catch (e) {
+            // Keep empty
+          }
+        }
+      }
+    } catch (e) {
+      // Skip malformed rows
+    }
+  });
+}
+
+/**
  * Main Execution: Extract from multiple SQL backups with merging.
  */
 try {
@@ -338,6 +438,7 @@ try {
   const pageMap = new Map(); // For deduplication by slug
   const postMap = new Map(); // For deduplication by slug
   const attachmentMap = new Map(); // For deduplication by URL
+  const snippetMap = new Map(); // For snippets by ID
   let mergedMeta = null;
 
   console.log(`\nProcessing ${SQL_FILES.length} backup(s)...\n`);
@@ -356,6 +457,7 @@ try {
     // Extract content from this backup
     const { pages, posts } = extractPosts(sql);
     const attachments = extractAttachments(sql);
+    const snippets = extractSnippets(sql);
     const meta = extractMeta(sql);
 
     // Update merged metadata (keep first as primary)
@@ -386,12 +488,25 @@ try {
       }
     });
 
+    // Merge snippets (by ID)
+    snippets.forEach(snippet => {
+      if (!snippetMap.has(snippet.id)) {
+        snippetMap.set(snippet.id, snippet);
+        console.log(`      Snippet: ${snippet.title} (ID: ${snippet.id})`);
+      }
+    });
+
+    // Extract snippet metadata
+    extractSnippetMeta(sql, snippetMap);
+
     console.log(`      Attachments found: ${attachments.length}`);
+    console.log(`      Snippets found: ${snippets.length}`);
   });
 
   const mergedPages = Array.from(pageMap.values());
   const mergedPosts = Array.from(postMap.values());
   const mergedAttachments = Array.from(attachmentMap.values());
+  const mergedSnippets = Array.from(snippetMap.values());
 
   // Create output directory
   if (!fs.existsSync(OUTPUT_DIR)) {
@@ -402,6 +517,7 @@ try {
   fs.writeFileSync(path.join(OUTPUT_DIR, 'pages.json'), JSON.stringify(mergedPages, null, 2));
   fs.writeFileSync(path.join(OUTPUT_DIR, 'posts.json'), JSON.stringify(mergedPosts, null, 2));
   fs.writeFileSync(path.join(OUTPUT_DIR, 'attachments.json'), JSON.stringify(mergedAttachments, null, 2));
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'snippets.json'), JSON.stringify(mergedSnippets, null, 2));
   fs.writeFileSync(path.join(OUTPUT_DIR, 'meta.json'), JSON.stringify(mergedMeta, null, 2));
 
   // Summary
@@ -409,6 +525,7 @@ try {
   console.log(`  Pages:        ${mergedPages.length}`);
   console.log(`  Posts:        ${mergedPosts.length}`);
   console.log(`  Attachments:  ${mergedAttachments.length}`);
+  console.log(`  Snippets:     ${mergedSnippets.length}`);
   console.log(`  Site Title:   ${mergedMeta.site_title}`);
   console.log(`  Site URL:     ${mergedMeta.site_url}`);
   console.log(`\nOutput files written to: ${OUTPUT_DIR}\n`);
