@@ -95,6 +95,12 @@ nav.scrolled {
     color: var(--gold);
 }
 
+.nav-logo img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+
 .nav-links {
     display: flex;
     gap: 48px;
