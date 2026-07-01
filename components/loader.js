@@ -1,5 +1,5 @@
-// Inject unified navbar and footer (with deduplication guard)
-async function injectComponents() {
+// Fetch and inject navbar/footer components into DOM
+async function injectNavbarFooter() {
     // Guard: Don't inject if already done
     if (document.getElementById('navbar')) {
         console.warn('Navbar already injected, skipping duplicate injection');
@@ -9,6 +9,7 @@ async function injectComponents() {
     try {
         // Fetch and inject navbar
         const navRes = await fetch('components/navbar.html');
+        if (!navRes.ok) throw new Error(`Failed to fetch navbar: ${navRes.status}`);
         const navHTML = await navRes.text();
         const navDiv = document.createElement('div');
         navDiv.innerHTML = navHTML;
@@ -17,63 +18,66 @@ async function injectComponents() {
         // Guard: Don't inject footer if already exists
         if (!document.querySelector('footer')) {
             const footRes = await fetch('components/footer.html');
+            if (!footRes.ok) throw new Error(`Failed to fetch footer: ${footRes.status}`);
             const footHTML = await footRes.text();
             const footDiv = document.createElement('div');
             footDiv.innerHTML = footHTML;
             document.body.appendChild(footDiv.firstElementChild);
         }
 
-        // Mark as injected to prevent Hostinger snippets from re-injecting
+        // Mark as injected to prevent duplicate injection
         document.body.dataset.componentInjected = 'true';
 
-        // Initialize navbar after injection
-        initNavbar();
+        // Attach hamburger listener after navbar is injected
+        attachHamburgerListener();
     } catch (e) {
         console.error('Component injection failed:', e);
     }
 }
 
-// Wait for DOM ready
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', injectComponents);
-} else {
-    injectComponents();
-}
+// Set up hamburger menu toggle and nav link listeners
+function attachHamburgerListener() {
+    const hamburgerBtn = document.querySelector('.hamburger');
+    const navItems = document.querySelector('.nav-items');
 
-function initNavbar() {
-    const navHam = document.getElementById('navHam');
-    const navLinks = document.getElementById('navLinks');
-    const navbar = document.getElementById('navbar');
+    // Return early if elements don't exist
+    if (!hamburgerBtn || !navItems) return;
 
-    if (!navHam || !navLinks) return;
-
-    // Mobile menu toggle
-    navHam.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        navHam.classList.toggle('active');
-        navHam.setAttribute('aria-expanded', navLinks.classList.contains('active'));
+    // Toggle menu visibility on hamburger click
+    hamburgerBtn.addEventListener('click', () => {
+        navItems.classList.toggle('active');
+        const isExpanded = navItems.classList.contains('active');
+        hamburgerBtn.setAttribute('aria-expanded', isExpanded);
     });
 
-    // Close menu on link click
-    navLinks.querySelectorAll('a').forEach(link => {
+    // Close menu when nav link is clicked
+    navItems.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            navHam.classList.remove('active');
-            navHam.setAttribute('aria-expanded', 'false');
+            navItems.classList.remove('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
         });
     });
 
-    // Close menu on Escape
+    // Close menu on Escape key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-            navLinks.classList.remove('active');
-            navHam.classList.remove('active');
-            navHam.setAttribute('aria-expanded', 'false');
+        if (e.key === 'Escape' && navItems.classList.contains('active')) {
+            navItems.classList.remove('active');
+            hamburgerBtn.setAttribute('aria-expanded', 'false');
         }
     });
 
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 100);
-    }, { passive: true });
+    // Navbar scroll effect (optional enhancement)
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 100);
+        }, { passive: true });
+    }
+}
+
+// Wait for DOM ready and inject components
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', injectNavbarFooter);
+} else {
+    injectNavbarFooter();
 }
