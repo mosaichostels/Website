@@ -176,6 +176,19 @@
         const summary = document.querySelector('.booking-summary');
         const inputs = form.querySelectorAll('input, select, textarea');
 
+        function animateValue(element, start, end, duration = 300) {
+            let startTime = null;
+            const animate = (currentTime) => {
+                if (startTime === null) startTime = currentTime;
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const current = Math.floor(start + (end - start) * progress);
+                element.textContent = current;
+                if (progress < 1) requestAnimationFrame(animate);
+            };
+            requestAnimationFrame(animate);
+        }
+
         function updateSummary() {
             const roomType = form.querySelector('select[name="room_type"]').value;
             const roomLabel = form.querySelector(`option[value="${roomType}"]`)?.textContent || 'Select above';
@@ -190,11 +203,32 @@
                 const d1 = new Date(checkin);
                 const d2 = new Date(checkout);
                 const nights = Math.ceil((d2 - d1) / (1000 * 60 * 60 * 24));
-                summary.querySelector('.summary-row:nth-child(4) strong').textContent = nights > 0 ? nights : '—';
-                if (nights > 0 && roomType) {
-                    const prices = { female: 400, '4bed': 450, '6bed': 380, '8bed': 350, private: 800 };
-                    const total = nights * (prices[roomType] || 0);
-                    summary.querySelector('.summary-price-value').textContent = total > 0 ? '₹' + total : '₹0';
+                const nightsEl = summary.querySelector('.summary-row:nth-child(4) strong');
+                if (nights > 0) {
+                    const currentNights = parseInt(nightsEl.textContent) || 0;
+                    animateValue(nightsEl, currentNights, nights);
+
+                    if (roomType) {
+                        const prices = { female: 400, '4bed': 450, '6bed': 380, '8bed': 350, private: 800 };
+                        const total = nights * (prices[roomType] || 0);
+                        const priceEl = summary.querySelector('.summary-price-value');
+                        const currentPrice = parseInt(priceEl.textContent?.replace('₹', '') || 0);
+                        const animatePriceValue = (element, start, end) => {
+                            let startTime = null;
+                            const animate = (currentTime) => {
+                                if (startTime === null) startTime = currentTime;
+                                const elapsed = currentTime - startTime;
+                                const progress = Math.min(elapsed / 300, 1);
+                                const current = Math.floor(start + (end - start) * progress);
+                                element.textContent = '₹' + current;
+                                if (progress < 1) requestAnimationFrame(animate);
+                            };
+                            requestAnimationFrame(animate);
+                        };
+                        animatePriceValue(priceEl, currentPrice, total);
+                    }
+                } else {
+                    nightsEl.textContent = '—';
                 }
             }
         }
