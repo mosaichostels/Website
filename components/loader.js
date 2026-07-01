@@ -1,17 +1,30 @@
-// Inject unified navbar and footer
+// Inject unified navbar and footer (with deduplication guard)
 async function injectComponents() {
+    // Guard: Don't inject if already done
+    if (document.getElementById('navbar')) {
+        console.warn('Navbar already injected, skipping duplicate injection');
+        return;
+    }
+
     try {
         // Fetch and inject navbar
-        const navRes = await fetch('navbar.html');
+        const navRes = await fetch('components/navbar.html');
         const navHTML = await navRes.text();
         const navDiv = document.createElement('div');
         navDiv.innerHTML = navHTML;
         document.body.insertBefore(navDiv.firstElementChild, document.body.firstChild);
 
-        // Fetch and inject footer
-        const footRes = await fetch('footer.html');
-        const footHTML = await footRes.text();
-        document.body.appendChild(new DOMParser().parseFromString(footHTML, 'text/html').body.firstElementChild);
+        // Guard: Don't inject footer if already exists
+        if (!document.querySelector('footer')) {
+            const footRes = await fetch('components/footer.html');
+            const footHTML = await footRes.text();
+            const footDiv = document.createElement('div');
+            footDiv.innerHTML = footHTML;
+            document.body.appendChild(footDiv.firstElementChild);
+        }
+
+        // Mark as injected to prevent Hostinger snippets from re-injecting
+        document.body.dataset.componentInjected = 'true';
 
         // Initialize navbar after injection
         initNavbar();
