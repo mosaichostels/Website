@@ -2176,3 +2176,142 @@ h3 {
         transition: none;
     }
 }
+
+/* ═══════════════════════════════════════════════════════════════ */
+/* UTILITY CLASS SYSTEM — NO INLINE STYLES */
+/* ═══════════════════════════════════════════════════════════════ */
+
+/* ─── ASPECT RATIOS ─── */
+.aspect-16-9 { aspect-ratio: 16 / 9; }
+.aspect-4-3 { aspect-ratio: 4 / 3; }
+.aspect-3-2 { aspect-ratio: 3 / 2; }
+.aspect-square { aspect-ratio: 1 / 1; }
+
+/* ─── DISPLAY ─── */
+.hidden { display: none !important; }
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* ─── SPACING ─── */
+.p-sm { padding: 1rem; }
+.p-md { padding: 1.5rem; }
+.p-lg { padding: 2rem; }
+.m-sm { margin: 1rem; }
+.m-md { margin: 1.5rem; }
+.gap-sm { gap: 1rem; }
+.gap-md { gap: 1.5rem; }
+
+/* ─── TEXT ─── */
+.text-sm { font-size: 0.875rem; }
+.text-lg { font-size: 1.25rem; }
+.font-semibold { font-weight: 600; }
+.text-center { text-align: center; }
+.text-gold { color: var(--gold); }
+.text-muted { color: var(--text-muted); }
+.italic { font-style: italic; }
+.uppercase { text-transform: uppercase; }
+
+/* ─── FORM ELEMENTS ─── */
+.form-group {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--ink);
+}
+
+.form-input {
+    padding: 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(148, 101, 16, 0.1);
+}
+
+.form-error {
+    color: #C41E1E;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.form-help {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-style: italic;
+    margin-top: 0.25rem;
+}
+
+/* ─── IMAGES ─── */
+.img-responsive {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-cover {
+    object-fit: cover;
+    object-position: center;
+}
+
+/* ─── LISTS ─── */
+.list-none { list-style: none; padding: 0; margin: 0; }
+.list-item {
+    padding: 0.75rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.list-item::before {
+    content: '◆';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.5rem;
+}
+
+/* ─── ACCESSIBILITY ─── */
+.focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 4px;
+}
+
+/* ─── SKIP LINK ─── */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--gold);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
