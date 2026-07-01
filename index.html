@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Mosaic Hostel Varanasi — Premium Stays in Sacred Varanasi</title>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="description" content="Stay at Mosaic Hostel, Varanasi's premier hostel steps from the sacred Ghats. Comfortable dorms and private rooms, vibrant common spaces, and an unforgettable community.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap"></noscript>
+    <link rel="preload" as="image" href="images/IMG_4450.JPG">
     <style>
         * {
             margin: 0;
@@ -189,22 +194,12 @@
             margin-top: 80px;
         }
 
-        .hero-video {
+        .hero-bg {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: 0;
-            opacity: 0.65;
-            display: none;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('images/IMG_4450.JPG') center / cover no-repeat;
             z-index: 0;
             opacity: 0.65;
         }
@@ -1053,10 +1048,8 @@
 
     <!-- HERO -->
     <section class="hero" role="banner" aria-label="Welcome to Mosaic Hostel">
+        <img class="hero-bg" src="images/IMG_4450.JPG" alt="" aria-hidden="true" fetchpriority="high" loading="eager" width="1080" height="810">
         <div class="hero-stripe" id="heroStripe"></div>
-        <video class="hero-video" autoplay muted loop playsinline aria-hidden="true">
-            <source src="images/hero-video.mp4" type="video/mp4">
-        </video>
         <div class="hero-overlay" aria-hidden="true"></div>
 
         <div class="hero-content">
