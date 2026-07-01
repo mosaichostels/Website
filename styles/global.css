@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap');
-
 /* ─── SPACING GRID (8px increments: 8, 16, 24, 32, 40, 48, 56, 60) ─── */
+/* ponytail: @import removed — font loaded via <link> in each HTML page (async, non-blocking) */
 
 :root {
     --gold: #946510; /* ponytail: darkened from #C88A0A for WCAG AA (4.65:1 on cream, was 2.70:1) */
