@@ -296,8 +296,6 @@ section {
 @media (min-width: 1024px) {
     section {
         padding: var(--spacing-100) var(--spacing-60);
-        max-width: 1200px;
-        margin: 0 auto;
     }
 }
 
