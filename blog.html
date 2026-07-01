@@ -9,33 +9,9 @@
     <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&display=swap"></noscript>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; background: var(--cream); color: var(--ink); }
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            height: 80px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 60px;
-            background: rgba(250, 244, 234, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            z-index: 1000;
-        }
-        .nav-logo { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; font-size: 26px; font-weight: 700; color: var(--ink); text-decoration: none; }
-        .nav-links { display: flex; gap: 48px; list-style: none; }
-        .nav-links a { color: var(--ink); text-decoration: none; font-size: 13px; font-weight: 500; transition: color 0.3s; }
-        .nav-links a:hover { color: var(--gold); }
-        .nav-book { padding: 12px 24px; background: var(--gold); color: white; border: none; border-radius: 4px; cursor: pointer; }
         .hero { background: linear-gradient(135deg, rgba(26,18,8,0.7), rgba(26,18,8,0.85)), url('https://www.mosaichostels.com/wp-content/uploads/2026/02/IMG_1357-scaled.jpg') center/cover; aspect-ratio: 16 / 9; max-height: 400px; display: flex; align-items: center; justify-content: center; color: white; margin-top: 80px; text-align: center; }
         .hero h1 { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; font-size: 56px; }
-        section { padding: 100px 60px; max-width: 1200px; margin: 0 auto; }
-        h2 { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; font-size: 42px; margin-bottom: 60px; }
-        .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+        .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 60px; }
         .blog-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: all 200ms ease-out; }
         .blog-card:hover { transform: translateY(-8px); box-shadow: 0 8px 24px rgba(0,0,0,0.15); }
         .blog-image { width: 100%; object-fit: cover; aspect-ratio: 4/3; }
@@ -45,33 +21,14 @@
         .blog-excerpt { font-size: 16px; color: var(--text-muted); line-height: 1.6; }
         .read-more { display: inline-block; margin-top: 16px; color: var(--gold); text-decoration: none; font-weight: 600; transition: all 0.3s; }
         .read-more:hover { text-decoration: underline; transform: translateX(4px); }
-        footer { background: var(--ink); color: white; padding: 80px 60px 40px; }
-        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 60px; margin-bottom: 60px; }
-        .footer-col h3 { font-family: 'Google Sans', system-ui, -apple-system, sans-serif; font-size: 18px; margin-bottom: 24px; color: #E8B044; }
-        .footer-col a { display: block; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; margin-bottom: 16px; }
-        .footer-col a:hover { color: #E8B044; }
         @media (max-width: 768px) {
-            nav { padding: 0 20px; height: 70px; }
             .hero { aspect-ratio: 4 / 3; max-height: 300px; }
-            section { padding: 60px 20px; }
             .blog-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
         }
     </style>
     <link rel="stylesheet" href="styles/global.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html" class="nav-logo"><img src="images/mosaic-logo.png" alt="Mosaic Hostel Logo" style="height: 40px; width: auto;"></a>
-        <ul class="nav-links">
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="book-now.html">Book</a></li>
-        </ul>
-        <button class="nav-book">Book Now</button>
-    </nav>
-
     <main>
     <div class="hero">
         <h1>Our Blog</h1>
@@ -119,37 +76,6 @@
         </div>
     </section>
     </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-col">
-                <h3>Mosaic</h3>
-                <p style="font-size: 13px; color: rgba(255,255,255,0.6);">Where stories come together.</p>
-            </div>
-            <div class="footer-col">
-                <h3>Explore</h3>
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="gallery.html">Gallery</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="footer-col">
-                <h3>Connect</h3>
-                <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
-                <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
-                <a href="mailto:mosaichostels@gmail.com">Email</a>
-            </div>
-            <div class="footer-col">
-                <h3>More</h3>
-                <a href="privacy.html">Privacy</a>
-                <a href="book-now.html">Book</a>
-                <a href="#">FAQ</a>
-            </div>
-        </div>
-        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px; text-align: center; font-size: 12px; color: rgba(255,255,255,0.5);">
-            <p>© 2025 Mosaic Hostel Varanasi</p>
-        </div>
-    </footer>
 
     <script src="components/loader.js"></script>
 </body>
