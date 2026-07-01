@@ -7,10 +7,9 @@ const path = require('path');
 // Upgrade path: use a real SQL parser library if schema changes materially.
 
 // Accept multiple SQL file paths from command-line arguments
-// Default: fYZdV (58.9MB) for primary content, wjLnJ (73.0M) for supplementary + attachments
+// Default: V6VvD.mosaichostels-com (correct Hostinger backup for mosaichostels.com)
 const DEFAULT_SQLS = [
-  path.join(__dirname, '../untitled folder/u738123768_fYZdV.20260623142824.sql'),
-  path.join(__dirname, '../untitled folder/u738123768_wjLnJ.20260623142824.sql'),
+  path.join(__dirname, '../untitled folder/u738123768_V6VvD.mosaichostels-com.20260623142824.sql'),
 ];
 
 const SQL_FILES = process.argv.slice(2).length > 0
