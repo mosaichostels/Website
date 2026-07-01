@@ -480,6 +480,19 @@
         fillTileIcon('philIcon1', [...COLORS.gold, ...COLORS.teal]);
         fillTileIcon('philIcon2', [...COLORS.burgundy, ...COLORS.cobalt]);
         fillTileIcon('philIcon3', [...COLORS.sage, ...COLORS.gold]);
+
+        // ─── NEWSLETTER FORM ───
+        const newsletterForm = document.querySelector('.newsletter-form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const input = newsletterForm.querySelector('input[type="email"]');
+                if (input.value) {
+                    input.value = '';
+                    alert('Thank you for subscribing! Check your email for updates.');
+                }
+            });
+        }
     </script>
 
     <!-- ─── IMAGE MODAL INTEGRATION ─── -->
