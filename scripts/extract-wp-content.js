@@ -6,9 +6,20 @@ const path = require('path');
 // ponytail: simple regex-based SQL parser, good enough for WordPress dumps.
 // Upgrade path: use a real SQL parser library if schema changes materially.
 
-// Accept SQL file path from command-line argument, default to fYZdV (58.9MB with published content)
-const DEFAULT_SQL = path.join(__dirname, '../untitled folder/u738123768_fYZdV.20260623142824.sql');
-const SQL_FILE = process.argv[2] || DEFAULT_SQL;
+// Accept multiple SQL file paths from command-line arguments
+// Default: fYZdV (58.9MB) for primary content, wjLnJ (73.0M) for supplementary + attachments
+const DEFAULT_SQLS = [
+  path.join(__dirname, '../untitled folder/u738123768_fYZdV.20260623142824.sql'),
+  path.join(__dirname, '../untitled folder/u738123768_wjLnJ.20260623142824.sql'),
+];
+
+const SQL_FILES = process.argv.slice(2).length > 0
+  ? process.argv.slice(2).map(arg => {
+      const fileName = arg.endsWith('.sql') ? arg : `u738123768_${arg}.20260623142824.sql`;
+      return path.join(__dirname, '../untitled folder', fileName);
+    })
+  : DEFAULT_SQLS;
+
 const OUTPUT_DIR = path.join(__dirname, '../tmp');
 
 // Ensure output directory exists
@@ -276,35 +287,133 @@ function extractMeta(sqlContent) {
 }
 
 /**
- * Main extraction logic.
+ * Extract attachments (media files) from wp_posts table.
  */
-function main() {
-  try {
-    console.log(`Reading SQL backup: ${SQL_FILE}`);
-    const sqlContent = fs.readFileSync(SQL_FILE, 'utf-8');
+function extractAttachments(sqlContent) {
+  const attachments = [];
 
-    console.log('Extracting posts and pages...');
-    const { pages, posts } = extractPosts(sqlContent);
+  // Find the wp_posts VALUES section
+  const postsMatch = sqlContent.match(/INSERT INTO `wp_posts` VALUES\n([\s\S]*?)(?=\);?\s*(?:\/\*|INSERT|SET|$))/);
+  if (!postsMatch) return attachments;
 
-    console.log('Extracting site metadata...');
-    const meta = extractMeta(sqlContent);
+  const valuesSection = postsMatch[1];
+  const rows = extractRowsFromValues(valuesSection);
 
-    // Write output files
-    const pagesPath = path.join(OUTPUT_DIR, 'pages.json');
-    const postsPath = path.join(OUTPUT_DIR, 'posts.json');
-    const metaPath = path.join(OUTPUT_DIR, 'meta.json');
+  rows.forEach(rowStr => {
+    if (!rowStr.trim()) return;
 
-    fs.writeFileSync(pagesPath, JSON.stringify(pages, null, 2));
-    fs.writeFileSync(postsPath, JSON.stringify(posts, null, 2));
-    fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2));
+    try {
+      const fields = parseRowFields(rowStr);
+      if (fields.length < 23) return; // wp_posts has 23 columns
 
-    console.log(`✓ Extracted ${pages.length} pages → ${pagesPath}`);
-    console.log(`✓ Extracted ${posts.length} posts → ${postsPath}`);
-    console.log(`✓ Extracted site metadata → ${metaPath}`);
-  } catch (error) {
-    console.error('Error:', error.message);
-    process.exit(1);
-  }
+      const post = {
+        id: parseInt(fields[0], 10),
+        type: fields[20] || '',
+        mime_type: fields[21] || '',
+        guid: fields[18] || '',
+        title: fields[5] || '',
+      };
+
+      // Only include attachments (media files)
+      if (post.type !== 'attachment') return;
+
+      attachments.push({
+        id: post.id,
+        url: post.guid,
+        title: post.title,
+        mime_type: post.mime_type,
+      });
+    } catch (e) {
+      // Skip malformed rows silently
+    }
+  });
+
+  return attachments;
 }
 
-main();
+/**
+ * Main Execution: Extract from multiple SQL backups with merging.
+ */
+try {
+  // Load and extract from all SQL files
+  const pageMap = new Map(); // For deduplication by slug
+  const postMap = new Map(); // For deduplication by slug
+  const attachmentMap = new Map(); // For deduplication by URL
+  let mergedMeta = null;
+
+  console.log(`\nProcessing ${SQL_FILES.length} backup(s)...\n`);
+
+  SQL_FILES.forEach((sqlFile, idx) => {
+    if (!fs.existsSync(sqlFile)) {
+      console.warn(`  [${idx + 1}] SKIP: ${path.basename(sqlFile)} (not found)`);
+      return;
+    }
+
+    console.log(`  [${idx + 1}] Reading: ${path.basename(sqlFile)}`);
+    const sql = fs.readFileSync(sqlFile, 'utf8');
+    const sizemb = (sql.length / 1024 / 1024).toFixed(2);
+    console.log(`      Size: ${sizemb} MB`);
+
+    // Extract content from this backup
+    const { pages, posts } = extractPosts(sql);
+    const attachments = extractAttachments(sql);
+    const meta = extractMeta(sql);
+
+    // Update merged metadata (keep first as primary)
+    if (!mergedMeta) mergedMeta = meta;
+
+    // Merge pages with deduplication by slug (primary = fYZdV)
+    pages.forEach(page => {
+      const slug = page.slug || `page-${page.id}`;
+      if (!pageMap.has(slug)) {
+        pageMap.set(slug, page);
+        console.log(`      Page: ${page.title} (${slug})`);
+      }
+    });
+
+    // Merge posts with deduplication by slug
+    posts.forEach(post => {
+      const slug = post.slug || `post-${post.id}`;
+      if (!postMap.has(slug)) {
+        postMap.set(slug, post);
+        console.log(`      Post: ${post.title} (${slug})`);
+      }
+    });
+
+    // Collect all attachments with deduplication by URL
+    attachments.forEach(att => {
+      if (!attachmentMap.has(att.url)) {
+        attachmentMap.set(att.url, att);
+      }
+    });
+
+    console.log(`      Attachments found: ${attachments.length}`);
+  });
+
+  const mergedPages = Array.from(pageMap.values());
+  const mergedPosts = Array.from(postMap.values());
+  const mergedAttachments = Array.from(attachmentMap.values());
+
+  // Create output directory
+  if (!fs.existsSync(OUTPUT_DIR)) {
+    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+  }
+
+  // Write JSON files
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'pages.json'), JSON.stringify(mergedPages, null, 2));
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'posts.json'), JSON.stringify(mergedPosts, null, 2));
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'attachments.json'), JSON.stringify(mergedAttachments, null, 2));
+  fs.writeFileSync(path.join(OUTPUT_DIR, 'meta.json'), JSON.stringify(mergedMeta, null, 2));
+
+  // Summary
+  console.log(`\nExtraction Complete:`);
+  console.log(`  Pages:        ${mergedPages.length}`);
+  console.log(`  Posts:        ${mergedPosts.length}`);
+  console.log(`  Attachments:  ${mergedAttachments.length}`);
+  console.log(`  Site Title:   ${mergedMeta.site_title}`);
+  console.log(`  Site URL:     ${mergedMeta.site_url}`);
+  console.log(`\nOutput files written to: ${OUTPUT_DIR}\n`);
+} catch (err) {
+  console.error('Error:', err.message);
+  process.exit(1);
+}
