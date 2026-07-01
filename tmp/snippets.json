@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1082,
+    "title": "Display a message after the 1st paragraph of posts",
+    "slug": "",
+    "code": "Thank you for reading this post, don't forget to subscribe!",
+    "type": "wpcode",
+    "status": "draft",
+    "date": "2026-02-11 05:38:32",
+    "action_hook": "",
+    "priority": 10,
+    "pages_served": []
+  },
+  {
+    "id": 1083,
+    "title": "Completely Disable Comments",
+    "slug": "",
+    "code": "add_action('admin_init', function () {\\r\\n    // Redirect any user trying to access comments page\\r\\n    global $pagenow;\\r\\n    \\r\\n    if ($pagenow === 'edit-comments.php') {\\r\\n        wp_safe_redirect(admin_url());\\r\\n        exit;\\r\\n    }\\r\\n\\r\\n    // Remove comments metabox from dashboard\\r\\n    remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');\\r\\n\\r\\n    // Disable support for comments and trackbacks in post types\\r\\n    foreach (get_post_types() as $post_type) {\\r\\n        if (post_type_supports($post_type, 'comments')) {\\r\\n            remove_post_type_support($post_type, 'comments');\\r\\n            remove_post_type_support($post_type, 'trackbacks');\\r\\n        }\\r\\n    }\\r\\n});\\r\\n\\r\\n// Close comments on the front-end\\r\\nadd_filter('comments_open', '__return_false', 20, 2);\\r\\nadd_filter('pings_open', '__return_false', 20, 2);\\r\\n\\r\\n// Hide existing comments\\r\\nadd_filter('comments_array', '__return_empty_array', 10, 2);\\r\\n\\r\\n// Remove comments page in menu\\r\\nadd_action('admin_menu', function () {\\r\\n    remove_menu_page('edit-comments.php');\\r\\n});\\r\\n\\r\\n// Remove comments links from admin bar\\r\\nadd_action('init', function () {\\r\\n    if (is_admin_bar_showing()) {\\r\\n        remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);\\r\\n    }\\r\\n});",
+    "type": "wpcode",
+    "status": "draft",
+    "date": "2026-02-11 05:38:32",
+    "action_hook": "",
+    "priority": 10,
+    "pages_served": []
+  }
+]
