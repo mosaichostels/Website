@@ -3,10 +3,10 @@
   const navbarHTML = `
     <nav id="mainNav">
       <div class="nav-logo">
-        <a href="/home.html"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel"></a>
+        <a href="/"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel"></a>
       </div>
       <div class="nav-links">
-        <a href="/home.html" class="nav-link" data-page="home">Home</a>
+        <a href="/" class="nav-link" data-page="home">Home</a>
         <a href="/gallery.html" class="nav-link" data-page="gallery">Gallery</a>
         <a href="/about.html" class="nav-link" data-page="about">About</a>
         <a href="/contact.html" class="nav-link" data-page="contact">Contact</a>
