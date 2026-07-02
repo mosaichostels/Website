@@ -1,4 +1,6 @@
 images/hero-video.mp4
 .playwright-mcp/
+.claude/
+.code-review-graph/
 *.png
 !images/mosaic-logo.png
