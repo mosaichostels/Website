@@ -8,16 +8,6 @@
           <p class="footer-tagline">A hostel rooted in community, warmth, and the spirit of Varanasi. Every guest who stays becomes part of our story.</p>
         </div>
         <div>
-          <div class="footer-heading">Stay</div>
-          <div class="footer-links">
-            <a href="/book-now.html">Private Room</a>
-            <a href="/book-now.html">8-Bed Mixed Dorm</a>
-            <a href="/book-now.html">6-Bed Mixed Dorm</a>
-            <a href="/book-now.html">4-Bed Mixed Dorm</a>
-            <a href="/book-now.html">6-Bed Female Dorm</a>
-          </div>
-        </div>
-        <div>
           <div class="footer-heading">Explore</div>
           <div class="footer-links">
             <a href="/gallery.html">Gallery</a>
