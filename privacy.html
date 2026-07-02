@@ -27,6 +27,9 @@
   </div>
 </div>
 
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div0"></div>
+
 <!-- ── MAIN CONTENT ── -->
 <main id="main">
   <p><em>Last updated: June 30, 2025</em></p>
@@ -70,6 +73,7 @@ const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','
 function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
 function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
 fillById('heroStripe',LOGO_COLORS);
+fillById('div0',LOGO_COLORS);
 
 // Custom cursor
 const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
