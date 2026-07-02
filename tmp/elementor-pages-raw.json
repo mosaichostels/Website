@@ -1,0 +1,44 @@
+[
+  {
+    "id": 2456,
+    "title": "Home",
+    "slug": "home",
+    "content": "",
+    "type": "page"
+  },
+  {
+    "id": 2457,
+    "title": "Book Now",
+    "slug": "book-now",
+    "content": "",
+    "type": "page"
+  },
+  {
+    "id": 2458,
+    "title": "Gallery",
+    "slug": "gallery",
+    "content": "",
+    "type": "page"
+  },
+  {
+    "id": 2459,
+    "title": "About Us",
+    "slug": "about",
+    "content": "",
+    "type": "page"
+  },
+  {
+    "id": 2460,
+    "title": "Contact",
+    "slug": "contact",
+    "content": "",
+    "type": "page"
+  },
+  {
+    "id": 2470,
+    "title": "Blog",
+    "slug": "blog",
+    "content": "",
+    "type": "page"
+  }
+]

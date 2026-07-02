@@ -1,0 +1,39 @@
+{
+  "u738123768_V6VvD.mosaichostels-com.20260623142824.sql": {
+    "total": 2,
+    "published": 0,
+    "draft": 2,
+    "snippets": [
+      {
+        "id": null,
+        "title": "Display a message after the 1st paragraph of posts",
+        "status": "draft",
+        "size": 59
+      },
+      {
+        "id": null,
+        "title": "Completely Disable Comments",
+        "status": "draft",
+        "size": 1277
+      }
+    ]
+  },
+  "u738123768_fYZdV.20260623142824.sql": {
+    "total": 0,
+    "published": 0,
+    "draft": 0,
+    "snippets": []
+  },
+  "u738123768_s829o.20260623142824.sql": {
+    "total": 0,
+    "published": 0,
+    "draft": 0,
+    "snippets": []
+  },
+  "u738123768_wjLnJ.20260623142824.sql": {
+    "total": 0,
+    "published": 0,
+    "draft": 0,
+    "snippets": []
+  }
+}

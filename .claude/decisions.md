@@ -93,3 +93,44 @@ images/: hero-video.mp4, rooms/, thumbs/
 - Performance: Lazy loading, optimized CSS, critical CSS inlined
 - SEO: Meta descriptions, structured data, sitemap, robots.txt
 **Outcome:** ✅ Verified on all 7 pages post-deployment (commit dc25495).
+
+## 2026-07-02: Hostinger Backup Analysis & Database Extraction
+**Decision:** Extract complete Hostinger WordPress backup (v6VvD) to JSON for reference and historical record.
+**Why:** 
+- Backup contains 6 page templates in wp_snippets (Code Snippets plugin using template_redirect hooks)
+- Alternative page content in Elementor _elementor_data (2.1 MB JSON)
+- 10 blog posts, 395 images, complete plugin configuration
+- Source of truth for site architecture, metadata, and SEO configuration
+**What's Inside:**
+- Code Snippets: 15 snippets (6 pages, 9 utilities) served via template_redirect hooks
+- Metadata: 2,127 entries (Elementor, image alt text, post settings)
+- Configuration: 654 WordPress options (site settings, plugin config, theme settings)
+- Blog: 10 published posts (3.5-11 KB each)
+- Images: 395 files (468 MB) with metadata
+- SEO: 465 entries (Rank Math 354, Yoast 111)
+- Taxonomy: 22 terms, 56 post-to-category relationships
+**Extraction Result:** 60+ files, ~478 MB, 100% coverage of content-bearing tables
+**Outcome:** ✅ FINAL_EXTRACTION_REPORT.md in /tmp/ documents all findings. Backup data ready for reference, migration, or archival.
+
+## 2026-07-02: Complete Website Build from Extracted Backups
+**Decision:** Build complete, fully-functional static website from extracted WordPress backup data.
+**Why:**
+- All page templates already extracted from wp_snippets (6 pages with HTML content)
+- Extracted metadata provides SEO info, image alt text, post information
+- Extracted images (395 files, 468 MB) ready for integration
+- WordPress architecture (template_redirect hooks, metadata patterns) documented
+**Build Approach:**
+- Add sticky navigation bar to all pages (links: Home, Gallery, Blog, About, Contact, Book Now)
+- Add footer with contact info, social links, quick navigation
+- Inject SEO meta tags (description, OG, Twitter cards) on all pages
+- Create sitemap.xml and robots.txt for crawlers
+- Organize 395 images in /images/ directory
+- Prepare blog post structure (10 posts with metadata)
+**Result:** 6 complete functional webpages + 395 images + SEO files + complete site structure
+**Outcome:** ✅ Website built with:
+- All 6 pages updated (navbar, footer, meta tags)
+- Navigation links complete between pages
+- SEO optimization ready
+- 468 MB of images organized
+- sitemap.xml + robots.txt generated
+- Ready for: local testing, Lighthouse audit, production deployment

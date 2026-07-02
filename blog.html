@@ -1,3 +1,93 @@
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <span class="logo-text">Mosaic</span>
+    </a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/gallery.html">Gallery</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/about.html">About</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/book-now.html" class="nav-cta">Book Now</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+.navbar {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(180deg, rgba(26,18,8,0.98) 0%, rgba(26,18,8,0.85) 100%);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  border-bottom: 1px solid rgba(200,134,10,0.2);
+}
+
+.nav-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 20px;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.nav-cta {
+  padding: 10px 20px;
+  border: 1px solid var(--gold);
+  color: var(--gold) !important;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+.nav-cta:hover {
+  background: var(--gold);
+  color: var(--ink) !important;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+  }
+}
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +101,14 @@
     <link rel="stylesheet" href="styles/global.css">
     <link rel="icon" type="image/png" href="images/mosaic-logo.png">
     <link rel="canonical" href="https://mosaichostels.com/blog.html">
+
+    <meta name="description" content="Budget Hostel in Varanasi near Assi Ghat | Backpacker Stay, Local Tips &amp; Travel Guides">
+    <meta name="keywords" content="hostel, varanasi, budget, accommodation, backpacker">
+    <meta property="og:title" content="Mosaic Hostel Varanasi">
+    <meta property="og:description" content="Budget Hostel in Varanasi near Assi Ghat | Backpacker Stay, Local Tips &amp; Travel Guides">
+    <meta property="og:url" content="https://www.mosaichostels.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
 </head>
 <body>
     <main id="main">
@@ -64,3 +162,110 @@
     <script src="components/loader.js"></script>
 </body>
 </html>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-section">
+      <h4>Mosaic Hostel</h4>
+      <p>Budget hostel in Varanasi near Assi Ghat. Perfect for backpackers and solo travelers.</p>
+      <div class="social-links">
+        <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+        <a href="https://www.facebook.com/mosaichostels/" target="_blank">Facebook</a>
+        <a href="https://www.threads.com/@mosaichostels" target="_blank">Threads</a>
+      </div>
+    </div>
+    <div class="footer-section">
+      <h4>Contact</h4>
+      <p>Phone: +91-9125492225</p>
+      <p>Email: mosaichostels@gmail.com</p>
+      <p>Address: B1/85C Assi Ghat Road, Varanasi</p>
+    </div>
+    <div class="footer-section">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/gallery.html">Gallery</a></li>
+        <li><a href="/blog.html">Blog</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/privacy.html">Privacy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Mosaic Hostels. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<style>
+footer {
+  background: var(--ink);
+  color: var(--cream);
+  padding: 60px 40px 20px;
+  margin-top: 100px;
+}
+
+.footer-container {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-section h4 {
+  font-family: 'Cinzel', serif;
+  color: var(--gold);
+  margin-bottom: 16px;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.footer-section p {
+  margin-bottom: 8px;
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section a {
+  color: var(--gold-lt);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section a:hover {
+  color: var(--gold);
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.footer-bottom {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  color: rgba(255,255,255,0.6);
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+</style>
