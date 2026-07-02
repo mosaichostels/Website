@@ -172,7 +172,6 @@ a:hover~#cursor,button:hover~#cursor{width:18px;height:18px;}
   position:relative;overflow:hidden;cursor:none;
   background:var(--ink);
 }
-.room-card.hero-card{grid-column:span 2;}
 
 /* Actual room photo */
 .room-photo{
@@ -206,7 +205,6 @@ a:hover~#cursor,button:hover~#cursor{width:18px;height:18px;}
   font-family:'Cormorant Garamond',serif;
   font-size:32px;font-weight:300;color:white;line-height:1;
 }
-.room-card.hero-card .room-name{font-size:42px;}
 .room-meta{
   font-size:11px;color:rgba(255,255,255,0.5);margin-top:8px;
   max-height:0;overflow:hidden;
@@ -438,7 +436,7 @@ nav.scrolled .nav-hamburger span{background:var(--ink);}
   .hero-h1{font-size:54px;letter-spacing:5px;}
   .section{padding:60px 40px;}
   .rooms-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;}
-  .room-card.hero-card{grid-column:span 2;}.room-card{min-height:240px;}
+  .room-card{min-height:240px;}
   .philosophy{padding:60px 40px;}
   .testi-grid{grid-template-columns:1fr 1fr;gap:20px;}
   .testi-wrap{padding:60px 40px;}
@@ -451,7 +449,7 @@ nav.scrolled .nav-hamburger span{background:var(--ink);}
   .stat-num{font-size:30px;}.stats-band{flex-wrap:wrap;}.stat{flex:1 1 50%;}
   .section{padding:48px 16px;}
   .rooms-grid{grid-template-columns:1fr;grid-template-rows:auto;}
-  .room-card.hero-card{grid-column:span 1;}.room-card{min-height:220px;}
+  .room-card{min-height:220px;}
   .philosophy{padding:40px 16px;}.philosophy-inner{grid-template-columns:1fr;}
   .phil-col{border-right:none;border-bottom:1px solid var(--border);padding:24px 16px;}
   .phil-col:last-child{border-bottom:none;}
@@ -537,7 +535,7 @@ nav.scrolled .nav-hamburger span{background:var(--ink);}
   </div>
   <div class="rooms-grid">
     <!-- Card 1 — large: Private Room -->
-    <div class="room-card hero-card">
+    <div class="room-card">
       <div class="room-top-accent" id="ra1"></div>
       <img class="room-photo" src="/images/IMG_1931-1.jpg" alt="Private Room">
       <div class="room-overlay">
