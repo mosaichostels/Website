@@ -11,10 +11,10 @@
         <div>
           <div class="footer-heading">Explore</div>
           <div class="footer-links">
-            <a href="/gallery.html">Gallery</a>
-            <a href="/about.html">About Us</a>
-            <a href="/blog.html">Blog</a>
-            <a href="/contact.html">Contact</a>
+            <a href="/gallery">Gallery</a>
+            <a href="/about">About Us</a>
+            <a href="/blog">Blog</a>
+            <a href="/contact">Contact</a>
           </div>
         </div>
         <div>
