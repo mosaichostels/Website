@@ -10,6 +10,10 @@
 <link rel="canonical" href="https://mosaichostels.com/privacy.html">
 </head>
 <body class="privacy-page">
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="progress"></div>
+
 <!-- ── NAV (injected by navbar.js) ── -->
 <div id="navbar-container"></div>
 
@@ -61,10 +65,35 @@
 <!-- ── FOOTER (injected by footer.js) ── -->
 <div id="footer-container"></div>
 
+<script>
+const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
+function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
+function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
+fillById('heroStripe',LOGO_COLORS);
+
+// Custom cursor
+const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
+  ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';
+});
+document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='48px';ring.style.height='48px';});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
+});
+
+// Scroll progress
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  prog.style.width=((window.scrollY/(document.body.scrollHeight-window.innerHeight))*100)+'%';
+},{passive:true});
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
 <script src="/components/navbar.js"></script>
 <script src="/components/footer.js"></script>
-<script>
-</script>
 <script src="/components/stripes.js"></script>
 </body>
 </html>
