@@ -6,103 +6,10 @@
 <title>Privacy Policy — Mosaic Hostel Varanasi</title>
 <meta name="description" content="Privacy Policy for Mosaic Hostel Varanasi. Learn how we protect your data.">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles/components.css">
+<link rel="stylesheet" href="/styles/global.css">
 <link rel="canonical" href="https://mosaichostels.com/privacy.html">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --gold:#C8860A;--gold-lt:#E8B84B;
-  --teal:#1A6B7A;--burg:#8B1A1A;--cobalt:#1A3A6B;
-  --brown:#5C3A1E;--sage:#3D6B3A;
-  --ink:#1A1208;--cream:#FAF4EA;--parch:#F2E8D5;
-  --muted:#7A6A50;--border:rgba(200,134,10,0.15);
-}
-html{scroll-behavior:smooth;}
-body{background:var(--cream);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden;cursor:none;}
-#cursor{position:fixed;width:10px;height:10px;border-radius:50%;background:var(--gold);pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s;mix-blend-mode:multiply;}
-#cursor-ring{position:fixed;width:36px;height:36px;border-radius:50%;border:1px solid rgba(200,134,10,0.5);pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:left .08s linear,top .08s linear,width .3s,height .3s;}
-#progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#C8860A,#8B1A1A,#1A6B7A);z-index:9999;width:0%;pointer-events:none;}
-
-.tile-accent{display:flex;height:5px;}
-.tile-accent span{flex:1;}
-
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 64px;height:96px;
-  background:rgba(250,244,234,0.97);
-  border-bottom:1px solid var(--border);
-  backdrop-filter:blur(20px);
-}
-.nav-logo img{height:130px;width:auto;}
-.nav-links{display:flex;gap:40px;}
-.nav-links a{
-  font-size:10px;letter-spacing:3.5px;text-transform:uppercase;
-  color:var(--muted);text-decoration:none;
-  padding-bottom:4px;position:relative;transition:color .25s;
-}
-.nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:100%;height:1px;background:var(--gold);transition:right .3s;}
-.nav-links a:hover{color:var(--ink);}
-.nav-links a:hover::after{right:0;}
-.nav-links a.active{color:var(--gold);}
-.nav-links a.active::after{right:0;}
-.nav-book{
-  padding:10px 28px;background:var(--gold);color:white;border:none;cursor:none;
-  font-family:'Jost';font-size:10px;letter-spacing:4px;text-transform:uppercase;
-  transition:background .25s;
-}
-.nav-book:hover{background:#A06E08;}
-
-/* ── PAGE HERO ── */
-.page-hero{
-  padding-top:96px;
-  background:var(--ink);
-  position:relative;overflow:hidden;
-  text-align:center;padding-bottom:80px;
-}
-.page-hero::before{
-  content:'';position:absolute;inset:0;
-  background-image:
-    repeating-linear-gradient(0deg,transparent,transparent 49px,rgba(200,134,10,0.04) 49px,rgba(200,134,10,0.04) 50px),
-    repeating-linear-gradient(90deg,transparent,transparent 49px,rgba(200,134,10,0.04) 49px,rgba(200,134,10,0.04) 50px);
-}
-.page-hero-stripe{position:absolute;top:0;left:0;right:0;height:5px;display:flex;z-index:201;}
-.page-hero-stripe span{flex:1;}
-.page-hero-content{position:relative;z-index:1;padding:72px 24px 0;}
-.page-eyebrow{font-size:10px;letter-spacing:7px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
-.page-title{
-  font-family:'Cinzel',serif;font-size:64px;font-weight:400;
-  color:white;letter-spacing:6px;line-height:1;margin-bottom:16px;
-}
-.page-sub{
-  font-size:14px;font-weight:300;letter-spacing:2px;color:rgba(255,255,255,0.5);
-  margin-bottom:0;
-}
-
-/* ── POLICY CONTENT ── */
-main{max-width:800px;margin:0 auto;padding:100px 40px;}
-main h2{font-family:'Cinzel',serif;font-size:28px;font-weight:700;color:var(--ink);margin:40px 0 16px;line-height:1.2;}
-main h2:first-child{margin-top:0;}
-main p{color:var(--ink);margin-bottom:16px;font-size:16px;line-height:1.8;}
-main em{color:var(--muted);font-style:italic;display:block;margin-bottom:32px;}
-
-@media(max-width:768px){
-  nav{padding:0 32px;height:80px;}
-  .nav-logo img{height:72px;}
-  .nav-links{gap:24px;}
-  .nav-links a{font-size:9px;letter-spacing:2px;}
-  .page-hero{padding-top:80px;padding-bottom:60px;}
-  .page-hero-stripe{top:80px;}
-  .page-hero-content{padding:48px 20px 0;}
-  .page-title{font-size:42px;letter-spacing:3px;}
-  .page-sub{font-size:12px;}
-  main{padding:60px 20px;}
-  main h2{font-size:22px;}
-}
-</style>
 </head>
-<body>
+<body class="privacy-page">
 <!-- ── NAV (injected by navbar.js) ── -->
 <div id="navbar-container"></div>
 
