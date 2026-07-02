@@ -29,7 +29,7 @@
 
   function highlightCurrentPage() {
     const path = window.location.pathname;
-    const match = path.match(/\/([a-z-]+)\.html/);
+    const match = path.match(/\/([a-z-]+)(\.html)?/);
     const currentPage = (path === '/' || !match) ? 'home' : match[1];
     document.querySelectorAll('.nav-link').forEach(link => {
       link.classList.toggle('active', link.dataset.page === currentPage);
