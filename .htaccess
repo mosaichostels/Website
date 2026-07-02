@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Don't rewrite if the request is for a real file or directory
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Rewrite clean URLs to .html files
+  RewriteRule ^gallery/?$ gallery.html [QSA,L]
+  RewriteRule ^blog/?$ blog.html [QSA,L]
+  RewriteRule ^about/?$ about.html [QSA,L]
+  RewriteRule ^contact/?$ contact.html [QSA,L]
+  RewriteRule ^book-now/?$ book-now.html [QSA,L]
+  RewriteRule ^privacy/?$ privacy.html [QSA,L]
+</IfModule>
