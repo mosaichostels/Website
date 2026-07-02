@@ -1,0 +1,217 @@
+{
+  "totalUniqueKeys": 53,
+  "stats": {
+    "_elementor_edit_mode": {
+      "count": 257,
+      "size": 1799
+    },
+    "_elementor_template_type": {
+      "count": 257,
+      "size": 1783
+    },
+    "_wp_page_template": {
+      "count": 254,
+      "size": 1851
+    },
+    "_elementor_version": {
+      "count": 254,
+      "size": 1523
+    },
+    "_elementor_pro_version": {
+      "count": 254,
+      "size": 1524
+    },
+    "_elementor_page_settings": {
+      "count": 253,
+      "size": 65889
+    },
+    "_elementor_data": {
+      "count": 250,
+      "size": 2151378
+    },
+    "_wp_attached_file": {
+      "count": 41,
+      "size": 1383
+    },
+    "_wp_attachment_metadata": {
+      "count": 41,
+      "size": 61055
+    },
+    "_wp_attachment_image_alt": {
+      "count": 40,
+      "size": 2143
+    },
+    "wpconsent_cookie_duration": {
+      "count": 17,
+      "size": 230
+    },
+    "wpconsent_cookie_id": {
+      "count": 17,
+      "size": 140
+    },
+    "_wpconsent_auto_added": {
+      "count": 16,
+      "size": 16
+    },
+    "_wpconsent_source_slug": {
+      "count": 16,
+      "size": 119
+    },
+    "_wp_old_slug": {
+      "count": 16,
+      "size": 363
+    },
+    "_elementor_conditions": {
+      "count": 12,
+      "size": 474
+    },
+    "_edit_lock": {
+      "count": 10,
+      "size": 120
+    },
+    "_wp_old_date": {
+      "count": 9,
+      "size": 90
+    },
+    "_thumbnail_id": {
+      "count": 8,
+      "size": 27
+    },
+    "_menu_item_type": {
+      "count": 6,
+      "size": 54
+    },
+    "_menu_item_menu_item_parent": {
+      "count": 6,
+      "size": 6
+    },
+    "_menu_item_object_id": {
+      "count": 6,
+      "size": 24
+    },
+    "_menu_item_object": {
+      "count": 6,
+      "size": 24
+    },
+    "_menu_item_target": {
+      "count": 6,
+      "size": 0
+    },
+    "_menu_item_classes": {
+      "count": 6,
+      "size": 114
+    },
+    "_menu_item_xfn": {
+      "count": 6,
+      "size": 0
+    },
+    "_menu_item_url": {
+      "count": 6,
+      "size": 0
+    },
+    "_edit_last": {
+      "count": 4,
+      "size": 4
+    },
+    "_astra_content_layout_flag": {
+      "count": 4,
+      "size": 32
+    },
+    "ast-title-bar-display": {
+      "count": 4,
+      "size": 32
+    },
+    "ast-featured-img": {
+      "count": 4,
+      "size": 32
+    },
+    "ast-site-content-layout": {
+      "count": 4,
+      "size": 80
+    },
+    "site-sidebar-layout": {
+      "count": 4,
+      "size": 40
+    },
+    "_eael_custom_js": {
+      "count": 4,
+      "size": 0
+    },
+    "ehf_target_include_locations": {
+      "count": 2,
+      "size": 148
+    },
+    "ehf_target_exclude_locations": {
+      "count": 2,
+      "size": 12
+    },
+    "ehf_target_user_roles": {
+      "count": 2,
+      "size": 38
+    },
+    "ehf_template_type": {
+      "count": 2,
+      "size": 22
+    },
+    "_elementor_screenshot_failed": {
+      "count": 2,
+      "size": 38
+    },
+    "rank_math_analytic_object_id": {
+      "count": 2,
+      "size": 3
+    },
+    "rank_math_internal_links_processed": {
+      "count": 2,
+      "size": 2
+    },
+    "rank_math_seo_score": {
+      "count": 2,
+      "size": 4
+    },
+    "_wpcode_auto_insert": {
+      "count": 2,
+      "size": 2
+    },
+    "_elementor_migrations_state_8b2d": {
+      "count": 2,
+      "size": 83
+    },
+    "forminator_form_meta": {
+      "count": 1,
+      "size": 9281
+    },
+    "image_optimizer_metadata": {
+      "count": 1,
+      "size": 1561
+    },
+    "rank_math_og_content_image": {
+      "count": 1,
+      "size": 179
+    },
+    "_wpcode_auto_insert_number": {
+      "count": 1,
+      "size": 1
+    },
+    "_wpcode_library_id": {
+      "count": 1,
+      "size": 2
+    },
+    "site-content-layout": {
+      "count": 1,
+      "size": 12
+    },
+    "site-post-title": {
+      "count": 1,
+      "size": 0
+    },
+    "_pingme": {
+      "count": 1,
+      "size": 1
+    },
+    "_encloseme": {
+      "count": 1,
+      "size": 1
+    }
+  }
+}

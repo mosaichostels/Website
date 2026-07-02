@@ -1,0 +1,159 @@
+{
+  "count": 22,
+  "data": [
+    {
+      "termId": "1",
+      "taxonomy": "1",
+      "description": "category",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(2",
+      "taxonomy": "2",
+      "description": "wp_theme",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(3",
+      "taxonomy": "3",
+      "description": "nav_menu",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(4",
+      "taxonomy": "4",
+      "description": "wp_theme",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(5",
+      "taxonomy": "5",
+      "description": "elementor_library_type",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(6",
+      "taxonomy": "6",
+      "description": "elementor_library_type",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(7",
+      "taxonomy": "7",
+      "description": "wpconsent_category",
+      "parent": "Essential cookies enable basic functions and are necessary for the proper function of the website.",
+      "count": "0"
+    },
+    {
+      "termId": "(8",
+      "taxonomy": "8",
+      "description": "wpconsent_category",
+      "parent": "Statistics cookies collect information anonymously. This information helps us understand how visitors use our website.",
+      "count": "0"
+    },
+    {
+      "termId": "(9",
+      "taxonomy": "9",
+      "description": "wpconsent_category",
+      "parent": "Marketing cookies are used to follow visitors to websites. The intention is to show ads that are relevant and engaging to the individual user.",
+      "count": "0"
+    },
+    {
+      "termId": "(10",
+      "taxonomy": "10",
+      "description": "wpconsent_category",
+      "parent": "These cookies are needed for adding comments on this website.",
+      "count": "7"
+    },
+    {
+      "termId": "(11",
+      "taxonomy": "11",
+      "description": "wpconsent_category",
+      "parent": "Google Analytics is a powerful tool that tracks and analyzes website traffic for informed marketing decisions.",
+      "count": "8"
+    },
+    {
+      "termId": "(12",
+      "taxonomy": "12",
+      "description": "wpcode_type",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(13",
+      "taxonomy": "13",
+      "description": "wpcode_location",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(14",
+      "taxonomy": "14",
+      "description": "wpcode_tags",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(15",
+      "taxonomy": "15",
+      "description": "wpcode_tags",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(16",
+      "taxonomy": "16",
+      "description": "wpcode_type",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(17",
+      "taxonomy": "17",
+      "description": "wpcode_location",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(18",
+      "taxonomy": "18",
+      "description": "wpcode_tags",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(19",
+      "taxonomy": "19",
+      "description": "wpcode_tags",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(20",
+      "taxonomy": "20",
+      "description": "wp_theme",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(21",
+      "taxonomy": "21",
+      "description": "wp_theme",
+      "parent": "",
+      "count": "0"
+    },
+    {
+      "termId": "(22",
+      "taxonomy": "22",
+      "description": "category",
+      "parent": "",
+      "count": "0"
+    }
+  ]
+}

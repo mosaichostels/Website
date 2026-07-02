@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Completely Disable Comments</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; color: #333; }
+    .meta { background: #f5f5f5; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+    .meta p { margin: 5px 0; }
+    .content { border: 1px solid #ddd; padding: 20px; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Completely Disable Comments</h1>
+  <div class="meta">
+    <p><strong>ID:</strong> NaN</p>
+    <p><strong>Type:</strong> wpcode</p>
+    <p><strong>Status:</strong> draft</p>
+    <p><strong>Size:</strong> 1277 bytes</p>
+  </div>
+  <div class="content">
+    add_action('admin_init', function () {\r
+    // Redirect any user trying to access comments page\r
+    global $pagenow;\r
+    \r
+    if ($pagenow === 'edit-comments.php') {\r
+        wp_safe_redirect(admin_url());\r
+        exit;\r
+    }\r
+\r
+    // Remove comments metabox from dashboard\r
+    remove_meta_box('dashboard_recent_comments', 'dashboard', 'normal');\r
+\r
+    // Disable support for comments and trackbacks in post types\r
+    foreach (get_post_types() as $post_type) {\r
+        if (post_type_supports($post_type, 'comments')) {\r
+            remove_post_type_support($post_type, 'comments');\r
+            remove_post_type_support($post_type, 'trackbacks');\r
+        }\r
+    }\r
+});\r
+\r
+// Close comments on the front-end\r
+add_filter('comments_open', '__return_false', 20, 2);\r
+add_filter('pings_open', '__return_false', 20, 2);\r
+\r
+// Hide existing comments\r
+add_filter('comments_array', '__return_empty_array', 10, 2);\r
+\r
+// Remove comments page in menu\r
+add_action('admin_menu', function () {\r
+    remove_menu_page('edit-comments.php');\r
+});\r
+\r
+// Remove comments links from admin bar\r
+add_action('init', function () {\r
+    if (is_admin_bar_showing()) {\r
+        remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);\r
+    }\r
+});
+  </div>
+</body>
+</html>
