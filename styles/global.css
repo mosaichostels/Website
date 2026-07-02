@@ -220,7 +220,7 @@ body:hover #cursor { opacity:1; }
 }
 .page-hero-stripe { position:absolute; top:0; left:0; right:0; height:5px; display:flex; z-index:201; }
 .page-hero-stripe span { flex:1; }
-.page-hero-content { position:relative; z-index:1; padding:72px 24px 0; }
+.page-hero-content { position:relative; z-index:1; padding:72px 24px 0; display:flex; flex-direction:column; align-items:center; }
 .page-eyebrow { font-size:10px; letter-spacing:7px; text-transform:uppercase; color:var(--gold); margin-bottom:20px; }
 .page-title {
   font-family:'Cinzel',serif; font-size:64px; font-weight:400;
