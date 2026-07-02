@@ -125,11 +125,6 @@ main p{text-align:center;color:var(--muted);font-size:18px;}
 
 <script src="/components/navbar.js"></script>
 <script src="/components/footer.js"></script>
-<script>
-const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
-function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
-function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
-fillById('heroStripe',LOGO_COLORS);
-</script>
+<script src="/components/stripes.js"></script>
 </body>
 </html>
