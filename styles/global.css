@@ -210,7 +210,7 @@ body:hover #cursor { opacity:1; }
 .page-hero {
   padding-top:96px; background:var(--ink);
   position:relative; overflow:hidden;
-  text-align:center; padding-bottom:240px;
+  text-align:center; padding-bottom:160px;
 }
 .page-hero::before {
   content:''; position:absolute; inset:0;
