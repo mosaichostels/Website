@@ -2,21 +2,22 @@
 /* ponytail: @import removed — font loaded via <link> in each HTML page (async, non-blocking) */
 
 :root {
-    --gold: #946510; /* ponytail: darkened from #C88A0A for WCAG AA (4.65:1 on cream, was 2.70:1) */
-    --gold-light: #E8B044;
-    --gold-dark: #8B6914;
-    --cream: #FAF4EA;
-    --cream-dark: #EBE0D1;
-    --ink: #1A1208;
-    --ink-dark: #0F0A05;
-    --border: #E0D5C7;
-    --teal: #2A6B7A;
-    --teal-light: #2D9AAA;
-    --teal-dark: #1E4D55;
-    --burgundy: #8B1C1C;
-    --sage: #3D6B3A;
+    /* Colors from extracted website */
+    --gold: #C8860A;
+    --gold-lt: #E8B84B;
+    --gold-pale: #FBF0D8;
+    --teal: #1A6B7A;
+    --burg: #8B1A1A;
     --cobalt: #1A3A6B;
-    --text-muted: #6E6E6E; /* ponytail: darkened from #999 for WCAG AA (4.66:1 on cream, was 2.60:1) */
+    --brown: #5C3A1E;
+    --sage: #3D6B3A;
+    --ink: #1A1208;
+    --ink2: #2E2416;
+    --cream: #FAF4EA;
+    --parch: #F2E8D5;
+    --muted: #7A6A50;
+    --border: rgba(200,134,10,0.15);
+
     /* Spacing scale */
     --spacing-4: 4px;
     --spacing-8: 8px;
@@ -34,6 +35,10 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
