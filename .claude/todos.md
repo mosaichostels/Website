@@ -1,8 +1,8 @@
 # Project Todos — Mosaic Hostel Static Website Redesign
 
 **Current Session:** 9 (2026-07-02)  
-**Status:** Phase 7 (Component Refactoring + Cleanup) — COMPLETE  
-**Goal:** Extract navbar/footer components, remove duplication, clean up large files
+**Status:** Phase 9 (Component Folder Cleanup) — COMPLETE  
+**Goal:** Remove dead code (navbar.html, footer.html, loader.js), simplify active component files
 
 ---
 
@@ -98,7 +98,29 @@
 
 ---
 
-## REMAINING WORK (Post-Phase 7)
+## PHASE 8: CSS CONSOLIDATION — ✅ COMPLETE (2026-07-02)
+- [x] Merge components.css into global.css
+- [x] Extract all inline <style> blocks from all 7 HTML pages
+- [x] Remove duplicate/redundant CSS rules (scoped stat, gallery, main selectors)
+- [x] Remove all inline <style> blocks from HTML files
+- [x] Delete components.css
+- [x] Add body.blog-page / body.privacy-page classes for scoped main styles
+- [x] Fix gallery CSS conflict: .gallery .gal-item vs .masonry .gal-item
+- [x] Fix stats CSS conflict: .stats-band / .stats / .stats-strip scoped
+
+**Result:** Single global.css (54KB). Zero inline styles. Zero components.css.
+
+## PHASE 9: COMPONENTS FOLDER REFACTORING — ✅ COMPLETE (2026-07-02)
+- [x] Delete navbar.html (dead code — unused by navbar.js)
+- [x] Delete footer.html (dead code — unused by footer.js)
+- [x] Delete loader.js (obsolete — tried to fetch deleted .html files)
+- [x] Simplify navbar.js: cleaner path parsing in highlightCurrentPage()
+- [x] Simplify footer.js: inline fillStrip logic, remove helper function
+- [x] Clean up stripes.js: remove dead IDs (fbStrip, mapStrip, formStrip, cardStrip), fix ctaStripe duplication
+
+**Result:** 3 active component files, 180 lines, zero duplication, zero dead code.
+
+## REMAINING WORK (Post-Phase 9)
 
 ### Session 7+: Documentation & Monitoring
 - [ ] Remove stale files from repo root:

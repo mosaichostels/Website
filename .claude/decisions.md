@@ -1,5 +1,15 @@
 # Project Decisions
 
+## 2026-07-02: Components Folder Refactoring — Remove Dead Code
+**Decision:** Delete navbar.html, footer.html, loader.js. Simplify navbar.js, footer.js, stripes.js.
+**Why:** navbar.html/footer.html unused by active JavaScript (navbar.js and footer.js inject directly). loader.js obsolete (old architecture trying to fetch removed .html files). Remove duplication and dead IDs from stripes.js.
+**Result:**
+- Deleted: navbar.html (717B), footer.html (717B), loader.js (3.1K)
+- Refactored navbar.js: Cleaner path parsing in highlightCurrentPage
+- Refactored footer.js: Inlined fillStrip logic, removed helper function
+- Refactored stripes.js: Removed dead IDs (fbStrip, mapStrip, formStrip, cardStrip), fixed ctaStripe duplication, added clarity comments
+- Final state: 3 active files, 180 lines, zero duplication
+
 ## 2026-06-30: Static HTML Architecture (Completed)
 **Decision:** Migrate from WordPress to static HTML/CSS/JS site (7 pages, no backend).
 **Why:** Faster, simpler, easier to maintain, no plugin/theme issues, complete control over design. WordPress limitations (theme bugs, plugin reliability) made site maintenance difficult.
@@ -111,6 +121,19 @@ images/: hero-video.mp4, rooms/, thumbs/
 - Taxonomy: 22 terms, 56 post-to-category relationships
 **Extraction Result:** 60+ files, ~478 MB, 100% coverage of content-bearing tables
 **Outcome:** ✅ FINAL_EXTRACTION_REPORT.md in /tmp/ documents all findings. Backup data ready for reference, migration, or archival.
+
+## 2026-07-02: CSS Consolidation — Single global.css Source of Truth
+**Decision:** Merge components.css into global.css, extract all inline <style> blocks from 7 HTML pages into global.css, delete components.css.
+**Why:** Eliminate 7x CSS duplication across pages. All nav/footer/page CSS now in one file.
+**Result:** 
+- global.css: ~54KB unified stylesheet covering all 7 pages
+- components.css deleted
+- All inline <style> blocks removed from 7 HTML pages
+- body.blog-page / body.privacy-page classes scope `main` styles per page
+- Navbar transparent by default (both home + inner pages), cream on .scrolled
+- Footer CSS matches footer.js injected HTML structure (.footer-tagline, .footer-heading, .footer-links, .footer-tile-strip)
+- Gallery: `.gallery .gal-item` (home accordion flex) vs `.masonry .gal-item` (gallery page CSS columns) — scoped to avoid conflict
+- Stats: `.stats-band .stat-num` (home Cormorant) vs `.stats .stat-num` (about Cinzel) vs `.stats-strip .stat-num` (gallery) — scoped
 
 ## 2026-07-02: Complete Website Build from Extracted Backups
 **Decision:** Build complete, fully-functional static website from extracted WordPress backup data.

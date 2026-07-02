@@ -21,7 +21,6 @@
   function init() {
     const container = document.getElementById('navbar-container');
     if (!container) return;
-
     container.innerHTML = navbarHTML;
     highlightCurrentPage();
     setupMobileMenu();
@@ -30,13 +29,8 @@
 
   function highlightCurrentPage() {
     const path = window.location.pathname;
-    let currentPage = 'home';
-
-    if (path !== '/' && path !== '/home.html') {
-      const match = path.match(/\/([^\/]+)\.html/);
-      if (match) currentPage = match[1];
-    }
-
+    const match = path.match(/\/([a-z-]+)\.html/);
+    const currentPage = (path === '/' || !match) ? 'home' : match[1];
     document.querySelectorAll('.nav-link').forEach(link => {
       link.classList.toggle('active', link.dataset.page === currentPage);
     });
