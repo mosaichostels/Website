@@ -1,0 +1,203 @@
+{
+  "totalTables": 33,
+  "tables": [
+    {
+      "name": "wp_postmeta",
+      "rowCount": 2127,
+      "sizeBytes": 2392185,
+      "sizeKB": "2336.12"
+    },
+    {
+      "name": "wp_options",
+      "rowCount": 654,
+      "sizeBytes": 1622770,
+      "sizeKB": "1584.74"
+    },
+    {
+      "name": "wp_posts",
+      "rowCount": 393,
+      "sizeBytes": 1465907,
+      "sizeKB": "1431.55"
+    },
+    {
+      "name": "wp_actionscheduler_actions",
+      "rowCount": 911,
+      "sizeBytes": 442829,
+      "sizeKB": "432.45"
+    },
+    {
+      "name": "wp_actionscheduler_logs",
+      "rowCount": 2721,
+      "sizeBytes": 325539,
+      "sizeKB": "317.91"
+    },
+    {
+      "name": "wp_snippets",
+      "rowCount": 15,
+      "sizeBytes": 305124,
+      "sizeKB": "297.97"
+    },
+    {
+      "name": "wp_usermeta",
+      "rowCount": 78,
+      "sizeBytes": 11552,
+      "sizeKB": "11.28"
+    },
+    {
+      "name": "wp_rank_math_internal_links",
+      "rowCount": 100,
+      "sizeBytes": 8871,
+      "sizeKB": "8.66"
+    },
+    {
+      "name": "wp_yoast_indexable",
+      "rowCount": 18,
+      "sizeBytes": 8493,
+      "sizeKB": "8.29"
+    },
+    {
+      "name": "wp_rank_math_analytics_gsc",
+      "rowCount": 123,
+      "sizeBytes": 8128,
+      "sizeKB": "7.94"
+    },
+    {
+      "name": "wp_rank_math_analytics_inspections",
+      "rowCount": 16,
+      "sizeBytes": 6269,
+      "sizeKB": "6.12"
+    },
+    {
+      "name": "wp_yoast_seo_links",
+      "rowCount": 53,
+      "sizeBytes": 6262,
+      "sizeKB": "6.12"
+    },
+    {
+      "name": "wp_rank_math_404_logs",
+      "rowCount": 62,
+      "sizeBytes": 4589,
+      "sizeKB": "4.48"
+    },
+    {
+      "name": "wp_rank_math_analytics_objects",
+      "rowCount": 16,
+      "sizeBytes": 2562,
+      "sizeKB": "2.50"
+    },
+    {
+      "name": "wp_e_events",
+      "rowCount": 7,
+      "sizeBytes": 1753,
+      "sizeKB": "1.71"
+    },
+    {
+      "name": "wp_grp_google_review",
+      "rowCount": 2,
+      "sizeBytes": 1680,
+      "sizeKB": "1.64"
+    },
+    {
+      "name": "wp_term_taxonomy",
+      "rowCount": 22,
+      "sizeBytes": 1240,
+      "sizeKB": "1.21"
+    },
+    {
+      "name": "wp_frmt_form_entry_meta",
+      "rowCount": 9,
+      "sizeBytes": 1049,
+      "sizeKB": "1.02"
+    },
+    {
+      "name": "wp_frmt_form_views",
+      "rowCount": 13,
+      "sizeBytes": 887,
+      "sizeKB": "0.87"
+    },
+    {
+      "name": "wp_terms",
+      "rowCount": 22,
+      "sizeBytes": 760,
+      "sizeKB": "0.74"
+    },
+    {
+      "name": "wp_term_relationships",
+      "rowCount": 56,
+      "sizeBytes": 713,
+      "sizeKB": "0.70"
+    },
+    {
+      "name": "wp_frmt_form_reports",
+      "rowCount": 0,
+      "sizeBytes": 694,
+      "sizeKB": "0.68"
+    },
+    {
+      "name": "wp_yoast_migrations",
+      "rowCount": 24,
+      "sizeBytes": 563,
+      "sizeKB": "0.55"
+    },
+    {
+      "name": "wp_rank_math_internal_meta",
+      "rowCount": 37,
+      "sizeBytes": 513,
+      "sizeKB": "0.50"
+    },
+    {
+      "name": "wp_grp_google_place",
+      "rowCount": 0,
+      "sizeBytes": 478,
+      "sizeKB": "0.47"
+    },
+    {
+      "name": "wp_termmeta",
+      "rowCount": 6,
+      "sizeBytes": 325,
+      "sizeKB": "0.32"
+    },
+    {
+      "name": "wp_rank_math_redirections",
+      "rowCount": 0,
+      "sizeBytes": 248,
+      "sizeKB": "0.24"
+    },
+    {
+      "name": "wp_users",
+      "rowCount": 0,
+      "sizeBytes": 220,
+      "sizeKB": "0.21"
+    },
+    {
+      "name": "wp_actionscheduler_groups",
+      "rowCount": 7,
+      "sizeBytes": 212,
+      "sizeKB": "0.21"
+    },
+    {
+      "name": "wp_yoast_indexable_hierarchy",
+      "rowCount": 16,
+      "sizeBytes": 192,
+      "sizeKB": "0.19"
+    },
+    {
+      "name": "wp_rank_math_redirections_cache",
+      "rowCount": 4,
+      "sizeBytes": 129,
+      "sizeKB": "0.13"
+    },
+    {
+      "name": "wp_frmt_form_entry",
+      "rowCount": 1,
+      "sizeBytes": 121,
+      "sizeKB": "0.12"
+    },
+    {
+      "name": "wp_grp_google_stats",
+      "rowCount": 0,
+      "sizeBytes": 19,
+      "sizeKB": "0.02"
+    }
+  ]
+}

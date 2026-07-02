@@ -1,0 +1,104 @@
+{
+  "description": "Critical WordPress site settings",
+  "data": {
+    "siteurl": {
+      "optionId": "(2",
+      "optionName": "siteurl",
+      "optionValue": "https://www.mosaichostels.com",
+      "autoload": "on",
+      "valueLength": 29,
+      "isSerialized": false,
+      "isJson": false
+    },
+    "home": {
+      "optionId": "(3",
+      "optionName": "home",
+      "optionValue": "https://www.mosaichostels.com",
+      "autoload": "on",
+      "valueLength": 29,
+      "isSerialized": false,
+      "isJson": false
+    },
+    "blogname": {
+      "optionId": "(4",
+      "optionName": "blogname",
+      "optionValue": "Mosaic Hostel Varanasi",
+      "autoload": "on",
+      "valueLength": 22,
+      "isSerialized": false,
+      "isJson": false
+    },
+    "blogdescription": {
+      "optionId": "(5",
+      "optionName": "blogdescription",
+      "optionValue": "Budget Hostel in Varanasi near Assi Ghat | Backpacker Stay, Local Tips &amp; Travel Guides",
+      "autoload": "on",
+      "valueLength": 90,
+      "isSerialized": false,
+      "isJson": false
+    },
+    "admin_email": {
+      "optionId": "(7",
+      "optionName": "admin_email",
+      "optionValue": "mosaichostels@gmail.com",
+      "autoload": "on",
+      "valueLength": 23,
+      "isSerialized": false,
+      "isJson": false
+    },
+    "users_can_register": {
+      "optionId": "(6",
+      "optionName": "users_can_register",
+      "optionValue": "0",
+      "autoload": "on",
+      "valueLength": 1,
+      "isSerialized": false,
+      "isJson": false
+    },
+    "permalink_structure": {
+      "optionId": "(29",
+      "optionName": "permalink_structure",
+      "optionValue": "/%postname%/",
+      "autoload": "on",
+      "valueLength": 12,
+      "isSerialized": false,
+      "isJson": false
+    },
+    "timezone_string": {
+      "optionId": "(81",
+      "optionName": "timezone_string",
+      "optionValue": "Asia/Kolkata",
+      "autoload": "on",
+      "valueLength": 12,
+      "isSerialized": false,
+      "isJson": false
+    },
+    "gmt_offset": {
+      "optionId": "(38",
+      "optionName": "gmt_offset",
+      "optionValue": "5.5",
+      "autoload": "on",
+      "valueLength": 3,
+      "isSerialized": false,
+      "isJson": false
+    },
+    "date_format": {
+      "optionId": "(24",
+      "optionName": "date_format",
+      "optionValue": "F j, Y",
+      "autoload": "on",
+      "valueLength": 6,
+      "isSerialized": false,
+      "isJson": false
+    },
+    "time_format": {
+      "optionId": "(25",
+      "optionName": "time_format",
+      "optionValue": "g:i a",
+      "autoload": "on",
+      "valueLength": 5,
+      "isSerialized": false,
+      "isJson": false
+    }
+  }
+}

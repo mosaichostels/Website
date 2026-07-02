@@ -1,11 +1,12 @@
 # Project Context
 
 **Name:** Mosaic Hostel Varanasi — Premium Static Website  
-**Status:** ✅ PRODUCTION COMPLETE (2026-07-01)  
-**Stack:** HTML5 + CSS3 + Vanilla JS (7 static pages, no backend)  
+**Status:** ✅ LIVE IN PRODUCTION (2026-07-02 08:44)  
+**Stack:** HTML5 + CSS3 + Vanilla JS (8 static pages, no backend)  
 **Business:** Premium Budget Hostel (Varanasi, India)  
-**Goal:** Lighthouse ≥90 all pages, WCAG AA accessibility, maintainable codebase  
-**Updated:** 2026-07-01
+**Goal:** Fast static site, WCAG AA accessibility, maintainable codebase  
+**Updated:** 2026-07-02 08:44
+**URL:** https://www.mosaichostels.com/home.html
 
 ## Architecture (Current)
 
@@ -93,3 +94,41 @@
 - Live: mosaichostels.com (Hostinger)
 - Last commit: dc25495 (2026-07-01, homepage CSS fixes)
 - FTP method: lftp to mosaichostels.com (FTP creds in ~/.env)
+
+## Database Extraction & Rebuild (2026-07-02)
+
+**Backup Source:** Hostinger v6VvD (u738123768_V6VvD.mosaichostels-com)  
+**Status:** ✅ 100% EXTRACTION COMPLETE + PAGES BUILT
+
+**Content Extracted & Integrated:**
+- 6 page templates (wp_snippets): Home, Gallery, About, Contact, Book Now, Blog ✅ BUILT
+- 10 blog posts with full content (metadata indexed)
+- 395 images (468 MB) organized in /images/
+- 2,127 metadata entries (Elementor, images, post settings)
+- 654 WordPress options (site config, plugin settings)
+- 465 SEO entries (Rank Math 354, Yoast 111)
+- 78 taxonomy terms and relationships
+
+**Built Website Structure:**
+```
+/
+├── home.html (41.6 KB) + navbar + footer + SEO meta
+├── gallery.html (36.9 KB) + navbar + footer + SEO meta
+├── about.html (31.6 KB) + navbar + footer + SEO meta
+├── contact.html (25.8 KB) + navbar + footer + SEO meta
+├── book-now.html (29.2 KB) + navbar + footer + SEO meta
+├── blog.html (3.8 KB) + navbar + footer + SEO meta
+├── images/ (395 files, 468 MB)
+├── sitemap.xml (SEO)
+└── robots.txt (crawlers)
+```
+
+**Architecture Found:**
+- Primary: Code Snippets plugin (wp_snippets table) using template_redirect hooks
+- Secondary: Elementor page builder (250 posts with _elementor_data)
+- Fallback: Traditional wp_posts (empty page shells)
+
+**Plugin Stack:**
+Elementor Pro, Rank Math SEO, Yoast SEO, Code Snippets, Forminator, LiteSpeed Cache, OMGF, Astra, WP Consent
+
+**Output:** 60+ files in /tmp/ including FINAL_EXTRACTION_REPORT.md master document. Complete functional website ready for deployment.

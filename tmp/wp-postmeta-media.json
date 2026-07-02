@@ -1,0 +1,651 @@
+{
+  "postsWithMediaMeta": 50,
+  "data": {
+    "95": [
+      {
+        "metaId": "(10997",
+        "metaKey": "rank_math_og_content_image",
+        "metaValue": "a:2:{s:5:\\\"check\\\";s:32:\\\"051a36eeb08b492a966d128b88186397\\\";s:6:\\\"images\\\";a:1:{i:0;s:82:\\\"https://mosaichostels.com/wp-content/uploads/2025/08/Logo-Transperent-300x300.webp\\\";}}",
+        "valueLength": 179
+      }
+    ],
+    "97": [
+      {
+        "metaId": "(669",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:6:{s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:1024;s:4:\\\"file\\\";s:29:\\\"2025/08/Logo-Transperent.webp\\\";s:8:\\\"filesize\\\";i:69878;s:5:\\\"sizes\\\";a:3:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:29:\\\"Logo-Transperent-300x300.webp\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/webp\\\";s:8:\\\"filesize\\\";i:16386;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:29:\\\"Logo-Transperent-150x150.webp\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/webp\\\";s:8:\\\"filesize\\\";i:5748;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:29:\\\"Logo-Transperent-768x768.webp\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:768;s:9:\\\"mime-type\\\";s:10:\\\"image/webp\\\";s:8:\\\"filesize\\\";i:60278;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}}",
+        "valueLength": 1041
+      },
+      {
+        "metaId": "(5898",
+        "metaKey": "image_optimizer_metadata",
+        "metaValue": "a:7:{s:6:\\\"status\\\";s:9:\\\"optimized\\\";s:10:\\\"error_type\\\";N;s:17:\\\"compression_level\\\";s:5:\\\"lossy\\\";s:11:\\\"retry_count\\\";N;s:15:\\\"sizes_optimized\\\";a:4:{i:0;s:4:\\\"full\\\";i:1;s:6:\\\"medium\\\";i:2;s:9:\\\"thumbnail\\\";i:3;s:12:\\\"medium_large\\\";}s:7:\\\"backups\\\";a:4:{s:4:\\\"full\\\";s:102:\\\"/home/u738123768/domains/mosaichostels.com/public_html/wp-content/uploads/2025/08/Logo-Transperent.png\\\";s:6:\\\"medium\\\";s:110:\\\"/home/u738123768/domains/mosaichostels.com/public_html/wp-content/uploads/2025/08/Logo-Transperent-300x300.png\\\";s:9:\\\"thumbnail\\\";s:110:\\\"/home/u738123768/domains/mosaichostels.com/public_html/wp-content/uploads/2025/08/Logo-Transperent-150x150.png\\\";s:12:\\\"medium_large\\\";s:110:\\\"/home/u738123768/domains/mosaichostels.com/public_html/wp-content/uploads/2025/08/Logo-Transperent-768x768.png\\\";}s:13:\\\"original_data\\\";a:1:{s:5:\\\"sizes\\\";a:4:{s:4:\\\"full\\\";a:5:{s:4:\\\"file\\\";s:28:\\\"2025/08/Logo-Transperent.png\\\";s:8:\\\"filesize\\\";i:591551;s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:9:\\\"image/png\\\";}s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:28:\\\"Logo-Transperent-300x300.png\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:9:\\\"image/png\\\";s:8:\\\"filesize\\\";i:18784;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:28:\\\"Logo-Transperent-150x150.png\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:9:\\\"image/png\\\";s:8:\\\"filesize\\\";i:7070;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:28:\\\"Logo-Transperent-768x768.png\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:768;s:9:\\\"mime-type\\\";s:9:\\\"image/png\\\";s:8:\\\"filesize\\\";i:98011;}}}}",
+        "valueLength": 1561
+      },
+      {
+        "metaId": "(9894",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Mosaic Hostel Varanasi — Best Budget Stay near Assi Ghat",
+        "valueLength": 56
+      }
+    ],
+    "636": [
+      {
+        "metaId": "(6241",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:10:{s:7:\\\"bitrate\\\";i:17810115;s:8:\\\"filesize\\\";i:82833336;s:9:\\\"mime_type\\\";s:15:\\\"video/quicktime\\\";s:6:\\\"length\\\";i:37;s:16:\\\"length_formatted\\\";s:4:\\\"0:37\\\";s:5:\\\"width\\\";i:3840;s:6:\\\"height\\\";i:2160;s:10:\\\"fileformat\\\";s:3:\\\"mp4\\\";s:10:\\\"dataformat\\\";s:9:\\\"quicktime\\\";s:17:\\\"created_timestamp\\\";i:1759482879;}",
+        "valueLength": 317
+      }
+    ],
+    "838": [
+      {
+        "metaId": "(8672",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1707;s:4:\\\"file\\\";s:54:\\\"2025/11/aditya-prakash-rJcakYQpxkw-unsplash-scaled.jpg\\\";s:8:\\\"filesize\\\";i:416552;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:47:\\\"aditya-prakash-rJcakYQpxkw-unsplash-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:12608;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:48:\\\"aditya-prakash-rJcakYQpxkw-unsplash-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:64776;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:47:\\\"aditya-prakash-rJcakYQpxkw-unsplash-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:7503;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:47:\\\"aditya-prakash-rJcakYQpxkw-unsplash-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:43553;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:49:\\\"aditya-prakash-rJcakYQpxkw-unsplash-1536x1024.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:137906;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:49:\\\"aditya-prakash-rJcakYQpxkw-unsplash-2048x1365.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1365;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:242439;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:39:\\\"aditya-prakash-rJcakYQpxkw-unsplash.jpg\\\";}",
+        "valueLength": 1796
+      },
+      {
+        "metaId": "(15758",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Ganga Aarti fire ritual at Assi Ghat Varanasi",
+        "valueLength": 45
+      }
+    ],
+    "839": [
+      {
+        "metaId": "(8674",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1707;s:4:\\\"file\\\";s:53:\\\"2025/11/manish-mishra-mTvk4a85Pjg-unsplash-scaled.jpg\\\";s:8:\\\"filesize\\\";i:241577;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:46:\\\"manish-mishra-mTvk4a85Pjg-unsplash-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:13809;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:47:\\\"manish-mishra-mTvk4a85Pjg-unsplash-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:66600;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:46:\\\"manish-mishra-mTvk4a85Pjg-unsplash-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:8690;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:46:\\\"manish-mishra-mTvk4a85Pjg-unsplash-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:44864;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:48:\\\"manish-mishra-mTvk4a85Pjg-unsplash-1536x1024.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:116720;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:48:\\\"manish-mishra-mTvk4a85Pjg-unsplash-2048x1365.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1365;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:175027;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:38:\\\"manish-mishra-mTvk4a85Pjg-unsplash.jpg\\\";}",
+        "valueLength": 1788
+      },
+      {
+        "metaId": "(15759",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Top Varanasi Experiences | Ganga Aarti, Boat Rides & Tours - Mosaic Hostel Varanasi",
+        "valueLength": 83
+      }
+    ],
+    "843": [
+      {
+        "metaId": "(8692",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1707;s:4:\\\"file\\\";s:50:\\\"2025/11/arto-suraj-6nEpZwz5nYQ-unsplash-scaled.jpg\\\";s:8:\\\"filesize\\\";i:279050;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:43:\\\"arto-suraj-6nEpZwz5nYQ-unsplash-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:12059;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:44:\\\"arto-suraj-6nEpZwz5nYQ-unsplash-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:63767;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:43:\\\"arto-suraj-6nEpZwz5nYQ-unsplash-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:7465;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:43:\\\"arto-suraj-6nEpZwz5nYQ-unsplash-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:41935;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:45:\\\"arto-suraj-6nEpZwz5nYQ-unsplash-1536x1024.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:117479;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:45:\\\"arto-suraj-6nEpZwz5nYQ-unsplash-2048x1365.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1365;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:186865;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:35:\\\"arto-suraj-6nEpZwz5nYQ-unsplash.jpg\\\";}",
+        "valueLength": 1764
+      },
+      {
+        "metaId": "(15760",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Sunrise boat ride on the Ganges River at Varanasi ghats",
+        "valueLength": 55
+      }
+    ],
+    "852": [
+      {
+        "metaId": "(8712",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1706;s:4:\\\"file\\\";s:51:\\\"2025/11/yash-pratap-singh-qedf_f9qpys-un-scaled.jpg\\\";s:8:\\\"filesize\\\";i:282080;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:44:\\\"yash-pratap-singh-qedf_f9qpys-un-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:10563;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:45:\\\"yash-pratap-singh-qedf_f9qpys-un-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:56375;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:44:\\\"yash-pratap-singh-qedf_f9qpys-un-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:7388;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:44:\\\"yash-pratap-singh-qedf_f9qpys-un-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:35664;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:46:\\\"yash-pratap-singh-qedf_f9qpys-un-1536x1024.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:109454;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:46:\\\"yash-pratap-singh-qedf_f9qpys-un-2048x1365.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1365;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:184711;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:36:\\\"yash-pratap-singh-qedf_f9qpys-un.jpg\\\";}",
+        "valueLength": 1772
+      },
+      {
+        "metaId": "(11599",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Morning yoga session on the steps of Assi Ghat Varanasi",
+        "valueLength": 55
+      }
+    ],
+    "856": [
+      {
+        "metaId": "(8749",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1707;s:4:\\\"file\\\";s:51:\\\"2025/11/simon-ray-0DF7DuMrI9k-unsplash-2-scaled.jpg\\\";s:8:\\\"filesize\\\";i:529802;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:44:\\\"simon-ray-0DF7DuMrI9k-unsplash-2-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:26795;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:45:\\\"simon-ray-0DF7DuMrI9k-unsplash-2-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:137758;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:44:\\\"simon-ray-0DF7DuMrI9k-unsplash-2-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:13649;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:44:\\\"simon-ray-0DF7DuMrI9k-unsplash-2-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:93163;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:46:\\\"simon-ray-0DF7DuMrI9k-unsplash-2-1536x1024.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:240533;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:46:\\\"simon-ray-0DF7DuMrI9k-unsplash-2-2048x1366.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1366;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:370394;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:36:\\\"simon-ray-0DF7DuMrI9k-unsplash-2.jpg\\\";}",
+        "valueLength": 1774
+      },
+      {
+        "metaId": "(11518",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Common lounge area at Mosaic Hostel Varanasi",
+        "valueLength": 44
+      }
+    ],
+    "858": [
+      {
+        "metaId": "(8753",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1708;s:4:\\\"file\\\";s:52:\\\"2025/11/roshan-kmr-bsdXs-S4YFY-unsplash-2-scaled.jpg\\\";s:8:\\\"filesize\\\";i:626120;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:45:\\\"roshan-kmr-bsdXs-S4YFY-unsplash-2-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:17632;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:46:\\\"roshan-kmr-bsdXs-S4YFY-unsplash-2-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:134067;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:45:\\\"roshan-kmr-bsdXs-S4YFY-unsplash-2-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:9114;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:45:\\\"roshan-kmr-bsdXs-S4YFY-unsplash-2-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:81550;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:47:\\\"roshan-kmr-bsdXs-S4YFY-unsplash-2-1536x1025.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1025;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:266711;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:47:\\\"roshan-kmr-bsdXs-S4YFY-unsplash-2-2048x1366.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1366;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:431035;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:37:\\\"roshan-kmr-bsdXs-S4YFY-unsplash-2.jpg\\\";}",
+        "valueLength": 1781
+      },
+      {
+        "metaId": "(15689",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Ganga Aarti ceremony at Assi Ghat Varanasi at night",
+        "valueLength": 51
+      }
+    ],
+    "873": [
+      {
+        "metaId": "(8897",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1706;s:4:\\\"file\\\";s:29:\\\"2025/11/IMG_1912-2-scaled.jpg\\\";s:8:\\\"filesize\\\";i:379883;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1912-2-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:12207;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:23:\\\"IMG_1912-2-1024x682.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:682;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:64205;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1912-2-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:7043;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1912-2-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:40868;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:24:\\\"IMG_1912-2-1536x1024.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:131582;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:24:\\\"IMG_1912-2-2048x1365.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1365;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:234462;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"3.5\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:13:\\\"Canon EOS 90D\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1762712236\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:2:\\\"18\\\";s:3:\\\"iso\\\";s:4:\\\"3200\\\";s:13:\\\"shutter_speed\\\";s:17:\\\"0.016666666666667\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:14:\\\"IMG_1912-2.jpg\\\";}",
+        "valueLength": 1643
+      },
+      {
+        "metaId": "(13444",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Mosaic Hostel Varanasi exterior near Assi Ghat",
+        "valueLength": 46
+      }
+    ],
+    "905": [
+      {
+        "metaId": "(9258",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1708;s:4:\\\"file\\\";s:29:\\\"2025/11/IMG_2733-3-scaled.jpg\\\";s:8:\\\"filesize\\\";i:359958;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_2733-3-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:23873;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:23:\\\"IMG_2733-3-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:81467;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_2733-3-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:19367;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_2733-3-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:55725;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:24:\\\"IMG_2733-3-1536x1025.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1025;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:151088;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:24:\\\"IMG_2733-3-2048x1366.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1366;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:244743;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1762695869\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:14:\\\"IMG_2733-3.jpg\\\";}",
+        "valueLength": 1607
+      },
+      {
+        "metaId": "(11479",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Rooftop common area at Mosaic Hostel Varanasi",
+        "valueLength": 45
+      }
+    ],
+    "906": [
+      {
+        "metaId": "(9260",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1708;s:4:\\\"file\\\";s:29:\\\"2025/11/IMG_2723-2-scaled.jpg\\\";s:8:\\\"filesize\\\";i:470817;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_2723-2-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:25769;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:23:\\\"IMG_2723-2-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:99931;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_2723-2-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:20163;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_2723-2-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:66770;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:24:\\\"IMG_2723-2-1536x1025.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1025;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:189124;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:24:\\\"IMG_2723-2-2048x1366.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1366;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:315083;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1762695595\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:14:\\\"IMG_2723-2.jpg\\\";}",
+        "valueLength": 1607
+      },
+      {
+        "metaId": "(11465",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Female-only dormitory at Mosaic Hostel Varanasi",
+        "valueLength": 47
+      }
+    ],
+    "907": [
+      {
+        "metaId": "(9262",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1708;s:4:\\\"file\\\";s:29:\\\"2025/11/IMG_1933-2-scaled.jpg\\\";s:8:\\\"filesize\\\";i:457948;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1933-2-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:12324;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:23:\\\"IMG_1933-2-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:73047;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1933-2-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:7250;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1933-2-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:45084;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:24:\\\"IMG_1933-2-1536x1025.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1025;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:156663;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:24:\\\"IMG_1933-2-2048x1366.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1366;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:281723;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"3.5\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:13:\\\"Canon EOS 90D\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1762713949\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:2:\\\"18\\\";s:3:\\\"iso\\\";s:4:\\\"3200\\\";s:13:\\\"shutter_speed\\\";s:17:\\\"0.016666666666667\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:14:\\\"IMG_1933-2.jpg\\\";}",
+        "valueLength": 1643
+      },
+      {
+        "metaId": "(11464",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Book Your stay in Varanasi | Mixed & Female Dorms near Assi Ghat - Mosaic Hostel Varanasi",
+        "valueLength": 89
+      }
+    ],
+    "1308": [
+      {
+        "metaId": "(14542",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2096;s:6:\\\"height\\\";i:2560;s:4:\\\"file\\\";s:56:\\\"2026/02/123e2e1a-479c-4a38-9634-fcbb95683f8b1-scaled.jpg\\\";s:8:\\\"filesize\\\";i:523585;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:49:\\\"123e2e1a-479c-4a38-9634-fcbb95683f8b1-246x300.jpg\\\";s:5:\\\"width\\\";i:246;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:37672;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:50:\\\"123e2e1a-479c-4a38-9634-fcbb95683f8b1-838x1024.jpg\\\";s:5:\\\"width\\\";i:838;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:139706;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:49:\\\"123e2e1a-479c-4a38-9634-fcbb95683f8b1-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:25166;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:49:\\\"123e2e1a-479c-4a38-9634-fcbb95683f8b1-768x938.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:938;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:125520;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:51:\\\"123e2e1a-479c-4a38-9634-fcbb95683f8b1-1258x1536.jpg\\\";s:5:\\\"width\\\";i:1258;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:240038;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:51:\\\"123e2e1a-479c-4a38-9634-fcbb95683f8b1-1677x2048.jpg\\\";s:5:\\\"width\\\";i:1677;s:6:\\\"height\\\";i:2048;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:367950;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"1.7\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:8:\\\"Pixel 6a\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1768805487\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:4:\\\"4.38\\\";s:3:\\\"iso\\\";s:3:\\\"282\\\";s:13:\\\"shutter_speed\\\";s:4:\\\"0.04\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:41:\\\"123e2e1a-479c-4a38-9634-fcbb95683f8b1.jpg\\\";}",
+        "valueLength": 1843
+      },
+      {
+        "metaId": "(15688",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Accommodation room at Mosaic Hostel Varanasi",
+        "valueLength": 44
+      }
+    ],
+    "1312": [
+      {
+        "metaId": "(14550",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1706;s:4:\\\"file\\\";s:27:\\\"2026/02/IMG_1920-scaled.jpg\\\";s:8:\\\"filesize\\\";i:270499;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1920-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:11268;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"IMG_1920-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:56567;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1920-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:6747;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1920-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:37276;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1920-1536x1024.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:107020;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1920-2048x1365.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1365;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:176445;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"3.5\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:13:\\\"Canon EOS 90D\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1762714849\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:2:\\\"18\\\";s:3:\\\"iso\\\";s:4:\\\"2000\\\";s:13:\\\"shutter_speed\\\";s:17:\\\"0.016666666666667\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:12:\\\"IMG_1920.jpg\\\";}",
+        "valueLength": 1627
+      },
+      {
+        "metaId": "(15685",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Comfortable bed in shared dorm at Mosaic Hostel Varanasi",
+        "valueLength": 56
+      }
+    ],
+    "1314": [
+      {
+        "metaId": "(14554",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1707;s:4:\\\"file\\\";s:27:\\\"2026/02/IMG_1928-scaled.jpg\\\";s:8:\\\"filesize\\\";i:401937;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1928-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:15182;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"IMG_1928-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:80920;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1928-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:8800;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1928-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:52515;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1928-1536x1024.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:156012;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1928-2048x1365.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1365;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:261388;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"4\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:13:\\\"Canon EOS 90D\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1762713337\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:2:\\\"18\\\";s:3:\\\"iso\\\";s:4:\\\"2000\\\";s:13:\\\"shutter_speed\\\";s:17:\\\"0.016666666666667\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:12:\\\"IMG_1928.jpg\\\";}",
+        "valueLength": 1625
+      },
+      {
+        "metaId": "(15683",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Gallery | Clean Dorms & Rooftop at Mosaic Hostel Varanasi - Mosaic Hostel Varanasi",
+        "valueLength": 82
+      }
+    ],
+    "1315": [
+      {
+        "metaId": "(14556",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1707;s:4:\\\"file\\\";s:27:\\\"2026/02/IMG_1930-scaled.jpg\\\";s:8:\\\"filesize\\\";i:870705;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1930-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:20080;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"IMG_1930-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:159370;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1930-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:10447;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1930-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:95394;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1930-1536x1024.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:331119;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1930-2048x1365.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1365;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:567174;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"4\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:13:\\\"Canon EOS 90D\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1762716124\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:2:\\\"24\\\";s:3:\\\"iso\\\";s:4:\\\"6400\\\";s:13:\\\"shutter_speed\\\";s:4:\\\"0.02\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:12:\\\"IMG_1930.jpg\\\";}",
+        "valueLength": 1613
+      },
+      {
+        "metaId": "(15682",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Mosaic Hostel Varanasi room view near Assi Ghat",
+        "valueLength": 47
+      }
+    ],
+    "1318": [
+      {
+        "metaId": "(14562",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1707;s:4:\\\"file\\\";s:27:\\\"2026/02/IMG_1934-scaled.jpg\\\";s:8:\\\"filesize\\\";i:399050;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1934-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:13232;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"IMG_1934-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:74960;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1934-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:7926;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1934-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:47671;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1934-1536x1024.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:148648;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1934-2048x1365.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1365;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:254583;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"3.5\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:13:\\\"Canon EOS 90D\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1762712552\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:2:\\\"20\\\";s:3:\\\"iso\\\";s:4:\\\"2500\\\";s:13:\\\"shutter_speed\\\";s:17:\\\"0.016666666666667\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:12:\\\"IMG_1934.jpg\\\";}",
+        "valueLength": 1627
+      },
+      {
+        "metaId": "(15680",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Cozy dorm rooms and rooftop Ganga views at Mosaic Hostel Varanasi",
+        "valueLength": 65
+      }
+    ],
+    "1319": [
+      {
+        "metaId": "(14564",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:1928;s:6:\\\"height\\\";i:2560;s:4:\\\"file\\\";s:27:\\\"2026/02/IMG_4450-scaled.jpg\\\";s:8:\\\"filesize\\\";i:778624;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_4450-226x300.jpg\\\";s:5:\\\"width\\\";i:226;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:21505;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"IMG_4450-771x1024.jpg\\\";s:5:\\\"width\\\";i:771;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:166238;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_4450-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:9808;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"IMG_4450-768x1020.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1020;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:164657;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_4450-1157x1536.jpg\\\";s:5:\\\"width\\\";i:1157;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:332009;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_4450-1543x2048.jpg\\\";s:5:\\\"width\\\";i:1543;s:6:\\\"height\\\";i:2048;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:537808;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"3.5\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:13:\\\"Canon EOS 90D\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1762700761\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:2:\\\"18\\\";s:3:\\\"iso\\\";s:4:\\\"1000\\\";s:13:\\\"shutter_speed\\\";s:5:\\\"0.002\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:12:\\\"IMG_4450.jpg\\\";}",
+        "valueLength": 1618
+      },
+      {
+        "metaId": "(15679",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Clean mixed dormitory room at Mosaic Hostel Varanasi",
+        "valueLength": 52
+      }
+    ],
+    "1320": [
+      {
+        "metaId": "(14566",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:1928;s:6:\\\"height\\\";i:2560;s:4:\\\"file\\\";s:27:\\\"2026/02/IMG_4451-scaled.jpg\\\";s:8:\\\"filesize\\\";i:707995;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_4451-226x300.jpg\\\";s:5:\\\"width\\\";i:226;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:19096;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"IMG_4451-771x1024.jpg\\\";s:5:\\\"width\\\";i:771;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:148508;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_4451-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:8733;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"IMG_4451-768x1020.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1020;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:146676;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_4451-1157x1536.jpg\\\";s:5:\\\"width\\\";i:1157;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:298748;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_4451-1543x2048.jpg\\\";s:5:\\\"width\\\";i:1543;s:6:\\\"height\\\";i:2048;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:487151;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"3.5\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:13:\\\"Canon EOS 90D\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1762700798\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:2:\\\"18\\\";s:3:\\\"iso\\\";s:4:\\\"1000\\\";s:13:\\\"shutter_speed\\\";s:5:\\\"0.002\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:12:\\\"IMG_4451.jpg\\\";}",
+        "valueLength": 1618
+      },
+      {
+        "metaId": "(15678",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Mixed dorm bunk beds at Mosaic Hostel Varanasi near Assi Ghat",
+        "valueLength": 61
+      }
+    ],
+    "1321": [
+      {
+        "metaId": "(14568",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1920;s:4:\\\"file\\\";s:45:\\\"2026/02/PXL_20260119_064300909.MP_-scaled.jpg\\\";s:8:\\\"filesize\\\";i:592768;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:38:\\\"PXL_20260119_064300909.MP_-300x225.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:225;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:24109;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:39:\\\"PXL_20260119_064300909.MP_-1024x768.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:768;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:120973;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:38:\\\"PXL_20260119_064300909.MP_-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:16444;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:38:\\\"PXL_20260119_064300909.MP_-768x576.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:576;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:76784;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:40:\\\"PXL_20260119_064300909.MP_-1536x1152.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1152;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:241651;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:40:\\\"PXL_20260119_064300909.MP_-2048x1536.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:400569;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"1.7\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:8:\\\"Pixel 6a\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1768804980\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:4:\\\"4.38\\\";s:3:\\\"iso\\\";s:3:\\\"279\\\";s:13:\\\"shutter_speed\\\";s:4:\\\"0.04\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:30:\\\"PXL_20260119_064300909.MP_.jpg\\\";}",
+        "valueLength": 1754
+      },
+      {
+        "metaId": "(15677",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Mosaic Hostel Varanasi room with natural light",
+        "valueLength": 46
+      }
+    ],
+    "1322": [
+      {
+        "metaId": "(14570",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:1969;s:6:\\\"height\\\";i:2560;s:4:\\\"file\\\";s:45:\\\"2026/02/PXL_20260119_064603355.MP_-scaled.jpg\\\";s:8:\\\"filesize\\\";i:785466;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:38:\\\"PXL_20260119_064603355.MP_-231x300.jpg\\\";s:5:\\\"width\\\";i:231;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:29046;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:39:\\\"PXL_20260119_064603355.MP_-787x1024.jpg\\\";s:5:\\\"width\\\";i:787;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:161758;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:38:\\\"PXL_20260119_064603355.MP_-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:18351;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:38:\\\"PXL_20260119_064603355.MP_-768x999.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:999;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:155490;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:40:\\\"PXL_20260119_064603355.MP_-1181x1536.jpg\\\";s:5:\\\"width\\\";i:1181;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:325491;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:40:\\\"PXL_20260119_064603355.MP_-1575x2048.jpg\\\";s:5:\\\"width\\\";i:1575;s:6:\\\"height\\\";i:2048;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:537146;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"1.7\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:8:\\\"Pixel 6a\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1768805163\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:4:\\\"4.38\\\";s:3:\\\"iso\\\";s:2:\\\"49\\\";s:13:\\\"shutter_speed\\\";s:17:\\\"0.028571428571429\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:30:\\\"PXL_20260119_064603355.MP_.jpg\\\";}",
+        "valueLength": 1768
+      },
+      {
+        "metaId": "(15676",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Budget room at Mosaic Hostel Varanasi near Assi Ghat",
+        "valueLength": 52
+      }
+    ],
+    "1323": [
+      {
+        "metaId": "(14572",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:1862;s:6:\\\"height\\\";i:2560;s:4:\\\"file\\\";s:45:\\\"2026/02/PXL_20260119_065635066.MP_-scaled.jpg\\\";s:8:\\\"filesize\\\";i:887409;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:38:\\\"PXL_20260119_065635066.MP_-218x300.jpg\\\";s:5:\\\"width\\\";i:218;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:37614;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:39:\\\"PXL_20260119_065635066.MP_-745x1024.jpg\\\";s:5:\\\"width\\\";i:745;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:212243;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:38:\\\"PXL_20260119_065635066.MP_-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:20772;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:39:\\\"PXL_20260119_065635066.MP_-768x1056.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1056;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:221455;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:40:\\\"PXL_20260119_065635066.MP_-1117x1536.jpg\\\";s:5:\\\"width\\\";i:1117;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:398141;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:40:\\\"PXL_20260119_065635066.MP_-1490x2048.jpg\\\";s:5:\\\"width\\\";i:1490;s:6:\\\"height\\\";i:2048;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:625460;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"1.7\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:8:\\\"Pixel 6a\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1768805795\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:4:\\\"4.38\\\";s:3:\\\"iso\\\";s:3:\\\"398\\\";s:13:\\\"shutter_speed\\\";s:4:\\\"0.04\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:30:\\\"PXL_20260119_065635066.MP_.jpg\\\";}",
+        "valueLength": 1757
+      },
+      {
+        "metaId": "(15675",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Clean comfortable room at Mosaic Hostel Varanasi",
+        "valueLength": 48
+      }
+    ],
+    "1335": [
+      {
+        "metaId": "(14660",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1920;s:4:\\\"file\\\";s:27:\\\"2026/02/IMG_1223-scaled.jpg\\\";s:8:\\\"filesize\\\";i:550067;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1223-300x225.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:225;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:45430;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"IMG_1223-1024x768.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:768;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:135946;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1223-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:36809;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1223-768x576.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:576;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:96230;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1223-1536x1152.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1152;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:238682;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1223-2048x1536.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:375499;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"1.6\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:9:\\\"iPhone 15\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1764886049\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:4:\\\"5.96\\\";s:3:\\\"iso\\\";s:3:\\\"640\\\";s:13:\\\"shutter_speed\\\";s:16:\\\"0.03030303030303\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:12:\\\"IMG_1223.jpg\\\";}",
+        "valueLength": 1624
+      },
+      {
+        "metaId": "(15668",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Guest at Mosaic Hostel Varanasi near Assi Ghat",
+        "valueLength": 46
+      }
+    ],
+    "1336": [
+      {
+        "metaId": "(14662",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1920;s:4:\\\"file\\\";s:27:\\\"2026/02/IMG_1294-scaled.jpg\\\";s:8:\\\"filesize\\\";i:600440;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1294-300x225.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:225;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:45518;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"IMG_1294-1024x768.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:768;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:144144;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1294-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:36532;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1294-768x576.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:576;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:99976;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1294-1536x1152.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1152;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:258886;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1294-2048x1536.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:409099;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"1.6\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:9:\\\"iPhone 15\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1765664292\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:4:\\\"5.96\\\";s:3:\\\"iso\\\";s:3:\\\"500\\\";s:13:\\\"shutter_speed\\\";s:16:\\\"0.03030303030303\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:12:\\\"IMG_1294.jpg\\\";}",
+        "valueLength": 1624
+      },
+      {
+        "metaId": "(15667",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Contact Mosaic Hostel | Reliable Budget Stay in Varanasi - Mosaic Hostel Varanasi",
+        "valueLength": 81
+      }
+    ],
+    "1337": [
+      {
+        "metaId": "(14664",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:1920;s:6:\\\"height\\\";i:2560;s:4:\\\"file\\\";s:27:\\\"2026/02/IMG_1316-scaled.jpg\\\";s:8:\\\"filesize\\\";i:363812;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1316-225x300.jpg\\\";s:5:\\\"width\\\";i:225;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:22122;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"IMG_1316-768x1024.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:69180;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1316-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:19340;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"IMG_1316-768x1024.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:69180;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1316-1152x1536.jpg\\\";s:5:\\\"width\\\";i:1152;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:136536;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1316-1536x2048.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:2048;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:233864;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"2.4\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:9:\\\"iPhone 15\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1766099481\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:4:\\\"1.54\\\";s:3:\\\"iso\\\";s:4:\\\"1000\\\";s:13:\\\"shutter_speed\\\";s:5:\\\"0.025\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";i:1;s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:12:\\\"IMG_1316.jpg\\\";}",
+        "valueLength": 1608
+      },
+      {
+        "metaId": "(15666",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Community bonfire night at Mosaic Hostel Varanasi",
+        "valueLength": 49
+      }
+    ],
+    "1338": [
+      {
+        "metaId": "(14666",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1920;s:4:\\\"file\\\";s:27:\\\"2026/02/IMG_1357-scaled.jpg\\\";s:8:\\\"filesize\\\";i:309485;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1357-300x225.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:225;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:25203;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"IMG_1357-1024x768.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:768;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:62824;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1357-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:21604;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"IMG_1357-768x576.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:576;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:46088;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1357-1536x1152.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1152;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:113801;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1357-2048x1536.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:191974;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"1.6\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:9:\\\"iPhone 15\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1766709646\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:4:\\\"5.96\\\";s:3:\\\"iso\\\";s:4:\\\"1000\\\";s:13:\\\"shutter_speed\\\";s:4:\\\"0.04\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:12:\\\"IMG_1357.jpg\\\";}",
+        "valueLength": 1611
+      },
+      {
+        "metaId": "(15662",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Ghat walk along Ganges riverbank near Mosaic Hostel Varanasi",
+        "valueLength": 60
+      }
+    ],
+    "1373": [
+      {
+        "metaId": "(14993",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:1706;s:4:\\\"file\\\";s:29:\\\"2026/02/IMG_1931-1-scaled.jpg\\\";s:8:\\\"filesize\\\";i:337079;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1931-1-300x200.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:200;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:12195;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:23:\\\"IMG_1931-1-1024x683.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:683;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:65387;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1931-1-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:6744;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"IMG_1931-1-768x512.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:512;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:42144;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:24:\\\"IMG_1931-1-1536x1024.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:127498;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:24:\\\"IMG_1931-1-2048x1365.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:1365;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:216292;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"3.5\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:13:\\\"Canon EOS 90D\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1762715120\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:2:\\\"18\\\";s:3:\\\"iso\\\";s:4:\\\"1600\\\";s:13:\\\"shutter_speed\\\";s:17:\\\"0.016666666666667\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:14:\\\"IMG_1931-1.jpg\\\";}",
+        "valueLength": 1643
+      },
+      {
+        "metaId": "(15660",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Guest room at Mosaic Hostel Varanasi near Assi Ghat",
+        "valueLength": 51
+      }
+    ],
+    "1506": [
+      {
+        "metaId": "(16967",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:6:{s:5:\\\"width\\\";i:437;s:6:\\\"height\\\";i:225;s:4:\\\"file\\\";s:17:\\\"2026/04/agoda.jpg\\\";s:8:\\\"filesize\\\";i:21260;s:5:\\\"sizes\\\";a:2:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:17:\\\"agoda-300x154.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:154;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:9166;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:17:\\\"agoda-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:4641;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}}",
+        "valueLength": 818
+      },
+      {
+        "metaId": "(19766",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Book Mosaic Hostel Varanasi on Agoda",
+        "valueLength": 36
+      }
+    ],
+    "1507": [
+      {
+        "metaId": "(16969",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:6:{s:5:\\\"width\\\";i:371;s:6:\\\"height\\\";i:62;s:4:\\\"file\\\";s:23:\\\"2026/04/booking-com.jpg\\\";s:8:\\\"filesize\\\";i:13028;s:5:\\\"sizes\\\";a:2:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"booking-com-300x50.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:50;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:6160;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"booking-com-150x62.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:62;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:4083;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}}",
+        "valueLength": 831
+      },
+      {
+        "metaId": "(19765",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Book Mosaic Hostel Varanasi on Booking.com",
+        "valueLength": 42
+      }
+    ],
+    "1508": [
+      {
+        "metaId": "(16971",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:6:{s:5:\\\"width\\\";i:1181;s:6:\\\"height\\\";i:365;s:4:\\\"file\\\";s:19:\\\"2026/04/goibibo.jpg\\\";s:8:\\\"filesize\\\";i:60903;s:5:\\\"sizes\\\";a:4:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:18:\\\"goibibo-300x93.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:93;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:9274;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:20:\\\"goibibo-1024x316.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:316;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:34981;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:19:\\\"goibibo-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:4571;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:19:\\\"goibibo-768x237.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:237;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:25400;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}}",
+        "valueLength": 1165
+      },
+      {
+        "metaId": "(19764",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Book Mosaic Hostel Varanasi on Goibibo",
+        "valueLength": 38
+      }
+    ],
+    "1509": [
+      {
+        "metaId": "(16973",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:565;s:4:\\\"file\\\";s:30:\\\"2026/04/hostelworld-scaled.jpg\\\";s:8:\\\"filesize\\\";i:67055;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"hostelworld-300x66.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:66;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:5950;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:24:\\\"hostelworld-1024x226.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:226;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:22858;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:23:\\\"hostelworld-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:3441;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:23:\\\"hostelworld-768x169.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:169;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:16478;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:24:\\\"hostelworld-1536x339.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:339;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:36361;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:24:\\\"hostelworld-2048x452.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:452;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:50522;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:15:\\\"hostelworld.jpg\\\";}",
+        "valueLength": 1593
+      },
+      {
+        "metaId": "(19763",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Book Mosaic Hostel Varanasi on Hostelworld",
+        "valueLength": 42
+      }
+    ],
+    "1510": [
+      {
+        "metaId": "(16975",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:2560;s:6:\\\"height\\\";i:815;s:4:\\\"file\\\";s:29:\\\"2026/04/makemytrip-scaled.jpg\\\";s:8:\\\"filesize\\\";i:99308;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:21:\\\"makemytrip-300x96.jpg\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:96;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:8047;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:23:\\\"makemytrip-1024x326.jpg\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:326;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:34140;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"makemytrip-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:5932;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:22:\\\"makemytrip-768x245.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:245;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:24593;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:23:\\\"makemytrip-1536x489.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:489;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:53451;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:23:\\\"makemytrip-2048x652.jpg\\\";s:5:\\\"width\\\";i:2048;s:6:\\\"height\\\";i:652;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:76035;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:14:\\\"makemytrip.jpg\\\";}",
+        "valueLength": 1585
+      },
+      {
+        "metaId": "(19762",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Book Mosaic Hostel Varanasi on MakeMyTrip",
+        "valueLength": 41
+      }
+    ],
+    "1518": [
+      {
+        "metaId": "(17065",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:3:{s:8:\\\"filesize\\\";i:2441;s:5:\\\"width\\\";i:445;s:6:\\\"height\\\";i:124;}",
+        "valueLength": 71
+      },
+      {
+        "metaId": "(19761",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Book Mosaic Hostel Varanasi on Cleartrip",
+        "valueLength": 40
+      }
+    ],
+    "1912": [
+      {
+        "metaId": "(21683",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:6:{s:5:\\\"width\\\";i:720;s:6:\\\"height\\\";i:1280;s:4:\\\"file\\\";s:31:\\\"2026/04/IMG-20251228-WA0136.jpg\\\";s:8:\\\"filesize\\\";i:111054;s:5:\\\"sizes\\\";a:3:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG-20251228-WA0136-169x300.jpg\\\";s:5:\\\"width\\\";i:169;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:10890;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:32:\\\"IMG-20251228-WA0136-576x1024.jpg\\\";s:5:\\\"width\\\";i:576;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:88289;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG-20251228-WA0136-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:5165;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}}",
+        "valueLength": 1043
+      },
+      {
+        "metaId": "(28261",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Private room interior — Mosaic Hostel near Assi Ghat Varanasi",
+        "valueLength": 61
+      }
+    ],
+    "1913": [
+      {
+        "metaId": "(21685",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:6:{s:5:\\\"width\\\";i:960;s:6:\\\"height\\\";i:1280;s:4:\\\"file\\\";s:31:\\\"2026/04/IMG-20251228-WA0137.jpg\\\";s:8:\\\"filesize\\\";i:119201;s:5:\\\"sizes\\\";a:4:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG-20251228-WA0137-225x300.jpg\\\";s:5:\\\"width\\\";i:225;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:12652;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:32:\\\"IMG-20251228-WA0137-768x1024.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:98578;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG-20251228-WA0137-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:5024;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:32:\\\"IMG-20251228-WA0137-768x1024.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:98578;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}}",
+        "valueLength": 1231
+      },
+      {
+        "metaId": "(28260",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Dorm beds and locker storage — Mosaic Hostel Varanasi",
+        "valueLength": 53
+      }
+    ],
+    "1914": [
+      {
+        "metaId": "(21687",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:6:{s:5:\\\"width\\\";i:720;s:6:\\\"height\\\";i:1280;s:4:\\\"file\\\";s:31:\\\"2026/04/IMG-20251228-WA0140.jpg\\\";s:8:\\\"filesize\\\";i:112532;s:5:\\\"sizes\\\";a:3:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG-20251228-WA0140-169x300.jpg\\\";s:5:\\\"width\\\";i:169;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:11972;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:32:\\\"IMG-20251228-WA0140-576x1024.jpg\\\";s:5:\\\"width\\\";i:576;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:91422;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG-20251228-WA0140-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:5701;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}}}",
+        "valueLength": 1043
+      },
+      {
+        "metaId": "(28259",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Common room with seating area — Mosaic Hostel Varanasi",
+        "valueLength": 54
+      }
+    ],
+    "1915": [
+      {
+        "metaId": "(21689",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:1920;s:6:\\\"height\\\";i:2560;s:4:\\\"file\\\";s:36:\\\"2026/04/IMG20250325210415-scaled.jpg\\\";s:8:\\\"filesize\\\";i:481134;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:29:\\\"IMG20250325210415-225x300.jpg\\\";s:5:\\\"width\\\";i:225;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:13309;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:30:\\\"IMG20250325210415-768x1024.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:101593;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:29:\\\"IMG20250325210415-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:7025;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:30:\\\"IMG20250325210415-768x1024.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:101593;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG20250325210415-1152x1536.jpg\\\";s:5:\\\"width\\\";i:1152;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:204407;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG20250325210415-1536x2048.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:2048;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:332348;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"1.6\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:13:\\\"OnePlus 11 5G\\\";s:7:\\\"caption\\\";s:13:\\\"oplus_1048624\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1742936655\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:4:\\\"7.08\\\";s:3:\\\"iso\\\";s:4:\\\"1000\\\";s:13:\\\"shutter_speed\\\";s:16:\\\"0.03030303030303\\\";s:5:\\\"title\\\";s:13:\\\"oplus_1048624\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:21:\\\"IMG20250325210415.jpg\\\";}",
+        "valueLength": 1732
+      },
+      {
+        "metaId": "(28258",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Dormitory room with bunk beds — Mosaic Hostel Varanasi",
+        "valueLength": 54
+      }
+    ],
+    "1916": [
+      {
+        "metaId": "(21691",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:1920;s:6:\\\"height\\\";i:2560;s:4:\\\"file\\\";s:36:\\\"2026/04/IMG20250326173106-scaled.jpg\\\";s:8:\\\"filesize\\\";i:492359;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:29:\\\"IMG20250326173106-225x300.jpg\\\";s:5:\\\"width\\\";i:225;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:17817;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:30:\\\"IMG20250326173106-768x1024.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:113175;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:29:\\\"IMG20250326173106-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:8415;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:30:\\\"IMG20250326173106-768x1024.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:113175;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG20250326173106-1152x1536.jpg\\\";s:5:\\\"width\\\";i:1152;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:216383;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG20250326173106-1536x2048.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:2048;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:343968;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"1.6\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:13:\\\"OnePlus 11 5G\\\";s:7:\\\"caption\\\";s:13:\\\"oplus_1048624\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1743010266\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:4:\\\"7.08\\\";s:3:\\\"iso\\\";s:2:\\\"50\\\";s:13:\\\"shutter_speed\\\";s:18:\\\"0.0035335689045936\\\";s:5:\\\"title\\\";s:13:\\\"oplus_1048624\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:21:\\\"IMG20250326173106.jpg\\\";}",
+        "valueLength": 1732
+      },
+      {
+        "metaId": "(28257",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Hostel entrance and reception — Mosaic Hostel near Assi Ghat",
+        "valueLength": 60
+      }
+    ],
+    "1918": [
+      {
+        "metaId": "(21695",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:1920;s:6:\\\"height\\\";i:2560;s:4:\\\"file\\\";s:36:\\\"2026/04/IMG20251227153650-scaled.jpg\\\";s:8:\\\"filesize\\\";i:513519;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:29:\\\"IMG20251227153650-225x300.jpg\\\";s:5:\\\"width\\\";i:225;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:13658;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:30:\\\"IMG20251227153650-768x1024.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:100521;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:29:\\\"IMG20251227153650-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:7028;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:30:\\\"IMG20251227153650-768x1024.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:100521;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG20251227153650-1152x1536.jpg\\\";s:5:\\\"width\\\";i:1152;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:207442;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG20251227153650-1536x2048.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:2048;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:346707;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:3:\\\"1.4\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:13:\\\"OnePlus 11 5G\\\";s:7:\\\"caption\\\";s:13:\\\"oplus_1048624\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1766849810\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:4:\\\"7.08\\\";s:3:\\\"iso\\\";s:2:\\\"50\\\";s:13:\\\"shutter_speed\\\";s:18:\\\"0.0026315789473684\\\";s:5:\\\"title\\\";s:13:\\\"oplus_1048624\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:21:\\\"IMG20251227153650.jpg\\\";}",
+        "valueLength": 1732
+      },
+      {
+        "metaId": "(28256",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Common area and social space — Mosaic Hostel Varanasi",
+        "valueLength": 53
+      }
+    ],
+    "1919": [
+      {
+        "metaId": "(21697",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:7:{s:5:\\\"width\\\";i:1920;s:6:\\\"height\\\";i:2560;s:4:\\\"file\\\";s:36:\\\"2026/04/IMG20251227154244-scaled.jpg\\\";s:8:\\\"filesize\\\";i:810143;s:5:\\\"sizes\\\";a:6:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:29:\\\"IMG20251227154244-225x300.jpg\\\";s:5:\\\"width\\\";i:225;s:6:\\\"height\\\";i:300;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:20205;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:30:\\\"IMG20251227154244-768x1024.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:160333;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:29:\\\"IMG20251227154244-150x150.jpg\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:8758;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:30:\\\"IMG20251227154244-768x1024.jpg\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:1024;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:160333;}s:9:\\\"1536x1536\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG20251227154244-1152x1536.jpg\\\";s:5:\\\"width\\\";i:1152;s:6:\\\"height\\\";i:1536;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:328051;}s:9:\\\"2048x2048\\\";a:5:{s:4:\\\"file\\\";s:31:\\\"IMG20251227154244-1536x2048.jpg\\\";s:5:\\\"width\\\";i:1536;s:6:\\\"height\\\";i:2048;s:9:\\\"mime-type\\\";s:10:\\\"image/jpeg\\\";s:8:\\\"filesize\\\";i:539297;}}s:10:\\\"image_meta\\\";a:12:{s:8:\\\"aperture\\\";s:2:\\\"11\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:13:\\\"OnePlus 11 5G\\\";s:7:\\\"caption\\\";s:13:\\\"oplus_1048624\\\";s:17:\\\"created_timestamp\\\";s:10:\\\"1766850164\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:4:\\\"5.59\\\";s:3:\\\"iso\\\";s:2:\\\"50\\\";s:13:\\\"shutter_speed\\\";s:18:\\\"0.0089285714285714\\\";s:5:\\\"title\\\";s:13:\\\"oplus_1048624\\\";s:11:\\\"orientation\\\";s:1:\\\"1\\\";s:8:\\\"keywords\\\";a:0:{}}s:14:\\\"original_image\\\";s:21:\\\"IMG20251227154244.jpg\\\";}",
+        "valueLength": 1731
+      },
+      {
+        "metaId": "(28255",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Rooftop terrace with city views — Mosaic Hostel Varanasi",
+        "valueLength": 56
+      }
+    ],
+    "2471": [
+      {
+        "metaId": "(28159",
+        "metaKey": "_thumbnail_id",
+        "metaValue": "839",
+        "valueLength": 3
+      }
+    ],
+    "2472": [
+      {
+        "metaId": "(28162",
+        "metaKey": "_thumbnail_id",
+        "metaValue": "1914",
+        "valueLength": 4
+      }
+    ],
+    "2474": [
+      {
+        "metaId": "(28168",
+        "metaKey": "_thumbnail_id",
+        "metaValue": "1338",
+        "valueLength": 4
+      }
+    ],
+    "2475": [
+      {
+        "metaId": "(28171",
+        "metaKey": "_thumbnail_id",
+        "metaValue": "858",
+        "valueLength": 3
+      }
+    ],
+    "2476": [
+      {
+        "metaId": "(28174",
+        "metaKey": "_thumbnail_id",
+        "metaValue": "838",
+        "valueLength": 3
+      }
+    ],
+    "2477": [
+      {
+        "metaId": "(28177",
+        "metaKey": "_thumbnail_id",
+        "metaValue": "843",
+        "valueLength": 3
+      }
+    ],
+    "2478": [
+      {
+        "metaId": "(28180",
+        "metaKey": "_thumbnail_id",
+        "metaValue": "1918",
+        "valueLength": 4
+      }
+    ],
+    "2479": [
+      {
+        "metaId": "(28183",
+        "metaKey": "_thumbnail_id",
+        "metaValue": "852",
+        "valueLength": 3
+      }
+    ],
+    "2510": [
+      {
+        "metaId": "(28265",
+        "metaKey": "_wp_attachment_metadata",
+        "metaValue": "a:6:{s:5:\\\"width\\\";i:1200;s:6:\\\"height\\\";i:630;s:4:\\\"file\\\";s:34:\\\"2026/06/mosaic-hostel-og-image.png\\\";s:8:\\\"filesize\\\";i:34136;s:5:\\\"sizes\\\";a:4:{s:6:\\\"medium\\\";a:5:{s:4:\\\"file\\\";s:34:\\\"mosaic-hostel-og-image-300x158.png\\\";s:5:\\\"width\\\";i:300;s:6:\\\"height\\\";i:158;s:9:\\\"mime-type\\\";s:9:\\\"image/png\\\";s:8:\\\"filesize\\\";i:9190;}s:5:\\\"large\\\";a:5:{s:4:\\\"file\\\";s:35:\\\"mosaic-hostel-og-image-1024x538.png\\\";s:5:\\\"width\\\";i:1024;s:6:\\\"height\\\";i:538;s:9:\\\"mime-type\\\";s:9:\\\"image/png\\\";s:8:\\\"filesize\\\";i:49653;}s:9:\\\"thumbnail\\\";a:5:{s:4:\\\"file\\\";s:34:\\\"mosaic-hostel-og-image-150x150.png\\\";s:5:\\\"width\\\";i:150;s:6:\\\"height\\\";i:150;s:9:\\\"mime-type\\\";s:9:\\\"image/png\\\";s:8:\\\"filesize\\\";i:8361;}s:12:\\\"medium_large\\\";a:5:{s:4:\\\"file\\\";s:34:\\\"mosaic-hostel-og-image-768x403.png\\\";s:5:\\\"width\\\";i:768;s:6:\\\"height\\\";i:403;s:9:\\\"mime-type\\\";s:9:\\\"image/png\\\";s:8:\\\"filesize\\\";i:33295;}}s:10:\\\"image_meta\\\";a:13:{s:8:\\\"aperture\\\";s:1:\\\"0\\\";s:6:\\\"credit\\\";s:0:\\\"\\\";s:6:\\\"camera\\\";s:0:\\\"\\\";s:7:\\\"caption\\\";s:0:\\\"\\\";s:17:\\\"created_timestamp\\\";s:1:\\\"0\\\";s:9:\\\"copyright\\\";s:0:\\\"\\\";s:12:\\\"focal_length\\\";s:1:\\\"0\\\";s:3:\\\"iso\\\";s:1:\\\"0\\\";s:13:\\\"shutter_speed\\\";s:1:\\\"0\\\";s:5:\\\"title\\\";s:0:\\\"\\\";s:11:\\\"orientation\\\";s:1:\\\"0\\\";s:8:\\\"keywords\\\";a:0:{}s:3:\\\"alt\\\";s:0:\\\"\\\";}}",
+        "valueLength": 1255
+      },
+      {
+        "metaId": "(28266",
+        "metaKey": "_wp_attachment_image_alt",
+        "metaValue": "Mosaic Hostel Varanasi — affordable hostel near Assi Ghat",
+        "valueLength": 57
+      }
+    ]
+  }
+}
