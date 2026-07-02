@@ -51,6 +51,11 @@ lftp -e "set ftp:ssl-allow off; open mosaichostels.com; user $FTP_USER $FTP_PASS
 5. Deploy via FTP (command above)
 6. Verify on mosaichostels.com
 
+## Workflow Preference
+- **Local First:** Complete all changes locally, test thoroughly
+- **Push/Deploy Last:** Only push to GitHub & deploy to Hostinger after explicit user approval
+- **No Auto-Deploy:** Never push/deploy without confirmation (unless explicitly instructed)
+
 ## Key Files
 - **Pages:** 7 static HTML files (index, gallery, blog, book-now, about, contact, privacy)
 - **Styles:** styles/global.css (single source of truth for all CSS)
