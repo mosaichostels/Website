@@ -1,8 +1,8 @@
 # Project Todos — Mosaic Hostel Static Website Redesign
 
-**Current Session:** 8 (2026-07-01)  
-**Status:** Phase 3 (Homepage Fixes) — Navbar/Stats/Scroll indicator  
-**Goal:** Fix homepage issues, restore navbar visibility, style stats grid, hide scroll text
+**Current Session:** 9 (2026-07-02)  
+**Status:** Phase 7 (Component Refactoring + Cleanup) — COMPLETE  
+**Goal:** Extract navbar/footer components, remove duplication, clean up large files
 
 ---
 
@@ -70,7 +70,35 @@
 
 ---
 
-## REMAINING WORK (Post-Phase 6)
+## PHASE 7: COMPONENT REFACTORING — ✅ COMPLETE (2026-07-02 10:00)
+
+### ✅ Extract Navbar/Footer Components
+- [x] Create components/navbar.js (active page highlighting, mobile menu)
+- [x] Create components/footer.js (contact info, social links)
+- [x] Create styles/components.css (navbar/footer styling)
+- [x] Refactor home.html to use navbar-container + footer-container
+- [x] Refactor gallery.html with component injection
+- [x] Refactor about.html with component injection
+- [x] Refactor contact.html with component injection
+- [x] Refactor book-now.html with component injection
+- [x] Remove inline navbar/footer HTML (~70% duplication removed)
+- [x] Remove inline navbar/footer CSS from pages
+- [x] Commit: 5ecd1e6 (component extraction)
+- [x] Push to GitHub main branch
+- [x] Deploy refactored pages to Hostinger via FTP
+- [x] Verify live at mosaichostels.com with component injection working
+
+**Result:** 350 insertions(+), 428 deletions(-) = net -78 lines. Single source of truth for navbar/footer.
+
+### ✅ Repository Cleanup (2026-07-02 10:05)
+- [x] Remove images/2025/10/Home-Page-Video.mp4 (79 MB)
+- [x] Remove u738123768.mosaichostels-com.20260623142824.tar.gz (306 MB)
+- [x] Remove videos/ directory
+- [x] Clean working tree
+
+---
+
+## REMAINING WORK (Post-Phase 7)
 
 ### Session 7+: Documentation & Monitoring
 - [ ] Remove stale files from repo root:
