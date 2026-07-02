@@ -33,9 +33,6 @@
   </div>
 </div>
 
-<!-- TILE DIVIDER -->
-<div class="tile-accent" id="div0"></div>
-
 <!-- ── STORY SECTION ── -->
 <div class="story reveal">
   <div class="story-text">
@@ -57,9 +54,6 @@
     </div>
   </div>
 </div>
-
-<!-- TILE DIVIDER -->
-<div class="tile-accent" id="div1"></div>
 
 <!-- ── VALUES ── -->
 <div class="values reveal">
@@ -113,9 +107,6 @@
     <div class="stat-label">Est. Varanasi</div>
   </div>
 </div>
-
-<!-- TILE DIVIDER -->
-<div class="tile-accent" id="div2"></div>
 
 <!-- ── WHY MOSAIC ── -->
 <div class="why reveal">
@@ -199,7 +190,7 @@
 </div>
 
 <!-- TILE DIVIDER -->
-<div class="tile-accent" id="div5"></div>
+<div class="tile-accent" id="div0"></div>
 
 <!-- ── FOOTER (injected by footer.js) ── -->
 <div id="footer-container"></div>
@@ -212,7 +203,7 @@ function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.crea
 function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
 
 fillById('heroStripe',LOGO_COLORS);
-['div0','div1','div2','div5'].forEach(id=>fillById(id,LOGO_COLORS));
+['div0'].forEach(id=>fillById(id,LOGO_COLORS));
 fillById('storyLine',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
 fillById('whyLine',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
 fillById('fbStrip',LOGO_COLORS);
