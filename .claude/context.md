@@ -1,34 +1,44 @@
 # Project Context
 
 **Name:** Mosaic Hostel Varanasi — Premium Static Website  
-**Status:** ✅ LIVE IN PRODUCTION (2026-07-02 08:44)  
-**Stack:** HTML5 + CSS3 + Vanilla JS (8 static pages, no backend)  
+**Status:** ✅ LIVE WITH COMPONENT ARCHITECTURE (2026-07-02 10:05)  
+**Stack:** HTML5 + CSS3 + Vanilla JS (5 core pages + components, no backend)  
 **Business:** Premium Budget Hostel (Varanasi, India)  
-**Goal:** Fast static site, WCAG AA accessibility, maintainable codebase  
-**Updated:** 2026-07-02 08:44
+**Goal:** Fast static site, WCAG AA accessibility, maintainable DRY codebase  
+**Updated:** 2026-07-02 10:05
 **URL:** https://www.mosaichostels.com/home.html
+**Commit:** 5ecd1e6 (navbar/footer component extraction)
 
-## Architecture (Current)
+## Architecture (Current — Phase 7: Component-Based)
 
-**Pages (7 static HTML files):**
-- `index.html` — Homepage: hero, rooms grid, stats, CTA
+**Pages (5 core static HTML files):**
+- `home.html` — Hero video, rooms grid, stats, philosophy, experiences, booking CTA
 - `gallery.html` — Image gallery with modal lightbox
-- `blog.html` — Blog post listing + articles
-- `book-now.html` — Booking form + room selection
-- `about.html` — Story, values, team info
+- `about.html` — Hostel story, team, values
 - `contact.html` — Contact form + location/hours
+- `book-now.html` — Booking form + room selection
+- `blog.html` — Blog post listing (7 posts)
 - `privacy.html` — Privacy policy
+
+**Component Architecture (Injected via JavaScript):**
+- `components/navbar.js` — IIFE-based navbar injection with active page detection
+  - Detects current page via URL path, highlights active link
+  - Mobile hamburger menu with auto-close on link click
+  - All 5 pages use: `<div id="navbar-container"></div>`
+- `components/footer.js` — IIFE-based footer injection
+  - Contact info (phone, email, address)
+  - Social links (Instagram, Facebook, Threads)
+  - Quick navigation links to all pages
+  - All 5 pages use: `<div id="footer-container"></div>`
 
 **Styling (Single Source of Truth):**
 - `styles/global.css` — All colors, typography, spacing, responsive breakpoints, accessibility
+- `styles/components.css` — Navbar/footer styling (sticky, responsive, mobile menu)
 - Design system: 8px grid, gold/cream/teal palette, 150-300ms micro-interactions
 - Responsive: 375px (mobile), 768px (tablet), 1024px (desktop), 1440px (wide)
 
-**Components (Vanilla JS):**
-- `components/loader.js` — Navbar/footer DOM injection (fallback if HTML not found)
+**Legacy Components (Not in use):**
 - `components/modal.js` — Image lightbox (click-to-enlarge, escape/click-to-close)
-- `components/navbar.html` — Navigation template (logo, links, hamburger)
-- `components/footer.html` — Footer template (links, hours, contact info)
 
 **Images (11 photos + logo):**
 - Hero/entrance: IMG_4450.JPG (1200×800)
@@ -132,3 +142,33 @@
 Elementor Pro, Rank Math SEO, Yoast SEO, Code Snippets, Forminator, LiteSpeed Cache, OMGF, Astra, WP Consent
 
 **Output:** 60+ files in /tmp/ including FINAL_EXTRACTION_REPORT.md master document. Complete functional website ready for deployment.
+
+## Phase 7: Component Refactoring (2026-07-02)
+
+**Objective:** Extract navbar/footer into reusable JavaScript components, eliminate ~70% duplication.
+
+**Completed:**
+- Created `components/navbar.js` (2.1 KB) — IIFE-based navbar injection with active page detection
+- Created `components/footer.js` (1.8 KB) — IIFE-based footer injection
+- Created `styles/components.css` (2.7 KB) — Navbar/footer styling (sticky, responsive, mobile menu)
+- Refactored home.html: removed 162 lines of inline navbar/footer HTML+CSS
+- Refactored gallery.html: removed inline duplicates
+- Refactored about.html: removed inline duplicates
+- Refactored contact.html: removed inline duplicates
+- Refactored book-now.html: removed inline duplicates
+
+**Code Impact:**
+- Total change: 350 insertions(+), 428 deletions(-) = net -78 lines
+- Reduced per-page bloat: ~5-10 KB reduction per page (from 40-50 KB to 30-40 KB)
+- Single source of truth: navbar.js, footer.js, components.css
+
+**Deployment:**
+- Commit: 5ecd1e6 "refactor: extract navbar and footer into reusable JavaScript components"
+- Pushed to GitHub main branch (filtered large files from history)
+- Deployed to Hostinger via FTP (all 5 pages + components + styles live)
+- Verified: mosaichostels.com/home.html loads with injected components
+
+**Cleanup:**
+- Removed images/2025/10/Home-Page-Video.mp4 (79 MB, untracked)
+- Removed u738123768.mosaichostels-com.20260623142824.tar.gz (306 MB, untracked)
+- Removed videos/ directory (untracked)
