@@ -130,9 +130,6 @@
   <div class="deco-tiles" id="decoTiles"></div>
 </div>
 
-<!-- TILE DIVIDER -->
-<div class="tile-accent" id="div3"></div>
-
 <!-- ── LOCATION ── -->
 <div class="location reveal">
   <div class="location-inner">
@@ -215,7 +212,7 @@ function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.crea
 function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
 
 fillById('heroStripe',LOGO_COLORS);
-['div0','div1','div2','div3','div4'].forEach(id=>fillById(id,LOGO_COLORS));
+['div0','div1','div2','div4'].forEach(id=>fillById(id,LOGO_COLORS));
 fillById('storyLine',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
 fillById('whyLine',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
 fillById('fbStrip',LOGO_COLORS);
