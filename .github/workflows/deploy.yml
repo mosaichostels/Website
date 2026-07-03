@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Deploy to Hostinger via LFTP
         env:
@@ -19,28 +19,17 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get install -y lftp
 
-          # Setup .netrc for secure credentials (not visible in process args)
-          mkdir -p ~/.lftp
-          install -m 600 /dev/null ~/.netrc
-          printf 'machine mosaichostels.com login %s password %s\n' "$FTP_USER" "$FTP_PASS" >> ~/.netrc
-          echo "::add-mask::$FTP_PASS"
+          # Create lftp script with all uploads in single connection
+          cat > /tmp/deploy.lftp << EOF
+          set ftp:ssl-allow off
+          set net:timeout 30
+          set net:max-retries 2
+          open -u $FTP_USER,$FTP_PASS mosaichostels.com
+          $(for f in *.html styles/global.css components/*.js; do [ -f "$f" ] && echo "put $f"; done)
+          $(for f in images/*.{jpg,png,svg,jpeg}; do [ -f "$f" ] && echo "put $f"; done)
+          quit
+          EOF
 
-          # Deploy HTML files
-          for f in *.html; do
-            lftp -e "set ftp:ssl-allow off; open mosaichostels.com; put $f; quit"
-          done
-
-          # Deploy CSS
-          lftp -e "set ftp:ssl-allow off; open mosaichostels.com; put styles/global.css; quit"
-
-          # Deploy JS
-          for f in components/*.js; do
-            lftp -e "set ftp:ssl-allow off; open mosaichostels.com; put $f; quit"
-          done
-
-          # Deploy images
-          for f in images/*.{jpg,png,svg,jpeg}; do
-            [ -f "$f" ] && lftp -e "set ftp:ssl-allow off; open mosaichostels.com; put $f; quit"
-          done
-
+          # Execute deployment
+          lftp < /tmp/deploy.lftp
           echo "✓ Deployment complete"
