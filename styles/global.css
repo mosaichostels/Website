@@ -559,8 +559,8 @@ body:hover #cursor { opacity:1; }
 .val-col:last-child { border-right:none; }
 .val-icon { display:inline-grid; grid-template-columns:repeat(4,10px); grid-template-rows:repeat(4,10px); gap:2px; margin-bottom:24px; }
 .val-icon span { border-radius:2px; display:block; }
-.val-title { font-family:'Cinzel',serif; font-size:20px; font-weight:400; color:var(--ink); margin-bottom:14px; letter-spacing:1px; }
-.val-body { font-size:13px; color:var(--muted); line-height:1.9; }
+.val-title { font-family:'Cinzel',serif; font-size:24px; font-weight:400; color:var(--ink); margin-bottom:14px; letter-spacing:1px; }
+.val-body { font-size:15px; color:var(--muted); line-height:1.9; }
 
 .fullbleed { position:relative; height:480px; overflow:hidden; display:flex; align-items:center; }
 .fb-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .1s linear; }
