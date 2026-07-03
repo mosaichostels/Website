@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Post — Mosaic Hostel Varanasi</title>
+<meta name="description" content="Blog post from Mosaic Hostel Varanasi">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/global.css">
+</head>
+<body class="blog-post-page">
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="progress"></div>
+
+<!-- ── NAV (injected by navbar.js) ── -->
+<div id="navbar-container"></div>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="page-hero-stripe" id="heroStripe"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">Blog</div>
+    <div class="page-title" id="post-title">Loading...</div>
+    <div class="page-sub" id="post-date"></div>
+  </div>
+</div>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div0"></div>
+
+<!-- ── MAIN CONTENT ── -->
+<main id="main" class="blog-post-content">
+  <div id="post-error" class="post-error" style="display:none;"></div>
+  <div id="post-body">
+    <!-- Blog post HTML injected here by JS -->
+  </div>
+</main>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div1"></div>
+
+<!-- ── FOOTER (injected by footer.js) ── -->
+<div id="footer-container"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" integrity="sha384-tmihQ340-gKUaX+AaS9D4d5X8HcaSaxoUEqLkXzwwKqMnxjaBMA+WHcJHUhEI57" crossorigin="anonymous"></script>
+<script src="/components/blog-renderer.js"></script>
+
+<script>
+// ── HERO STRIPE AND DIVIDERS ──
+const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
+
+function fillStrip(el,cols){
+  if(!el)return;
+  cols.forEach(c=>{
+    const s=document.createElement('span');
+    s.style.flex='1';
+    s.style.background=c;
+    el.appendChild(s);
+  });
+}
+
+function fillById(id,cols){
+  fillStrip(document.getElementById(id),cols);
+}
+
+fillById('heroStripe',LOGO_COLORS);
+fillById('div0',LOGO_COLORS);
+fillById('div1',LOGO_COLORS);
+
+// ── CUSTOM CURSOR ──
+const cur=document.getElementById('cursor'),
+      ring=document.getElementById('cursor-ring');
+
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';
+  cur.style.top=e.clientY+'px';
+  ring.style.left=e.clientX+'px';
+  ring.style.top=e.clientY+'px';
+});
+
+document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cur.style.width='18px';
+    cur.style.height='18px';
+    ring.style.width='48px';
+    ring.style.height='48px';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cur.style.width='10px';
+    cur.style.height='10px';
+    ring.style.width='36px';
+    ring.style.height='36px';
+  });
+});
+
+// ── SCROLL PROGRESS ──
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  const scrollPercent = (window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  prog.style.width=scrollPercent+'%';
+},{passive:true});
+
+// ── SCROLL REVEAL ──
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add('visible');
+  });
+},{threshold:0.1});
+
+// ── RENDER INDIVIDUAL BLOG POST ──
+async function renderBlogPost() {
+  // Get slug from URL param
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('slug');
+
+  if (!slug) {
+    showError('No blog post specified. <a href="/blog">Back to blog</a>');
+    return;
+  }
+
+  try {
+    // Load markdown
+    const markdown = await window.blogRenderer.loadMarkdownFile(slug);
+
+    // Extract metadata
+    const title = window.blogRenderer.extractTitle(markdown,
+      window.blogRenderer.slugToTitle(slug));
+    const date = window.blogRenderer.extractDate(markdown) || 'Undated';
+
+    // Parse markdown to HTML
+    const html = window.blogRenderer.parseMarkdown(markdown);
+
+    // Update page title and hero
+    document.title = `${title} — Mosaic Hostel Varanasi`;
+    document.getElementById('post-title').textContent = title;
+    document.getElementById('post-date').textContent = date;
+
+    // Inject HTML
+    const postBody = document.getElementById('post-body');
+    postBody.innerHTML = html;
+
+    // Add reveal class to all paragraphs for scroll animation
+    postBody.querySelectorAll('p, h2, h3, blockquote, ul, ol, table, pre').forEach(el => {
+      el.classList.add('reveal');
+      obs.observe(el);
+    });
+
+    // Update canonical link
+    const canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) {
+      canonical.href = `/blog/${slug}`;
+    }
+
+  } catch (error) {
+    console.error('Error loading blog post:', error);
+    showError(`Error loading blog post.<br><a href="/blog">Back to blog</a>`);
+  }
+}
+
+function showError(message) {
+  const errorEl = document.getElementById('post-error');
+  errorEl.innerHTML = message;
+  errorEl.style.display = 'block';
+  document.getElementById('post-body').style.display = 'none';
+}
+
+// Render post when page loads
+document.addEventListener('DOMContentLoaded', renderBlogPost);
+</script>
+
+<script src="/components/navbar.js"></script>
+<script src="/components/footer.js"></script>
+<script src="/components/stripes.js"></script>
+</body>
+</html>
