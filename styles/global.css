@@ -161,7 +161,7 @@ body:hover #cursor { opacity:1; }
 }
 #mainNav.scrolled .nav-logo img { height:64px; filter:none; }
 
-.nav-links { display:flex; gap:44px; align-items:center; justify-content:space-between; width:100%; }
+.nav-links { display:flex; gap:44px; align-items:center; }
 
 .nav-link {
   position:relative;
@@ -178,13 +178,6 @@ body:hover #cursor { opacity:1; }
 .nav-link:hover { color:var(--gold); }
 .nav-link.active { color:var(--gold); }
 #mainNav.scrolled .nav-link:hover { color:var(--ink); }
-
-/* Navbar link ordering: Home/Gallery left, Blog center, About/Contact right */
-.nav-link[data-page="home"] { order:1; }
-.nav-link[data-page="gallery"] { order:2; }
-.nav-link[data-page="blog"] { order:5; margin:0 auto; }
-.nav-link[data-page="about"] { order:3; margin-left:auto; }
-.nav-link[data-page="contact"] { order:4; }
 
 .nav-book {
   padding:10px 28px;
