@@ -23,7 +23,7 @@ jobs:
           mkdir -p ~/.lftp
           install -m 600 /dev/null ~/.netrc
           printf 'machine mosaichostels.com login %s password %s\n' "$FTP_USER" "$FTP_PASS" >> ~/.netrc
-          ::add-mask::$FTP_PASS
+          echo "::add-mask::$FTP_PASS"
 
           # Deploy HTML files
           for f in *.html; do
