@@ -124,7 +124,7 @@ async function renderBlogListing() {
 
     const blogsHtml = blogs.map(blog => `
       <article class="blog-card reveal">
-        <a href="/blog/post.html?slug=${blog.slug}" class="blog-card-link">
+        <a href="/blog/${blog.slug}" class="blog-card-link">
           <h3 class="blog-card-title">${escapeHtml(blog.title)}</h3>
           <p class="blog-card-excerpt">${escapeHtml(blog.excerpt)}</p>
           <div class="blog-card-meta">
