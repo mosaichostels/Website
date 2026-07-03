@@ -6,11 +6,17 @@
         <a href="/"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel"></a>
       </div>
       <div class="nav-links">
-        <a href="/" class="nav-link" data-page="home">Home</a>
-        <a href="/gallery" class="nav-link" data-page="gallery">Gallery</a>
-        <a href="/about" class="nav-link" data-page="about">About</a>
-        <a href="/contact" class="nav-link" data-page="contact">Contact</a>
-        <a href="/blog" class="nav-link" data-page="blog">Blog</a>
+        <div class="nav-left">
+          <a href="/" class="nav-link" data-page="home">Home</a>
+          <a href="/gallery" class="nav-link" data-page="gallery">Gallery</a>
+        </div>
+        <div class="nav-center">
+          <a href="/blog" class="nav-link" data-page="blog">Blog</a>
+        </div>
+        <div class="nav-right">
+          <a href="/about" class="nav-link" data-page="about">About</a>
+          <a href="/contact" class="nav-link" data-page="contact">Contact</a>
+        </div>
       </div>
       <button class="nav-hamburger" id="navHam" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       <a href="/book-now" class="nav-book">Book Now</a>
