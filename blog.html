@@ -7,7 +7,7 @@
 <meta name="description" content="Stories, travel guides, and insights from Varanasi and our hostel community.">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles/global.css">
-<link rel="canonical" href="https://mosaichostels.com/blog.html">
+<link rel="canonical" href="https://mosaichostels.com/blog">
 </head>
 <body class="blog-page">
 <div id="cursor"></div>
@@ -32,8 +32,9 @@
 
 <!-- ── MAIN CONTENT ── -->
 <main id="main">
-  <h2>Coming Soon</h2>
-  <p>We're curating travel stories and local insights. Check back soon for updates.</p>
+  <div id="blog-listing" class="blog-listing">
+    <!-- Blog cards injected here by JS -->
+  </div>
 </main>
 
 <!-- TILE DIVIDER -->
@@ -42,35 +43,129 @@
 <!-- ── FOOTER (injected by footer.js) ── -->
 <div id="footer-container"></div>
 
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" integrity="sha384-tmihQ340-gKUaX+AaS9D4d5X8HcaSaxoUEqLkXzwwKqMnxjaBMA+WHcJHUhEI57" crossorigin="anonymous"></script>
+<script src="/components/blog-renderer.js"></script>
+
 <script>
+// ── HERO STRIPE AND DIVIDERS ──
 const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
-function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
-function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
+
+function fillStrip(el,cols){
+  if(!el)return;
+  cols.forEach(c=>{
+    const s=document.createElement('span');
+    s.style.flex='1';
+    s.style.background=c;
+    el.appendChild(s);
+  });
+}
+
+function fillById(id,cols){
+  fillStrip(document.getElementById(id),cols);
+}
+
 fillById('heroStripe',LOGO_COLORS);
 fillById('div0',LOGO_COLORS);
 fillById('div1',LOGO_COLORS);
 
-// Custom cursor
-const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+// ── CUSTOM CURSOR ──
+const cur=document.getElementById('cursor'),
+      ring=document.getElementById('cursor-ring');
+
 document.addEventListener('mousemove',e=>{
-  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
-  ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';
-});
-document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='48px';ring.style.height='48px';});
-  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
+  cur.style.left=e.clientX+'px';
+  cur.style.top=e.clientY+'px';
+  ring.style.left=e.clientX+'px';
+  ring.style.top=e.clientY+'px';
 });
 
-// Scroll progress
+document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cur.style.width='18px';
+    cur.style.height='18px';
+    ring.style.width='48px';
+    ring.style.height='48px';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cur.style.width='10px';
+    cur.style.height='10px';
+    ring.style.width='36px';
+    ring.style.height='36px';
+  });
+});
+
+// ── SCROLL PROGRESS ──
 const prog=document.getElementById('progress');
 window.addEventListener('scroll',()=>{
-  prog.style.width=((window.scrollY/(document.body.scrollHeight-window.innerHeight))*100)+'%';
+  const scrollPercent = (window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  prog.style.width=scrollPercent+'%';
 },{passive:true});
 
-// Scroll reveal
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+// ── SCROLL REVEAL ──
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add('visible');
+  });
+},{threshold:0.1});
+
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ── LOAD BLOG LISTING ──
+async function renderBlogListing() {
+  const container = document.getElementById('blog-listing');
+
+  try {
+    const blogs = await window.blogRenderer.getAllBlogsMetadata();
+
+    if (blogs.length === 0) {
+      container.innerHTML = '<p>No blog posts yet.</p>';
+      return;
+    }
+
+    const blogsHtml = blogs.map(blog => `
+      <article class="blog-card reveal">
+        <a href="/blog/${blog.slug}" class="blog-card-link">
+          <h3 class="blog-card-title">${escapeHtml(blog.title)}</h3>
+          <p class="blog-card-excerpt">${escapeHtml(blog.excerpt)}</p>
+          <div class="blog-card-meta">
+            <span class="blog-card-date">${escapeHtml(blog.date)}</span>
+            <span class="blog-card-readmore">Read More →</span>
+          </div>
+        </a>
+      </article>
+    `).join('');
+
+    container.innerHTML = blogsHtml;
+
+    // Observe newly added cards for reveal animation
+    document.querySelectorAll('.blog-card').forEach(el=>obs.observe(el));
+
+  } catch (error) {
+    console.error('Error loading blog listing:', error);
+    container.innerHTML = '<p>Error loading blog posts. Please try again later.</p>';
+  }
+}
+
+/**
+ * Escape HTML special characters
+ * @param {string} text - Text to escape
+ * @returns {string} Escaped text
+ */
+function escapeHtml(text) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+// Render blog listing when page loads
+document.addEventListener('DOMContentLoaded', renderBlogListing);
 </script>
+
 <script src="/components/navbar.js"></script>
 <script src="/components/footer.js"></script>
 <script src="/components/stripes.js"></script>
