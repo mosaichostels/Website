@@ -110,9 +110,9 @@ const obs=new IntersectionObserver(entries=>{
 
 // ── RENDER INDIVIDUAL BLOG POST ──
 async function renderBlogPost() {
-  // Get slug from URL param
-  const params = new URLSearchParams(window.location.search);
-  const slug = params.get('slug');
+  // Get slug from URL path (e.g., /blog/best-hostels-in-varanasi → best-hostels-in-varanasi)
+  const pathMatch = window.location.pathname.match(/^\/blog\/([a-z0-9-]+)\/?$/);
+  const slug = pathMatch ? pathMatch[1] : null;
 
   if (!slug) {
     showError('No blog post specified. <a href="/blog">Back to blog</a>');
