@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog Post — Mosaic Hostel Varanasi</title>
+<link id="canonical" rel="canonical" href="">
 <meta name="description" content="Blog post from Mosaic Hostel Varanasi">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles/global.css">
@@ -152,10 +153,15 @@ async function renderBlogPost() {
       obs.observe(el);
     });
 
-    // Update canonical link
-    const canonical = document.querySelector('link[rel="canonical"]');
-    if (canonical) {
-      canonical.href = `/blog/${slug}`;
+    // Update address bar to clean URL and set canonical tag
+    if (slug) {
+      window.history.replaceState(
+        { slug: slug, page: 'blog-post' },
+        document.title,
+        `/blog/${slug}`
+      );
+      // Update canonical link for SEO
+      document.getElementById('canonical').href = `/blog/${slug}`;
     }
 
   } catch (error) {
