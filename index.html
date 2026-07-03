@@ -170,7 +170,6 @@
 
 <!-- ════════ BOOKING CTA ════════ -->
 <div class="booking">
-  <div class="booking-stripe" id="bookStripe"></div>
   <div class="booking-content reveal">
     <div class="booking-eyebrow">Ready to Stay?</div>
     <div class="booking-title">Begin Your <span>Mosaic</span> Story</div>
@@ -271,9 +270,6 @@ fillStrip('expStrip', LOGO_COLORS);
   if(!el) return;
   for(let k=0;k<20;k++){const s=document.createElement('span');s.style.flex='1';s.style.background=pick([...p1,...p2]);el.appendChild(s);}
 });
-
-// Booking stripe — full rainbow
-fillStrip('bookStripe', [...LOGO_COLORS,...LOGO_COLORS]);
 
 // Footer strip
 fillStrip('footerStrip', ['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
