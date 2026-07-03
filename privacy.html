@@ -60,7 +60,7 @@
   <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at:<br>
   <strong>Email:</strong> <a href="mailto:mosaichostels@gmail.com">mosaichostels@gmail.com</a><br>
   <strong>Phone:</strong> <a href="https://wa.me/919125492225">+91 91254 92225</a><br>
-  <strong>Address:</strong> B1/85C Assi Ghat Road, Varanasi 221001, India</p>
+  <strong>Address:</strong> <a href="#" onclick="openMapsDialog(event)">B1/85C Assi Ghat Road, Varanasi 221001, India</a></p>
 </main>
 
 <!-- TILE DIVIDER -->
@@ -71,6 +71,19 @@
 
 <script>
 const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
+
+// Maps dialog handler
+window.openMapsDialog=function(e){
+  e.preventDefault();
+  const addr='B1/85C, Assi Ghat Road, Varanasi, Uttar Pradesh 221005';
+  const choice=confirm('Open directions in:\n\nOK = Google Maps\nCancel = Apple Maps');
+  if(choice){
+    window.open(`https://maps.google.com/?q=${encodeURIComponent(addr)}`,'_blank');
+  }else{
+    window.open(`maps://maps.apple.com/?address=${encodeURIComponent(addr)}`);
+  }
+};
+
 function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
 function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
 fillById('heroStripe',LOGO_COLORS);
