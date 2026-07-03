@@ -12,16 +12,29 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Deploy to Hostinger
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
-        with:
-          server: mosaichostels.com
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./
-          exclude: |
-            **/.git*
-            **/.github
-            **/images/unused/
-            **/.DS_Store
-            **/node_modules/
+      - name: Deploy to Hostinger via LFTP
+        env:
+          FTP_USER: ${{ secrets.FTP_USERNAME }}
+          FTP_PASS: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          apt-get update && apt-get install -y lftp
+
+          # Deploy HTML files
+          for f in *.html; do
+            lftp -e "set ftp:ssl-allow off; open mosaichostels.com; user $FTP_USER $FTP_PASS; put $f; quit"
+          done
+
+          # Deploy CSS
+          lftp -e "set ftp:ssl-allow off; open mosaichostels.com; user $FTP_USER $FTP_PASS; put styles/global.css; quit"
+
+          # Deploy JS
+          for f in components/*.js; do
+            lftp -e "set ftp:ssl-allow off; open mosaichostels.com; user $FTP_USER $FTP_PASS; put $f; quit"
+          done
+
+          # Deploy images
+          for f in images/*.{jpg,png,svg,jpeg}; do
+            [ -f "$f" ] && lftp -e "set ftp:ssl-allow off; open mosaichostels.com; user $FTP_USER $FTP_PASS; put $f; quit"
+          done
+
+          echo "✓ Deployment complete"
