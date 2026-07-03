@@ -178,6 +178,11 @@ body:hover #cursor { opacity:1; }
 .nav-link:hover { color:var(--gold); }
 .nav-link.active { color:var(--gold); }
 #mainNav.scrolled .nav-link:hover { color:var(--ink); }
+.nav-link[data-page="home"] { order:1; }
+.nav-link[data-page="gallery"] { order:2; }
+.nav-link[data-page="blog"] { order:3; }
+.nav-link[data-page="about"] { order:4; }
+.nav-link[data-page="contact"] { order:5; }
 
 .nav-book {
   padding:10px 28px;
