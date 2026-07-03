@@ -11,7 +11,6 @@
         <a href="/about" class="nav-link" data-page="about">About</a>
         <a href="/contact" class="nav-link" data-page="contact">Contact</a>
         <a href="/blog" class="nav-link" data-page="blog">Blog</a>
-        <a href="/privacy" class="nav-link" data-page="privacy">Privacy</a>
       </div>
       <button class="nav-hamburger" id="navHam" aria-label="Toggle menu"><span></span><span></span><span></span></button>
       <a href="/book-now" class="nav-book">Book Now</a>
