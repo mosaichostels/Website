@@ -70,7 +70,17 @@
     </div>
   </div>
   <div class="rooms-grid">
-    <!-- Card 1 — large: Private Room -->
+    <!-- Card 1: Common Room -->
+    <div class="room-card">
+      <div class="room-top-accent" id="ra0"></div>
+      <img class="room-photo" src="/images/IMG_1928.JPG" alt="Common Room">
+      <div class="room-overlay">
+        <div class="room-tag">Shared</div>
+        <div class="room-name">Common Room</div>
+        <div class="room-meta">Rooftop · Kitchen · WiFi</div>
+      </div>
+    </div>
+    <!-- Card 2 — large: Private Room -->
     <div class="room-card">
       <div class="room-top-accent" id="ra1"></div>
       <img class="room-photo" src="/images/IMG_1931-1.jpg" alt="Private Room">
@@ -236,10 +246,10 @@ const roomPals=[
   [...PAL.cobalt,...PAL.sage],
   [...PAL.sage,...PAL.gold],
 ];
-[1,2,3,4,5].forEach(i=>{
+[0,1,2,3,4,5].forEach(i=>{
   const el=document.getElementById('ra'+i);
   if(!el) return;
-  const pal=roomPals[(i-1)%roomPals.length];
+  const pal=roomPals[i%roomPals.length];
   for(let k=0;k<20;k++){const s=document.createElement('span');s.style.flex='1';s.style.background=pick(pal);el.appendChild(s);}
 });
 
