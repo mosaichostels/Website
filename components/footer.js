@@ -23,8 +23,6 @@
             <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
             <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
             <a href="mailto:mosaichostels@gmail.com">Email Us</a>
-            <a href="https://www.hostelworld.com/hostels/mosaic-hostel-varanasi/varanasi" target="_blank">Hostelworld</a>
-            <a href="https://www.booking.com" target="_blank">Booking.com</a>
           </div>
         </div>
       </div>
