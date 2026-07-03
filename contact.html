@@ -112,12 +112,8 @@
     <div class="form-title">We'll Get Back to You</div>
     <div class="form-sub">Fill in the form and we'll respond within 24 hours. For urgent queries, WhatsApp is faster.</div>
 
-    <form id="contactForm" action="https://formsubmit.co/mosaichostels@gmail.com" method="POST">
-      <!-- FormSubmit config -->
-      <input type="hidden" name="_subject" value="New message from mosaichostels.com contact form">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://www.mosaichostels.com/contact?sent=1">
-      <input type="text" name="_honey" style="display:none">
+    <form id="contactForm">
+      <!-- WhatsApp config -->
 
       <div class="field-row">
         <div class="field">
@@ -247,14 +243,29 @@ document.querySelectorAll('.wa-cta,.email-cta,.nav-book,.form-submit').forEach(b
   btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
 });
 
-// Show success if redirected back with ?sent=1
-if(window.location.search.includes('sent=1')){
+// WhatsApp form submission
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const fname=document.getElementById('fname').value;
+  const lname=document.getElementById('lname').value;
+  const email=document.getElementById('email').value;
+  const topic=document.getElementById('topic').value;
+  const message=document.getElementById('message').value;
+
+  if(!fname||!email||!message){alert('Please fill required fields');return;}
+
+  const name=fname+(lname?' '+lname:'');
+  const waMsg=`Hello Mosaic Hostel,\n\nName: ${name}\nEmail: ${email}\nTopic: ${topic}\n\nMessage:\n${message}`;
+  const encodedMsg=encodeURIComponent(waMsg);
+  const waLink=`https://wa.me/919125492225?text=${encodedMsg}`;
+
+  window.open(waLink,'_blank');
   const msg=document.getElementById('formMsg');
-  msg.textContent='Message sent! We\'ll be in touch within 24 hours.';
+  msg.textContent='Opening WhatsApp...';
   msg.className='form-msg success';
   msg.style.display='block';
-  document.getElementById('contactForm').style.display='none';
-}
+  setTimeout(()=>{document.getElementById('contactForm').reset();msg.style.display='none';},2000);
+});
 
 
 
