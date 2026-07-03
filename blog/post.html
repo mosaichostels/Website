@@ -119,6 +119,12 @@ async function renderBlogPost() {
     return;
   }
 
+  // Wait for blog-renderer to be available
+  if (!window.blogRenderer) {
+    showError('Blog renderer not loaded. <a href="/blog">Back to blog</a>');
+    return;
+  }
+
   try {
     // Load markdown
     const markdown = await window.blogRenderer.loadMarkdownFile(slug);
@@ -165,8 +171,16 @@ function showError(message) {
   document.getElementById('post-body').style.display = 'none';
 }
 
-// Render post when page loads
-document.addEventListener('DOMContentLoaded', renderBlogPost);
+// Render post when page loads (wait for blog-renderer to load)
+function renderWhenReady() {
+  if (window.blogRenderer) {
+    renderBlogPost();
+  } else {
+    // Retry in 50ms if blog-renderer not yet loaded
+    setTimeout(renderWhenReady, 50);
+  }
+}
+document.addEventListener('DOMContentLoaded', renderWhenReady);
 </script>
 
 <script src="/components/navbar.js"></script>
