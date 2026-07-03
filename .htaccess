@@ -22,5 +22,5 @@
 
   # Blog post clean URL rewriting
   # /blog/best-hostels-in-varanasi → /blog/post.html?slug=best-hostels-in-varanasi
-  RewriteRule ^blog/([a-z0-9-]+)/?$ blog/post.html?slug=$1 [QSA,L]
+  RewriteRule ^blog/([a-z0-9-]+)/?$ /blog/post.html?slug=$1 [QSA,L]
 </IfModule>
