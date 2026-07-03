@@ -15,6 +15,7 @@
             <a href="/about">About Us</a>
             <a href="/blog">Blog</a>
             <a href="/contact">Contact</a>
+            <a href="/privacy">Privacy Policy</a>
           </div>
         </div>
         <div>
