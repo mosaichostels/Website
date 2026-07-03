@@ -375,10 +375,12 @@ roomCards.forEach(card=>{
 // ── LIGHTBOX for room images ──
 const lb=document.getElementById('lightbox');
 const lbImg=document.getElementById('lb-img');
-let roomImgs=Array.from(document.querySelectorAll('.room-card .room-photo'));
 let currentRoomIdx=0;
 
+function getRoomImgs(){return Array.from(document.querySelectorAll('.room-card .room-photo'));}
+
 function openRoomLightbox(idx){
+  const roomImgs=getRoomImgs();
   if(!roomImgs[idx]) return;
   currentRoomIdx=idx;
   lbImg.src=roomImgs[idx].src;
@@ -394,14 +396,22 @@ function closeRoomLightbox(){
 }
 
 function navigateRoom(dir){
+  const roomImgs=getRoomImgs();
   currentRoomIdx=(currentRoomIdx+dir+roomImgs.length)%roomImgs.length;
   openRoomLightbox(currentRoomIdx);
 }
 
-roomImgs.forEach((img,i)=>{
-  img.style.cursor='pointer';
-  img.addEventListener('click',()=>openRoomLightbox(i));
+// Event delegation for room image clicks
+document.addEventListener('click',e=>{
+  if(e.target.classList.contains('room-photo')){
+    const roomImgs=getRoomImgs();
+    const idx=roomImgs.indexOf(e.target);
+    if(idx>=0) openRoomLightbox(idx);
+  }
 });
+
+// Style room images as clickable
+document.querySelectorAll('.room-photo').forEach(img=>{img.style.cursor='pointer';});
 
 document.getElementById('lb-close').addEventListener('click',closeRoomLightbox);
 document.getElementById('lb-prev').addEventListener('click',()=>navigateRoom(-1));
