@@ -70,13 +70,13 @@
     <div class="contact-card reveal reveal-d2">
       <div class="cc-accent" data-pal="cobalt-sage"></div>
       <div class="cc-label">Find Us</div>
-      <div class="cc-main">B1/85C, Assi Ghat Rd, Bhelupur</div>
+      <div class="cc-main"><a href="#" onclick="openMapsDialog(event)" style="color:inherit;text-decoration:none;cursor:pointer;">B1/85C, Assi Ghat Rd, Bhelupur</a></div>
       <div class="info-rows" style="margin-top:16px;">
         <div class="info-row">
           <div class="info-dot" style="background:var(--gold)"></div>
           <div>
             <div class="info-label">Address</div>
-            <div class="info-val">B1/85C, Assi Ghat Rd, Anandbagh, Bhelupur, Varanasi, UP 221005</div>
+            <div class="info-val"><a href="#" onclick="openMapsDialog(event)" style="color:inherit;text-decoration:none;cursor:pointer;">B1/85C, Assi Ghat Rd, Anandbagh, Bhelupur, Varanasi, UP 221005</a></div>
           </div>
         </div>
         <div class="info-row">
@@ -242,6 +242,18 @@ document.querySelectorAll('.wa-cta,.email-cta,.nav-book,.form-submit').forEach(b
   });
   btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
 });
+
+// Maps dialog handler
+window.openMapsDialog=function(e){
+  e.preventDefault();
+  const addr='B1/85C, Assi Ghat Road, Varanasi, Uttar Pradesh 221005';
+  const choice=confirm('Open directions in:\n\nOK = Google Maps\nCancel = Apple Maps');
+  if(choice){
+    window.open(`https://maps.google.com/?q=${encodeURIComponent(addr)}`,'_blank');
+  }else{
+    window.open(`maps://maps.apple.com/?address=${encodeURIComponent(addr)}`);
+  }
+};
 
 // WhatsApp form submission
 document.getElementById('contactForm').addEventListener('submit',e=>{
