@@ -28,10 +28,16 @@ jobs:
           EOF
 
           # Add all files to upload
-          for f in *.html styles/global.css components/*.js; do
+          for f in *.html .htaccess styles/global.css components/*.js; do
             [ -f "$f" ] && echo "put \"$f\"" >> /tmp/deploy.lftp
           done
           find images -maxdepth 1 -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.svg" -o -name "*.jpeg" \) | while read f; do
+            echo "put \"$f\"" >> /tmp/deploy.lftp
+          done
+          find blogs -maxdepth 1 -type f -name "*.md" | while read f; do
+            echo "put \"$f\"" >> /tmp/deploy.lftp
+          done
+          find blog -maxdepth 1 -type f -name "*.html" | while read f; do
             echo "put \"$f\"" >> /tmp/deploy.lftp
           done
           echo "quit" >> /tmp/deploy.lftp
