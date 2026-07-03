@@ -161,10 +161,7 @@ body:hover #cursor { opacity:1; }
 }
 #mainNav.scrolled .nav-logo img { height:64px; filter:none; }
 
-.nav-links { display:flex; gap:44px; align-items:center; justify-content:space-between; width:100%; }
-.nav-left { display:flex; gap:44px; }
-.nav-center { display:flex; justify-content:center; flex:1; }
-.nav-right { display:flex; gap:44px; }
+.nav-links { display:flex; gap:44px; align-items:center; }
 
 .nav-link {
   position:relative;
