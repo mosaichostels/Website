@@ -89,11 +89,11 @@ body:hover #cursor { opacity:1; }
 
 /* ── 7. SHARED SECTION STYLES ── */
 .section { padding:100px 80px; max-width:1240px; margin:0 auto; }
-.section-head { margin-bottom:64px; }
+.section-head { margin-bottom:64px; text-align:center; }
 .section-eyebrow {
   font-size:10px; letter-spacing:7px; text-transform:uppercase;
   color:var(--gold); margin-bottom:14px;
-  display:flex; align-items:center; gap:16px;
+  display:flex; align-items:center; justify-content:center; gap:16px;
 }
 .section-eyebrow::after { content:''; flex:1; max-width:60px; height:1px; background:var(--border); }
 .section-title {
