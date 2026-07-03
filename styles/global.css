@@ -302,7 +302,7 @@ body:hover #cursor { opacity:1; }
 
 /* Rooms */
 .rooms-wrap { padding:100px 0 0; background:var(--cream); }
-.rooms-grid { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; grid-template-rows:350px 350px; gap:2px; }
+.rooms-grid { display:grid; grid-template-columns:1fr 1fr 1fr; grid-template-rows:350px 350px; gap:2px; }
 .room-card { position:relative; overflow:hidden; cursor:none; background:var(--ink); }
 .room-photo {
   position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;
