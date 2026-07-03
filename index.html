@@ -184,6 +184,16 @@
 <!-- TILE DIVIDER -->
 <div class="tile-accent" id="div1"></div>
 
+<!-- ── LIGHTBOX (room images) ── -->
+<div id="lightbox">
+  <button id="lb-close">✕ Close</button>
+  <div id="lb-img-wrap">
+    <button class="lb-nav" id="lb-prev">&#8592;</button>
+    <img id="lb-img" src="" alt="">
+    <button class="lb-nav" id="lb-next">&#8594;</button>
+  </div>
+</div>
+
 <!-- ════════ FOOTER (injected by footer.js) ════════ -->
 <div id="footer-container"></div>
 
@@ -347,7 +357,8 @@ const statObserver=new IntersectionObserver(entries=>{
 statNums.forEach(el=>statObserver.observe(el));
 
 // ── 3D TILT on room cards ──
-document.querySelectorAll('.room-card').forEach(card=>{
+const roomCards=document.querySelectorAll('.room-card');
+roomCards.forEach(card=>{
   card.addEventListener('mousemove',e=>{
     const rect=card.getBoundingClientRect();
     const x=((e.clientX-rect.left)/rect.width-0.5)*12;
@@ -360,6 +371,42 @@ document.querySelectorAll('.room-card').forEach(card=>{
     card.style.transition='transform 0.4s ease';
   });
 });
+
+// ── LIGHTBOX for room images ──
+const lb=document.getElementById('lightbox');
+const lbImg=document.getElementById('lb-img');
+let roomImgs=Array.from(document.querySelectorAll('.room-card .room-photo'));
+let currentRoomIdx=0;
+
+function openRoomLightbox(idx){
+  if(!roomImgs[idx]) return;
+  currentRoomIdx=idx;
+  lbImg.src=roomImgs[idx].src;
+  lbImg.alt=roomImgs[idx].alt;
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+
+function closeRoomLightbox(){
+  lb.classList.remove('open');
+  document.body.style.overflow='';
+  lbImg.src='';
+}
+
+function navigateRoom(dir){
+  currentRoomIdx=(currentRoomIdx+dir+roomImgs.length)%roomImgs.length;
+  openRoomLightbox(currentRoomIdx);
+}
+
+roomImgs.forEach((img,i)=>{
+  img.style.cursor='pointer';
+  img.addEventListener('click',()=>openRoomLightbox(i));
+});
+
+document.getElementById('lb-close').addEventListener('click',closeRoomLightbox);
+document.getElementById('lb-prev').addEventListener('click',()=>navigateRoom(-1));
+document.getElementById('lb-next').addEventListener('click',()=>navigateRoom(1));
+lb.addEventListener('click',e=>{if(e.target===lb) closeRoomLightbox();});
 
 // ── MAGNETIC BUTTONS ──
 document.querySelectorAll('.btn-gold,.btn-primary,.hero-cta,.nav-book').forEach(btn=>{
