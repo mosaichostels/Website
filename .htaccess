@@ -5,7 +5,7 @@
 </IfModule>
 
 <IfModule mod_dir.c>
-  DirectoryIndex blog.html index.html index.php
+  DirectoryIndex index.html index.php
 </IfModule>
 
 <IfModule mod_rewrite.c>
