@@ -63,16 +63,10 @@
     const nav = document.getElementById('mainNav');
     if (!nav) return;
 
-    // Force scrolled state on blog pages for navbar consistency
-    const isBlogPage = window.location.pathname.includes('/blog/');
-
-    if (isBlogPage) {
-      nav.classList.add('scrolled');
-    } else {
-      const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 200);
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    }
+    // Apply scrolled state based on scroll position (consistent across all pages)
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 80);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
   }
 
   if (document.readyState === 'loading') {
