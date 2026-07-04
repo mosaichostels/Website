@@ -1,6 +1,7 @@
 # Best Hostels in Varanasi — 2025 Honest Guide
 
 **Published:** 2026-04-07 10:00:00
+**Author:** Mosaic Hostel Team, Varanasi
 
 ## Summary
 

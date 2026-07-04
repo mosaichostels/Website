@@ -1,6 +1,7 @@
 # Varanasi for Solo Female Travellers — Honest Safety Guide 2025
 
 **Published:** 2026-05-26 10:00:00
+**Author:** Mosaic Hostel Team, Varanasi
 
 ## Summary
 
