@@ -13,9 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/global.css">
     <style>
-        body { padding-top: 140px; }
-        #mainNav { background:rgba(250,244,234,0.96) !important; backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); }
+        body { padding-top: 96px; }
+        #mainNav { height:96px !important; background:rgba(250,244,234,0.96) !important; border-bottom:1px solid var(--border) !important; backdrop-filter:blur(20px) !important; -webkit-backdrop-filter:blur(20px) !important; }
         #mainNav .nav-link { color:var(--muted) !important; }
+        #mainNav .nav-logo img { height:64px !important; }
+        #mainNav.scrolled { height:96px !important; }
+        #mainNav.scrolled .nav-logo img { height:64px !important; }
         .blog-post { max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.8; }
         .blog-post h1 { font-size: 32px; margin-bottom: 10px; }
         .blog-post h2 { font-size: 24px; margin-top: 30px; margin-bottom: 15px; }
