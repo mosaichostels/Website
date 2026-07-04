@@ -24,7 +24,7 @@ A typical day based near Assi Ghat might look like this: sunrise walk to the gha
 
 ## Mosaic Hostel — Your Base at Assi Ghat
 
-Mosaic Hostel is a short walk from Assi Ghat and has been a trusted base for travellers since 2019. Private rooms and dorms are available, the common spaces are genuinely social, and the team knows the neighbourhood intimately. Ask them anything — where to eat, which ghats to visit at different times of day, how to get to Sarnath, what to do if you only have 24 hours. They know.
+Mosaic Hostel is a short walk from Assi Ghat and has been a trusted base for travellers since 2025. Private rooms and dorms are available, the common spaces are genuinely social, and the team knows the neighbourhood intimately. Ask them anything — where to eat, which ghats to visit at different times of day, how to get to Sarnath, what to do if you only have 24 hours. They know.
 
 ## Practical Info
 

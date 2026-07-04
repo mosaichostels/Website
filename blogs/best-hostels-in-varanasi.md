@@ -119,7 +119,7 @@ Dorms are shared rooms with multiple beds, typically cheaper and more social. Pr
 
 ## How to Book Smart
 
-Always compare platform prices with direct booking. Booking through the hostel's WhatsApp (+91-9125492225) or email (hello@mosaichostels.com) typically gives you the best rate, flexible cancellation, and the option to communicate special requests before arrival. No commission means the hostel can afford to treat you better.
+Always compare platform prices with direct booking. Booking through the hostel's WhatsApp (+91-9125492225) or email (mosaichostels@gmail.com) typically gives you the best rate, flexible cancellation, and the option to communicate special requests before arrival. No commission means the hostel can afford to treat you better.
 
 For arrival logistics, the main Varanasi railway station (Varanasi Junction / Varanasi Cantt) is 8–10km from Assi Ghat. An auto-rickshaw costs ₹150–200 and takes 20–40 minutes depending on traffic. Your hostel can also arrange airport or station pickup at a fair rate if you ask in advance.
 
