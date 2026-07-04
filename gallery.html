@@ -358,7 +358,11 @@ document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 <script src="/components/navbar.js"></script>
 <script src="/components/footer.js"></script>
-<script src="/components/stripes.js"></script>
+<script>
+// ponytail: stripe fill inlined from components/stripes.js (44 lines → 23 lines)
+const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}function fillById(id,cols){fillStrip(document.getElementById(id),cols);}if(document.getElementById('heroStripe'))fillById('heroStripe',LOGO_COLORS);if(document.getElementById('div0'))fillById('div0',LOGO_COLORS);if(document.getElementById('div1'))fillById('div1',LOGO_COLORS);
+</script>
+
 </body>
 </html>
 
