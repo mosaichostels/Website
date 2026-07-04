@@ -1,6 +1,7 @@
 # Backpacker\'s Complete Guide to Assi Ghat, Varanasi
 
 **Published:** 2026-04-28 10:00:00
+**Author:** Mosaic Hostel Team, Varanasi
 
 ## Summary
 

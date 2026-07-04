@@ -1,6 +1,7 @@
 # Staying Near Assi Ghat, Varanasi — What to Expect
 
 **Published:** 2026-04-14 10:00:00
+**Author:** Mosaic Hostel Team, Varanasi
 
 ## Summary
 
