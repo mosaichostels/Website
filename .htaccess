@@ -16,6 +16,10 @@
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
 
+  # Blog post 301 redirects (consolidation)
+  RewriteRule ^blog/backpackers-guide-assi-ghat-varanasi/?$ /blog/why-assi-ghat-perfect-base-varanasi-stay [L,R=301]
+  RewriteRule ^blog/hostel-near-assi-ghat-varanasi/?$ /blog/why-assi-ghat-perfect-base-varanasi-stay [L,R=301]
+
   # Rewrite clean URLs to .html files
   RewriteRule ^gallery/?$ gallery.html [QSA,L]
   RewriteRule ^blog/?$ blog.html [QSA,L]
