@@ -1,10 +1,19 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.mosaichostels.com/sitemap.xml
-
 User-agent: GPTBot
-Disallow: /
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
 
 User-agent: CCBot
 Disallow: /
+
+Sitemap: https://www.mosaichostels.com/sitemap.xml

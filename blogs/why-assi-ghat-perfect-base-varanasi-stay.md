@@ -32,7 +32,7 @@ The Assi Ghat area is well-lit, well-trafficked, and generally considered one of
 
 ## Where to Stay
 
-Mosaic Hostel sits a short walk from Assi Ghat and has been welcoming travellers since 2019. The hostel offers private rooms and several dorm configurations, all with AC, WiFi, and secure storage. The team is deeply embedded in the local area and can help you make the most of your time in the neighbourhood and across the city. Book direct at hello@mosaichostels.com or on WhatsApp at +91 91254 92225.
+Mosaic Hostel sits a short walk from Assi Ghat and has been welcoming travellers since 2025. The hostel offers private rooms and several dorm configurations, all with AC, WiFi, and secure storage. The team is deeply embedded in the local area and can help you make the most of your time in the neighbourhood and across the city. Book direct at mosaichostels@gmail.com or on WhatsApp at +91 91254 92225.
 
 ### Further Reading
 

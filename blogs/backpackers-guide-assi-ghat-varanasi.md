@@ -40,7 +40,7 @@ The evenings at Assi Ghat are relaxed and social. Musicians often play at the gh
 
 ## Where to Stay
 
-Mosaic Hostel, a short walk from Assi Ghat, is the best-rated budget option in the area. Private rooms and dorms, AC, WiFi, and a team that knows the neighbourhood. Book direct for the best rate — via WhatsApp (+91 91254 92225) or email (hello@mosaichostels.com).
+Mosaic Hostel, a short walk from Assi Ghat, is the best-rated budget option in the area. Private rooms and dorms, AC, WiFi, and a team that knows the neighbourhood. Book direct for the best rate — via WhatsApp (+91 91254 92225) or email (mosaichostels@gmail.com).
 
 ### Further Reading
 
