@@ -1,74 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel Guides — Mosaic Hostel Varanasi Blog</title>
-    <meta name="description" content="Travel guides, tips, and stories from Varanasi. Learn about Assi Ghat, solo female travel, hostels, and local experiences.">
-    <link rel="canonical" href="https://www.mosaichostels.com/blog">
-    <meta property="og:image" content="https://www.mosaichostels.com/images/IMG_1928.JPG">
-    <link rel="stylesheet" href="/styles/global.css">
-    <style>
-        .blog-container { max-width: 900px; margin: 40px auto; padding: 20px; }
-        .blog-card { background: white; border: 1px solid #ecf0f1; border-radius: 8px; padding: 25px; margin-bottom: 25px; }
-        .blog-card h3 { margin-top: 0; margin-bottom: 10px; }
-        .blog-card a { color: #3498db; text-decoration: none; }
-        .blog-card a:hover { text-decoration: underline; }
-        .blog-date { color: #7f8c8d; font-size: 14px; margin-bottom: 10px; }
-        .blog-card p { margin-bottom: 15px; }
-        .read-more { display: inline-block; color: #3498db; font-weight: bold; }
-    </style>
-</head>
-<body>
-    <div id="navbar-container"></div>
-    <h1 style="position:absolute;left:-9999px;">Travel Guides — Varanasi Blog</h1>
-    <div class="blog-container">
-        <h2>Travel Guides & Stories</h2>
-        <p>Expert guides to Varanasi, Assi Ghat, solo travel, and hostel tips from our team.</p>
-    <div class="blog-card">
-        <h3><a href="/blog/assi-ghat-varanasi-complete-guide">Assi Ghat, Varanasi — Complete Guide for Travelers</a></h3>
-        <p class="blog-date"></p>
-        <p>Published: 2026-06-15 10:00:00 Author: Mosaic Hostel Team, Varanasi The definitive guide to Assi Ghat, Varanasi — geography, atmosphere, practical information, ...</p>
-        <a href="/blog/assi-ghat-varanasi-complete-guide" class="read-more">Read More →</a>
-    </div>
-    <div class="blog-card">
-        <h3><a href="/blog/backpackers-guide-assi-ghat-varanasi">Backpacker\'s Complete Guide to Assi Ghat, Varanasi</a></h3>
-        <p class="blog-date"></p>
-        <p>Published: 2026-04-28 10:00:00 Author: Mosaic Hostel Team, Varanasi Complete backpacker\'s guide to Assi Ghat, Varanasi — morning ceremonies, boat rides, chai s...</p>
-        <a href="/blog/backpackers-guide-assi-ghat-varanasi" class="read-more">Read More →</a>
-    </div>
-    <div class="blog-card">
-        <h3><a href="/blog/best-hostels-in-varanasi">Best Hostels in Varanasi — 2025 Honest Guide</a></h3>
-        <p class="blog-date"></p>
-        <p>Published: 2026-04-07 10:00:00 Author: Mosaic Hostel Team, Varanasi An honest guide to finding the best hostel in Varanasi — which neighbourhood to choose, what...</p>
-        <a href="/blog/best-hostels-in-varanasi" class="read-more">Read More →</a>
-    </div>
-    <div class="blog-card">
-        <h3><a href="/blog/hostel-near-assi-ghat-varanasi">Staying Near Assi Ghat, Varanasi — What to Expect</a></h3>
-        <p class="blog-date"></p>
-        <p>Published: 2026-04-14 10:00:00 Author: Mosaic Hostel Team, Varanasi Staying near Assi Ghat, Varanasi? Here\'s exactly what to expect — the neighbourhood, mornin...</p>
-        <a href="/blog/hostel-near-assi-ghat-varanasi" class="read-more">Read More →</a>
-    </div>
-    <div class="blog-card">
-        <h3><a href="/blog/top-7-experiences-varanasi-traveler">Top 7 Experiences Every Varanasi Traveller Must Have</a></h3>
-        <p class="blog-date"></p>
-        <p>Published: 2026-05-05 10:00:00 Author: Mosaic Hostel Team, Varanasi Top 7 experiences every Varanasi traveller must have — Ganga Aarti, Subah-e-Banaras, ancient...</p>
-        <a href="/blog/top-7-experiences-varanasi-traveler" class="read-more">Read More →</a>
-    </div>
-    <div class="blog-card">
-        <h3><a href="/blog/varanasi-solo-female-travelers-safety-travel-guide">Varanasi for Solo Female Travellers — Honest Safety Guide 2025</a></h3>
-        <p class="blog-date"></p>
-        <p>Published: 2026-05-26 10:00:00 Author: Mosaic Hostel Team, Varanasi Is Varanasi safe for solo female travellers? Honest safety guide with practical tips, best a...</p>
-        <a href="/blog/varanasi-solo-female-travelers-safety-travel-guide" class="read-more">Read More →</a>
-    </div>
-    <div class="blog-card">
-        <h3><a href="/blog/why-assi-ghat-perfect-base-varanasi-stay">Why Assi Ghat is the Perfect Base for Your Varanasi Stay</a></h3>
-        <p class="blog-date"></p>
-        <p>Published: 2026-05-12 10:00:00 Author: Mosaic Hostel Team, Varanasi Why Assi Ghat is the best base for your Varanasi stay — authentic atmosphere, close to all g...</p>
-        <a href="/blog/why-assi-ghat-perfect-base-varanasi-stay" class="read-more">Read More →</a>
-    </div>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Mosaic Hostel Varanasi</title>
+<meta name="description" content="Stories, travel guides, and insights from Varanasi and our hostel community.">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/global.css">
+<link rel="canonical" href="https://www.mosaichostels.com/blog">
+<meta property="og:image" content="https://www.mosaichostels.com/images/IMG_1928.JPG">
 
-    </div>
-    <script src="/components/navbar.js"></script>
+    <!-- Microsoft Clarity Analytics -->
+    <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "xh249om5vt");
+    </script>
+
+    <!-- Schema.org Structured Data (Hostel) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hostel",
+      "name": "Mosaic Hostel Varanasi",
+      "description": "Premium budget hostel in Varanasi with private & dorm rooms near Assi Ghat. Experience authentic hospitality with modern comfort. WiFi, AC, lockers, kitchen, hot water available.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "B1/85C, Assi Ghat Road, Anandbagh",
+        "addressLocality": "Varanasi",
+        "addressRegion": "Uttar Pradesh",
+        "postalCode": "221005",
+        "addressCountry": "IN"
+      },
+      "telephone": "+91-9125492225",
+      "url": "https://www.mosaichostels.com",
+      "image": "https://www.mosaichostels.com/images/IMG_1928.JPG",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 25.28726,
+        "longitude": 83.00316
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "60"
+      },
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Hot Water", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Lockers", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Kitchen", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "Rooftop Space", "value": true},
+        {"@type": "LocationFeatureSpecification", "name": "24/7 Check-in", "value": true}
+      ],
+      "priceRange": "₹500-₹2000",
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      },
+      "sameAs": [
+        "https://www.instagram.com/mosaichostels/",
+        "https://www.booking.com/hotel/in/mosaic-hostel-varanasi.html",
+        "https://www.hostelworld.com/hostels/p/335875/mosaic-hostel-varanasi/",
+        "https://www.tripadvisor.com/Hotel_Review-g297685-d33877461-Reviews-Mosaic_Hostel_Varanasi-Varanasi_Varanasi_District_Uttar_Pradesh.html"
+        "https://www.justdial.com/",
+        "https://www.makemytrip.com/hotels/",
+        "https://www.agoda.com/",
+        "https://www.goibibo.com/"
+      ]
+    }
+    </script>
+</head>
+<body class="blog-page">
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="progress"></div>
+
+<!-- ── NAV (injected by navbar.js) ── -->
+<div id="navbar-container"></div>
+
+<h1 style="position:absolute;left:-9999px;">Travel Guides — Varanasi Blog</h1>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="page-hero-stripe" id="heroStripe"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">Stories & Insights</div>
+    <div class="page-title">Blog</div>
+    <div class="page-sub">Travel guides, hostel stories, and local wisdom from Varanasi</div>
+  </div>
+</div>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div0"></div>
+
+<!-- ── MAIN CONTENT ── -->
+<main id="main">
+  <div id="blog-listing" class="blog-listing">
+    <!-- Blog cards injected here by JS -->
+  </div>
+</main>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div1"></div>
+
+<!-- ── FOOTER (injected by footer.js) ── -->
+<div id="footer-container"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" integrity="sha384-tmihQ340-gKUaX+AaS9D4d5X8HcaSaxoUEqLkXzwwKqMnxjaBMA+WHcJHUhEI57" crossorigin="anonymous"></script>
+<script src="/components/blog-renderer.js"></script>
+
+<script>
+// ── HERO STRIPE AND DIVIDERS ──
+const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
+
+function fillStrip(el,cols){
+  if(!el)return;
+  cols.forEach(c=>{
+    const s=document.createElement('span');
+    s.style.flex='1';
+    s.style.background=c;
+    el.appendChild(s);
+  });
+}
+
+function fillById(id,cols){
+  fillStrip(document.getElementById(id),cols);
+}
+
+fillById('heroStripe',LOGO_COLORS);
+fillById('div0',LOGO_COLORS);
+fillById('div1',LOGO_COLORS);
+
+// ── CUSTOM CURSOR ──
+const cur=document.getElementById('cursor'),
+      ring=document.getElementById('cursor-ring');
+
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';
+  cur.style.top=e.clientY+'px';
+  ring.style.left=e.clientX+'px';
+  ring.style.top=e.clientY+'px';
+});
+
+document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cur.style.width='18px';
+    cur.style.height='18px';
+    ring.style.width='48px';
+    ring.style.height='48px';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cur.style.width='10px';
+    cur.style.height='10px';
+    ring.style.width='36px';
+    ring.style.height='36px';
+  });
+});
+
+// ── SCROLL PROGRESS ──
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  const scrollPercent = (window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  prog.style.width=scrollPercent+'%';
+},{passive:true});
+
+// ── SCROLL REVEAL ──
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add('visible');
+  });
+},{threshold:0.1});
+
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// ── LOAD BLOG LISTING ──
+async function renderBlogListing() {
+  const container = document.getElementById('blog-listing');
+
+  try {
+    const blogs = await window.blogRenderer.getAllBlogsMetadata();
+
+    if (blogs.length === 0) {
+      container.innerHTML = '<p>No blog posts yet.</p>';
+      return;
+    }
+
+    const blogsHtml = blogs.map(blog => `
+      <article class="blog-card reveal">
+        <a href="/blog/${blog.slug}" class="blog-card-link">
+          <h3 class="blog-card-title">${escapeHtml(blog.title)}</h3>
+          <p class="blog-card-excerpt">${escapeHtml(blog.excerpt)}</p>
+          <div class="blog-card-meta">
+            <span class="blog-card-date">${escapeHtml(blog.date)}</span>
+            <span class="blog-card-readmore">Read More →</span>
+          </div>
+        </a>
+      </article>
+    `).join('');
+
+    container.innerHTML = blogsHtml;
+
+    // Observe newly added cards for reveal animation
+    document.querySelectorAll('.blog-card').forEach(el=>obs.observe(el));
+
+  } catch (error) {
+    console.error('Error loading blog listing:', error);
+    container.innerHTML = '<p>Error loading blog posts. Please try again later.</p>';
+  }
+}
+
+/**
+ * Escape HTML special characters
+ * @param {string} text - Text to escape
+ * @returns {string} Escaped text
+ */
+function escapeHtml(text) {
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  return text.replace(/[&<>"']/g, m => map[m]);
+}
+
+// Render blog listing when page loads
+document.addEventListener('DOMContentLoaded', renderBlogListing);
+</script>
+
+<script src="/components/navbar.js"></script>
+<script src="/components/footer.js"></script>
 </body>
 </html>
