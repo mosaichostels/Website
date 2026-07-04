@@ -31,6 +31,20 @@
     <div id="cursor-ring"></div>
     <div id="navbar-container"></div>
     <h1 style="position:absolute;left:-9999px;">Why Assi Ghat is the Perfect Base for Your Varanasi Stay</h1>
+
+    <!-- ── PAGE HERO ── -->
+    <div class="page-hero">
+      <div class="page-hero-stripe" id="heroStripe"></div>
+      <div class="page-hero-content">
+        <div class="page-eyebrow">Travel Guide</div>
+        <div class="page-title">Assi Ghat Guide</div>
+        <div class="page-sub">Why this neighbourhood is the perfect base for your Varanasi stay</div>
+      </div>
+    </div>
+
+    <!-- ── TILE DIVIDER ── -->
+    <div class="tile-accent" id="div0"></div>
+
     <div class="blog-post">
         <h1>Why Assi Ghat is the Perfect Base for Your Varanasi Stay</h1>
 <strong>Published:</strong> 2026-05-12 10:00:00
@@ -67,6 +81,13 @@
     </div>
     <div id="footer-container"></div>
     <script>
+    // ── HERO STRIPE FILL ──
+    const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
+    function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
+    function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
+    fillById('heroStripe',LOGO_COLORS);
+    fillById('div0',LOGO_COLORS);
+
     // ── CUSTOM CURSOR ──
     const cur=document.getElementById('cursor');
     const ring=document.getElementById('cursor-ring');
