@@ -47,14 +47,15 @@
 
 ---
 
-## ✅ SEARCH ENGINES & SEO (2)
+## ✅ SEARCH ENGINES & SEO (3)
 
 | # | Platform | URL | Users | Status |
 |---|----------|-----|-------|--------|
 | 14 | Google Search | https://www.google.com/search?q=mosaic+hostel+varanasi | 4.5B | ✅ Indexed |
 | 15 | Google Maps | https://www.google.com/maps/search/mosaic+hostel+varanasi | 1B | ✅ Synced (GMB) |
+| 16 | OpenStreetMap | https://www.openstreetmap.org/search?query=mosaic+hostel+varanasi | 10M+ | ✅ Listed |
 
-**Subtotal:** 5.5B users
+**Subtotal:** 5.5B+ users
 
 ---
 
@@ -81,16 +82,16 @@
 
 ## 📊 COVERAGE SUMMARY
 
-**Total Platforms Indexed:** 15  
+**Total Platforms Indexed:** 16  
 **Total Users Reached:** 6.5B+  
-**Coverage:** 15% of target (15/99)  
+**Coverage:** 16% of target (16/99)  
 
 **By Category:**
 - Booking Platforms: 9/13 (69%)
 - Review Sites: 3/7 (43%)
 - Social Media: 1/10 (10%)
-- Search Engines: 2/? (100% of major)
-- Maps Platforms: 0/10 (0% — pending)
+- Search Engines: 3/? (100% of major)
+- Maps Platforms: 1/10 (10% — OpenStreetMap live)
 - Niche/Local: 0/60+ (0% — pending)
 
 ---
