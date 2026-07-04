@@ -1,6 +1,7 @@
 # Top 7 Experiences Every Varanasi Traveller Must Have
 
 **Published:** 2026-05-05 10:00:00
+**Author:** Mosaic Hostel Team, Varanasi
 
 ## Summary
 

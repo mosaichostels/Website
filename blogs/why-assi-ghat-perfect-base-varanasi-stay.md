@@ -1,6 +1,7 @@
 # Why Assi Ghat is the Perfect Base for Your Varanasi Stay
 
 **Published:** 2026-05-12 10:00:00
+**Author:** Mosaic Hostel Team, Varanasi
 
 ## Summary
 
