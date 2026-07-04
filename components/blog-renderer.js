@@ -119,10 +119,9 @@ async function getAllBlogSlugs() {
   // Known blogs (update manually if adding new posts)
   const knownSlugs = [
     'best-hostels-in-varanasi',
-    'hostel-near-assi-ghat-varanasi',
-    'backpackers-guide-assi-ghat-varanasi',
-    'varanasi-solo-female-travelers-safety-travel-guide',
+    'assi-ghat-varanasi-complete-guide',
     'top-7-experiences-varanasi-traveler',
+    'varanasi-solo-female-travelers-safety-travel-guide',
     'why-assi-ghat-perfect-base-varanasi-stay'
   ];
 
@@ -131,16 +130,45 @@ async function getAllBlogSlugs() {
 
 /**
  * Load and render all blog metadata (for listing page)
+ * Static metadata for blog posts (hardcoded to avoid file fetching issues)
  * @returns {Promise<Array>} Array of {title, excerpt, date, slug}
  */
 async function getAllBlogsMetadata() {
-  const slugs = await getAllBlogSlugs();
-  const metadataArray = await Promise.all(
-    slugs.map(slug => getBlogMetadata(slug))
-  );
+  const staticMetadata = [
+    {
+      slug: 'best-hostels-in-varanasi',
+      title: 'Best Hostels in Varanasi — 2025 Honest Guide',
+      excerpt: 'An honest guide to finding the best hostel in Varanasi — which neighbourhood to choose, what to look for, and why location shapes your entire experience of the city.',
+      date: '2026-04-07'
+    },
+    {
+      slug: 'assi-ghat-varanasi-complete-guide',
+      title: 'Assi Ghat, Varanasi — Complete Guide for Travelers',
+      excerpt: 'The definitive guide to Assi Ghat, Varanasi — geography, atmosphere, practical information, and why it\'s the best base for travelers.',
+      date: '2026-06-15'
+    },
+    {
+      slug: 'top-7-experiences-varanasi-traveler',
+      title: '7 Experiences Only Varanasi Can Offer — A Traveler\'s Guide',
+      excerpt: 'Seven genuine experiences in Varanasi that go beyond the tourist checklist — what to expect and how to make the most of them.',
+      date: '2026-05-20'
+    },
+    {
+      slug: 'varanasi-solo-female-travelers-safety-travel-guide',
+      title: 'Varanasi for Solo Female Travelers — Safety & Practical Guide',
+      excerpt: 'Complete guide for women traveling solo in Varanasi — safety considerations, neighbourhood recommendations, and practical information.',
+      date: '2026-05-10'
+    },
+    {
+      slug: 'why-assi-ghat-perfect-base-varanasi-stay',
+      title: 'Why Assi Ghat is the Perfect Base for Your Varanasi Stay',
+      excerpt: 'Why experienced travelers choose Assi Ghat over other neighbourhoods in Varanasi — location benefits, atmosphere, and local access.',
+      date: '2026-03-15'
+    }
+  ];
 
   // Sort by date (newest first)
-  return metadataArray.sort((a, b) => {
+  return staticMetadata.sort((a, b) => {
     const dateA = new Date(a.date || 0);
     const dateB = new Date(b.date || 0);
     return dateB - dateA;
