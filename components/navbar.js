@@ -62,9 +62,17 @@
   function setupScroll() {
     const nav = document.getElementById('mainNav');
     if (!nav) return;
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 200);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
+
+    // Force scrolled state on blog pages for navbar consistency
+    const isBlogPage = window.location.pathname.includes('/blog/');
+
+    if (isBlogPage) {
+      nav.classList.add('scrolled');
+    } else {
+      const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 200);
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
   }
 
   if (document.readyState === 'loading') {
