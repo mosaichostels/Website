@@ -5,7 +5,7 @@
 </IfModule>
 
 <IfModule mod_dir.c>
-  DirectoryIndex index.html index.php
+  DirectoryIndex blog.html index.html index.php
 </IfModule>
 
 <IfModule mod_rewrite.c>
@@ -16,17 +16,21 @@
   RewriteCond %{HTTP_HOST} ^mosaichostels\.com$ [NC]
   RewriteRule ^(.*)$ https://www.mosaichostels.com/$1 [L,R=301]
 
-  # Don't rewrite if the request is for a real file or directory
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
+  # Special handling for blog directory - serve blog.html as directory index
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteCond %{REQUEST_FILENAME}/blog.html -f
+  RewriteRule ^blog/?$ blog.html [QSA,L]
 
   # Blog post 301 redirects (consolidation)
   RewriteRule ^blog/backpackers-guide-assi-ghat-varanasi/?$ /blog/why-assi-ghat-perfect-base-varanasi-stay [L,R=301]
   RewriteRule ^blog/hostel-near-assi-ghat-varanasi/?$ /blog/why-assi-ghat-perfect-base-varanasi-stay [L,R=301]
 
+  # Don't rewrite if the request is for a real file or directory
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
   # Rewrite clean URLs to .html files
   RewriteRule ^gallery/?$ gallery.html [QSA,L]
-  RewriteRule ^blog/?$ blog.html [QSA,L]
   RewriteRule ^about/?$ about.html [QSA,L]
   RewriteRule ^contact/?$ contact.html [QSA,L]
   RewriteRule ^book-now/?$ book-now.html [QSA,L]
