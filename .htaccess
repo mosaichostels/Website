@@ -8,6 +8,10 @@
   RewriteEngine On
   RewriteBase /
 
+  # Redirect non-www to www
+  RewriteCond %{HTTP_HOST} ^mosaichostels\.com$ [NC]
+  RewriteRule ^(.*)$ https://www.mosaichostels.com/$1 [L,R=301]
+
   # Don't rewrite if the request is for a real file or directory
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
@@ -19,8 +23,3 @@
   RewriteRule ^contact/?$ contact.html [QSA,L]
   RewriteRule ^book-now/?$ book-now.html [QSA,L]
   RewriteRule ^privacy/?$ privacy.html [QSA,L]
-
-  # Blog post clean URL rewriting
-  # /blog/best-hostels-in-varanasi → /blog/post.html?slug=best-hostels-in-varanasi
-  RewriteRule ^blog/([a-z0-9-]+)/?$ /blog/post.html?slug=$1 [L]
-</IfModule>
