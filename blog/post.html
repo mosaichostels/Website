@@ -111,9 +111,17 @@ const obs=new IntersectionObserver(entries=>{
 
 // ── RENDER INDIVIDUAL BLOG POST ──
 async function renderBlogPost() {
-  // Get slug from URL query parameter (?slug=...)
-  const params = new URLSearchParams(window.location.search);
-  const slug = params.get('slug');
+  // Get slug from URL query parameter (?slug=...) or from path (/blog/slug)
+  let slug = new URLSearchParams(window.location.search).get('slug');
+
+  // If not in query string, extract from URL path
+  if (!slug) {
+    const pathSegments = window.location.pathname.split('/').filter(Boolean);
+    // Path: /blog/slug → pathSegments: ['blog', 'slug']
+    if (pathSegments.length >= 2 && pathSegments[0] === 'blog') {
+      slug = pathSegments[1];
+    }
+  }
 
   if (!slug) {
     showError('No blog post specified. <a href="/blog">Back to blog</a>');
