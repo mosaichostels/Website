@@ -586,14 +586,31 @@ async function loadGoogleReviews() {
       reviews.forEach((review, index) => {
         const card = document.createElement('div');
         card.className = `review-card reveal ${index > 0 ? `reveal-delay-${index}` : ''}`;
-        card.innerHTML = `
-          <div class="review-rating">${'★'.repeat(review.rating)}</div>
-          <div class="review-text">"${review.text}"</div>
-          <div class="review-author">
-            <div class="review-name">${review.author_name}</div>
-            <div class="review-date">${new Date(review.time * 1000).toLocaleDateString()}</div>
-          </div>
-        `;
+
+        const rating = document.createElement('div');
+        rating.className = 'review-rating';
+        rating.textContent = '★'.repeat(review.rating || 0);
+
+        const text = document.createElement('div');
+        text.className = 'review-text';
+        text.textContent = `"${review.text}"`;
+
+        const author = document.createElement('div');
+        author.className = 'review-author';
+
+        const name = document.createElement('div');
+        name.className = 'review-name';
+        name.textContent = review.author_name || 'Anonymous';
+
+        const date = document.createElement('div');
+        date.className = 'review-date';
+        date.textContent = new Date((review.time || 0) * 1000).toLocaleDateString();
+
+        author.appendChild(name);
+        author.appendChild(date);
+        card.appendChild(rating);
+        card.appendChild(text);
+        card.appendChild(author);
         grid.appendChild(card);
       });
     }
