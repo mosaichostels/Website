@@ -555,48 +555,75 @@ const reviews = [
   {rating: 5, text: "Stayed 5 days, didn't want to leave. Team cares about guests. Great atmosphere, perfect location.", name: "Emma L.", date: "6/15/2024"}
 ];
 
-function showReviews() {
+function renderReviewCards(reviewList) {
   const grid = document.getElementById('reviewsGrid');
-  console.log('showReviews called, grid:', grid);
-  
-  if (!grid) {
-    console.error('reviewsGrid not found');
-    return;
-  }
-  
-  reviews.forEach(review => {
+  if (!grid) return;
+  grid.innerHTML = '';
+
+  reviewList.slice(0, 3).forEach(review => {
     const card = document.createElement('div');
     card.className = 'review-card';
-    
+
     const rating = document.createElement('div');
     rating.className = 'review-rating';
-    rating.textContent = '★★★★★'.substring(0, review.rating);
-    
+    rating.textContent = '★'.repeat(review.rating || 5);
+
     const text = document.createElement('div');
     text.className = 'review-text';
-    text.textContent = '"' + review.text + '"';
-    
+    text.textContent = '"' + (review.text || review.review_text || '') + '"';
+
     const author = document.createElement('div');
     author.className = 'review-author';
-    
+
     const name = document.createElement('div');
     name.className = 'review-name';
-    name.textContent = review.name;
-    
+    name.textContent = review.name || review.author_name || 'Guest';
+
     const date = document.createElement('div');
     date.className = 'review-date';
-    date.textContent = review.date;
-    
+    date.textContent = review.date || (review.time ? new Date(review.time * 1000).toLocaleDateString() : '');
+
     author.appendChild(name);
     author.appendChild(date);
-    
     card.appendChild(rating);
     card.appendChild(text);
     card.appendChild(author);
     grid.appendChild(card);
   });
-  
-  console.log('Reviews rendered:', grid.children.length);
+}
+
+async function loadGoogleReviews() {
+  try {
+    const key = 'AIzaSyD6PLBJ_t0hbiVe9S2-fOX30ecClHSZMYU';
+
+    // Search for Mosaic Hostel
+    const searchResp = await fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=Mosaic+Hostel+Varanasi&key=${key}`);
+    const searchData = await searchResp.json();
+
+    if (searchData.results && searchData.results[0]) {
+      const placeId = searchData.results[0].place_id;
+
+      // Get place details with reviews
+      const detailsResp = await fetch(`https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=${key}&fields=reviews`);
+      const detailsData = await detailsResp.json();
+
+      if (detailsData.result && detailsData.result.reviews) {
+        renderReviewCards(detailsData.result.reviews);
+        console.log('Loaded', detailsData.result.reviews.length, 'reviews from Google');
+        return;
+      }
+    }
+  } catch (err) {
+    console.log('Google API error:', err.message);
+  }
+
+  // Fallback to local reviews
+  renderReviewCards(reviews);
+  console.log('Using fallback reviews');
+}
+
+function showReviews() {
+  loadGoogleReviews();
 }
 
 if (document.readyState === 'loading') {
