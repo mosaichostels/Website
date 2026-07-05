@@ -671,7 +671,7 @@ body:hover #cursor { opacity:1; }
 /* ══════════════════════════════════════════════════════════════
    14. BOOK NOW PAGE
    ══════════════════════════════════════════════════════════════ */
-.direct-section { max-width:900px; margin:-56px auto 0; padding:0 24px; position:relative; z-index:5; }
+.direct-section { max-width:900px; margin:0 auto; padding:0 24px; position:relative; z-index:5; }
 .direct-card {
   background:white; border:1px solid var(--border);
   box-shadow:0 20px 60px rgba(26,18,8,0.12);
