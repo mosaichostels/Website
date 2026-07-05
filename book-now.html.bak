@@ -172,56 +172,56 @@
     <!-- Booking.com -->
     <a class="platform-card reveal" href="https://www.booking.com/hotel/in/mosaic-hostel-varanasi.html" target="_blank" rel="noopener">
       <div class="platform-tile-strip" id="pt1"></div>
-      <img class="platform-logo" src="/images/booking-com.jpg?v=1783223525311024000" alt="Booking.com">
+      <img class="platform-logo" src="/images/booking-com.jpg?v=1783202621598507000" alt="Booking.com">
       <div class="platform-name">Booking.com</div>
       <div class="platform-arrow">→</div>
     </a>
     <!-- Hostelworld -->
     <a class="platform-card reveal reveal-d1" href="https://www.hostelworld.com/hostels/p/335875/mosaic-hostel-varanasi/" target="_blank" rel="noopener">
       <div class="platform-tile-strip" id="pt2"></div>
-      <img class="platform-logo" src="/images/hostelworld.jpg?v=1783223525311024000" alt="Hostelworld">
+      <img class="platform-logo" src="/images/hostelworld.jpg?v=1783202621598507000" alt="Hostelworld">
       <div class="platform-name">Hostelworld</div>
       <div class="platform-arrow">→</div>
     </a>
     <!-- Agoda -->
     <a class="platform-card reveal reveal-d2" href="https://www.agoda.com/en-za/mosaic-hostel-varanasi/hotel/varanasi-in.html" target="_blank" rel="noopener">
       <div class="platform-tile-strip" id="pt3"></div>
-      <img class="platform-logo" src="/images/agoda.jpg?v=1783223525311024000" alt="Agoda">
+      <img class="platform-logo" src="/images/agoda.jpg?v=1783202621598507000" alt="Agoda">
       <div class="platform-name">Agoda</div>
       <div class="platform-arrow">→</div>
     </a>
     <!-- MakeMyTrip -->
     <a class="platform-card reveal reveal-d3" href="https://www.makemytrip.com/hotels/mosaic_hostel_varanasi-details-varanasi.html" target="_blank" rel="noopener">
       <div class="platform-tile-strip" id="pt4"></div>
-      <img class="platform-logo" src="/images/makemytrip.jpg?v=1783223525311024000" alt="MakeMyTrip">
+      <img class="platform-logo" src="/images/makemytrip.jpg?v=1783202621598507000" alt="MakeMyTrip">
       <div class="platform-name">MakeMyTrip</div>
       <div class="platform-arrow">→</div>
     </a>
     <!-- Goibibo -->
     <a class="platform-card reveal reveal-d4" href="https://www.goibibo.com/hotels/mosaic-hostel-varanasi-hotel-in-varanasi-7027872656241537584/" target="_blank" rel="noopener">
       <div class="platform-tile-strip" id="pt5"></div>
-      <img class="platform-logo" src="/images/goibibo.jpg?v=1783223525311024000" alt="Goibibo">
+      <img class="platform-logo" src="/images/goibibo.jpg?v=1783202621598507000" alt="Goibibo">
       <div class="platform-name">Goibibo</div>
       <div class="platform-arrow">→</div>
     </a>
     <!-- Cleartrip -->
     <a class="platform-card reveal reveal-d5" href="https://www.cleartrip.com/hotels/details/mosaic-hostel-varanasi-5247325" target="_blank" rel="noopener">
       <div class="platform-tile-strip" id="pt6"></div>
-      <img class="platform-logo" src="/images/cleartrip.jpg?v=1783223525311024000" alt="Cleartrip">
+      <img class="platform-logo" src="/images/cleartrip.jpg?v=1783202621598507000" alt="Cleartrip">
       <div class="platform-name">Cleartrip</div>
       <div class="platform-arrow">→</div>
     </a>
     <!-- TripAdvisor -->
     <a class="platform-card reveal" href="https://www.tripadvisor.com/Hotel_Review-g297685-d33877461-Reviews-Mosaic_Hostel_Varanasi-Varanasi_Varanasi_District_Uttar_Pradesh.html" target="_blank" rel="noopener">
       <div class="platform-tile-strip" id="pt7"></div>
-      <img class="platform-logo" src="/images/tripadvisor.png?v=1783223525311024000" alt="TripAdvisor">
+      <img class="platform-logo" src="/images/tripadvisor.jpg?v=1783202499" alt="TripAdvisor">
       <div class="platform-name">TripAdvisor</div>
       <div class="platform-arrow">→</div>
     </a>
     <!-- Expedia -->
     <a class="platform-card reveal" href="https://www.expedia.com/Varanasi-Hotels-Mosaic-Hostel-Varanasi.h125053779.Hotel-Information" target="_blank" rel="noopener">
       <div class="platform-tile-strip" id="pt8"></div>
-      <img class="platform-logo" src="/images/expedia.png?v=1783223525311024000" alt="Expedia">
+      <img class="platform-logo" src="/images/expedia.jpg?v=1783202499" alt="Expedia">
       <div class="platform-name">Expedia</div>
       <div class="platform-arrow">→</div>
     </a>
