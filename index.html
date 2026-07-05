@@ -621,8 +621,46 @@ async function loadGoogleReviews() {
   console.log('Using fallback reviews');
 }
 
+async function loadLiveReviews() {
+  try {
+    const corsProxy = 'https://api.allorigins.win/raw?url=';
+    const apiUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=Mosaic+Hostel+Varanasi&key=AIzaSyD6PLBJ_t0hbiVe9S2-fOX30ecClHSZMYU`;
+
+    const response = await fetch(corsProxy + encodeURIComponent(apiUrl));
+    const data = await response.json();
+
+    if (data.results && data.results[0]) {
+      const placeId = data.results[0].place_id;
+      const detailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&key=AIzaSyD6PLBJ_t0hbiVe9S2-fOX30ecClHSZMYU&fields=reviews`;
+
+      const detailsResp = await fetch(corsProxy + encodeURIComponent(detailsUrl));
+      const detailsData = await detailsResp.json();
+
+      if (detailsData.result && detailsData.result.reviews) {
+        const liveReviews = detailsData.result.reviews.slice(0, 3).map(r => ({
+          rating: r.rating,
+          text: r.text,
+          name: r.author_name,
+          date: new Date(r.time * 1000).toLocaleDateString()
+        }));
+        renderReviewCards(liveReviews);
+        console.log('Loaded', liveReviews.length, 'LIVE reviews from Google');
+        return true;
+      }
+    }
+  } catch (err) {
+    console.log('Live reviews failed:', err.message);
+  }
+  return false;
+}
+
 function showReviews() {
-  loadGoogleReviews();
+  loadLiveReviews().then(success => {
+    if (!success) {
+      renderReviewCards(reviews);
+      console.log('Using fallback local reviews');
+    }
+  });
 }
 
 if (document.readyState === 'loading') {
