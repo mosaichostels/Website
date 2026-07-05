@@ -389,9 +389,7 @@ document.querySelectorAll('a,button,.room-card,.gal-item').forEach(el=>{
 
 // ── NAV SCROLL ──
 const nav=document.getElementById('mainNav');
-window.addEventListener('scroll',()=>{
-  nav.classList.toggle('scrolled', window.scrollY>80);
-});
+if(nav) window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled', window.scrollY>80);});
 
 // ── SCROLL REVEAL ──
 const observer=new IntersectionObserver(entries=>{
