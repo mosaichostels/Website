@@ -334,7 +334,7 @@ fillStrip('heroDivider', ['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E']);
 ['div1'].forEach(id=>fillStrip(id, LOGO_COLORS));
 
 // Title tile lines
-['roomsTileLine','galTileLine','testiTileLine'].forEach(id=>fillStrip(id, ['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E']));
+['roomsTileLine','galTileLine','reviewsTileLine','testiTileLine'].forEach(id=>fillStrip(id, ['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E']));
 
 // Room accent bars
 const roomPals=[
@@ -562,7 +562,7 @@ function renderReviews(reviews) {
   
   reviews.forEach((review, index) => {
     const card = document.createElement('div');
-    card.className = 'review-card reveal' + (index > 0 ? ' reveal-delay-' + index : '');
+    card.className = 'review-card' + (index > 0 ? ' reveal-delay-' + index : '');
     
     const stars = document.createElement('div');
     stars.className = 'review-rating';
