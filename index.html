@@ -235,32 +235,7 @@
     </div>
   </div>
   <div class="reviews-container">
-    <div class="reviews-grid" id="reviewsGrid">
-      <div class="review-card">
-        <div class="review-rating">★★★★★</div>
-        <div class="review-text">"Best hostel in Varanasi! Rooftop views incredible at sunrise. Staff friendly and helpful. Great value!"</div>
-        <div class="review-author">
-          <div class="review-name">Sarah K.</div>
-          <div class="review-date">7/1/2024</div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="review-rating">★★★★★</div>
-        <div class="review-text">"Perfect location near Assi Ghat. Clean rooms, reliable WiFi, common areas encourage socializing. Highly recommend!"</div>
-        <div class="review-author">
-          <div class="review-name">David M.</div>
-          <div class="review-date">6/15/2024</div>
-        </div>
-      </div>
-      <div class="review-card">
-        <div class="review-rating">★★★★★</div>
-        <div class="review-text">"Stayed 5 days, didn't want to leave. Team cares about guests. Great atmosphere, perfect location for exploring ghats."</div>
-        <div class="review-author">
-          <div class="review-name">Emma L.</div>
-          <div class="review-date">6/15/2024</div>
-        </div>
-      </div>
-    </div>
+    <div class="reviews-grid" id="reviewsGrid"></div>
   </div>
 </div>
 
@@ -573,3 +548,60 @@ document.head.appendChild(rippleStyle);
 </script>
 </body>
 </html>
+<script>
+const reviews = [
+  {rating: 5, text: "Best hostel in Varanasi! Rooftop views incredible at sunrise. Staff friendly and helpful.", name: "Sarah K.", date: "7/1/2024"},
+  {rating: 5, text: "Perfect location near Assi Ghat. Clean rooms, reliable WiFi, common areas encourage socializing.", name: "David M.", date: "6/15/2024"},
+  {rating: 5, text: "Stayed 5 days, didn't want to leave. Team cares about guests. Great atmosphere, perfect location.", name: "Emma L.", date: "6/15/2024"}
+];
+
+function showReviews() {
+  const grid = document.getElementById('reviewsGrid');
+  console.log('showReviews called, grid:', grid);
+  
+  if (!grid) {
+    console.error('reviewsGrid not found');
+    return;
+  }
+  
+  reviews.forEach(review => {
+    const card = document.createElement('div');
+    card.className = 'review-card';
+    
+    const rating = document.createElement('div');
+    rating.className = 'review-rating';
+    rating.textContent = '★★★★★'.substring(0, review.rating);
+    
+    const text = document.createElement('div');
+    text.className = 'review-text';
+    text.textContent = '"' + review.text + '"';
+    
+    const author = document.createElement('div');
+    author.className = 'review-author';
+    
+    const name = document.createElement('div');
+    name.className = 'review-name';
+    name.textContent = review.name;
+    
+    const date = document.createElement('div');
+    date.className = 'review-date';
+    date.textContent = review.date;
+    
+    author.appendChild(name);
+    author.appendChild(date);
+    
+    card.appendChild(rating);
+    card.appendChild(text);
+    card.appendChild(author);
+    grid.appendChild(card);
+  });
+  
+  console.log('Reviews rendered:', grid.children.length);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', showReviews);
+} else {
+  showReviews();
+}
+</script>
