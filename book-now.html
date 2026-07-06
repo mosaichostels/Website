@@ -92,7 +92,7 @@
 <!-- ── NAV (injected by navbar.js) ── -->
 <div id="navbar-container"></div>
 
-<h1 style="position:absolute;left:-9999px;">Book Your Stay at Mosaic Hostel</h1>
+<h1 class="visually-hidden">Book Your Stay at Mosaic Hostel</h1>
 
 <!-- ── PAGE HERO ── -->
 <div class="page-hero">
@@ -117,10 +117,10 @@
       Booking directly with us means no platform fees, no markups — just the best available rate, straight from us to you. Got a special request or travelling in a group? We're a message away.
     </div>
     <div class="why-row">
-      <div class="why-pill"><div class="why-dot" style="background:#C8860A"></div>Lowest rate guaranteed</div>
-      <div class="why-pill"><div class="why-dot" style="background:#1A6B7A"></div>Instant confirmation</div>
-      <div class="why-pill"><div class="why-dot" style="background:#8B1A1A"></div>Flexible cancellation</div>
-      <div class="why-pill"><div class="why-dot" style="background:#1A3A6B"></div>Special requests welcome</div>
+      <div class="why-pill"><div class="why-dot c-gold"></div>Lowest rate guaranteed</div>
+      <div class="why-pill"><div class="why-dot c-teal"></div>Instant confirmation</div>
+      <div class="why-pill"><div class="why-dot c-burg"></div>Flexible cancellation</div>
+      <div class="why-pill"><div class="why-dot c-cobalt"></div>Special requests welcome</div>
     </div>
     <a class="wa-btn" href="https://wa.me/919125492225?text=Hi!%20I'd%20like%20to%20book%20a%20stay%20at%20Mosaic%20Hostel%20Varanasi." target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.514 5.842L.057 23.428a.75.75 0 0 0 .906.94l5.733-1.498A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.65-.499-5.17-1.373l-.37-.213-3.845 1.004 1.029-3.733-.228-.378A9.937 9.937 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
@@ -249,87 +249,9 @@
 <!-- ── FOOTER (injected by footer.js) ── -->
 <div id="footer-container"></div>
 
-<script>
-const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
-const PAL={gold:['#C8860A','#E8B84B','#D4930F'],teal:['#1A6B7A','#2D9AAA'],burg:['#8B1A1A','#A02020'],cobalt:['#1A3A6B','#2A5A9B'],sage:['#3D6B3A']};
-function pick(a){return a[Math.floor(Math.random()*a.length)];}
-function fillStrip(id,cols){const el=document.getElementById(id);if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
-
-fillStrip('heroStripe',LOGO_COLORS);
-fillStrip('div0',LOGO_COLORS);
-fillStrip('div0',LOGO_COLORS);
-fillStrip('div1',LOGO_COLORS);
-fillStrip('cardStrip',LOGO_COLORS);
-fillStrip('footerStrip',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
-
-// Platform tile strips
-const platformPals=[PAL.gold,PAL.teal,PAL.burg,PAL.cobalt,PAL.sage,[...PAL.gold,...PAL.teal],[...PAL.burg,...PAL.sage],[...PAL.cobalt,...PAL.gold],[...PAL.teal,...PAL.burg]];
-[1,2,3,4,5,6,7,8,9].forEach(i=>{
-  const el=document.getElementById('pt'+i);if(!el)return;
-  const pal=platformPals[(i-1)%platformPals.length];
-  for(let k=0;k<20;k++){const s=document.createElement('span');s.style.flex='1';s.style.background=pick(pal);el.appendChild(s);}
-});
-
-// Benefit icons
-[[...PAL.gold,...PAL.teal],[...PAL.burg,...PAL.cobalt],[...PAL.sage,...PAL.gold],[...PAL.teal,...PAL.burg]].forEach((pal,i)=>{
-  const el=document.getElementById('bi'+(i+1));if(!el)return;
-  for(let j=0;j<9;j++){const s=document.createElement('span');s.style.background=pick(pal);s.style.borderRadius='2px';s.style.display='block';el.appendChild(s);}
-});
-
-// Custom cursor
-const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
-document.addEventListener('mousemove',e=>{
-  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
-  ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';
-});
-document.querySelectorAll('a,button,.platform-card').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='48px';ring.style.height='48px';});
-  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
-});
-
-// Scroll progress
-const prog=document.getElementById('progress');
-window.addEventListener('scroll',()=>{
-  prog.style.width=((window.scrollY/(document.body.scrollHeight-window.innerHeight))*100)+'%';
-},{passive:true});
-
-// Scroll reveal
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-// Magnetic effect on CTA buttons
-document.querySelectorAll('.wa-btn,.email-btn,.nav-book').forEach(btn=>{
-  btn.addEventListener('mousemove',e=>{
-    const r=btn.getBoundingClientRect();
-    const x=(e.clientX-r.left-r.width/2)*0.2;
-    const y=(e.clientY-r.top-r.height/2)*0.2;
-    btn.style.transform=`translate(${x}px,${y}px)`;
-    btn.style.transition='transform .1s';
-  });
-  btn.addEventListener('mouseleave',()=>{btn.style.transform='translate(0,0)';btn.style.transition='transform .4s ease';});
-});
-
-// Platform card tilt
-document.querySelectorAll('.platform-card').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    const x=((e.clientX-r.left)/r.width-0.5)*8;
-    const y=((e.clientY-r.top)/r.height-0.5)*-8;
-    card.style.transform=`perspective(600px) rotateY(${x}deg) rotateX(${y}deg) translateY(-4px)`;
-    card.style.transition='transform .1s';
-  });
-  card.addEventListener('mouseleave',()=>{card.style.transform='';card.style.transition='transform .4s ease';});
-});
-
-
-
-</script>
-<script src="/components/navbar.js"></script>
+    <script src="/components/site.js"></script>
+    <script src="/components/book-now.js"></script>
+    <script src="/components/navbar.js"></script>
 <script src="/components/footer.js"></script>
-<script>
-// ponytail: stripe fill inlined from components/stripes.js (44 lines → 23 lines)
-const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}function fillById(id,cols){fillStrip(document.getElementById(id),cols);}if(document.getElementById('heroStripe'))fillById('heroStripe',LOGO_COLORS);if(document.getElementById('div0'))fillById('div0',LOGO_COLORS);if(document.getElementById('div1'))fillById('div1',LOGO_COLORS);
-</script>
-
 </body>
 </html>

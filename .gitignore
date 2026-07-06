@@ -4,3 +4,4 @@ images/hero-video.mp4
 .code-review-graph/
 *.png
 !images/mosaic-logo.png
+mosaichostels-audit/
