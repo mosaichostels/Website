@@ -86,7 +86,7 @@
 <!-- ── NAV (injected by navbar.js) ── -->
 <div id="navbar-container"></div>
 
-<h1 style="position:absolute;left:-9999px;">Privacy Policy — Mosaic Hostel Varanasi</h1>
+<h1 class="visually-hidden">Privacy Policy — Mosaic Hostel Varanasi</h1>
 
 <!-- ── PAGE HERO ── -->
 <div class="page-hero">
@@ -140,54 +140,8 @@
 <!-- ── FOOTER (injected by footer.js) ── -->
 <div id="footer-container"></div>
 
-<script>
-const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
-
-// Maps dialog handler
-window.openMapsDialog=function(e){
-  e.preventDefault();
-  const addr='B1/85C, Assi Ghat Road, Varanasi, Uttar Pradesh 221005';
-  const choice=confirm('Open directions in:\n\nOK = Google Maps\nCancel = Apple Maps');
-  if(choice){
-    window.open(`https://maps.google.com/?q=${encodeURIComponent(addr)}`,'_blank');
-  }else{
-    window.open(`maps://maps.apple.com/?address=${encodeURIComponent(addr)}`);
-  }
-};
-
-function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
-function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
-fillById('heroStripe',LOGO_COLORS);
-fillById('div0',LOGO_COLORS);
-fillById('div1',LOGO_COLORS);
-
-// Custom cursor
-const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
-document.addEventListener('mousemove',e=>{
-  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
-  ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';
-});
-document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='48px';ring.style.height='48px';});
-  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
-});
-
-// Scroll progress
-const prog=document.getElementById('progress');
-window.addEventListener('scroll',()=>{
-  prog.style.width=((window.scrollY/(document.body.scrollHeight-window.innerHeight))*100)+'%';
-},{passive:true});
-
-// Scroll reveal
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-</script>
-<script src="/components/navbar.js"></script>
+    <script src="/components/site.js"></script>
+    <script src="/components/navbar.js"></script>
 <script src="/components/footer.js"></script>
-<script>
-// ponytail: stripe fill inlined from components/stripes.js (44 lines → 23 lines)
-const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}function fillById(id,cols){fillStrip(document.getElementById(id),cols);}if(document.getElementById('heroStripe'))fillById('heroStripe',LOGO_COLORS);if(document.getElementById('div0'))fillById('div0',LOGO_COLORS);if(document.getElementById('div1'))fillById('div1',LOGO_COLORS);
-</script>
-
 </body>
 </html>
