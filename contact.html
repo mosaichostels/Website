@@ -92,7 +92,7 @@
 <!-- ── NAV (injected by navbar.js) ── -->
 <div id="navbar-container"></div>
 
-<h1 style="position:absolute;left:-9999px;">Contact Mosaic Hostel Varanasi</h1>
+<h1 class="visually-hidden">Contact Mosaic Hostel Varanasi</h1>
 
 <!-- ── PAGE HERO ── -->
 <div class="page-hero">
@@ -129,7 +129,7 @@
     <div class="contact-card reveal reveal-d1">
       <div class="cc-accent" data-pal="gold-teal"></div>
       <div class="cc-label">Email</div>
-      <div class="cc-main"><a href="mailto:mosaichostels@gmail.com" style="color:inherit;text-decoration:none;">mosaichostels@gmail.com</a></div>
+      <div class="cc-main"><a href="mailto:mosaichostels@gmail.com" class="link-plain">mosaichostels@gmail.com</a></div>
       <div class="cc-sub">For detailed enquiries, group bookings, or partnerships. We reply within 24 hours.</div>
       <a class="email-cta" href="mailto:mosaichostels@gmail.com">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
@@ -141,34 +141,34 @@
     <div class="contact-card reveal reveal-d2">
       <div class="cc-accent" data-pal="cobalt-sage"></div>
       <div class="cc-label">Find Us</div>
-      <div class="cc-main"><a href="#" onclick="openMapsDialog(event)" style="color:inherit;text-decoration:none;cursor:pointer;">B1/85C, Assi Ghat Rd, Bhelupur</a></div>
-      <div class="info-rows" style="margin-top:16px;">
+      <div class="cc-main"><a href="#" onclick="openMapsDialog(event)" class="link-plain is-clickable">B1/85C, Assi Ghat Rd, Bhelupur</a></div>
+      <div class="info-rows mt-16">
         <div class="info-row">
-          <div class="info-dot" style="background:var(--gold)"></div>
+          <div class="info-dot c-gold"></div>
           <div>
             <div class="info-label">Address</div>
-            <div class="info-val"><a href="#" onclick="openMapsDialog(event)" style="color:inherit;text-decoration:none;cursor:pointer;">B1/85C, Assi Ghat Rd, Anandbagh, Bhelupur, Varanasi, UP 221005</a></div>
+            <div class="info-val"><a href="#" onclick="openMapsDialog(event)" class="link-plain is-clickable">B1/85C, Assi Ghat Rd, Anandbagh, Bhelupur, Varanasi, UP 221005</a></div>
           </div>
         </div>
         <div class="info-row">
-          <div class="info-dot" style="background:var(--teal)"></div>
+          <div class="info-dot c-teal"></div>
           <div>
             <div class="info-label">Check-in / Check-out</div>
             <div class="info-val">1:00 PM · 10:30 AM</div>
           </div>
         </div>
         <div class="info-row">
-          <div class="info-dot" style="background:var(--burg)"></div>
+          <div class="info-dot c-burg"></div>
           <div>
             <div class="info-label">Reception</div>
             <div class="info-val">Open 24 hours</div>
           </div>
         </div>
         <div class="info-row">
-          <div class="info-dot" style="background:var(--cobalt)"></div>
+          <div class="info-dot c-cobalt"></div>
           <div>
             <div class="info-label">Instagram</div>
-            <div class="info-val"><a href="https://www.instagram.com/mosaichostels" target="_blank" style="color:var(--ink);text-decoration:none;">@mosaichostels</a></div>
+            <div class="info-val"><a href="https://www.instagram.com/mosaichostels" target="_blank" class="link-ink">@mosaichostels</a></div>
           </div>
         </div>
       </div>
@@ -261,99 +261,9 @@
 <!-- ── FOOTER (injected by footer.js) ── -->
 <div id="footer-container"></div>
 
-<script>
-const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
-const PALS={
-  'wa':['#25D366','#1DAA56','#128C7E','#075E54'],
-  'gold-teal':['#C8860A','#E8B84B','#1A6B7A','#2D9AAA'],
-  'cobalt-sage':['#1A3A6B','#2A5A9B','#3D6B3A','#2D5A2A'],
-};
-function pick(a){return a[Math.floor(Math.random()*a.length)];}
-function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
-function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
-
-fillById('heroStripe',LOGO_COLORS);
-['div0','div1'].forEach(id=>fillById(id,LOGO_COLORS));
-fillById('formStrip',LOGO_COLORS);
-fillById('mapStrip',LOGO_COLORS);
-fillById('footerStrip',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
-
-// Card accent bars
-document.querySelectorAll('.cc-accent').forEach(el=>{
-  const pal=PALS[el.dataset.pal]||LOGO_COLORS;
-  for(let i=0;i<20;i++){const s=document.createElement('span');s.style.flex='1';s.style.background=pick(pal);el.appendChild(s);}
-});
-
-// Custom cursor
-const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
-document.addEventListener('mousemove',e=>{
-  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
-  ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';
-});
-document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='48px';ring.style.height='48px';});
-  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
-});
-
-// Scroll progress
-const prog=document.getElementById('progress');
-window.addEventListener('scroll',()=>{
-  prog.style.width=((window.scrollY/(document.body.scrollHeight-window.innerHeight))*100)+'%';
-},{passive:true});
-
-// Scroll reveal
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-// Magnetic buttons
-document.querySelectorAll('.wa-cta,.email-cta,.nav-book,.form-submit').forEach(btn=>{
-  btn.addEventListener('mousemove',e=>{
-    const r=btn.getBoundingClientRect();
-    btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*0.2}px,${(e.clientY-r.top-r.height/2)*0.2}px)`;
-  });
-  btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
-});
-
-// Maps dialog handler
-window.openMapsDialog=function(e){
-  e.preventDefault();
-  const addr='B1/85C, Assi Ghat Road, Varanasi, Uttar Pradesh 221005';
-  const choice=confirm('Open directions in:\n\nOK = Google Maps\nCancel = Apple Maps');
-  if(choice){
-    window.open(`https://maps.google.com/?q=${encodeURIComponent(addr)}`,'_blank');
-  }else{
-    window.open(`maps://maps.apple.com/?address=${encodeURIComponent(addr)}`);
-  }
-};
-
-// WhatsApp form submission
-document.getElementById('contactForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const fname=document.getElementById('fname').value;
-  const lname=document.getElementById('lname').value;
-  const email=document.getElementById('email').value;
-  const topic=document.getElementById('topic').value;
-  const message=document.getElementById('message').value;
-
-  if(!fname||!email||!message){alert('Please fill required fields');return;}
-
-  const name=fname+(lname?' '+lname:'');
-  const waMsg=`Hello Mosaic Hostel,\n\nName: ${name}\nEmail: ${email}\nTopic: ${topic}\n\nMessage:\n${message}`;
-  const encodedMsg=encodeURIComponent(waMsg);
-  const waLink=`https://wa.me/919125492225?text=${encodedMsg}`;
-
-  window.open(waLink,'_blank');
-  const msg=document.getElementById('formMsg');
-  msg.textContent='Opening WhatsApp...';
-  msg.className='form-msg success';
-  msg.style.display='block';
-  setTimeout(()=>{document.getElementById('contactForm').reset();msg.style.display='none';},2000);
-});
-
-
-
-</script>
-<script src="/components/navbar.js"></script>
+    <script src="/components/site.js"></script>
+    <script src="/components/contact.js"></script>
+    <script src="/components/navbar.js"></script>
 <script src="/components/footer.js"></script>
 
 </body>

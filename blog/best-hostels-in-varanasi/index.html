@@ -15,24 +15,12 @@
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"BlogPosting","headline":"Best Hostels in Varanasi — 2025 Honest Guide","description":"Published: 2026-04-07 10:00:00 Author: Mosaic Hostel Team, Varanasi An honest guide to finding the best hostel in Varanasi — which neighbourhood to choose,...","image":"https://www.mosaichostels.com/images/IMG_1928.JPG","datePublished":"2026-07-04","author":{"@type":"Organization","name":"Mosaic Hostel Varanasi"}}
     </script>
-    <style>
-        .blog-post { max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.8; margin-top: 20px; }
-        .blog-post h1 { font-size: 32px; margin-bottom: 10px; }
-        .blog-post h2 { font-size: 24px; margin-top: 30px; margin-bottom: 15px; }
-        .blog-post h3 { font-size: 20px; margin-top: 20px; margin-bottom: 12px; }
-        .blog-post p { margin-bottom: 15px; }
-        .blog-post a { color: #3498db; text-decoration: none; }
-        .blog-post a:hover { text-decoration: underline; }
-        .blog-nav { margin-top: 40px; padding-top: 20px; border-top: 1px solid #ecf0f1; text-align: center; }
-        .blog-nav a { display: inline-block; padding: 10px 20px; border: 1px solid var(--gold); color: var(--gold); border-radius: 5px; margin-right: 10px; margin-bottom: 10px; transition: 0.3s; }
-        .blog-nav a:hover { background: var(--gold); color: white; }
-    </style>
 </head>
 <body>
     <div id="cursor"></div>
     <div id="cursor-ring"></div>
     <div id="navbar-container"></div>
-    <h1 style="position:absolute;left:-9999px;">Best Hostels in Varanasi — 2025 Honest Guide</h1>
+    <h1 class="visually-hidden">Best Hostels in Varanasi — 2025 Honest Guide</h1>
 
     <!-- ── PAGE HERO ── -->
     <div class="page-hero">
@@ -41,7 +29,7 @@
         <div class="page-eyebrow">Travel Guide</div>
         <div class="page-title">Best Hostels in Varanasi</div>
         <div class="page-sub">An honest guide to finding the perfect hostel for your stay</div>
-        <div class="blog-meta" style="margin-top:20px;font-size:12px;color:var(--muted);">
+        <div class="blog-meta">
           <strong>Published:</strong> 2026-04-07 | <strong>Author:</strong> Mosaic Hostel Team
         </div>
       </div>
@@ -127,35 +115,8 @@ Guesthouse hybridPrivacy + socialAny zone₹800–2000/night</p>
         </div>
     </div>
     <div id="footer-container"></div>
-    <script>
-    // ── HERO STRIPE FILL ──
-    const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
-    function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
-    function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
-    fillById('heroStripe',LOGO_COLORS);
-    fillById('div0',LOGO_COLORS);
-
-    // ── CUSTOM CURSOR ──
-    const cur=document.getElementById('cursor');
-    const ring=document.getElementById('cursor-ring');
-    if(cur&&ring){
-      document.addEventListener('mousemove',e=>{
-        cur.style.left=e.clientX+'px'; cur.style.top=e.clientY+'px';
-        ring.style.left=e.clientX+'px'; ring.style.top=e.clientY+'px';
-      });
-      document.querySelectorAll('a,button').forEach(el=>{
-        el.addEventListener('mouseenter',()=>{
-          cur.style.width='20px'; cur.style.height='20px';
-          ring.style.width='50px'; ring.style.height='50px';
-        });
-        el.addEventListener('mouseleave',()=>{
-          cur.style.width='10px'; cur.style.height='10px';
-          ring.style.width='36px'; ring.style.height='36px';
-        });
-      });
-    }
-    </script>
-    <script src="/components/navbar.js"></script>
+    <script src="/components/site.js"></script>
+<script src="/components/navbar.js"></script>
     <script src="/components/footer.js"></script>
 </body>
 </html>

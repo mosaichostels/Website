@@ -92,7 +92,7 @@
 <!-- ── NAV (injected by navbar.js) ── -->
 <div id="navbar-container"></div>
 
-<h1 style="position:absolute;left:-9999px;">About Mosaic Hostel Varanasi</h1>
+<h1 class="visually-hidden">About Mosaic Hostel Varanasi</h1>
 
 <!-- ── PAGE HERO ── -->
 <div class="page-hero">
@@ -203,38 +203,38 @@
       <div class="location-title">Near Assi Ghat,<br>Varanasi</div>
       <div class="loc-details">
         <div class="loc-row">
-          <div class="loc-dot" style="background:var(--gold)"></div>
+          <div class="loc-dot c-gold"></div>
           <div class="loc-info">
             <div class="loc-label">Address</div>
-            <div class="loc-val"><a href="#" onclick="openMapsDialog(event)" style="color:inherit;text-decoration:none;cursor:pointer;">Near Assi Ghat, Varanasi, Uttar Pradesh 221005</a></div>
+            <div class="loc-val"><a href="#" onclick="openMapsDialog(event)" class="link-plain is-clickable">Near Assi Ghat, Varanasi, Uttar Pradesh 221005</a></div>
           </div>
         </div>
         <div class="loc-row">
-          <div class="loc-dot" style="background:var(--teal)"></div>
+          <div class="loc-dot c-teal"></div>
           <div class="loc-info">
             <div class="loc-label">Check-in / Check-out</div>
             <div class="loc-val">1:00 PM · 10:30 AM</div>
           </div>
         </div>
         <div class="loc-row">
-          <div class="loc-dot" style="background:var(--burg)"></div>
+          <div class="loc-dot c-burg"></div>
           <div class="loc-info">
             <div class="loc-label">Reception</div>
             <div class="loc-val">Open 24 hours</div>
           </div>
         </div>
         <div class="loc-row">
-          <div class="loc-dot" style="background:var(--cobalt)"></div>
+          <div class="loc-dot c-cobalt"></div>
           <div class="loc-info">
             <div class="loc-label">WhatsApp</div>
-            <div class="loc-val"><a href="https://wa.me/919125492225" target="_blank" style="color:var(--ink);text-decoration:none;">+91 91254 92225</a></div>
+            <div class="loc-val"><a href="https://wa.me/919125492225" target="_blank" class="link-ink">+91 91254 92225</a></div>
           </div>
         </div>
         <div class="loc-row">
-          <div class="loc-dot" style="background:var(--sage)"></div>
+          <div class="loc-dot c-sage"></div>
           <div class="loc-info">
             <div class="loc-label">Email</div>
-            <div class="loc-val"><a href="mailto:mosaichostels@gmail.com" style="color:var(--ink);text-decoration:none;">mosaichostels@gmail.com</a></div>
+            <div class="loc-val"><a href="mailto:mosaichostels@gmail.com" class="link-ink">mosaichostels@gmail.com</a></div>
           </div>
         </div>
       </div>
@@ -268,127 +268,9 @@
 <!-- ── FOOTER (injected by footer.js) ── -->
 <div id="footer-container"></div>
 
-<script>
-const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
-const PAL={gold:['#C8860A','#E8B84B','#D4930F'],teal:['#1A6B7A','#2D9AAA'],burg:['#8B1A1A','#A02020'],cobalt:['#1A3A6B','#2A5A9B'],sage:['#3D6B3A','#2D5A2A'],brown:['#5C3A1E','#7A4F2A']};
-function pick(a){return a[Math.floor(Math.random()*a.length)];}
-function fillStrip(el,cols){if(!el)return;cols.forEach(c=>{const s=document.createElement('span');s.style.flex='1';s.style.background=c;el.appendChild(s);});}
-function fillById(id,cols){fillStrip(document.getElementById(id),cols);}
-
-fillById('heroStripe',LOGO_COLORS);
-['div0','div1'].forEach(id=>fillById(id,LOGO_COLORS));
-fillById('storyLine',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
-fillById('whyLine',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
-fillById('fbStrip',LOGO_COLORS);
-fillById('footerStrip',['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#3D6B3A']);
-fillById('mapStrip',LOGO_COLORS);
-
-// Value icons (4×4)
-[
-  ['vi1',...PAL.gold,...PAL.teal],
-  ['vi2',...PAL.burg,...PAL.cobalt],
-  ['vi3',...PAL.sage,...PAL.gold],
-].forEach(([id,...pal])=>{
-  const el=document.getElementById(id);if(!el)return;
-  for(let i=0;i<16;i++){const s=document.createElement('span');s.style.background=pick(pal);s.style.borderRadius='2px';s.style.display='block';el.appendChild(s);}
-});
-
-// Deco tile grid (6×6)
-const deco=document.getElementById('decoTiles');
-if(deco){
-  for(let i=0;i<36;i++){
-    const s=document.createElement('span');
-    s.style.background=pick(LOGO_COLORS);
-    s.style.borderRadius='3px';
-    s.style.display='block';
-    s.style.opacity=String(0.3+Math.random()*0.7);
-    deco.appendChild(s);
-  }
-  // animate tiles on hover
-  deco.addEventListener('mouseenter',()=>{
-    deco.querySelectorAll('span').forEach(s=>{
-      setTimeout(()=>{s.style.background=pick(LOGO_COLORS);s.style.opacity=String(0.3+Math.random()*0.7);},Math.random()*300);
-    });
-  });
-}
-
-// Custom cursor
-const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
-document.addEventListener('mousemove',e=>{
-  cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';
-  ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';
-});
-document.querySelectorAll('a,button').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.width='18px';cur.style.height='18px';ring.style.width='48px';ring.style.height='48px';});
-  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='36px';ring.style.height='36px';});
-});
-
-// Scroll progress
-const prog=document.getElementById('progress');
-window.addEventListener('scroll',()=>{
-  prog.style.width=((window.scrollY/(document.body.scrollHeight-window.innerHeight))*100)+'%';
-},{passive:true});
-
-// Parallax on fullbleed
-const fbPhoto=document.getElementById('fbPhoto');
-window.addEventListener('scroll',()=>{
-  if(!fbPhoto)return;
-  const rect=fbPhoto.closest('.fullbleed').getBoundingClientRect();
-  const pct=(window.innerHeight-rect.top)/(window.innerHeight+rect.height);
-  fbPhoto.style.transform=`translateY(${(pct-0.5)*40}px)`;
-},{passive:true});
-
-// Scroll reveal
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-
-// Stat counter
-const statObs=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(!entry.isIntersecting)return;
-    const el=entry.target;
-    const target=parseInt(el.dataset.count);
-    if(!target)return;
-    const suffix=el.textContent.replace(/[\d]/g,'');
-    let start=null;const dur=1600;
-    const step=ts=>{
-      if(!start)start=ts;
-      const prog=Math.min((ts-start)/dur,1);
-      const ease=1-Math.pow(1-prog,3);
-      el.textContent=Math.round(ease*target)+(target===500?'+':'');
-      if(prog<1)requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-    statObs.unobserve(el);
-  });
-},{threshold:0.5});
-document.querySelectorAll('.stat-num[data-count]').forEach(el=>statObs.observe(el));
-
-// Maps dialog handler
-window.openMapsDialog=function(e){
-  e.preventDefault();
-  const addr='B1/85C, Assi Ghat Road, Varanasi, Uttar Pradesh 221005';
-  const choice=confirm('Open directions in:\n\nOK = Google Maps\nCancel = Apple Maps');
-  if(choice){
-    window.open(`https://maps.google.com/?q=${encodeURIComponent(addr)}`,'_blank');
-  }else{
-    window.open(`maps://maps.apple.com/?address=${encodeURIComponent(addr)}`);
-  }
-};
-
-// Magnetic CTAs
-document.querySelectorAll('.btn-gold,.btn-outline,.nav-book').forEach(btn=>{
-  btn.addEventListener('mousemove',e=>{
-    const r=btn.getBoundingClientRect();
-    btn.style.transform=`translate(${(e.clientX-r.left-r.width/2)*0.2}px,${(e.clientY-r.top-r.height/2)*0.2}px)`;
-  });
-  btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
-});
-
-
-
-</script>
-<script src="/components/navbar.js"></script>
+    <script src="/components/site.js"></script>
+    <script src="/components/about.js"></script>
+    <script src="/components/navbar.js"></script>
 <script src="/components/footer.js"></script>
 
 </body>
