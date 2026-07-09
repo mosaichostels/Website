@@ -623,18 +623,18 @@ body:hover #cursor { opacity:1; }
 .card-wa { border-color:rgba(37,211,102,0.2); }
 .card-wa:hover { box-shadow:0 12px 40px rgba(37,211,102,0.1); }
 .wa-cta {
-  display:inline-flex; align-items:center; gap:12px; margin-top:20px;
-  padding:13px 32px; background:var(--wa); color:white;
+  display:flex; justify-content:center; align-items:center; gap:12px; margin-top:20px;
+  padding:13px 32px; background:var(--wa); color:white; width:100%;
   font-family:'Jost'; font-size:10px; letter-spacing:4px; text-transform:uppercase;
-  text-decoration:none; cursor:none; transition:background .25s,transform .2s;
+  text-decoration:none; cursor:none; transition:background .25s,transform .2s; box-sizing:border-box;
 }
 .wa-cta:hover { background:#1DAA56; transform:translateY(-1px); }
 .wa-cta svg { width:18px; height:18px; flex-shrink:0; }
 .email-cta {
-  display:inline-flex; align-items:center; gap:10px; margin-top:20px;
-  padding:12px 28px; border:1px solid var(--ink); color:var(--ink);
+  display:flex; justify-content:center; align-items:center; gap:10px; margin-top:20px;
+  padding:12px 28px; border:1px solid var(--ink); color:var(--ink); width:100%;
   font-family:'Jost'; font-size:10px; letter-spacing:4px; text-transform:uppercase;
-  text-decoration:none; cursor:none; transition:all .3s;
+  text-decoration:none; cursor:none; transition:all .3s; box-sizing:border-box;
 }
 .email-cta:hover { background:var(--ink); color:white; }
 .info-rows { display:flex; flex-direction:column; gap:12px; margin-top:4px; }
