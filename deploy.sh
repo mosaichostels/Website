@@ -35,7 +35,13 @@ FILES_TO_DEPLOY=()
 
 if [ "$1" = "all" ]; then
   echo -e "${YELLOW}Deploying ALL files...${NC}"
-  FILES_TO_DEPLOY=($(find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.webp" -o -name "*.jpg" -o -name "*.png" \) -not -path "./.git/*" -not -path "./.github/*"))
+  FILES_TO_DEPLOY=($(find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.webp" -o -name "*.jpg" -o -name "*.png" \) \
+    -not -path "./.git/*" \
+    -not -path "./.github/*" \
+    -not -path "./.claude/*" \
+    -not -path "./scripts/*" \
+    -not -path "./mosaichostels.com-audit/*" \
+    -not -path "./images/unused/*"))
 else
   FILES_TO_DEPLOY=("$@")
 fi
