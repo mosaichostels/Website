@@ -51,6 +51,8 @@ Other travellers — at the hostel, on the ghats, at the cafes — are one of yo
 
 ### Read Next
 
+- [Is Varanasi Safe? A General Safety Guide for Every Traveler](/blog/is-varanasi-safe-general-guide)
+
 - [Assi Ghat, Varanasi — Complete Guide for Travelers](/blog/assi-ghat-varanasi-complete-guide)
 
 - [Best Hostels in Varanasi — Honest Guide](/blog/best-hostels-in-varanasi)
