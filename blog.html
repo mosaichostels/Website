@@ -10,6 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles/global.css">
 <link rel="canonical" href="https://www.mosaichostels.com/blog">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mosaic Hostel Varanasi">
 <meta property="og:image" content="https://www.mosaichostels.com/images/IMG_1928.JPG">
 
     <!-- Microsoft Clarity Analytics -->
@@ -59,6 +61,8 @@
         {"@type": "LocationFeatureSpecification", "name": "24/7 Check-in", "value": true}
       ],
       "priceRange": "₹500-₹2000",
+      "checkinTime": "13:00",
+      "checkoutTime": "10:30",
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -72,18 +76,110 @@
         "https://www.tripadvisor.com/Hotel_Review-g297685-d33877461-Reviews-Mosaic_Hostel_Varanasi-Varanasi_Varanasi_District_Uttar_Pradesh.html",
         "https://www.makemytrip.com/hotels/mosaic_hostel_varanasi-details-varanasi.html",
         "https://www.agoda.com/en-za/mosaic-hostel-varanasi/hotel/varanasi-in.html",
-        "https://www.goibibo.com/hotels/mosaic-hostel-varanasi-hotel-in-varanasi-7027872656241537584/"
+        "https://www.goibibo.com/hotels/mosaic-hostel-varanasi-hotel-in-varanasi-7027872656241537584/",
+        "https://www.cleartrip.com/hotels/details/mosaic-hostel-varanasi-5247325",
+        "https://www.expedia.com/Varanasi-Hotels-Mosaic-Hostel-Varanasi.h125053779.Hotel-Information"
+      ]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "@id": "https://www.mosaichostels.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "@id": "https://www.mosaichostels.com/blog"
+        }
+      ]
+    }
+    </script>
+
+    <!-- CollectionPage Schema (Blog Index) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Mosaic Hostel Blog",
+      "description": "Travel guides, hostel stories, and local wisdom from Varanasi",
+      "url": "https://www.mosaichostels.com/blog",
+      "mainEntity": [
+        {
+          "@type": "BlogPosting",
+          "headline": "Best Hostels in Varanasi",
+          "url": "https://www.mosaichostels.com/blog/best-hostels-in-varanasi"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Assi Ghat Varanasi: Complete Guide",
+          "url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Top 7 Experiences in Varanasi for Travelers",
+          "url": "https://www.mosaichostels.com/blog/top-7-experiences-varanasi-traveler"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Solo Female Travelers: Safety Guide for Varanasi",
+          "url": "https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Why Assi Ghat is the Perfect Base for Varanasi",
+          "url": "https://www.mosaichostels.com/blog/why-assi-ghat-perfect-base-varanasi-stay"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Backpacker's Complete Guide to Assi Ghat, Varanasi",
+          "url": "https://www.mosaichostels.com/blog/backpackers-guide-assi-ghat-varanasi"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Staying Near Assi Ghat, Varanasi — What to Expect",
+          "url": "https://www.mosaichostels.com/blog/hostel-near-assi-ghat-varanasi"
+        },
+        {
+          "@type": "BlogPosting",
+          "headline": "Things to Do in Varanasi: Local's Guide",
+          "url": "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide"
+        }
       ]
     }
     </script>
 </head>
 <body class="blog-page">
+<!-- ── NAV ── -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <a href="/"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="120" height="40" loading="lazy"></a>
+  </div>
+  <div class="nav-links">
+    <a href="/" class="nav-link" data-page="home">Home</a>
+    <a href="/gallery" class="nav-link" data-page="gallery">Gallery</a>
+    <a href="/about" class="nav-link" data-page="about">About</a>
+    <a href="/contact" class="nav-link" data-page="contact">Contact</a>
+    <a href="/blog" class="nav-link" data-page="blog">Blog</a>
+  </div>
+  <button class="nav-hamburger" id="navHam" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <a href="/book-now" class="nav-book">Book Now</a>
+</nav>
+
+
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 <div id="progress"></div>
 
-<!-- ── NAV (injected by navbar.js) ── -->
-<div id="navbar-container"></div>
 
 <h1 class="visually-hidden">Travel Guides — Varanasi Blog</h1>
 
@@ -110,8 +206,6 @@
 <!-- TILE DIVIDER -->
 <div class="tile-accent" id="div1"></div>
 
-<!-- ── FOOTER (injected by footer.js) ── -->
-<div id="footer-container"></div>
 
 <script src="/components/blog-renderer.js"></script>
 
@@ -119,5 +213,44 @@
     <script src="/components/blog.js"></script>
     <script src="/components/navbar.js"></script>
 <script src="/components/footer.js"></script>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" style="display:block;height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:16px;">
+      <p class="footer-tagline">A hostel rooted in community, warmth, and the spirit of Varanasi. Every guest who stays becomes part of our story.</p>
+      <p style="font-size:12px;line-height:1.5;margin-top:12px;opacity:0.7;">
+        <strong>B1/85C, Assi Ghat Road, Anandbagh, Varanasi, UP 221005</strong><br>
+        +91 91254 92225
+      </p>
+    </div>
+    <div></div>
+    <div>
+      <div class="footer-heading">Explore</div>
+      <div class="footer-links">
+        <a href="/gallery">Gallery</a>
+        <a href="/about">About Us</a>
+        <a href="/blog">Blog</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+        <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
+        <a href="mailto:mosaichostels@gmail.com">Email Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Mosaic Hostel. All rights reserved.</div>
+    <div class="footer-tile-strip" id="footerStrip"></div>
+    <div class="footer-copy">Made with ♥ in Varanasi</div>
+  </div>
+</footer>
+
 </body>
 </html>

@@ -5,3 +5,5 @@ images/hero-video.mp4
 *.png
 !images/mosaic-logo.png
 mosaichostels-audit/
+audit-output/
+HOSTINGER_CONFIG.md

@@ -1,26 +1,8 @@
 // components/navbar.js
 (function() {
-  const navbarHTML = `
-    <nav id="mainNav">
-      <div class="nav-logo">
-        <a href="/"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel"></a>
-      </div>
-      <div class="nav-links">
-        <a href="/" class="nav-link" data-page="home">Home</a>
-        <a href="/gallery" class="nav-link" data-page="gallery">Gallery</a>
-        <a href="/about" class="nav-link" data-page="about">About</a>
-        <a href="/contact" class="nav-link" data-page="contact">Contact</a>
-        <a href="/blog" class="nav-link" data-page="blog">Blog</a>
-      </div>
-      <button class="nav-hamburger" id="navHam" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-      <a href="/book-now" class="nav-book">Book Now</a>
-    </nav>
-  `;
-
   function init() {
-    const container = document.getElementById('navbar-container');
-    if (!container) return;
-    container.innerHTML = navbarHTML;
+    const nav = document.getElementById('mainNav');
+    if (!nav) return;
     highlightCurrentPage();
     setupMobileMenu();
     setupScroll();

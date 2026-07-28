@@ -135,7 +135,7 @@
   // ── MAPS DIALOG (about / contact / privacy) ──
   window.openMapsDialog = function (e) {
     e.preventDefault();
-    const addr = 'B1/85C, Assi Ghat Road, Varanasi, Uttar Pradesh 221005';
+    const addr = 'B1/85C, Assi Ghat Road, Anandbagh, Varanasi, Uttar Pradesh 221005';
     const choice = confirm('Open directions in:\n\nOK = Google Maps\nCancel = Apple Maps');
     if (choice) window.open(`https://maps.google.com/?q=${encodeURIComponent(addr)}`, '_blank');
     else window.open(`maps://maps.apple.com/?address=${encodeURIComponent(addr)}`);

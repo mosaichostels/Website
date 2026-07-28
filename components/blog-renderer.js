@@ -58,17 +58,35 @@ function extractExcerpt(markdown, length = 150) {
 }
 
 /**
- * Extract date from markdown frontmatter
- * Expects YAML frontmatter: ---\ndate: YYYY-MM-DD\n---
+ * Extract date from markdown (YAML frontmatter or inline format)
+ * Supports: YAML frontmatter (---\ndate: YYYY-MM-DD\n---) OR inline (**Published:** YYYY-MM-DD HH:MM:SS)
  * @param {string} markdown - Markdown content
  * @returns {string} Date (YYYY-MM-DD format) or empty string
  */
 function extractDate(markdown) {
+  // Try YAML frontmatter first
   const frontmatterMatch = markdown.match(/^---\n([\s\S]+?)\n---/);
-  if (!frontmatterMatch) return '';
+  if (frontmatterMatch) {
+    const dateMatch = frontmatterMatch[1].match(/date:\s*(.+?)$/m);
+    if (dateMatch) return dateMatch[1].trim();
+  }
 
-  const dateMatch = frontmatterMatch[1].match(/date:\s*(.+?)$/m);
-  return dateMatch ? dateMatch[1].trim() : '';
+  // Try inline format: **Published:** YYYY-MM-DD HH:MM:SS
+  const inlineMatch = markdown.match(/\*\*Published:\*\*\s+(\d{4}-\d{2}-\d{2})/);
+  if (inlineMatch) return inlineMatch[1];
+
+  return '';
+}
+
+/**
+ * Extract author from markdown (inline format)
+ * Supports: **Author:** Author Name
+ * @param {string} markdown - Markdown content
+ * @returns {string} Author name or empty string
+ */
+function extractAuthor(markdown) {
+  const authorMatch = markdown.match(/\*\*Author:\*\*\s+(.+?)$/m);
+  return authorMatch ? authorMatch[1].trim() : '';
 }
 
 /**
@@ -122,7 +140,10 @@ async function getAllBlogSlugs() {
     'assi-ghat-varanasi-complete-guide',
     'top-7-experiences-varanasi-traveler',
     'varanasi-solo-female-travelers-safety-travel-guide',
-    'why-assi-ghat-perfect-base-varanasi-stay'
+    'why-assi-ghat-perfect-base-varanasi-stay',
+    'backpackers-guide-assi-ghat-varanasi',
+    'hostel-near-assi-ghat-varanasi',
+    'things-to-do-varanasi-local-guide'
   ];
 
   return knownSlugs;
@@ -182,6 +203,7 @@ window.blogRenderer = {
   extractTitle,
   extractExcerpt,
   extractDate,
+  extractAuthor,
   slugToTitle,
   getBlogMetadata,
   getAllBlogSlugs,
