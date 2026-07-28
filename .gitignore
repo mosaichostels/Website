@@ -1,13 +1,31 @@
-images/hero-video.mp4
-.playwright-mcp/
-.claude/
-.code-review-graph/
-*.png
-!images/mosaic-logo.png
-mosaichostels-audit/
-audit-output/
-HOSTINGER_CONFIG.md
-# Backup files
+# Node/Build
+node_modules/
+dist/
+build/
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backups/temp
 *.bak
-*.tmp
+*.backup
 *~
+.tmp
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Deployment
+.htpasswd
+config/.htaccess.production
