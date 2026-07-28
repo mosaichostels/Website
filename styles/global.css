@@ -264,9 +264,9 @@ body:hover #cursor { opacity:1; }
   text-shadow:0 1px 8px rgba(0,0,0,0.9);
 }
 .hero-title {
-  font-family:'Cinzel',serif; font-size:44px; font-weight:400; color:white;
-  letter-spacing:2px; line-height:1.15; margin-bottom:24px;
-  text-shadow:0 2px 20px rgba(0,0,0,0.6);
+  font-family:'Jost',sans-serif; font-weight:300; font-size:13px;
+  letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,0.6);
+  margin-bottom:20px; text-shadow:0 1px 8px rgba(0,0,0,0.7);
 }
 .hero-tagline {
   font-size:14px; letter-spacing:2px; color:rgba(255,255,255,0.92);
@@ -878,7 +878,7 @@ footer { background:#1A1208; padding:100px 80px 28px; }
   .booking-title { font-size:44px; }
 }
 @media(max-width:767px) {
-  .hero-title { font-size:26px; letter-spacing:1px; margin-bottom:16px; }
+  .hero-title { font-size:11px; letter-spacing:2px; margin-bottom:14px; }
   .hero-tagline { font-size:13px; margin-bottom:28px; }
   .scroll-indicator { display:none; }
   .stats-band { flex-wrap:wrap; }
