@@ -199,7 +199,12 @@ async function getAllBlogSlugs() {
     'varanasi-airport-railway-to-assi-ghat-transfer-guide',
     'varanasi-backpacker-budget-daily-cost-breakdown',
     'is-varanasi-safe-general-guide',
-    'sarnath-day-trip-guide-varanasi'
+    'sarnath-day-trip-guide-varanasi',
+    'assi-ghat-vs-dashashwamedh-where-to-stay',
+    'dorm-vs-private-room-varanasi-hostel',
+    'varanasi-2-day-itinerary-backpackers',
+    'varanasi-3-5-day-itinerary-slow-travel',
+    'co-working-spaces-cafes-assi-ghat'
   ];
 
   return knownSlugs;
@@ -270,6 +275,36 @@ async function getAllBlogsMetadata() {
       slug: 'sarnath-day-trip-guide-varanasi',
       title: 'Sarnath Day Trip Guide from Varanasi',
       excerpt: 'Everything you need for a Sarnath day trip from Varanasi — how to get there, what to see, and how long to budget.',
+      date: '2026-07-29'
+    },
+    {
+      slug: 'assi-ghat-vs-dashashwamedh-where-to-stay',
+      title: 'Assi Ghat vs Dashashwamedh: Where Should You Stay in Varanasi?',
+      excerpt: 'Assi Ghat or Dashashwamedh - which neighborhood should you actually stay in? A direct, honest comparison for first-time visitors and backpackers.',
+      date: '2026-07-29'
+    },
+    {
+      slug: 'dorm-vs-private-room-varanasi-hostel',
+      title: 'Dorm vs Private Room in Varanasi: Which Should You Book?',
+      excerpt: 'Dorm or private room for your Varanasi stay? A practical breakdown of cost, privacy, and social trade-offs.',
+      date: '2026-07-29'
+    },
+    {
+      slug: 'varanasi-2-day-itinerary-backpackers',
+      title: '2-Day Varanasi Itinerary for Backpackers',
+      excerpt: 'A practical, hour-by-hour 2-day Varanasi itinerary covering the ghats, Sarnath, the old city lanes, and the Ganga Aarti.',
+      date: '2026-07-29'
+    },
+    {
+      slug: 'varanasi-3-5-day-itinerary-slow-travel',
+      title: '3-5 Day Varanasi Itinerary for Slow Travelers',
+      excerpt: 'A 3-5 day Varanasi itinerary for slow travelers and digital nomads who want to actually settle into the city.',
+      date: '2026-07-29'
+    },
+    {
+      slug: 'co-working-spaces-cafes-assi-ghat',
+      title: 'Co-working Spaces & Cafes Near Assi Ghat for Remote Work',
+      excerpt: 'Working remotely from Varanasi? A practical guide to reliable WiFi, cafes suited for laptop work, and how to actually get things done.',
       date: '2026-07-29'
     }
   ];
