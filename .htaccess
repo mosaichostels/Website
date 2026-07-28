@@ -72,6 +72,10 @@
   <FilesMatch "\.(woff|woff2|ttf|otf)$">
     Header set Cache-Control "public, max-age=31536000, immutable"
   </FilesMatch>
+
+  <FilesMatch "\.(md)$">
+    Header set Cache-Control "public, max-age=1800, must-revalidate"
+  </FilesMatch>
 </IfModule>
 
 # ════════ MIME TYPES ════════
@@ -79,6 +83,8 @@
   AddType video/webm .webm
   AddType video/mp4 .mp4
   AddType image/webp .webp
+  AddType text/markdown .md
+  AddEncoding gzip .md
 </IfModule>
 
 # ════════ LITESPEED CACHE (if available) ════════
@@ -115,6 +121,12 @@
     CacheEnable public
     CacheMaxAge 31536000
   </FilesMatch>
+
+  # Cache markdown files for 30 minutes
+  <FilesMatch "\.(md)$">
+    CacheEnable public
+    CacheMaxAge 1800
+  </FilesMatch>
 </IfModule>
 
 <IfModule mod_dir.c>
@@ -132,6 +144,9 @@
   # Don't rewrite if the request is for a real file or directory
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Don't rewrite markdown files or /blogs/ directory
+  RewriteCond %{REQUEST_URI} !/blogs/ [NC]
 
   # Rewrite clean URLs to .html files
   RewriteRule ^gallery/?$ gallery.html [QSA,L]
