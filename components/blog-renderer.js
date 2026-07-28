@@ -7,11 +7,21 @@
  * @returns {Promise<string>} Markdown content
  */
 async function loadMarkdownFile(slug) {
-  const response = await fetch(`/blogs/${slug}.md`);
-  if (!response.ok) {
-    throw new Error(`Failed to load blog post: ${slug}`);
+  const url = `/blogs/${slug}.md`;
+  console.log(`Fetching markdown from: ${url}`);
+  try {
+    const response = await fetch(url);
+    console.log(`Fetch response status: ${response.status} ${response.statusText}`);
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    const text = await response.text();
+    console.log(`Fetched ${text.length} bytes`);
+    return text;
+  } catch (error) {
+    console.error(`Fetch failed for ${url}:`, error);
+    throw new Error(`Failed to load blog post "${slug}": ${error.message}`);
   }
-  return await response.text();
 }
 
 /**
@@ -23,7 +33,12 @@ function parseMarkdown(markdown) {
   if (typeof marked === 'undefined') {
     throw new Error('marked.js library not loaded');
   }
-  return marked.parse(markdown);
+  try {
+    return marked.parse(markdown);
+  } catch (error) {
+    console.error('Error parsing markdown:', error);
+    throw new Error(`Markdown parsing failed: ${error.message}`);
+  }
 }
 
 /**
