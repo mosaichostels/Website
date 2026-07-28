@@ -5,3 +5,6 @@ service_account_credentials.json
 .gcp-*.json
 *.key
 *.pem
+
+# Automation runtime artifacts
+monitor-report.txt
