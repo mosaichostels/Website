@@ -112,8 +112,13 @@ jobs:
         run: git push origin HEAD:main
 
   deploy:
-    needs: fix
-    if: needs.fix.outputs.commit_made == 'true'
+    needs: [monitor, fix]
+    # Deploy whenever the monitor found anything, not just when fix made a
+    # commit: the most common failure mode is pure deploy drift (local repo
+    # already correct, a previous FTP push silently failed) — that case
+    # needs a redeploy with no code change, and fix will correctly make no
+    # commit for it. Redeploying current main is safe/idempotent either way.
+    if: needs.monitor.outputs.issues_found == 'true'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
