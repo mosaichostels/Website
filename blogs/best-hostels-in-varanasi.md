@@ -132,7 +132,9 @@ Varanasi rewards slow travel. The best hostel is not the cheapest one or the fla
 
 - [Assi Ghat, Varanasi — Complete Guide for Travelers](/blog/assi-ghat-varanasi-complete-guide)
 
-- [7 Must-Do Experiences in Varanasi](/blog/top-7-experiences-varanasi-traveler)
+- [Varanasi Airport & Railway Station to Assi Ghat: Transfer Guide](/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide)
+
+- [Varanasi Backpacker Budget: Daily Cost Breakdown](/blog/varanasi-backpacker-budget-daily-cost-breakdown)
 
 - [Varanasi for Solo Female Travellers — Honest Safety Guide](/blog/varanasi-solo-female-travelers-safety-travel-guide)
 

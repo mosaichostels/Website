@@ -54,9 +54,9 @@ The old city of Varanasi is a labyrinth of narrow lanes, temples, and markets. G
 
 **Transportation**: The city is walkable for main attractions. Tuk-tuks are ₹30–50 for short rides. Autorickshaws are safer for longer distances or if you're traveling solo at night.
 
-**Food Budget**: Street food is ₹20–50 per item. Restaurants near the ghats are ₹150–300 per dish. Eating where locals eat saves money.
+**Food Budget**: Street food is ₹20–50 per item. Restaurants near the ghats are ₹150–300 per dish. Eating where locals eat saves money. See our full [daily cost breakdown](/blog/varanasi-backpacker-budget-daily-cost-breakdown) for a complete budget picture.
 
-**Best Time to Visit**: October–March (winter). April–June is hot and uncomfortable. July–September is monsoon season.
+**Best Time to Visit**: October–March (winter). April–June is hot and uncomfortable. July–September is monsoon season. Our [month-by-month guide](/blog/best-time-to-visit-varanasi-month-by-month) covers festivals and crowd levels too.
 
 ## Solo Travelers & Female Travelers
 
@@ -67,7 +67,7 @@ Varanasi is safe for solo travelers and female backpackers, especially if you st
 - Use registered taxis or Uber for night travel
 - Join hostel group activities to meet other travelers
 
-Hostels on Assi Ghat are preferred by female solo travelers because the neighborhood is central, safe, and social.
+Hostels on Assi Ghat are preferred by female solo travelers because the neighborhood is central, safe, and social. Read our full [general safety guide](/blog/is-varanasi-safe-general-guide) or our [solo female travelers' guide](/blog/varanasi-solo-female-travelers-safety-travel-guide) for more detail.
 
 ## How Long to Stay?
 
@@ -79,7 +79,15 @@ Hostels on Assi Ghat are preferred by female solo travelers because the neighbor
 
 Things to do in Varanasi are endless, but they're best experienced with a local guide and from a well-located hostel near Assi Ghat. Mosaic Hostel puts you steps from the action, surrounded by community, and in the heart of Varanasi's backpacker scene.
 
-Book your stay at Mosaic today and start your Varanasi story.
+Book your stay at [Mosaic today](/book-now) and start your Varanasi story.
+
+### Read Next
+
+- [Sarnath Day Trip Guide from Varanasi](/blog/sarnath-day-trip-guide-varanasi)
+
+- [Varanasi Airport & Railway Station to Assi Ghat: Transfer Guide](/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide)
+
+- [Best Hostels in Varanasi — Honest Guide](/blog/best-hostels-in-varanasi)
 
 ---
 

@@ -25,7 +25,7 @@ Start at Assi Ghat before 6:00 AM and walk north. The city is quiet, the light i
 
 ## 4. Visiting Sarnath
 
-Sarnath, 10 km north of Varanasi, is where the Buddha delivered his first sermon after achieving enlightenment. The site includes the Dhamek Stupa (a 43-metre brick stupa dating to 500 CE), the ruins of the ancient monastery, and an excellent museum containing the original Ashoka lion capital — the basis for India's national emblem. Allow two to three hours. Auto-rickshaw from Assi Ghat costs Rs 250-350 return.
+Sarnath, 10 km north of Varanasi, is where the Buddha delivered his first sermon after achieving enlightenment. The site includes the Dhamek Stupa (a 43-metre brick stupa dating to 500 CE), the ruins of the ancient monastery, and an excellent museum containing the original Ashoka lion capital — the basis for India's national emblem. Allow two to three hours. Auto-rickshaw from Assi Ghat costs Rs 250-350 return. See our full [Sarnath day trip guide](/blog/sarnath-day-trip-guide-varanasi) for more detail.
 
 ## 5. A Varanasi Street Food Walk
 
@@ -48,6 +48,8 @@ This one is the hardest to put on a list but the most important. Varanasi reward
 - [Lonely Planet Varanasi](https://www.lonelyplanet.com/india)
 
 ### Read Next
+
+- [Sarnath Day Trip Guide from Varanasi](/blog/sarnath-day-trip-guide-varanasi)
 
 - [Assi Ghat, Varanasi — Complete Guide for Travelers](/blog/assi-ghat-varanasi-complete-guide)
 

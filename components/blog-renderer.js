@@ -194,7 +194,12 @@ async function getAllBlogSlugs() {
     'assi-ghat-varanasi-complete-guide',
     'top-7-experiences-varanasi-traveler',
     'varanasi-solo-female-travelers-safety-travel-guide',
-    'things-to-do-varanasi-local-guide'
+    'things-to-do-varanasi-local-guide',
+    'best-time-to-visit-varanasi-month-by-month',
+    'varanasi-airport-railway-to-assi-ghat-transfer-guide',
+    'varanasi-backpacker-budget-daily-cost-breakdown',
+    'is-varanasi-safe-general-guide',
+    'sarnath-day-trip-guide-varanasi'
   ];
 
   return knownSlugs;
@@ -236,6 +241,36 @@ async function getAllBlogsMetadata() {
       title: 'Things to Do in Varanasi: Local\'s Guide',
       excerpt: 'Our curated guide to the best things to do in Varanasi — sacred ghats, temples, old-city lanes, and hidden experiences backpackers discover through Mosaic Hostel.',
       date: '2026-07-26'
+    },
+    {
+      slug: 'best-time-to-visit-varanasi-month-by-month',
+      title: 'Best Time to Visit Varanasi: Month-by-Month Guide',
+      excerpt: 'When is the best time to visit Varanasi? A month-by-month breakdown of weather, festivals, and crowd levels including Dev Deepawali and Holi.',
+      date: '2026-07-29'
+    },
+    {
+      slug: 'varanasi-airport-railway-to-assi-ghat-transfer-guide',
+      title: 'Varanasi Airport & Railway Station to Assi Ghat: Transfer Guide',
+      excerpt: 'How to get from Varanasi\'s airport or railway station to Assi Ghat — routes, timing, and realistic pricing.',
+      date: '2026-07-29'
+    },
+    {
+      slug: 'varanasi-backpacker-budget-daily-cost-breakdown',
+      title: 'Varanasi Backpacker Budget: Daily Cost Breakdown',
+      excerpt: 'How much does a day in Varanasi cost? A realistic daily budget breakdown for backpackers across three budget tiers.',
+      date: '2026-07-29'
+    },
+    {
+      slug: 'is-varanasi-safe-general-guide',
+      title: 'Is Varanasi Safe? A General Safety Guide for Every Traveler',
+      excerpt: 'Is Varanasi safe to visit? An honest general safety guide covering touts, scams, and health precautions.',
+      date: '2026-07-29'
+    },
+    {
+      slug: 'sarnath-day-trip-guide-varanasi',
+      title: 'Sarnath Day Trip Guide from Varanasi',
+      excerpt: 'Everything you need for a Sarnath day trip from Varanasi — how to get there, what to see, and how long to budget.',
+      date: '2026-07-29'
     }
   ];
 
