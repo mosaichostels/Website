@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Post — Mosaic Hostel Varanasi</title>
+<link id="canonical" rel="canonical" href="">
+<meta id="post-meta-description" name="description" content="Blog post from Mosaic Hostel Varanasi">
+<meta id="post-og-description" property="og:description" content="Blog post from Mosaic Hostel Varanasi">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/global.css">
+
+<!-- BreadcrumbList Schema (slug-based, updated dynamically in JS) -->
+<script id="breadcrumb-schema" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "@id": "https://www.mosaichostels.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "@id": "https://www.mosaichostels.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Post Title",
+      "@id": "https://www.mosaichostels.com/blog/post-slug"
+    }
+  ]
+}
+</script>
+</head>
+<body class="blog-post-page">
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+<div id="progress"></div>
+
+<!-- ── NAV ── -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <a href="/"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="120" height="40" loading="lazy"></a>
+  </div>
+  <div class="nav-links">
+    <a href="/" class="nav-link" data-page="home">Home</a>
+    <a href="/gallery" class="nav-link" data-page="gallery">Gallery</a>
+    <a href="/about" class="nav-link" data-page="about">About</a>
+    <a href="/contact" class="nav-link" data-page="contact">Contact</a>
+    <a href="/blog" class="nav-link" data-page="blog">Blog</a>
+  </div>
+  <button class="nav-hamburger" id="navHam" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <a href="/book-now" class="nav-book">Book Now</a>
+</nav>
+
+<!-- ── PAGE HERO ── -->
+<div class="page-hero">
+  <div class="page-hero-stripe" id="heroStripe"></div>
+  <div class="page-hero-content">
+    <div class="page-eyebrow">Blog</div>
+    <div class="page-title" id="post-title">Loading...</div>
+    <div class="page-sub" id="post-date"></div>
+  </div>
+</div>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div0"></div>
+
+<!-- ── MAIN CONTENT ── -->
+<main id="main" class="blog-post-content">
+  <div id="post-error" class="post-error" style="display:none;"></div>
+  <div id="post-body">
+    <!-- Blog post HTML injected here by JS -->
+  </div>
+</main>
+
+<!-- TILE DIVIDER -->
+<div class="tile-accent" id="div1"></div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" style="display:block;height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:16px;">
+      <p class="footer-tagline">A hostel rooted in community, warmth, and the spirit of Varanasi. Every guest who stays becomes part of our story.</p>
+    </div>
+    <div></div>
+    <div>
+      <div class="footer-heading">Explore</div>
+      <div class="footer-links">
+        <a href="/gallery">Gallery</a>
+        <a href="/about">About Us</a>
+        <a href="/blog">Blog</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+        <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
+        <a href="mailto:mosaichostels@gmail.com">Email Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Mosaic Hostel. All rights reserved.</div>
+    <div class="footer-tile-strip" id="footerStrip"></div>
+    <div class="footer-copy">Made with ♥ in Varanasi</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" integrity="sha384-948ahk4ZmxYVYOc+rxN1H2gM1EJ2Duhp7uHtZ4WSLkV4Vtx5MUqnV+l7u9B+jFv+" crossorigin="anonymous"></script>
+<script src="/components/blog-renderer.js"></script>
+
+<script>
+// ── HERO STRIPE AND DIVIDERS ──
+const LOGO_COLORS=['#C8860A','#8B1A1A','#1A6B7A','#1A3A6B','#5C3A1E','#E8B84B','#3D6B3A','#A02020','#2D9AAA','#7A4F2A'];
+
+function fillStrip(el,cols){
+  if(!el)return;
+  cols.forEach(c=>{
+    const s=document.createElement('span');
+    s.style.flex='1';
+    s.style.background=c;
+    el.appendChild(s);
+  });
+}
+
+function fillById(id,cols){
+  fillStrip(document.getElementById(id),cols);
+}
+
+fillById('heroStripe',LOGO_COLORS);
+fillById('div0',LOGO_COLORS);
+fillById('div1',LOGO_COLORS);
+
+// ── CONSOLE LOG CAPTURE (for debugging) ──
+const consoleLogs = [];
+const originalLog = console.log;
+const originalError = console.error;
+
+console.log = function(...args) {
+  originalLog.apply(console, args);
+  consoleLogs.push({ type: 'log', msg: args.join(' '), time: new Date().toISOString() });
+};
+
+console.error = function(...args) {
+  originalError.apply(console, args);
+  consoleLogs.push({ type: 'error', msg: args.join(' '), time: new Date().toISOString() });
+};
+
+window.showConsoleLogs = function() {
+  console.log('=== CAPTURED CONSOLE LOGS ===');
+  consoleLogs.forEach(log => {
+    console.log(`[${log.type.toUpperCase()}] ${log.time}: ${log.msg}`);
+  });
+};
+
+// ── CUSTOM CURSOR ──
+const cur=document.getElementById('cursor'),
+      ring=document.getElementById('cursor-ring');
+
+document.addEventListener('mousemove',e=>{
+  cur.style.left=e.clientX+'px';
+  cur.style.top=e.clientY+'px';
+  ring.style.left=e.clientX+'px';
+  ring.style.top=e.clientY+'px';
+});
+
+document.querySelectorAll('a,button,input,select,textarea').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    cur.style.width='18px';
+    cur.style.height='18px';
+    ring.style.width='48px';
+    ring.style.height='48px';
+  });
+  el.addEventListener('mouseleave',()=>{
+    cur.style.width='10px';
+    cur.style.height='10px';
+    ring.style.width='36px';
+    ring.style.height='36px';
+  });
+});
+
+// ── SCROLL PROGRESS ──
+const prog=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  const scrollPercent = (window.scrollY/(document.body.scrollHeight-window.innerHeight))*100;
+  prog.style.width=scrollPercent+'%';
+},{passive:true});
+
+// ── SCROLL REVEAL ──
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting)e.target.classList.add('visible');
+  });
+},{threshold:0.1});
+
+// ── RENDER INDIVIDUAL BLOG POST ──
+async function renderBlogPost() {
+  console.log('[renderBlogPost] Starting...');
+
+  // Get slug from URL query parameter (?slug=...) or from path (/blog/slug)
+  let slug = new URLSearchParams(window.location.search).get('slug');
+  console.log('[renderBlogPost] Slug from query string:', slug);
+
+  // If not in query string, extract from URL path
+  if (!slug) {
+    const pathSegments = window.location.pathname.split('/').filter(Boolean);
+    console.log('[renderBlogPost] Path segments:', pathSegments);
+    // Path: /blog/slug → pathSegments: ['blog', 'slug']
+    if (pathSegments.length >= 2 && pathSegments[0] === 'blog') {
+      slug = pathSegments[1];
+      console.log('[renderBlogPost] Slug from path:', slug);
+    }
+  }
+
+  if (!slug) {
+    console.error('[renderBlogPost] No slug found!');
+    showError('No blog post specified. <a href="/blog">Back to blog</a>');
+    return;
+  }
+
+  console.log('[renderBlogPost] Final slug:', slug);
+
+  // Wait for blog-renderer to be available
+  if (!window.blogRenderer) {
+    console.error('[renderBlogPost] window.blogRenderer not available!');
+    showError('Blog renderer not loaded. <a href="/blog">Back to blog</a>');
+    return;
+  }
+
+  console.log('[renderBlogPost] window.blogRenderer is available');
+
+  try {
+    // Load markdown
+    console.log('[renderBlogPost] Calling loadMarkdownFile...');
+    const markdown = await window.blogRenderer.loadMarkdownFile(slug);
+    console.log('[renderBlogPost] Got markdown, length:', markdown.length);
+
+    // Extract metadata
+    const title = window.blogRenderer.extractTitle(markdown,
+      window.blogRenderer.slugToTitle(slug));
+    const date = window.blogRenderer.extractDate(markdown) || 'Undated';
+    const author = window.blogRenderer.extractAuthor(markdown) || 'Mosaic Hostel Team';
+
+    // Parse markdown to HTML
+    const html = window.blogRenderer.parseMarkdown(markdown);
+    const excerpt = window.blogRenderer.extractExcerpt(markdown, 155);
+
+    // Update page title and hero
+    document.title = `${title} — Mosaic Hostel Varanasi`;
+    document.getElementById('post-title').textContent = title;
+    document.getElementById('post-date').textContent = `${date} • By ${author}`;
+
+    // Update meta description + og:description dynamically
+    document.getElementById('post-meta-description').content = excerpt;
+    document.getElementById('post-og-description').content = excerpt;
+
+    // Update breadcrumb schema with post title and slug
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "@id": "https://www.mosaichostels.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "@id": "https://www.mosaichostels.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": title,
+          "@id": `https://www.mosaichostels.com/blog/${slug}`
+        }
+      ]
+    };
+    const breadcrumbScript = document.getElementById('breadcrumb-schema');
+    if (breadcrumbScript) {
+      breadcrumbScript.textContent = JSON.stringify(breadcrumbSchema);
+    }
+
+    // Inject HTML
+    const postBody = document.getElementById('post-body');
+    postBody.innerHTML = html;
+
+    // Add BlogPosting schema for SEO
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": title,
+      "author": {
+        "@type": "Organization",
+        "name": author || "Mosaic Hostel Varanasi"
+      },
+      "datePublished": date,
+      "dateModified": date,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://www.mosaichostels.com/blog/${slug}`
+      },
+      "image": "https://www.mosaichostels.com/images/IMG_1928.JPG",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Mosaic Hostel Varanasi",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.mosaichostels.com/images/IMG_1928.JPG"
+        }
+      }
+    };
+
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.textContent = JSON.stringify(schema);
+    document.head.appendChild(schemaScript);
+
+    // Add reveal class to all paragraphs for scroll animation
+    postBody.querySelectorAll('p, h2, h3, blockquote, ul, ol, table, pre').forEach(el => {
+      el.classList.add('reveal');
+      obs.observe(el);
+    });
+
+    // Update address bar to clean URL and set canonical tag
+    if (slug) {
+      window.history.replaceState(
+        { slug: slug, page: 'blog-post' },
+        document.title,
+        `/blog/${slug}`
+      );
+      // Update canonical link for SEO
+      document.getElementById('canonical').href = `/blog/${slug}`;
+    }
+
+  } catch (error) {
+    console.error('[renderBlogPost] CAUGHT ERROR');
+    console.error('[renderBlogPost] Error type:', error.constructor.name);
+    console.error('[renderBlogPost] Error message:', error.message);
+    console.error('[renderBlogPost] Full error:', error);
+    console.error('[renderBlogPost] Stack:', error.stack);
+    showError(`Error loading blog post.<br><a href="/blog">Back to blog</a>`);
+  }
+}
+
+function showError(message) {
+  const errorEl = document.getElementById('post-error');
+
+  // Add debug info from console logs
+  let debugInfo = `<details style="margin-top:20px;font-size:12px;opacity:0.7;">
+    <summary>Debug Info (click to expand)</summary>
+    <pre style="background:#f0f0f0;padding:10px;max-height:200px;overflow:auto;">`;
+
+  consoleLogs.forEach(log => {
+    debugInfo += `[${log.type.toUpperCase()}] ${log.time}\n${log.msg}\n\n`;
+  });
+
+  debugInfo += `</pre></details>`;
+
+  errorEl.innerHTML = message + debugInfo;
+  errorEl.style.display = 'block';
+  document.getElementById('post-body').style.display = 'none';
+}
+
+// Render post when page loads (wait for blog-renderer to load)
+function renderWhenReady() {
+  if (window.blogRenderer) {
+    renderBlogPost();
+  } else {
+    // Retry in 50ms if blog-renderer not yet loaded
+    setTimeout(renderWhenReady, 50);
+  }
+}
+document.addEventListener('DOMContentLoaded', renderWhenReady);
+</script>
+
+<script src="/components/navbar.js"></script>
+<script src="/components/footer.js"></script>
+</body>
+</html>
