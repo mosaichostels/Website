@@ -3,10 +3,12 @@
 
 set -e
 
-# Configuration
-FTP_HOST="147.93.17.169"
-FTP_USER="u738123768.mosaichostels"
-FTP_PASS="[REDACTED-FTP-PASSWORD]"
+# Configuration — credentials must be supplied via environment variables
+# (e.g. `export FTP_HOST=... FTP_USER=... FTP_PASS=...` locally, or as
+# GitHub Actions secrets in CI). Never hardcode credentials here.
+: "${FTP_HOST:?FTP_HOST environment variable is required}"
+: "${FTP_USER:?FTP_USER environment variable is required}"
+: "${FTP_PASS:?FTP_PASS environment variable is required}"
 FTP_TIMEOUT="30"
 
 # Colors for output
@@ -66,7 +68,13 @@ trap "rm -f $BATCH_FILE" EXIT
       if [ "$remote_dir" = "." ]; then
         echo "put $file"
       else
-        echo "put $file $remote_dir/"
+        # NOTE: `put file dir/` (positional remote arg) silently fails to
+        # create missing nested directories on this server and falls back
+        # to writing the basename into the current remote directory —
+        # this is what corrupted the live homepage once already. `-O`
+        # explicitly sets the output directory and is the reliable form.
+        echo "mkdir -p $remote_dir"
+        echo "put -O $remote_dir $file"
       fi
     fi
   done
