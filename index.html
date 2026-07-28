@@ -6,6 +6,8 @@
 <title>Mosaic Hostel Varanasi — Budget Hostel near Assi Ghat</title>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles/global.css">
 <link rel="canonical" href="https://www.mosaichostels.com/">
@@ -85,9 +87,21 @@
 <div id="cursor-ring"></div>
 
 <!-- ════════ NAV (injected by navbar.js) ════════ -->
-<div id="navbar-container"></div>
-
-<h1 class="visually-hidden">Budget Hostel in Varanasi near Assi Ghat</h1>
+<!-- ── NAV ── -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <a href="/"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="120" height="40" loading="lazy"></a>
+  </div>
+  <div class="nav-links">
+    <a href="/" class="nav-link" data-page="home">Home</a>
+    <a href="/gallery" class="nav-link" data-page="gallery">Gallery</a>
+    <a href="/about" class="nav-link" data-page="about">About</a>
+    <a href="/contact" class="nav-link" data-page="contact">Contact</a>
+    <a href="/blog" class="nav-link" data-page="blog">Blog</a>
+  </div>
+  <button class="nav-hamburger" id="navHam" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <a href="/book-now" class="nav-book">Book Now</a>
+</nav>
 
 <!-- ════════ HERO ════════ -->
 <section class="hero">
@@ -107,6 +121,7 @@
       <div class="tile-icon" id="heroTileR"></div>
     </div>
 
+    <h1 class="hero-title">Budget Hostel in Varanasi<br>near Assi Ghat</h1>
     <p class="hero-tagline">Each guest is a piece. Each story is a tile.<br>Together, we make something beautiful.</p>
     <div class="hero-divider" id="heroDivider"></div>
   </div>
@@ -237,7 +252,7 @@
   <div class="booking-content reveal">
     <div class="booking-eyebrow">Ready to Stay?</div>
     <div class="booking-title">Begin Your <span>Mosaic</span> Story</div>
-    <div class="booking-sub">Varanasi · India · Est. 2025</div>
+    <div class="booking-sub">Dorms from ₹499/night · Private rooms from ₹1,500/night</div>
     <div class="booking-btns">
       <a class="btn-gold" href="/book-now">Book Your Stay</a>
       <a class="btn-outline-light" href="/contact">Get in Touch</a>
@@ -259,7 +274,43 @@
 </div>
 
 <!-- ════════ FOOTER (injected by footer.js) ════════ -->
-<div id="footer-container"></div>
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="110" height="110" style="display:block;height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:16px;">
+      <p class="footer-tagline">A hostel rooted in community, warmth, and the spirit of Varanasi. Every guest who stays becomes part of our story.</p>
+      <p style="font-size:12px;line-height:1.5;margin-top:12px;opacity:0.7;">
+        <strong>B1/85C, Assi Ghat Road, Anandbagh, Varanasi, UP 221005</strong><br>
+        +91 91254 92225
+      </p>
+    </div>
+    <div></div>
+    <div>
+      <div class="footer-heading">Explore</div>
+      <div class="footer-links">
+        <a href="/gallery">Gallery</a>
+        <a href="/about">About Us</a>
+        <a href="/blog">Blog</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+        <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
+        <a href="mailto:mosaichostels@gmail.com">Email Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Mosaic Hostel. All rights reserved.</div>
+    <div class="footer-tile-strip" id="footerStrip"></div>
+    <div class="footer-copy">Made with ♥ in Varanasi</div>
+  </div>
+</footer>
 
     <script src="/components/site.js"></script>
     <script src="/components/home.js"></script>

@@ -56,22 +56,22 @@ Assi Ghat suits travelers who want to be in Varanasi rather than just pass throu
 
 If you are a backpacker looking for budget accommodation in an authentic neighborhood, a solo traveler seeking a safe and intellectual environment, or a digital nomad needing reliable WiFi and community — Assi Ghat is your corner of Varanasi.
 
-## Where to Stay: Mosaic Hostel
+## Where to Stay: [Mosaic Hostel](/book-now)
 
 Mosaic Hostel sits a short walk from Assi Ghat and has been a trusted base for travelers since 2025. The hostel offers private rooms and dorms, with AC, WiFi, and secure storage. The team is deeply embedded in the local area and can help you make the most of your time in the neighborhood and across the city.
 
 **Check-in:** 1:00 PM | **Check-out:** 10:30 AM  
 **Dorms from:** ₹499 per night | **Private rooms from:** ₹1,500 per night
 
-Contact Mosaic directly for the best rates and to ask anything about Assi Ghat and the city:
-- Email: mosaichostels@gmail.com
-- WhatsApp: +91 91254 92225
+[Book direct](/book-now) for the best rates, or contact Mosaic directly to ask anything about Assi Ghat and the city:
+- Email: [mosaichostels@gmail.com](mailto:mosaichostels@gmail.com)
+- WhatsApp: [+91 91254 92225](https://wa.me/919125492225)
 
 ### Further Reading
 
-- Lonely Planet Varanasi guide
-- Banaras Hindu University
-- Incredible India
+- [Lonely Planet Varanasi guide](https://www.lonelyplanet.com/india)
+- [Banaras Hindu University](https://www.bhu.ac.in/)
+- [Incredible India](https://www.incredibleindia.gov.in/)
 
 ---
 

@@ -4,13 +4,13 @@
 
 **Author:** Mosaic Hostel Team, Varanasi
 
-Varanasi is not a city you visit — it's a city that visits you, long after you leave. If this is your first time in India, or your first time in one of the world's oldest living cities, you'll want a guide. We've curated the best things to do in Varanasi, including hidden spots that backpackers and solo travelers discover only when they stay at a hostel like Mosaic, where our team knows the city by heart.
+Varanasi is not a city you visit — it's a city that visits you, long after you leave. If this is your first time in India, or your first time in one of the world's oldest living cities, you'll want a guide. We've curated the best things to do in Varanasi, including hidden spots that backpackers and solo travelers discover only when they stay at a hostel like [Mosaic](/book-now), where our team knows the city by heart.
 
 ## The Sacred Ghats: Where Varanasi Comes Alive
 
 No visit to Varanasi is complete without experiencing the ghats — the 80+ stone steps that descend to the Ganga River. Each ghat has its own character, and spending time on them is essential for understanding Varanasi's spiritual pulse.
 
-**Assi Ghat** (our neighborhood) is perfect for first-time visitors and solo travelers. It's the southernmost ghat, quieter than Dashaswamedh, and the heart of the backpacker community. If you stay at Mosaic Hostel on Assi Ghat, you're already in the middle of it. Walk down in the morning, watch locals bathing and performing rituals, and grab chai from one of the tea stalls. The morning light here is unforgettable.
+**[Assi Ghat](/blog/assi-ghat-varanasi-complete-guide)** (our neighborhood) is perfect for first-time visitors and solo travelers. It's the southernmost ghat, quieter than Dashaswamedh, and the heart of the backpacker community. If you stay at Mosaic Hostel on Assi Ghat, you're already in the middle of it. Walk down in the morning, watch locals bathing and performing rituals, and grab chai from one of the tea stalls. The morning light here is unforgettable.
 
 **Dashaswamedh Ghat** is where the famous Ganga Aarti happens every evening at sunset. This is *the* experience — hundreds gather, priests chant, massive fire lamps are swung, and the entire ritual lasts 45 minutes. Budget travelers and female solo travelers often stay at Assi Ghat to be close to Dashaswamedh, just a 10-minute walk away.
 

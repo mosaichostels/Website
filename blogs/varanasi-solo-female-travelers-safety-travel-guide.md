@@ -17,7 +17,7 @@ With preparation and awareness, yes. Varanasi is visited by thousands of solo fe
 
 ## Where to Stay
 
-Choosing the right accommodation matters more in Varanasi than in most cities. The Assi Ghat area is generally safer and calmer than the areas near Dashashwamedh or the main ghats. Mosaic Hostel offers a dedicated 6-bed female dorm in addition to private rooms — a safe, social environment with 24-hour security and a team that guests consistently describe as respectful and helpful. Staying in a social hostel also means you can find walking companions for early morning or evening outings if you prefer not to go alone.
+Choosing the right accommodation matters more in Varanasi than in most cities. The Assi Ghat area is generally safer and calmer than the areas near Dashashwamedh or the main ghats. [Mosaic Hostel](/book-now) offers a dedicated 6-bed female dorm in addition to private rooms — a safe, social environment with 24-hour security and a team that guests consistently describe as respectful and helpful. Staying in a social hostel also means you can find walking companions for early morning or evening outings if you prefer not to go alone.
 
 ## Dress Code
 
@@ -45,17 +45,15 @@ Other travellers — at the hostel, on the ghats, at the cafes — are one of yo
 
 ### Further Reading
 
-- Lonely Planet India travel advice
+- [Lonely Planet India travel advice](https://www.lonelyplanet.com/india)
 
-- Incredible India
+- [Incredible India](https://www.incredibleindia.gov.in/)
 
 ### Read Next
 
-- Best Time to Visit Varanasi — Month by Month
+- [Staying Near Assi Ghat — What to Expect](/blog/hostel-near-assi-ghat-varanasi)
 
-- Staying Near Assi Ghat — What to Expect
-
-- Backpacker's Complete Guide to Assi Ghat
+- [Backpacker's Complete Guide to Assi Ghat](/blog/backpackers-guide-assi-ghat-varanasi)
 
 ---
 
