@@ -354,8 +354,8 @@ body:hover #cursor { opacity:1; }
 
 /* Experience */
 .experience { position:relative; height:520px; display:flex; align-items:center; overflow:hidden; }
-.experience picture { position:absolute; inset:0; width:100%; height:100%; z-index:0; }
-.exp-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform 0.1s linear; }
+.experience picture { position:absolute; inset:0; width:100%; height:100%; z-index:0; display:block; }
+.exp-photo { width:100%; height:100%; object-fit:cover; transition:transform 0.1s linear; display:block; }
 .exp-overlay { position:absolute; inset:0; background:linear-gradient(90deg,rgba(26,18,8,0.88) 0%,rgba(26,18,8,0.55) 50%,transparent 100%); z-index:1; }
 .exp-content { position:relative; z-index:2; padding:0 100px; max-width:560px; }
 .exp-eyebrow { font-size:10px; letter-spacing:6px; text-transform:uppercase; color:var(--gold-lt); margin-bottom:20px; }
