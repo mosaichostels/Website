@@ -1,0 +1,92 @@
+#!/bin/bash
+# Reliable FTP deployment script for Mosaic Hostel Website
+
+set -e
+
+# Configuration
+FTP_HOST="147.93.17.169"
+FTP_USER="u738123768.mosaichostels"
+FTP_PASS="[REDACTED-FTP-PASSWORD]"
+FTP_TIMEOUT="30"
+
+# Colors for output
+GREEN='\033[0;32m'
+RED='\033[0;31m'
+YELLOW='\033[1;33m'
+NC='\033[0m' # No Color
+
+echo -e "${YELLOW}🚀 Starting deployment to Hostinger...${NC}"
+
+# Get list of changed files
+if [ -z "$1" ]; then
+  echo "Usage: ./deploy.sh [file1] [file2] ... or 'all' for everything"
+  echo ""
+  echo "Examples:"
+  echo "  ./deploy.sh styles/global.css          # Deploy CSS only"
+  echo "  ./deploy.sh index.html book-now.html   # Deploy specific HTML files"
+  echo "  ./deploy.sh all                        # Deploy all files"
+  exit 1
+fi
+
+# Build file list
+FILES_TO_DEPLOY=()
+
+if [ "$1" = "all" ]; then
+  echo -e "${YELLOW}Deploying ALL files...${NC}"
+  FILES_TO_DEPLOY=($(find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.webp" -o -name "*.jpg" -o -name "*.png" \) -not -path "./.git/*" -not -path "./.github/*"))
+else
+  FILES_TO_DEPLOY=("$@")
+fi
+
+echo -e "${YELLOW}Files to deploy: ${#FILES_TO_DEPLOY[@]}${NC}"
+for file in "${FILES_TO_DEPLOY[@]}"; do
+  echo "  - $file"
+done
+
+echo ""
+echo -e "${YELLOW}Connecting to FTP...${NC}"
+
+# Create lftp batch file
+BATCH_FILE=$(mktemp)
+trap "rm -f $BATCH_FILE" EXIT
+
+{
+  echo "set ssl:verify-certificate no"
+  echo "set net:timeout $FTP_TIMEOUT"
+  echo "set net:max-retries 2"
+  echo "open $FTP_HOST"
+  echo "user $FTP_USER $FTP_PASS"
+  echo ""
+
+  # Upload each file
+  for file in "${FILES_TO_DEPLOY[@]}"; do
+    if [ -f "$file" ]; then
+      # Get remote directory
+      remote_dir=$(dirname "$file")
+      if [ "$remote_dir" = "." ]; then
+        echo "put $file"
+      else
+        echo "put $file $remote_dir/"
+      fi
+    fi
+  done
+
+  echo ""
+  echo "quit"
+} > "$BATCH_FILE"
+
+# Execute FTP deployment
+if lftp -f "$BATCH_FILE" 2>&1; then
+  echo -e "${GREEN}✅ Deployment successful!${NC}"
+  echo ""
+  echo "Deployed files:"
+  for file in "${FILES_TO_DEPLOY[@]}"; do
+    if [ -f "$file" ]; then
+      echo -e "${GREEN}  ✓${NC} $file"
+    fi
+  done
+  exit 0
+else
+  echo -e "${RED}❌ Deployment failed!${NC}"
+  exit 1
+fi
