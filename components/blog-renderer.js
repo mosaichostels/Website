@@ -239,6 +239,24 @@ async function getAllBlogsMetadata() {
       title: 'Why Assi Ghat is the Perfect Base for Your Varanasi Stay',
       excerpt: 'Why experienced travelers choose Assi Ghat over other neighbourhoods in Varanasi — location benefits, atmosphere, and local access.',
       date: '2026-03-15'
+    },
+    {
+      slug: 'backpackers-guide-assi-ghat-varanasi',
+      title: 'Backpacker\'s Complete Guide to Assi Ghat, Varanasi',
+      excerpt: 'Complete backpacker\'s guide to Assi Ghat, Varanasi — morning ceremonies, boat rides, chai spots, walking routes, and where to stay.',
+      date: '2026-04-28'
+    },
+    {
+      slug: 'hostel-near-assi-ghat-varanasi',
+      title: 'Staying Near Assi Ghat, Varanasi — What to Expect',
+      excerpt: 'Staying near Assi Ghat, Varanasi? Here\'s exactly what to expect — the neighbourhood, morning rituals, local food, and where to stay.',
+      date: '2026-04-14'
+    },
+    {
+      slug: 'things-to-do-varanasi-local-guide',
+      title: 'Things to Do in Varanasi: Local\'s Guide',
+      excerpt: 'Our curated guide to the best things to do in Varanasi — sacred ghats, temples, old-city lanes, and hidden experiences backpackers discover through Mosaic Hostel.',
+      date: '2026-07-26'
     }
   ];
 
