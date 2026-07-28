@@ -194,9 +194,6 @@ async function getAllBlogSlugs() {
     'assi-ghat-varanasi-complete-guide',
     'top-7-experiences-varanasi-traveler',
     'varanasi-solo-female-travelers-safety-travel-guide',
-    'why-assi-ghat-perfect-base-varanasi-stay',
-    'backpackers-guide-assi-ghat-varanasi',
-    'hostel-near-assi-ghat-varanasi',
     'things-to-do-varanasi-local-guide'
   ];
 
@@ -219,8 +216,8 @@ async function getAllBlogsMetadata() {
     {
       slug: 'assi-ghat-varanasi-complete-guide',
       title: 'Assi Ghat, Varanasi — Complete Guide for Travelers',
-      excerpt: 'The definitive guide to Assi Ghat, Varanasi — geography, atmosphere, practical information, and why it\'s the best base for travelers.',
-      date: '2026-06-15'
+      excerpt: 'The definitive guide to Assi Ghat, Varanasi — geography, atmosphere, boat rides, chai spots, and why it\'s the best base for travelers.',
+      date: '2026-07-29'
     },
     {
       slug: 'top-7-experiences-varanasi-traveler',
@@ -233,24 +230,6 @@ async function getAllBlogsMetadata() {
       title: 'Varanasi for Solo Female Travelers — Safety & Practical Guide',
       excerpt: 'Complete guide for women traveling solo in Varanasi — safety considerations, neighbourhood recommendations, and practical information.',
       date: '2026-05-10'
-    },
-    {
-      slug: 'why-assi-ghat-perfect-base-varanasi-stay',
-      title: 'Why Assi Ghat is the Perfect Base for Your Varanasi Stay',
-      excerpt: 'Why experienced travelers choose Assi Ghat over other neighbourhoods in Varanasi — location benefits, atmosphere, and local access.',
-      date: '2026-03-15'
-    },
-    {
-      slug: 'backpackers-guide-assi-ghat-varanasi',
-      title: 'Backpacker\'s Complete Guide to Assi Ghat, Varanasi',
-      excerpt: 'Complete backpacker\'s guide to Assi Ghat, Varanasi — morning ceremonies, boat rides, chai spots, walking routes, and where to stay.',
-      date: '2026-04-28'
-    },
-    {
-      slug: 'hostel-near-assi-ghat-varanasi',
-      title: 'Staying Near Assi Ghat, Varanasi — What to Expect',
-      excerpt: 'Staying near Assi Ghat, Varanasi? Here\'s exactly what to expect — the neighbourhood, morning rituals, local food, and where to stay.',
-      date: '2026-04-14'
     },
     {
       slug: 'things-to-do-varanasi-local-guide',
