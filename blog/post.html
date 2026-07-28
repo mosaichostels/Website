@@ -5,17 +5,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog Post — Mosaic Hostel Varanasi</title>
 <link id="canonical" rel="canonical" href="">
-<meta name="description" content="Blog post from Mosaic Hostel Varanasi">
+<meta id="post-meta-description" name="description" content="Blog post from Mosaic Hostel Varanasi">
+<meta id="post-og-description" property="og:description" content="Blog post from Mosaic Hostel Varanasi">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles/global.css">
+
+<!-- BreadcrumbList Schema (slug-based, updated dynamically in JS) -->
+<script id="breadcrumb-schema" type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "@id": "https://www.mosaichostels.com"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "@id": "https://www.mosaichostels.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Post Title",
+      "@id": "https://www.mosaichostels.com/blog/post-slug"
+    }
+  ]
+}
+</script>
 </head>
 <body class="blog-post-page">
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 <div id="progress"></div>
 
-<!-- ── NAV (injected by navbar.js) ── -->
-<div id="navbar-container"></div>
+<!-- ── NAV ── -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <a href="/"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="120" height="40" loading="lazy"></a>
+  </div>
+  <div class="nav-links">
+    <a href="/" class="nav-link" data-page="home">Home</a>
+    <a href="/gallery" class="nav-link" data-page="gallery">Gallery</a>
+    <a href="/about" class="nav-link" data-page="about">About</a>
+    <a href="/contact" class="nav-link" data-page="contact">Contact</a>
+    <a href="/blog" class="nav-link" data-page="blog">Blog</a>
+  </div>
+  <button class="nav-hamburger" id="navHam" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <a href="/book-now" class="nav-book">Book Now</a>
+</nav>
 
 <!-- ── PAGE HERO ── -->
 <div class="page-hero">
@@ -41,8 +83,39 @@
 <!-- TILE DIVIDER -->
 <div class="tile-accent" id="div1"></div>
 
-<!-- ── FOOTER (injected by footer.js) ── -->
-<div id="footer-container"></div>
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" style="display:block;height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:16px;">
+      <p class="footer-tagline">A hostel rooted in community, warmth, and the spirit of Varanasi. Every guest who stays becomes part of our story.</p>
+    </div>
+    <div></div>
+    <div>
+      <div class="footer-heading">Explore</div>
+      <div class="footer-links">
+        <a href="/gallery">Gallery</a>
+        <a href="/about">About Us</a>
+        <a href="/blog">Blog</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+        <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
+        <a href="mailto:mosaichostels@gmail.com">Email Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Mosaic Hostel. All rights reserved.</div>
+    <div class="footer-tile-strip" id="footerStrip"></div>
+    <div class="footer-copy">Made with ♥ in Varanasi</div>
+  </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" integrity="sha384-948ahk4ZmxYVYOc+rxN1H2gM1EJ2Duhp7uHtZ4WSLkV4Vtx5MUqnV+l7u9B+jFv+" crossorigin="anonymous"></script>
 <script src="/components/blog-renderer.js"></script>
@@ -142,18 +215,85 @@ async function renderBlogPost() {
     const title = window.blogRenderer.extractTitle(markdown,
       window.blogRenderer.slugToTitle(slug));
     const date = window.blogRenderer.extractDate(markdown) || 'Undated';
+    const author = window.blogRenderer.extractAuthor(markdown) || 'Mosaic Hostel Team';
 
     // Parse markdown to HTML
     const html = window.blogRenderer.parseMarkdown(markdown);
+    const excerpt = window.blogRenderer.extractExcerpt(markdown, 155);
 
     // Update page title and hero
     document.title = `${title} — Mosaic Hostel Varanasi`;
     document.getElementById('post-title').textContent = title;
-    document.getElementById('post-date').textContent = date;
+    document.getElementById('post-date').textContent = `${date} • By ${author}`;
+
+    // Update meta description + og:description dynamically
+    document.getElementById('post-meta-description').content = excerpt;
+    document.getElementById('post-og-description').content = excerpt;
+
+    // Update breadcrumb schema with post title and slug
+    const breadcrumbSchema = {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "@id": "https://www.mosaichostels.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "@id": "https://www.mosaichostels.com/blog"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": title,
+          "@id": `https://www.mosaichostels.com/blog/${slug}`
+        }
+      ]
+    };
+    const breadcrumbScript = document.getElementById('breadcrumb-schema');
+    if (breadcrumbScript) {
+      breadcrumbScript.textContent = JSON.stringify(breadcrumbSchema);
+    }
 
     // Inject HTML
     const postBody = document.getElementById('post-body');
     postBody.innerHTML = html;
+
+    // Add BlogPosting schema for SEO
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": title,
+      "author": {
+        "@type": "Organization",
+        "name": author || "Mosaic Hostel Varanasi"
+      },
+      "datePublished": date,
+      "dateModified": date,
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `https://www.mosaichostels.com/blog/${slug}`
+      },
+      "image": "https://www.mosaichostels.com/images/IMG_1928.JPG",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Mosaic Hostel Varanasi",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.mosaichostels.com/images/IMG_1928.JPG"
+        }
+      }
+    };
+
+    const schemaScript = document.createElement('script');
+    schemaScript.type = 'application/ld+json';
+    schemaScript.textContent = JSON.stringify(schema);
+    document.head.appendChild(schemaScript);
 
     // Add reveal class to all paragraphs for scroll animation
     postBody.querySelectorAll('p, h2, h3, blockquote, ul, ol, table, pre').forEach(el => {

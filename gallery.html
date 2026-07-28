@@ -13,10 +13,11 @@
 <meta property="og:image" content="https://www.mosaichostels.com/images/IMG_1928.JPG">
 
     <meta name="keywords" content="hostel, varanasi, budget, accommodation, backpacker">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mosaic Hostel Varanasi">
     <meta property="og:title" content="Mosaic Hostel Varanasi">
     <meta property="og:description" content="Budget Hostel in Varanasi near Assi Ghat | Backpacker Stay, Local Tips &amp; Travel Guides">
     <meta property="og:url" content="https://www.mosaichostels.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Microsoft Clarity Analytics -->
     <script type="text/javascript">
@@ -65,6 +66,8 @@
         {"@type": "LocationFeatureSpecification", "name": "24/7 Check-in", "value": true}
       ],
       "priceRange": "₹500-₹2000",
+      "checkinTime": "13:00",
+      "checkoutTime": "10:30",
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -78,18 +81,58 @@
         "https://www.tripadvisor.com/Hotel_Review-g297685-d33877461-Reviews-Mosaic_Hostel_Varanasi-Varanasi_Varanasi_District_Uttar_Pradesh.html",
         "https://www.makemytrip.com/hotels/mosaic_hostel_varanasi-details-varanasi.html",
         "https://www.agoda.com/en-za/mosaic-hostel-varanasi/hotel/varanasi-in.html",
-        "https://www.goibibo.com/hotels/mosaic-hostel-varanasi-hotel-in-varanasi-7027872656241537584/"
+        "https://www.goibibo.com/hotels/mosaic-hostel-varanasi-hotel-in-varanasi-7027872656241537584/",
+        "https://www.cleartrip.com/hotels/details/mosaic-hostel-varanasi-5247325",
+        "https://www.expedia.com/Varanasi-Hotels-Mosaic-Hostel-Varanasi.h125053779.Hotel-Information"
+      ]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "@id": "https://www.mosaichostels.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Gallery",
+          "@id": "https://www.mosaichostels.com/gallery"
+        }
       ]
     }
     </script>
 </head>
 <body>
+<!-- ── NAV ── -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <a href="/"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="120" height="40" loading="lazy"></a>
+  </div>
+  <div class="nav-links">
+    <a href="/" class="nav-link" data-page="home">Home</a>
+    <a href="/gallery" class="nav-link" data-page="gallery">Gallery</a>
+    <a href="/about" class="nav-link" data-page="about">About</a>
+    <a href="/contact" class="nav-link" data-page="contact">Contact</a>
+    <a href="/blog" class="nav-link" data-page="blog">Blog</a>
+  </div>
+  <button class="nav-hamburger" id="navHam" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <a href="/book-now" class="nav-book">Book Now</a>
+</nav>
+
+
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 <div id="progress"></div>
 
-<!-- ── NAV (injected by navbar.js) ── -->
-<div id="navbar-container"></div>
+<!-- ── NAV ── -->
 
 <h1 class="visually-hidden">Photo Gallery — Mosaic Hostel Varanasi</h1>
 
@@ -141,13 +184,19 @@
     </div>
     <div class="gal-item" data-cat="rooms" data-title="Dorm Accommodation" data-full="/images/unnamed (1).jpg">
       <div class="gal-accent" data-pal="gold-burg"></div>
-      <img class="gal-photo" src="/images/unnamed (1).jpg" alt="Dorm Accommodation" loading="lazy">
+      <picture>
+        <source srcset="/images/unnamed (1).webp" type="image/webp">
+        <img class="gal-photo" src="/images/unnamed (1).jpg" alt="Dorm Accommodation" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Rooms</div><div class="gal-label">Dorm Accommodation</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="rooms" data-title="Shared Room" data-full="/images/unnamed.jpg">
       <div class="gal-accent" data-pal="teal-sage"></div>
-      <img class="gal-photo" src="/images/unnamed.jpg" alt="Shared Room" loading="lazy">
+      <picture>
+        <source srcset="/images/unnamed.webp" type="image/webp">
+        <img class="gal-photo" src="/images/unnamed.jpg" alt="Shared Room" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Rooms</div><div class="gal-label">Shared Room</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
@@ -155,25 +204,37 @@
     <!-- ENTRANCE -->
     <div class="gal-item" data-cat="entrance" data-title="Entrance View" data-full="/images/IMG_4450.JPG">
       <div class="gal-accent" data-pal="gold-teal"></div>
-      <img class="gal-photo" src="/images/IMG_4450.JPG" alt="Entrance View" loading="lazy">
+      <picture>
+        <source srcset="/images/IMG_4450.webp" type="image/webp">
+        <img class="gal-photo" src="/images/IMG_4450.JPG" alt="Entrance View" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Entrance</div><div class="gal-label">Entrance View</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="entrance" data-title="Entrance Door" data-full="/images/IMG_4451.JPG">
       <div class="gal-accent" data-pal="teal-cobalt"></div>
-      <img class="gal-photo" src="/images/IMG_4451.JPG" alt="Entrance Door" loading="lazy">
+      <picture>
+        <source srcset="/images/IMG_4451.webp" type="image/webp">
+        <img class="gal-photo" src="/images/IMG_4451.JPG" alt="Entrance Door" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Entrance</div><div class="gal-label">Entrance Door</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="entrance" data-title="Entrance Stairs" data-full="/images/unnamed (3).jpg">
       <div class="gal-accent" data-pal="cobalt-sage"></div>
-      <img class="gal-photo" src="/images/unnamed (3).jpg" alt="Entrance Stairs" loading="lazy">
+      <picture>
+        <source srcset="/images/unnamed (3).webp" type="image/webp">
+        <img class="gal-photo" src="/images/unnamed (3).jpg" alt="Entrance Stairs" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Entrance</div><div class="gal-label">Entrance Stairs</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="entrance" data-title="Entrance Area" data-full="/images/unnamed (2).jpg">
       <div class="gal-accent" data-pal="burg-gold"></div>
-      <img class="gal-photo" src="/images/unnamed (2).jpg" alt="Entrance Area" loading="lazy">
+      <picture>
+        <source srcset="/images/unnamed (2).webp" type="image/webp">
+        <img class="gal-photo" src="/images/unnamed (2).jpg" alt="Entrance Area" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Entrance</div><div class="gal-label">Entrance Area</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
@@ -181,37 +242,55 @@
     <!-- COMMON -->
     <div class="gal-item" data-cat="common" data-title="Artistic Space" data-full="/images/123e2e1a-479c-4a38-9634-fcbb95683f8b1.jpg">
       <div class="gal-accent" data-pal="gold-teal"></div>
-      <img class="gal-photo" src="/images/123e2e1a-479c-4a38-9634-fcbb95683f8b1.jpg" alt="Artistic Space" loading="lazy">
+      <picture>
+        <source srcset="/images/123e2e1a-479c-4a38-9634-fcbb95683f8b1.webp" type="image/webp">
+        <img class="gal-photo" src="/images/123e2e1a-479c-4a38-9634-fcbb95683f8b1.jpg" alt="Artistic Space" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Common Areas</div><div class="gal-label">Artistic Space</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="common" data-title="Common Space" data-full="/images/IMG_1912.JPG">
       <div class="gal-accent" data-pal="teal-cobalt"></div>
-      <img class="gal-photo" src="/images/IMG_1912.JPG" alt="Common Space" loading="lazy">
+      <picture>
+        <source srcset="/images/IMG_1912.webp" type="image/webp">
+        <img class="gal-photo" src="/images/IMG_1912.JPG" alt="Common Space" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Common Areas</div><div class="gal-label">Common Space</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="common" data-title="Shared Area" data-full="/images/IMG_1928.JPG">
       <div class="gal-accent" data-pal="cobalt-sage"></div>
-      <img class="gal-photo" src="/images/IMG_1928.JPG" alt="Shared Area" loading="lazy">
+      <picture>
+        <source srcset="/images/IMG_1928.webp" type="image/webp">
+        <img class="gal-photo" src="/images/IMG_1928.JPG" alt="Shared Area" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Common Areas</div><div class="gal-label">Shared Area</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="common" data-title="Open Space" data-full="/images/IMG_1930.JPG">
       <div class="gal-accent" data-pal="burg-gold"></div>
-      <img class="gal-photo" src="/images/IMG_1930.JPG" alt="Open Space" loading="lazy">
+      <picture>
+        <source srcset="/images/IMG_1930.webp" type="image/webp">
+        <img class="gal-photo" src="/images/IMG_1930.JPG" alt="Open Space" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Common Areas</div><div class="gal-label">Open Space</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="common" data-title="Colorful Corner" data-full="/images/PXL_20260119_064603355.MP_.jpg">
       <div class="gal-accent" data-pal="gold-sage"></div>
-      <img class="gal-photo" src="/images/PXL_20260119_064603355.MP_.jpg" alt="Colorful Corner" loading="lazy">
+      <picture>
+        <source srcset="/images/PXL_20260119_064603355.MP_.webp" type="image/webp">
+        <img class="gal-photo" src="/images/PXL_20260119_064603355.MP_.jpg" alt="Colorful Corner" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Common Areas</div><div class="gal-label">Colorful Corner</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="common" data-title="Interior Design" data-full="/images/PXL_20260119_064300909.MP_.jpg">
       <div class="gal-accent" data-pal="teal-burg"></div>
-      <img class="gal-photo" src="/images/PXL_20260119_064300909.MP_.jpg" alt="Interior Design" loading="lazy">
+      <picture>
+        <source srcset="/images/PXL_20260119_064300909.MP_.webp" type="image/webp">
+        <img class="gal-photo" src="/images/PXL_20260119_064300909.MP_.jpg" alt="Interior Design" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Common Areas</div><div class="gal-label">Interior Design</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
@@ -219,37 +298,55 @@
     <!-- HOSTEL LIFE -->
     <div class="gal-item" data-cat="life" data-title="Rooftop View" data-full="/images/IMG-20251228-WA0137.jpg">
       <div class="gal-accent" data-pal="gold-teal"></div>
-      <img class="gal-photo" src="/images/IMG-20251228-WA0137.jpg" alt="Rooftop View" loading="lazy">
+      <picture>
+        <source srcset="/images/IMG-20251228-WA0137.webp" type="image/webp">
+        <img class="gal-photo" src="/images/IMG-20251228-WA0137.jpg" alt="Rooftop View" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Hostel Life</div><div class="gal-label">Rooftop View</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="life" data-title="Evening Ambiance" data-full="/images/IMG-20251228-WA0140.jpg">
       <div class="gal-accent" data-pal="teal-cobalt"></div>
-      <img class="gal-photo" src="/images/IMG-20251228-WA0140.jpg" alt="Evening Ambiance" loading="lazy">
+      <picture>
+        <source srcset="/images/IMG-20251228-WA0140.webp" type="image/webp">
+        <img class="gal-photo" src="/images/IMG-20251228-WA0140.jpg" alt="Evening Ambiance" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Hostel Life</div><div class="gal-label">Evening Ambiance</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="life" data-title="Sacred Experience" data-full="/images/IMG_1357.jpg">
       <div class="gal-accent" data-pal="cobalt-sage"></div>
-      <img class="gal-photo" src="/images/IMG_1357.jpg" alt="Sacred Experience" loading="lazy">
+      <picture>
+        <source srcset="/images/IMG_1357.webp" type="image/webp">
+        <img class="gal-photo" src="/images/IMG_1357.jpg" alt="Sacred Experience" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Hostel Life</div><div class="gal-label">Sacred Experience</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="life" data-title="Community Moment" data-full="/images/IMG_1294.jpg">
       <div class="gal-accent" data-pal="burg-gold"></div>
-      <img class="gal-photo" src="/images/IMG_1294.jpg" alt="Community Moment" loading="lazy">
+      <picture>
+        <source srcset="/images/IMG_1294.webp" type="image/webp">
+        <img class="gal-photo" src="/images/IMG_1294.jpg" alt="Community Moment" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Hostel Life</div><div class="gal-label">Community Moment</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="life" data-title="Shared Experience" data-full="/images/IMG_1223.jpg">
       <div class="gal-accent" data-pal="gold-sage"></div>
-      <img class="gal-photo" src="/images/IMG_1223.jpg" alt="Shared Experience" loading="lazy">
+      <picture>
+        <source srcset="/images/IMG_1223.webp" type="image/webp">
+        <img class="gal-photo" src="/images/IMG_1223.jpg" alt="Shared Experience" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Hostel Life</div><div class="gal-label">Shared Experience</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
     <div class="gal-item" data-cat="life" data-title="Wandering Souls" data-full="/images/IMG_1316.jpg">
       <div class="gal-accent" data-pal="teal-burg"></div>
-      <img class="gal-photo" src="/images/IMG_1316.jpg" alt="Wandering Souls" loading="lazy">
+      <picture>
+        <source srcset="/images/IMG_1316.webp" type="image/webp">
+        <img class="gal-photo" src="/images/IMG_1316.jpg" alt="Wandering Souls" loading="lazy">
+      </picture>
       <div class="gal-overlay"><div class="gal-cat-tag">Hostel Life</div><div class="gal-label">Wandering Souls</div></div>
       <div class="gal-expand"><svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
     </div>
@@ -279,14 +376,50 @@
   <div id="lb-counter"></div>
 </div>
 
-<!-- ── FOOTER ── -->
-<!-- ── FOOTER (injected by footer.js) ── -->
-<div id="footer-container"></div>
 
     <script src="/components/site.js"></script>
     <script src="/components/gallery.js"></script>
     <script src="/components/navbar.js"></script>
 <script src="/components/footer.js"></script>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" style="display:block;height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:16px;">
+      <p class="footer-tagline">A hostel rooted in community, warmth, and the spirit of Varanasi. Every guest who stays becomes part of our story.</p>
+      <p style="font-size:12px;line-height:1.5;margin-top:12px;opacity:0.7;">
+        <strong>B1/85C, Assi Ghat Road, Anandbagh, Varanasi, UP 221005</strong><br>
+        +91 91254 92225
+      </p>
+    </div>
+    <div></div>
+    <div>
+      <div class="footer-heading">Explore</div>
+      <div class="footer-links">
+        <a href="/gallery">Gallery</a>
+        <a href="/about">About Us</a>
+        <a href="/blog">Blog</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+        <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
+        <a href="mailto:mosaichostels@gmail.com">Email Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Mosaic Hostel. All rights reserved.</div>
+    <div class="footer-tile-strip" id="footerStrip"></div>
+    <div class="footer-copy">Made with ♥ in Varanasi</div>
+  </div>
+</footer>
+
 </body>
 </html>
 

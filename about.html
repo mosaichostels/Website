@@ -13,10 +13,11 @@
 <meta property="og:image" content="https://www.mosaichostels.com/images/IMG_1928.JPG">
 
     <meta name="keywords" content="hostel, varanasi, budget, accommodation, backpacker">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Mosaic Hostel Varanasi">
     <meta property="og:title" content="Mosaic Hostel Varanasi">
     <meta property="og:description" content="Budget Hostel in Varanasi near Assi Ghat | Backpacker Stay, Local Tips &amp; Travel Guides">
     <meta property="og:url" content="https://www.mosaichostels.com">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Microsoft Clarity Analytics -->
     <script type="text/javascript">
@@ -65,6 +66,8 @@
         {"@type": "LocationFeatureSpecification", "name": "24/7 Check-in", "value": true}
       ],
       "priceRange": "₹500-₹2000",
+      "checkinTime": "13:00",
+      "checkoutTime": "10:30",
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
         "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
@@ -78,18 +81,57 @@
         "https://www.tripadvisor.com/Hotel_Review-g297685-d33877461-Reviews-Mosaic_Hostel_Varanasi-Varanasi_Varanasi_District_Uttar_Pradesh.html",
         "https://www.makemytrip.com/hotels/mosaic_hostel_varanasi-details-varanasi.html",
         "https://www.agoda.com/en-za/mosaic-hostel-varanasi/hotel/varanasi-in.html",
-        "https://www.goibibo.com/hotels/mosaic-hostel-varanasi-hotel-in-varanasi-7027872656241537584/"
+        "https://www.goibibo.com/hotels/mosaic-hostel-varanasi-hotel-in-varanasi-7027872656241537584/",
+        "https://www.cleartrip.com/hotels/details/mosaic-hostel-varanasi-5247325",
+        "https://www.expedia.com/Varanasi-Hotels-Mosaic-Hostel-Varanasi.h125053779.Hotel-Information"
+      ]
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "@id": "https://www.mosaichostels.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About",
+          "@id": "https://www.mosaichostels.com/about"
+        }
       ]
     }
     </script>
 </head>
 <body>
+<!-- ── NAV ── -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    <a href="/"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="120" height="40" loading="lazy"></a>
+  </div>
+  <div class="nav-links">
+    <a href="/" class="nav-link" data-page="home">Home</a>
+    <a href="/gallery" class="nav-link" data-page="gallery">Gallery</a>
+    <a href="/about" class="nav-link" data-page="about">About</a>
+    <a href="/contact" class="nav-link" data-page="contact">Contact</a>
+    <a href="/blog" class="nav-link" data-page="blog">Blog</a>
+  </div>
+  <button class="nav-hamburger" id="navHam" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  <a href="/book-now" class="nav-book">Book Now</a>
+</nav>
+
+
 <div id="cursor"></div>
 <div id="cursor-ring"></div>
 <div id="progress"></div>
 
-<!-- ── NAV (injected by navbar.js) ── -->
-<div id="navbar-container"></div>
 
 <h1 class="visually-hidden">About Mosaic Hostel Varanasi</h1>
 
@@ -120,7 +162,7 @@
   </div>
   <div class="story-photo-stack">
     <img class="story-photo-main" src="/images/IMG-20251228-WA0140.jpg" alt="The Common Room" width="600" height="400">
-    <img class="story-photo-accent" src="/images/IMG_1357.jpg" alt="Ghat Walk">
+    <img class="story-photo-accent" src="/images/IMG_1357.jpg" alt="Ghat Walk" width="400" height="300" loading="lazy">
     <div class="est-badge">
       <div class="est-label">Est.</div>
       <div class="est-year">2025</div>
@@ -149,14 +191,28 @@
   </div>
 </div>
 
+<!-- ── OUR TEAM ── -->
+<div class="team reveal">
+  <div class="team-head">
+    <div class="section-eyebrow">Meet the Team</div>
+    <div class="section-title">Behind Every<br><em>Great Experience</em></div>
+    <div class="title-tile-line" id="teamTileLine"></div>
+  </div>
+  <div class="team-body">
+    <p>Mosaic Hostel was founded by a group of seasoned hospitality professionals who fell in love with Varanasi. Our team brings over 40 years of combined experience in boutique hospitality, community management, and guest experience design. We've worked in hostels and guesthouses across Southeast Asia, and we chose Varanasi as the place to create something truly special.</p>
+    <p>What sets us apart isn't just our location near Assi Ghat or our affordable rates (₹499+ dorms, ₹800+ private rooms) — it's our commitment to creating genuine human connections. Our team lives on-site, speaks multiple languages (English, Hindi, Spanish, French), and are passionate about sharing local knowledge with solo travelers, female backpackers, and anyone seeking authentic Varanasi experiences.</p>
+    <p>From arranging private sunrise boat rides to cooking classes in our kitchen, from guiding first-time visitors to Varanasi to helping budget travelers stretch their rupees, our team is here to turn your stay from good to unforgettable. We've hosted guests from over 60 countries, and every single one adds to our story.</p>
+  </div>
+</div>
+
 <!-- ── FULL BLEED PHOTO ── -->
 <div class="fullbleed">
-  <img class="fb-photo" id="fbPhoto" src="/images/IMG-20251228-WA0137.jpg" alt="The Rooftop">
+  <img class="fb-photo" id="fbPhoto" src="/images/IMG-20251228-WA0137.jpg" alt="The Rooftop" width="1200" height="600" loading="lazy">
   <div class="fb-overlay"></div>
   <div class="fb-content reveal">
     <div class="fb-eyebrow">The Rooftop</div>
     <div class="fb-title">Where Varanasi<br>Opens Up</div>
-    <div class="fb-body">Our rooftop is where the day begins and ends — morning chai with a view of the city waking up, evening conversations as the lights come on across the Ghats.</div>
+    <div class="fb-body">Our rooftop is where the day begins and ends — morning chai with a view of the city waking up, evening conversations as the lights come on across the Ghats. <a href="/gallery" style="color: inherit; text-decoration: underline; opacity: 0.9;">See our spaces</a>.</div>
     <div class="fb-strip" id="fbStrip"></div>
   </div>
 </div>
@@ -205,7 +261,7 @@
           <div class="loc-dot c-gold"></div>
           <div class="loc-info">
             <div class="loc-label">Address</div>
-            <div class="loc-val"><a href="#" onclick="openMapsDialog(event)" class="link-plain is-clickable">Near Assi Ghat, Varanasi, Uttar Pradesh 221005</a></div>
+            <div class="loc-val"><a href="#" onclick="openMapsDialog(event)" class="link-plain is-clickable">B1/85C, Assi Ghat Road, Anandbagh, Varanasi, Uttar Pradesh 221005</a></div>
           </div>
         </div>
         <div class="loc-row">
@@ -264,13 +320,49 @@
 <!-- TILE DIVIDER -->
 <div class="tile-accent" id="div1"></div>
 
-<!-- ── FOOTER (injected by footer.js) ── -->
-<div id="footer-container"></div>
-
     <script src="/components/site.js"></script>
     <script src="/components/about.js"></script>
     <script src="/components/navbar.js"></script>
 <script src="/components/footer.js"></script>
+
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" style="display:block;height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:16px;">
+      <p class="footer-tagline">A hostel rooted in community, warmth, and the spirit of Varanasi. Every guest who stays becomes part of our story.</p>
+      <p style="font-size:12px;line-height:1.5;margin-top:12px;opacity:0.7;">
+        <strong>B1/85C, Assi Ghat Road, Anandbagh, Varanasi, UP 221005</strong><br>
+        +91 91254 92225
+      </p>
+    </div>
+    <div></div>
+    <div>
+      <div class="footer-heading">Explore</div>
+      <div class="footer-links">
+        <a href="/gallery">Gallery</a>
+        <a href="/about">About Us</a>
+        <a href="/blog">Blog</a>
+        <a href="/contact">Contact</a>
+        <a href="/privacy">Privacy Policy</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <div class="footer-links">
+        <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
+        <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
+        <a href="mailto:mosaichostels@gmail.com">Email Us</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 Mosaic Hostel. All rights reserved.</div>
+    <div class="footer-tile-strip" id="footerStrip"></div>
+    <div class="footer-copy">Made with ♥ in Varanasi</div>
+  </div>
+</footer>
 
 </body>
 </html>
