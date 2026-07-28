@@ -84,7 +84,6 @@
   AddType video/mp4 .mp4
   AddType image/webp .webp
   AddType text/markdown .md
-  AddEncoding gzip .md
 </IfModule>
 
 # ════════ LITESPEED CACHE (if available) ════════
