@@ -1,1 +1,7 @@
+# GCP & Service Account Credentials
 service_account_credentials.json
+.env.gcs-manager
+.env.gcs-gbp-claude
+.gcp-*.json
+*.key
+*.pem
