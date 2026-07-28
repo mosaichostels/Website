@@ -96,6 +96,7 @@ Mosaic Hostel sits a short walk from Assi Ghat and has been a trusted base for t
 ### Read Next
 
 - [Best Hostels in Varanasi — Honest Guide](/blog/best-hostels-in-varanasi)
+- [Assi Ghat vs Dashashwamedh: Where Should You Stay?](/blog/assi-ghat-vs-dashashwamedh-where-to-stay)
 - [Best Time to Visit Varanasi: Month-by-Month Guide](/blog/best-time-to-visit-varanasi-month-by-month)
 - [7 Must-Do Experiences in Varanasi](/blog/top-7-experiences-varanasi-traveler)
 - [Varanasi for Solo Female Travellers — Honest Safety Guide](/blog/varanasi-solo-female-travelers-safety-travel-guide)

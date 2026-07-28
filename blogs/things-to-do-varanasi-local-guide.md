@@ -83,6 +83,10 @@ Book your stay at [Mosaic today](/book-now) and start your Varanasi story.
 
 ### Read Next
 
+- [2-Day Varanasi Itinerary for Backpackers](/blog/varanasi-2-day-itinerary-backpackers)
+
+- [3-5 Day Varanasi Itinerary for Slow Travelers](/blog/varanasi-3-5-day-itinerary-slow-travel)
+
 - [Sarnath Day Trip Guide from Varanasi](/blog/sarnath-day-trip-guide-varanasi)
 
 - [Varanasi Airport & Railway Station to Assi Ghat: Transfer Guide](/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide)

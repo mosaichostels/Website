@@ -138,6 +138,10 @@ Varanasi rewards slow travel. The best hostel is not the cheapest one or the fla
 
 - [Varanasi for Solo Female Travellers — Honest Safety Guide](/blog/varanasi-solo-female-travelers-safety-travel-guide)
 
+- [Assi Ghat vs Dashashwamedh: Where Should You Stay?](/blog/assi-ghat-vs-dashashwamedh-where-to-stay)
+
+- [Dorm vs Private Room: Which Should You Book?](/blog/dorm-vs-private-room-varanasi-hostel)
+
 ---
 
 *Blog post from Mosaic Hostel Varanasi*
