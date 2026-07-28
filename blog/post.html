@@ -142,6 +142,28 @@ fillById('heroStripe',LOGO_COLORS);
 fillById('div0',LOGO_COLORS);
 fillById('div1',LOGO_COLORS);
 
+// ── CONSOLE LOG CAPTURE (for debugging) ──
+const consoleLogs = [];
+const originalLog = console.log;
+const originalError = console.error;
+
+console.log = function(...args) {
+  originalLog.apply(console, args);
+  consoleLogs.push({ type: 'log', msg: args.join(' '), time: new Date().toISOString() });
+};
+
+console.error = function(...args) {
+  originalError.apply(console, args);
+  consoleLogs.push({ type: 'error', msg: args.join(' '), time: new Date().toISOString() });
+};
+
+window.showConsoleLogs = function() {
+  console.log('=== CAPTURED CONSOLE LOGS ===');
+  consoleLogs.forEach(log => {
+    console.log(`[${log.type.toUpperCase()}] ${log.time}: ${log.msg}`);
+  });
+};
+
 // ── CUSTOM CURSOR ──
 const cur=document.getElementById('cursor'),
       ring=document.getElementById('cursor-ring');
@@ -184,32 +206,45 @@ const obs=new IntersectionObserver(entries=>{
 
 // ── RENDER INDIVIDUAL BLOG POST ──
 async function renderBlogPost() {
+  console.log('[renderBlogPost] Starting...');
+
   // Get slug from URL query parameter (?slug=...) or from path (/blog/slug)
   let slug = new URLSearchParams(window.location.search).get('slug');
+  console.log('[renderBlogPost] Slug from query string:', slug);
 
   // If not in query string, extract from URL path
   if (!slug) {
     const pathSegments = window.location.pathname.split('/').filter(Boolean);
+    console.log('[renderBlogPost] Path segments:', pathSegments);
     // Path: /blog/slug → pathSegments: ['blog', 'slug']
     if (pathSegments.length >= 2 && pathSegments[0] === 'blog') {
       slug = pathSegments[1];
+      console.log('[renderBlogPost] Slug from path:', slug);
     }
   }
 
   if (!slug) {
+    console.error('[renderBlogPost] No slug found!');
     showError('No blog post specified. <a href="/blog">Back to blog</a>');
     return;
   }
 
+  console.log('[renderBlogPost] Final slug:', slug);
+
   // Wait for blog-renderer to be available
   if (!window.blogRenderer) {
+    console.error('[renderBlogPost] window.blogRenderer not available!');
     showError('Blog renderer not loaded. <a href="/blog">Back to blog</a>');
     return;
   }
 
+  console.log('[renderBlogPost] window.blogRenderer is available');
+
   try {
     // Load markdown
+    console.log('[renderBlogPost] Calling loadMarkdownFile...');
     const markdown = await window.blogRenderer.loadMarkdownFile(slug);
+    console.log('[renderBlogPost] Got markdown, length:', markdown.length);
 
     // Extract metadata
     const title = window.blogRenderer.extractTitle(markdown,
@@ -313,14 +348,30 @@ async function renderBlogPost() {
     }
 
   } catch (error) {
-    console.error('Error loading blog post:', error);
+    console.error('[renderBlogPost] CAUGHT ERROR');
+    console.error('[renderBlogPost] Error type:', error.constructor.name);
+    console.error('[renderBlogPost] Error message:', error.message);
+    console.error('[renderBlogPost] Full error:', error);
+    console.error('[renderBlogPost] Stack:', error.stack);
     showError(`Error loading blog post.<br><a href="/blog">Back to blog</a>`);
   }
 }
 
 function showError(message) {
   const errorEl = document.getElementById('post-error');
-  errorEl.innerHTML = message;
+
+  // Add debug info from console logs
+  let debugInfo = `<details style="margin-top:20px;font-size:12px;opacity:0.7;">
+    <summary>Debug Info (click to expand)</summary>
+    <pre style="background:#f0f0f0;padding:10px;max-height:200px;overflow:auto;">`;
+
+  consoleLogs.forEach(log => {
+    debugInfo += `[${log.type.toUpperCase()}] ${log.time}\n${log.msg}\n\n`;
+  });
+
+  debugInfo += `</pre></details>`;
+
+  errorEl.innerHTML = message + debugInfo;
   errorEl.style.display = 'block';
   document.getElementById('post-body').style.display = 'none';
 }

@@ -7,20 +7,59 @@
  * @returns {Promise<string>} Markdown content
  */
 async function loadMarkdownFile(slug) {
-  const url = `/blogs/${slug}.md`;
-  console.log(`Fetching markdown from: ${url}`);
+  const relativeUrl = `/blogs/${slug}.md`;
+  const absoluteUrl = window.location.origin + relativeUrl;
+
+  console.log(`[loadMarkdownFile] Starting fetch for slug: ${slug}`);
+  console.log(`[loadMarkdownFile] Relative URL: ${relativeUrl}`);
+  console.log(`[loadMarkdownFile] Absolute URL: ${absoluteUrl}`);
+  console.log(`[loadMarkdownFile] Origin: ${window.location.origin}`);
+  console.log(`[loadMarkdownFile] Protocol: ${window.location.protocol}`);
+
   try {
-    const response = await fetch(url);
-    console.log(`Fetch response status: ${response.status} ${response.statusText}`);
+    // Try absolute URL first (more reliable in Safari)
+    console.log(`[loadMarkdownFile] Calling fetch with absolute URL...`);
+    const response = await fetch(absoluteUrl);
+    console.log(`[loadMarkdownFile] Fetch returned, status: ${response.status} ${response.statusText}`);
+    console.log(`[loadMarkdownFile] Response OK: ${response.ok}`);
+    console.log(`[loadMarkdownFile] Response type: ${response.type}`);
+    console.log(`[loadMarkdownFile] Response url: ${response.url}`);
+
     if (!response.ok) {
+      console.error(`[loadMarkdownFile] Response not OK! Throwing error.`);
       throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
+
+    console.log(`[loadMarkdownFile] Getting response text...`);
     const text = await response.text();
-    console.log(`Fetched ${text.length} bytes`);
+    console.log(`[loadMarkdownFile] Got text, length: ${text.length} bytes`);
+    console.log(`[loadMarkdownFile] First 100 chars: ${text.substring(0, 100)}`);
     return text;
   } catch (error) {
-    console.error(`Fetch failed for ${url}:`, error);
-    throw new Error(`Failed to load blog post "${slug}": ${error.message}`);
+    console.error(`[loadMarkdownFile] Absolute URL fetch FAILED! Trying relative URL...`);
+    console.error(`[loadMarkdownFile] Error:`, error.message);
+
+    try {
+      console.log(`[loadMarkdownFile] Retrying with relative URL: ${relativeUrl}`);
+      const fallbackResponse = await fetch(relativeUrl);
+      console.log(`[loadMarkdownFile] Fallback fetch succeeded, status: ${fallbackResponse.status}`);
+
+      if (!fallbackResponse.ok) {
+        throw new Error(`HTTP ${fallbackResponse.status}: ${fallbackResponse.statusText}`);
+      }
+
+      const text = await fallbackResponse.text();
+      console.log(`[loadMarkdownFile] Got fallback text, length: ${text.length}`);
+      return text;
+    } catch (fallbackError) {
+      console.error(`[loadMarkdownFile] BOTH FETCHES FAILED!`);
+      console.error(`[loadMarkdownFile] Error type: ${error.constructor.name}`);
+      console.error(`[loadMarkdownFile] Error message: ${error.message}`);
+      console.error(`[loadMarkdownFile] Fallback error: ${fallbackError.message}`);
+      console.error(`[loadMarkdownFile] Full error:`, error);
+      console.error(`[loadMarkdownFile] Full fallback error:`, fallbackError);
+      throw new Error(`Failed to load blog post "${slug}": ${error.message}; Fallback: ${fallbackError.message}`);
+    }
   }
 }
 
