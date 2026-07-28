@@ -140,18 +140,45 @@
   RewriteCond %{HTTP_HOST} ^mosaichostels\.com$ [NC]
   RewriteRule ^(.*)$ https://www.mosaichostels.com/$1 [L,R=301]
 
-  # Don't rewrite if the request is for a real file or directory
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-
-  # Don't rewrite markdown files or /blogs/ directory
-  RewriteCond %{REQUEST_URI} !/blogs/ [NC]
+  # Legacy WordPress blog URL — reclaim ranking equity (was ranking
+  # position 7.9-10.5, 859 impressions/90d in GSC before the migration)
+  RewriteRule ^varanasi-solo-female-travelers-safety-travel-guide/?$ /blog/varanasi-solo-female-travelers-safety-travel-guide [R=301,L]
 
   # Rewrite clean URLs to .html files
+  # NOTE: RewriteCond only binds to the single next RewriteRule, so the
+  # "real file/directory" and "/blogs/" guards must be repeated before
+  # EVERY rule below, not stated once at the top of the block.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !/blogs/ [NC]
   RewriteRule ^gallery/?$ gallery.html [QSA,L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !/blogs/ [NC]
   RewriteRule ^blog/?$ blog.html [QSA,L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !/blogs/ [NC]
   RewriteRule ^blog/([a-zA-Z0-9-]+)/?$ blog/post.html [QSA,L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !/blogs/ [NC]
   RewriteRule ^about/?$ about.html [QSA,L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !/blogs/ [NC]
   RewriteRule ^contact/?$ contact.html [QSA,L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !/blogs/ [NC]
   RewriteRule ^book-now/?$ book-now.html [QSA,L]
+
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} !/blogs/ [NC]
   RewriteRule ^privacy/?$ privacy.html [QSA,L]
