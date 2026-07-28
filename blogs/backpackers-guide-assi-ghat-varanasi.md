@@ -41,21 +41,21 @@ The evenings at Assi Ghat are relaxed and social. Musicians often play at the gh
 
 ## Where to Stay
 
-Mosaic Hostel, a short walk from Assi Ghat, is the best-rated budget option in the area. Private rooms and dorms, AC, WiFi, and a team that knows the neighbourhood. Book direct for the best rate — via WhatsApp (+91 91254 92225) or email (mosaichostels@gmail.com).
+[Mosaic Hostel](/book-now), a short walk from Assi Ghat, is the best-rated budget option in the area. Private rooms and dorms, AC, WiFi, and a team that knows the neighbourhood. [Book direct](/book-now) for the best rate — via WhatsApp ([+91 91254 92225](https://wa.me/919125492225)) or email ([mosaichostels@gmail.com](mailto:mosaichostels@gmail.com)).
 
 ### Further Reading
 
-- Lonely Planet India
+- [Lonely Planet India](https://www.lonelyplanet.com/india)
 
-- Incredible India
+- [Incredible India](https://www.incredibleindia.gov.in/)
 
 ### Read Next
 
-- 7 Must-Do Experiences Near Mosaic Hostel
+- [7 Must-Do Experiences in Varanasi](/blog/top-7-experiences-varanasi-traveler)
 
-- Why Assi Ghat is the Perfect Varanasi Base
+- [Why Assi Ghat is the Perfect Varanasi Base](/blog/why-assi-ghat-perfect-base-varanasi-stay)
 
-- Best Hostels in Varanasi — Honest Guide
+- [Best Hostels in Varanasi — Honest Guide](/blog/best-hostels-in-varanasi)
 
 ---
 

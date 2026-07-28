@@ -29,7 +29,7 @@ Sarnath, 10 km north of Varanasi, is where the Buddha delivered his first sermon
 
 ## 5. A Varanasi Street Food Walk
 
-Varanasi has one of India's most distinctive food cultures. Banarasi paan, the tamatar chaat at Kashi Chat Bhandar, lassi from Blue Lassi shop, thandai (a chilled milk drink with nuts and spices), and the kachori-sabzi breakfasts available at street stalls across the old city. The best way to eat here is to walk and follow your nose. The team at Mosaic Hostel can recommend a good route.
+Varanasi has one of India's most distinctive food cultures. Banarasi paan, the tamatar chaat at Kashi Chat Bhandar, lassi from Blue Lassi shop, thandai (a chilled milk drink with nuts and spices), and the kachori-sabzi breakfasts available at street stalls across the old city. The best way to eat here is to walk and follow your nose. The team at [Mosaic Hostel](/book-now) can recommend a good route.
 
 ## 6. A Classical Music or Dance Performance
 
@@ -41,19 +41,17 @@ This one is the hardest to put on a list but the most important. Varanasi reward
 
 ### Further Reading
 
-- Archaeological Survey of India — Sarnath
+- [Archaeological Survey of India — Sarnath](https://asi.nic.in/)
 
-- Incredible India Varanasi
+- [Incredible India Varanasi](https://www.incredibleindia.gov.in/)
 
-- Lonely Planet Varanasi
+- [Lonely Planet Varanasi](https://www.lonelyplanet.com/india)
 
 ### Read Next
 
-- 7 Must-Do Experiences Near Mosaic Hostel
+- [Backpacker's Complete Guide to Assi Ghat](/blog/backpackers-guide-assi-ghat-varanasi)
 
-- Backpacker's Complete Guide to Assi Ghat
-
-- Best Time to Visit Varanasi — Month by Month
+- [Best Hostels in Varanasi — Honest Guide](/blog/best-hostels-in-varanasi)
 
 ---
 

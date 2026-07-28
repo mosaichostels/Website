@@ -58,9 +58,9 @@ Boutique hostelQuality + communityAssi Ghat area₹600–1200/night
 Heritage haveli-styleExperience + comfortOld city, Godaulia₹1000–2500/night
 Guesthouse hybridPrivacy + socialAny zone₹800–2000/night
 
-*Note: The Incredible India tourism portal provides a useful overview of the city's neighbourhood structure if you want more context before booking.*
+*Note: The [Incredible India tourism portal](https://www.incredibleindia.gov.in/) provides a useful overview of the city's neighbourhood structure if you want more context before booking.*
 
-## Mosaic Hostel — Near Assi Ghat
+## [Mosaic Hostel](/book-now) — Near Assi Ghat
 
 Mosaic Hostel sits a two-minute walk from Assi Ghat in the southern part of the city, at B1/85C, Assi Ghat Road, Anandbagh, Bhelupur. The hostel opened with a clear focus on community and comfort — the name reflects the idea that every guest is a piece of a larger picture.
 
@@ -120,7 +120,7 @@ Dorms are shared rooms with multiple beds, typically cheaper and more social. Pr
 
 ## How to Book Smart
 
-Always compare platform prices with direct booking. Booking through the hostel's WhatsApp (+91-9125492225) or email (mosaichostels@gmail.com) typically gives you the best rate, flexible cancellation, and the option to communicate special requests before arrival. No commission means the hostel can afford to treat you better.
+Always compare platform prices with [direct booking](/book-now). Booking through the hostel's WhatsApp ([+91-9125492225](https://wa.me/919125492225)) or email ([mosaichostels@gmail.com](mailto:mosaichostels@gmail.com)) typically gives you the best rate, flexible cancellation, and the option to communicate special requests before arrival. No commission means the hostel can afford to treat you better.
 
 For arrival logistics, the main Varanasi railway station (Varanasi Junction / Varanasi Cantt) is 8–10km from Assi Ghat. An auto-rickshaw costs ₹150–200 and takes 20–40 minutes depending on traffic. Your hostel can also arrange airport or station pickup at a fair rate if you ask in advance.
 
@@ -130,11 +130,11 @@ Varanasi rewards slow travel. The best hostel is not the cheapest one or the fla
 
 ### Read Next
 
-- Staying Near Assi Ghat — What to Expect
+- [Staying Near Assi Ghat — What to Expect](/blog/hostel-near-assi-ghat-varanasi)
 
-- Why Assi Ghat is the Perfect Varanasi Base
+- [Why Assi Ghat is the Perfect Varanasi Base](/blog/why-assi-ghat-perfect-base-varanasi-stay)
 
-- Backpacker's Complete Guide to Assi Ghat
+- [Backpacker's Complete Guide to Assi Ghat](/blog/backpackers-guide-assi-ghat-varanasi)
 
 ---
 

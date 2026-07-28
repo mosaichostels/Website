@@ -23,7 +23,7 @@ The lanes around Assi Ghat are lined with chai stalls, small restaurants, booksh
 
 A typical day based near Assi Ghat might look like this: sunrise walk to the ghat for the morning ceremony, breakfast at one of the cafes on the main road, a rickshaw ride through the old city to explore the lanes near Vishwanath Gali, lunch back in the neighbourhood, an afternoon boat ride or visit to Sarnath, and an evening at the ghat watching the sunset and the lights come on across the river.
 
-## Mosaic Hostel — Your Base at Assi Ghat
+## [Mosaic Hostel](/book-now) — Your Base at Assi Ghat
 
 Mosaic Hostel is a short walk from Assi Ghat and has been a trusted base for travellers since 2025. Private rooms and dorms are available, the common spaces are genuinely social, and the team knows the neighbourhood intimately. Ask them anything — where to eat, which ghats to visit at different times of day, how to get to Sarnath, what to do if you only have 24 hours. They know.
 
@@ -37,19 +37,19 @@ Assi Ghat suits travellers who want to be in Varanasi rather than just pass thro
 
 ### Further Reading
 
-- Lonely Planet Varanasi guide
+- [Lonely Planet Varanasi guide](https://www.lonelyplanet.com/india)
 
-- Banaras Hindu University
+- [Banaras Hindu University](https://www.bhu.ac.in/)
 
-- Incredible India
+- [Incredible India](https://www.incredibleindia.gov.in/)
 
 ### Read Next
 
-- Why Assi Ghat is the Perfect Varanasi Base
+- [Why Assi Ghat is the Perfect Varanasi Base](/blog/why-assi-ghat-perfect-base-varanasi-stay)
 
-- 10 Reasons Backpackers Love Mosaic Hostel
+- [Backpacker's Complete Guide to Assi Ghat](/blog/backpackers-guide-assi-ghat-varanasi)
 
-- Best Hostels in Varanasi — Honest Guide
+- [Best Hostels in Varanasi — Honest Guide](/blog/best-hostels-in-varanasi)
 
 ---
 

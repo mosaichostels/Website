@@ -6,6 +6,8 @@
 <title>Book Now — Mosaic Hostel Varanasi</title>
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles/global.css">
 <link rel="canonical" href="https://www.mosaichostels.com/book-now">
@@ -150,14 +152,9 @@
       Best Price Direct
     </div>
     <div class="direct-title">Skip the Commission. Book Direct.</div>
+    <div class="direct-price">Dorms from ₹499/night · Private rooms from ₹1,500/night</div>
     <div class="direct-sub">
       Booking directly with us means no platform fees, no markups — just the best available rate, straight from us to you. Got a special request or travelling in a group? We're a message away.
-    </div>
-    <div class="why-row">
-      <div class="why-pill"><div class="why-dot c-gold"></div>Lowest rate guaranteed</div>
-      <div class="why-pill"><div class="why-dot c-teal"></div>Instant confirmation</div>
-      <div class="why-pill"><div class="why-dot c-burg"></div>Flexible cancellation</div>
-      <div class="why-pill"><div class="why-dot c-cobalt"></div>Special requests welcome</div>
     </div>
     <a class="wa-btn" href="https://wa.me/919125492225?text=Hi!%20I'd%20like%20to%20book%20a%20stay%20at%20Mosaic%20Hostel%20Varanasi." target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.117.549 4.107 1.514 5.842L.057 23.428a.75.75 0 0 0 .906.94l5.733-1.498A11.95 11.95 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.65-.499-5.17-1.373l-.37-.213-3.845 1.004 1.029-3.733-.228-.378A9.937 9.937 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
@@ -169,6 +166,12 @@
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       mosaichostels@gmail.com
     </a>
+    <div class="why-row">
+      <div class="why-pill"><div class="why-dot c-gold"></div>Lowest rate guaranteed</div>
+      <div class="why-pill"><div class="why-dot c-teal"></div>Instant confirmation</div>
+      <div class="why-pill"><div class="why-dot c-burg"></div>Flexible cancellation</div>
+      <div class="why-pill"><div class="why-dot c-cobalt"></div>Special requests welcome</div>
+    </div>
   </div>
 </div>
 
@@ -264,11 +267,20 @@
   </div>
 </div>
 
+<!-- ── MAP ── -->
+<div class="map-section">
+  <div class="map-strip" id="mapStrip"></div>
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.0!2d83.0031634!3d25.2872587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e31ef166d9b91%3A0x96411370098acc3b!2sMosaic%20Hostel%20Varanasi!5e0!3m2!1sen!2sin!4v1735000000000!5m2!1sen!2sin"
+    allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
 <!-- ── LOCATION STRIP ── -->
 <div class="location-strip">
   <div class="loc-item">
     <div class="loc-label">Location</div>
-    <div class="loc-value">Near Assi Ghat, Varanasi</div>
+    <div class="loc-value"><a href="#" onclick="openMapsDialog(event)" class="link-plain is-clickable">Get Directions — Near Assi Ghat</a></div>
   </div>
   <div class="loc-item">
     <div class="loc-label">Check-in / Check-out</div>
@@ -293,7 +305,7 @@
 <footer>
   <div class="footer-top">
     <div>
-      <img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" style="display:block;height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:16px;">
+      <img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="110" height="110" style="display:block;height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:16px;">
       <p class="footer-tagline">A hostel rooted in community, warmth, and the spirit of Varanasi. Every guest who stays becomes part of our story.</p>
       <p style="font-size:12px;line-height:1.5;margin-top:12px;opacity:0.7;">
         <strong>B1/85C, Assi Ghat Road, Anandbagh, Varanasi, UP 221005</strong><br>
