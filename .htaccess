@@ -144,6 +144,11 @@
   # position 7.9-10.5, 859 impressions/90d in GSC before the migration)
   RewriteRule ^varanasi-solo-female-travelers-safety-travel-guide/?$ /blog/varanasi-solo-female-travelers-safety-travel-guide [R=301,L]
 
+  # Consolidated Assi Ghat posts — merged into assi-ghat-varanasi-complete-guide
+  RewriteRule ^blog/why-assi-ghat-perfect-base-varanasi-stay/?$ /blog/assi-ghat-varanasi-complete-guide [R=301,L]
+  RewriteRule ^blog/hostel-near-assi-ghat-varanasi/?$ /blog/assi-ghat-varanasi-complete-guide [R=301,L]
+  RewriteRule ^blog/backpackers-guide-assi-ghat-varanasi/?$ /blog/assi-ghat-varanasi-complete-guide [R=301,L]
+
   # Rewrite clean URLs to .html files
   # NOTE: RewriteCond only binds to the single next RewriteRule, so the
   # "real file/directory" and "/blogs/" guards must be repeated before

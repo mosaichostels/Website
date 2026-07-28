@@ -49,7 +49,7 @@ This one is the hardest to put on a list but the most important. Varanasi reward
 
 ### Read Next
 
-- [Backpacker's Complete Guide to Assi Ghat](/blog/backpackers-guide-assi-ghat-varanasi)
+- [Assi Ghat, Varanasi — Complete Guide for Travelers](/blog/assi-ghat-varanasi-complete-guide)
 
 - [Best Hostels in Varanasi — Honest Guide](/blog/best-hostels-in-varanasi)
 
