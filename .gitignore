@@ -7,3 +7,7 @@ images/hero-video.mp4
 mosaichostels-audit/
 audit-output/
 HOSTINGER_CONFIG.md
+# Backup files
+*.bak
+*.tmp
+*~
