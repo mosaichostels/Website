@@ -72,15 +72,18 @@ trap "rm -f $BATCH_FILE" EXIT
       # Get remote directory
       remote_dir=$(dirname "$file")
       if [ "$remote_dir" = "." ]; then
-        echo "put $file"
+        echo "put \"$file\""
       else
         # NOTE: `put file dir/` (positional remote arg) silently fails to
         # create missing nested directories on this server and falls back
         # to writing the basename into the current remote directory —
         # this is what corrupted the live homepage once already. `-O`
         # explicitly sets the output directory and is the reliable form.
-        echo "mkdir -p $remote_dir"
-        echo "put -O $remote_dir $file"
+        # Filenames are quoted since some assets (e.g. "unnamed (1).jpg")
+        # contain spaces - an earlier unquoted version silently dropped
+        # such files from the batch.
+        echo "mkdir -p \"$remote_dir\""
+        echo "put -O \"$remote_dir\" \"$file\""
       fi
     fi
   done
