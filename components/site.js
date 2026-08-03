@@ -133,12 +133,22 @@
   }
 
   // ── MAPS DIALOG (about / contact / privacy) ──
+  // CID 0x398e31ef166d9b91:0x96411370098acc3b is the verified Google Business
+  // Profile place ID (same one used in the contact-page Maps embed) — using
+  // it here instead of a generic address search guarantees the link lands on
+  // the actual claimed listing, not a best-guess search result.
+  const GBP_CID = '10826956351092739131';
   window.openMapsDialog = function (e) {
     e.preventDefault();
     const addr = 'B1/85C, Assi Ghat Road, Anandbagh, Varanasi, Uttar Pradesh 221005';
     const choice = confirm('Open directions in:\n\nOK = Google Maps\nCancel = Apple Maps');
-    if (choice) window.open(`https://maps.google.com/?q=${encodeURIComponent(addr)}`, '_blank');
+    if (choice) window.open(`https://www.google.com/maps?cid=${GBP_CID}`, '_blank');
     else window.open(`maps://maps.apple.com/?address=${encodeURIComponent(addr)}`);
+  };
+
+  window.openGoogleReview = function (e) {
+    if (e) e.preventDefault();
+    window.open(`https://www.google.com/maps?cid=${GBP_CID}`, '_blank');
   };
 
   function init() {

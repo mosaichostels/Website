@@ -1,5 +1,16 @@
 #!/bin/bash
 # Reliable FTP deployment script for Mosaic Hostel Website
+#
+# CACHE-BUSTING: every local <script src> / <link href> for /components/*.js
+# and /styles/*.css carries a "?v=YYYYMMDD" query string because .htaccess
+# serves those files with a 30-day `immutable` Cache-Control header. Whenever
+# you edit any shared JS/CSS file's content (navbar.js, site.js, global.css,
+# blog-renderer.js, etc.), bump that query string to today's date across all
+# referencing HTML files before deploying, e.g.:
+#   grep -rl 'components/blog-renderer.js?v=' --include="*.html" . | \
+#     xargs sed -i '' 's/blog-renderer\.js?v=[0-9]*/blog-renderer.js?v=NEWDATE/g'
+# Skipping this means returning visitors' browsers keep serving the stale
+# file for up to 30 days after the deploy.
 
 set -e
 
@@ -35,13 +46,20 @@ FILES_TO_DEPLOY=()
 
 if [ "$1" = "all" ]; then
   echo -e "${YELLOW}Deploying ALL files...${NC}"
-  FILES_TO_DEPLOY=($(find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.webp" -o -name "*.jpg" -o -name "*.png" \) \
+  # NOTE: must use NUL-delimited find + a read loop here, not
+  # FILES_TO_DEPLOY=($(find ...)). The unquoted command-substitution form
+  # word-splits on spaces in filenames (e.g. "unnamed (2).jpg" silently
+  # became two bogus array entries, "unnamed" and "(2).jpg", both of which
+  # then failed the -f check below and got dropped from the deploy).
+  while IFS= read -r -d '' file; do
+    FILES_TO_DEPLOY+=("$file")
+  done < <(find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.webp" -o -name "*.jpg" -o -name "*.png" -o -name ".htaccess" -o -name "*.txt" -o -name "*.xml" \) \
     -not -path "./.git/*" \
     -not -path "./.github/*" \
     -not -path "./.claude/*" \
     -not -path "./scripts/*" \
     -not -path "./mosaichostels.com-audit/*" \
-    -not -path "./images/unused/*"))
+    -not -path "./images/unused/*" -print0)
 else
   FILES_TO_DEPLOY=("$@")
 fi

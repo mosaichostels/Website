@@ -15,8 +15,14 @@
   # Referrer policy
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
-  # CSP (upgrade insecure requests to HTTPS)
-  Header set Content-Security-Policy "upgrade-insecure-requests"
+  # CSP — real source allowlist. 'unsafe-inline' is required for script-src/
+  # style-src because the site uses inline <script> blocks and onclick=
+  # handlers throughout (no nonce/hash infrastructure); this still blocks
+  # loading executable content from any non-whitelisted external origin.
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.clarity.ms https://c.bing.com; connect-src 'self' https://*.clarity.ms https://c.bing.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+
+  # Permissions-Policy — the site doesn't use any of these browser features
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), interest-cohort=()"
 </IfModule>
 
 # ════════ CACHING RULES ════════
@@ -24,8 +30,10 @@
   ExpiresActive On
   ExpiresDefault "access plus 1 day"
 
-  # HTML (1 day)
-  ExpiresByType text/html "access plus 1 day"
+  # HTML (5 minutes — kept short so a deploy without a manual CDN purge
+  # only stays stale briefly instead of up to a day; JS/CSS/images are safe
+  # to cache long because they're version-tagged or content-addressed)
+  ExpiresByType text/html "access plus 5 minutes"
 
   # CSS/JS (30 days, versioned in production)
   ExpiresByType text/css "access plus 30 days"
@@ -54,7 +62,7 @@
 <IfModule mod_headers.c>
   # Explicit cache headers per type
   <FilesMatch "\.(html)$">
-    Header set Cache-Control "public, max-age=86400, must-revalidate"
+    Header set Cache-Control "public, max-age=300, must-revalidate"
   </FilesMatch>
 
   <FilesMatch "\.(css|js)$">
@@ -91,10 +99,10 @@
 <IfModule mod_lscache.c>
   CacheLookup public on
 
-  # Cache HTML pages for 1 day
+  # Cache HTML pages for 5 minutes (see mod_headers block above for why)
   <FilesMatch "\.(html)$">
     CacheEnable public
-    CacheMaxAge 86400
+    CacheMaxAge 300
   </FilesMatch>
 
   # Cache CSS/JS for 30 days
@@ -140,6 +148,17 @@
   RewriteCond %{HTTP_HOST} ^mosaichostels\.com$ [NC]
   RewriteRule ^(.*)$ https://www.mosaichostels.com/$1 [L,R=301]
 
+  # Canonicalize direct .html requests to their clean extensionless URL —
+  # without these, the same content was reachable at two different URLs
+  # (e.g. /about.html AND /about both returning 200), a duplicate-content risk.
+  RewriteRule ^index\.html$ / [R=301,L]
+  RewriteRule ^about\.html$ /about [R=301,L]
+  RewriteRule ^contact\.html$ /contact [R=301,L]
+  RewriteRule ^book-now\.html$ /book-now [R=301,L]
+  RewriteRule ^gallery\.html$ /gallery [R=301,L]
+  RewriteRule ^privacy\.html$ /privacy [R=301,L]
+  RewriteRule ^blog\.html$ /blog/ [R=301,L]
+
   # Legacy WordPress blog URL — reclaim ranking equity (was ranking
   # position 7.9-10.5, 859 impressions/90d in GSC before the migration)
   RewriteRule ^varanasi-solo-female-travelers-safety-travel-guide/?$ /blog/varanasi-solo-female-travelers-safety-travel-guide [R=301,L]
@@ -148,6 +167,16 @@
   RewriteRule ^blog/why-assi-ghat-perfect-base-varanasi-stay/?$ /blog/assi-ghat-varanasi-complete-guide [R=301,L]
   RewriteRule ^blog/hostel-near-assi-ghat-varanasi/?$ /blog/assi-ghat-varanasi-complete-guide [R=301,L]
   RewriteRule ^blog/backpackers-guide-assi-ghat-varanasi/?$ /blog/assi-ghat-varanasi-complete-guide [R=301,L]
+
+  # Normalize trailing slash on core pages to the non-slash canonical form
+  # (these are .html files, not directories, unlike /blog/<slug> — both
+  # /about and /about/ were silently serving 200 with no redirect, a
+  # duplicate-URL issue).
+  RewriteRule ^gallery/$ /gallery [R=301,L]
+  RewriteRule ^about/$ /about [R=301,L]
+  RewriteRule ^contact/$ /contact [R=301,L]
+  RewriteRule ^book-now/$ /book-now [R=301,L]
+  RewriteRule ^privacy/$ /privacy [R=301,L]
 
   # Rewrite clean URLs to .html files
   # NOTE: RewriteCond only binds to the single next RewriteRule, so the
