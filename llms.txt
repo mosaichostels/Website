@@ -1,63 +1,49 @@
 # Mosaic Hostel Varanasi
 
-Mosaic Hostel is a premium budget hostel located near Assi Ghat in Varanasi, Uttar Pradesh, India. Established in 2025, we welcome solo travelers, groups, backpackers, and families seeking authentic experiences in one of the world's oldest cities.
+> Premium budget hostel near Assi Ghat in Varanasi, Uttar Pradesh, India. Established 2025. Dorm beds from ₹499/night and private rooms from ₹1,500/night. Welcomes solo travellers, backpackers, groups and families seeking an authentic stay in one of the world's oldest cities.
 
 ## Location & Contact
 
-**Address:** B1/85C, Assi Ghat Road, Anandbagh, Varanasi, Uttar Pradesh 221005, India  
-**Phone:** +91-9125492225  
-**Email:** mosaichostels@gmail.com  
-**Website:** https://www.mosaichostels.com
+- **Address:** B1/85C, Assi Ghat Road, Anandbagh, Varanasi, Uttar Pradesh 221005, India
+- **Phone / WhatsApp:** +91-9125492225
+- **Email:** mosaichostels@gmail.com
+- **Website:** https://www.mosaichostels.com
+- **Coordinates:** 25.28726, 83.00316 (steps from Assi Ghat)
 
-## Pages
+## Rooms & Rates
 
-- **Homepage** (https://www.mosaichostels.com/) — Overview of Mosaic Hostel, room types, amenities, and booking
-- **About Us** (https://www.mosaichostels.com/about) — Our story, philosophy, and team  
-- **Photo Gallery** (https://www.mosaichostels.com/gallery) — Property photos and room images
-- **Blog** (https://www.mosaichostels.com/blog) — Travel guides for Varanasi and Assi Ghat
-- **Book Now** (https://www.mosaichostels.com/book-now) — Direct booking and room availability
-- **Contact** (https://www.mosaichostels.com/contact) — Contact form and location map
-- **Privacy Policy** (https://www.mosaichostels.com/privacy) — Data privacy information
-
-## Room Types
-
-- **Dorm Rooms** — 6-bed mixed, 6-bed female-only, 4-bed female-only. Rates from ₹499 per night
-- **Private Rooms** — Single, double, and triple occupancy with AC and ensuite bathrooms
+- **Dorms** — 6-bed mixed, 6-bed female-only, 4-bed female-only. From ₹499/night.
+- **Private rooms** — single, double and triple occupancy, AC, ensuite bathroom. From ₹1,500/night.
+- Check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception.
 
 ## Amenities
 
-Free high-speed WiFi, air conditioning, hot water, secure lockers, shared kitchen, rooftop terrace, 24-hour front desk, laundry service, yoga classes
+Free high-speed WiFi, air conditioning, hot-water showers, lockers, shared kitchen, rooftop space, 24-hour check-in.
 
-## Blog Posts
+## Core Pages
 
-- **Best Hostels in Varanasi — 2025 Honest Guide** (https://www.mosaichostels.com/blog/best-hostels-in-varanasi) — Neighbourhood breakdown and hostel comparison
-- **Assi Ghat, Varanasi — Complete Guide for Travelers** (https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide) — Geography, atmosphere, boat rides, chai spots, and practical information
-- **Varanasi for Solo Female Travelers — Safety Guide** (https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide) — Safety tips and local insights for female travelers
-- **Top 7 Experiences for a Traveler in Varanasi** (https://www.mosaichostels.com/blog/top-7-experiences-varanasi-traveler) — Must-do activities and authentic experiences
-- **Things to Do in Varanasi: Local's Guide** (https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide) — Curated ghats, temples, and hidden experiences
-- **Best Time to Visit Varanasi: Month-by-Month Guide** (https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month) — Weather, festivals, and crowd levels by season
-- **Varanasi Airport & Railway Station to Assi Ghat: Transfer Guide** (https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide) — Routes, timing, and realistic pricing
-- **Varanasi Backpacker Budget: Daily Cost Breakdown** (https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown) — Daily costs across three budget tiers
-- **Is Varanasi Safe? A General Safety Guide for Every Traveler** (https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide) — Touts, scams, and health precautions
-- **Sarnath Day Trip Guide from Varanasi** (https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi) — Where the Buddha gave his first sermon, 10km from Varanasi
-- **Assi Ghat vs Dashashwamedh: Where Should You Stay?** (https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay) — Direct neighborhood comparison
-- **Dorm vs Private Room in Varanasi: Which Should You Book?** (https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel) — Room type decision guide
-- **2-Day Varanasi Itinerary for Backpackers** (https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers) — Hour-by-hour plan for limited time
-- **3-5 Day Varanasi Itinerary for Slow Travelers** (https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel) — For slow travelers and digital nomads
-- **Co-working Spaces & Cafes Near Assi Ghat for Remote Work** (https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat) — WiFi, cafes, and remote-work logistics
+- [Homepage](https://www.mosaichostels.com/) — overview, rooms, amenities, FAQ, booking
+- [About](https://www.mosaichostels.com/about) — story, philosophy, team
+- [Gallery](https://www.mosaichostels.com/gallery) — property and room photos
+- [Book Now](https://www.mosaichostels.com/book-now) — direct booking and room availability
+- [Contact](https://www.mosaichostels.com/contact) — contact form, WhatsApp, map
+- [Blog](https://www.mosaichostels.com/blog/) — Varanasi and Assi Ghat travel guides
+- [Privacy Policy](https://www.mosaichostels.com/privacy)
 
-## Canonicalization
+## Travel Guides (Blog)
 
-All pages are accessible via www.mosaichostels.com with extensionless URLs (e.g., /about, not /about.html or non-www variants). The canonical version is https://www.mosaichostels.com
-
-## Language
-
-English (en)
-
-## Location Coordinates
-
-Latitude: 25.28726  
-Longitude: 83.00316  
-City: Varanasi, Uttar Pradesh  
-Country: India  
-Timezone: IST (UTC+5:30)
+- [Best Hostels in Varanasi (2025 Honest Guide)](https://www.mosaichostels.com/blog/best-hostels-in-varanasi/)
+- [Assi Ghat, Varanasi: Complete Guide](https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/)
+- [Assi Ghat vs Dashashwamedh: Where to Stay](https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/)
+- [Dorm vs Private Room in Varanasi](https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/)
+- [Varanasi for Solo Female Travellers: Safety Guide](https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide/)
+- [Is Varanasi Safe? General Safety Guide](https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/)
+- [Top 7 Experiences Every Varanasi Traveller Must Have](https://www.mosaichostels.com/blog/top-7-experiences-varanasi-traveler/)
+- [Things to Do in Varanasi: Local's Guide](https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/)
+- [Best Time to Visit Varanasi: Month-by-Month](https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/)
+- [Varanasi 2-Day Itinerary for Backpackers](https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/)
+- [3-5 Day Varanasi Itinerary for Slow Travellers](https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/)
+- [Varanasi Backpacker Budget: Daily Cost Breakdown](https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/)
+- [Varanasi Airport & Railway to Assi Ghat: Transfer Guide](https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/)
+- [Sarnath Day Trip Guide from Varanasi](https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/)
+- [Co-working Spaces & Cafes Near Assi Ghat](https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/)
