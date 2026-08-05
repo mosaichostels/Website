@@ -1,34 +1,69 @@
-# SXO Analysis — Mosaic Hostel Varanasi (mosaichostels.com)
+# SXO Monitoring Pass — Commercial-Intent Query Underranking (mosaichostels.com)
 
-**Scope:** Homepage (`/`), `/book-now`, `/blog` + blog post template, `/about`, `/gallery`, `/contact`
-**Method:** SERP-backwards analysis (5 query clusters, WebSearch), page-type taxonomy classification, rendered-DOM inspection (Playwright via `render_page.py --mode always`), full-HTML diffing against two named personas.
-**Date:** 2026-07-28
+**Scope:** Homepage (`/`) and `/blog/best-hostels-in-varanasi` only, evaluated against 4 commercial-intent
+queries flagged by real Google Search Console data (28-day window, pulled 2026-08-05):
 
-> **SXO Gap Score is a distinct metric from the SEO Health Score.** It measures how well the *experience* matches searcher intent and journey stage, not crawlability/indexability. See Section 5.
+| Query | GSC Avg. Position | Impressions | Ranking Page |
+|---|---|---|---|
+| "hostels near assi ghat" | 14.7 | 45 | Homepage |
+| "hostel in varanasi" | 27.2 | — | Homepage |
+| "hostels in varanasi" | 31.6 | — | Homepage |
+| "best hostels in varanasi" | 31.6 (Homepage) / **18** (blog post) | — | **Split — both pages rank** |
+
+**Method:** SERP-backward analysis (4 queries, WebSearch, Google-backed), page-type taxonomy
+classification (`skills/seo-sxo/references/page-type-taxonomy.md`), rendered-HTML inspection via
+`render_page.py --mode auto` + `parse_html.py` on both target pages, 3-persona derivation and scoring
+(`skills/seo-sxo/references/persona-scoring.md`).
+
+**Note on file history:** This supersedes the 2026-07-28 SXO pass, which is now stale — it referenced
+blog slugs (`backpackers-guide-assi-ghat-varanasi`, `hostel-near-assi-ghat-varanasi`,
+`why-assi-ghat-perfect-base-varanasi-stay`) that no longer exist. The site currently publishes 15 blog
+posts (confirmed via `sitemap.xml`); several structural fixes from the July pass have visibly shipped
+since then (FAQPage schema, visible on-page pricing, `hasMap`/embedded Google Map on the homepage,
+working `wa.me` links in blog CTAs — see commits `2512152` and `b0ebf6b`). This pass is narrower by
+design: it answers the specific GSC question the coordinator raised, not a full-site re-audit.
 
 ---
 
 ## Executive Summary — Lead Finding
 
-The site does **not** have a single dominant page-type mismatch (blog posts are correctly typed as Blog Posts, `/contact` is correctly typed as a Local Page). The primary problem is **structural: informational content and transactional content are wired correctly at the site-navigation level but are disconnected at the moment-of-intent level.** Three concrete, verifiable breakages drive this:
+**The homepage is the wrong page type for every one of these four queries except the narrowest one.**
+All three "hostel(s) in varanasi" variants and "best hostels in varanasi" are dominated in the SERP by
+**multi-property comparison/aggregator pages** (Booking.com's "10 best hostels" city page, Tripadvisor's
+"10 Best Varanasi Hostels" list, Hostelworld/cozycozy/Orbitz city listings, and — for "best hostels"
+specifically — independent listicles like thebrokebackpacker's "5 Best Hostels" and footloosedev). The
+homepage is a **single-property Landing Page** — well-built, but structurally incapable of satisfying a
+query whose SERP consensus is "show me 5-10 options side by side." No amount of on-page polish fixes
+this; it's a page-type mismatch, not a content-quality problem.
 
-1. **The `/blog` index only displays 5 of the site's 8 published, schema-indexed blog posts.** `components/blog-renderer.js`'s `getAllBlogsMetadata()` has a hardcoded 5-item array while `getAllBlogSlugs()` (used for the schema `CollectionPage.mainEntity`) lists all 8. `backpackers-guide-assi-ghat-varanasi`, `hostel-near-assi-ghat-varanasi`, and `things-to-do-varanasi-local-guide` are invisible in the on-site blog listing/internal linking, even though Google can index them directly.
-2. **Blog posts contain the exact booking CTA copy needed to convert — but it isn't hyperlinked.** Example, `/blog/things-to-do-varanasi-local-guide`: *"Book your stay at Mosaic today and start your Varanasi story."* — plain `<p>` text, no `<a href="/book-now">` or `wa.me` link. Same pattern on `/blog/best-hostels-in-varanasi`'s "How to Book Smart" section: the email address is a working `mailto:` link, but the WhatsApp number right next to it is plain text, not a `wa.me` link. Across all 3 sampled posts, the *only* `/book-now` and WhatsApp links present are the persistent site-wide nav bar and footer — there is zero contextual, in-content conversion path.
-3. **`/book-now` has no map, no directions, and no visible pricing/reviews on-page**, while `/contact` (which does have the Google Maps embed + NAP) has no OTA links or booking framing. The two pages that together would satisfy a "near me" local searcher are split, and neither one alone matches what Google's Local Pack trains users to expect (map + directions + call button + reviews, together).
+The one query where the homepage is reasonably positioned — **"hostels near assi ghat" (pos 14.7)** — is
+also the one query where the SERP is *not* purely aggregator-dominated: it mixes OTA proximity-listing
+pages with occasional single-property pages, and Mosaic's own homepage already surfaces in WebSearch
+results for it. This is the page type/intent combination the homepage is actually built for.
 
-These are independent of any SERP ranking question — they are verifiable in the rendered HTML today.
+**The "best hostels in varanasi" split (homepage pos 31.6 vs. blog post pos 18) is not primarily
+self-competition — it's the predicted outcome of page-type fit.** The blog post is structurally a
+comparison page (per-hostel H3 sections, explicit "best for" framing, 5 named hostels including Mosaic)
+and it outranks the homepage by ~14 positions for exactly that reason. The fix is not to suppress one
+page in favor of the other through canonicalization gymnastics — it's to **stop expecting the homepage to
+win this query at all**, reinforce the blog post's comparison-page signals (it's missing a scannable
+table and per-hostel photos that its SERP competitors all have), and let the homepage's on-page
+optimization budget go toward the query it's actually shaped for ("near Assi Ghat" / branded / local).
 
 ---
 
-## 1. SERP Consensus (5 query clusters, WebSearch, ≥5 results each)
+## 1. SERP Consensus (4 queries, WebSearch, Google-backed)
 
-| Query | Persona | Dominant SERP page type | Notes |
-|---|---|---|---|
-| "budget hostel Assi Ghat Varanasi" | Local A2 | **OTA Product/Comparison pages** (Booking.com, Hostelworld, cozycozy, MakeMyTrip, trip.com, Kayak, Expedia) | Live pricing, availability, review counts. Mosaic's own homepage appears at #4 — a genuine win, but it's competing directly against pages built for price comparison. |
-| "Mosaic Hostel Varanasi" (branded) | Local A1/A3 | **Third-party OTA/review listings** (LateRooms, trip.com, Hotels.com, Booking.com, Hostelworld, Orbitz, TripAdvisor, Booking reviews, MakeMyTrip) | mosaichostels.com's own homepage ranks **#10 of 10** — the brand does not own its own branded SERP. |
-| "solo female travel Varanasi safety" | Remote B1 | **Independent travel Blog Posts / safety listicles** (thirdeyetraveller, rishikeshdaytour, varanasiitinerary, christinaintheclouds, kashitaxi, travelladies) | Google's synthesized answer names **Zostel, Moustache Hostel, and BunkStop** by name as recommended women's-dorm accommodation. Mosaic is not mentioned, despite having a blog post targeting this exact query with an identical "female dorm" pitch. |
-| "things to do in Varanasi" | Remote B2 | **Experience-marketplace + Blog hybrid** (GetYourGuide, Viator, TripAdvisor Attractions, migrationology, wildernesstravel) | Top competitors (GetYourGuide/Viator) embed a bookable CTA next to every activity described. |
-| "best hostels in Varanasi" | Remote B3 | **Comparison listicles + OTA aggregators** (Booking.com, trip.com, Holidify, thebrokebackpacker "5 Best Hostels", TripAdvisor, cozycozy, hostelz, footloosedev) | Named winners: Moustache Hostel, Wander Station, Mother Hostel, Flying Dutchman, goSTOPS. **Mosaic is not named in any independent "best of" roundup** — only in its own self-titled blog post. |
+| Query | Dominant SERP page type | Evidence |
+|---|---|---|
+| "hostels near assi ghat" | **Mixed: OTA proximity-listing + occasional single-property pages** | goibibo "Hostels near Assi Ghat" POI page, MakeMyTrip POI-hostels page, MakeMyTrip general hotels-near page, Tripadvisor single-property review, Booking.com single-property page (Live Free Hostel), **mosaichostels.com homepage itself appears** (~6th of 8 results), trip.com POI pages (x2) |
+| "hostel in varanasi" | **Comparison/Aggregator dominant** | Booking.com "10 best hostels" city page, Orbitz hostel travel guide, goStops city product page, cozycozy "compare 100+ providers," Tripadvisor "10 Best Varanasi Hostels" list, varanasihotels.net directory, Hostelworld city list. Mosaic's own homepage did **not** appear in the top-7 WebSearch link set. |
+| "hostels in varanasi" | **Comparison/Aggregator dominant** | Same aggregator set as above, plus thebrokebackpacker's "5 Best Hostels" listicle appears here. Mosaic's homepage again absent from the top-6 links returned. |
+| "best hostels in varanasi" | **Comparison Listicle dominant** | Booking.com "10 best" page, trip.com "10 Best Hostels — Reviews, Prices & Ratings," Tripadvisor "10 Best," **thebrokebackpacker "5 Best Hostels: 2026 Edition,"** footloosedev "Best Hostels To Stay At In Varanasi." Named winners across sources: Moustache, Flying Dutchman, goSTOPS, Wander Station, Mother Hostel, MONALISA — Mosaic is not named in any of these independent lists (consistent with the 2026-07-28 finding). |
+
+**SERP feature notes:** No ads appeared in any of the four result sets (low current ad density — commercial
+intent is being served organically, not via paid search). No AI Overview citation could be confirmed via
+WebSearch. Related-searches/PAA data was not independently screenshotted in this pass (see Limitations).
 
 ---
 
@@ -36,117 +71,155 @@ These are independent of any SERP ranking question — they are verifiable in th
 
 (Taxonomy: `skills/seo-sxo/references/page-type-taxonomy.md`)
 
-| Target page | Classified as | Likely target intent | SERP-dominant type for that intent | Severity |
+| Target page | Classified as | Query it's ranking for | SERP-dominant type | Severity |
 |---|---|---|---|---|
-| Homepage (`/`) | **Landing Page** (hero + single CTA + minimal nav) but missing required elements: no visible pricing, no visible review/rating (schema has 4.9★/60 reviews but nothing renders on-page), 253 words, 1 H1/H2, only 3 body-content internal links | Branded + generic "Varanasi hostel" head terms | OTA Product/Comparison pages | **HIGH** — thin content and absent trust signals vs. rich, price-forward competitors |
-| `/book-now` | **Hybrid** (direct-booking Landing Page + OTA directory) | "book now," "near me," branded direct-booking intent | Local Pack-style local intent expects map + NAP + directions + reviews (Local Page requirements) | **MEDIUM-HIGH** — no map, no directions link, no visible reviews on this specific page; Local Page elements live on `/contact` instead |
-| `/blog` index + posts | **Blog Post** — correctly typed (H1, author byline, publish date, H2 sections, BlogPosting schema, BreadcrumbList) | Informational safety/itinerary/comparison queries | Independent Blog Posts / listicles / experience marketplaces | **ALIGNED** on structure, but **HIGH on execution**: (a) 3/8 posts orphaned from the index, (b) zero functioning in-content conversion links, (c) not cited by third-party authorities for the exact queries it targets |
-| `/contact` | **Local Page** — correctly typed (Google Maps embed, full NAP, ContactPoint schema) | "near me," directions-seeking local intent | Local Pack | **ALIGNED** but incomplete — no explicit "Get Directions" link, and no bridge back to `/book-now`'s OTA options for a user who lands here first |
-| `/about` | Hybrid Service/Brand-story page | Trust-building for consideration-stage researchers (implicit support page, not a primary SERP target) | N/A — supporting asset | Not scored for mismatch; noted as under-leveraged for E-E-A-T (no named founder/team bios found in rendered text beyond generic narrative) |
-| `/gallery` | Media/proof gallery | Decision-stage visual validation | N/A — supporting asset | Aligned as a supporting page, but disconnected: no photos live on `/book-now` itself, where the booking decision is actually made |
+| Homepage (`/`) | **Landing Page** (hero → room grid → single booking CTA → FAQ → map) — well-executed for its type: visible pricing (₹499 dorm / ₹1,500 private), 5-room photo grid, Tripadvisor 4.9★ badge, embedded Google Map, FAQPage schema, Hostel schema | "hostels near assi ghat" | Mixed OTA-proximity / occasional single-property | **MEDIUM** — closest fit of the four; homepage already surfaces here |
+| Homepage (`/`) | Landing Page (same) | "hostel in varanasi" | Comparison/Aggregator | **CRITICAL** — single-property page cannot satisfy a "show me options" query type |
+| Homepage (`/`) | Landing Page (same) | "hostels in varanasi" | Comparison/Aggregator | **CRITICAL** — same reasoning, broadest/most competitive of the four |
+| Homepage (`/`) | Landing Page (same) | "best hostels in varanasi" | Comparison Listicle | **CRITICAL** — "best" is an explicit comparison-framing keyword; a single-property page structurally cannot rank well for it |
+| `/blog/best-hostels-in-varanasi` | **Comparison Page** (H2 "How Varanasi's Best-Known Hostels Actually Compare," 5 named hostels each with a dedicated H3 + "best for X" tag, BlogPosting + FAQPage schema, 1,993 words) | "best hostels in varanasi" | Comparison Listicle | **ALIGNED on type** — correctly built as a comparison page and ranking accordingly (pos 18 vs. homepage's 31.6) — but **MEDIUM on execution**: missing the comparison-table/matrix format and per-hostel photos that every SERP competitor (Booking.com, Tripadvisor, thebrokebackpacker) uses; no `ItemList`/`Table` schema (taxonomy's required element for this page type) |
+
+### Why the homepage doesn't win the three broad queries
+The taxonomy's own "Common mismatches" list for Landing Page and Product Page names this exact pattern:
+*"Single Product Page when user wants comparison" (severity: HIGH)* — here it's a single-*property*
+Landing Page against a "show me 5-10 hostels" query type, which is the same failure mode at CRITICAL
+severity because the query itself (plural "hostels," "best") explicitly signals a comparison, not a
+single-business intent.
 
 ---
 
-## 3. User Stories — Persona A: Local Traveler (already in Varanasi)
+## 3. User Stories
 
-**A1 — "Just Landed, Need a Bed Tonight"** (Decision stage)
-> As a backpacker who just arrived in Varanasi with no reservation, I want to find a bed within walking distance right now, because I'm tired and don't want to wander with my bags, but I'm blocked by not knowing whether Mosaic has a room available tonight or how to walk there from where I am.
-*(Source: "budget hostel Assi Ghat Varanasi" SERP is dominated by OTA listings showing live availability + distance-from-landmark; `/book-now` shows only the text "Near Assi Ghat, Varanasi" with no map or walking directions.)*
+**Story 1 — "Show Me the Options" (Budget-Comparison Shopper, Consideration stage)**
+> As a backpacker searching "hostels in varanasi" or "hostel in varanasi," I want to see 5-10 options
+> with price and rating side by side in one place, because I haven't picked a neighbourhood or property
+> yet, but I'm blocked because Mosaic's homepage shows only itself — no comparison framing, no
+> "vs" or "alternatives" content — so I bounce to Booking.com/Tripadvisor to actually compare, the same
+> aggregators paying nothing back to the brand.
+> *(Source: SERP for both queries dominated by Booking.com "10 best," Tripadvisor "10 Best," cozycozy
+> "compare 100+ providers" — homepage does not appear in either query's top WebSearch result set.)*
 
-**A2 — "In-City OTA Comparison Shopper"** (Consideration → Decision)
-> As a traveler already in Varanasi comparing 2-3 nearby hostels on my phone, I want to see price, availability, and reviews side by side, because I don't want to overpay or end up somewhere poorly rated, but I'm blocked by comparison fatigue — Mosaic's own site shows no price grid or review excerpts, so I have to tab out to Booking.com/Hostelworld (the same OTAs Mosaic pays commission to) to actually compare.
-*(Source: Booking.com, Hostelworld, cozycozy, MakeMyTrip dominate this query as price/review-forward listings; Mosaic's homepage and `/book-now` show neither price nor review count on-page.)*
+**Story 2 — "Just Landed, Need Something Close" (First-Time Backpacker, Decision stage)**
+> As a traveler searching "hostels near assi ghat" right after arriving, I want a fast confirmation that
+> this specific hostel is walkable from the ghat with a map I can act on immediately, because I have bags
+> and don't want to wander, but I'm blocked because the homepage's map embed sits below the FAQ section
+> (a long scroll down) and there's no quantified walk-time badge ("2-min walk to Assi Ghat") near the hero
+> the way OTA proximity-listing competitors show.
+> *(Source: SERP for this query mixes goibibo/MakeMyTrip POI-proximity listing pages with Mosaic's own
+> homepage already appearing — this is the query the homepage is closest to winning, and distance framing
+> is the differentiator competitors lead with.)*
 
-**A3 — "Searching the Brand Name While Standing Nearby"** (Decision)
-> As someone at Assi Ghat searching "Mosaic Hostel Varanasi" because a friend recommended it, I want to instantly land on the official site with directions and a call/WhatsApp button, because I need to walk there in the next 10 minutes, but I'm blocked because Google shows me nine third-party OTA/review pages before the brand's own homepage.
-*(Source: WebSearch "Mosaic Hostel Varanasi" — mosaichostels.com ranked #10 of 10 results returned, behind LateRooms, trip.com, Hotels.com, Booking.com, Hostelworld, Orbitz, TripAdvisor, and Booking.com reviews.)*
+**Story 3 — "I Need This to Feel Safe Before I Book" (Safety-Conscious Solo Traveler, Consideration →
+Decision)**
+> As a solo traveler (often a woman) evaluating "best hostels in varanasi," I want explicit reassurance
+> about safety and a female-dorm option before I commit, because safety is my primary filter, not price,
+> but I'm blocked on the **homepage** because there is no safety-framed copy at all (the female-dorm room
+> card exists only as a photo + amenity chip, with no "why it's safe" language), and on the **blog post**
+> because the safety FAQ answer ("Yes, with standard precautions...") is generic and not
+> independently corroborated — Mosaic still isn't named in any third-party "best hostels" or
+> "solo female safety" roundup, so the reassurance is self-asserted only.
+> *(Source: blog post's own FAQPage schema — "Is Varanasi safe for solo travellers?", "Are there
+> female-only dorms?" — cross-referenced against the 2026-07-28 finding that independent safety roundups
+> name Zostel/Moustache/BunkStop instead of Mosaic; homepage FAQPage confirms female-dorm availability but
+> has zero safety-specific framing.)*
 
-## User Stories — Persona B: Remote International Researcher
-
-**B1 — "Solo Female Safety-First Planner"** (Awareness → Consideration)
-> As a solo woman planning a Varanasi trip from abroad, I want an honest answer to "is Varanasi safe for solo female travelers," because I'm anxious about harassment and will only book somewhere I feel confident in, but I'm blocked by not seeing Mosaic named in the answer Google synthesizes for this question — independent guides recommend Zostel, Moustache Hostel, and BunkStop's women-only dorms by name instead.
-*(Source: WebSearch "solo female travel Varanasi safety" synthesized answer.)*
-
-**B2 — "The Moment of Trust, Wasted"** (Consideration → Decision, same persona as B1, later in journey)
-> As that same safety-conscious researcher, once I land on Mosaic's *own* safety-guide blog post and read the "Where to Stay" section explicitly recommending Mosaic's 6-bed female dorm as safe, I want to book immediately while my exact objection just got resolved, but I'm blocked because that paragraph has no link to `/book-now` or WhatsApp — I'd have to leave the article and find the nav myself.
-*(Source: rendered HTML of `/blog/varanasi-solo-female-travelers-safety-travel-guide` — the "Where to Stay" section names "Mosaic Hostel" and its female dorm in plain, unlinked text.)*
-
-**B3 — "Itinerary / Activity Researcher"** (Consideration)
-> As a first-time visitor building an itinerary months out, I want a things-to-do list with a clear way to arrange each activity, because sites like GetYourGuide and Viator let me book a boat ride or walking tour from the same page I'm reading about it, but Mosaic's "Things to Do" post only has one non-clickable closing sentence and no booking path for any of the activities it mentions (boat ride, cooking class).
-*(Source: SERP for "things to do in Varanasi" dominated by GetYourGuide/Viator with embedded booking CTAs; Mosaic's post's closing CTA sentence — "Book your stay at Mosaic today and start your Varanasi story." — contains no `<a>` tag.)*
-
-**B4 — "Best-Of Comparison / Decision-Stage Shopper"** (Decision)
-> As a researcher who has narrowed my shortlist by reading independent "best hostels in Varanasi" roundups, I want to see Mosaic mentioned in a *third-party* ranking so I trust the recommendation isn't just self-promotion, but I'm blocked because Mosaic doesn't appear in any of the top independent listicles (thebrokebackpacker, Holidify, hostelz, footloosedev) — only in its own self-titled "Best Hostels in Varanasi — 2025 Honest Guide" post.
-*(Source: WebSearch "best hostels in Varanasi" — named winners are Moustache Hostel, Wander Station, Mother Hostel, Flying Dutchman, goSTOPS.)*
-
-*(Stories span awareness [B1], consideration [A2, B2, B3, B4], and decision [A1, A3] stages.)*
+*(Stories span consideration [1, 3] and decision [2, 3] stages, and cover all three requested personas.)*
 
 ---
 
 ## 4. Persona Scoring
 
-(Rubric: `skills/seo-sxo/references/persona-scoring.md` — Relevance/Clarity/Trust/Action, 25 pts each)
+(Rubric: `skills/seo-sxo/references/persona-scoring.md` — Relevance/Clarity/Trust/Action, 25 pts each.
+Each persona is scored against **both** target pages since GSC shows real traffic split risk between them.)
+
+### Homepage (`/`)
 
 | Persona | Relevance | Clarity | Trust | Action | Total | Rating |
 |---|---|---|---|---|---|---|
-| A1 — Just-Landed Bed-Seeker | 15/25 | 14/25 | 10/25 | 20/25 | **59/100** | Needs Work |
-| A2 — In-City OTA Comparison Shopper | 12/25 | 10/25 | 12/25 | 15/25 | **49/100** | Needs Work |
-| B1 — Solo Female Safety-First Planner | 20/25 | 19/25 | 11/25 | 8/25 | **58/100** | Needs Work |
-| B3 — Itinerary/Activity Researcher | 18/25 | 17/25 | 10/25 | 6/25 | **51/100** | Needs Work |
-| B4 — Best-Of Comparison Shopper | 14/25 | 15/25 | 8/25 | 14/25 | **51/100** | Needs Work |
+| Budget-Comparison Shopper | 10/25 | 16/25 | 14/25 | 20/25 | **60/100** | Good |
+| First-Time Backpacker (near-me) | 18/25 | 17/25 | 15/25 | 21/25 | **71/100** | Good |
+| Safety-Conscious Solo Traveler | 12/25 | 14/25 | 10/25 | 16/25 | **52/100** | Needs Work |
 
-### Weakest Persona: A2 — In-City OTA Comparison Shopper (49/100)
-**Top issue:** No price or review count is visible anywhere on `/book-now` or the homepage — the page asserts "Best Price Direct" and "Lowest rate guaranteed" but never shows an actual number, so the persona cannot verify the claim without leaving the site (to the same OTAs Mosaic is trying to disintermediate).
-**Recommended fix:** Add a small price-anchor line directly under the "Skip the Commission. Book Direct." headline — e.g., "Dorms from ₹499 · Private rooms from ₹800 · [OTA name] lists us from ₹XXX" — and surface the 4.9★/60-review aggregate rating (already in schema, currently invisible on-page) as a visible badge above the WhatsApp button.
+### Blog Post (`/blog/best-hostels-in-varanasi`)
 
-### Systemic Issue: Action dimension is the weakest across every persona
-B1 (8/25), B3 (6/25) score lowest specifically because the exact CTA copy needed already exists in the content but is not hyperlinked. This is the single highest-leverage, lowest-effort fix available site-wide.
+| Persona | Relevance | Clarity | Trust | Action | Total | Rating |
+|---|---|---|---|---|---|---|
+| Budget-Comparison Shopper | 23/25 | 16/25 | 15/25 | 14/25 | **68/100** | Good |
+| First-Time Backpacker (near-me) | 16/25 | 14/25 | 15/25 | 13/25 | **58/100** | Needs Work |
+| Safety-Conscious Solo Traveler | 22/25 | 18/25 | 12/25 | 10/25 | **62/100** | Good |
+
+### Weakest Persona: Safety-Conscious Solo Traveler on Homepage (52/100)
+**Top issue:** Female dorm exists only as a room-card photo + generic amenity chip — no copy addresses
+the actual concern (security, staff presence, who else stays there), and there is no link from the
+FAQ's "Do you have female-only dorms?" answer to anything persona-specific.
+**Recommended fix:** Add one sentence of safety-specific framing to the female-dorm FAQ answer (e.g.,
+"Female-only dorms are on [floor/wing], with the same 24-hour staffed reception as the rest of the
+property") and link the female-dorm room-card directly to a `/book-now` anchor for that room type.
+
+### Systemic Issue: Action is the weakest dimension for the Safety-Conscious persona on both pages (16/25, 10/25)
+On the blog post specifically, the safety FAQ answer and the "solo female travellers" mentions inside
+the comparison section (re: Wander Station, HosteLaVie) have **no link to Mosaic's own female dorm or
+`/book-now`** at the exact moment the objection is being addressed — the same "unlinked CTA at the moment
+of trust" pattern flagged in the 2026-07-28 audit persists on this page.
 
 ### Priority Actions (weakest persona / weakest dimension first)
-1. **Fix `blog-renderer.js`** — replace the hardcoded 5-item `staticMetadata` array in `getAllBlogsMetadata()` with all 8 slugs from `getAllBlogSlugs()`, so `backpackers-guide-assi-ghat-varanasi`, `hostel-near-assi-ghat-varanasi`, and `things-to-do-varanasi-local-guide` become visible on `/blog`.
-2. **Hyperlink every existing booking mention inside blog posts** — no new copy needed, just wrap it:
-   - `/blog/things-to-do-varanasi-local-guide`: wrap "Book your stay at Mosaic today and start your Varanasi story." in `<a href="/book-now">`.
-   - `/blog/varanasi-solo-female-travelers-safety-travel-guide`: add an inline link on "Mosaic Hostel offers a dedicated 6-bed female dorm" → `/book-now`, right in the "Where to Stay" section, at the exact moment the objection is resolved.
-   - `/blog/best-hostels-in-varanasi`: change the plain-text `+91-9125492225` in "How to Book Smart" to `<a href="https://wa.me/919125492225">+91-9125492225</a>`, matching the already-working `mailto:` link beside it.
-3. **Add a visible price + review-count anchor to `/book-now` and the homepage** (targets weakest persona A2 and the branded-SERP-loss finding in A3) — e.g., "Dorms from ₹499 · 4.9★ (60 reviews)" directly under the hero, sourced from the existing Hostel schema data.
-4. **Add a "Get Directions" link + a compact map thumbnail to `/book-now`** (currently only on `/contact`), so a local searcher lands on one page that both books and navigates.
-5. **Pursue third-party citation/backlink outreach** for "best hostels in Varanasi" and "solo female travel Varanasi safety" roundups (thebrokebackpacker, Holidify, thirdeyetraveller-style blogs) — the content gap here is authority/citation, not page type; recommend `/seo content` for a deeper E-E-A-T and backlink-outreach pass.
+1. **Homepage — Safety-Conscious persona (52/100):** Add safety-specific copy to the female-dorm FAQ
+   answer and link the female-dorm room card to a `/book-now` deep-link/anchor for that room type.
+2. **Blog post — link the safety/solo-traveller content to conversion:** In the "How Varanasi's
+   Best-Known Hostels Actually Compare" section and the safety FAQ, add one inline link to `/book-now`
+   at the point where Mosaic's female dorm or safety framing is discussed (currently only the Mosaic H3
+   heading itself is linked — the surrounding trust-building prose is not).
+3. **Blog post — close the Comparison-Page execution gap:** Add a compact comparison table (property /
+   distance from Assi Ghat / best-for / price range) above or alongside the prose comparison, and add
+   `ItemList` or `Table` schema — this is the taxonomy's required element for Comparison Pages and the
+   format every SERP competitor (Booking.com, Tripadvisor, thebrokebackpacker) uses. Also add at least
+   one photo per named hostel or a Mosaic-only photo set to visually anchor the "why choose Mosaic"
+   verdict — currently the post has only 1 content image for 1,993 words.
+4. **Homepage — stop optimizing for "best/all hostels in Varanasi" head terms.** These are CRITICAL
+   page-type mismatches the homepage cannot win regardless of on-page changes. Redirect internal-linking
+   and content effort toward strengthening the blog post's comparison-page signals (#3 above) for that
+   intent, and let the homepage's improvements (map, price, room grid — already shipped) keep serving the
+   "near Assi Ghat" / branded query it's actually positioned for (pos 14.7).
+5. **Budget-Comparison Shopper on homepage (60/100) — add a comparison anchor, not just own pricing.**
+   The homepage now shows ₹499/₹1,500 (a real improvement over the July pass), but still gives this
+   persona no reason to stop comparing elsewhere. A one-line addition near the pricing block — e.g.
+   "4.9★ on Tripadvisor · rated above the Varanasi hostel average" — would use data already in the
+   `aggregateRating` schema without requiring new copywriting infrastructure.
 
 ---
 
-## 5. SXO Gap Score — `/book-now` (primary transactional target)
+## 5. Cross-Skill Recommendations
 
-*(Distinct from SEO Health Score — measures experience/intent fit, not crawlability.)*
-
-| Dimension | Score | Evidence |
-|---|---|---|
-| Page Type (0-15) | 9/15 | Serves branded/direct-booking intent adequately; missing Local Page elements (map, directions) needed for "near me" intent, which live on `/contact` instead |
-| Content Depth (0-15) | 6/15 | No FAQ, no room-by-room descriptions, no availability calendar; 4 generic one-line "benefit" blurbs are the only supporting copy |
-| UX Signals (0-15) | 10/15 | Single clear WhatsApp CTA above the fold, clean mobile-first layout; but no urgency signal (e.g., beds remaining), and the 8-tile OTA grid competes visually with the primary CTA |
-| Schema (0-15) | 10/15 | Well-formed Hostel + BreadcrumbList schema with amenities, aggregateRating, openingHours; missing FAQPage and an Offer/price schema that could win rich-result real estate against OTA price snippets |
-| Media (0-15) | 3/15 | Zero room/property photos rendered on the page itself — the booking decision is made on a page with no visual proof; photos live only on the separate `/gallery` page |
-| Authority (0-15) | 4/15 | 4.9★/60 reviews exist in schema but are invisible on-page; not cited in any independent "best hostels" or "solo female safety" roundup found in SERP research |
-| Freshness (0-10) | 6/10 | No visible "last updated" indicator on the page; footer copyright year is current |
-| **Total** | **48/100** | |
-
----
-
-## 6. Cross-Skill Recommendations
-
-- **E-E-A-T / authority gap** (Mosaic absent from independent safety and "best of" roundups) → recommend `/seo content` for a deeper E-E-A-T and backlink/outreach analysis.
-- **Missing FAQPage and Offer schema on `/book-now`** → recommend `/seo schema` to generate FAQPage (reusing the FAQ already present in `/blog/best-hostels-in-varanasi`) and Offer/price markup.
-- **Branded-SERP loss to OTAs** (`Mosaic Hostel Varanasi` ranks #10 for its own name) and local-pack gap → recommend `/seo local` for a Google Business Profile audit — this is very likely a bigger lever than any on-page change discussed here.
-- **Blog content depth is otherwise solid** (1,000-1,400+ words per sampled post, clear H2 structure, FAQ present on at least one post) but thin on E-E-A-T signals (organization-only byline, no named author/credentials, no external citations) → `/seo content` can also address this specifically.
+- **Comparison-page schema gap** (`/blog/best-hostels-in-varanasi` has no `ItemList`/`Table` markup for
+  its 5-hostel comparison) → recommend `/seo schema` to generate it.
+- **Third-party citation/authority gap persists** (Mosaic still absent from independent "best hostels"
+  and "solo female safety" roundups per this pass's SERP check, consistent with 2026-07-28) →
+  recommend `/seo content` for an E-E-A-T and backlink-outreach pass targeting thebrokebackpacker,
+  footloosedev, and safety-focused travel blogs.
+- **Local Pack / GBP presence for "near Assi Ghat" intent** was not re-verified in this pass →
+  recommend `/seo local` if the "hostels near assi ghat" position (14.7) needs to move into the top 10.
 
 ---
 
 ## Limitations
 
-- SERP results were captured via WebSearch (Google-backed but not a dedicated rank-tracking API); exact positions, ads, PAA box contents, and AI Overview presence/citations could not be directly screenshotted or confirmed with 100% fidelity — findings on "Mosaic not cited in synthesis" and "#10 for branded query" reflect the search tool's live results at time of analysis (2026-07-28) and may shift.
-- No access to Google Search Console, GA4, or Microsoft Clarity data (Clarity tracking script is present site-wide) — click-through paths, actual bounce rates on blog posts, and real conversion rates from blog → `/book-now` could not be verified quantitatively; all UX findings are structural/qualitative, based on rendered HTML.
-- Only 3 of 8 blog posts were fetched at full HTML depth for the internal-link/CTA audit (`varanasi-solo-female-travelers-safety-travel-guide`, `things-to-do-varanasi-local-guide`, `best-hostels-in-varanasi`); the remaining 5 posts were not individually verified for the same pattern, though the shared template (nav/footer structure, `blog-renderer.js` markdown pipeline) makes it highly likely the same "no in-content CTA link" pattern applies site-wide.
-- Local Pack / Google Business Profile presence and review content could not be directly audited in this pass (recommend `/seo local`).
-- No paid-search (Ads) visibility could be assessed — no ads appeared in the WebSearch result sets used, suggesting these queries are informational-to-local intent with low current ad density, but this was not independently verified via SEM tooling.
+- SERP results captured via WebSearch (Google-backed but not a dedicated rank-tracking API); exact
+  positions, PAA box contents, related searches, and AI Overview citation presence could not be directly
+  confirmed with 100% fidelity. The GSC position/impression figures in the summary table were supplied
+  by the task requester and were not independently re-pulled from Search Console in this pass.
+  Homepage's SERP presence/absence in the "hostel(s) in varanasi" queries reflects the top ~6-8 links
+  WebSearch returned at time of analysis (2026-08-05) and may not reflect the exact page-10+ position GSC
+  reports.
+- No access to Google Search Console, GA4, or Clarity data directly — click-through paths and actual
+  bounce/conversion rates between the homepage and the blog post for "best hostels in varanasi" traffic
+  could not be verified quantitatively; the self-competition assessment is structural/qualitative
+  (page-type fit), not click-path-confirmed.
+- Only the homepage and `/blog/best-hostels-in-varanasi` were fetched and parsed in this pass per the
+  requested scope; `/book-now`, `/contact`, and the other 14 blog posts were not re-verified (see the
+  archived 2026-07-28 findings for that broader coverage, noting some of its specific blog-slug
+  references are now stale).
+- No paid-search (Ads) visibility assessed — none appeared in the four WebSearch result sets, suggesting
+  low current ad density for these queries, but this was not independently verified via SEM tooling.
 
 ---
 
