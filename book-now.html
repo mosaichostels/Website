@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/styles/global.css?v=20260803">
+<link rel="stylesheet" href="/styles/global.css?v=20260808">
 <link rel="canonical" href="https://www.mosaichostels.com/book-now">
 <meta name="description" content="Book Mosaic Hostel direct — Dorms from ₹499, private rooms available. Instant booking with best rates on Assi Ghat.">
 <meta property="og:site_name" content="Mosaic Hostel Varanasi">
@@ -149,7 +149,118 @@
   </div>
 </div>
 
-<!-- ── DIRECT BOOKING CARD ── -->
+<!-- ── BOOKING ENGINE ── -->
+<div class="direct-section reveal">
+  <div class="direct-card booking-widget" id="bookingWidget">
+    <div class="card-tile-strip" id="widgetStrip"></div>
+
+    <!-- Stage 1: Search -->
+    <div class="widget-stage active" id="stageSearch">
+      <div class="direct-badge"><div class="direct-badge-dot"></div>Instant Booking</div>
+      <div class="direct-title">Check Availability</div>
+      <div class="direct-sub">Real-time rates from our front desk — book direct, pay securely, no commission.</div>
+      <form id="searchForm" class="booking-search-form">
+        <div class="field-row">
+          <div class="field">
+            <label for="checkIn">Check-in</label>
+            <input type="text" id="checkIn" name="check_in" class="cal-input" placeholder="Select date" readonly autocomplete="off" required>
+          </div>
+          <div class="field">
+            <label for="checkOut">Check-out</label>
+            <input type="text" id="checkOut" name="check_out" class="cal-input" placeholder="Select date" readonly autocomplete="off" required>
+          </div>
+        </div>
+        <div class="field-row three">
+          <div class="field">
+            <label for="adultsCount">Adults</label>
+            <select id="adultsCount" name="adults"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10</option></select>
+          </div>
+          <div class="field">
+            <label for="childrenCount">Children</label>
+            <select id="childrenCount" name="children"><option selected>0</option><option>1</option><option>2</option></select>
+          </div>
+          <div class="field">
+            <label for="roomsCount">Rooms</label>
+            <select id="roomsCount" name="rooms"><option selected>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
+          </div>
+        </div>
+        <div class="form-note">Booking for more than 8 rooms or a large group? <a href="https://wa.me/919125492225?text=Hi!%20I'd%20like%20to%20book%20multiple%20rooms%20at%20Mosaic%20Hostel%20Varanasi." target="_blank">WhatsApp us</a> directly.</div>
+        <button type="submit" class="form-submit">Check Availability</button>
+        <div class="form-msg" id="searchMsg"></div>
+      </form>
+    </div>
+
+    <!-- Stage 2: Results -->
+    <div class="widget-stage" id="stageResults">
+      <div class="direct-title">Select Your Rooms</div>
+      <div class="direct-sub">Add one or more rooms to your booking — mix room types if you like.</div>
+      <div class="room-options" id="roomOptions"></div>
+      <div class="cart-bar" id="cartBar" style="display:none">
+        <div class="cart-bar-summary" id="cartBarSummary"></div>
+        <button type="button" class="form-submit cart-bar-continue" id="cartContinue">Continue</button>
+      </div>
+      <button type="button" class="widget-back" id="backToSearch">← Change Dates</button>
+    </div>
+
+    <!-- Stage 3: Guest details + pay -->
+    <div class="widget-stage" id="stageGuest">
+      <div class="direct-title">Your Details</div>
+      <div class="widget-price" id="widgetPrice"></div>
+      <form id="guestForm">
+        <div id="guestRoomsContainer"></div>
+        <div class="field-row">
+          <div class="field">
+            <label for="gEmail">Email</label>
+            <input type="email" id="gEmail" name="email" required>
+          </div>
+          <div class="field">
+            <label for="gEmailConfirm">Confirm Email</label>
+            <input type="email" id="gEmailConfirm" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="gPhone">Phone</label>
+          <input type="tel" id="gPhone" name="phone" required>
+        </div>
+        <div class="field" id="gChildAgesField" style="display:none">
+          <label for="gChildAges">Child Age(s)</label>
+          <input type="text" id="gChildAges" name="child_ages" placeholder="e.g. 5, 9">
+        </div>
+        <div class="field">
+          <label for="gArrival">Estimated Arrival</label>
+          <select id="gArrival" name="arrival_time">
+            <option value="">Not sure yet</option>
+            <option>Before 12:00 PM</option>
+            <option>12:00 PM – 3:00 PM</option>
+            <option>3:00 PM – 6:00 PM</option>
+            <option>6:00 PM – 9:00 PM</option>
+            <option>After 9:00 PM</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="gRequest">Special Request</label>
+          <textarea id="gRequest" name="special_request" placeholder="Optional"></textarea>
+        </div>
+        <label class="field-check">
+          <input type="checkbox" id="gTerms" required>
+          <span>I agree to Mosaic Hostel's booking terms and cancellation policy. Prepayment secures this reservation; valid photo ID is required at check-in.</span>
+        </label>
+        <button type="submit" class="form-submit">Pay &amp; Confirm Booking</button>
+        <div class="form-msg" id="guestMsg"></div>
+      </form>
+      <button type="button" class="widget-back" id="backToResults">← Back to Rooms</button>
+    </div>
+
+    <!-- Stage 4: Confirmation -->
+    <div class="widget-stage" id="stageConfirm">
+      <div class="direct-badge"><div class="direct-badge-dot"></div>Booking Confirmed</div>
+      <div class="direct-title" id="confirmTitle">You're All Set</div>
+      <div class="direct-sub" id="confirmBody"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── DIRECT BOOKING CARD (WhatsApp fallback) ── -->
 <div class="direct-section reveal">
   <div class="direct-card">
     <div class="card-tile-strip" id="cardStrip"></div>
@@ -178,6 +289,28 @@
       <div class="why-pill"><div class="why-dot c-burg"></div>Flexible cancellation</div>
       <div class="why-pill"><div class="why-dot c-cobalt"></div>Special requests welcome</div>
     </div>
+  </div>
+</div>
+
+<!-- ── MANAGE / CANCEL A BOOKING ── -->
+<div class="direct-section reveal">
+  <div class="direct-card manage-card">
+    <div class="direct-title">Need to Cancel?</div>
+    <div class="direct-sub">Enter your reservation number and the email you booked with — we'll verify and cancel it for you.</div>
+    <form id="cancelForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="cResNo">Reservation Number</label>
+          <input type="text" id="cResNo" name="reservation_no" required>
+        </div>
+        <div class="field">
+          <label for="cEmail">Email</label>
+          <input type="email" id="cEmail" name="email" required>
+        </div>
+      </div>
+      <button type="submit" class="form-submit">Cancel Booking</button>
+      <div class="form-msg" id="cancelMsg"></div>
+    </form>
   </div>
 </div>
 
@@ -303,7 +436,8 @@
 
 
     <script src="/components/site.js?v=20260803"></script>
-    <script src="/components/book-now.js?v=20260729"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="/components/book-now.js?v=20260808"></script>
     <script src="/components/navbar.js?v=20260729"></script>
 <script src="/components/footer.js?v=20260729"></script>
 
