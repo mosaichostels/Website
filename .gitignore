@@ -8,3 +8,6 @@ service_account_credentials.json
 
 # Automation runtime artifacts
 monitor-report.txt
+
+# Booking engine credentials (eZee + Razorpay) — never commit
+api/secrets.php
