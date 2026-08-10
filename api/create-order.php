@@ -1,9 +1,14 @@
 <?php
 /**
  * POST /api/create-order.php
- * Body: { check_in, check_out, adults, children, child_ages, rooms:
+ * Body: { check_in, check_out, rooms:
  *         [{roomtypeunkid, ratetypeunkid, roomrateunkid, qty}, ...],
+ *         guest: {title, first_name, last_name, gender},
  *         first_name, last_name, email, phone, special_request }
+ *
+ * No client-supplied occupancy: adults is fixed at 1 per room booked,
+ * children at 0 — matches eZee's own hosted booking engine, which has no
+ * upfront guest-count fields either.
  *
  * PRICE-INTEGRITY BOUNDARY: the client never sends a price. This
  * re-fetches eZee's RoomList server-side for the same query and takes the
@@ -21,7 +26,7 @@ if (RAZORPAY_KEY_ID === '' || RAZORPAY_KEY_SECRET === '') {
 
 $body = read_json_body();
 
-$required = ['check_in', 'check_out', 'adults', 'children', 'rooms', 'first_name', 'email', 'phone'];
+$required = ['check_in', 'check_out', 'rooms', 'first_name', 'email', 'phone'];
 foreach ($required as $field) {
   $val = $body[$field] ?? '';
   if ($val === '' || $val === null) json_error(400, "Missing required field: $field");
@@ -53,24 +58,16 @@ if ($totalUnits === 0) {
 if ($totalUnits > 8) {
   json_error(400, 'This quick booking covers up to 8 rooms — for larger groups, please WhatsApp us.');
 }
-$adults = (int)$body['adults'];
-$children = (int)$body['children'];
-if ($totalUnits > $adults) {
-  json_error(400, 'Each room needs at least one adult — please increase adults or select fewer rooms.');
-}
-$childAges = array_values(array_filter(array_map('trim', explode(',', $body['child_ages'] ?? '')), fn($a) => $a !== ''));
-if ($children > 0 && count($childAges) < $children) {
-  json_error(400, "Please provide each child's age.");
-}
+$adults = $totalUnits; // 1 adult per room booked — no client-supplied occupancy
+$children = 0;
+$childAges = [];
 
-// One guest identity (title/name/gender) per physical room — eZee's
-// InsertBooking captures this per Room_N, not just once per booking.
-$guests = is_array($body['guests'] ?? null) ? $body['guests'] : [];
-if (count($guests) !== $totalUnits) {
-  json_error(400, 'Please provide a guest name for each room.');
-}
-foreach ($guests as $g) {
-  if (empty($g['first_name'])) json_error(400, 'Please provide a first name for each room guest.');
+// One guest contact for the whole booking — matches eZee's own hosted
+// engine, which collects a single guest identity, not one per room
+// (confirmed live on both our engine and a competitor's eZee engine).
+$guest = is_array($body['guest'] ?? null) ? $body['guest'] : [];
+if (empty($guest['first_name'])) {
+  json_error(400, "Please provide the guest's first name.");
 }
 
 $specialRequest = trim($body['special_request'] ?? '');
@@ -122,7 +119,8 @@ foreach ($cart as $item) {
   if ($available !== null && $item['qty'] > (int)$available) {
     json_error(409, 'Only ' . (int)$available . ' left of "' . ($matched['Roomtype_Name'] ?? 'this room') . '" — please adjust quantity.');
   }
-  $perUnitTotal = (float)($matched['totalprice_inclusive_all'] ?? $matched['totalprice_room_only'] ?? 0);
+  $rates = $matched['room_rates_info'] ?? [];
+  $perUnitTotal = ezee_price_scalar($rates['totalprice_inclusive_all'] ?? $rates['totalprice_room_only'] ?? 0);
   if ($perUnitTotal <= 0) {
     json_error(502, 'Could not determine a price for one of the selected rooms. Please try again or WhatsApp us.');
   }
@@ -135,20 +133,20 @@ foreach ($cart as $item) {
       'roomtypeunkid' => $item['roomtypeunkid'],
       'ratetypeunkid' => $item['ratetypeunkid'],
       'roomrateunkid' => $item['roomrateunkid'],
-      // NOTE: baserate/extradultrate/extrachildrate field names below are best-
-      // effort mappings from the RoomList response — not yet verified against a
-      // live eZee sandbox call. Confirm these match InsertBooking's expected
-      // values before going live; adjust the fallbacks if they don't.
-      'baserate' => (float)($matched['exclusive_tax'] ?? $matched['before_discount_inclusive_tax_adjustment'] ?? 0),
-      'extradultrate' => (float)($matched['extradultrate'] ?? 0),
-      'extrachildrate' => (float)($matched['extrachildrate'] ?? 0),
+      // Per eZee's documented RoomList shape (docs/eZee-Connectivity-API.md
+      // ~L2158-2290): these rates live nested under room_rates_info /
+      // extra_adult_rates_info / extra_child_rates_info as date-keyed
+      // objects, not flat keys on the entry — ezee_price_scalar() unwraps them.
+      'baserate' => ezee_price_scalar($matched['room_rates_info']['exclusive_tax'] ?? 0),
+      'extradultrate' => ezee_price_scalar($matched['extra_adult_rates_info']['exclusive_tax'] ?? 0),
+      'extrachildrate' => ezee_price_scalar($matched['extra_child_rates_info']['exclusive_tax'] ?? 0),
       'adults' => max(1, $unitAdults),
       'children' => $unitChildren,
       'child_ages' => implode(',', $unitChildAges),
-      'title' => $guests[$unitIndex]['title'] ?? '',
-      'first_name' => $guests[$unitIndex]['first_name'],
-      'last_name' => $guests[$unitIndex]['last_name'] ?? '',
-      'gender' => $guests[$unitIndex]['gender'] ?? '',
+      'title' => $guest['title'] ?? '',
+      'first_name' => $guest['first_name'],
+      'last_name' => $guest['last_name'] ?? '',
+      'gender' => $guest['gender'] ?? '',
       'special_request' => $specialRequest,
     ];
     $unitIndex++;
@@ -190,6 +188,13 @@ json_ok([
   'currency' => 'INR',
   'key_id' => RAZORPAY_KEY_ID,
 ]);
+
+// eZee's date-keyed rate fields (e.g. {"2026-08-13": "500.0000"}) collapse to
+// a single scalar for single-night-rate lookups; already-scalar values pass through.
+function ezee_price_scalar($val): float {
+  if (is_array($val)) return (float)(reset($val) ?: 0);
+  return (float)$val;
+}
 
 function find_matching_room(array $data, string $roomrateunkid): ?array {
   $found = [];

@@ -94,9 +94,9 @@
       const params = new URLSearchParams({
         check_in: document.getElementById('checkIn').value,
         check_out: document.getElementById('checkOut').value,
-        adults: document.getElementById('adultsCount').value,
-        children: document.getElementById('childrenCount').value,
-        rooms: document.getElementById('roomsCount').value,
+        adults: '1',
+        children: '0',
+        rooms: '1',
       });
       const btn = searchForm.querySelector('.form-submit');
       btn.disabled = true;
@@ -133,8 +133,8 @@
             <div class="room-option-avail">${escapeHtml(String(room.available))} left at this rate</div>
           </div>
           <div class="room-option-price">
-            <div class="room-option-total">₹${escapeHtml(String(room.total))}</div>
-            <div class="room-option-pernight">₹${escapeHtml(String(room.per_night))}/night</div>
+            <div class="room-option-total">₹${fmtPrice(room.total)}</div>
+            <div class="room-option-pernight">₹${fmtPrice(room.per_night)}/night</div>
             <div class="room-option-qty">
               <button type="button" class="qty-btn qty-minus" aria-label="Remove one">−</button>
               <span class="qty-value">0</span>
@@ -176,74 +176,25 @@
           return;
         }
         cartBar.style.display = 'flex';
-        cartBarSummary.innerHTML = `${totalQty} room${totalQty > 1 ? 's' : ''} selected <strong>₹${totalPrice}</strong>`;
+        cartBarSummary.innerHTML = `${totalQty} room${totalQty > 1 ? 's' : ''} selected <strong>₹${fmtPrice(totalPrice)}</strong>`;
       }
 
       cartContinue.onclick = () => {
-        const totalQty = cart.reduce((n, c) => n + c.qty, 0);
-        const adults = parseInt(searchParams.get('adults'), 10);
-        if (totalQty > adults) {
-          showMsg(searchMsg, 'Each room needs at least one adult — increase adults or select fewer rooms.', 'error');
-          return;
-        }
         selection = {
           check_in: searchParams.get('check_in'),
           check_out: searchParams.get('check_out'),
-          adults: searchParams.get('adults'),
-          children: searchParams.get('children'),
           items: cart.slice(),
           total: cart.reduce((n, c) => n + c.total * c.qty, 0),
         };
         const namesLabel = selection.items.map((c) => `${c.qty}× ${c.name}`).join(', ');
-        widgetPrice.innerHTML = `<small>${escapeHtml(namesLabel)} · ${escapeHtml(selection.check_in)} → ${escapeHtml(selection.check_out)}</small>₹${escapeHtml(String(selection.total))}`;
-        renderGuestRooms(selection.items);
+        widgetPrice.innerHTML = `<small>${escapeHtml(namesLabel)} · ${escapeHtml(selection.check_in)} → ${escapeHtml(selection.check_out)}</small>₹${fmtPrice(selection.total)}`;
         clearMsg(guestMsg);
-        const childAgesField = document.getElementById('gChildAgesField');
-        const childAgesInput = document.getElementById('gChildAges');
-        const hasChildren = parseInt(selection.children, 10) > 0;
-        childAgesField.style.display = hasChildren ? '' : 'none';
-        childAgesInput.required = hasChildren;
-        if (!hasChildren) childAgesInput.value = '';
         showStage('guest');
       };
     }
 
     document.getElementById('backToSearch').addEventListener('click', () => showStage('search'));
     document.getElementById('backToResults').addEventListener('click', () => showStage('results'));
-
-    const guestRoomsContainer = document.getElementById('guestRoomsContainer');
-    function renderGuestRooms(items) {
-      guestRoomsContainer.innerHTML = '';
-      let n = 0;
-      items.forEach((item) => {
-        for (let i = 0; i < item.qty; i++) {
-          n++;
-          const block = document.createElement('div');
-          block.className = 'guest-room-block';
-          block.innerHTML = `
-            <div class="guest-room-label">${n}. ${escapeHtml(item.name)}</div>
-            <div class="field-row three">
-              <div class="field">
-                <label>Title</label>
-                <select class="gr-title"><option value=""></option><option>Mr.</option><option>Ms.</option><option>Mrs.</option></select>
-              </div>
-              <div class="field">
-                <label>First Name</label>
-                <input type="text" class="gr-fname" required>
-              </div>
-              <div class="field">
-                <label>Last Name</label>
-                <input type="text" class="gr-lname">
-              </div>
-            </div>
-            <div class="field">
-              <label>Gender</label>
-              <select class="gr-gender"><option value="">Prefer not to say</option><option>Male</option><option>Female</option><option>Other</option></select>
-            </div>`;
-          guestRoomsContainer.appendChild(block);
-        }
-      });
-    }
 
     if (guestForm) guestForm.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -253,31 +204,28 @@
         showMsg(guestMsg, 'Email addresses do not match.', 'error');
         return;
       }
-      const guests = Array.from(guestRoomsContainer.querySelectorAll('.guest-room-block')).map((block) => ({
-        title: block.querySelector('.gr-title').value,
-        first_name: block.querySelector('.gr-fname').value,
-        last_name: block.querySelector('.gr-lname').value,
-        gender: block.querySelector('.gr-gender').value,
-      }));
+      const guest = {
+        title: document.getElementById('gTitle').value,
+        first_name: document.getElementById('gFirstName').value,
+        last_name: document.getElementById('gLastName').value,
+        gender: document.getElementById('gGender').value,
+      };
       const payload = {
         check_in: selection.check_in,
         check_out: selection.check_out,
-        adults: selection.adults,
-        children: selection.children,
         rooms: selection.items.map((i) => ({
           roomtypeunkid: i.roomtypeunkid,
           ratetypeunkid: i.ratetypeunkid,
           roomrateunkid: i.roomrateunkid,
           qty: i.qty,
         })),
-        guests: guests,
-        first_name: guests[0].first_name,
-        last_name: guests[0].last_name,
+        guest: guest,
+        first_name: guest.first_name,
+        last_name: guest.last_name,
         email: document.getElementById('gEmail').value,
         phone: document.getElementById('gPhone').value,
         special_request: document.getElementById('gRequest').value,
         arrival_time: document.getElementById('gArrival').value,
-        child_ages: document.getElementById('gChildAges').value,
       };
       const btn = guestForm.querySelector('.form-submit');
       btn.disabled = true;
@@ -358,6 +306,9 @@
     function escapeHtml(text) {
       const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
       return String(text).replace(/[&<>"']/g, (m) => map[m]);
+    }
+    function fmtPrice(n) {
+      return Number(n).toFixed(2);
     }
   }
 

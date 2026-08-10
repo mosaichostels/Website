@@ -21,7 +21,16 @@
     <meta property="og:description" content="Budget Hostel in Varanasi near Assi Ghat | Backpacker Stay, Local Tips &amp; Travel Guides">
     <meta property="og:url" content="https://www.mosaichostels.com/book-now">
 
-    <!-- Microsoft Clarity Analytics -->
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H3K992L4ZT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H3K992L4ZT');
+    </script>
+
+<!-- Microsoft Clarity Analytics -->
     <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -170,20 +179,6 @@
             <input type="text" id="checkOut" name="check_out" class="cal-input" placeholder="Select date" readonly autocomplete="off" required>
           </div>
         </div>
-        <div class="field-row three">
-          <div class="field">
-            <label for="adultsCount">Adults</label>
-            <select id="adultsCount" name="adults"><option>1</option><option selected>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10</option></select>
-          </div>
-          <div class="field">
-            <label for="childrenCount">Children</label>
-            <select id="childrenCount" name="children"><option selected>0</option><option>1</option><option>2</option></select>
-          </div>
-          <div class="field">
-            <label for="roomsCount">Rooms</label>
-            <select id="roomsCount" name="rooms"><option selected>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option></select>
-          </div>
-        </div>
         <div class="form-note">Booking for more than 8 rooms or a large group? <a href="https://wa.me/919125492225?text=Hi!%20I'd%20like%20to%20book%20multiple%20rooms%20at%20Mosaic%20Hostel%20Varanasi." target="_blank">WhatsApp us</a> directly.</div>
         <button type="submit" class="form-submit">Check Availability</button>
         <div class="form-msg" id="searchMsg"></div>
@@ -207,7 +202,24 @@
       <div class="direct-title">Your Details</div>
       <div class="widget-price" id="widgetPrice"></div>
       <form id="guestForm">
-        <div id="guestRoomsContainer"></div>
+        <div class="field-row three">
+          <div class="field">
+            <label for="gTitle">Title</label>
+            <select id="gTitle" name="title"><option value=""></option><option>Mr.</option><option>Ms.</option><option>Mrs.</option></select>
+          </div>
+          <div class="field">
+            <label for="gFirstName">First Name</label>
+            <input type="text" id="gFirstName" name="first_name" required>
+          </div>
+          <div class="field">
+            <label for="gLastName">Last Name</label>
+            <input type="text" id="gLastName" name="last_name">
+          </div>
+        </div>
+        <div class="field">
+          <label for="gGender">Gender</label>
+          <select id="gGender" name="gender"><option value="">Prefer not to say</option><option>Male</option><option>Female</option><option>Other</option></select>
+        </div>
         <div class="field-row">
           <div class="field">
             <label for="gEmail">Email</label>
@@ -221,10 +233,6 @@
         <div class="field">
           <label for="gPhone">Phone</label>
           <input type="tel" id="gPhone" name="phone" required>
-        </div>
-        <div class="field" id="gChildAgesField" style="display:none">
-          <label for="gChildAges">Child Age(s)</label>
-          <input type="text" id="gChildAges" name="child_ages" placeholder="e.g. 5, 9">
         </div>
         <div class="field">
           <label for="gArrival">Estimated Arrival</label>
