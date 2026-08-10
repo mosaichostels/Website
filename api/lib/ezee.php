@@ -17,8 +17,16 @@ function ezee_get(string $requestType, array $params): array {
     'HotelCode' => EZEE_HOTEL_CODE,
     'APIKey' => EZEE_API_KEY,
   ], $params);
-  $url = EZEE_BASE_URL . 'booking/reservation_api/listing.php?' . http_build_query($query);
-  return ezee_curl($url, null);
+  $url = EZEE_BASE_URL . 'booking/reservation_api/listing.php';
+  // InsertBooking's BookingData JSON pushes the GET query string past a
+  // length this account's WAF (Sucuri) silently rejects — every GET attempt
+  // returned a generic ParametersMissing regardless of payload content, even
+  // with BookingData omitted entirely. POST form body to the same endpoint
+  // works (verified live 2026-08-10). Docs say GET; this account needs POST.
+  if ($requestType === 'InsertBooking') {
+    return ezee_curl($url, null, $query);
+  }
+  return ezee_curl($url . '?' . http_build_query($query), null);
 }
 
 /**
@@ -47,7 +55,7 @@ function ezee_post_json(array $requestBody): array {
   return ezee_curl($url, json_encode($requestBody));
 }
 
-function ezee_curl(string $url, ?string $jsonBody): array {
+function ezee_curl(string $url, ?string $jsonBody, ?array $formFields = null): array {
   $ch = curl_init($url);
   curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,
@@ -58,6 +66,9 @@ function ezee_curl(string $url, ?string $jsonBody): array {
     curl_setopt($ch, CURLOPT_POST, true);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonBody);
     curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json']);
+  } elseif ($formFields !== null) {
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($formFields));
   }
   $response = curl_exec($ch);
   $curlErrno = curl_errno($ch);

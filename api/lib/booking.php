@@ -30,7 +30,7 @@ function confirm_paid_order(string $orderId, string $paymentId): array {
   $roomDetailsList = [];
   foreach ($record['room_units'] as $unit) {
     $roomDetailsList[] = [
-      'Rateplan_Id' => $unit['ratetypeunkid'],
+      'Rateplan_Id' => $unit['roomrateunkid'],
       'Ratetype_Id' => $unit['ratetypeunkid'],
       'Roomtype_Id' => $unit['roomtypeunkid'],
       'baserate' => (string)$unit['baserate'],
@@ -56,7 +56,11 @@ function confirm_paid_order(string $orderId, string $paymentId): array {
     'Room_Details' => $roomDetails,
     'check_in_date' => $record['check_in'],
     'check_out_date' => $record['check_out'],
-    'Booking_Payment_Mode' => '',
+    // Blank here creates the reservation in "Void" status (verified live
+    // 2026-08-10) — this account has no eZee-native payment gateway
+    // configured (ConfiguredPGList is empty), so any non-blank label works;
+    // guest has already paid via Razorpay before this call runs.
+    'Booking_Payment_Mode' => 'Online Payment (Razorpay)',
     'Email_Address' => $record['email'],
     'Source_Id' => '',
     'MobileNo' => $record['phone'],

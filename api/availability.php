@@ -62,9 +62,12 @@ json_ok(['rooms' => extract_room_options($ezeeResponse)]);
  * eZee's RoomList response nests room/rate entries under a structure that
  * varies by account configuration. Rather than assume one exact shape,
  * walk the decoded response and collect every associative array that looks
- * like a room-rate entry (has roomtypeunkid + roomrateunkid). This is
- * intentionally defensive since it hasn't been exercised against a live
- * sandbox response yet — revisit if real data doesn't match.
+ * like a room-rate entry (has roomtypeunkid + roomrateunkid).
+ *
+ * Verified against a live response (2026-08-10): per-night and total prices
+ * live as scalars under entry['room_rates_info'], not at the entry's top
+ * level — inclusive_tax_adjustment/exclusive_tax there are date-keyed
+ * arrays, not scalars, so they're only usable as a last-resort fallback.
  */
 function extract_room_options(array $data): array {
   $found = [];
@@ -72,12 +75,19 @@ function extract_room_options(array $data): array {
 
   $options = [];
   foreach ($found as $entry) {
-    $perNight = $entry['inclusive_tax_adjustment']
+    $rates = $entry['room_rates_info'] ?? [];
+    $perNight = $rates['avg_per_night_after_discount']
+      ?? $rates['inclusive_tax_adjustment']
+      ?? $entry['inclusive_tax_adjustment']
       ?? $entry['exclusive_tax']
-      ?? ($entry['room_rates_info']['inclusive_tax_adjustment'] ?? null);
-    $total = $entry['totalprice_inclusive_all']
+      ?? null;
+    if (is_array($perNight)) $perNight = reset($perNight);
+    $total = $rates['totalprice_inclusive_all']
+      ?? $rates['totalprice_room_only']
+      ?? $entry['totalprice_inclusive_all']
       ?? $entry['totalprice_room_only']
       ?? null;
+    if (is_array($total)) $total = reset($total);
     $available = $entry['available_rooms'] ?? $entry['min_ava_rooms'] ?? null;
     if (is_array($available)) $available = min($available) ?: 0;
 
@@ -87,8 +97,8 @@ function extract_room_options(array $data): array {
       'roomrateunkid' => (string)($entry['roomrateunkid'] ?? ''),
       'name' => $entry['Roomtype_Name'] ?? $entry['Room_Name'] ?? 'Room',
       'description' => $entry['Room_Description'] ?? $entry['Package_Description'] ?? '',
-      'per_night' => $perNight !== null ? round((float)$perNight) : null,
-      'total' => $total !== null ? round((float)$total) : null,
+      'per_night' => $perNight !== null ? round((float)$perNight, 2) : null,
+      'total' => $total !== null ? round((float)$total, 2) : null,
       'available' => (int)($available ?? 0),
     ];
   }

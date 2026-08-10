@@ -33,8 +33,9 @@ function ezee_mock_roomlist(array $params): array {
       'totalprice_inclusive_all' => (string)$total,
       'totalprice_room_only' => (string)round($total * 0.95, 2),
       'available_rooms' => $rt['avail'],
-      'extradultrate' => '0',
-      'extrachildrate' => '0',
+      'room_rates_info' => ['exclusive_tax' => (string)round($rt['rate'] * 0.95, 2)],
+      'extra_adult_rates_info' => ['exclusive_tax' => '0'],
+      'extra_child_rates_info' => ['exclusive_tax' => '0'],
     ];
   }
 
