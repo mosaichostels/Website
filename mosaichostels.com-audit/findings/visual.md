@@ -1,118 +1,76 @@
-# Visual / Mobile Rendering Audit — Mosaic Hostel Varanasi
+# Visual / Rendering Audit — mosaichostels.com
 
-Pages tested: Homepage (`/`), Book Now (`/book-now`), Gallery (`/gallery`)
-Viewports: Desktop 1920×1080, Mobile 375×812 (iPhone)
-Method: Playwright/Chromium, live production site, `deviceScaleFactor: 2`. Metrics captured: CLS (buffered layout-shift entries), H1/CTA bounding boxes, horizontal-scroll check, tap-target sizing, broken-image detection, resource sizes. Verified scroll-triggered animation behavior with real incremental scroll dispatch (not just static full-page capture) to avoid false positives.
+**Date:** 2026-08-17 (re-audit — supersedes prior visual audit dated 2026-08-15 in this file)
+**Method:** Playwright (Chromium), live production site, single-session script (bounding-box + console + overflow checks alongside screenshots)
+**Pages tested:** Homepage (`/`), Gallery (`/gallery.html`), Book Now (`/book-now.html`), About (`/about.html`), Contact (`/contact.html`), Blog post (`/blog/best-hostels-in-varanasi/`)
+**Viewports:** Desktop 1920×1080, Mobile 375×812 (iPhone-class, device-scale 2, touch enabled)
 
-Screenshots saved to `/Users/naveenkumar/Projects/Website/mosaichostels.com-audit/screenshots/`:
-- `home_desktop.png`, `home_mobile.png` (viewport-only, above-the-fold)
-- `home_desktop_full.png`, `home_mobile_full.png` (full page)
-- `booknow_desktop.png`, `booknow_mobile.png`, `booknow_desktop_full.png`, `booknow_mobile_full.png`
-- `gallery_desktop.png`, `gallery_mobile.png`, `gallery_desktop_full.png`, `gallery_mobile_full.png`
-
----
+Screenshots saved to `/Users/naveen/Projects/hostel/Website/mosaichostels.com-audit/screenshots/`:
+`{page}_{desktop|mobile}.png` (above-the-fold) and `{page}_{desktop|mobile}_full.png` (full page). One extra detail crop, `about_mobile_overflow_detail.png`, captures the specific overflow bug below.
 
 ## Summary
 
-Overall the site is clean, has zero measured layout shift (CLS = 0 on all 3 pages/both viewports) and zero horizontal-scroll overflow anywhere. The biggest opportunities are conversion-focused: the homepage's above-the-fold copy doesn't communicate "budget hostel," price, or location — the only place that message appears is in a visually-hidden SEO-only `<h1>` — and the primary WhatsApp booking CTA on `/book-now` sits just below the mobile fold. There's also a real mobile-data-cost concern from an unthrottled autoplay hero video with no mobile-specific/lighter variant, which matters for the specific audience (budget backpackers on patchy Indian mobile data).
+All 6 pages: HTTP 200 (after the expected non-www→www 301, which Playwright follows transparently), zero JS console errors, unique H1 present on every page. Two **new, real horizontal-overflow/clipping bugs** were found this pass on pages not previously tested (About and Contact, both mobile-only). The two mobile nav touch-target issues flagged in the 2026-08-15 pass are **still unfixed**, present site-wide. One improvement since last pass: the Book Now WhatsApp CTA is now visible above the fold on mobile (previously required a short scroll).
 
----
+## New findings this pass
 
-## HIGH severity
+### 1. About page (mobile): heading text clipped off-screen, causes horizontal scroll
+On `/about.html` at 375px width, the "Meet the Team" section heading ("Behind Every **Great Experience**") overflows the right edge of the viewport — the word "EXPERIENCE" is cut off entirely, and `document.documentElement.scrollWidth` exceeds `clientWidth` by 16px (confirmed via DOM measurement, not just visual). This is a large serif/script display heading that isn't sized/wrapped to fit small viewports.
+- Screenshot: `about_mobile_overflow_detail.png` (scrolled to the section) and `about_mobile_full.png`.
+- Root cause: the `.section-title`/`em` styling (large font-size, no `word-break`/`overflow-wrap`, no mobile font-size clamp) doesn't shrink for 375px viewports the way the homepage's hero title does.
+- Fix location: mobile breakpoint CSS for `.section-title em` (or add `overflow-wrap: break-word` / a `clamp()` font-size) in the shared stylesheet — check whether other large italic/script headings on other pages (e.g. "Built for Curious **Wanderers**" on the same About page desktop view, "Photo Gallery" pages) share this class, since the fix should go in one shared rule, not a per-page patch.
 
-### H1. Homepage above-the-fold value proposition is invisible to sighted users
-On mobile and desktop, the only headline visitors actually **see** in the hero is the poetic tagline *"Where Culture Meets Comfort"* / *"Each guest is a piece. Each story is a tile. Together, we make something beautiful."* The real, keyword-rich `<h1>` — **"Budget Hostel in Varanasi near Assi Ghat"** — exists in the DOM but is rendered with a `visually-hidden` class positioned at `x: -9999px` (confirmed via bounding-box measurement on all three pages: home, book-now, gallery). It's SEO/screen-reader-only.
+### 2. Contact page (mobile): email address text overflows its card
+On `/contact.html` at 375px width, the email card renders `mosaichostels@gmail.com` at a font-size too large for the 375px card width — the address is visibly truncated/overlapping ("MOSAICHOSTELS@GMAIL.CC…", with the `@` glyph colliding with the following letter). The text is not wrapped, shrunk, or ellipsized; it simply runs past the card's right edge.
+- Screenshot: `contact_mobile.png` (visible above the fold, in the "Email" card).
+- This is a legibility/trust issue on a page whose entire purpose is contact — a visitor can't read or confidently copy the email address on mobile.
+- Fix: reduce font-size at the mobile breakpoint for this element, or wrap/break the string (`overflow-wrap: anywhere` on the email `<a>`/heading), consistent with how the WhatsApp number below it wraps correctly.
 
-Practical effect: a price-conscious backpacker landing on `/` from a Google search for "budget hostel Varanasi" sees a moody, dark, cinematic night photo of the ghats and an abstract brand tagline — nothing that confirms this is a budget hostel, where it is, or what it costs. That's a mismatch with likely search/ad intent and adds friction before the visitor decides to keep reading or bounce.
-- **Recommendation**: Either promote the real value-prop copy into the *visible* hero text (e.g., a subline like "Budget Hostel & Backpacker Stay near Assi Ghat, Varanasi — Dorms from ₹499"), or keep the branding line but add a second, visible, concrete line beneath it that mirrors the hidden H1's content. Don't rely on a hidden node to carry the primary message.
-- Evidence: `home_desktop.png`, `home_mobile.png`.
+## Per-page findings
 
-### H2. Primary conversion CTA (WhatsApp button) sits just below the fold on `/book-now` mobile
-Measured bounding box on mobile (375×812 viewport): `.wa-btn` top = **y 877px**, i.e. ~65px below the 812px mobile viewport height. The viewport-only screenshot (`booknow_mobile.png`) confirms the button is fully cut off — visitors see the hero, badge, headline, body copy and the 4 benefit pills, but must scroll to reach "Chat on WhatsApp," which is the single highest-intent action on the page (per the book-now.html markup, this is the primary conversion path ahead of the OTA platform links).
-- On desktop the same button is comfortably inside the fold (top ~952px in a 1080px viewport).
-- **Recommendation**: Tighten vertical spacing in the direct-booking card on mobile (hero subtitle spacing, badge/title/body margins, or the 4 pill-row wrap height) so the WhatsApp CTA clears the fold, or place a lightweight sticky "Chat on WhatsApp" bar/button pinned to the bottom of the viewport on `/book-now` (and ideally sitewide) for mobile.
-- Evidence: `booknow_mobile.png` (CTA absent) vs `booknow_mobile_full.png` (CTA visible after scroll), bounding-box data.
+### Homepage (`/`)
+- H1 "BUDGET HOSTEL IN VARANASI NEAR ASSI GHAT" visible above the fold on both viewports (unchanged from last pass).
+- No overflow, no console errors.
 
----
+### Gallery (`/gallery.html`)
+- Visible page heading is "Photo Gallery — Mosaic Hostel Varanasi" (an accessible, off-screen `<h1 class="visually-hidden">`, see structural note below); no layout issues found.
+- No horizontal overflow on mobile.
 
-## MEDIUM severity
+### Book Now (`/book-now.html`)
+- H1 "Book Your Stay at Mosaic Hostel" (visually-hidden pattern, same as Gallery); visible hero reads "Book Your Stay" / "Best price guaranteed when you book direct."
+- **Improvement since 2026-08-15:** the green "CHAT ON WHATSAPP" CTA is now visible above the fold on mobile (previously it sat just below the fold, requiring a scroll). Likely a byproduct of the new booking-engine page restructure (see recent commits) — good change, worth confirming it holds once the new multi-room booking UI referenced in git history is fully live on this URL.
+- No horizontal overflow, no console errors.
 
-### M1. Mobile primary nav tap targets are undersized
-Across all three pages, the nav's **"Book Now" pill** measures **~103×31px** and the **hamburger icon** measures **~42×34.5px** on mobile. Both fall short of the widely used 44×44px (iOS HIG) / 48×48px (WCAG 2.5.8, Material) minimum touch-target guidance — the vertical dimension (31px / 34.5px) is the binding constraint. Since "Book Now" in the nav is the one CTA guaranteed to be visible above the fold on every page, undersizing it works against the site's core conversion goal.
-- **Recommendation**: Increase vertical padding on `.nav-book` and `.nav-hamburger` on mobile to reach at least 44px height (48px preferred), without needing to change the visual font size.
-- Evidence: bounding-box measurements from automated pass; visually confirmed in `home_mobile.png`, `booknow_mobile.png`, `gallery_mobile.png`.
+### About (`/about.html`) — new to this pass
+- H1 "About Mosaic Hostel Varanasi" (visually-hidden); visible hero heading "Our Story."
+- **Horizontal overflow bug on mobile** — see New Finding #1 above.
+- Desktop renders cleanly, no overflow.
 
-### M2. Autoplay hero video with no mobile-specific/lighter asset, no poster
-The homepage hero uses `<video class="hero-video" autoplay muted loop playsinline><source src="/images/hero-video.webm"></video>` (from `index.html`) with a single ~2.6MB WebM source served identically to the 375px mobile viewport as to desktop — no `<picture>`-style responsive swap, no reduced-motion/reduced-data variant, and no `poster` attribute (so there's a brief blank/black flash before the first frame paints). Combined with several other above/near-fold images, total measured page weight for images+media on first load was **~3.4MB**, before any of the below-the-fold room-photo carousel loads.
-- This directly affects the stated target audience: backpackers researching/booking on mobile, often on inconsistent Indian mobile data, for whom a large autoplaying video is a real cost/speed tradeoff on a page whose main job is to convert quickly.
-- **Recommendation**: Add a `poster` frame for immediate paint; consider a `prefers-reduced-data`/small-viewport media query that swaps to a compressed static image or a much shorter/lower-resolution video loop for mobile; verify the video isn't blocking a fast LCP.
-- Evidence: network resource capture (`hero-video.webm` — 2600.6 KB, others per list), `index.html` lines 102–105.
+### Contact (`/contact.html`) — new to this pass
+- H1 "Contact Mosaic Hostel Varanasi" (visually-hidden); visible hero heading "Get in Touch."
+- WhatsApp CTA card renders correctly and is the strongest element on the page (green button, phone number fully legible, wraps fine).
+- **Email text overflow bug on mobile** — see New Finding #2 above.
+- No document-level `scrollWidth` overflow was measured (the email card likely clips via `overflow:hidden`, containing the bug visually rather than creating a scrollbar) — but the text is still unreadable, so this is a real UX defect even though it wouldn't show up in an automated overflow-only scan.
 
-### M3. Scroll-reveal animations depend entirely on JavaScript with no fallback state
-All non-hero sections on `/` and `/book-now` (stats, room-type cards, philosophy block, the 4 "why book direct" benefit tiles, and the entire "Also Available On" OTA-platform grid) are rendered `opacity: 0` by default and only become visible via a `.reveal` → `.visible` class toggle driven by an IntersectionObserver/scroll listener. Verified programmatically: before any scroll, these elements report `opacity: 0`; after a real incremental scroll pass, they correctly reach `opacity: 1` — so for a normally-functioning browser with JS enabled, this is **not** a live bug (the "big blank gaps" seen in a naive full-page screenshot were a screenshot-automation artifact, not something a real visitor experiences).
-- However, there is no visible fallback: if the reveal script fails to load or errors out (slow/flaky mobile network, ad-blocker, browser extension conflict, a future JS bug), affected sections — including, on `/book-now`, the **entire OTA booking-platform grid (Booking.com, Hostelworld, Agoda, MakeMyTrip, Goibibo, Cleartrip, TripAdvisor, Expedia)** — would remain permanently invisible with no error signal to the user or site owner.
-- **Recommendation**: Add a `<noscript>`/no-JS-safe fallback (e.g., default `opacity: 1` with the animation only applied additively when a `js-enabled` class is present, or a short CSS-only timeout fallback) so that critical booking content can never be silently hidden by a JS failure.
-- Evidence: `home_afterscroll_full.png`, `booknow_afterscroll_full.png` (correct rendering after real scroll) vs. programmatic opacity trace (before/after scroll JSON).
+### Blog post (`/blog/best-hostels-in-varanasi/`)
+- H1 "Best Hostels in Varanasi — 2026 Honest Guide" (visually-hidden); visible dek/heading pattern consistent with other pages.
+- No overflow, no console errors.
 
-### M4. Gallery filter buttons and repeated room photos
-Gallery category filter pills ("ALL," "ROOMS," "ENTRANCE," "COMMON AREAS," "HOSTEL LIFE") measure ~37px tall — under the 44px touch-target guideline, same category as M1. Separately (visual/content note, not a rendering bug): several of the homepage's "Every Room, A Unique Tile" room-type cards (Common Room, Private Room, 8-Bed Dorm, 6-Bed Dorm, 4-Bed Dorm, 6-Bed Female Dorm) use very similar dark, low-differentiation photography, making it hard at a glance to tell room types apart — worth a photography pass if increasing direct-booking conversion from the room-type comparison is a goal.
-- Evidence: `gallery_desktop.png`, `home_afterscroll_full.png`.
+## Cross-page issues (shared nav component) — unresolved since 2026-08-15
 
----
+1. **Mobile "BOOK NOW" nav button touch target is undersized.** Still measuring ~103×31px on mobile across all 6 pages tested — below the 48×48px recommended minimum (WCAG 2.5.5 AAA / Google Material guidance). Fix location: `.nav-book` mobile breakpoint padding in the shared stylesheet.
+2. **Mobile hamburger menu icon touch target is undersized.** Still measuring ~42×35px — same issue, same class of fix (`.nav-hamburger` mobile padding).
 
-## LOW severity
+Both were flagged in the prior audit and remain open; low-effort, high-value since they sit on the primary nav/conversion path on every page.
 
-### L1. Empty-`src` lightbox `<img>` fires a wasted request resolving to the page's own URL
-On both the homepage and `/gallery`, an `<img id="lb-img" src="" alt="">` (a lightbox placeholder, presumably populated by JS only when a gallery image is clicked) has an empty `src` attribute. Browsers resolve an empty `src` to the current document URL, so the browser issues a request for the page's own HTML as an "image," which predictably comes back with `naturalWidth: 0` (a broken-image state). This was flagged by our automated broken-image scan on `/`, `/book-now`* and `/gallery` (*not present on `/book-now`, which has no lightbox).
-- No visible impact was observed (the element appears to stay hidden until the lightbox is actually invoked), but it's a wasted request and a technically "broken" image node that could show a broken-image icon if the CSS hiding it ever fails.
-- **Recommendation**: Don't set `src=""`; either omit the attribute until the lightbox JS assigns a real URL, or default it to a 1×1 transparent placeholder.
+## Accessibility-tree / structural notes
+- **Visually-hidden H1 pattern confirmed as a valid, accessible technique, not a bug.** Every subpage (Gallery, Book Now, About, Contact, Blog post) uses `<h1 class="visually-hidden">` with CSS `position:absolute; left:-9999px` (off-screen, not `display:none`) — this is indexable by Google and available to screen readers while letting the page show a more stylized visual heading ("Our Story," "Get in Touch," etc.) instead. No action needed; noting it explicitly since it looked unusual in raw bounding-box data (`top:0, height:46`) before DOM inspection confirmed it's intentional and correctly implemented.
+- H1 exists and is unique per page on all 6 pages tested.
+- Zero JS console errors on any page/viewport combination during load.
+- Document-level horizontal overflow (`scrollWidth` vs `clientWidth`): 0px on 5/6 pages; **16px on About (mobile only)** — see New Finding #1.
 
-### L2. No console errors / no failed network requests observed
-Across all 6 captures (3 pages × 2 viewports), zero console errors and zero failed requests were recorded, and CLS measured 0 in every case. This is a positive finding, called out here for completeness/baseline.
-
----
-
-## What's working well (for context)
-
-- No horizontal scroll / overflow on any page at any tested viewport (375px through 1920px).
-- Zero cumulative layout shift measured on all pages/viewports.
-- Mobile nav correctly collapses to a hamburger with the primary "Book Now" CTA kept visible in the top bar at all three pages (main CTA is above the fold everywhere except the WhatsApp-specific case in H2).
-- `/book-now`'s WhatsApp CTA button itself, once visible, is generously sized (~253×72px on mobile) — good tap target once reached.
-- Gallery grid reflows cleanly from a 4-column desktop masonry to a clean single-column mobile stack with no cropping/overlap issues.
-- Platform/OTA logos (Booking.com, Hostelworld, Agoda, MakeMyTrip, Goibibo, Cleartrip, TripAdvisor, Expedia) render correctly and stack cleanly on mobile once scrolled into view.
-
----
-
-## Findings Table (for audit-data.json ingestion)
-
-| ID | Severity | Page(s) | Category | Finding |
-|----|----------|---------|----------|---------|
-| H1 | High | Home | Above-the-fold clarity | Real value-prop H1 ("Budget Hostel in Varanasi near Assi Ghat") is visually-hidden off-screen; visible hero copy is abstract branding only |
-| H2 | High | Book Now | CTA visibility | WhatsApp CTA (`.wa-btn`) starts at y≈877px on 812px mobile viewport — below the fold |
-| M1 | Medium | Home, Book Now, Gallery | Mobile usability / tap targets | Nav "Book Now" pill (~103×31px) and hamburger (~42×34.5px) below 44px touch-target minimum |
-| M2 | Medium | Home | Performance / mobile data cost | Autoplay hero video (2.6MB WebM) served identically to mobile, no poster, no lighter/mobile variant; ~3.4MB total image/media on first load |
-| M3 | Medium | Home, Book Now | Robustness / progressive enhancement | Scroll-reveal sections (incl. entire OTA platform grid on Book Now) default to opacity:0 with no no-JS/failure fallback |
-| M4 | Medium | Gallery, Home | Mobile usability / content | Gallery filter pills ~37px tall (under touch-target minimum); room-type photos on home lack visual differentiation |
-| L1 | Low | Home, Gallery | Technical/broken resource | Lightbox `<img src="">` resolves to page's own URL, registers as broken image, wastes a request |
-| L2 | Info | All | Baseline | 0 console errors, 0 failed requests, CLS = 0 across all pages/viewports tested |
-
----
-
-## Screenshot Index
-
-| File | Page | Viewport | Type |
-|------|------|----------|------|
-| home_desktop.png | Home | 1920×1080 | Above-the-fold |
-| home_desktop_full.png | Home | 1920×1080 | Full page |
-| home_mobile.png | Home | 375×812 | Above-the-fold |
-| home_mobile_full.png | Home | 375×812 | Full page (note: captured pre-scroll, shows reveal-animation blank state — see M3) |
-| booknow_desktop.png | Book Now | 1920×1080 | Above-the-fold |
-| booknow_desktop_full.png | Book Now | 1920×1080 | Full page |
-| booknow_mobile.png | Book Now | 375×812 | Above-the-fold (WhatsApp CTA cut off — see H2) |
-| booknow_mobile_full.png | Book Now | 375×812 | Full page (pre-scroll, blank reveal state — see M3) |
-| gallery_desktop.png | Gallery | 1920×1080 | Above-the-fold |
-| gallery_desktop_full.png | Gallery | 1920×1080 | Full page |
-| gallery_mobile.png | Gallery | 375×812 | Above-the-fold |
-| gallery_mobile_full.png | Gallery | 375×812 | Full page |
-
-Additional verification screenshots (not part of the standard set, but referenced above as evidence for M3) are stored in the session scratchpad rather than the audit output directory: `home_afterscroll_full.png` and `booknow_afterscroll_full.png`, generated with a real incremental-scroll pass to confirm reveal animations complete correctly for actual users.
+## Not covered in this pass (scope trim, consistent with prior audit's stated trim)
+- Tablet (768×1024) and laptop (1366×768) viewports not captured — desktop 1920 + mobile 375 remain the tested extremes.
+- The 14 other blog posts were not individually screenshotted (they share the same `blog/post.html`-derived template as the one tested); worth a spot-check only if a template-wide regression is suspected.
+- No Lighthouse/performance scoring — this is a rendering/layout pass only.
+- Did not verify whether the new booking-engine UI (multi-room cart, Razorpay flow — per recent commits) renders correctly past the initial Book Now fold; this pass only covers the static above-the-fold/full-page render, not interactive booking-flow testing.

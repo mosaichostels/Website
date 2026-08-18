@@ -1,205 +1,322 @@
 {
   "summary": {
-    "health_score": 48,
-    "business_type": "Hostel / Hospitality — hybrid local + international traveler audience",
+    "health_score": 73,
+    "business_type": "Hospitality — budget hostel (local + international travelers), Varanasi, India",
     "top_findings": [
-      "8 of 8 blog posts serve an empty JS shell in production due to an .htaccess routing bug, confirmed invisible to Google via live URL Inspection API (\"URL is unknown to Google\")",
-      "A legacy WordPress blog URL that was ranking at position 7.9-10.5 (859 impressions/90 days) now 404s with no redirect — organic traffic dropped to zero the week Google's crawl fell out of the index",
-      "deploy.sh has a basename-collision bug that could silently overwrite the homepage on next full deploy",
-      "2 of 7 pre-rendered static blog files are corrupted (truncated mid-head, invalid JSON escapes)",
-      "3 of 8 blog posts are near-duplicate content cannibalizing the same 'Assi Ghat' keyword cluster, with zero functional internal links anywhere on the blog",
-      "aggregateRating (4.9/60 reviews) has zero visible on-page reviews backing it — a real Google structured-data policy risk; git history shows a review section built and deleted 6 times",
-      "mosaichostels.com ranks #10 of 10 for its own branded name search, behind OTA/review platforms"
+      "api/lib/*.php (incl. credentials file config.php) is directly web-executable, not blocked by robots.txt",
+      "/blog/index.html renders empty to non-JS AI crawlers, hiding all 15 posts from GPTBot/ClaudeBot/PerplexityBot",
+      "Sitewide advertised pricing (₹499/₹1500) is stale vs live booking-engine rates (₹549/₹2599), wrong in llms.txt, FAQ schema, meta descriptions",
+      "Razorpay fraud-detection script silently fails to load on every checkout (CSP missing cdn.razorpay.com)",
+      "Google review CTA opens Maps listing instead of the review composer, throttling review velocity"
     ],
     "quick_wins": [
-      "Fix unsized footer <img> sitewide — eliminates Blog/Mobile's POOR CLS (0.443) in one CSS/HTML change",
-      "Add <link rel=preconnect> for Google Fonts — recovers up to ~1,980ms of render-blocking time",
-      "Hyperlink existing unlinked booking CTA text inside blog posts — no new copy needed",
-      "Verify mosaichostels.com in Bing Webmaster Tools — free, ~10 minutes, unlocks real backlink data",
-      "301-redirect the legacy WordPress blog URL — reclaims already-earned ranking position 7.9-10.5"
+      "Add cdn.razorpay.com to .htaccess CSP script-src",
+      "Fix openGoogleReview() deep link in components/site.js",
+      "Bump /book-now sitemap lastmod to real last-rebuild date",
+      "Add poster + preload=metadata to homepage hero video",
+      "Rewrite FAQPage answers to brand-anchor with Mosaic Hostel"
     ]
   },
   "categories": [
     {
       "name": "Technical SEO",
-      "score": 58,
+      "score": 84,
       "what_works": [
-        "Core marketing pages clean, static, correctly canonicalized",
-        "robots.txt exemplary — explicitly allows GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot",
-        "HSTS with preload, correct HTTP->HTTPS and non-www->www redirects, no redirect chains",
-        "Mobile viewport correctly configured on every page"
+        "robots.txt and sitemap.xml both valid",
+        "All 21 canonicals self-referencing and correct",
+        "bare->www, .html->clean-URL, trailing-slash redirects single-hop",
+        "Full security-header set present on HTML and /api/*",
+        "Cache-bust versions consistent site-wide post-redeploy",
+        "Non-SPA rendering confirmed, structured data valid"
       ],
       "findings": [
-        {"title": "Sitemap omits all 8 blog URLs with no fallback discovery path", "severity": "Critical", "description": "sitemap.xml valid but lists only 7 top-level pages; raw HTML of /blog contains zero <a href> links to posts", "recommendation": "Fix routing/content first (see T-2/T-3), then add all 8 URLs with lastmod dates"},
-        {"title": ".htaccess RewriteCond scoping bug shadows real static blog pages", "severity": "Critical", "description": "RewriteCond only binds to the single next RewriteRule; blog-slug rule fires unconditionally, serving an empty JS shell with blank canonical for all 8 posts and soft-404s for any nonexistent slug", "recommendation": "Add RewriteCond !-d guard to the blog-slug rule specifically"},
-        {"title": "2 of 7 pre-rendered static blog files are corrupted", "severity": "Critical", "description": "hostel-near-assi-ghat-varanasi and backpackers-guide-assi-ghat-varanasi truncate mid-<head>, currently masked by the .htaccess bug", "recommendation": "Regenerate from source markdown before or in the same deploy as the .htaccess fix"},
-        {"title": "9th blog post has no static page, sitemap, or llms.txt entry", "severity": "High", "description": "things-to-do-varanasi-local-guide.md exists but no blog/things-to-do-varanasi-local-guide/ directory exists", "recommendation": "Build the static page matching the other 7 posts' pattern"},
-        {"title": "IndexNow integration non-functional", "severity": "High", "description": ".indexnow-key and IndexNow.xml contain different keys; neither published in spec-required <key>.txt format", "recommendation": "Pick one key, publish as literal <key>.txt at site root"},
-        {"title": "CSP is a single upgrade-insecure-requests directive", "severity": "Medium", "description": "No real script-src/style-src restrictions despite loading a third-party markdown parser via innerHTML", "recommendation": "Expand CSP to restrict known asset origins"},
-        {"title": ".html and trailing-slash URL variants return 200 with no 301", "severity": "Medium", "description": "Canonical tags mitigate but don't structurally prevent duplicate crawling", "recommendation": "Add explicit 301 redirects to clean URLs"}
+        {
+          "title": "/api/lib/*.php directly web-executable, not blocked",
+          "severity": "Critical",
+          "description": "config.php (credentials defines) and other lib PHP files return HTTP 200 directly with no server-side deny; robots.txt has no Disallow: /api/.",
+          "recommendation": "Add RewriteRule ^api/lib/ - [F,L] to .htaccess and Disallow: /api/ to robots.txt."
+        },
+        {
+          "title": "Homepage hero video has no poster/preload hint",
+          "severity": "High",
+          "description": "1MB hero-video.webm autoplays with no poster image and no preload=metadata, real mobile LCP risk.",
+          "recommendation": "Add a poster attribute and preload=metadata."
+        },
+        {
+          "title": "Two legacy blog redirects resolve in 2 hops",
+          "severity": "Medium",
+          "description": "Old blog slugs land on the non-trailing-slash URL first, then redirect again to the final slug.",
+          "recommendation": "Point the legacy rules straight at the final trailing-slash URL."
+        },
+        {
+          "title": "No IndexNow implementation",
+          "severity": "Medium",
+          "description": "No IndexNow ping anywhere in the codebase, worth adding given today's redeploy and ongoing content changes.",
+          "recommendation": "Implement IndexNow ping on deploy for changed URLs."
+        },
+        {
+          "title": "Header logo lazy-loaded despite being above the fold",
+          "severity": "Low",
+          "description": "img loading=lazy on the header logo on every page.",
+          "recommendation": "Remove loading=lazy from the header logo."
+        },
+        {
+          "title": "/api/availability.php 400 responses cache publicly 24h",
+          "severity": "Low",
+          "description": "Error responses are cached publicly for 24 hours.",
+          "recommendation": "Set Cache-Control: no-store on error responses."
+        }
       ]
     },
     {
       "name": "Content Quality",
-      "score": 35,
+      "score": 64,
       "what_works": [
-        "Blog topics are well-chosen for the dual local+traveler audience",
-        "best-hostels-in-varanasi.md clears the word-count floor and has a genuine FAQ section",
-        "Honest, non-salesy tone throughout"
+        "No spam-thin or duplicate content, zero exact-duplicate paragraphs across 15 posts",
+        "Every sampled post has a direct-answer opener and genuine local detail",
+        "about.html carries genuine unique narrative, not boilerplate",
+        "contact/gallery pages appropriately light with strong trust signals"
       ],
       "findings": [
-        {"title": "Every blog post serves a contentless shell on first byte in production", "severity": "Critical", "description": "Confirmed live: identical generic title/description/blank canonical across all 8 posts before JS runs", "recommendation": "Same fix as Technical T-2/T-3 — serve the existing static pages"},
-        {"title": "3 of 8 posts orphaned from the visible blog index with no internal-link path", "severity": "Critical", "description": "getAllBlogsMetadata() hardcodes only 5 of 8 posts", "recommendation": "Fix the metadata function to include all posts"},
-        {"title": "Zero hyperlinks in any of the 8 source markdown files", "severity": "Critical", "description": "No internal links, no links to /book-now, no outbound citations to named sources", "recommendation": "Convert all Read Next/Further Reading text into real markdown links"},
-        {"title": "Heavy near-duplicate content across 5 of 8 posts", "severity": "High", "description": "assi-ghat-varanasi-complete-guide, why-assi-ghat-perfect-base, hostel-near-assi-ghat-varanasi share verbatim paragraphs — textbook keyword cannibalization", "recommendation": "Merge into one authoritative post, 301-redirect the rest"},
-        {"title": "7 of 8 posts are thin relative to target queries", "severity": "High", "description": "Word counts 29-62% below a reasonable floor; solo-female-safety guide particularly thin vs. 2000-3500 word competing content", "recommendation": "Expand highest-value posts with specificity, named sources, first-hand signals"},
-        {"title": "No first-hand experience signals; generic organizational byline", "severity": "High", "description": "All posts credited to 'Mosaic Hostel Team' with no named author, photo, or credentials", "recommendation": "Add a named author with bio linked to About page"},
-        {"title": "Meta description pollution and broken title escaping", "severity": "High", "description": "Raw 'Published:/Author:' frontmatter leaks into meta descriptions; literal \\' artifacts in titles", "recommendation": "Fix the excerpt generator to strip frontmatter before truncating"}
-      ]
-    },
-    {
-      "name": "On-Page SEO / SXO",
-      "score": 45,
-      "what_works": [
-        "Blog posts correctly typed as Blog Posts with proper heading structure",
-        "/contact correctly typed as a Local Page with map embed",
-        "Clean, human-readable hyphenated URL slugs throughout"
-      ],
-      "findings": [
-        {"title": "mosaichostels.com ranks #10 of 10 for its own branded name search", "severity": "High", "description": "Behind LateRooms, trip.com, Hotels.com, Booking.com, Hostelworld, Orbitz, TripAdvisor and Booking reviews", "recommendation": "Recommend /seo local for a Google Business Profile audit — likely the biggest lever"},
-        {"title": "Booking CTA copy exists in blog posts but isn't hyperlinked", "severity": "High", "description": "'Book your stay at Mosaic today' is plain text with no <a> tag in multiple posts", "recommendation": "Wrap existing CTA text in links — zero new copy needed"},
-        {"title": "Homepage's real value-prop H1 is visually hidden off-screen", "severity": "High", "description": "Visible hero copy is abstract branding only ('Where Culture Meets Comfort'); the keyword-rich H1 is screen-reader-only", "recommendation": "Promote real value-prop copy into visible hero text"},
-        {"title": "WhatsApp CTA sits below the mobile fold on /book-now", "severity": "High", "description": "Primary conversion button starts at y=877px on an 812px viewport", "recommendation": "Tighten vertical spacing or add a sticky mobile CTA bar"},
-        {"title": "/book-now has no map/directions/visible price/reviews", "severity": "Medium", "description": "Local-intent searchers need map+directions+reviews together; these are split across /book-now and /contact", "recommendation": "Add a Get Directions link and price/review anchor to /book-now"},
-        {"title": "Mobile touch targets undersized", "severity": "Medium", "description": "Nav 'Book Now' pill (~103x31px) and hamburger (~42x34.5px) below the 44px guideline", "recommendation": "Increase vertical padding to reach 44px minimum"}
+        {
+          "title": "/blog/index.html functionally empty to non-JS crawlers",
+          "severity": "Critical",
+          "description": "All 15 post cards injected via container.innerHTML = blogsHtml; static HTML is a 20-word H1 only. Blocks AI-engine discovery of the entire blog. Open 3 audit passes running.",
+          "recommendation": "Server-render the post list as static HTML cards, progressively enhance with JS."
+        },
+        {
+          "title": "13 of 15 blog posts under depth floor for their intent",
+          "severity": "Medium",
+          "description": "Posts run 589-1,898 words; competitor guides in this niche typically run 1,500-2,500 words for comparison/itinerary intent.",
+          "recommendation": "Prioritize expanding the 4 shortest posts first."
+        },
+        {
+          "title": "FAQ answers rarely brand-anchor",
+          "severity": "High",
+          "description": "Only 1 of 5-6 answers per FAQPage block names Mosaic explicitly.",
+          "recommendation": "Rewrite answers to open with Mosaic Hostel for AI-answer attribution."
+        },
+        {
+          "title": "best-hostels-in-varanasi has stale dateModified",
+          "severity": "High",
+          "description": "dateModified: 2026-04-07 despite being positioned as the current 2026 comparison guide.",
+          "recommendation": "Update dateModified to match actual last content review."
+        }
       ]
     },
     {
       "name": "Schema / Structured Data",
-      "score": 50,
+      "score": 85,
       "what_works": [
-        "Correct Hostel (LodgingBusiness subtype) schema present on every key page, not just one",
-        "5-decimal geo coordinate precision, comprehensive amenityFeature list",
-        "Correctly recognizes FAQPage retirement — does not recommend adding new FAQ schema for SERP benefit"
+        "All 39 JSON-LD blocks across 24 files parse clean, zero errors",
+        "hasMap and FAQPage (added Aug 15) verified valid and present",
+        "aggregateRating confirmed still fully absent, compliance fix holds",
+        "Hostel/LodgingBusiness blocks complete on all 8 pages"
       ],
       "findings": [
-        {"title": "Invalid JSON-LD on blog/index.html", "severity": "Critical", "description": "Missing comma breaks JSON.parse entirely; file can be served instead of blog.html on trailing-slash requests", "recommendation": "Delete the stale file or fix the syntax error"},
-        {"title": "datePublished contradicts visible content on 2 posts", "severity": "Critical", "description": "Two posts show a schema date ~2.5 months off from their own markdown source", "recommendation": "Correct to the markdown frontmatter dates"},
-        {"title": "aggregateRating not backed by any visible on-page reviews", "severity": "High", "description": "Every page asserts 4.9/60 reviews with no visible testimonials anywhere — a real Google policy risk", "recommendation": "Add a genuine visible reviews section or remove the schema from pages without one"},
-        {"title": "Missing publisher, mainEntityOfPage, dateModified on 7 static BlogPosting blocks", "severity": "High", "description": "Client-rendered template for the 8th post has these properties; the 7 static ones don't", "recommendation": "Apply the corrected BlogPosting template from findings/schema.md §6.4"},
-        {"title": "Homepage Hostel schema out of sync with other pages", "severity": "Medium", "description": "Missing @id, checkinTime/checkoutTime, and 2 of 9 sameAs links", "recommendation": "Sync to the complete version used on book-now/gallery/contact"},
-        {"title": "No WebSite schema anywhere", "severity": "Medium", "description": "Missed opportunity for entity graph consistency", "recommendation": "Add once to the homepage"},
-        {"title": "Organization.logo points to a room photo instead of the brand logo", "severity": "Medium", "description": "Uses IMG_1928.JPG instead of the existing mosaic-logo-main.png asset", "recommendation": "Point logo field at the real logo file"}
+        {
+          "title": "@id not unified across pages",
+          "severity": "Medium",
+          "description": "index.html and book-now.html mint different @id values for the same business entity; 6 other pages have none.",
+          "recommendation": "Standardize on https://www.mosaichostels.com/#hostel everywhere."
+        },
+        {
+          "title": "No Offer/makesOffer schema on /book-now",
+          "severity": "Medium",
+          "description": "Live Razorpay+eZee booking engine has no corresponding Offer schema.",
+          "recommendation": "Add makesOffer using corrected, accurate pricing (fix pricing issue first)."
+        },
+        {
+          "title": "blog/post.html template breadcrumb and publisher-image bugs",
+          "severity": "Low",
+          "description": "Breadcrumb uses @id instead of item; publisher.logo/image points at a room photo instead of the brand logo.",
+          "recommendation": "Fix template breadcrumb structure and publisher image reference."
+        },
+        {
+          "title": "No BreadcrumbList on individual blog posts",
+          "severity": "Low",
+          "description": "15 blog posts have no BreadcrumbList schema.",
+          "recommendation": "Add BreadcrumbList template to blog post pages."
+        }
       ]
     },
     {
-      "name": "Performance (Core Web Vitals)",
-      "score": 65,
+      "name": "Sitemap",
+      "score": 80,
       "what_works": [
-        "Server response time (TTFB) is fast — Hostinger/LiteSpeed performing well",
-        "font-display: swap already correctly applied, no FOIT risk",
-        "Modern WebP+JPEG image format delivery on the homepage",
-        "Third-party scripts (Microsoft Clarity) loaded correctly via async pattern"
+        "XML structure valid, 22 URLs, zero redirects, all 200",
+        "Canonical www host used consistently",
+        "No orphan pages, no extras beyond live inventory"
       ],
       "findings": [
-        {"title": "Blog/Mobile CLS = 0.443 (POOR)", "severity": "Critical", "description": "Unsized footer logo <img> shifts the whole page after client-side blog card injection", "recommendation": "Add explicit width/height attributes matching the nav logo's pattern"},
-        {"title": "Home/Mobile LCP = 6.3s (POOR)", "severity": "High", "description": "Render-blocking Google Fonts chain (no preconnect) plus a competing 2.6MB hero video", "recommendation": "Add preconnect hints or self-host fonts; defer/compress the hero video"},
-        {"title": "Render-blocking font chain flagged on every page/device", "severity": "High", "description": "300-1980ms estimated savings available", "recommendation": "Add rel=preconnect for fonts.googleapis.com and fonts.gstatic.com"},
-        {"title": "Several images served 4-5x their display resolution", "severity": "Medium", "description": "One OTA logo served at 14,583x3,217px displayed at 180x40px", "recommendation": "Re-export images at true display size"},
-        {"title": "PageSpeed/CrUX field data unavailable this cycle", "severity": "Low", "description": "API key was missing when this audit ran (now restored); results are lab-only Lighthouse data", "recommendation": "Re-run PSI/CrUX now that the key is configured for authoritative field data"}
+        {
+          "title": "/book-now lastmod 15+ days stale",
+          "severity": "Critical",
+          "description": "Page had two substantive rebuilds (multi-room cart, booking fixes) already live but sitemap lastmod wasn't bumped.",
+          "recommendation": "Update lastmod to match real last-deploy date."
+        },
+        {
+          "title": "/privacy lastmod missed a real NAP fix",
+          "severity": "Medium",
+          "description": "Postal code correction shipped but lastmod wasn't bumped, inconsistent with sibling pages bumped in the same commit.",
+          "recommendation": "Bump lastmod for /privacy to match the actual fix date."
+        }
       ]
     },
     {
-      "name": "AI Search Readiness (GEO)",
-      "score": 42,
+      "name": "AI Search Readiness (GEO / AEO / AIO / LLMO)",
+      "score": 56,
       "what_works": [
-        "robots.txt explicitly allows GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot",
-        "Existing FAQ content in blog posts is already in ideal AI-extraction format, once reachable",
-        "CCBot-blocking-only strategy is defensible and low-risk given live-citation bots are allowed"
+        "robots.txt fully open to GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot",
+        "llms.txt present at root",
+        "FAQPage schema present on 4 pages"
       ],
       "findings": [
-        {"title": ".htaccess bug hides all 8 blog posts from every non-JS AI crawler", "severity": "Critical", "description": "GPTBot/ClaudeBot/PerplexityBot/OAI-SearchBot receive an empty shell despite being explicitly welcomed in robots.txt", "recommendation": "Same fix as Technical T-2 — this single fix would likely move the GEO score from ~42 to the 70s"},
-        {"title": "Blog index has zero server-rendered links to posts", "severity": "Critical", "description": "Even after the routing fix, crawlers need a discoverable path from /blog to each post", "recommendation": "Hard-code <a href> cards in the raw HTML, layer JS enhancement on top"},
-        {"title": "No FAQPage schema despite FAQ-shaped content already existing", "severity": "High", "description": "Hand-written Q&A content in static pages has no structured markup", "recommendation": "Add FAQPage JSON-LD mirroring the visible FAQ text exactly"},
-        {"title": "Zero presence on YouTube or Reddit", "severity": "Medium", "description": "The two channels most strongly correlated with AI citation (YouTube ~0.737) are entirely absent", "recommendation": "Publish 2-3 short videos; engage authentically in relevant travel subreddits"},
-        {"title": "llms.txt incomplete and will keep drifting", "severity": "Medium", "description": "Lists only 6 of 8 posts, manually maintained with no generation script", "recommendation": "Generate from the same source of truth as sitemap/blog listing"}
+        {
+          "title": "Sitewide pricing stale vs live booking engine",
+          "severity": "Critical",
+          "description": "llms.txt, FAQ schema, meta descriptions, about.html, 4 blog posts, and Hostel.priceRange all advertise ₹499/₹1500; live availability API shows ₹549/₹2599 (private off by ~73%). Likely source: api/lib/mock.php stale fixture values.",
+          "recommendation": "Correct pricing sitewide from the live API, not hardcoded fixtures; re-derive priceRange schema."
+        },
+        {
+          "title": "/blog/ hub invisible to non-JS AI crawlers",
+          "severity": "Critical",
+          "description": "Confirmed via curl -A GPTBot: raw HTML has zero post links, all injected client-side. Open 4 consecutive audit passes.",
+          "recommendation": "Server-render post list as static HTML."
+        },
+        {
+          "title": "FAQPage answers don't brand-anchor",
+          "severity": "High",
+          "description": "Only 1 of 5-6 answers per block names Mosaic explicitly, weakening AI-answer attribution.",
+          "recommendation": "Rewrite to open every answer with the brand name."
+        },
+        {
+          "title": "No off-site authority signals",
+          "severity": "Medium",
+          "description": "No YouTube, Reddit, Wikipedia, or LinkedIn presence detected, unchanged from prior passes.",
+          "recommendation": "Build minimal off-site presence on at least one high-trust platform."
+        }
       ]
     },
     {
-      "name": "Images",
-      "score": 50,
+      "name": "Local SEO",
+      "score": 78,
       "what_works": [
-        "Homepage uses <picture><source webp> with JPEG fallback correctly",
-        "No horizontal scroll or overflow at any tested viewport"
+        "NAP consistent across index/about/contact/gallery/blog/book-now and footer",
+        "GBP CID cross-verified mathematically against the Maps embed place-ID",
+        "Zero aggregateRating/reviewCount anywhere, compliance intact"
       ],
       "findings": [
-        {"title": "Footer logo and OTA badge images drastically oversized", "severity": "Medium", "description": "Footer logo served at 500x500px PNG displayed at 110x110px; one OTA badge served at 14,583x3,217px", "recommendation": "Re-export at true display size in WebP/AVIF"},
-        {"title": "No responsive srcset on room photos", "severity": "Medium", "description": "Several images served at 4-5x display resolution, wasting 400-830KB per page on mobile", "recommendation": "Add srcset with appropriately-sized variants"},
-        {"title": "No ImageGallery/ImageObject schema on /gallery", "severity": "Low", "description": "21 photos across 4 categories with no accompanying structured data", "recommendation": "Add a representative sample of ImageObject entries"}
+        {
+          "title": "Google review CTA doesn't open review composer",
+          "severity": "Critical",
+          "description": "openGoogleReview() in components/site.js links to the plain Maps listing, not a review-write deep link, throttling review velocity.",
+          "recommendation": "Use the g.page/r/<id>/review short link or search.google.com/local/writereview?placeid=..."
+        },
+        {
+          "title": "hasMap schema missing on 3 pages",
+          "severity": "Medium",
+          "description": "Present on index/about/contact, missing on gallery/blog/book-now.",
+          "recommendation": "Add hasMap schema to the 3 missing pages."
+        },
+        {
+          "title": "Conflicting airport transfer time claim",
+          "severity": "Low",
+          "description": "Homepage FAQ says 15-20 minutes, dedicated transfer-guide blog post says 20-30 minutes for the same trip.",
+          "recommendation": "Reconcile to one consistent, accurate figure."
+        }
+      ]
+    },
+    {
+      "name": "SXO (Search Experience)",
+      "score": 61,
+      "what_works": [
+        "Booking flow functionally completes end to end",
+        "about.html and contact.html carry real trust signals (address, phone, WhatsApp, embedded map)"
+      ],
+      "findings": [
+        {
+          "title": "Razorpay CSP bug breaks fraud-detection script",
+          "severity": "Critical",
+          "description": ".htaccess allowlists checkout.razorpay.com but not cdn.razorpay.com for script-src; confirmed via live console error during rendered checkout.",
+          "recommendation": "Add cdn.razorpay.com to CSP script-src."
+        },
+        {
+          "title": "Trust badge never reaches /book-now",
+          "severity": "High",
+          "description": "4.9-star Tripadvisor badge appears on home/about but not on the checkout page where it matters most.",
+          "recommendation": "Add the trust badge near the /book-now CTA."
+        },
+        {
+          "title": "Comparison content in prose, not table format",
+          "severity": "High",
+          "description": "best-hostels-in-varanasi uses prose H3s; the SERP for its target query is 6/6 comparison tables.",
+          "recommendation": "Convert the hostel comparison section to a table."
+        },
+        {
+          "title": "Self-cannibalizing OTA logo grid on /book-now",
+          "severity": "Medium",
+          "description": "\"Skip the Commission. Book Direct.\" sits directly above a grid of 8 OTA logos.",
+          "recommendation": "Move or remove the OTA logo grid from directly under the direct-booking message."
+        },
+        {
+          "title": "Mobile nav touch targets under 48x48px",
+          "severity": "Medium",
+          "description": "BOOK NOW button ~103x31px, hamburger ~42x35px, both under the accessibility minimum.",
+          "recommendation": "Increase touch target sizes to at least 48x48px."
+        }
       ]
     }
   ],
   "action_plan": {
     "phases": [
       {
-        "name": "Phase 1: Critical Fixes (sequence matters)",
-        "timeframe": "Week 1",
+        "name": "Phase 1: Critical Fixes",
+        "timeframe": "Immediately",
         "items": [
-          "Confirm intent and resolve about.html/global.css deletion from working tree",
-          "Fix deploy.sh basename-collision bug before next full deploy",
-          "Fix .htaccess RewriteCond scoping bug for the blog-slug rule",
-          "Regenerate 2 corrupted static blog files",
-          "Build the missing 9th static blog page",
-          "Fix getAllBlogsMetadata() to include all 8-9 posts",
-          "Deploy and verify via raw curl that real content is served",
-          "Add all blog URLs to sitemap.xml with lastmod dates",
-          "301-redirect the legacy WordPress blog URL to reclaim lost ranking equity",
-          "Fix or delete blog/index.html's invalid JSON-LD",
-          "Resolve the aggregateRating visible-reviews policy risk",
-          "Fix IndexNow key mismatch and publish proper verification file"
+          "Block /api/lib/*.php from direct web access and robots.txt",
+          "Server-render /blog/index.html post list for crawler visibility",
+          "Correct sitewide pricing claims to match live booking-engine rates",
+          "Add cdn.razorpay.com to CSP script-src",
+          "Fix Google review CTA deep link"
         ]
       },
       {
         "name": "Phase 2: High-Impact Improvements",
-        "timeframe": "Weeks 2-3",
+        "timeframe": "This week",
         "items": [
-          "Consolidate 3 near-duplicate Assi Ghat posts with 301 redirects",
-          "Convert all Read Next/Further Reading text into real hyperlinks; link every post to /book-now",
-          "Hyperlink existing unlinked booking CTA copy inside blog posts",
-          "Fix the unsized footer image sitewide to eliminate CLS risk",
-          "Add font preconnect hints or self-host fonts",
-          "Promote the real value-prop H1 into visible hero copy",
-          "Move WhatsApp CTA above the mobile fold on /book-now",
-          "Add FAQPage schema to posts with existing FAQ content",
-          "Fix the meta-description generator's frontmatter-leak bug",
-          "Add missing BlogPosting schema properties; correct 2 wrong dates",
-          "Verify mosaichostels.com in Bing Webmaster Tools",
-          "Add visible price + review-count anchor to /book-now and homepage",
-          "Add Get Directions link + map thumbnail to /book-now"
+          "Bump /book-now sitemap lastmod",
+          "Brand-anchor all FAQPage answers",
+          "State competitive edge (proximity to Assi Ghat) on homepage",
+          "Add trust badge to /book-now",
+          "Convert hostel comparison content to table format",
+          "Add poster/preload to hero video",
+          "Update stale dateModified on best-hostels-in-varanasi"
         ]
       },
       {
         "name": "Phase 3: Content & Authority",
-        "timeframe": "Month 2",
+        "timeframe": "This month",
         "items": [
-          "Build out the 3-pillar content architecture (Where to Stay / Things to Do / Safety)",
-          "Fill confirmed keyword gaps: seasonal timing, itineraries, transportation, budget breakdown, general safety, local/walk-in audience content",
-          "Pursue third-party citation/backlink outreach using existing blog content as bait",
-          "Add named authorship with bio to blog posts",
-          "Sync homepage Hostel schema; add WebSite schema; fix Organization logo",
-          "Get a real JustDial listing",
-          "Begin building YouTube/Reddit presence"
+          "Expand the 4 shortest blog posts toward the 1,500-2,500 word competitive floor",
+          "Unify @id across all pages",
+          "Add Offer/makesOffer schema to /book-now",
+          "Fix /privacy sitemap lastmod",
+          "Fix legacy 2-hop blog redirects",
+          "Remove self-cannibalizing OTA grid placement on /book-now",
+          "Fix mobile nav touch target sizes"
         ]
       },
       {
         "name": "Phase 4: Monitoring & Iteration",
         "timeframe": "Ongoing",
         "items": [
-          "Re-run PSI/CrUX for real field data now that the API key is restored",
-          "Monthly manual re-verification of the 4.9-star/60-review figure against live dashboards",
-          "Watch GSC for indexation recovery on all 8-9 posts post-fix",
-          "Run /seo drift baseline to capture a snapshot for future comparison",
-          "Verify GBP primary category directly in the Google Business Profile dashboard"
+          "Implement IndexNow ping on deploy",
+          "Add BreadcrumbList to blog posts",
+          "Fix blog/post.html template breadcrumb and publisher-image bugs",
+          "Build minimal off-site authority presence",
+          "Reconcile conflicting airport transfer time claim",
+          "Add hasMap schema to gallery/blog/book-now"
         ]
       }
     ]

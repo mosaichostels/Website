@@ -66,7 +66,7 @@ function confirm_paid_order(string $orderId, string $paymentId): array {
     'MobileNo' => $record['phone'],
     'Address' => '',
     'State' => '',
-    'Country' => '',
+    'Country' => $record['nationality'] ?? '',
     'City' => '',
     'Zipcode' => '',
     'Fax' => '',

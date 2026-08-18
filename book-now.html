@@ -10,9 +10,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/styles/global.css?v=20260808">
+<link rel="stylesheet" href="/styles/global.css?v=20260818d">
 <link rel="canonical" href="https://www.mosaichostels.com/book-now">
-<meta name="description" content="Book Mosaic Hostel direct — Dorms from ₹499, private rooms available. Instant booking with best rates on Assi Ghat.">
+<meta name="description" content="Book Mosaic Hostel direct — Dorms from ₹549, private rooms available. Instant booking with best rates on Assi Ghat.">
 <meta property="og:site_name" content="Mosaic Hostel Varanasi">
 <meta property="og:image" content="https://www.mosaichostels.com/images/IMG_1928.JPG">
 
@@ -44,7 +44,7 @@
     {
       "@context": "https://schema.org",
       "@type": "Hostel",
-      "@id": "https://www.mosaichostels.com/book-now",
+      "@id": "https://www.mosaichostels.com/#hostel",
       "name": "Mosaic Hostel Varanasi",
       "description": "Premium budget hostel in Varanasi with private & dorm rooms near Assi Ghat. Experience authentic hospitality with modern comfort. WiFi, AC, lockers, kitchen, hot water available.",
       "address": {
@@ -73,7 +73,25 @@
         {"@type": "LocationFeatureSpecification", "name": "Rooftop Space", "value": true},
         {"@type": "LocationFeatureSpecification", "name": "24/7 Check-in", "value": true}
       ],
-      "priceRange": "₹500-₹2000",
+      "priceRange": "₹549-₹2,599",
+      "makesOffer": [
+        {
+          "@type": "Offer",
+          "name": "Mixed Dorm Bed",
+          "priceCurrency": "INR",
+          "price": "549",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.mosaichostels.com/book-now"
+        },
+        {
+          "@type": "Offer",
+          "name": "Private Room",
+          "priceCurrency": "INR",
+          "price": "2599",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.mosaichostels.com/book-now"
+        }
+      ],
       "checkinTime": "13:00",
       "checkoutTime": "10:30",
       "openingHoursSpecification": {
@@ -126,7 +144,7 @@
 <!-- ── NAV ── -->
 <nav id="mainNav">
   <div class="nav-logo">
-    <a href="/"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="120" height="40" loading="lazy"></a>
+    <a href="/"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="120" height="40"></a>
   </div>
   <div class="nav-links">
     <a href="/" class="nav-link" data-page="home">Home</a>
@@ -200,7 +218,7 @@
     <!-- Stage 3: Guest details + pay -->
     <div class="widget-stage" id="stageGuest">
       <div class="direct-title">Your Details</div>
-      <div class="widget-price" id="widgetPrice"></div>
+      <div id="widgetPrice"></div>
       <form id="guestForm">
         <div class="field-row three">
           <div class="field">
@@ -230,9 +248,19 @@
             <input type="email" id="gEmailConfirm" required>
           </div>
         </div>
+        <div class="field-row" style="grid-template-columns:110px 1fr">
+          <div class="field">
+            <label for="gPhoneCode">Code</label>
+            <select id="gPhoneCode" name="phone_code"></select>
+          </div>
+          <div class="field">
+            <label for="gPhone">Phone</label>
+            <input type="tel" id="gPhone" name="phone" required>
+          </div>
+        </div>
         <div class="field">
-          <label for="gPhone">Phone</label>
-          <input type="tel" id="gPhone" name="phone" required>
+          <label for="gNationality">Nationality</label>
+          <select id="gNationality" name="nationality"></select>
         </div>
         <div class="field">
           <label for="gArrival">Estimated Arrival</label>
@@ -251,8 +279,9 @@
         </div>
         <label class="field-check">
           <input type="checkbox" id="gTerms" required>
-          <span>I agree to Mosaic Hostel's booking terms and cancellation policy. Prepayment secures this reservation; valid photo ID is required at check-in.</span>
+          <span>I agree to Mosaic Hostel's <a href="#" id="openPolicyModal" onclick="event.stopPropagation()">booking terms and cancellation policy</a>. Prepayment secures this reservation; valid photo ID is required at check-in.</span>
         </label>
+        <p style="text-align:center;font-size:0.85em;opacity:0.85;margin-bottom:10px">★ 4.9/5 on Tripadvisor — 1000+ happy guests</p>
         <button type="submit" class="form-submit">Pay &amp; Confirm Booking</button>
         <div class="form-msg" id="guestMsg"></div>
       </form>
@@ -269,7 +298,7 @@
 </div>
 
 <!-- ── DIRECT BOOKING CARD (WhatsApp fallback) ── -->
-<div class="direct-section reveal">
+<div class="direct-section reveal marketing-section">
   <div class="direct-card">
     <div class="card-tile-strip" id="cardStrip"></div>
     <div class="direct-badge">
@@ -277,7 +306,7 @@
       Best Price Direct
     </div>
     <div class="direct-title">Skip the Commission. Book Direct.</div>
-    <div class="direct-price">Dorms from ₹499/night · Private rooms from ₹1,500/night</div>
+    <div class="direct-price">Dorms from ₹549/night · Private rooms from ₹2,599/night</div>
     <div class="direct-sub">
       Booking directly with us means no platform fees, no markups — just the best available rate, straight from us to you. Got a special request or travelling in a group? We're a message away.
     </div>
@@ -297,28 +326,6 @@
       <div class="why-pill"><div class="why-dot c-burg"></div>Flexible cancellation</div>
       <div class="why-pill"><div class="why-dot c-cobalt"></div>Special requests welcome</div>
     </div>
-  </div>
-</div>
-
-<!-- ── MANAGE / CANCEL A BOOKING ── -->
-<div class="direct-section reveal">
-  <div class="direct-card manage-card">
-    <div class="direct-title">Need to Cancel?</div>
-    <div class="direct-sub">Enter your reservation number and the email you booked with — we'll verify and cancel it for you.</div>
-    <form id="cancelForm">
-      <div class="field-row">
-        <div class="field">
-          <label for="cResNo">Reservation Number</label>
-          <input type="text" id="cResNo" name="reservation_no" required>
-        </div>
-        <div class="field">
-          <label for="cEmail">Email</label>
-          <input type="email" id="cEmail" name="email" required>
-        </div>
-      </div>
-      <button type="submit" class="form-submit">Cancel Booking</button>
-      <div class="form-msg" id="cancelMsg"></div>
-    </form>
   </div>
 </div>
 
@@ -344,6 +351,78 @@
       <div class="benefit-icon" id="bi4"></div>
       <div class="benefit-title">Local Knowledge</div>
       <div class="benefit-body">Ask us anything about Varanasi — ghats, aarti, local spots. We know this city.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── MANAGE / CANCEL A BOOKING ── -->
+<div class="direct-section reveal marketing-section">
+  <div class="direct-card manage-card">
+    <div class="direct-title">Need to Cancel?</div>
+    <div class="direct-sub">Enter your reservation number and the email you booked with — we'll verify and cancel it for you.</div>
+    <form id="cancelForm">
+      <div class="field-row">
+        <div class="field">
+          <label for="cResNo">Reservation Number</label>
+          <input type="text" id="cResNo" name="reservation_no" required>
+        </div>
+        <div class="field">
+          <label for="cEmail">Email</label>
+          <input type="email" id="cEmail" name="email" required>
+        </div>
+      </div>
+      <button type="submit" class="form-submit">Cancel Booking</button>
+      <div class="form-msg" id="cancelMsg"></div>
+    </form>
+  </div>
+</div>
+
+<!-- ── HOSTEL RULES & POLICIES (modal) ── -->
+<div class="policy-modal-overlay" id="policyModal">
+  <div class="policy-modal">
+    <div class="card-tile-strip" id="policyModalStrip"></div>
+    <button type="button" class="policy-modal-close" id="closePolicyModal" aria-label="Close">&times;</button>
+    <div class="policy-modal-body">
+      <div class="policy-modal-title">Hostel Rules &amp; Policies</div>
+
+      <h3>1. Check-In and Check-Out</h3>
+      <p>Check-in time: 1:00 PM onwards. Check-out time: 10:30 AM. Please inform reception if you need late check-out; additional charges may apply.</p>
+
+      <h3>2. Identification</h3>
+      <p>A valid government-issued ID (passport, Aadhar card, driver's license) is required at check-in.</p>
+
+      <h3>3. Reservations &amp; Payments</h3>
+      <p>Full payment is required at the time of booking.</p>
+
+      <h3>4. Cancellation Policy</h3>
+      <p>Free cancellations are allowed up to 72 hours before your check-in date. Cancellations made less than 72 hours before check-in will incur a 100% charge of the total booking amount. Early departures and late arrivals do not qualify for refunds. Refunds for eligible cancellations are processed within 7–10 business days. To cancel, please contact us at <a href="https://wa.me/919125492225">+91 91254 92225</a>.</p>
+
+      <h3>5. Behaviour &amp; Conduct</h3>
+      <p>Respect other guests and staff; disruptive behaviour, loud noise, and parties are prohibited. Use of drugs or illegal substances is strictly forbidden. Smoking is not allowed inside rooms; please use designated smoking areas.</p>
+
+      <h3>6. Security</h3>
+      <p>Keep personal belongings safe — the hostel is not responsible for lost or stolen items. Lockers are available for rent; bring your own lock or rent one at reception.</p>
+
+      <h3>7. Visitors</h3>
+      <p>Visitors must register at reception and are allowed from 10:00 AM to 9:00 PM in the common room only. Overnight visitors are not permitted.</p>
+
+      <h3>8. Cleanliness &amp; Maintenance</h3>
+      <p>Keep your bed and room tidy. Report damages or maintenance issues immediately to staff.</p>
+
+      <h3>9. Quiet Hours</h3>
+      <p>Quiet hours are between 10:00 PM and 8:00 AM to allow restful sleep for all guests.</p>
+
+      <h3>10. Use of Facilities</h3>
+      <p>Use common areas, the kitchen, and equipment respectfully, and clean up after use. Treat hostel property with care.</p>
+
+      <h3>11. Liability</h3>
+      <p>The hostel is not responsible for personal injury or loss of property. Guests stay at their own risk.</p>
+
+      <h3>12. Food &amp; Drinks</h3>
+      <p>Outside food is allowed only in designated dining areas. Outside drinks are not allowed in rooms.</p>
+
+      <h3>Contact</h3>
+      <p>For any queries or assistance, please contact the front desk at <a href="https://wa.me/919125492225">+91 91254 92225</a> or <a href="mailto:mosaichostels@gmail.com">mosaichostels@gmail.com</a>.</p>
     </div>
   </div>
 </div>
@@ -445,7 +524,7 @@
 
     <script src="/components/site.js?v=20260803"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="/components/book-now.js?v=20260808"></script>
+    <script src="/components/book-now.js?v=20260818f"></script>
     <script src="/components/navbar.js?v=20260729"></script>
 <script src="/components/footer.js?v=20260729"></script>
 

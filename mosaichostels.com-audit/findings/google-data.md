@@ -1,237 +1,180 @@
-# Google API Data — Mosaic Hostel Varanasi (mosaichostels.com)
+# Google API SEO Data — mosaichostels.com
 
-**Site:** https://www.mosaichostels.com | **Data pulled:** 2026-07-28
-**Data sources:** Google Search Console API (Search Analytics, URL Inspection, Sitemaps), GA4 Data API (property `properties/507278393`), PageSpeed Insights / CrUX (attempted, unavailable this cycle — see §0)
-**Verified GSC property:** URL-prefix `https://www.mosaichostels.com/` (siteOwner permission confirmed via `sites` call)
+Data source: Google API (field/production data), not static analysis. Credential tier: **2 (Full)** — PSI + CrUX + CrUX History + Search Console + URL Inspection + Sitemaps + GA4 all authenticated and working.
 
-This is real field/production data pulled live via the Google APIs — it supersedes any assumptions in the other (source-code-based) audit findings about whether Google has actually seen or ranked the blog content. Short version: **it hasn't** (7 of 8 posts), and the 1 post it briefly had is now gone.
+Collected: 2026-08-17. GSC lag ~2-3 days (window: 2026-07-20 to 2026-08-14). GA4 lag ~1 day (window: 2026-07-20 to 2026-08-16, extended to 90 days where noted). CrUX is a 28-day rolling field average.
 
 ---
 
-## 0. Credential Tier — Setup Note
+## 1. PageSpeed Insights + CrUX Field Data (homepage)
 
-`google_auth.py --check` initially reported **Tier -1 / no credentials configured**, despite a service-account key already sitting at `~/.config/claude-seo/gsc-service-account.json` and an active GA4 Viewer grant. The pointer config file (`~/.config/claude-seo/google-api.json`) that ties those credentials to the CLI tool had never been created. I created it:
+**CrUX field data: unavailable.** Both the origin-level CrUX History API and the per-URL CrUX in PSI returned:
+> "No CrUX data for this origin. The site likely has insufficient Chrome traffic volume for eligibility."
 
-```json
-{
-  "service_account_path": "/Users/naveenkumar/.config/claude-seo/gsc-service-account.json",
-  "default_property": "https://www.mosaichostels.com/",
-  "ga4_property_id": "properties/507278393"
-}
-```
+This is expected for a low-traffic site (GA4 shows ~2 sessions/day) — CrUX requires a minimum real-user sample size Google doesn't disclose. **Field CWV cannot be reported; lab data (Lighthouse) is the only available signal until traffic grows.**
 
-After that, `--check` reports:
+### Lighthouse lab scores
 
-| Service | Status | Method |
-|---|---|---|
-| Search Console (query, sitemaps) | Available | service_account (`gsc-api@ai-seo-manager.iam.gserviceaccount.com`) |
-| URL Inspection | Available | service_account |
-| Indexing API | Available | service_account |
-| GA4 Data API | Available | service_account |
-| PageSpeed Insights | **Unavailable** | no `api_key` in config; keyless/shared quota returned `PSI rate limit exceeded (240 QPM / 25,000 QPD)` on two attempts ~20s apart |
-| CrUX / CrUX History | **Unavailable** | `Error: API key required` — no fallback quota for this endpoint |
-
-**Action needed to close this gap:** add a Google API key (PSI + CrUX restricted) to the same config file as `"api_key": "<KEY>"`. Until then, Core Web Vitals field data cannot be pulled through this pipeline — the `technical.md` finding's CWV commentary is source-level only, not confirmed by CrUX field data. Everything below (GSC + GA4) is unaffected by this gap and is real, live data.
-
----
-
-## 1. GSC Site-Wide Search Performance
-
-`totals_complete: true` in both pulls below — these are real site-wide totals, not row sums.
-
-| Window | Clicks | Impressions | CTR | Avg. Position |
+| Strategy | Performance | Accessibility | Best Practices | SEO |
 |---|---|---|---|---|
-| Last 28 days (2026-06-30 → 2026-07-25) | 11 | 723 | 1.52% | 11.0 |
-| Last 90 days (2026-04-29 → 2026-07-25) | 62 | 4,151 | 1.49% | 11.2 |
+| Mobile | 79/100 | 95/100 | 100/100 | 100/100 |
+| Desktop | 92/100 | 95/100 | 100/100 | 100/100 |
 
-Daily impressions in the 90-day window trend gently downward from the ~90-125/day range in early May to the 15-45/day range by late July, with clicks becoming sparser (several 0-click days per week even in May, but stretches of 5-7 consecutive 0-click days by mid-July). Nothing catastrophic at the site level — the site-wide decline is being driven almost entirely by one page (see §2).
+### Lab Core Web Vitals proxies (no field data available — use lab as directional only)
 
-### Branded vs. non-branded query split (90-day, 168 distinct queries)
-
-| Segment | Queries | Impressions | Clicks | CTR |
-|---|---|---|---|---|
-| Branded ("mosaic hostel/hotel...") | 13 | 1,106 | 35 | 3.16% |
-| **Non-branded** | 155 | 1,523 | **1** | **0.07%** |
-
-The site gets real, page-1-adjacent visibility for its own name (avg. position 1.1-6.9 on branded terms) but is essentially invisible on non-branded demand — 155 distinct non-branded queries produced a combined **one click** across 90 days.
-
-Top non-branded queries by impressions (all landing on the **homepage**, not a dedicated page — see §2):
-
-| Query | Impressions | Clicks | Position |
+| Metric | Mobile | Desktop | Rating (mobile) |
 |---|---|---|---|
-| hostels near assi ghat | 185 | 0 | 14.7-17.2 |
-| hostel near assi ghat varanasi | 101 | 0 | 15.7-15.9 |
-| hostels in varanasi near assi ghat | 97 | 0 | 15.4-17.5 |
-| hostel varanasi | 77 | 0 | 14.2 |
-| hostels in varanasi | 73 | 0 | 28.0 |
-| hostel in varanasi | 70 | 0 | 25.4 |
-| dormitory near assi ghat | 46 | 0 | 11.0 |
-| is varanasi safe for women | 39 | 0 | 9.6 |
-| is varanasi safe for solo female travellers | 27 | 0 | 10.3 |
-| is varanasi safe for girls | 28 | 1 | 10.5 |
+| LCP | 3.8 s | 1.1 s | Needs Improvement (2.5–4.0s) |
+| CLS | 0.004 | 0.002 | Good |
+| TBT (proxy for INP) | 0 ms | 30 ms | Good |
+| FCP | 3.8 s | 1.1 s | — |
+| Speed Index | 4.5 s | 1.9 s | — |
 
-Cross-referencing query+page: every "hostel near/in Assi Ghat" variant lands on `/` (homepage) — and, worse, is **cannibalized further** by `/about-us/` and `/contact-us/` also showing up in results for the same queries at deeper positions (25-31). No dedicated blog post (e.g. `hostel-near-assi-ghat-varanasi.md`, `best-hostels-in-varanasi.md` — both of which exist as source content) is competing for its own target query at all, because neither is indexed.
+Mobile LCP lab score (0.55) is the weak point; desktop is solid across the board (LCP 1.1s, Good).
 
----
+### Top opportunity (both strategies)
 
-## 2. GSC Performance by Page (90 days)
-
-| Page | Clicks | Impressions | CTR | Position |
-|---|---|---|---|---|
-| `/` (homepage) | 54 | 3,114 | 1.73% | 12.0 |
-| **`/varanasi-solo-female-travelers-safety-travel-guide/`** (legacy root-path blog URL — see §4) | **7** | **859** | 0.81% | 7.9 |
-| `/gallery/` | 1 | 97 | 1.03% | 7.1 |
-| `/contact-us/` | 0 | 134 | 0% | 18.3 |
-| `/book-now/` | 0 | 63 | 0% | 8.0 |
-| `/about-us/` | 0 | 35 | 0% | 12.3 |
-| `/experiences/` | 0 | 24 | 0% | 12.3 |
-| `/about`, `/about/`, `/contact`, `/contact/`, `/gallery`, `/blog`, `/blog/`, `/llms-txt/` | 0 each | 4-9 each | 0% | mixed |
-
-Two things jump out:
-
-1. **Only 1 of the 8 blog posts has ever accumulated any GSC impressions at all** — and it's not even at its current live URL. `https://www.mosaichostels.com/varanasi-solo-female-travelers-safety-travel-guide/` (no `/blog/` prefix, trailing slash) is a **legacy WordPress URL** that is completely separate from the live `/blog/varanasi-solo-female-travelers-safety-travel-guide` route the site serves today. See §4 — this URL now 404s.
-2. **Duplicate/near-duplicate URL variants are polluting the index**: `/about` vs `/about/` vs `/about-us/`, and `/contact` vs `/contact/` vs `/contact-us/` are all separately indexed with small, scattered impression counts and zero clicks — a URL-canonicalization inconsistency (confirms the `about.html` deletion noted in git status is landing on an already-messy URL structure).
-
-### 28-day-only page breakdown (2026-06-30 → 2026-07-25)
-
-The legacy blog URL **disappears from the page report entirely** in the most recent 28 days — 0 rows, 0 impressions. Only 9 URLs show any activity at all (homepage + the about/contact/gallery duplicates + book-now + blog index), all with 0 clicks except the homepage. This is the first hard signal that the one page carrying real non-branded rankings dropped out of search results within the last month.
+- **Avoid multiple page redirects — 780ms savings on mobile, 230ms on desktop.**
+  Root cause confirmed via curl: `https://mosaichostels.com` (bare apex, no www) 301-redirects to `https://www.mosaichostels.com/`. Every request to the bare domain pays a full redirect round-trip before the page starts loading. This affects any inbound link, bookmark, or typed URL using the apex domain, and disproportionately hurts mobile LCP.
+  - **Priority: High.** Fix at the DNS/hosting edge (serve HTTPS + redirect natively at the CDN/DNS layer rather than via app-level redirect) or confirm the current redirect is already a fast 301 (not a redirect chain) — currently it is a single hop but still costs ~200-800ms depending on network.
 
 ---
 
-## 3. URL Inspection — Ground Truth on the 8 Blog Posts
+## 2. GSC URL Inspection — Indexation Status
 
-Batch-inspected the homepage, `/blog`, all 8 live `/blog/<slug>` URLs, and the legacy root-path URL that shows up in Search Analytics.
+Property used: `https://www.mosaichostels.com/` (site is verified in GSC as **siteOwner** under the **www** variant — the bare-domain property `https://mosaichostels.com/` returned a 403 permission error, confirming www is the canonical GSC property).
 
-| URL | Coverage state | Verdict | Last crawl | Referring URL |
-|---|---|---|---|---|
-| `/` | Submitted and indexed | PASS | 2026-07-28 | `wp-sitemap-posts-page-1.xml` |
-| `/blog` | Discovered - currently not indexed | NEUTRAL | never | `/` |
-| `/blog/assi-ghat-varanasi-complete-guide` | **URL is unknown to Google** | NEUTRAL | never | none |
-| `/blog/backpackers-guide-assi-ghat-varanasi` | **URL is unknown to Google** | NEUTRAL | never | none |
-| `/blog/best-hostels-in-varanasi` | **URL is unknown to Google** | NEUTRAL | never | none |
-| `/blog/hostel-near-assi-ghat-varanasi` | **URL is unknown to Google** | NEUTRAL | never | none |
-| `/blog/things-to-do-varanasi-local-guide` | **URL is unknown to Google** | NEUTRAL | never | none |
-| `/blog/top-7-experiences-varanasi-traveler` | **URL is unknown to Google** | NEUTRAL | never | none |
-| `/blog/varanasi-solo-female-travelers-safety-travel-guide` | **URL is unknown to Google** | NEUTRAL | never | none |
-| `/blog/why-assi-ghat-perfect-base-varanasi-stay` | **URL is unknown to Google** | NEUTRAL | never | none |
-| `/varanasi-solo-female-travelers-safety-travel-guide/` (legacy) | Crawled - currently not indexed | NEUTRAL | 2026-06-23 | `post-sitemap.xml` |
-
-**Summary: 1 PASS / 10 NEUTRAL / 0 FAIL.** None of the 8 current live blog URLs have ever been crawled or discovered by Googlebot — "URL is unknown to Google" is the API's explicit language for zero prior contact, not a ranking or quality judgment. This corroborates (with live API ground truth) what the `sitemap.md`/`technical.md` source-code findings inferred: the posts are effectively invisible to Google because they are in none of the paths Google uses to discover new URLs (not in `sitemap.xml`, and the client-rendered `/blog` index — itself only "Discovered, not indexed" — apparently doesn't expose crawlable links to Googlebot's rendering pass either).
-
----
-
-## 4. The Legacy-URL / Migration Discovery — Root Cause
-
-This is the most important finding in this data pull. Two things that shouldn't both be true, are:
-
-- The **homepage's** own `index_status.referring_urls` field points to `wp-sitemap-posts-page-1.xml`.
-- The one blog page with real GSC history was discovered via `post-sitemap.xml`.
-
-Both of those are **WordPress auto-generated sitemap URLs**. I fetched them live:
-
-```
-GET https://www.mosaichostels.com/wp-sitemap-posts-page-1.xml  -> 404
-GET https://www.mosaichostels.com/post-sitemap.xml             -> 404
-```
-
-Both return the site's custom 404 page (which itself still contains a legacy Universal Analytics snippet, `UA-26575989-46`/`ga.js` — long deprecated, further evidence of an unmigrated WordPress-era artifact). **This confirms the site was previously on WordPress**, with blog posts published at root-level paths like `/varanasi-solo-female-travelers-safety-travel-guide/`. When the site was rebuilt on its current stack (client-rendered `/blog/<slug>` routes, no trailing slash, different URL shape entirely), **the old post URLs were not 301-redirected to their new equivalents** — they were simply abandoned and now 404.
-
-The consequence, laid out in sequence:
-
-1. Google had indexed `/varanasi-solo-female-travelers-safety-travel-guide/` (old URL) and it was earning real, decent rankings: position 7.9-10.5 for "is varanasi safe for women/girls/solo female travellers," 859 impressions and 7 clicks over 90 days — the single best-performing piece of content on the domain after the homepage.
-2. Google's last successful crawl of that URL was **2026-06-23**. Its current coverage state is "Crawled — currently not indexed" (i.e., Google has already started dropping it).
-3. In the 28-day window (2026-06-30 onward) that URL **generates zero impressions** — it has fallen out of the index in the last ~5 weeks.
-4. The URL now returns a straight **404** with no redirect to its live replacement, `/blog/varanasi-solo-female-travelers-safety-travel-guide`.
-5. That replacement URL has **never been crawled or discovered by Google at all** ("URL is unknown to Google").
-6. Net result: all accumulated ranking equity for the site's one organically-successful blog topic (Varanasi safety for solo/female travelers) has been **destroyed**, and there is no path for Google to find the replacement page on its own (not in sitemap, not linked in a way the renderer exposes to Googlebot).
-
-The other 7 posts show no evidence of ever having existed at any indexed URL — they appear to be newer content that was never submitted (sitemap) and never linked in a discoverable way.
-
----
-
-## 5. Sitemap Status (Search Console API)
-
-```
-Sitemap: https://www.mosaichostels.com/sitemap.xml
-Last submitted: 2026-07-13T16:05:36Z
-Pending: false | Errors: 0 | Warnings: 0
-Submitted URLs: 7
-```
-
-The sitemap parses cleanly with no errors, but only lists 7 URLs (home, gallery, blog index, about, contact, book-now, privacy) — confirmed directly against the live file. **None of the 8 individual blog post URLs are in it**, and neither is the legacy WordPress sitemap that Google is still internally citing as a referral source for the homepage and the one indexed post.
-
----
-
-## 6. GA4 Organic Traffic (`properties/507278393`)
-
-| Window | Sessions | Users | Pageviews |
+| URL | Coverage state | Verdict | Notes |
 |---|---|---|---|
-| Last 7 days | 0 | 0 | 0 |
-| Last 28 days | 0 | 0 | 0 |
-| **Last 90 days** | **84** | 73 | 172 |
+| `/` (homepage) | Submitted and indexed | PASS | Crawled as MOBILE, 2026-08-14. Review snippet rich result detected (PASS). |
+| `/gallery` | Submitted and indexed | PASS | Crawled 2026-08-06. **Rich Results: FAIL** — Breadcrumb structured data missing required `"item"` field. |
+| `/about` | Discovered — currently not indexed | NEUTRAL | Google has seen the URL (referred from homepage + a blog post) but has not crawled/indexed it yet. |
+| `/book-now` | URL is unknown to Google | NEUTRAL | No referring URLs recorded — Google hasn't discovered this URL at all. |
+| `/blog` | URL is unknown to Google | NEUTRAL | Blog index page not discovered by Google. |
+| `/contact-us`/`/contact` | URL is unknown to Google | NEUTRAL | Not discovered. |
 
-The 7- and 28-day zeroes are **not a GA4 propagation/access-lag artifact** — the 90-day pull confirms real historical data exists (daily rows from 2026-04-29 through 2026-06-26), and it stops cold after **2026-06-26**. There is no organic session data at all in GA4 for the ~32 days since. This lines up almost exactly with the GSC finding above: the legacy blog URL's last successful Google crawl was 2026-06-23, and it dropped out of the impressions data starting the following week. **Organic traffic did not merely "struggle" — it went to zero and stayed there**, timed to the URL breakage.
+**Important URL-structure note:** the live site serves clean URLs without `.html` (e.g. `/about`, `/book-now`, `/blog`, `/gallery`, `/contact`) — the legacy `.html` paths (`about.html`, `book-now.html`, `blog.html`) all 301-redirect to the clean versions. Inspecting the `.html` variants returns "unknown to Google" because they aren't the canonical URLs Google would index; the clean-URL results above are the accurate signal.
 
-### Top organic landing pages (90 days, GA4)
+### Findings, prioritized
 
-| Landing page | Sessions | Users | Pageviews | Bounce rate | Engagement rate |
-|---|---|---|---|---|---|
-| `/` | 61 | 38 | 142 | 31.1% | 68.9% |
-| `(not set)` | 7 | 3 | 0 | 100% | 0% |
-| `/gallery` | 7 | 1 | 8 | 85.7% | 14.3% |
-| `/varanasi-solo-female-travelers-safety-travel-guide` (legacy path, no `/blog/` prefix) | 7 | 7 | 17 | 42.9% | 57.1% |
-| `/contact-us` | 2 | 2 | 5 | 0% | 100% |
-
-Even in GA4, the only blog page that ever produced organic sessions is the same legacy URL now broken in production — no other post (old or new URL form) appears anywhere in the 90-day organic landing-page report.
+- **Critical:** `/book-now` — the primary conversion page — is completely undiscovered by Google (no referring URLs at all, not even from the homepage nav in Google's crawl graph). This is a strong candidate for the top indexation issue on the site: the booking page has zero organic discoverability. Verify the homepage's link to book-now is a crawlable `<a href>` (not JS-only) and consider requesting indexing via the Indexing API or a manual "Request Indexing" in GSC once confirmed crawlable.
+- **High:** `/blog` (blog index/listing page) is also undiscovered — this could be starving individual blog posts of internal PageRank flow if `/blog` is the only place linking to older posts, and it means the blog hub itself can never rank for hub-style navigational queries.
+- **High:** `/about` is discovered but not yet indexed — low urgency but worth a "Request Indexing" push since it's a core trust page.
+- **Medium:** `/gallery` Breadcrumb rich-result FAIL — the breadcrumb schema is missing the required `item` field on at least one entry. Fix by ensuring every `ListItem` in the `BreadcrumbList` JSON-LD includes both `name` and `item` (URL).
 
 ---
 
-## 7. Direct Answer to the Diagnostic Question
+## 3. GSC Search Performance (28 days: 2026-07-20 to 2026-08-14)
 
-> Is GSC showing blog URLs as indexed-with-impressions-but-no-clicks, not-indexed-at-all, or indexed-with-no-impressions?
+Site-wide totals (dimensionless aggregate, `totals_complete: true` — safe to use as-is):
 
-**It's a mix, and it maps cleanly onto the migration story above — not "wrong keywords":**
+| Clicks | Impressions | CTR | Avg. Position |
+|---|---|---|---|
+| 24 | 2,865 | 0.84% | 8.7 |
 
-| Bucket | Posts | Evidence |
+Row count: 362 individual query/page combinations. **Note:** per the guidance in this workflow, row-level clicks/impressions can be anonymized/omitted by Google for low-volume queries, so per-row sums (below) will not equal the totals above — only the totals block is authoritative for site-wide numbers.
+
+### Top pages by impressions (aggregated from visible rows only, illustrative not exhaustive)
+
+| Page | Clicks | Impressions |
 |---|---|---|
-| **Not indexed / not even discovered** (discoverability problem) | 7 of 8 — all except the safety guide | URL Inspection: "URL is unknown to Google" for all 7 live `/blog/<slug>` URLs. Zero GSC impressions, ever, at any URL form. Google has never crawled them. |
-| **Was indexed, ranking respectably, getting real clicks — now de-indexing because the URL is dead** | 1 of 8 (safety guide) | 859 impressions / 7 clicks / pos. 7.9-10.5 over 90 days at the *legacy* URL; 0 impressions in the trailing 28 days; legacy URL now 404s; live replacement URL is itself unindexed |
-| **Indexed with impressions but no clicks** (compelling-content problem) | 0 of 8 | Not observed — no blog post is currently indexed and receiving impressions at all |
-| **Indexed, getting impressions, wrong keywords** (targeting problem) | 0 of 8 | Not observed — where the content *does* rank (safety guide, homepage for Assi Ghat terms), the queries are exactly on-topic. This is not a keyword-targeting problem. |
+| `/` (homepage) | 9 | 452 |
+| `/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/` | 0 | 202 |
+| `/blog/is-varanasi-safe-general-guide/` | 2 | 200 |
+| `/blog/assi-ghat-vs-dashashwamedh-where-to-stay/` | 2 | 161 |
+| `/blog/varanasi-solo-female-travelers-safety-travel-guide/` | 0 | 111 |
+| `/blog/best-hostels-in-varanasi/` | 0 | 60 |
+| `/gallery` | 0 | 22 |
+| `/about` | 0 | 13 |
+| `/contact` | 0 | 13 |
 
-**Bottom line:** this is overwhelmingly a **discoverability/technical problem, not a content-quality or keyword-targeting problem.** The non-branded query data (§1) proves the demand and topical relevance are real and already partially working — "hostels near assi ghat" alone gets 185 impressions/90 days at position ~15 from the homepage alone, with zero dedicated content competing for it. If the matching blog post (`hostel-near-assi-ghat-varanasi.md`) were actually indexed at a stable URL, it would very plausibly outrank the homepage for that exact query, because it's purpose-built for it and the homepage is not.
+### Quick-win queries (meaningful impressions, zero clicks, rankable position)
+
+| Query | Impressions | Position | Page |
+|---|---|---|---|
+| `hostels near assi ghat` | 60 | 13.9 | homepage |
+| `is varanasi safe for women` | 50 | 7.5 | (blog, safety guide family) |
+| `dormitory near assi ghat` | 17 | 11.4 | homepage |
+| `mosaic hostel` (2nd ranking cluster) | 17 | 12.3 | split/duplicate ranking signal |
+
+**Priority: High — CTR recovery.** These are the clearest low-effort wins in the whole dataset: page-1/page-2 rankings with real search volume and 0% CTR. `hostels near assi ghat` (pos 13.9, 60 impressions) and `is varanasi safe for women` (pos 7.5, 50 impressions) should get title/meta-description rewrites to earn clicks at their current rank, and modest on-page relevance work to push them from page 2 toward page 1.
+
+**Note on brand query fragmentation:** `mosaic hostel` shows two separate ranking rows — one at position 7.7 (46 impressions, the expected homepage ranking) and one at position 12.3 (17 impressions, likely a different/weaker page or a stale ranking signal). This split for a branded query is unusual and worth checking — it can indicate URL canonicalization or duplicate-content dilution on a branded term Google should otherwise rank at position 1.
+
+### Long-tail distance/transit query cluster (near-zero CTR, page 2+ rankings)
+
+A large share of the 362 rows are hyper-specific "distance from X to Y" queries (e.g. "assi ghat to dashashwamedh ghat distance", "banaras station to assi ghat distance") ranking positions 30-45 with meaningful impressions (10-17 each) but zero clicks — these are informational/wiki-style queries the current blog content targets but doesn't rank competitively for. Low priority to chase individually; if the content strategy already targets these intentionally (per the `varanasi-airport-railway-to-assi-ghat-transfer-guide` and `assi-ghat-vs-dashashwamedh-where-to-stay` posts), this is a content-depth/backlink issue rather than a technical one — out of scope for this Google-API-only report.
+
+### GSC Sitemaps
+
+| Sitemap | Submitted | Errors | Warnings | URLs submitted |
+|---|---|---|---|---|
+| `sitemap.xml` | 2026-07-29 | 0 | 0 | 22 |
+
+No sitemap errors. **Caveat per workflow guidance:** the Sitemaps API `contents[].submitted` count reflects submitted URLs only, not indexed count — cross-reference with URL Inspection (Section 2) for actual indexation truth. 22 submitted URLs is a small sitemap relative to the number of blog posts + pages visible in the crawl (17+ blog posts alone), suggesting the sitemap may not be capturing the full current site — worth auditing sitemap.xml generation against the live URL list.
 
 ---
 
-## 8. Priority Recommendations (from this data)
+## 4. GA4 Organic Traffic (property 507278393)
 
-**Critical**
-1. **301-redirect the dead legacy blog URL** `https://www.mosaichostels.com/varanasi-solo-female-travelers-safety-travel-guide/` → `https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide` before it fully drops out of the index (it's already in "Crawled — currently not indexed" state as of last check). This is the single highest-leverage fix available — it's reclaiming equity that already existed at position 7.9-10.5, not building from zero.
-2. **Audit for other orphaned WordPress URLs.** `wp-sitemap-posts-page-1.xml` and `post-sitemap.xml` both 404 but are still referenced by Google as legitimate discovery paths. There may be other old post URLs (beyond the one found here) that Google still remembers and that also need redirects — worth requesting the full historical WordPress sitemap/URL list from whoever has hosting/CMS export access, or checking `robots.txt`/server logs for other 404s Googlebot is still requesting.
-3. **Add all 8 `/blog/<slug>` URLs to `sitemap.xml`** and resubmit — right now Google has no path to discover them at all. (Coordinate with the `content.md`/`technical.md` findings first — those flag that raw HTML for these URLs may be an empty JS shell; fixing discoverability without fixing renderability could just produce 8 more "not indexed" thin-content signals.)
+**28-day window (2026-07-20 to 2026-08-16): zero organic sessions recorded** (`organic`, `device`, `country`, and `top-pages` reports all returned empty result sets, no errors).
 
-**High**
-4. Clean up duplicate/near-duplicate indexed URL variants (`/about` vs `/about/` vs `/about-us/`; `/contact` vs `/contact/` vs `/contact-us/`) with consistent canonicalization and redirects — currently splitting minimal authority across 3 URLs each.
-5. Once posts are indexed, expect real competition for "hostels near/in Assi Ghat" type queries currently answered weakly (position 14-28) by the homepage and by `/about-us/`/`/contact-us/` — a dedicated, well-targeted post should outrank the homepage on its own topic rather than cannibalizing it.
+To confirm this wasn't a query/property misconfiguration, the same reports were re-run over a 90-day window, which did return data — confirming the GA4 property and query logic are both working correctly, and that the last 28 days are genuinely flat.
 
-**Medium**
-6. Add a Google API key to `~/.config/claude-seo/google-api.json` to unlock PSI/CrUX field data for CWV reporting on subsequent audit cycles.
+### 90-day organic traffic (2026-05-19 to 2026-08-16)
+
+| Sessions | Users | Pageviews | Avg. daily sessions |
+|---|---|---|---|
+| 48 | 42 | 99 | 2.0 |
+
+**The daily data shows the last organic session in this GA4 pull was 2026-06-26 — over 7 weeks with zero recorded organic sessions since.** This is the single most significant finding in this report.
+
+Top organic landing pages (90-day):
+
+| Landing page | Sessions | Bounce rate | Engagement rate |
+|---|---|---|---|
+| `/` | 39 | 30.8% | 69.2% |
+| `/gallery` | 4 | 75.0% | 25.0% |
+| `/varanasi-solo-female-travelers-safety-travel-guide` | 2 | 0.0% | 100.0% |
+| `/contact-us` | 1 | 0.0% | 100.0% |
+
+Device split (90-day): Mobile 30 sessions (46.7% bounce), Desktop 18 sessions (16.7% bounce) — desktop engagement is markedly better.
+Country split (90-day): India 42, UK 3, US 3 — organic audience is almost entirely domestic.
+
+**Priority: Critical.** GSC still shows impressions accruing through 2026-08-14 (2,865 impressions, 24 clicks in the last 28 days) but GA4 shows zero organic sessions since 2026-06-26. Two non-exclusive explanations to rule out:
+1. **GA4 tracking regression** — check that the GA4 measurement tag/gtag.js is still firing on the live site (a recent deploy, CMP/consent-mode change, or CSP update could have silently broken tracking). This is the more likely cause given GSC clicks (24 in 28 days) don't reconcile with 0 GA4 organic sessions in the same window — those are two different real-world facts that should roughly agree.
+2. Genuine traffic collapse — less likely given GSC clicks are still occurring.
+**Action:** verify the GA4 tag is present and firing on a live page load (GA4 DebugView or browser network tab for a `collect` request) before doing any further GA4-dependent analysis — all top-pages/device/country GA4 numbers above are only reliable up to late June.
 
 ---
 
-## 9. Data Freshness / Caveats
+## Credential Tier Summary
 
-- **GSC:** Search Analytics data has a typical 2-3 day reporting lag; the 28-day window used here ends 2026-07-25 (today is 2026-07-28), which is within normal lag.
-- **GA4:** ~1 day lag; last available data (90-day pull) confirms real zero-organic-traffic days through 2026-07-27, not a reporting-lag artifact.
-- **CrUX/PSI:** Not pulled this cycle (see §0) — no field-data CWV numbers in this report. Treat any CWV commentary elsewhere in this audit as source/lab-level only until an API key is added.
-- **`totals_complete: true`** on all GSC pulls above — the totals in §1 are safe site-wide sums, not row-limited approximations. The per-query and per-page row-level tables can still omit very-low-volume anonymized rows per GSC's normal behavior; treat row counts as a lower bound, not exhaustive.
+| Service | Available | Method |
+|---|---|---|
+| PageSpeed Insights v5 | Yes | API key |
+| CrUX / CrUX History | Yes (API works, no data returned — insufficient traffic) | API key |
+| Search Console | Yes | OAuth (token auto-refreshed) |
+| URL Inspection | Yes | OAuth |
+| Indexing API | Yes (not exercised this run — read-only audit) | OAuth |
+| GA4 Data API | Yes | OAuth |
+
+No credential or permission errors encountered once the correct GSC property (`https://www.mosaichostels.com/`, the www variant) was used. The bare-domain property `https://mosaichostels.com/` is not verified/owned in this GSC account — do not use it for future GSC calls.
 
 ---
 
-## Report Generation
+## Priority Summary
 
-A PDF report (type `gsc-performance` or `full`) can be generated from this data via:
-```
-claude-seo run google_report.py --type full --data data.json --domain mosaichostels.com --format pdf --json
-```
-Not run yet — let me know if you'd like the enriched JSON assembled and the PDF generated for this audit cycle.
+| Priority | Finding |
+|---|---|
+| Critical | GA4 shows zero organic sessions since 2026-06-26 despite GSC still recording clicks — verify GA4 tag is firing on the live site. |
+| Critical | `/book-now` (booking page) is completely undiscovered by Google (GSC URL Inspection: "URL is unknown to Google"). |
+| High | `/blog` index page also undiscovered by Google — may be limiting internal link equity to blog posts. |
+| High | Apex domain `mosaichostels.com` redirects to `www.mosaichostels.com`, costing 780ms on mobile LCP (PSI opportunity). |
+| High | CTR recovery on `hostels near assi ghat` (pos 13.9, 60 impr, 0 clicks) and `is varanasi safe for women` (pos 7.5, 50 impr, 0 clicks). |
+| Medium | `/gallery` breadcrumb structured data fails rich-results validation (missing `item` field). |
+| Medium | Sitemap only lists 22 URLs — audit against actual site URL count (17+ blog posts alone visible in GSC data). |
+| Low | Branded query `mosaic hostel` shows a split ranking signal (pos 7.7 vs pos 12.3) — check for canonicalization/duplicate content. |
+| Low | Mobile Lighthouse LCP (3.8s, lab data) is the weakest CWV proxy; desktop is solid. No field CrUX data available yet due to low traffic volume. |
+
+No PDF report generated this run (data-collection pass only, per task scope — free APIs, no git commit). Offer to generate one via `google_report.py --type full` if a formatted deliverable is wanted.

@@ -1,59 +1,47 @@
-# Action Plan — Mosaic Hostel Varanasi
-Sequenced by dependency, not just severity — several "Critical" items will actively backfire if shipped out of order. See FULL-AUDIT-REPORT.md's root-cause chain diagram before starting.
+# Action Plan — mosaichostels.com
+SEO / AEO / GEO / AIO / SXO / LLMO focused pass — 2026-08-18
 
-## Phase 1: Critical Fixes — Do Not Deploy Anything Until This Phase Is Done (sequence matters)
+Priority = Critical (fix now) > High (this week) > Medium (this month) > Low (backlog).
+Source file in brackets.
 
-1. **Resolve `about.html` / `styles/global.css` deletion.** Confirm with yourself whether this was intentional (in-progress migration?) or accidental. If accidental: `git checkout HEAD -- about.html styles/global.css`. Every page links to `/about`; losing `global.css` breaks all site styling. **Do this first — it blocks everything else safely shipping.**
-2. **Fix `deploy.sh`'s basename-collision bug.** Change the `put $f` loop to preserve relative paths (e.g., `put "$f" -o "/$f"`, or switch to `lftp mirror -R` for the whole tree). Verify with a dry run before the next real deploy — this bug can silently overwrite your homepage.
-3. **Fix the `.htaccess` RewriteCond scoping bug.** Give the blog-slug rewrite rule its own `RewriteCond %{REQUEST_FILENAME} !-d` guard so it stops shadowing the real static directories:
-   ```apache
-   RewriteCond %{REQUEST_FILENAME} !-f
-   RewriteCond %{REQUEST_FILENAME} !-d
-   RewriteRule ^blog/([a-zA-Z0-9-]+)/?$ blog/post.html [QSA,L]
-   ```
-4. **Regenerate the 2 corrupted static blog files** (`hostel-near-assi-ghat-varanasi`, `backpackers-guide-assi-ghat-varanasi`) from their source markdown — they currently cut off mid-`<head>` with invalid JSON. Fix the `\'` escaping bug in the generation script so it doesn't recur.
-5. **Build the missing 9th static page** (`things-to-do-varanasi-local-guide`) matching the pattern of the other 7.
-6. **Fix `getAllBlogsMetadata()` in `components/blog-renderer.js`** to include all 8 (soon 9) posts — currently hardcoded to 5, orphaning 3 from the `/blog` listing.
-7. **Deploy, then verify with raw `curl` (not a browser)** that every `/blog/<slug>` URL now returns real, unique title/canonical/content — not the generic shell.
-8. **Add all 8 blog URLs to `sitemap.xml`** with `lastmod` dates from each post's markdown `**Published:**` field. Use the target-state sitemap already drafted in `findings/sitemap.md` §5b.
-9. **301-redirect the legacy WordPress URL** `/varanasi-solo-female-travelers-safety-travel-guide/` → `/blog/varanasi-solo-female-travelers-safety-travel-guide`. This reclaims real, already-earned ranking equity (was at position 7.9–10.5) — the single highest-leverage fix available. Also audit `wp-sitemap-posts-page-1.xml` / `post-sitemap.xml` (both currently 404 but still referenced by Google) for other orphaned legacy URLs.
-10. **Fix or delete `blog/index.html`'s invalid JSON-LD** (missing comma) — recommend deleting the file entirely and relying on the `.htaccess` rewrite to `blog.html`.
-11. **Resolve the reviews/aggregateRating policy risk:** either add a genuine, visible testimonials section with real reviewer names/dates/platform (do not reintroduce placeholder quotes — see git history warning in `findings/local.md` §4) or remove `aggregateRating` from pages that show no visible reviews.
-12. **Fix IndexNow:** pick one key, publish it as a literal `<key>.txt` file at the site root, remove the mismatched `.indexnow-key`/`IndexNow.xml`. Resubmit sitemap in GSC once live.
+## Critical — fix immediately
 
-## Phase 2: High-Impact Improvements (Weeks 2–3)
+1. **`/api/lib/*.php` directly web-executable, `robots.txt` doesn't block `/api/`.** `config.php` (holds credential defines) is reachable. Add `RewriteRule ^api/lib/ - [F,L]` to `.htaccess` and `Disallow: /api/` to `robots.txt`. [technical.md]
+2. **`/blog/index.html` is empty to non-JS crawlers.** All 15 post cards are injected via `container.innerHTML = blogsHtml` in JS — GPTBot/ClaudeBot/PerplexityBot see only a 20-word H1. This blocks AI-engine discovery of the entire blog (AEO/GEO/LLMO-critical) and has now persisted 3 audit passes. Fix: server-render the post list (static HTML cards) and progressively enhance with JS, or pre-render via build step. [content.md, geo.md — recurring]
+3. **Sitewide price claims are stale post-booking-engine-launch.** llms.txt, FAQPage schema (home + book-now), meta descriptions, `about.html`, 4 blog posts, and `Hostel.priceRange` schema all say "dorms from ₹499 / private from ₹1,500." Live `/api/availability.php` (real eZee PMS data, checked across 5 dates) shows the real floor is ₹549 dorm / ₹2,599 private — the private-room figure is off by ~73%. Root cause is likely `api/lib/mock.php` still carrying the old fixture values. AI engines will cite the wrong price if this isn't fixed. [geo.md]
+4. **Razorpay CSP bug silently breaks fraud-detection on every checkout.** `.htaccess` allowlists `checkout.razorpay.com` for `script-src` but not `cdn.razorpay.com`. Confirmed via live console error during a rendered checkout run — payments still complete, but Razorpay's own risk layer never loads. Add `cdn.razorpay.com` to `script-src`. [sxo.md]
+5. **"Leave us a review on Google" button doesn't open the review composer.** `openGoogleReview()` in `components/site.js` links to the plain Maps listing, not a review-write deep link. Real cost: review velocity (freshness is a known local-ranking factor, and reviews are a strong AEO/trust signal). Fix: use the `g.page/r/<id>/review` short link from the GBP dashboard, or `search.google.com/local/writereview?placeid=...`. One-function fix. [local.md]
 
-- Consolidate the 3 near-duplicate "Assi Ghat" posts into one canonical page; 301-redirect the other two slugs.
-- Convert every "Read Next"/"Further Reading" bullet into a real hyperlink; add a contextual link to `/book-now` in every post (currently 0 of 8 have one).
-- Hyperlink the existing unlinked booking CTA copy inside blog posts (no new copy needed — just wrap existing text in `<a>` tags per the 3 examples in `findings/sxo.md` §4).
-- Fix the unsized footer `<img>` sitewide (add `width`/`height`) — eliminates Blog/Mobile's POOR CLS and defuses the same risk on other pages.
-- Add `<link rel="preconnect">` for Google Fonts (or self-host the ~90KB of woff2 files).
-- Promote the real value-prop H1 into visible hero copy on the homepage (currently hidden off-screen).
-- Move the WhatsApp CTA above the mobile fold on `/book-now`.
-- Add `FAQPage` schema to posts with existing FAQ content (best-hostels-in-varanasi already has one).
-- Fix the excerpt/meta-description generator bug leaking raw `Published:/Author:` text into all 8 posts' meta tags.
-- Add `publisher`, `mainEntityOfPage`, `dateModified` to the 7 static BlogPosting blocks; correct the 2 wrong `datePublished` dates.
-- Verify `mosaichostels.com` in Bing Webmaster Tools (free, ~10 min).
-- Add a visible price + review-count anchor to `/book-now` and homepage (e.g., "Dorms from ₹499 · 4.9★ (60 reviews)").
-- Add a "Get Directions" link + map thumbnail to `/book-now` (currently only on `/contact`).
+## High — this week
 
-## Phase 3: Content & Authority (Month 2)
+6. `/book-now` `sitemap.xml` lastmod is 15+ days stale despite two real rebuilds (multi-room cart, booking fixes) — bump to match actual deploy date. [sitemap.md]
+7. FAQPage schema answers don't brand-anchor "Mosaic" in most Q&As (only 1 of 5–6 per block) — weakens AI-answer attribution back to the business. Rewrite answers to lead with "Mosaic Hostel..." [schema.md, content.md]
+8. Homepage never states its one verifiable competitive edge (closer to Assi Ghat than Moustache/Zostel/Roadhouse — already proven in `blog/best-hostels-in-varanasi`) — add it above the fold. [sxo.md]
+9. Trust signal (4.9★ Tripadvisor badge) appears on home/about but never reaches `/book-now`, the page where it matters most before payment. Add it near the checkout CTA. [sxo.md]
+10. `best-hostels-in-varanasi` comparison content is in prose H3s; the SERP for "best hostel Varanasi backpackers" is 6/6 comparison tables. Convert to a table. [sxo.md, content.md]
+11. Hero `<video autoplay>` (1MB `hero-video.webm`) has no `poster` and no `preload` hint — real mobile LCP risk on the homepage. [technical.md]
+12. `best-hostels-in-varanasi` (flagship comparison post) has a stale `dateModified: 2026-04-07` despite being positioned as the current "2026 guide." [content.md]
 
-- Build out the 3-pillar content architecture from `findings/cluster.md`: "Where to Stay," "Things to Do / Trip Planning," "Safety & Solo Travel" — with new spokes filling confirmed keyword gaps (seasonal timing, itineraries, transportation, budget breakdown, general safety, local/walk-in audience content).
-- Pursue third-party citation/backlink outreach using the existing blog content as bait (Assi Ghat guides → tourism/travel round-ups; solo-female-safety guide → women's travel community sites) — see `findings/backlinks.md` §7 for specific targets.
-- Add named authorship (real team member, bio, photo) to blog posts instead of the generic "Mosaic Hostel Team" byline.
-- Sync homepage `Hostel` schema to match other pages (`@id`, checkin/checkout, full sameAs list); add `WebSite` schema; fix `Organization.logo`.
-- Get a real JustDial listing and consider Sulekha — currently only a broken placeholder reference exists.
-- Begin building YouTube/Reddit presence — the two channels most correlated with AI citation and currently entirely absent.
+## Medium — this month
 
-## Phase 4: Monitoring & Iteration (Ongoing)
+13. 13 of 15 blog posts sit 35–60% under the ~1,500-word floor typical for competitor guides in this niche (range 589–1,898 words) — thin relative to comparison/itinerary search intent, not spam-thin. Prioritize the 4 shortest first. [content.md]
+14. `@id` not unified for the `Hostel` entity — `index.html`/`book-now.html` mint different values, 6 other pages have none. Standardize on `https://www.mosaichostels.com/#hostel` everywhere. [schema.md]
+15. No `Offer`/`makesOffer` schema on `/book-now` despite the live booking engine — add using the visible "from ₹499 / from ₹1,500" copy (fix once #3's real pricing is corrected). [schema.md]
+16. `/privacy` sitemap lastmod missed a real NAP/postal-code fix — inconsistent with sibling pages bumped in the same commit. [sitemap.md]
+17. Two legacy blog-redirect rules resolve in 2 hops instead of 1 (land on non-slash URL first, then redirect again). Point them straight at the final URL. [technical.md]
+18. No IndexNow implementation — worth adding now given the booking-engine launch and today's redeploy. [technical.md]
+19. `/book-now` says "Skip the Commission. Book Direct." directly above a grid of 8 OTA logos — self-cannibalizing message right above the CTA. [sxo.md]
+20. Mobile nav touch targets under 48×48px minimum (BOOK NOW ~103×31px, hamburger ~42×35px) — unchanged since last pass. [sxo.md]
 
-- Re-run `/seo google` (PSI/CrUX) now that the API key is restored, to replace lab-only performance data with real field data.
-- Set a monthly cadence to manually re-verify the 4.9★/60-review figure against live GBP/OTA dashboards (git history shows 6 failed automation attempts — a manual quarterly refresh is more reliable than another live-fetch attempt).
-- Watch GSC impressions/clicks for the previously-ranking safety-guide URL post-redirect, and for the other 7 posts post-fix, to confirm indexation recovery.
-- Run `/seo drift baseline https://www.mosaichostels.com` now to capture a baseline snapshot, so future audits can measure regression/progress against this one.
-- Verify GBP primary category directly in the Google Business Profile dashboard (highest-weighted local ranking factor; cannot be checked from source code).
+## Low — backlog
 
----
+21. `blog/post.html` template: breadcrumb uses `@id` instead of `item`, and `publisher.logo`/`image` point at a room photo instead of the brand logo. [schema.md]
+22. No `BreadcrumbList` on the 15 individual blog posts. [schema.md]
+23. All 15 `BlogPosting` schema blocks share one generic, topic-irrelevant image. [schema.md]
+24. Header logo is `loading="lazy"` despite being above-the-fold on every page. [technical.md]
+25. `/api/availability.php` 400 error responses cache publicly for 24h — backend concern for the dev backlog. [technical.md]
+26. Homepage FAQ says the airport-to-hostel transfer is "15–20 minutes," the dedicated transfer-guide blog post says "20–30 minutes" — pick one and make it consistent. [local.md]
+27. NAP: one blog post prose mention adds "Bhelupur" not present elsewhere. [local.md]
 
-**Offer:** A professional PDF report (with charts, executive summary, and this action plan formatted for sharing) can be generated via `claude-seo run google_report.py --type full --data mosaichostels.com-audit/audit-data.json --domain mosaichostels.com --output-dir mosaichostels.com-audit/`.
+## Explicitly not recommended
+- Do not reinstate `aggregateRating`/review-count schema anywhere — it was removed for compliance (no backing reviews) and every specialist reconfirmed it's still clean. Fix review *volume* via item #5 instead, then revisit real aggregate schema once genuine reviews exist.

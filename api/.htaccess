@@ -1,0 +1,13 @@
+# API responses are dynamic (live pricing, booking state, error responses)
+# and must never be cached — the root .htaccess's ExpiresDefault "access
+# plus 1 day" otherwise applies here too, since PHP/JSON isn't covered by
+# any of its type-specific rules, causing even 400 error responses to be
+# cached publicly for a day.
+<IfModule mod_expires.c>
+  ExpiresActive Off
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+  Header unset Expires
+</IfModule>

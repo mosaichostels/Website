@@ -1,99 +1,133 @@
 # Backlink Profile Analysis — mosaichostels.com
 
-**Analyzed:** 2026-07-28
-**Target:** https://www.mosaichostels.com (Mosaic Hostel Varanasi)
-**Data sources used:** Common Crawl web graph (confidence: 0.50), Bing Webmaster Tools API (confidence: 0.70, unverified property), backlink verification crawler
-**Data source NOT available:** Moz Link Explorer API (not configured — no DA/PA, spam score, referring-domain counts, or anchor text export possible this cycle)
-**Data source NOT available:** DataForSEO (premium extension not installed)
+**Analyzed:** 2026-08-17 (supersedes prior runs dated 2026-08-09 and 2026-08-15 in this same file — re-queried Common Crawl and Bing Webmaster this session; no material change, see "Changed Since Last Run" below)
+**Target:** https://mosaichostels.com (Mosaic Hostel Varanasi)
+**Data sources used:** Common Crawl web graph (confidence: 0.50), Bing Webmaster Tools API — live-queried this session for `mosaichostels.com` and `www.mosaichostels.com`, both verified sites on the configured account (confidence: 0.70)
+**Data sources NOT available / NOT used (per task scope):** Moz Link Explorer API — explicitly skipped, not configured (no `MOZ_API_KEY`); DataForSEO — explicitly skipped, premium/not installed. Both were confirmed absent via `claude-seo run backlinks_auth.py --check --json` (tier 0, Moz `available: false`) before proceeding. This run intentionally used only Common Crawl + the pre-configured, pre-verified Bing Webmaster account, per task instruction.
+**Known backlinks file:** none provided/found in the repo or audit folder — `verify_backlinks.py` was not run this session (nothing to verify).
+**Tier:** 0 (Common Crawl + verify) baseline, with live Bing Webmaster access layered on top (a Tier-2 capability available via prior account setup) — Moz/DataForSEO tiers not reached.
 
-## 1. Data Coverage — Read This First
+## Changed Since Last Run (2026-08-15 → 2026-08-17)
 
-This audit ran at **Tier 0 (Common Crawl + verification) plus a partially-configured Tier 2 (Bing Webmaster key)**. Moz is not set up, so the metrics that normally anchor a backlink audit — Domain Authority, Page Authority, Spam Score, total referring domains, and exportable anchor text — are **not available in this analysis**. Everything below is scoped to what Bing and Common Crawl can actually show.
+| Item | Previous state (2026-08-15) | Current state (2026-08-17) | Source |
+|---|---|---|---|
+| Common Crawl domain record | Not found (`in_crawl: false`, `in_rankings: false`) | Unchanged — same result, same release `cc-main-2026-jan-feb-mar` (served from cache) | `commoncrawl_graph.py mosaichostels.com --json` |
+| Bing Webmaster inbound links (apex) | 0 links, `complete: true`, `error: null` | Unchanged — 0 links, `complete: true`, `error: null` | `bing_webmaster.py links https://mosaichostels.com` |
+| Bing Webmaster inbound links (www) | 0 links, `complete: true`, `error: null` | Unchanged — 0 links, `complete: true`, `error: null` | `bing_webmaster.py links https://www.mosaichostels.com` |
+| Bing Webmaster link counts (apex) | not run separately | 0 sampled inbound links, `pages_fetched: 1/1`, `complete: true` | `bing_webmaster.py counts https://mosaichostels.com` |
+| Bing Webmaster compare (apex vs www) | `your_linking_domains: 0`, `competitor_linking_domains: 0`, `gap_count: 0`, `shared_count: 0` | Unchanged — identical zeros | `bing_webmaster.py compare` |
+| robots.txt CCBot rule | `Allow: /` (fixed 2026-08-03) | Unchanged — live fetch confirms `User-agent: CCBot` / `Allow: /`, plus explicit `Allow: /` rules now also present for GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot | Live fetch of `https://www.mosaichostels.com/robots.txt` this session |
+| whois registrar record | Creation `2025-08-05` | Creation unchanged (`2025-08-05T06:54:54Z`); `Updated Date` now shows `2026-08-11T05:21:05Z` (routine registrar-side update, e.g. nameserver/registrar-lock refresh — not evidence of a new domain event; no corresponding change in CC or Bing data) | `whois mosaichostels.com` this session |
 
-Two coverage problems affect this specific domain and should shape how much weight you put on the numbers below:
+No new Common Crawl release has published since the last run, so the historical-block gap (explained below) has not yet had a chance to resolve. Bing shows a consistent, stable zero across three independent live queries spanning eight days (2026-08-09, 2026-08-15, 2026-08-17) — this strengthens (does not weaken) the "genuine zero, not a transient access glitch" reading from prior runs.
 
-| Source | Status | Why it's limited here |
-|---|---|---|
-| Common Crawl | Domain not found in latest graph release (`cc-main-2026-jan-feb-mar`) | `in_crawl: false`, `in_rankings: false`, PageRank/harmonic centrality all `null`. Per CC interpretation rules, this must **not** be read as "low authority" — it means the site hasn't been picked up in this graph snapshot yet. It could be new, small, or simply not crawled in this cycle. |
-| Common Crawl (forward-looking) | robots.txt blocks CCBot (`Disallow: /`) | Confirmed in `/Users/naveenkumar/Projects/Website/robots.txt`. This means **future** CC releases will also show no data for this domain — CC's crawler is explicitly opted out. Historical snapshots (if the site was ever crawled before this rule was added) may still exist in older CC releases, but this was not checked outside the current release. This is a self-imposed data gap, not a reflection of link quality. |
-| Bing Webmaster Tools | API key configured but the site is **not listed as a verified property** in the connected Bing Webmaster account (`backlinks_auth.py --check` returned `"verified": false`, `"note": "No verified sites are listed"`) | The `bing_webmaster.py links` and `counts` calls both completed successfully but returned **zero backlinks** (`total_returned: 0`, `sampled_inbound_link_count: 0`). Bing Webmaster's link APIs are scoped to properties you've verified ownership of in that account. Because this property isn't verified, **the "0" result is inconclusive — it most likely reflects lack of account access to the property's link graph, not confirmation of zero real-world backlinks.** This is flagged as a data-quality caveat, not treated as a real 0. |
-| Moz | Not configured | No DA/PA, spam score, referring domain count, or Moz anchor-text export this cycle. |
+## 1. Common Crawl — Domain-Level Authority Signal
 
-**Bottom line:** none of the three available sources returned usable link-level data for this domain right now. That is a coverage gap, not evidence the backlink profile is weak.
+`commoncrawl_graph.py mosaichostels.com --json` (release `cc-main-2026-jan-feb-mar`, served from local cache):
 
-## 2. Backlink Health Score: INSUFFICIENT DATA
+| Metric | Value |
+|---|---|
+| In crawl | `false` |
+| In rankings | `false` |
+| PageRank / rank | `null` / `null` |
+| Harmonic centrality / rank | `null` / `null` |
 
-Per the scoring rubric (referring domains, domain quality distribution, anchor text naturalness, toxic link ratio, link velocity, follow/nofollow ratio, geographic relevance), **0 of 7 factors have usable data** this cycle:
+**Finding: CC shows no data — this is a self-imposed historical gap, not evidence of low/zero authority.** Severity: **Informational** (not a defect to fix on its own — the robots.txt block that caused it is already fixed). Confirmed by the automated validator this session (`validate_backlink_report.py`), which flagged the same interpretation guard as an info-level note.
 
-- Referring domain count — no source returned a count (Moz absent; Bing returned an unverified/inconclusive 0; CC doesn't measure this)
-- Domain quality distribution — no source
-- Anchor text naturalness — no source
-- Toxic link ratio — no source
-- Link velocity trend — no source (DataForSEO-only factor, not installed)
-- Follow/nofollow ratio — no source
-- Geographic relevance — no source
+- **Why:** the domain blocked CCBot (`Disallow: /`) from registration (2025-08-05) until 2026-08-03. The `cc-main-2026-jan-feb-mar` release reflects a crawl window entirely inside that blocked period, so absence here is fully explained by the historical robots.txt rule, not by a lack of real backlinks.
+- **Forward-looking:** CCBot has been allowed since 2026-08-03 (re-confirmed live this session: `User-agent: CCBot` / `Allow: /`). Common Crawl publishes web-graph releases quarterly, so the domain is not guaranteed to appear until the next release cycle after CCBot actually crawls it. Re-run `commoncrawl_graph.py` in future audit cycles to check for pickup.
+- **Falsifiability check:** confirmed independently by fetching `https://www.mosaichostels.com/robots.txt` live this session (`curl -A CCBot`) — the CCBot line reads `Allow: /`. Anyone can re-run this to confirm.
 
-Per audit rules, fewer than 4/7 factors with data means **do not produce a numeric score**. Reporting anything like "42/100" here would misrepresent a coverage gap as a measured weakness. This is reported as **INSUFFICIENT DATA**, not a low score.
+## 2. Bing Webmaster Tools — Inbound Link Signal
 
-## 3. Referring Domain / Citation Profile (Qualitative)
+`bing_webmaster.py links` and `counts` run against both properties this session:
 
-The homepage schema and `book-now.html` (`/Users/naveenkumar/Projects/Website/book-now.html`) list a `sameAs` array with 8 OTA/citation profiles plus Instagram:
+| Property | Command | count_page / sampled count | complete | error |
+|---|---|---|---|---|
+| `https://mosaichostels.com` | links | 0 | true | null |
+| `https://www.mosaichostels.com` | links | 0 | true | null |
+| `https://mosaichostels.com` | counts | 0 (1/1 pages fetched) | true | null |
 
-- Booking.com, Hostelworld, Agoda, MakeMyTrip, Agoda, Goibibo, Cleartrip, TripAdvisor, Expedia, Instagram
+`bing_webmaster.py compare https://mosaichostels.com https://www.mosaichostels.com` (same API account, both verified properties): `your_linking_domains: 0`, `competitor_linking_domains: 0`, `gap_count: 0`, `shared_count: 0` — consistent zero on both sides, no partial errors, no warnings.
 
-**Important distinction:** these are **outbound links from mosaichostels.com to the OTAs**, listed in `sameAs` and rendered as clickable platform cards on the booking page. They function as **entity/citation signals** (helping Google and Bing associate the business entity across the web) — they are **not backlinks to mosaichostels.com** unless the OTA listing page links back to the actual website domain.
+**Finding: Bing's index shows genuinely zero sampled inbound links to this domain (both apex and www) as of today. Severity: High — flag as a real backlink-profile gap, not a data-access problem.**
 
-**Do the OTA listings link back to mosaichostels.com?** — attempted to verify, inconclusive:
-- Hostelworld listing page: loaded behind a cookie-consent (TrustArc) wall in both raw and JS-rendered fetch modes; the property content itself did not render before capture, so presence/absence of a "visit website" link could not be confirmed programmatically.
-- TripAdvisor listing page: returned HTTP 403 (bot-blocked) on fetch attempt.
-- Other 6 platforms were not attempted given the same anti-bot pattern observed on the two largest ones; spending further tool calls on this was judged low-yield.
+- **Why this reads as real, not broken access:** every call returned `complete: true` and `error: null` with no warnings or partial errors, across two properties, two endpoints (`links` and `counts`), and a cross-account comparison — consistent across three separate sessions (2026-08-09, 2026-08-15, 2026-08-17). An access/verification failure in this tooling would surface as a non-null error or an incomplete/partial result — that pattern is absent here on all three occasions.
+- **Why a genuine zero is plausible for this domain, not alarming on its own:** `whois mosaichostels.com` shows domain creation `2025-08-05` — the site is about one year old. No deliberate backlink-acquisition activity (directory submissions, guest posts, digital PR, verified OTA "visit website" links) has been found anywhere in this audit's findings. A ~1-year-old independent hostel site with no active link-building program showing zero Bing-sampled inbound links is the expected outcome, not an anomaly.
+- **Caveat on "genuine":** Bing's sampled inbound-link count reflects only what Bing's own crawler has discovered and indexed — it is not a claim that *zero links exist anywhere on the internet*, only that Bing hasn't found any yet. A link could exist on a page Bing hasn't crawled. Treat this as "no discoverable link signal in Bing's index today," not as absolute proof of zero.
+- **Falsifiability check:** re-run `claude-seo run bing_webmaster.py links https://mosaichostels.com --json` and `... https://www.mosaichostels.com --json` — if either returns `total_returned > 0` or a non-null `error`, this finding is falsified/outdated.
 
-**What can be said honestly:** whether these 8 listings pass a followed (or even nofollow) hyperlink to mosaichostels.com is **unverified**, not confirmed present or absent. Based on general knowledge of these platforms (not verified via this crawl, so treat as directional only): TripAdvisor commonly includes a "Visit hotel website" link for properties that have supplied one; Booking.com, Agoda, MakeMyTrip, Goibibo, and Cleartrip generally do **not** expose an outbound link to the property's own site (they intentionally keep bookings inside their funnel); Hostelworld and Expedia vary by market/account tier. Recommend a manual check (log into or view each listing directly) rather than relying on this estimate — this line is flagged specifically because it is inference, not observation.
+## 3. Referring Domain / Citation Profile (Qualitative — carried forward, not re-verified this session)
 
-## 4. Anchor Text Patterns
+Homepage/`book-now.html` schema lists a `sameAs` array of 8 OTA/citation profiles + Instagram (Booking.com, Hostelworld, Agoda, MakeMyTrip, Goibibo, Cleartrip, TripAdvisor, Expedia). These are **outbound citation links from the site**, not confirmed inbound backlinks. Whether any of these OTA listing pages link back to mosaichostels.com remains **unverified** (Hostelworld blocked by cookie-consent wall, TripAdvisor returned HTTP 403 on an earlier check; not re-attempted this session — out of scope, since this run is restricted to Bing + Common Crawl per task instruction). Severity: **Medium** (real, cheap opportunity, not a defect).
 
-No data source available this cycle. Moz anchor export (would give confidence 0.85) and Bing anchor detail were not obtainable — Bing returned zero rows for reasons noted in Section 1. **Not scored.**
+- **Falsifiability check:** manually view each of the 8 listings as a logged-out visitor (or via the property's own OTA extranet) and check for a "Visit website" / official-site link. This is a binary, easily falsifiable check that a bot could not complete here due to anti-bot walls.
 
-## 5. Toxic Link / Spam Signals
+## 4. Anchor Text Patterns — Not Scored
 
-No data source available this cycle (Moz Spam Score is the standard free-tier proxy for this and is not configured). No toxic-link findings can be reported one way or the other. **Not scored** — do not interpret absence of data as "clean" or "toxic."
+No data source available (Moz anchor export skipped per task scope; Bing anchor-text detail not exposed by this tooling; Bing returned 0 links so there is nothing to analyze even qualitatively). Severity: N/A (data gap, not a finding).
 
-## 6. What This Domain-Level Picture Does Tell Us
+## 5. Toxic Link / Spam Signals — Not Scored
 
-Even without link-level data, two structural facts are worth flagging as findings in their own right:
+No data source available (Moz Spam Score skipped per task scope; DataForSEO skipped per task scope). Do not interpret the absence of data as "clean." Severity: N/A (data gap, not a finding).
 
-1. **CCBot is disallowed in robots.txt.** This is a deliberate choice already in the codebase (`/Users/naveenkumar/Projects/Website/robots.txt`, confirmed lines: `User-agent: CCBot` / `Disallow: /`). It has no SEO ranking impact (Google/Bing don't use CC), but it does mean this specific free backlink-research channel (Common Crawl web graph) will stay empty for this domain going forward unless that rule is relaxed. Worth a conscious decision by the owner — keep it if the CCBot traffic/AI-training concern is intentional, but understand the trade-off for future audits.
-2. **No verified Bing Webmaster property.** Verifying `mosaichostels.com` in Bing Webmaster Tools (a one-time DNS/meta-tag/file verification, not a paid step) would unlock real inbound-link data from Bing's index for this specific property in future audits, plus crawl-error and indexing signals outside the scope of this backlink audit. This is a process gap, not a paid-tool gap.
+## 6. Backlink Health Score: INSUFFICIENT DATA (unchanged from prior runs)
+
+Per the rubric (referring domains, domain quality distribution, anchor text naturalness, toxic link ratio, link velocity, follow/nofollow ratio, geographic relevance): **0 of 7 factors have a usable numeric data source** this cycle — Moz and DataForSEO (which anchor most of these factors) were explicitly skipped per task scope, and Bing/CC only speak qualitatively to inbound-link *existence*, not distribution/quality/toxicity/velocity. Per audit rules, fewer than 4/7 factors with data means **no numeric score**. Ran `claude-seo run validate_backlink_report.py --report report_data.json --json` against `cc_data`, `bing_data`, and `scoring_factors` (0/7 factors, no score): **PASS**, 0 errors, 0 warnings, 1 info (CC absence correctly not read as "low authority" — honored in Section 1).
 
 ## 7. Recommendations (Priority Order)
 
+**Critical**
+- None. (The apparent "0 backlinks" is a genuine, stable, expected state for a ~1-year-old site with no link-building program — confirmed consistent across three independent sessions spanning eight days — not an emergency defect. Do not overreact by chasing low-quality/PBN-style links to fill the gap — see Low priority note below.)
+
 **High**
-- Verify `mosaichostels.com` in Bing Webmaster Tools so future `bing_webmaster.py links/counts` calls return real (not access-scoped) data. This is free and typically a 10-minute DNS/HTML-tag verification.
-- Manually confirm (log into each OTA extranet or view each listing as a guest) whether Booking.com, Hostelworld, TripAdvisor, Agoda, MakeMyTrip, Goibibo, Cleartrip, and Expedia expose a "visit website" / official-site link to mosaichostels.com, and add it wherever the platform supports it (TripAdvisor and Hostelworld are the most likely to allow this). Each one that links out is a legitimate, high-trust referring domain at effectively zero cost.
-- Pursue link-worthy digital PR/guest-post placements built on the existing blog content angle, since the blog already has 8 published, locally-specific posts that are natural link magnets:
-  - `assi-ghat-varanasi-complete-guide.md`, `hostel-near-assi-ghat-varanasi.md`, `why-assi-ghat-perfect-base-varanasi-stay.md` — pitch to Varanasi/Uttar Pradesh tourism board sites, Assi Ghat–adjacent business associations, and India travel round-up blogs as a citable local guide.
-  - `varanasi-solo-female-travelers-safety-travel-guide.md` — strong candidate for backpacker/solo-female-travel community sites (e.g. travel-safety directories, women's travel blogs) that frequently link out to first-hand local safety guides.
-  - `things-to-do-varanasi-local-guide.md`, `top-7-experiences-varanasi-traveler.md` — pitch as guest posts or resource-list inclusions to India backpacking blogs and "best hostels in [region]" round-up articles.
-  - `best-hostels-in-varanasi.md` — good bait for reciprocal-adjacent placement on neutral "hostel comparison" or backpacker-forum resource pages (avoid direct link swaps with competing Varanasi hostels — that reads as a manipulative reciprocal pattern rather than editorial).
+- Treat backlink acquisition as an active growth priority, not a wait-and-see item: this domain currently has no measurable discoverable inbound-link signal from any available source (CC: no data due to historical block; Bing: confirmed zero, stable across three checks). Start with the lowest-cost, highest-relevance channels first (below).
+- Manually confirm whether the 8 OTA listings (Section 3) expose a "visit website" link, and enable it wherever supported (TripAdvisor and Hostelworld most likely). Each is a legitimate, zero-cost, high-trust referring domain.
+- Re-run `commoncrawl_graph.py mosaichostels.com` and `bing_webmaster.py links` at the start of the next audit cycle — CCBot is now unblocked and any real link-building activity should start showing up in both sources within 1-2 crawl cycles.
 
 **Medium**
-- Submit the property to Varanasi/Uttar Pradesh–specific local business directories (municipal tourism directories, UP Tourism listings, local Assi Ghat merchant associations) — low competition, high topical relevance, good NAP consistency signal for local SEO even where the raw link equity is modest.
-- Reach out to India-focused travel bloggers and YouTubers who cover budget/backpacker stays in Varanasi for a stay-and-review exchange; the existing 4.9-rating/60-review aggregateRating on `book-now.html` is a credible pitch point.
-- Once Moz (free tier, 2,500 rows/month) or a Bing-verified property is in place, re-run this audit to get real referring-domain counts and anchor-text distribution before investing heavily in any single tactic above — right now recommendations are directional, not data-validated.
+- Pursue digital PR / guest-post placements from the existing published blog posts (Assi Ghat guides, solo-female-travel safety guide, Varanasi experience round-ups) as link magnets for India travel blogs and Varanasi/UP tourism sites — carried from prior audit cycles, still valid and now more actionable since CC/Bing will actually be able to detect the resulting links.
+- Submit to Varanasi/UP-specific local business and tourism directories — low competition, high topical relevance, doubles as a local-SEO NAP-consistency signal.
+- Once Moz (free, 2,500 rows/month) or DataForSEO is added, re-run this audit for real referring-domain counts, anchor-text distribution, and a numeric health score before investing heavily in any single tactic above.
 
 **Low**
-- Do not chase generic guest-post or PBN-style link services for a hyper-local hospitality business; irrelevant/non-geo-targeted links carry more toxic-ratio risk than the (currently unmeasured) benefit, and toxic-ratio cannot currently be monitored since Spam Score data isn't available.
+- Do not chase generic/PBN-style link services to "fix" the zero-backlink reading — for a hyper-local hospitality business, irrelevant links carry more toxic-ratio risk than the (currently unmeasured) benefit, and toxic-ratio cannot be monitored without Moz/DataForSEO.
 
 ## 8. Out of Scope / See Other Skills
 
-- E-E-A-T and content-quality assessment of the blog posts referenced above: run `/seo content <url>` for each.
-- Crawlability, robots.txt, and indexing implications of the CCBot block: run `/seo technical <url>` — this backlinks audit only reports the CCBot rule as it affects backlink-data collection, not as a technical SEO finding.
+- E-E-A-T and content-quality assessment of the blog posts referenced above: run `/seo content <url>`.
+- Crawlability/robots.txt/indexing implications beyond backlink-data collection: run `/seo technical <url>` (this audit stream already flags the robots.txt CCBot history only as it affects backlink *data collection*, not as a standalone technical finding — the technical-SEO stream owns that surface).
+- Moz/DataForSEO-backed referring-domain counts, domain-quality distribution, anchor-text naturalness, toxic-link ratio, link velocity, and follow/nofollow ratio: none of these were in scope for this run (Bing + Common Crawl only, per task instruction); re-run with Moz or DataForSEO configured for a numeric Backlink Health Score.
 
 ## 9. Pre-Delivery Validation
 
-Ran `claude-seo run validate_backlink_report.py --report report_data.json --json` against the collected `cc_data`, `bing_data`, and `scoring_factors` (0/7 factors, no numeric score). Result: **PASS**, 1 info-level note (Common Crawl absence correctly not interpreted as "low authority" — honored in Section 1/6 above). No errors or warnings.
+- Automated: `claude-seo run validate_backlink_report.py --report report_data.json --json` → **PASS**, 0 errors, 0 warnings, 1 info (CC-absence-not-low-authority, correctly honored above).
+- Manual: every metric above is source-labeled with confidence (CC 0.50, Bing 0.70); no inference is stated as fact (OTA back-link presence explicitly marked unverified; Bing "genuine zero" explicitly caveated as "no discoverable signal in Bing's index," not "zero links exist"); no numeric health score produced given 0/7 factors have data; robots.txt and whois claims independently cross-checked via live fetch/whois this session rather than trusting the prior write-up at face value; Moz and DataForSEO confirmed absent/skipped via `backlinks_auth.py --check` before the run, not merely assumed.
 
-Manual checks completed:
-- Every metric above is labeled with its source and confidence (CC 0.50, Bing 0.70 with explicit "unverified property" caveat, or "not available").
-- No inference is stated as fact — the OTA "visit website" assessment and general-platform-behavior notes are explicitly flagged as unverified/directional.
-- No numeric health score produced given <4/7 factors have data.
+## Structured summary for `audit-data.json` (Backlink Profile category)
+
+```json
+{
+  "name": "Backlink Profile",
+  "score": null,
+  "score_note": "INSUFFICIENT DATA — 0/7 scoring factors have a numeric source (Moz/DataForSEO explicitly skipped per task scope this run)",
+  "what_works": [
+    "robots.txt CCBot block remains fixed (Allow: /, since 2026-08-03) — future Common Crawl releases can now index this domain",
+    "Bing Webmaster Tools access is live and verified for both mosaichostels.com and www.mosaichostels.com, consistent across three independent sessions (2026-08-09, 2026-08-15, 2026-08-17)"
+  ],
+  "findings": [
+    {
+      "title": "Zero sampled inbound links in Bing Webmaster Tools for both apex and www properties",
+      "severity": "High",
+      "description": "Live-verified Bing API queries (not access-scoped failures — complete:true, error:null on both properties, both links/counts endpoints, and a cross-property compare) returned 0 inbound links, unchanged across three sessions (2026-08-09, 2026-08-15, 2026-08-17). Domain is ~1 year old (whois creation 2025-08-05) with no evident link-building activity found elsewhere in this audit.",
+      "recommendation": "Start active backlink acquisition: enable OTA 'visit website' links, pitch existing blog content for digital PR/guest posts, submit to Varanasi/UP local directories."
+    },
+    {
+      "title": "Common Crawl has no data for this domain in the current release",
+      "severity": "Informational",
+      "description": "Caused by a robots.txt CCBot block that was in place from domain registration (2025-08-05) until 2026-08-03; the current CC release window falls entirely inside the blocked period. Not evidence of low authority. No new CC release has published since the last audit cycle.",
+      "recommendation": "Re-check in future audit cycles now that CCBot is unblocked; no action needed beyond re-testing."
+    }
+  ]
+}
+```

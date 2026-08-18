@@ -91,6 +91,13 @@ function extract_room_options(array $data): array {
     $available = $entry['available_rooms'] ?? $entry['min_ava_rooms'] ?? null;
     if (is_array($available)) $available = min($available) ?: 0;
 
+    // Base (room-only, pre-tax) vs tax split — eZee gives both the room-only
+    // and tax-inclusive stay totals; tax is the difference between them.
+    $baseTotal = $rates['totalprice_room_only'] ?? $entry['totalprice_room_only'] ?? null;
+    if (is_array($baseTotal)) $baseTotal = reset($baseTotal);
+    $baseTotal = $baseTotal !== null ? round((float)$baseTotal, 2) : null;
+    $taxTotal = ($total !== null && $baseTotal !== null) ? round((float)$total - $baseTotal, 2) : null;
+
     $options[] = [
       'roomtypeunkid' => (string)($entry['roomtypeunkid'] ?? ''),
       'ratetypeunkid' => (string)($entry['ratetypeunkid'] ?? ''),
@@ -99,6 +106,8 @@ function extract_room_options(array $data): array {
       'description' => $entry['Room_Description'] ?? $entry['Package_Description'] ?? '',
       'per_night' => $perNight !== null ? round((float)$perNight, 2) : null,
       'total' => $total !== null ? round((float)$total, 2) : null,
+      'base_total' => $baseTotal,
+      'tax_total' => $taxTotal,
       'available' => (int)($available ?? 0),
     ];
   }

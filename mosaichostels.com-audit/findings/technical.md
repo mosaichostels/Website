@@ -1,169 +1,134 @@
-# Technical SEO Audit — mosaichostels.com (MONITORING PASS)
-**Site:** Mosaic Hostel Varanasi (budget hostel, Assi Ghat, Varanasi — hybrid local + international audience)
-**Audited:** 2026-08-05 (monitoring pass — supersedes the 2026-07-28 baseline audit)
-**Baseline compared against:** 2026-07-28 full audit + fix commits `2512152` (Aug 3, schema/meta/AEO/GEO/LLMO), `541ee0a` (Aug 5, book-now canonical link fix), `b0ebf6b` (Aug 5, hasMap/FAQPage/anchor sculpting)
-**Scope:** Crawlability, indexability, security headers, URL structure/redirects, mobile viewport, Core Web Vitals (source-level), structured data, JS rendering, IndexNow
+# Technical SEO Audit — mosaichostels.com
 
-**Overall Technical Score: 90 / 100** (up from 58/100 on 2026-07-28)
+**Site:** Mosaic Hostel Varanasi (budget hostel, Assi Ghat — hybrid local + international audience)
+**Audited:** 2026-08-18 — live-site verification pass, post booking-engine launch (`/api/*` went live) and site-wide cache-bust fix (`global.css`/`book-now.js`)
+**Scope:** All 21 URLs in `sitemap.xml`, `robots.txt`, `.htaccess` redirect rules, HTTP security headers, `/api/*` surface, hero media, structured data.
+**Prior file:** overwrote 2026-08-15 pass (stale, predates today's redeploy).
 
-All seven Critical/High findings from the 2026-07-28 baseline (blog CSR/soft-404 routing bug, missing sitemap entries, corrupted static files, weak CSP, CCBot block, duplicate `.html`/trailing-slash URLs, incomplete `llms.txt`) are **confirmed fixed on the live site**, verified directly against `https://www.mosaichostels.com` (not just repo state). One new **Medium** issue was found this pass: inconsistent/missing `og:url` on every page except the homepage.
+## Summary
 
----
-
-## 1. Crawlability — PASS
-
-| Check | Result |
+| Category | Status |
 |---|---|
-| `robots.txt` reachable | Pass — 200, live matches repo |
-| CCBot allowance | **CONFIRMED FIXED.** Live `robots.txt`: `User-agent: CCBot` / `Allow: /`. Was `Disallow: /` at baseline. |
-| Other AI crawlers (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot) | `Allow: /`, unchanged |
-| `noindex` meta on core/blog-post pages | None found — correct |
-| `noindex` on dead `blog/post.html` template | **NEW since baseline, working correctly.** Live: `<meta name="robots" content="noindex, follow">`, verified via direct fetch of `/blog/post.html` (200, noindex present) |
-| Sitemap declared + valid | Pass — `sitemap_discovery.py`: `sitemap.xml` found via `robots.txt`, HTTP 200, valid `urlset`. No `sitemap_index.xml`/`sitemap-index.xml`/`wp-sitemap.xml` fallback needed (single sitemap is complete, see below) |
+| Crawlability (robots.txt, sitemap) | Pass |
+| Indexability (canonicals, meta robots, duplicates) | Pass |
+| Security headers / HTTPS | Pass |
+| URL structure / redirects | Pass, with 2 minor redirect-chain issues |
+| `/api/*` surface exposure | **Fail — Critical** |
+| Mobile viewport | Pass |
+| Core Web Vitals (source-level) | Needs Improvement — hero video |
+| Structured data | Pass |
+| IndexNow | Not implemented |
 
-**RESOLVED — baseline Finding T-1 (sitemap omitted all 8 blog posts).** Live `sitemap.xml` now lists **22 URLs**: 7 core pages + all **15** blog posts (up from 8 known posts at baseline — post count grew both from fixing gaps and net-new content). Spot-checked against repo `blog/*/` directories — count matches exactly, no orphans.
-
----
-
-## 2. Indexability — PASS (was FAIL)
-
-### RESOLVED — baseline Finding T-2 (`.htaccess` catch-all rewrite bug, soft-404 for blog posts)
-Root cause was `RewriteCond` blocks in Apache only binding to the single following `RewriteRule`, so the blog-slug rule ran unconditionally and never served the pre-rendered static files. Current `.htaccess` (lines 185–218) now repeats the `RewriteCond %{REQUEST_FILENAME} !-f` / `!-d` / `!/blogs/` guard block before **every** individual `RewriteRule`, including the blog-slug rule (lines 195–198), with an explicit comment documenting why (`RewriteCond only binds to the single next RewriteRule`).
-
-Verified live: `curl https://www.mosaichostels.com/blog/best-hostels-in-varanasi/` (raw, no JS) now returns:
-- Correct per-post `<title>Best Hostels in Varanasi (2025 Honest Guide) — Mosaic</title>` (not the generic template title)
-- Correct self-referencing canonical: `<link rel="canonical" href="https://www.mosaichostels.com/blog/best-hostels-in-varanasi/">` (not empty)
-- **2,223 words of real article text in raw HTML** (was ~10 words of nav chrome + "Loading...")
-
-This means GPTBot/ClaudeBot/PerplexityBot/OAI-SearchBot/Bingbot — none of which execute JavaScript — now receive full content instead of an empty shell.
-
-### RESOLVED — baseline Finding T-3 (2 corrupted static blog files)
-`blog/hostel-near-assi-ghat-varanasi/` and `blog/backpackers-guide-assi-ghat-varanasi/` no longer exist as directories in the repo. Both slugs are now handled by explicit 301s in `.htaccess` (lines 167–169) to the consolidated `/blog/assi-ghat-varanasi-complete-guide`, which is a complete, non-corrupted page. The landmine flagged at baseline (fixing T-2 without also fixing T-3 would have made two broken pages go live) did not materialize — both were resolved together via consolidation rather than regeneration.
-
-### RESOLVED — baseline Finding T-4 (9th untracked blog post)
-`things-to-do-varanasi-local-guide` is now a normal published post: present in `sitemap.xml`, `llms.txt`, and has a complete static file.
-
-### RESOLVED — baseline Finding T-5 (duplicate `.html` / trailing-slash URLs, no redirects)
-All checked live:
-- `http://mosaichostels.com/book-now/` → 3 hops → `https://www.mosaichostels.com/book-now` (200)
-- `http://www.mosaichostels.com/book-now.html` → 2 hops → `https://www.mosaichostels.com/book-now` (200)
-- `https://mosaichostels.com/` → 1 hop → `https://www.mosaichostels.com/` (200)
-- `.htaccess` now has explicit 301s: `^book-now\.html$ → /book-now`, `^book-now/$ → /book-now`, and equivalents for about/contact/gallery/privacy/index. `blog.html` → `/blog/` (trailing slash, matching the directory-style blog URL convention).
-
-### RESOLVED — baseline Finding T-6 (`llms.txt` incomplete)
-Live `llms.txt` now lists all 15 blog posts under "Travel Guides (Blog)", matching sitemap and repo exactly. Previously missing `assi-ghat-varanasi-complete-guide` and `things-to-do-varanasi-local-guide` are both present.
+**Technical score: 84/100**
 
 ---
 
-## 3. Canonical Tags — book-now specifically verified, PASS site-wide
+## Critical
 
-**This was the orchestrator's specific ask: is `/book-now` canonical now consistent everywhere?** Yes, confirmed on all four legs:
+### 1. Internal API library files are directly web-executable (`/api/lib/*.php`)
+All six files in `api/lib/` return `HTTP 200` when requested directly, instead of being blocked:
 
-| Surface | Value | Status |
-|---|---|---|
-| `<link rel="canonical">` on `/book-now` (live) | `https://www.mosaichostels.com/book-now` | Correct, self-referencing |
-| `sitemap.xml` entry | `https://www.mosaichostels.com/book-now` (no trailing slash) | Matches canonical |
-| Internal link, `about.html` book-now CTA | Fixed in commit `541ee0a` (Aug 5): was `/book-now/`, now `/book-now` | Matches canonical — grepped all `.html`/`.xml`/`.js`/`.txt` site-wide for stray `book-now/` references, **zero found** |
-| URL-level redirects | `/book-now/` → 301 → `/book-now`; `book-now.html` → 301 → `/book-now` | Both collapse to the single canonical URL at the HTTP level, not just via `<link>` tag |
+```
+GET /api/lib/booking.php   -> 200 (empty body)
+GET /api/lib/config.php    -> 200 (empty body)
+GET /api/lib/ezee.php      -> 200 (empty body)
+GET /api/lib/mock.php      -> 200 (empty body)
+GET /api/lib/razorpay.php  -> 200 (empty body)
+GET /api/lib/selftest.php  -> 200 (empty body)
+```
+Bodies are empty today (no top-level output in these files), so no secrets leaked *right now* — but this is a fragile guarantee: any future stray `echo`/`var_dump`/error left in one of these `lib/` includes (e.g. `config.php`, which is the exact file that would hold eZee/Razorpay credentials) will be served to the public internet with no protection. `robots.txt` also does not `Disallow: /api/`, so these are crawlable and could get indexed as thin/empty pages, wasting crawl budget on the new API surface right as it launches.
 
-No split-signal risk remains for this URL.
-
----
-
-## 4. Security Headers — PASS (was PARTIAL PASS)
-
-Live headers on `https://www.mosaichostels.com/`:
-
-| Header | Value | Status |
-|---|---|---|
-| `strict-transport-security` | `max-age=31536000; includeSubDomains; preload` | Unchanged, good |
-| `x-content-type-options` | `nosniff` | Unchanged, good |
-| `x-frame-options` | `DENY` | Unchanged, good |
-| `referrer-policy` | `strict-origin-when-cross-origin` | Unchanged, good |
-| `content-security-policy` | **RESOLVED — baseline T-7.** Real allowlist now: `default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.clarity.ms https://c.bing.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; ...; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests` | Was `upgrade-insecure-requests` only |
-| `permissions-policy` | **RESOLVED.** `camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), interest-cohort=()` | Was absent |
-| `x-xss-protection` | `1; mode=block` | Unchanged, deprecated but harmless |
-| `cross-origin-opener-policy` / `cross-origin-embedder-policy` | Still absent | **Unchanged known gap**, low priority for a marketing site with no cross-origin app logic — not a regression, just never addressed |
+**Fix:**
+- In `.htaccess`, deny direct access to the `lib/` directory: `RewriteRule ^api/lib/ - [F,L]` (or a `<Directory>`/`.htaccess` deny block inside `api/lib/`), so only files that `require`/`include` them server-side can execute them.
+- Add `Disallow: /api/` to `robots.txt` regardless (defense in depth — these are POST endpoints/internal libs, not content).
+- Confirm `config.php` never echoes/dumps anything, even on error (audit its error handling since it's the credentials file).
 
 ---
 
-## 5. Mobile — PASS, unchanged
+## High
 
-Viewport meta (`width=device-width, initial-scale=1.0`) confirmed present on all sampled pages (index, about, book-now). No new checks triggered a concern this pass.
+### 2. Hero video has no `poster`, no `preload` hint, autoplays 1MB on every load
+Homepage hero (`index.html`) uses an autoplaying background video with no fallback poster frame:
+```html
+<video class="hero-video" autoplay muted loop playsinline>
+  <source src="/images/hero-video.webm" type="video/webm">
+</video>
+```
+`/images/hero-video.webm` is **1,029,162 bytes (~1 MB)**, no `preload="metadata"`/`"none"`, no `poster`. On mobile 4G this competes for bandwidth with the fonts/CSS/JS in `<head>` and delays whatever paints over/behind it. If the H1 text isn't reliably the LCP element (depends on how `hero-overlay`/`hero-content` stack), the video itself becomes the LCP candidate and 1 MB of video on a slow connection blows the 2.5s "Good" LCP threshold.
 
----
-
-## 6. Core Web Vitals (source-level) — PASS, unchanged
-
-- All checked `<img>` tags carry explicit `width`/`height` (CLS mitigation).
-- All non-hero images use `loading="lazy"` and `<picture>` + WebP source with JPEG fallback.
-- Render-blocking JS: `site.js`, `home.js`, `navbar.js`, `footer.js` are all placed just before `</body>` (lines 391–394), not in `<head>` — not render-blocking.
-- **Minor, not new:** the nav logo (`mosaic-logo-main.png`, 120×40) carries `loading="lazy"`. It's small and unlikely to be the LCP element on this layout, so not flagged as an issue, but worth a `fetchpriority="high"` + eager-load pass if a future PageSpeed Insights run shows it in the LCP chain.
-
-No CrUX field data available in this environment; assessment is lab/source-level only, consistent with prior passes.
+**Fix:** add a lightweight `poster="/images/hero-poster.jpg"` (paints instantly, video fills in after), set `preload="metadata"`, and consider serving a static poster-only image on narrow viewports via `<video>` swapped for `<img>` under a mobile media query — cuts the biggest mobile CWV risk on the site's highest-traffic page.
 
 ---
 
-## 7. Structured Data — PASS, expanded since baseline
+## Medium
 
-Live homepage JSON-LD `@type` inventory: `Hostel`, `AggregateRating`, `FAQPage` (+6 `Question`/`Answer` pairs), `GeoCoordinates`, `PostalAddress`, `OpeningHoursSpecification`, `LocationFeatureSpecification` ×7, `WebSite`.
+### 3. Two legacy-redirect rules create 2-hop redirect chains
+`.htaccess` redirects legacy slugs to a non-trailing-slash blog URL, which then gets a second 301 to add the trailing slash (the generic `^blog/([a-zA-Z0-9-]+)/?$` rule fires because the non-slash URL isn't a real file):
 
-- **`hasMap` confirmed added** (commit `b0ebf6b`, Aug 5): `"hasMap": "https://www.google.com/maps?cid=10826956351092739131"` present on `index.html`, `about.html`, `contact.html` — verified live and matches GBP CID from the Jul 31 Maps audit gap.
-- `FAQPage` schema confirmed on homepage; also added to the two safety-guide blog posts per commit `b0ebf6b` (not independently re-validated this pass — low risk, mechanical addition).
+```
+/blog/why-assi-ghat-perfect-base-varanasi-stay
+  -> 301 /blog/assi-ghat-varanasi-complete-guide       (hop 1)
+  -> 301 /blog/assi-ghat-varanasi-complete-guide/       (hop 2)
 
----
+/varanasi-solo-female-travelers-safety-travel-guide
+  -> 301 /blog/varanasi-solo-female-travelers-safety-travel-guide   (hop 1)
+  -> 301 /blog/varanasi-solo-female-travelers-safety-travel-guide/  (hop 2)
+```
+Also confirmed a 3-hop chain from the bare non-www + non-slash combination (`http://mosaichostels.com/blog/best-hostels-in-varanasi` → https+www → +trailing slash). Not link-equity-fatal (Google collapses short 301 chains fine), but avoidable — every extra hop is a wasted crawl request on the exact URLs called out in this ticket as high-value (859 impressions/90d GSC history on the WP legacy URL).
 
-## 8. JavaScript Rendering — PASS, unchanged from post-fix state
+**Fix:** point the four legacy `RewriteRule` targets (`why-assi-ghat-perfect-base-varanasi-stay`, `hostel-near-assi-ghat-varanasi`, `backpackers-guide-assi-ghat-varanasi`, `varanasi-solo-female-travelers-safety-travel-guide`) directly at the trailing-slash final URL so each is a single hop.
 
-Blog posts are now server/build-time pre-rendered static HTML (see Section 2) — no longer CSR-dependent for content or canonical. `blog/post.html` (the old CSR template) is correctly `noindex`'d as a dead template rather than deleted, which is fine since it's non-canonical and unlinked.
+### 4. No IndexNow implementation
+No IndexNow key file found anywhere in the repo, and no submission call in the deploy flow. Bing/Yandex/Naver only discover the fresh `/book-now` booking-engine launch and today's cache-bust redeploy via normal crawl scheduling instead of near-real-time push — relevant right now because a first-time booking-engine launch is exactly the kind of change worth pushing immediately to Bing.
 
----
-
-## 9. IndexNow Protocol — PASS, unchanged
-
-IndexNow key file `c756cfecf232b14e75f41f5da7dbf63d.txt` present at site root, live at `https://www.mosaichostels.com/c756cfecf232b14e75f41f5da7dbf63d.txt` (200, content matches filename per protocol spec). Correctly positioned for Bing/Yandex/Naver submission validation.
-
----
-
-## NEW Finding (this pass)
-
-### Finding T-8 [MEDIUM] — `og:url` is wrong or missing on every page except the homepage
-
-Introduced by the Aug 3 site-wide OG rollout (`2512152`, "Add og:type/og:site_name/og:locale, twitter:card ... site-wide"). That commit added several OG tags site-wide but `og:url` was not correctly propagated per-page:
-
-| Page | Live `og:url` | Should be |
-|---|---|---|
-| `/` | `https://www.mosaichostels.com/` | Correct |
-| `/about` | `https://www.mosaichostels.com` (bare domain, no path) | `https://www.mosaichostels.com/about` |
-| `/contact` | `https://www.mosaichostels.com` | `https://www.mosaichostels.com/contact` |
-| `/book-now` | `https://www.mosaichostels.com` | `https://www.mosaichostels.com/book-now` |
-| `/gallery` | `https://www.mosaichostels.com` | `https://www.mosaichostels.com/gallery` |
-| `/privacy` | Tag absent entirely | `https://www.mosaichostels.com/privacy` |
-| `/blog/` | Tag absent entirely | `https://www.mosaichostels.com/blog/` |
-| All 15 `/blog/<slug>/` posts | Tag absent entirely (checked all 15 via `grep -L "og:url" blog/*/index.html`) | Each post's own canonical URL |
-
-Verified in repo source (`about.html:23`, `contact.html:23`, `book-now.html:22`, `gallery.html:23` all literally contain `<meta property="og:url" content="https://www.mosaichostels.com">`) and confirmed live via direct fetch, so this is not a curl/CDN caching artifact.
-
-**Impact:** `og:url` is a social-scraper/LLM-entity-attribution signal, not a search-indexing canonical — Google/Bing ignore it in favor of `<link rel="canonical">`, which is correct everywhere (see Section 3). So this does not create a duplicate-content or ranking risk. The practical impact is: (1) Facebook/LinkedIn/WhatsApp link previews for any shared page except the homepage will attribute the share to the bare domain rather than the specific page, which can misroute engagement/analytics and look unpolished; (2) AI/LLM systems that read Open Graph metadata as an entity-URL hint (part of the AEO/GEO surface this site has otherwise invested in) get either the wrong URL or no URL for 21 of 22 indexed pages.
-
-*Recommendation:* Set `og:url` to each page's own self-referencing canonical URL — same value already correctly present in that page's `<link rel="canonical">` tag, so this is a copy-paste fix, not new content to write. For the 15 blog posts specifically, template it from the same variable already used to populate the per-post canonical.
+**Fix:** generate an IndexNow key, host `/​<key>.txt` at the root, and add a one-line POST to `https://api.indexnow.org/indexnow` (bulk list of the 21 sitemap URLs) to the deploy script — see `seo-technical` skill's AI Crawler Management section for the request shape.
 
 ---
 
-## Summary: Findings Disposition
+## Low
 
-| Baseline ID | Description | Status |
-|---|---|---|
-| T-1 | Sitemap missing 8 blog posts | **FIXED** |
-| T-2 | `.htaccess` soft-404 routing bug | **FIXED** |
-| T-3 | 2 corrupted static blog files | **FIXED** (via consolidation) |
-| T-4 | 9th untracked blog post | **FIXED** |
-| T-5 | Duplicate `.html`/trailing-slash URLs | **FIXED** |
-| T-6 | `llms.txt` incomplete | **FIXED** |
-| T-7 | Weak CSP | **FIXED** |
-| — | CCBot blocked in robots.txt | **FIXED** |
-| — | book-now canonical split (`/book-now` vs `/book-now/`) | **FIXED** |
-| — | COOP/COEP headers absent | Unchanged, low-priority, not a regression |
-| T-8 | `og:url` wrong/missing on 21 of 22 pages | **NEW**, Medium |
+### 5. Header logo is `loading="lazy"` despite being above-the-fold on every page
+```html
+<img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="120" height="40" loading="lazy">
+```
+120x40px, negligible bytes, so no real CWV impact — but lazy-loading a guaranteed-visible-on-load element is inverted from spec intent and can occasionally add a decode delay on slow devices.
 
-No new Critical or High severity issues found. No crawlability or indexability regressions detected.
+**Fix:** drop `loading="lazy"` (or set `loading="eager"` / `fetchpriority="high"`) on the header logo only; leave the room-photo/gallery images lazy as they already correctly are.
+
+### 6. `/api/availability.php` error responses are cached publicly for 24h
+```
+GET /api/availability.php  -> 400 {"error":"Please provide valid check-in and check-out dates."}
+Cache-Control: public, max-age=86400
+```
+Not an SEO-crawlability issue (endpoint isn't linked/indexable, `Content-Type: application/json`), but flagging since it's part of the new API surface: a CDN/browser could serve a stale "invalid dates" error for a day after a transient bad request. Backend/perf concern, not technical-SEO-blocking — pass to dev backlog rather than treating as an SEO fix.
+
+---
+
+## Pass (verified today, no action needed)
+
+- **robots.txt**: `Allow: /` for `*`, explicit `Allow: /` for GPTBot/OAI-SearchBot/ClaudeBot/PerplexityBot/CCBot, `Sitemap:` directive present and correct. Identical on disk and live.
+- **sitemap.xml**: validated via `claude-seo run sitemap_discovery.py` — declared in robots.txt, fetched, `kind: urlset`, `valid: true`, HTTP 200. No stale `sitemap_index.xml`/`wp-sitemap.xml` fallbacks needed (all 404 cleanly, robots.txt declaration is current, not stale). All 21 sitemap URLs return 200 live, identical on disk and live.
+- **Canonicals**: all 21 pages self-reference the correct final (post-redirect, post-trailing-slash) URL — checked homepage, all 6 top-level pages, and all 15 blog posts individually.
+- **Meta robots**: no blocking `noindex`/`nofollow` on any of the 21 indexable pages. The blog catch-all template (`blog/post.html`, served only for slugs with no matching static directory) correctly ships `<meta name="robots" content="noindex">` — confirmed this is a real soft-404 safety net, not a bug: a random slug (`/blog/nonexistent-slug-xyz`) returns HTTP 200 (expected, Apache can't 404 a rewrite target) but is `noindex`'d, while a genuinely non-blog bad path (`/this-page-does-not-exist-xyz`) correctly returns a true HTTP 404.
+- **HTTPS / mixed content**: no `http://` resource references found on any of the 7 core pages. HSTS with `preload` present.
+- **Redirects — bare→www**: `http(s)://mosaichostels.com/*` → `301` → `https://www.mosaichostels.com/*`, single hop for direct requests.
+- **Redirects — `.html`→clean URL**: `/about.html`, `/index.html`, `/blog.html`, etc. all 301 to their clean-URL canonical form, single hop.
+- **Redirects — trailing slash on non-directory pages**: `/about/`, `/gallery/`, `/contact/`, `/book-now/`, `/privacy/` all 301 to the non-slash form (correctly the reverse of the blog-post pattern, since these are flat `.html` files not directories) — the previously-flagged silent-200-on-both-forms duplicate-URL bug is fixed.
+- **Security headers** (via `curl -I`, live): `Strict-Transport-Security` (max-age=31536000, includeSubDomains, preload), `Content-Security-Policy` (real allowlist, not just `unsafe-inline` everywhere — scoped to Clarity/Bing/Razorpay/GTM/fonts), `X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `X-XSS-Protection`, `Referrer-Policy: strict-origin-when-cross-origin`, `Permissions-Policy` (locks camera/mic/geolocation/payment/usb/magnetometer/gyroscope/interest-cohort). Present on both HTML and `/api/*` responses.
+- **Mobile viewport**: `<meta name="viewport" content="width=device-width, initial-scale=1.0">` present on all 7 core pages checked.
+- **Cache-bust versioning** (the redeploy this audit follows up on): `global.css?v=20260818` and `book-now.js?v=20260818` consistent across every page that loads them (homepage, gallery, blog index, about, contact, book-now) — the stale-version bug called out in the task brief is confirmed fixed.
+- **JS rendering**: homepage and a sampled blog post both render via `claude-seo run render_page.py --mode auto` as `is_spa: false`, `mode_used: raw` — content, title, canonical, and JSON-LD are all present in the raw (non-JS-executed) HTML. No reliance on client-side rendering for indexable content.
+- **Structured data**: homepage carries valid `Hostel`, `WebSite`, and `FAQPage` JSON-LD (3 blocks). Sampled blog post carries `BlogPosting` + `ImageObject` + `Organization` and a separate `FAQPage`/`Question`/`Answer` block, both reported `valid: true` by the render tool's structured-data parser.
+- **Font loading**: `preconnect` to `fonts.googleapis.com`/`fonts.gstatic.com`, async `preload as="style"` + `onload` swap pattern with a correct `<noscript>` fallback stylesheet — non-render-blocking, no duplicate-request issue (initial grep read looked like a duplicate `<link rel="stylesheet">` but it's the standard noscript fallback, confirmed by full-context read).
+- **Image dimensions/lazy-loading**: room and gallery photos on the homepage all carry explicit `width`/`height` (CLS protection) and `loading="lazy"` — correct except the one header-logo case noted in Low #5.
+- **hreflang**: none present; correctly N/A — single-language (English) site, no international variants exist.
+
+---
+
+## Files referenced
+
+- `/Users/naveen/Projects/hostel/Website/.htaccess`
+- `/Users/naveen/Projects/hostel/Website/robots.txt`
+- `/Users/naveen/Projects/hostel/Website/sitemap.xml`
+- `/Users/naveen/Projects/hostel/Website/api/lib/{booking,config,ezee,mock,razorpay,selftest}.php`
+- `/Users/naveen/Projects/hostel/Website/index.html` (hero video, logo `loading` attr)
