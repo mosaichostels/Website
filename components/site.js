@@ -148,7 +148,7 @@
 
   window.openGoogleReview = function (e) {
     if (e) e.preventDefault();
-    window.open(`https://www.google.com/maps?cid=${GBP_CID}`, '_blank');
+    window.open('https://search.google.com/local/writereview?placeid=0x96411370098acc3b', '_blank');
   };
 
   function init() {
