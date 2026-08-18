@@ -10,7 +10,25 @@
 <meta id="post-og-description" property="og:description" content="Blog post from Mosaic Hostel Varanasi">
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/styles/global.css?v=20260808">
+<link rel="stylesheet" href="/styles/global.css?v=20260818">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H3K992L4ZT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H3K992L4ZT');
+</script>
+
+<!-- Microsoft Clarity Analytics -->
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "xh249om5vt");
+</script>
 
 <!-- BreadcrumbList Schema (slug-based, updated dynamically in JS) -->
 <script id="breadcrumb-schema" type="application/ld+json">
@@ -22,19 +40,19 @@
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "@id": "https://www.mosaichostels.com"
+      "item": "https://www.mosaichostels.com"
     },
     {
       "@type": "ListItem",
       "position": 2,
       "name": "Blog",
-      "@id": "https://www.mosaichostels.com/blog"
+      "item": "https://www.mosaichostels.com/blog"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Post Title",
-      "@id": "https://www.mosaichostels.com/blog/post-slug"
+      "item": "https://www.mosaichostels.com/blog/post-slug"
     }
   ]
 }
@@ -48,7 +66,7 @@
 <!-- ── NAV ── -->
 <nav id="mainNav">
   <div class="nav-logo">
-    <a href="/"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="120" height="40" loading="lazy"></a>
+    <a href="/"><img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="120" height="40"></a>
   </div>
   <div class="nav-links">
     <a href="/" class="nav-link" data-page="home">Home</a>
@@ -276,19 +294,19 @@ async function renderBlogPost() {
           "@type": "ListItem",
           "position": 1,
           "name": "Home",
-          "@id": "https://www.mosaichostels.com"
+          "item": "https://www.mosaichostels.com"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "Blog",
-          "@id": "https://www.mosaichostels.com/blog"
+          "item": "https://www.mosaichostels.com/blog"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": title,
-          "@id": `https://www.mosaichostels.com/blog/${slug}`
+          "item": `https://www.mosaichostels.com/blog/${slug}`
         }
       ]
     };
@@ -322,7 +340,7 @@ async function renderBlogPost() {
         "name": "Mosaic Hostel Varanasi",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://www.mosaichostels.com/images/IMG_1928.JPG"
+          "url": "https://www.mosaichostels.com/images/mosaic-logo-main.png"
         }
       }
     };

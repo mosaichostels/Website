@@ -38,6 +38,8 @@ $phoneDigits = preg_replace('/\D/', '', $body['phone']);
 if (strlen($phoneDigits) < 8 || strlen($phoneDigits) > 15) {
   json_error(400, 'Please provide a valid phone number.');
 }
+$phoneCode = preg_replace('/[^0-9+]/', '', $body['phone_code'] ?? '+91') ?: '+91';
+$nationality = trim($body['nationality'] ?? '');
 if (!is_array($body['rooms']) || count($body['rooms']) === 0) {
   json_error(400, 'Please select at least one room.');
 }
@@ -86,13 +88,19 @@ if (!$dCheckIn || !$dCheckOut || $dCheckOut <= $dCheckIn) {
 $nights = $dCheckIn->diff($dCheckOut)->days;
 
 // Re-fetch fresh availability/pricing — the only source of truth for amount.
+// number_adults/num_rooms mirror availability.php's search query (1/1), not
+// the guest's actual totals — verified live (2026-08-11) that eZee's RoomList
+// silently drops a room type from the response entirely when num_rooms > 1
+// (e.g. booking 2 beds of the same dorm), even though real inventory is
+// available. Per-room-type availability count is unaffected by these params
+// at num_rooms=1, and quantity is validated separately per cart line below.
 $ezeeResponse = ezee_get('RoomList', [
   'check_in_date' => $checkIn,
   'check_out_date' => $checkOut,
   // eZee rejects requests that pass both check_out_date and num_nights.
-  'number_adults' => $adults,
-  'number_children' => $children,
-  'num_rooms' => $totalUnits,
+  'number_adults' => 1,
+  'number_children' => 0,
+  'num_rooms' => 1,
   'show_only_available_rooms' => 1,
   'showtax' => 1,
 ]);
@@ -176,7 +184,8 @@ $pendingRecord = [
   'first_name' => $body['first_name'],
   'last_name' => $body['last_name'] ?? '',
   'email' => $body['email'],
-  'phone' => $body['phone'],
+  'phone' => $phoneCode . ' ' . $phoneDigits,
+  'nationality' => $nationality,
   'special_request' => $specialRequest,
   'created_at' => date('c'),
 ];

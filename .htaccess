@@ -19,7 +19,7 @@
   # style-src because the site uses inline <script> blocks and onclick=
   # handlers throughout (no nonce/hash infrastructure); this still blocks
   # loading executable content from any non-whitelisted external origin.
-  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.clarity.ms https://c.bing.com https://checkout.razorpay.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.clarity.ms https://c.bing.com https://cdn.razorpay.com; connect-src 'self' https://*.clarity.ms https://c.bing.com https://api.razorpay.com https://lumberjack.razorpay.com; frame-src https://www.google.com https://api.razorpay.com https://checkout.razorpay.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
+  Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.clarity.ms https://c.bing.com https://checkout.razorpay.com https://cdn.razorpay.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://*.clarity.ms https://c.bing.com https://cdn.razorpay.com; connect-src 'self' https://*.clarity.ms https://c.bing.com https://api.razorpay.com https://lumberjack.razorpay.com https://www.googletagmanager.com https://*.google-analytics.com; frame-src https://www.google.com https://api.razorpay.com https://checkout.razorpay.com; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests"
 
   # Permissions-Policy — the site doesn't use any of these browser features
   Header set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), interest-cohort=()"
@@ -144,6 +144,11 @@
   RewriteEngine On
   RewriteBase /
 
+  # Block direct web access to internal API library files (config/credentials,
+  # ezee/razorpay/mock helpers) — these are only ever `require`d by api/*.php,
+  # never requested directly, but had no server-side deny.
+  RewriteRule ^api/lib/ - [F,L]
+
   # Redirect non-www to www
   RewriteCond %{HTTP_HOST} ^mosaichostels\.com$ [NC]
   RewriteRule ^(.*)$ https://www.mosaichostels.com/$1 [L,R=301]
@@ -161,12 +166,14 @@
 
   # Legacy WordPress blog URL — reclaim ranking equity (was ranking
   # position 7.9-10.5, 859 impressions/90d in GSC before the migration)
-  RewriteRule ^varanasi-solo-female-travelers-safety-travel-guide/?$ /blog/varanasi-solo-female-travelers-safety-travel-guide [R=301,L]
+  RewriteRule ^varanasi-solo-female-travelers-safety-travel-guide/?$ /blog/varanasi-solo-female-travelers-safety-travel-guide/ [R=301,L]
 
   # Consolidated Assi Ghat posts — merged into assi-ghat-varanasi-complete-guide
-  RewriteRule ^blog/why-assi-ghat-perfect-base-varanasi-stay/?$ /blog/assi-ghat-varanasi-complete-guide [R=301,L]
-  RewriteRule ^blog/hostel-near-assi-ghat-varanasi/?$ /blog/assi-ghat-varanasi-complete-guide [R=301,L]
-  RewriteRule ^blog/backpackers-guide-assi-ghat-varanasi/?$ /blog/assi-ghat-varanasi-complete-guide [R=301,L]
+  # (targets end in / since these are real directories — omitting the slash
+  # here means mod_dir issues a second 301 to append it, a 2-hop redirect)
+  RewriteRule ^blog/why-assi-ghat-perfect-base-varanasi-stay/?$ /blog/assi-ghat-varanasi-complete-guide/ [R=301,L]
+  RewriteRule ^blog/hostel-near-assi-ghat-varanasi/?$ /blog/assi-ghat-varanasi-complete-guide/ [R=301,L]
+  RewriteRule ^blog/backpackers-guide-assi-ghat-varanasi/?$ /blog/assi-ghat-varanasi-complete-guide/ [R=301,L]
 
   # Normalize trailing slash on core pages to the non-slash canonical form
   # (these are .html files, not directories, unlike /blog/<slug> — both

@@ -2,11 +2,40 @@
 (function () {
   const { LOGO_COLORS, PAL, pick, fillById, fillStrip, fillGrid } = window.MOSAIC;
 
+  // name|dial-code — India first (most guests), rest alphabetical. Not
+  // exhaustive (~90 countries); add more if a guest's nationality is missing.
+  const COUNTRIES = ('India|91,Afghanistan|93,Australia|61,Austria|43,Bangladesh|880,Belgium|32,Bhutan|975,'
+    + 'Brazil|55,Canada|1,China|86,Denmark|45,Egypt|20,Finland|358,France|33,Germany|49,Greece|30,Hong Kong|852,'
+    + 'Indonesia|62,Iran|98,Iraq|964,Ireland|353,Israel|972,Italy|39,Japan|81,Jordan|962,Kazakhstan|7,Kenya|254,'
+    + 'Kuwait|965,Malaysia|60,Maldives|960,Mexico|52,Myanmar|95,Nepal|977,Netherlands|31,New Zealand|64,'
+    + 'Nigeria|234,Norway|47,Oman|968,Pakistan|92,Philippines|63,Poland|48,Portugal|351,Qatar|974,Russia|7,'
+    + 'Saudi Arabia|966,Singapore|65,South Africa|27,South Korea|82,Spain|34,Sri Lanka|94,Sweden|46,'
+    + 'Switzerland|41,Thailand|66,Turkey|90,UAE|971,Ukraine|380,United Kingdom|44,United States|1,Vietnam|84')
+    .split(',').map((s) => { const [name, code] = s.split('|'); return { name, code }; });
+
+  function escapeHtml(text) {
+    const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
+    return String(text).replace(/[&<>"']/g, (m) => map[m]);
+  }
+
+  function populateCountrySelects() {
+    const phoneCodeEl = document.getElementById('gPhoneCode');
+    const nationalityEl = document.getElementById('gNationality');
+    if (phoneCodeEl) {
+      phoneCodeEl.innerHTML = COUNTRIES.map((c) => `<option value="+${c.code}">+${c.code} ${escapeHtml(c.name)}</option>`).join('');
+    }
+    if (nationalityEl) {
+      nationalityEl.innerHTML = '<option value=""></option>' + COUNTRIES.map((c) => `<option>${escapeHtml(c.name)}</option>`).join('');
+    }
+  }
+
   function init() {
     fillById('cardStrip', LOGO_COLORS);
     fillById('widgetStrip', LOGO_COLORS);
+    fillById('policyModalStrip', LOGO_COLORS);
     initBookingWidget();
     initCancelForm();
+    initPolicyModal();
 
     // Platform card accent bars
     const platformPals = [
@@ -45,6 +74,7 @@
   function initBookingWidget() {
     const widget = document.getElementById('bookingWidget');
     if (!widget) return;
+    populateCountrySelects();
 
     const stages = {
       search: document.getElementById('stageSearch'),
@@ -55,6 +85,7 @@
     function showStage(name) {
       Object.values(stages).forEach((el) => el.classList.remove('active'));
       stages[name].classList.add('active');
+      document.body.classList.toggle('booking-in-progress', name !== 'search');
     }
 
     // Selection state carried between stages — server re-validates all of it,
@@ -135,6 +166,7 @@
           <div class="room-option-price">
             <div class="room-option-total">₹${fmtPrice(room.total)}</div>
             <div class="room-option-pernight">₹${fmtPrice(room.per_night)}/night</div>
+            ${room.base_total != null && room.tax_total != null ? `<div class="room-option-pernight">₹${fmtPrice(room.base_total)} + ₹${fmtPrice(room.tax_total)} tax</div>` : ''}
             <div class="room-option-qty">
               <button type="button" class="qty-btn qty-minus" aria-label="Remove one">−</button>
               <span class="qty-value">0</span>
@@ -158,6 +190,8 @@
               name: room.name,
               per_night: room.per_night,
               total: room.total,
+              base_total: room.base_total,
+              tax_total: room.tax_total,
               qty,
             });
           }
@@ -175,8 +209,11 @@
           cartBar.style.display = 'none';
           return;
         }
+        const baseSum = cart.reduce((n, c) => n + (c.base_total ?? 0) * c.qty, 0);
+        const taxSum = cart.reduce((n, c) => n + (c.tax_total ?? 0) * c.qty, 0);
         cartBar.style.display = 'flex';
-        cartBarSummary.innerHTML = `${totalQty} room${totalQty > 1 ? 's' : ''} selected <strong>₹${fmtPrice(totalPrice)}</strong>`;
+        cartBarSummary.innerHTML = `${totalQty} room${totalQty > 1 ? 's' : ''} selected <strong>₹${fmtPrice(totalPrice)}</strong>`
+          + `<div class="room-option-pernight">₹${fmtPrice(baseSum)} + ₹${fmtPrice(taxSum)} tax</div>`;
       }
 
       cartContinue.onclick = () => {
@@ -186,8 +223,14 @@
           items: cart.slice(),
           total: cart.reduce((n, c) => n + c.total * c.qty, 0),
         };
-        const namesLabel = selection.items.map((c) => `${c.qty}× ${c.name}`).join(', ');
-        widgetPrice.innerHTML = `<small>${escapeHtml(namesLabel)} · ${escapeHtml(selection.check_in)} → ${escapeHtml(selection.check_out)}</small>₹${fmtPrice(selection.total)}`;
+        const baseSum = selection.items.reduce((n, c) => n + (c.base_total ?? 0) * c.qty, 0);
+        const taxSum = selection.items.reduce((n, c) => n + (c.tax_total ?? 0) * c.qty, 0);
+        const itemRows = selection.items.map((c) =>
+          `<div class="price-row"><span>${c.qty}× ${escapeHtml(c.name)}</span><span>₹${fmtPrice(c.total * c.qty)}</span></div>`).join('');
+        widgetPrice.innerHTML = `<div class="price-header"><small>${escapeHtml(selection.check_in)} → ${escapeHtml(selection.check_out)}</small><span>₹${fmtPrice(selection.total)}</span></div>`
+          + `<div class="price-breakdown">${itemRows}`
+          + `<div class="price-row price-row-divider"><span>Room rate</span><span>₹${fmtPrice(baseSum)}</span></div>`
+          + `<div class="price-row"><span>Tax</span><span>₹${fmtPrice(taxSum)}</span></div></div>`;
         clearMsg(guestMsg);
         showStage('guest');
       };
@@ -224,6 +267,8 @@
         last_name: guest.last_name,
         email: document.getElementById('gEmail').value,
         phone: document.getElementById('gPhone').value,
+        phone_code: document.getElementById('gPhoneCode').value,
+        nationality: document.getElementById('gNationality').value,
         special_request: document.getElementById('gRequest').value,
         arrival_time: document.getElementById('gArrival').value,
       };
@@ -259,7 +304,7 @@
         name: 'Mosaic Hostel Varanasi',
         description: guest.rooms.length + ' room(s) · ' + guest.check_in + ' → ' + guest.check_out,
         order_id: order.order_id,
-        prefill: { name: guest.first_name + ' ' + guest.last_name, email: guest.email, contact: guest.phone },
+        prefill: { name: guest.first_name + ' ' + guest.last_name, email: guest.email, contact: guest.phone_code + guest.phone },
         theme: { color: '#C8860A' },
         handler: async function (response) {
           await verifyPayment(response);
@@ -303,10 +348,6 @@
       }
     }
 
-    function escapeHtml(text) {
-      const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
-      return String(text).replace(/[&<>"']/g, (m) => map[m]);
-    }
     function fmtPrice(n) {
       return Number(n).toFixed(2);
     }
@@ -414,6 +455,20 @@
     inputEl.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); }
     });
+  }
+
+  // ── HOSTEL RULES & POLICIES MODAL ──
+  function initPolicyModal() {
+    const overlay = document.getElementById('policyModal');
+    const openLink = document.getElementById('openPolicyModal');
+    const closeBtn = document.getElementById('closePolicyModal');
+    if (!overlay || !openLink || !closeBtn) return;
+    const open = () => overlay.classList.add('open');
+    const close = () => overlay.classList.remove('open');
+    openLink.addEventListener('click', (e) => { e.preventDefault(); open(); });
+    closeBtn.addEventListener('click', close);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   }
 
   // ── MANAGE / CANCEL A BOOKING ──
