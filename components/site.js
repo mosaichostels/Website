@@ -45,6 +45,7 @@
     heroStripe: LOGO_COLORS,
     div0: LOGO_COLORS,
     div1: LOGO_COLORS,
+    div2: LOGO_COLORS,
     mapStrip: LOGO_COLORS,
     footerStrip: FIVE,
   };
