@@ -85,6 +85,9 @@ function ezee_curl(string $url, ?string $jsonBody, ?array $formFields = null): a
   if (!is_array($decoded)) {
     return ['_ok' => false, '_error' => "eZee returned an unexpected response (HTTP $httpCode)."];
   }
+  if (isset($decoded['Errors']['ErrorMessage'])) {
+    return ['_ok' => false, '_error' => 'eZee error: ' . $decoded['Errors']['ErrorMessage']];
+  }
   $decoded['_ok'] = true;
   return $decoded;
 }
