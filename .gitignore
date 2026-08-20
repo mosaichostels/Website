@@ -11,3 +11,6 @@ monitor-report.txt
 
 # Booking engine credentials (eZee + Razorpay) — never commit
 api/secrets.php
+
+# IDE
+.idea/
