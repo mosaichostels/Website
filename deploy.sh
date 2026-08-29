@@ -63,6 +63,17 @@ if [ "$1" = "all" ]; then
     -not -name "secrets.php" -print0)
 else
   FILES_TO_DEPLOY=("$@")
+  # A nonexistent local file used to be silently dropped from the batch
+  # below (the `[ -f "$file" ]` guard) while deploy.sh still reported
+  # "Deployment successful!" — this is exactly how a file was once
+  # believed deployed when it never left the local machine. Fail loud
+  # instead.
+  for file in "${FILES_TO_DEPLOY[@]}"; do
+    if [ ! -f "$file" ]; then
+      echo -e "${RED}❌ File not found locally, aborting: $file${NC}"
+      exit 1
+    fi
+  done
 fi
 
 echo -e "${YELLOW}Files to deploy: ${#FILES_TO_DEPLOY[@]}${NC}"
@@ -90,8 +101,15 @@ trap "rm -f $BATCH_FILE" EXIT
     if [ -f "$file" ]; then
       # Get remote directory
       remote_dir=$(dirname "$file")
+      # fail-exit only wraps `put`: this server's `mkdir -p` returns a
+      # fatal-looking 550 for an already-existing dir (harmless, expected
+      # on every deploy after the first), but a failed `put` must abort —
+      # previously nothing checked individual put results, so deploy.sh
+      # reported success even when a file never actually uploaded.
       if [ "$remote_dir" = "." ]; then
+        echo "set cmd:fail-exit yes"
         echo "put \"$file\""
+        echo "set cmd:fail-exit no"
       else
         # NOTE: `put file dir/` (positional remote arg) silently fails to
         # create missing nested directories on this server and falls back
@@ -102,7 +120,9 @@ trap "rm -f $BATCH_FILE" EXIT
         # contain spaces - an earlier unquoted version silently dropped
         # such files from the batch.
         echo "mkdir -p \"$remote_dir\""
+        echo "set cmd:fail-exit yes"
         echo "put -O \"$remote_dir\" \"$file\""
+        echo "set cmd:fail-exit no"
       fi
     fi
   done
