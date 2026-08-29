@@ -40,3 +40,29 @@ function razorpay_verify_signature(string $orderId, string $paymentId, string $s
   $expected = hash_hmac('sha256', $orderId . '|' . $paymentId, RAZORPAY_KEY_SECRET);
   return hash_equals($expected, $signature);
 }
+
+// Used by reconcile-pending.php to poll for captured payments directly —
+// doesn't depend on the client callback firing or the webhook being
+// registered/reachable, both of which have been observed to fail silently.
+function razorpay_fetch_order_payments(string $orderId): array {
+  $ch = curl_init('https://api.razorpay.com/v1/orders/' . urlencode($orderId) . '/payments');
+  curl_setopt_array($ch, [
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_TIMEOUT => 15,
+    CURLOPT_CONNECTTIMEOUT => 5,
+    CURLOPT_USERPWD => RAZORPAY_KEY_ID . ':' . RAZORPAY_KEY_SECRET,
+  ]);
+  $response = curl_exec($ch);
+  $curlErrno = curl_errno($ch);
+  $curlError = curl_error($ch);
+  $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+  if ($curlErrno !== 0) return ['_ok' => false, '_error' => "Razorpay request failed: $curlError"];
+  $decoded = json_decode($response, true);
+  if (!is_array($decoded) || $httpCode >= 300) {
+    $msg = $decoded['error']['description'] ?? "Razorpay returned HTTP $httpCode";
+    return ['_ok' => false, '_error' => $msg];
+  }
+  $decoded['_ok'] = true;
+  return $decoded;
+}
