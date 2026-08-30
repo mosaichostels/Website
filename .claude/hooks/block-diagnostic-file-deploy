@@ -1,0 +1,30 @@
+#!/bin/bash
+# PreToolUse hook for Bash tool: block deploy.sh commands with diagnostic/debug/test files
+# Reads tool input JSON from stdin, checks if command is deploy.sh + diagnostic filename
+
+TOOL_INPUT=$(cat)
+COMMAND=$(echo "$TOOL_INPUT" | jq -r '.tool_input.command // ""')
+
+# If not a deploy.sh command, allow it
+if ! echo "$COMMAND" | grep -q "deploy\.sh"; then
+  exit 0
+fi
+
+# If deploy.sh command contains a filename with diag/debug/test (case-insensitive), block it
+if echo "$COMMAND" | grep -iE 'deploy\.sh.+(diag|debug|test)' >/dev/null 2>&1; then
+  cat >&2 << 'EOF'
+ERROR: Blocking deployment of diagnostic/debug/test files to production.
+
+Files matching 'diag', 'debug', or 'test' in the filename should not be deployed.
+
+Either:
+- Rename the file before deploying, or
+- Run: ./deploy.sh all (to deploy all non-diagnostic files), or
+- Remove the block-diagnostic-file-deploy hook in .claude/settings.json if this is intentional
+
+Past incident: A debug script was accidentally deployed to production and had to be manually deleted.
+EOF
+  exit 1
+fi
+
+exit 0
