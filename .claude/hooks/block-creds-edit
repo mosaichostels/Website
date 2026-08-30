@@ -1,0 +1,13 @@
+#!/bin/bash
+# PreToolUse hook for Edit/Write tools: block editing api/secrets.php
+
+TOOL_INPUT=$(cat)
+FILE_PATH=$(echo "$TOOL_INPUT" | jq -r '.tool_input.file_path // ""')
+
+# If file_path ends with api/secrets.php, block it
+if [[ "$FILE_PATH" == *"api/secrets.php" ]]; then
+  echo 'ERROR: api/secrets.php holds live production credentials — edit it directly via FTP/SSH, not through Claude Code. If this block is wrong, remove the hook in .claude/settings.json' >&2
+  exit 1
+fi
+
+exit 0
