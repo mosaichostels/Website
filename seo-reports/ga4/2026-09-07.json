@@ -1,0 +1,7276 @@
+{
+ "property": "properties/507278393",
+ "start": "2026-06-07",
+ "end": "2026-09-05",
+ "generated": "2026-09-07T20:46:20",
+ "metadata": {
+  "dimension_count": 376,
+  "metric_count": 89,
+  "custom_dimensions": [
+   {
+    "api": "customEvent:googlesitekit_post_type",
+    "ui": "WordPress Post Type",
+    "scope": "Event-scoped Custom Dimension"
+   }
+  ],
+  "custom_metrics": [],
+  "deprecated": [
+   "countryId",
+   "dayOfWeek",
+   "defaultChannelGroup",
+   "firstSessionDate",
+   "firstUserDefaultChannelGroup",
+   "firstUserDv360LineItemName",
+   "firstUserGoogleAdsCreativeId",
+   "firstUserSourcePlatform",
+   "isKeyEvent",
+   "sessionDefaultChannelGroup",
+   "sessionSourcePlatform",
+   "sourcePlatform",
+   "adUnitExposure",
+   "advertiserAdCostPerKeyEvent",
+   "firstTimePurchaserRate",
+   "itemListClickEvents",
+   "itemListViewEvents",
+   "itemsPurchased",
+   "itemViewEvents",
+   "keyEvents",
+   "promotionClicks",
+   "promotionViews",
+   "purchaserRate",
+   "sessionKeyEventRate",
+   "userKeyEventRate",
+   "keyEvents:purchase",
+   "sessionKeyEventRate:purchase",
+   "userKeyEventRate:purchase"
+  ]
+ },
+ "compatibility": {
+  "dimensionCompatibilities": [
+   {
+    "dimensionMetadata": {
+     "apiName": "campaignId",
+     "uiName": "Campaign ID",
+     "description": "The identifier of the marketing campaign. Present only for key events. Includes Google Ads Campaigns, Manual Campaigns, & other Campaigns.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "campaignName",
+     "uiName": "Campaign",
+     "description": "The name of the marketing campaign. Present only for key events. Includes Google Ads Campaigns, Manual Campaigns, & other Campaigns.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360AccountId",
+     "uiName": "CM360 account ID",
+     "description": "The CM360 Account ID that led to the key event. Identifies the CM360 Account.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360AccountName",
+     "uiName": "CM360 account name",
+     "description": "The CM360 Account Name that led to the key event. A CM360 account consists of advertisers, sites, campaigns, and user profiles.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360AdvertiserId",
+     "uiName": "CM360 advertiser ID",
+     "description": "The CM360 Advertiser ID that led to the key event. A CM360 Advertiser contains a group of campaigns, creative assets, and other settings.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360AdvertiserName",
+     "uiName": "CM360 advertiser name",
+     "description": "The CM360 Advertiser Name that led to the key event. A CM360 Advertiser contains a group of campaigns, creative assets, and other settings.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360CampaignId",
+     "uiName": "CM360 campaign ID",
+     "description": "The CM360 Campaign ID that led to the key event. A CM360 campaign can be configured to specify when your ads run, what landing pages are used, and other properties.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360CampaignName",
+     "uiName": "CM360 campaign name",
+     "description": "The CM360 Campaign Name that led to the key event. A CM360 campaign can be configured to specify when your ads run, what landing pages are used, and other properties.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360CreativeFormat",
+     "uiName": "CM360 creative format",
+     "description": "The CM360 Creative Format that led to the key event. CM360 creative formats are also referred to as creative types.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360CreativeId",
+     "uiName": "CM360 creative ID",
+     "description": "The CM360 Creative ID that led to the key event. Identifies a CM360 creative.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360CreativeName",
+     "uiName": "CM360 creative name",
+     "description": "The CM360 Creative Name that led to the key event. The name given to a CM360 creative.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360CreativeType",
+     "uiName": "CM360 creative type",
+     "description": "The CM360 Creative Type that led to the key event. A category of CM360 creatives like 'Display' or 'Tracking'. To learn more, see [manage creatives](https://support.google.com/campaignmanager/answer/3068258)",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360CreativeTypeId",
+     "uiName": "CM360 creative type ID",
+     "description": "The CM360 Creative Type ID that led to the key event. Identifies a CM360 creative type.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360CreativeVersion",
+     "uiName": "CM360 creative version",
+     "description": "The CM360 Creative Version that led to the key event. The version number helps you keep track of multiple versions of your creative in your reports. If you upload a new asset to an existing creative, the version number is increased by one.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360Medium",
+     "uiName": "CM360 medium",
+     "description": "The CM360 Medium that led to the key event. The CM360 medium is also referred to as the placement cost structure.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360PlacementCostStructure",
+     "uiName": "CM360 placement cost structure",
+     "description": "The CM360 Placement Cost Structure that led to the key event. Placement cost structures regulate how media cost will be calculated. For example 'CPM'.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360PlacementId",
+     "uiName": "CM360 placement ID",
+     "description": "The CM360 Placement ID that led to the key event. Identifies a CM360 placement. A placement is the part of a website where your ad appears.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360PlacementName",
+     "uiName": "CM360 placement name",
+     "description": "The CM360 Placement Name that led to the key event. The given name for a CM360 placement. A placement is the part of a website where your ad appears.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360RenderingId",
+     "uiName": "CM360 rendering ID",
+     "description": "The CM360 Rendering ID that led to the key event. Identifies a CM360 creative.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360SiteId",
+     "uiName": "CM360 site ID",
+     "description": "The CM360 Site ID that led to the key event. Identifies a CM360 site.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360SiteName",
+     "uiName": "CM360 site name",
+     "description": "The CM360 Site Name that led to the key event. The CM360 Site name from which the ad space was purchased.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360Source",
+     "uiName": "CM360 source",
+     "description": "The CM360 Source that led to the key event. The CM360 source is also referred to as the site name.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cm360SourceMedium",
+     "uiName": "CM360 source / medium",
+     "description": "The CM360 Source Medium that led to the key event. A combination of the source and medium.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cohortNthDay",
+     "uiName": "Daily cohort",
+     "description": "Day offset relative to the firstSessionDate for the users in the cohort. For example, if a cohort is selected with the start and end date of 2020-03-01, then for the date 2020-03-02, cohortNthDay will be 0001.",
+     "category": "Cohort"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cohortNthMonth",
+     "uiName": "Monthly cohort",
+     "description": "Month offset relative to the firstSessionDate for the users in the cohort. Month boundaries align with calendar month boundaries. For example, if a cohort is selected with the start and end date in March 2020, then for any date in April 2020, cohortNthMonth will be 0001.",
+     "category": "Cohort"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "cohortNthWeek",
+     "uiName": "Weekly cohort",
+     "description": "Week offset relative to the firstSessionDate for the users in the cohort. Weeks start on Sunday and end on Saturday. For example, if a cohort is selected with the start and end date in the range 2020-11-08 to 2020-11-14, then for the dates in the range 2020-11-15 to 2020-11-21, cohortNthWeek will be 0001.",
+     "category": "Cohort"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "defaultChannelGroup",
+     "uiName": "Default channel group",
+     "description": "The key event's default channel group is based primarily on source and medium. An enumeration which includes `Direct`, `Organic Search`, `Paid Social`, `Organic Social`, `Email`, `Affiliates`, `Referral`, `Paid Search`, `Video`, and `Display`.",
+     "deprecatedApiNames": [
+      "defaultChannelGrouping"
+     ],
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360AdvertiserId",
+     "uiName": "DV360 advertiser ID",
+     "description": "The DV360 Advertiser ID that led to the key event. Identifies the DV360 advertiser.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360AdvertiserName",
+     "uiName": "DV360 advertiser name",
+     "description": "The DV360 Advertiser Name that led to the key event. DV360 advertisers represent real-life businesses that run advertising campaigns.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360CampaignId",
+     "uiName": "DV360 campaign ID",
+     "description": "The DV360 Campaign ID that led to the key event. Identifies the DV360 campaign.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360CampaignName",
+     "uiName": "DV360 campaign name",
+     "description": "The DV360 Campaign Name that led to the key event. DV360 campaigns group together related insertion orders with a common business goal.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360CreativeFormat",
+     "uiName": "DV360 creative format",
+     "description": "The DV360 Creative Format that led to the key event. Also referred to as the creative type. For example, expandable, video, or native.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360CreativeId",
+     "uiName": "DV360 creative ID",
+     "description": "The DV360 Creative ID that led to the key event. Identifies the DV360 creative.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360CreativeName",
+     "uiName": "DV360 creative name",
+     "description": "The DV360 Creative Name that led to the key event. The name given to a DV360 creative.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360ExchangeId",
+     "uiName": "DV360 exchange ID",
+     "description": "The DV360 Exchange ID that led to the key event. Identifies the DV360 exchange.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360ExchangeName",
+     "uiName": "DV360 exchange name",
+     "description": "The DV360 Exchange Name that led to the key event. The DV360 ad exchange involved in the ad click. To learn more, see [managing exchanges](https://support.google.com/displayvideo/answer/9230278).",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360InsertionOrderId",
+     "uiName": "DV360 insertion order ID",
+     "description": "The DV360 Insertion Order ID that led to the key event. Identifies the DV360 insertion order.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360InsertionOrderName",
+     "uiName": "DV360 insertion order name",
+     "description": "The DV360 Insertion Order Name that led to the key event. A DV360 insertion order contains a set of line items that are related to the same advertising campaign.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360LineItemId",
+     "uiName": "DV360 line item ID",
+     "description": "The DV360 Line Item ID that led to the key event. Identifies the DV360 line item.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360LineItemName",
+     "uiName": "DV360 line item name",
+     "description": "The DV360 Line Item Name that led to the key event. A DV360 line item bids on impressions and serves creatives to inventory sources.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360Medium",
+     "uiName": "DV360 medium",
+     "description": "The DV360 Medium that led to the key event. The billable outcome of the insertion order. For example, `cpm`.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360PartnerId",
+     "uiName": "DV360 partner ID",
+     "description": "The DV360 Partner ID that led to the key event. Identifies the DV360 partner.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360PartnerName",
+     "uiName": "DV360 partner name",
+     "description": "The DV360 Partner Name that led to the key event. DV360 partners represent agencies, trading desks, or large individual advertisers.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360Source",
+     "uiName": "DV360 source",
+     "description": "The DV360 Source that led to the key event. The DV360 site name where your ad was displayed.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "dv360SourceMedium",
+     "uiName": "DV360 source / medium",
+     "description": "The DV360 Source Medium that led to the key event. A combination of the source and medium.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "googleAdsAccountName",
+     "uiName": "Google Ads account name",
+     "description": "The Account name from Google Ads for the campaign that led to the key event. Corresponds to `customer.descriptive_name` in the Google Ads API.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "googleAdsAdGroupId",
+     "uiName": "Google Ads ad group ID",
+     "description": "The Google Ads ad group ID attributed to the key event.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "googleAdsAdGroupName",
+     "uiName": "Google Ads ad group name",
+     "description": "The ad group name attributed to the key event.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "googleAdsAdNetworkType",
+     "uiName": "Google Ads ad network type",
+     "description": "The advertising network type of the key event. An enumeration which includes `Google search`, `Search partners`, `Google Display Network`, `Youtube Search`, `Youtube Videos`, `Cross-network`, `Social`, and `(universal campaign)`.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "googleAdsCampaignId",
+     "uiName": "Google Ads campaign ID",
+     "description": "The campaign ID for the Google Ads campaign attributed to the key event.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "googleAdsCampaignName",
+     "uiName": "Google Ads campaign",
+     "description": "The campaign name for the Google Ads campaign attributed to the key event.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "googleAdsCampaignType",
+     "uiName": "Google Ads campaign type",
+     "description": "The campaign type for the Google Ads campaign attributed to the key event. Campaign types determine where customers see your ads and the settings and options available to you in Google Ads. Campaign type is an enumeration that includes: Search, Display, Shopping, Video, Demand Gen, App, Smart, Hotel, Local, and Performance Max. To learn more, see [Choose the right campaign type](https://support.google.com/google-ads/answer/2567043).",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "googleAdsCreativeId",
+     "uiName": "Google Ads creative ID",
+     "description": "The ID of the Google Ads creative attributed to the key event. Creative IDs identify individual ads.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "googleAdsCustomerId",
+     "uiName": "Google Ads customer ID",
+     "description": "The Customer ID from Google Ads for the campaign that led to key event. Customer IDs in Google Ads uniquely identify Google Ads accounts.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "googleAdsKeyword",
+     "uiName": "Google Ads keyword text",
+     "description": "The matched keyword that led to the key event. Keywords are words or phrases describing your product or service that you choose to get your ad in front of the right customers. To learn more about Keywords, see [Keywords: Definition](https://support.google.com/google-ads/answer/6323).",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "googleAdsQuery",
+     "uiName": "Google Ads query",
+     "description": "The search query that led to the key event.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemAffiliation",
+     "uiName": "Item affiliation",
+     "description": "The name or code of the affiliate (partner/vendor; if any) associated with an individual item. Populated by the `affiliation` item parameter.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemBrand",
+     "uiName": "Item brand",
+     "description": "Brand name of the item.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemCategory",
+     "uiName": "Item category",
+     "description": "The hierarchical category in which the item is classified. For example, in Apparel/Mens/Summer/Shirts/T-shirts, Apparel is the item category.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemCategory2",
+     "uiName": "Item category 2",
+     "description": "The hierarchical category in which the item is classified. For example, in Apparel/Mens/Summer/Shirts/T-shirts, Mens is the item category 2.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemCategory3",
+     "uiName": "Item category 3",
+     "description": "The hierarchical category in which the item is classified. For example, in Apparel/Mens/Summer/Shirts/T-shirts, Summer is the item category 3.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemCategory4",
+     "uiName": "Item category 4",
+     "description": "The hierarchical category in which the item is classified. For example, in Apparel/Mens/Summer/Shirts/T-shirts, Shirts is the item category 4.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemCategory5",
+     "uiName": "Item category 5",
+     "description": "The hierarchical category in which the item is classified. For example, in Apparel/Mens/Summer/Shirts/T-shirts, T-shirts is the item category 5.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemId",
+     "uiName": "Item ID",
+     "description": "The ID of the item.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemListId",
+     "uiName": "Item list ID",
+     "description": "The ID of the item list.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemListName",
+     "uiName": "Item list name",
+     "description": "The name of the item list.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemListPosition",
+     "uiName": "Item list position",
+     "description": "The position of an item in a list. For example, a product you sell in a list. This dimension is populated in tagging by the `index` parameter in the items array.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemLocationID",
+     "uiName": "Item location ID",
+     "description": "The physical location associated with the item. For example, the physical store location. It's recommended to use the [Google Place ID](https://developers.google.com/maps/documentation/places/web-service/place-id) that corresponds to the associated item. A custom location ID can also be used. This field is populated in tagging by the `location_id` parameter in the items array.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemName",
+     "uiName": "Item name",
+     "description": "The name of the item.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemPromotionCreativeName",
+     "uiName": "Item promotion creative name",
+     "description": "The name of the item-promotion creative.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemPromotionCreativeSlot",
+     "uiName": "Item promotion creative slot",
+     "description": "The name of the promotional creative slot associated with the item. This dimension can be specified in tagging by the `creative_slot` parameter at the event or item level. If the parameter is specified at both the event & item level, the item-level parameter is used.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemPromotionId",
+     "uiName": "Item promotion ID",
+     "description": "The ID of the item promotion.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemPromotionName",
+     "uiName": "Item promotion name",
+     "description": "The name of the promotion for the item.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "itemVariant",
+     "uiName": "Item variant",
+     "description": "The specific variation of a product. For example, XS, S, M, or L for size; or Red, Blue, Green, or Black for color. Populated by the `item_variant` parameter.",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "manualAdContent",
+     "uiName": "Manual ad content",
+     "description": "The ad content attributed to the key event. Populated by the utm_content parameter.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "manualCampaignId",
+     "uiName": "Manual campaign ID",
+     "description": "The manual Campaign ID that led to the key event. Identifies the manual campaign. Populated by `utm_id` URL parameter.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "manualCampaignName",
+     "uiName": "Manual campaign name",
+     "description": "The manual Campaign Name that led to the key event. The name of the manual campaign. Populated by `utm_campaign` URL parameter. To learn more, see [Collect campaign data with custom URLs](https://support.google.com/analytics/answer/10917952).",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "manualCreativeFormat",
+     "uiName": "Manual creative format",
+     "description": "The manual Creative Format that led to the key event. Identifies the creative format used in the ad. Populated by `utm_creative_format` URL parameter.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "manualMarketingTactic",
+     "uiName": "Manual marketing tactic",
+     "description": "The manual Marketing Tactic that led to the key event. The targeting criteria applied to a campaign. For example, remarketing or prospecting. Populated by `utm_marketing_tactic` URL parameter.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "manualMedium",
+     "uiName": "Manual medium",
+     "description": "The manual Medium that led to the key event. The marketing medium used in the referral. For example, `cpc`. Populated by `utm_medium` URL parameter.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "manualSource",
+     "uiName": "Manual source",
+     "description": "The manual Source that led to the key event. The referrer. Populated by `utm_source` URL parameter.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "manualSourceMedium",
+     "uiName": "Manual source / medium",
+     "description": "The manual Source Medium that led to the key event. A combination of the source and medium.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "manualSourcePlatform",
+     "uiName": "Manual source platform",
+     "description": "The manual Source Platform that led to the key event. The platform responsible for directing traffic to a given Analytics property. Populated by `utm_source_platform` URL parameter.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "manualTerm",
+     "uiName": "Manual term",
+     "description": "The term attributed to the key event. Populated by the utm_term parameter.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "medium",
+     "uiName": "Medium",
+     "description": "The medium attributed to the key event.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "primaryChannelGroup",
+     "uiName": "Primary channel group",
+     "description": "The primary channel group attributed to the key event. Primary channel groups are the channel groups used in standard reports in Google Analytics and serve as an active record of your property's data in alignment with channel grouping over time. To learn more, see [Custom channel groups](https://support.google.com/analytics/answer/13051316).",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360AdGroupId",
+     "uiName": "SA360 ad group ID",
+     "description": "The SA360 Ad Group ID that led to the key event. Identifies the SA360 ad group.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360AdGroupName",
+     "uiName": "SA360 ad group name",
+     "description": "The SA360 Ad Group Name that led to the key event. SA360 Ad groups contain ads and keywords that relate to each other.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360CampaignId",
+     "uiName": "SA360 campaign ID",
+     "description": "The SA360 Campaign ID that led to the key event. Identifies the SA360 campaign.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360CampaignName",
+     "uiName": "SA360 campaign",
+     "description": "The SA360 Campaign Name that led to the key event. A SA360 campaign lets you organize your ads and define a goal for your advertising.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360CreativeFormat",
+     "uiName": "SA360 creative format",
+     "description": "The SA360 Creative Format that led to the key event. The creative format is the specific layout or design of the advertisement used in a campaign.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360EngineAccountId",
+     "uiName": "SA360 engine account ID",
+     "description": "The SA360 Engine Account ID that led to the key event. Identifies the SA360 engine account.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360EngineAccountName",
+     "uiName": "SA360 engine account name",
+     "description": "The SA360 Engine Account Name that led to the key event. A SA360 engine account contains campaigns, ad groups, and other items from an advertising account.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360EngineAccountType",
+     "uiName": "SA360 engine account type",
+     "description": "The SA360 Engine Account Type that led to the key event. The type of engine used by the search engine account.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360KeywordText",
+     "uiName": "SA360 keyword text",
+     "description": "The SA360 Keyword Text that led to the key event. The keywords that matched the search query.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360ManagerAccountId",
+     "uiName": "SA360 manager account ID",
+     "description": "The SA360 Manager Account ID that led to the key event. Identifies the SA360 manager account.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360ManagerAccountName",
+     "uiName": "SA360 manager account name",
+     "description": "The SA360 Manager Account Name that led to the key event. The top level of the Search Ads 360 account hierarchy and is used for administration and reporting across the lower-level sub-manager and client accounts.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360Medium",
+     "uiName": "SA360 medium",
+     "description": "The SA360 Medium that led to the key event. The payment mode used in ad buying. For example, `cpc`.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360Query",
+     "uiName": "SA360 query",
+     "description": "The SA360 Query that led to the key event. The search query typed by the user.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360Source",
+     "uiName": "SA360 source",
+     "description": "The SA360 Source that led to the key event. The search query happened on this site.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sa360SourceMedium",
+     "uiName": "SA360 source / medium",
+     "description": "The SA360 Source Medium that led to the key event. A combination of the source and medium.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "source",
+     "uiName": "Source",
+     "description": "The source attributed to the key event.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sourceMedium",
+     "uiName": "Source / medium",
+     "description": "The combined values of the dimensions `source` and `medium`.",
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "dimensionMetadata": {
+     "apiName": "sourcePlatform",
+     "uiName": "Source platform",
+     "description": "The source platform of the key event's campaign. Don't depend on this field returning `Manual` for traffic that uses UTMs; this field will update from returning `Manual` to returning `(not set)` for an upcoming feature launch.",
+     "deprecatedApiNames": [
+      "trafficOrigin"
+     ],
+     "category": "Attribution"
+    },
+    "compatibility": "INCOMPATIBLE"
+   }
+  ],
+  "metricCompatibilities": [
+   {
+    "metricMetadata": {
+     "apiName": "advertiserAdClicks",
+     "uiName": "Ads clicks",
+     "description": "Total number of times users have clicked on an ad to reach the property. Includes clicks from linked integrations like linked Search Ads 360 advertisers. Also includes uploaded clicks from data import.",
+     "type": "TYPE_INTEGER",
+     "category": "Other"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "advertiserAdCost",
+     "uiName": "Ads cost",
+     "description": "The total amount you paid for your ads. Includes costs from linked integrations like linked Google Ads accounts. Also includes uploaded cost from data import; to learn more, see [Import cost data](https://support.google.com/analytics/answer/10071305).",
+     "type": "TYPE_CURRENCY",
+     "category": "Other"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "advertiserAdCostPerClick",
+     "uiName": "Ads cost per click",
+     "description": "Ads cost per click is ad cost divided by ad clicks and is often abbreviated CPC.",
+     "type": "TYPE_CURRENCY",
+     "category": "Other"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "advertiserAdCostPerKeyEvent",
+     "uiName": "Cost per key event",
+     "description": "Cost per key event is ad cost divided by key events.",
+     "deprecatedApiNames": [
+      "advertiserAdCostPerConversion"
+     ],
+     "type": "TYPE_CURRENCY",
+     "category": "Other"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "advertiserAdImpressions",
+     "uiName": "Ads impressions",
+     "description": "The total number of impressions. Includes impressions from linked integrations like linked Display & Video 360 advertisers. Also includes uploaded impressions from data import.",
+     "type": "TYPE_INTEGER",
+     "category": "Other"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "cohortActiveUsers",
+     "uiName": "Cohort active users",
+     "description": "The number of users in the cohort who are active in the time window corresponding to the cohort nth day/week/month. For example in the row where cohortNthWeek = 0001, this metric is the number of users (in the cohort) who are active in week 1.",
+     "type": "TYPE_INTEGER",
+     "category": "Cohort"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "cohortTotalUsers",
+     "uiName": "Cohort total users",
+     "description": "The total number of users in the cohort. This metric is the same value in every row of the report for each cohort. Because cohorts are defined by a shared acquisition date, cohortTotalUsers is the same as cohortActiveUsers for the cohort's selection date range. For report rows later than the cohort's selection range, it is typical for cohortActiveUsers to be smaller than cohortTotalUsers. This difference represents users from the cohort that were not active for the later date. cohortTotalUsers is commonly used in the metric expression cohortActiveUsers/cohortTotalUsers to compute a user retention fraction for the cohort. The relationship between activeUsers and totalUsers is not equivalent to the relationship between cohortActiveUsers and cohortTotalUsers.",
+     "type": "TYPE_INTEGER",
+     "category": "Cohort"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "grossItemRevenue",
+     "uiName": "Gross item revenue",
+     "description": "The total revenue from items only. Gross item revenue is the product of its price and quantity. Item revenue excludes tax and shipping values; tax & shipping values are specified at the event and not item level. Gross item revenue does not include refunds.",
+     "type": "TYPE_CURRENCY",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "itemDiscountAmount",
+     "uiName": "Item discount amount",
+     "description": "The monetary value of item discounts in eCommerce events. This metric is populated in tagging by the `discount` item parameter.",
+     "type": "TYPE_CURRENCY",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "itemRefundAmount",
+     "uiName": "Item refund amount",
+     "description": "Item refund amount is the total refunded transaction revenue from items only. Item refund amount is the product of price and quantity for the `refund` event.",
+     "type": "TYPE_CURRENCY",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "itemRevenue",
+     "uiName": "Item revenue",
+     "description": "The total revenue from purchases minus refunded transaction revenue from items only. Item revenue is the product of its price and quantity. Item revenue excludes tax and shipping values; tax & shipping values are specified at the event and not item level.",
+     "type": "TYPE_CURRENCY",
+     "category": "Ecommerce"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "organicGoogleSearchAveragePosition",
+     "uiName": "Organic Google Search average position",
+     "description": "The average ranking of your website URLs for the query reported from Search Console. For example, if your site's URL appears at position 3 for one query and position 7 for another query, the average position would be (3+7)/2, or 5. This metric requires an active Search Console link.",
+     "type": "TYPE_FLOAT",
+     "category": "Other"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "organicGoogleSearchClicks",
+     "uiName": "Organic Google Search clicks",
+     "description": "The number of organic Google Search clicks reported from Search Console.  This metric requires an active Search Console link.",
+     "type": "TYPE_INTEGER",
+     "category": "Other"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "organicGoogleSearchClickThroughRate",
+     "uiName": "Organic Google Search click through rate",
+     "description": "The organic Google Search click through rate reported from Search Console. Click through rate is clicks per impression. This metric is returned as a fraction; for example, 0.0588 means about 5.88% of impressions resulted in a click. This metric requires an active Search Console link.",
+     "type": "TYPE_FLOAT",
+     "category": "Other"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "organicGoogleSearchImpressions",
+     "uiName": "Organic Google Search impressions",
+     "description": "The number of organic Google Search impressions reported from Search Console. This metric requires an active Search Console link.",
+     "type": "TYPE_INTEGER",
+     "category": "Other"
+    },
+    "compatibility": "INCOMPATIBLE"
+   },
+   {
+    "metricMetadata": {
+     "apiName": "returnOnAdSpend",
+     "uiName": "Return on ad spend",
+     "description": "Return On Ad Spend (ROAS) is total revenue divided by advertiser ad cost.",
+     "type": "TYPE_FLOAT",
+     "category": "Other"
+    },
+    "compatibility": "INCOMPATIBLE"
+   }
+  ]
+ },
+ "daily": {
+  "rows": [
+   {
+    "date": "20260608",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 1449.573496,
+    "screenPageViews": 8,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "date": "20260609",
+    "sessions": 8,
+    "engagedSessions": 4,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 125.44849450000001,
+    "screenPageViews": 12,
+    "keyEvents": 0,
+    "totalUsers": 7
+   },
+   {
+    "date": "20260610",
+    "sessions": 3,
+    "engagedSessions": 1,
+    "engagementRate": 0.3333333333333333,
+    "bounceRate": 0.6666666666666666,
+    "averageSessionDuration": 15.488791999999998,
+    "screenPageViews": 4,
+    "keyEvents": 0,
+    "totalUsers": 3
+   },
+   {
+    "date": "20260611",
+    "sessions": 13,
+    "engagedSessions": 4,
+    "engagementRate": 0.3076923076923077,
+    "bounceRate": 0.6923076923076923,
+    "averageSessionDuration": 39.259971846153846,
+    "screenPageViews": 17,
+    "keyEvents": 0,
+    "totalUsers": 12
+   },
+   {
+    "date": "20260612",
+    "sessions": 5,
+    "engagedSessions": 2,
+    "engagementRate": 0.4,
+    "bounceRate": 0.6,
+    "averageSessionDuration": 21.434908999999998,
+    "screenPageViews": 14,
+    "keyEvents": 0,
+    "totalUsers": 4
+   },
+   {
+    "date": "20260613",
+    "sessions": 4,
+    "engagedSessions": 1,
+    "engagementRate": 0.25,
+    "bounceRate": 0.75,
+    "averageSessionDuration": 7.95592225,
+    "screenPageViews": 4,
+    "keyEvents": 0,
+    "totalUsers": 4
+   },
+   {
+    "date": "20260614",
+    "sessions": 3,
+    "engagedSessions": 1,
+    "engagementRate": 0.3333333333333333,
+    "bounceRate": 0.6666666666666666,
+    "averageSessionDuration": 191.69660266666665,
+    "screenPageViews": 14,
+    "keyEvents": 0,
+    "totalUsers": 3
+   },
+   {
+    "date": "20260615",
+    "sessions": 5,
+    "engagedSessions": 4,
+    "engagementRate": 0.8,
+    "bounceRate": 0.2,
+    "averageSessionDuration": 451.16695360000006,
+    "screenPageViews": 19,
+    "keyEvents": 0,
+    "totalUsers": 4
+   },
+   {
+    "date": "20260616",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 75.3405875,
+    "screenPageViews": 3,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "date": "20260618",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 216.584902,
+    "screenPageViews": 4,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "date": "20260619",
+    "sessions": 6,
+    "engagedSessions": 5,
+    "engagementRate": 0.8333333333333334,
+    "bounceRate": 0.16666666666666666,
+    "averageSessionDuration": 79.58036266666666,
+    "screenPageViews": 13,
+    "keyEvents": 0,
+    "totalUsers": 6
+   },
+   {
+    "date": "20260620",
+    "sessions": 13,
+    "engagedSessions": 4,
+    "engagementRate": 0.3076923076923077,
+    "bounceRate": 0.6923076923076923,
+    "averageSessionDuration": 117.29137638461538,
+    "screenPageViews": 28,
+    "keyEvents": 0,
+    "totalUsers": 12
+   },
+   {
+    "date": "20260621",
+    "sessions": 3,
+    "engagedSessions": 1,
+    "engagementRate": 0.3333333333333333,
+    "bounceRate": 0.6666666666666666,
+    "averageSessionDuration": 50.31488466666667,
+    "screenPageViews": 3,
+    "keyEvents": 0,
+    "totalUsers": 3
+   },
+   {
+    "date": "20260622",
+    "sessions": 4,
+    "engagedSessions": 2,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 37.71998425,
+    "screenPageViews": 11,
+    "keyEvents": 0,
+    "totalUsers": 4
+   },
+   {
+    "date": "20260623",
+    "sessions": 8,
+    "engagedSessions": 6,
+    "engagementRate": 0.75,
+    "bounceRate": 0.25,
+    "averageSessionDuration": 512.358057,
+    "screenPageViews": 22,
+    "keyEvents": 0,
+    "totalUsers": 5
+   },
+   {
+    "date": "20260624",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 18.831135,
+    "screenPageViews": 4,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "date": "20260625",
+    "sessions": 11,
+    "engagedSessions": 8,
+    "engagementRate": 0.7272727272727273,
+    "bounceRate": 0.2727272727272727,
+    "averageSessionDuration": 629.1259386363637,
+    "screenPageViews": 52,
+    "keyEvents": 0,
+    "totalUsers": 5
+   },
+   {
+    "date": "20260626",
+    "sessions": 11,
+    "engagedSessions": 5,
+    "engagementRate": 0.45454545454545453,
+    "bounceRate": 0.5454545454545454,
+    "averageSessionDuration": 460.4042299090909,
+    "screenPageViews": 36,
+    "keyEvents": 0,
+    "totalUsers": 5
+   },
+   {
+    "date": "20260627",
+    "sessions": 14,
+    "engagedSessions": 9,
+    "engagementRate": 0.6428571428571429,
+    "bounceRate": 0.35714285714285715,
+    "averageSessionDuration": 1159.0608416428572,
+    "screenPageViews": 197,
+    "keyEvents": 0,
+    "totalUsers": 4
+   },
+   {
+    "date": "20260628",
+    "sessions": 17,
+    "engagedSessions": 12,
+    "engagementRate": 0.7058823529411765,
+    "bounceRate": 0.29411764705882354,
+    "averageSessionDuration": 1566.3507005294118,
+    "screenPageViews": 323,
+    "keyEvents": 0,
+    "totalUsers": 5
+   },
+   {
+    "date": "20260629",
+    "sessions": 9,
+    "engagedSessions": 7,
+    "engagementRate": 0.7777777777777778,
+    "bounceRate": 0.2222222222222222,
+    "averageSessionDuration": 1170.7620033333333,
+    "screenPageViews": 117,
+    "keyEvents": 0,
+    "totalUsers": 4
+   },
+   {
+    "date": "20260630",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 641.245099,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "date": "20260810",
+    "sessions": 8,
+    "engagedSessions": 7,
+    "engagementRate": 0.875,
+    "bounceRate": 0.125,
+    "averageSessionDuration": 973.05771125,
+    "screenPageViews": 36,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "date": "20260811",
+    "sessions": 11,
+    "engagedSessions": 9,
+    "engagementRate": 0.8181818181818182,
+    "bounceRate": 0.18181818181818182,
+    "averageSessionDuration": 568.4526155454546,
+    "screenPageViews": 29,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "date": "20260819",
+    "sessions": 7,
+    "engagedSessions": 3,
+    "engagementRate": 0.42857142857142855,
+    "bounceRate": 0.5714285714285714,
+    "averageSessionDuration": 83.79444528571427,
+    "screenPageViews": 14,
+    "keyEvents": 0,
+    "totalUsers": 6
+   },
+   {
+    "date": "20260820",
+    "sessions": 5,
+    "engagedSessions": 1,
+    "engagementRate": 0.2,
+    "bounceRate": 0.8,
+    "averageSessionDuration": 132.7901126,
+    "screenPageViews": 7,
+    "keyEvents": 0,
+    "totalUsers": 3
+   },
+   {
+    "date": "20260821",
+    "sessions": 7,
+    "engagedSessions": 5,
+    "engagementRate": 0.7142857142857143,
+    "bounceRate": 0.2857142857142857,
+    "averageSessionDuration": 122.24306971428571,
+    "screenPageViews": 9,
+    "keyEvents": 0,
+    "totalUsers": 5
+   },
+   {
+    "date": "20260822",
+    "sessions": 3,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 4.824399666666666,
+    "screenPageViews": 3,
+    "keyEvents": 0,
+    "totalUsers": 3
+   },
+   {
+    "date": "20260823",
+    "sessions": 8,
+    "engagedSessions": 4,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 261.577502375,
+    "screenPageViews": 23,
+    "keyEvents": 0,
+    "totalUsers": 6
+   },
+   {
+    "date": "20260824",
+    "sessions": 4,
+    "engagedSessions": 2,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 29.959099,
+    "screenPageViews": 5,
+    "keyEvents": 0,
+    "totalUsers": 4
+   },
+   {
+    "date": "20260825",
+    "sessions": 7,
+    "engagedSessions": 4,
+    "engagementRate": 0.5714285714285714,
+    "bounceRate": 0.42857142857142855,
+    "averageSessionDuration": 76.58148542857143,
+    "screenPageViews": 10,
+    "keyEvents": 0,
+    "totalUsers": 6
+   },
+   {
+    "date": "20260826",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 25.1734,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "date": "20260827",
+    "sessions": 10,
+    "engagedSessions": 3,
+    "engagementRate": 0.3,
+    "bounceRate": 0.7,
+    "averageSessionDuration": 136.9604689,
+    "screenPageViews": 26,
+    "keyEvents": 0,
+    "totalUsers": 7
+   },
+   {
+    "date": "20260828",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "date": "20260829",
+    "sessions": 8,
+    "engagedSessions": 3,
+    "engagementRate": 0.375,
+    "bounceRate": 0.625,
+    "averageSessionDuration": 208.024379,
+    "screenPageViews": 11,
+    "keyEvents": 0,
+    "totalUsers": 8
+   },
+   {
+    "date": "20260830",
+    "sessions": 9,
+    "engagedSessions": 7,
+    "engagementRate": 0.7777777777777778,
+    "bounceRate": 0.2222222222222222,
+    "averageSessionDuration": 212.07799466666665,
+    "screenPageViews": 15,
+    "keyEvents": 0,
+    "totalUsers": 8
+   },
+   {
+    "date": "20260831",
+    "sessions": 6,
+    "engagedSessions": 3,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 139.1756045,
+    "screenPageViews": 10,
+    "keyEvents": 0,
+    "totalUsers": 6
+   },
+   {
+    "date": "20260901",
+    "sessions": 8,
+    "engagedSessions": 5,
+    "engagementRate": 0.625,
+    "bounceRate": 0.375,
+    "averageSessionDuration": 571.5104205,
+    "screenPageViews": 14,
+    "keyEvents": 0,
+    "totalUsers": 8
+   },
+   {
+    "date": "20260902",
+    "sessions": 7,
+    "engagedSessions": 1,
+    "engagementRate": 0.14285714285714285,
+    "bounceRate": 0.8571428571428571,
+    "averageSessionDuration": 200.48398542857143,
+    "screenPageViews": 10,
+    "keyEvents": 0,
+    "totalUsers": 7
+   },
+   {
+    "date": "20260903",
+    "sessions": 4,
+    "engagedSessions": 1,
+    "engagementRate": 0.25,
+    "bounceRate": 0.75,
+    "averageSessionDuration": 169.28745525,
+    "screenPageViews": 10,
+    "keyEvents": 0,
+    "totalUsers": 4
+   },
+   {
+    "date": "20260904",
+    "sessions": 6,
+    "engagedSessions": 3,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 49.75104433333333,
+    "screenPageViews": 7,
+    "keyEvents": 0,
+    "totalUsers": 5
+   },
+   {
+    "date": "20260905",
+    "sessions": 5,
+    "engagedSessions": 5,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 241.40011599999997,
+    "screenPageViews": 16,
+    "keyEvents": 0,
+    "totalUsers": 5
+   }
+  ],
+  "rowCount": 42,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199817
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39997
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13997
+   }
+  }
+ },
+ "monthly_lifetime": {
+  "rows": [
+   {
+    "yearMonth": "202510",
+    "sessions": 126,
+    "totalUsers": 113,
+    "screenPageViews": 244
+   },
+   {
+    "yearMonth": "202511",
+    "sessions": 203,
+    "totalUsers": 133,
+    "screenPageViews": 408
+   },
+   {
+    "yearMonth": "202512",
+    "sessions": 336,
+    "totalUsers": 238,
+    "screenPageViews": 655
+   },
+   {
+    "yearMonth": "202601",
+    "sessions": 220,
+    "totalUsers": 183,
+    "screenPageViews": 414
+   },
+   {
+    "yearMonth": "202602",
+    "sessions": 71,
+    "totalUsers": 53,
+    "screenPageViews": 168
+   },
+   {
+    "yearMonth": "202603",
+    "sessions": 78,
+    "totalUsers": 46,
+    "screenPageViews": 188
+   },
+   {
+    "yearMonth": "202604",
+    "sessions": 173,
+    "totalUsers": 106,
+    "screenPageViews": 660
+   },
+   {
+    "yearMonth": "202605",
+    "sessions": 102,
+    "totalUsers": 69,
+    "screenPageViews": 181
+   },
+   {
+    "yearMonth": "202606",
+    "sessions": 160,
+    "totalUsers": 74,
+    "screenPageViews": 957
+   },
+   {
+    "yearMonth": "202608",
+    "sessions": 93,
+    "totalUsers": 57,
+    "screenPageViews": 201
+   },
+   {
+    "yearMonth": "202609",
+    "sessions": 30,
+    "totalUsers": 28,
+    "screenPageViews": 57
+   }
+  ],
+  "rowCount": 11,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 5,
+    "remaining": 199812
+   },
+   "tokensPerHour": {
+    "consumed": 5,
+    "remaining": 39992
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 5,
+    "remaining": 13992
+   }
+  }
+ },
+ "channels": {
+  "rows": [
+   {
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 150,
+    "engagedSessions": 82,
+    "engagementRate": 0.5466666666666666,
+    "bounceRate": 0.4533333333333333,
+    "averageSessionDuration": 609.98035174,
+    "screenPageViews": 899,
+    "keyEvents": 0,
+    "totalUsers": 70,
+    "newUsers": 67,
+    "userEngagementDuration": 17329
+   },
+   {
+    "sessionDefaultChannelGroup": "Organic Search",
+    "sessions": 47,
+    "engagedSessions": 29,
+    "engagementRate": 0.6170212765957447,
+    "bounceRate": 0.3829787234042553,
+    "averageSessionDuration": 109.24883504255318,
+    "screenPageViews": 93,
+    "keyEvents": 0,
+    "totalUsers": 29,
+    "newUsers": 25,
+    "userEngagementDuration": 2719
+   },
+   {
+    "sessionDefaultChannelGroup": "AI Assistant",
+    "sessions": 27,
+    "engagedSessions": 21,
+    "engagementRate": 0.7777777777777778,
+    "bounceRate": 0.2222222222222222,
+    "averageSessionDuration": 309.1688140740741,
+    "screenPageViews": 66,
+    "keyEvents": 0,
+    "totalUsers": 22,
+    "newUsers": 22,
+    "userEngagementDuration": 1978
+   },
+   {
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 22,
+    "engagedSessions": 16,
+    "engagementRate": 0.7272727272727273,
+    "bounceRate": 0.2727272727272727,
+    "averageSessionDuration": 100.63630063636364,
+    "screenPageViews": 43,
+    "keyEvents": 0,
+    "totalUsers": 21,
+    "newUsers": 21,
+    "userEngagementDuration": 449
+   },
+   {
+    "sessionDefaultChannelGroup": "Unassigned",
+    "sessions": 21,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 193.10056576190476,
+    "screenPageViews": 62,
+    "keyEvents": 0,
+    "totalUsers": 14,
+    "newUsers": 0,
+    "userEngagementDuration": 714
+   },
+   {
+    "sessionDefaultChannelGroup": "Referral",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 641.245099,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 2,
+    "newUsers": 1,
+    "userEngagementDuration": 6
+   }
+  ],
+  "rowCount": 6,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199811
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39991
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13991
+   }
+  }
+ },
+ "source_medium": {
+  "rows": [
+   {
+    "sessionSourceMedium": "(direct) / (none)",
+    "sessions": 150,
+    "engagedSessions": 82,
+    "engagementRate": 0.5466666666666666,
+    "bounceRate": 0.4533333333333333,
+    "averageSessionDuration": 609.98035174,
+    "screenPageViews": 899,
+    "keyEvents": 0,
+    "totalUsers": 70
+   },
+   {
+    "sessionSourceMedium": "google / organic",
+    "sessions": 45,
+    "engagedSessions": 28,
+    "engagementRate": 0.6222222222222222,
+    "bounceRate": 0.37777777777777777,
+    "averageSessionDuration": 101.42953493333333,
+    "screenPageViews": 80,
+    "keyEvents": 0,
+    "totalUsers": 28
+   },
+   {
+    "sessionSourceMedium": "chatgpt.com / ai-assistant",
+    "sessions": 27,
+    "engagedSessions": 21,
+    "engagementRate": 0.7777777777777778,
+    "bounceRate": 0.2222222222222222,
+    "averageSessionDuration": 309.1688140740741,
+    "screenPageViews": 66,
+    "keyEvents": 0,
+    "totalUsers": 22
+   },
+   {
+    "sessionSourceMedium": "(not set)",
+    "sessions": 21,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 193.10056576190476,
+    "screenPageViews": 62,
+    "keyEvents": 0,
+    "totalUsers": 14
+   },
+   {
+    "sessionSourceMedium": "ig / social",
+    "sessions": 18,
+    "engagedSessions": 13,
+    "engagementRate": 0.7222222222222222,
+    "bounceRate": 0.2777777777777778,
+    "averageSessionDuration": 117.86601844444444,
+    "screenPageViews": 39,
+    "keyEvents": 0,
+    "totalUsers": 17
+   },
+   {
+    "sessionSourceMedium": "facebook.com / referral",
+    "sessions": 3,
+    "engagedSessions": 3,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 30.80342733333333,
+    "screenPageViews": 3,
+    "keyEvents": 0,
+    "totalUsers": 3
+   },
+   {
+    "sessionSourceMedium": "ntp.msn.com / referral",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 285.1830875,
+    "screenPageViews": 13,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "sessionSourceMedium": "hpanel.hostinger.com / referral",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 1282.490198,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "sessionSourceMedium": "l.wl.co / referral",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "sessionSourceMedium": "threads / social",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   }
+  ],
+  "rowCount": 10,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 2,
+    "remaining": 199809
+   },
+   "tokensPerHour": {
+    "consumed": 2,
+    "remaining": 39989
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 2,
+    "remaining": 13989
+   }
+  }
+ },
+ "organic_source": {
+  "rows": [
+   {
+    "sessionSource": "google",
+    "sessions": 45,
+    "engagedSessions": 28,
+    "engagementRate": 0.6222222222222222,
+    "bounceRate": 0.37777777777777777,
+    "averageSessionDuration": 101.42953493333333,
+    "screenPageViews": 80
+   },
+   {
+    "sessionSource": "ntp.msn.com",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 285.1830875,
+    "screenPageViews": 13
+   }
+  ],
+  "rowCount": 2,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199808
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39988
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13988
+   }
+  }
+ },
+ "landing_by_channel": {
+  "rows": [
+   {
+    "landingPagePlusQueryString": "/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 61,
+    "engagedSessions": 35,
+    "engagementRate": 0.5737704918032787,
+    "bounceRate": 0.4262295081967213,
+    "averageSessionDuration": 686.6879369180328,
+    "screenPageViews": 523,
+    "keyEvents": 0,
+    "totalUsers": 35
+   },
+   {
+    "landingPagePlusQueryString": "/",
+    "sessionDefaultChannelGroup": "Organic Search",
+    "sessions": 30,
+    "engagedSessions": 20,
+    "engagementRate": 0.6666666666666666,
+    "bounceRate": 0.3333333333333333,
+    "averageSessionDuration": 110.1749963,
+    "screenPageViews": 70,
+    "keyEvents": 0,
+    "totalUsers": 22
+   },
+   {
+    "landingPagePlusQueryString": "/",
+    "sessionDefaultChannelGroup": "AI Assistant",
+    "sessions": 22,
+    "engagedSessions": 18,
+    "engagementRate": 0.8181818181818182,
+    "bounceRate": 0.18181818181818182,
+    "averageSessionDuration": 362.05303150000003,
+    "screenPageViews": 59,
+    "keyEvents": 0,
+    "totalUsers": 19
+   },
+   {
+    "landingPagePlusQueryString": "/book-now",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 15,
+    "engagedSessions": 11,
+    "engagementRate": 0.7333333333333333,
+    "bounceRate": 0.26666666666666666,
+    "averageSessionDuration": 619.479892,
+    "screenPageViews": 36,
+    "keyEvents": 0,
+    "totalUsers": 7
+   },
+   {
+    "landingPagePlusQueryString": "/gallery/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 14,
+    "engagedSessions": 10,
+    "engagementRate": 0.7142857142857143,
+    "bounceRate": 0.2857142857142857,
+    "averageSessionDuration": 542.1262512142857,
+    "screenPageViews": 91,
+    "keyEvents": 0,
+    "totalUsers": 9
+   },
+   {
+    "landingPagePlusQueryString": "(not set)",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 12,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.32378508333333333,
+    "screenPageViews": 0,
+    "keyEvents": 0,
+    "totalUsers": 6
+   },
+   {
+    "landingPagePlusQueryString": "/blog/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 10,
+    "engagedSessions": 6,
+    "engagementRate": 0.6,
+    "bounceRate": 0.4,
+    "averageSessionDuration": 1403.2148978,
+    "screenPageViews": 126,
+    "keyEvents": 0,
+    "totalUsers": 5
+   },
+   {
+    "landingPagePlusQueryString": "/gallery",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 9,
+    "engagedSessions": 6,
+    "engagementRate": 0.6666666666666666,
+    "bounceRate": 0.3333333333333333,
+    "averageSessionDuration": 545.4782851111111,
+    "screenPageViews": 17,
+    "keyEvents": 0,
+    "totalUsers": 7
+   },
+   {
+    "landingPagePlusQueryString": "/book-now",
+    "sessionDefaultChannelGroup": "Unassigned",
+    "sessions": 6,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 243.74657466666667,
+    "screenPageViews": 10,
+    "keyEvents": 0,
+    "totalUsers": 6
+   },
+   {
+    "landingPagePlusQueryString": "/gallery",
+    "sessionDefaultChannelGroup": "Unassigned",
+    "sessions": 6,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 117.05560383333334,
+    "screenPageViews": 15,
+    "keyEvents": 0,
+    "totalUsers": 4
+   },
+   {
+    "landingPagePlusQueryString": "/blog/",
+    "sessionDefaultChannelGroup": "Unassigned",
+    "sessions": 5,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 50.146833400000006,
+    "screenPageViews": 15,
+    "keyEvents": 0,
+    "totalUsers": 3
+   },
+   {
+    "landingPagePlusQueryString": "/blog/co-working-spaces-cafes-assi-ghat/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 5,
+    "engagedSessions": 1,
+    "engagementRate": 0.2,
+    "bounceRate": 0.8,
+    "averageSessionDuration": 2.7114608,
+    "screenPageViews": 5,
+    "keyEvents": 0,
+    "totalUsers": 5
+   },
+   {
+    "landingPagePlusQueryString": "/book-now.html",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 4,
+    "engagedSessions": 4,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 974.2399425,
+    "screenPageViews": 19,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "landingPagePlusQueryString": "/gallery/",
+    "sessionDefaultChannelGroup": "Organic Search",
+    "sessions": 4,
+    "engagedSessions": 1,
+    "engagementRate": 0.25,
+    "bounceRate": 0.75,
+    "averageSessionDuration": 1.45175775,
+    "screenPageViews": 5,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/book-now/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 3,
+    "engagedSessions": 2,
+    "engagementRate": 0.6666666666666666,
+    "bounceRate": 0.3333333333333333,
+    "averageSessionDuration": 1992.3861120000001,
+    "screenPageViews": 49,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "landingPagePlusQueryString": "(not set)",
+    "sessionDefaultChannelGroup": "Organic Search",
+    "sessions": 2,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 0,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "landingPagePlusQueryString": "/",
+    "sessionDefaultChannelGroup": "Referral",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 641.245099,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "landingPagePlusQueryString": "/",
+    "sessionDefaultChannelGroup": "Unassigned",
+    "sessions": 2,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 774.5940645,
+    "screenPageViews": 20,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+    "sessionDefaultChannelGroup": "Organic Search",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 509.7803675,
+    "screenPageViews": 3,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "landingPagePlusQueryString": "/blog/is-varanasi-safe-general-guide/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 12.0551075,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-solo-female-travelers-safety-travel-guide/",
+    "sessionDefaultChannelGroup": "Organic Search",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 12.5082025,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "landingPagePlusQueryString": "/gallery",
+    "sessionDefaultChannelGroup": "Organic Search",
+    "sessions": 2,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 3.262907,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/varanasi-solo-female-travelers-safety-travel-guide/",
+    "sessionDefaultChannelGroup": "Organic Search",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 107.819255,
+    "screenPageViews": 7,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "landingPagePlusQueryString": "(not set)",
+    "sessionDefaultChannelGroup": "AI Assistant",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 0,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?customize_changeset_uuid=76b64a4c-fe96-4cbc-8088-3ff6c25a8430&customize_theme=mosaic-blank&customize_messenger_channel=preview-0",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 152.131454,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEe_N4nw2yXNLY4Ncnj5jrbW52uBSOc046x2wYZSexZIZlNHQ7GoKJMErvVRPU_aem_okwnx8j_goqxuYLubWgGBA",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 31.823689,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=IwcGRvZgRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwyNTYyODEwNDA1NTgAAR5xWeCY5NmmDPQMCVwTGNma5El423KFJlrK_GXvCGBA87eqR8hO4n6LRt79nw_aem_telxOiLFd14FsKHNGWAsMw",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 31.331776,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=IwcGRvZgRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwyNTYyODEwNDA1NTgAAR7XG8WudQbtWnL2e9s4ZUNSXHx3GZIJ0FGX9XZjxVdCEnZ6pa7kZ_A6a_27ew_aem_Ra-Ov_vlwWJHnvrJT2IiZw",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 29.254817,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGn5BMS_vsNFmXL5qJlL4EYtsGb3FQPBhWnUnYL1n4gBjqM8olWwaHGxq600OE_aem_Ff6BjHogAw41KKunRaynfw",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGnPjiuaCWx1Ny6BK5-ekKuYoIAkosEck_vYKUzDN2nJ1i40CnA0b63BCHfnq0_aem_ZPTIxbBVnB1O4I2bFDTFVQ",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 782.762958,
+    "screenPageViews": 5,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGnUJxk0IDRTOC_V6jnXqmqWqhcNSv9t0ajodJc_XE8hpujmm1in8JbtAzD6ws_aem_ZM4e4vvkblRy2UOnattEiA",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGneRPVf_uZtezG3pDOYAaSBFgdxhatkisJjnUoxDjHnX3WmpL6hGjOyyC2N1c_aem_XiXRTShBlFgwedCFGa3mAQ",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 25.53224,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnI6MQ2Kv5zqrYz3TjzvlnHN-oXx-s87lyAkiDMS_3X4dC8avcwmVy1jZOBVQ_aem_OiuyrpKKSj5EBuuKpd9S6A",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 54.252283,
+    "screenPageViews": 3,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnL7fqVZHFrcUSwhTRVzx6k_Vx9Y2pJY_RwpeP6cniKtGWcH-FFyxomIDtIrw_aem_F47oRTsdldxl-9ke-JN2nQ",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 406.972063,
+    "screenPageViews": 4,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnf9PkCAABIBVw8rKLUDjFeOva0ofbahN5issACPFcFN-bl4BA_r4X5wxzb7g_aem_JENOzLfQUU7yJsB0nATAyw",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 46.466376,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnjij8HsMlFcOQCJoR3tGIJJJ3j5lsAlYGC1fuvE55jjU8qGWjKFoBPlAAuYg_aem_wdjZvpg4H7kJ7WpGAvvl2g",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnrmOSb_sp2_LSFruuqioshtSy53-2sn-L79MirUF1TACr8CNnEMSmNGBEX-0_aem_WsvY1BKeU8jXo4ugvQTxig",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 9.45875,
+    "screenPageViews": 5,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAacDTi5gG0iV0Bak4SW1SjGqPo7L6qU9iUAk1DSCRK2mW4MgyI12vhbKo3V7qA_aem_EDVpj2cIVG5ZjCaP7rfxNQ",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 498.922649,
+    "screenPageViews": 4,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaf7wevm90x2cV5ai2VYUVJcDseNkkbPzE3AB-cXllOVqmcUKARJb_Fk55zEQw_aem_tgldoKpBhlsfcAe4M63oxQ",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 34.733524,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDR-RDQoVIN9yJpuFuOR_uka9nQyR1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaf6ZJeteWojEfxEHoOoA12C_rw9bPFGxgajsJGSeKQtndXZ-j_qDeey3Hhtkw_aem_BlIEvOaDxrdVzszFPg1oYw",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDRPRKYpSkx2NkatX6wneZaR-xmS99leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAacWEPPitP7HMYZDytvKdWaSwFwlQq3JcuN8no-7bSRI9GwxmzuFJ7mSWWckRQ_aem_sC98RuY1PZgj75gSHnDbRw",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 33.445326,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDRRjfH3pxbewK7nYF4bvlg-FEdLeVleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafYJ7j05iJWNLh1qCKDFUCQykuw3qzc6LpibO8TWy2zcG9yz8IuzraFwYZUFA_aem_H1kXSpRLIqSplbU3cGbGQA",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 86.39107,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDWbHZzhztOx7Y5w0e9WTyw-zU-KHJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadkg-gCLywDuwbzM_7yjtucCUsPaUXrUoGaiZL6Shga1ZJP4YmuRfVHxTwT_g_aem_tZ5IAqDfuxtS3ruu1CZTKA",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 16.003488,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDXFRmBU8Qj62Qq5HCZpOXtqmg-AvNleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAack-CY89TNdAvekXCkZ7f8H0Cy7MRj0Kg5576kfrSf57zNV3wcTvDZUTjbywQ_aem_ooUlmizX5GtC0Lbv31qZVA",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 67.0354,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDXNR2gFbzCQOVBLLgNselRi-qcSUBleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafWx_3L0AFp2J7OHW33CCqwFn4TbaeEQyL2UBn4NYP1OkB2WT3MCJbbmyPg5g_aem_fAHos1ociXHx6JMq64B7Jg",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDbSnjVTS6y7Ndb1985_2KQUhC31s5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAae4s16a9T861NmToT9e5rNYtBZ9vLwZTteGWKHuH-IRNpc90k6vi95Vu5zpjg_aem_7sMkic-1wpNIQEf6G0my1g",
+    "sessionDefaultChannelGroup": "Organic Social",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 59.612205,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?orchestrator_test=1",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 2344.288221,
+    "screenPageViews": 6,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?sa=X&ved=2ahUKEwiL7vH77eOVAxXkHRwAHSEbDEMQyK4DegUIAxDyAg",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/Website/privacy.html?_ijt=t4oi6ij6tv0487hjpku1oo1cfe&_ij_reload=RELOAD_ON_SAVE",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/best-time-to-visit-varanasi-month-by-month-guide/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 77.031767,
+    "screenPageViews": 3,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-varanasi-complete-guide/",
+    "sessionDefaultChannelGroup": "AI Assistant",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 41.137721,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-varanasi-complete-guide/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 608.423291,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-varanasi-complete-guide/",
+    "sessionDefaultChannelGroup": "Organic Search",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 145.957392,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+    "sessionDefaultChannelGroup": "AI Assistant",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 109.018713,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/best-hostels-in-varanasi/",
+    "sessionDefaultChannelGroup": "Organic Search",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 275.98194,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/best-time-to-visit-varanasi-month-by-month/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/sarnath-day-trip-guide-varanasi/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/things-to-do-varanasi-local-guide/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 8.836206,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-2-day-itinerary-backpackers/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/",
+    "sessionDefaultChannelGroup": "Organic Search",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 134.957531,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-solo-female-travelers-safety-travel-guide/",
+    "sessionDefaultChannelGroup": "AI Assistant",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 229.45101,
+    "screenPageViews": 3,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/book-now/",
+    "sessionDefaultChannelGroup": "Unassigned",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 17.047315,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/gallery",
+    "sessionDefaultChannelGroup": "AI Assistant",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 2.783843,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/gallery.php",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 324.433567,
+    "screenPageViews": 7,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/policies.html",
+    "sessionDefaultChannelGroup": "Direct",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 354.853616,
+    "screenPageViews": 3,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/privacy",
+    "sessionDefaultChannelGroup": "Unassigned",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 73.329199,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   }
+  ],
+  "rowCount": 70,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 2,
+    "remaining": 199806
+   },
+   "tokensPerHour": {
+    "consumed": 2,
+    "remaining": 39986
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 2,
+    "remaining": 13986
+   }
+  }
+ },
+ "landing_all": {
+  "rows": [
+   {
+    "landingPagePlusQueryString": "/",
+    "sessions": 118,
+    "engagedSessions": 74,
+    "engagementRate": 0.6271186440677966,
+    "bounceRate": 0.3728813559322034,
+    "averageSessionDuration": 474.492025940678,
+    "screenPageViews": 675,
+    "keyEvents": 0,
+    "totalUsers": 77
+   },
+   {
+    "landingPagePlusQueryString": "/book-now",
+    "sessions": 21,
+    "engagedSessions": 11,
+    "engagementRate": 0.5238095238095238,
+    "bounceRate": 0.47619047619047616,
+    "averageSessionDuration": 512.1275156190476,
+    "screenPageViews": 46,
+    "keyEvents": 0,
+    "totalUsers": 12
+   },
+   {
+    "landingPagePlusQueryString": "/gallery",
+    "sessions": 18,
+    "engagedSessions": 6,
+    "engagementRate": 0.3333333333333333,
+    "bounceRate": 0.6666666666666666,
+    "averageSessionDuration": 312.27488033333333,
+    "screenPageViews": 35,
+    "keyEvents": 0,
+    "totalUsers": 12
+   },
+   {
+    "landingPagePlusQueryString": "/gallery/",
+    "sessions": 18,
+    "engagedSessions": 11,
+    "engagementRate": 0.6111111111111112,
+    "bounceRate": 0.3888888888888889,
+    "averageSessionDuration": 421.97636377777775,
+    "screenPageViews": 96,
+    "keyEvents": 0,
+    "totalUsers": 10
+   },
+   {
+    "landingPagePlusQueryString": "(not set)",
+    "sessions": 15,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.25902806666666667,
+    "screenPageViews": 0,
+    "keyEvents": 0,
+    "totalUsers": 8
+   },
+   {
+    "landingPagePlusQueryString": "/blog/",
+    "sessions": 15,
+    "engagedSessions": 6,
+    "engagementRate": 0.4,
+    "bounceRate": 0.6,
+    "averageSessionDuration": 952.1922096666666,
+    "screenPageViews": 141,
+    "keyEvents": 0,
+    "totalUsers": 7
+   },
+   {
+    "landingPagePlusQueryString": "/blog/co-working-spaces-cafes-assi-ghat/",
+    "sessions": 5,
+    "engagedSessions": 1,
+    "engagementRate": 0.2,
+    "bounceRate": 0.8,
+    "averageSessionDuration": 2.7114608,
+    "screenPageViews": 5,
+    "keyEvents": 0,
+    "totalUsers": 5
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+    "sessions": 4,
+    "engagedSessions": 3,
+    "engagementRate": 0.75,
+    "bounceRate": 0.25,
+    "averageSessionDuration": 282.144862,
+    "screenPageViews": 5,
+    "keyEvents": 0,
+    "totalUsers": 4
+   },
+   {
+    "landingPagePlusQueryString": "/book-now.html",
+    "sessions": 4,
+    "engagedSessions": 4,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 974.2399425,
+    "screenPageViews": 19,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "landingPagePlusQueryString": "/book-now/",
+    "sessions": 4,
+    "engagedSessions": 2,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 1498.55141275,
+    "screenPageViews": 50,
+    "keyEvents": 0,
+    "totalUsers": 3
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-varanasi-complete-guide/",
+    "sessions": 3,
+    "engagedSessions": 3,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 265.1728013333333,
+    "screenPageViews": 4,
+    "keyEvents": 0,
+    "totalUsers": 3
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-solo-female-travelers-safety-travel-guide/",
+    "sessions": 3,
+    "engagedSessions": 2,
+    "engagementRate": 0.6666666666666666,
+    "bounceRate": 0.3333333333333333,
+    "averageSessionDuration": 84.82247166666667,
+    "screenPageViews": 5,
+    "keyEvents": 0,
+    "totalUsers": 3
+   },
+   {
+    "landingPagePlusQueryString": "/blog/is-varanasi-safe-general-guide/",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 12.0551075,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 67.4787655,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "landingPagePlusQueryString": "/varanasi-solo-female-travelers-safety-travel-guide/",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 107.819255,
+    "screenPageViews": 7,
+    "keyEvents": 0,
+    "totalUsers": 2
+   },
+   {
+    "landingPagePlusQueryString": "/?customize_changeset_uuid=76b64a4c-fe96-4cbc-8088-3ff6c25a8430&customize_theme=mosaic-blank&customize_messenger_channel=preview-0",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 152.131454,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=IwZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAEe_N4nw2yXNLY4Ncnj5jrbW52uBSOc046x2wYZSexZIZlNHQ7GoKJMErvVRPU_aem_okwnx8j_goqxuYLubWgGBA",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 31.823689,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=IwcGRvZgRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwyNTYyODEwNDA1NTgAAR5xWeCY5NmmDPQMCVwTGNma5El423KFJlrK_GXvCGBA87eqR8hO4n6LRt79nw_aem_telxOiLFd14FsKHNGWAsMw",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 31.331776,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=IwcGRvZgRleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwyNTYyODEwNDA1NTgAAR7XG8WudQbtWnL2e9s4ZUNSXHx3GZIJ0FGX9XZjxVdCEnZ6pa7kZ_A6a_27ew_aem_Ra-Ov_vlwWJHnvrJT2IiZw",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 29.254817,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGn5BMS_vsNFmXL5qJlL4EYtsGb3FQPBhWnUnYL1n4gBjqM8olWwaHGxq600OE_aem_Ff6BjHogAw41KKunRaynfw",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGnPjiuaCWx1Ny6BK5-ekKuYoIAkosEck_vYKUzDN2nJ1i40CnA0b63BCHfnq0_aem_ZPTIxbBVnB1O4I2bFDTFVQ",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 782.762958,
+    "screenPageViews": 5,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGnUJxk0IDRTOC_V6jnXqmqWqhcNSv9t0ajodJc_XE8hpujmm1in8JbtAzD6ws_aem_ZM4e4vvkblRy2UOnattEiA",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPMTI0MDI0NTc0Mjg3NDE0AAGneRPVf_uZtezG3pDOYAaSBFgdxhatkisJjnUoxDjHnX3WmpL6hGjOyyC2N1c_aem_XiXRTShBlFgwedCFGa3mAQ",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 25.53224,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnI6MQ2Kv5zqrYz3TjzvlnHN-oXx-s87lyAkiDMS_3X4dC8avcwmVy1jZOBVQ_aem_OiuyrpKKSj5EBuuKpd9S6A",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 54.252283,
+    "screenPageViews": 3,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnL7fqVZHFrcUSwhTRVzx6k_Vx9Y2pJY_RwpeP6cniKtGWcH-FFyxomIDtIrw_aem_F47oRTsdldxl-9ke-JN2nQ",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 406.972063,
+    "screenPageViews": 4,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnf9PkCAABIBVw8rKLUDjFeOva0ofbahN5issACPFcFN-bl4BA_r4X5wxzb7g_aem_JENOzLfQUU7yJsB0nATAyw",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 46.466376,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnjij8HsMlFcOQCJoR3tGIJJJ3j5lsAlYGC1fuvE55jjU8qGWjKFoBPlAAuYg_aem_wdjZvpg4H7kJ7WpGAvvl2g",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQPNTY3MDY3MzQzMzUyNDI3AAGnrmOSb_sp2_LSFruuqioshtSy53-2sn-L79MirUF1TACr8CNnEMSmNGBEX-0_aem_WsvY1BKeU8jXo4ugvQTxig",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 9.45875,
+    "screenPageViews": 5,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAacDTi5gG0iV0Bak4SW1SjGqPo7L6qU9iUAk1DSCRK2mW4MgyI12vhbKo3V7qA_aem_EDVpj2cIVG5ZjCaP7rfxNQ",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 498.922649,
+    "screenPageViews": 4,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAaf7wevm90x2cV5ai2VYUVJcDseNkkbPzE3AB-cXllOVqmcUKARJb_Fk55zEQw_aem_tgldoKpBhlsfcAe4M63oxQ",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 34.733524,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDR-RDQoVIN9yJpuFuOR_uka9nQyR1leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaf6ZJeteWojEfxEHoOoA12C_rw9bPFGxgajsJGSeKQtndXZ-j_qDeey3Hhtkw_aem_BlIEvOaDxrdVzszFPg1oYw",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDRPRKYpSkx2NkatX6wneZaR-xmS99leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAacWEPPitP7HMYZDytvKdWaSwFwlQq3JcuN8no-7bSRI9GwxmzuFJ7mSWWckRQ_aem_sC98RuY1PZgj75gSHnDbRw",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 33.445326,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDRRjfH3pxbewK7nYF4bvlg-FEdLeVleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafYJ7j05iJWNLh1qCKDFUCQykuw3qzc6LpibO8TWy2zcG9yz8IuzraFwYZUFA_aem_H1kXSpRLIqSplbU3cGbGQA",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 86.39107,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDWbHZzhztOx7Y5w0e9WTyw-zU-KHJleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadkg-gCLywDuwbzM_7yjtucCUsPaUXrUoGaiZL6Shga1ZJP4YmuRfVHxTwT_g_aem_tZ5IAqDfuxtS3ruu1CZTKA",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 16.003488,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDXFRmBU8Qj62Qq5HCZpOXtqmg-AvNleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAack-CY89TNdAvekXCkZ7f8H0Cy7MRj0Kg5576kfrSf57zNV3wcTvDZUTjbywQ_aem_ooUlmizX5GtC0Lbv31qZVA",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 67.0354,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDXNR2gFbzCQOVBLLgNselRi-qcSUBleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAafWx_3L0AFp2J7OHW33CCqwFn4TbaeEQyL2UBn4NYP1OkB2WT3MCJbbmyPg5g_aem_fAHos1ociXHx6JMq64B7Jg",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?fbclid=PAcGRvZgJmZGlkFlDbSnjVTS6y7Ndb1985_2KQUhC31s5leHRuA2FlbQIxMQBzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAae4s16a9T861NmToT9e5rNYtBZ9vLwZTteGWKHuH-IRNpc90k6vi95Vu5zpjg_aem_7sMkic-1wpNIQEf6G0my1g",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 59.612205,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?orchestrator_test=1",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 2344.288221,
+    "screenPageViews": 6,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/?sa=X&ved=2ahUKEwiL7vH77eOVAxXkHRwAHSEbDEMQyK4DegUIAxDyAg",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/Website/privacy.html?_ijt=t4oi6ij6tv0487hjpku1oo1cfe&_ij_reload=RELOAD_ON_SAVE",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/best-time-to-visit-varanasi-month-by-month-guide/",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 77.031767,
+    "screenPageViews": 3,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/best-hostels-in-varanasi/",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 275.98194,
+    "screenPageViews": 2,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/best-time-to-visit-varanasi-month-by-month/",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/sarnath-day-trip-guide-varanasi/",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/things-to-do-varanasi-local-guide/",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 8.836206,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-2-day-itinerary-backpackers/",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/gallery.php",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 324.433567,
+    "screenPageViews": 7,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/policies.html",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 354.853616,
+    "screenPageViews": 3,
+    "keyEvents": 0,
+    "totalUsers": 1
+   },
+   {
+    "landingPagePlusQueryString": "/privacy",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 73.329199,
+    "screenPageViews": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   }
+  ],
+  "rowCount": 50,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 2,
+    "remaining": 199804
+   },
+   "tokensPerHour": {
+    "consumed": 2,
+    "remaining": 39984
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 2,
+    "remaining": 13984
+   }
+  }
+ },
+ "gsc_linked_landing": {
+  "rows": [
+   {
+    "landingPagePlusQueryString": "/",
+    "organicGoogleSearchClicks": 62,
+    "organicGoogleSearchImpressions": 2392,
+    "organicGoogleSearchClickThroughRate": 0.025919732441471572,
+    "organicGoogleSearchAveragePosition": 8.501254180602007
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+    "organicGoogleSearchClicks": 5,
+    "organicGoogleSearchImpressions": 710,
+    "organicGoogleSearchClickThroughRate": 0.007042253521126761,
+    "organicGoogleSearchAveragePosition": 7.46056338028169
+   },
+   {
+    "landingPagePlusQueryString": "/blog/is-varanasi-safe-general-guide/",
+    "organicGoogleSearchClicks": 5,
+    "organicGoogleSearchImpressions": 716,
+    "organicGoogleSearchClickThroughRate": 0.006983240223463687,
+    "organicGoogleSearchAveragePosition": 5.601955307262569
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/",
+    "organicGoogleSearchClicks": 3,
+    "organicGoogleSearchImpressions": 1207,
+    "organicGoogleSearchClickThroughRate": 0.0024855012427506215,
+    "organicGoogleSearchAveragePosition": 7.685169842584921
+   },
+   {
+    "landingPagePlusQueryString": "/blog/sarnath-day-trip-guide-varanasi/",
+    "organicGoogleSearchClicks": 2,
+    "organicGoogleSearchImpressions": 76,
+    "organicGoogleSearchClickThroughRate": 0.02631578947368421,
+    "organicGoogleSearchAveragePosition": 9.973684210526315
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-solo-female-travelers-safety-travel-guide/",
+    "organicGoogleSearchClicks": 2,
+    "organicGoogleSearchImpressions": 447,
+    "organicGoogleSearchClickThroughRate": 0.0044742729306487695,
+    "organicGoogleSearchAveragePosition": 7.3624161073825505
+   },
+   {
+    "landingPagePlusQueryString": "/varanasi-solo-female-travelers-safety-travel-guide/",
+    "organicGoogleSearchClicks": 2,
+    "organicGoogleSearchImpressions": 164,
+    "organicGoogleSearchClickThroughRate": 0.012195121951219513,
+    "organicGoogleSearchAveragePosition": 9.871951219512194
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-varanasi-complete-guide/",
+    "organicGoogleSearchClicks": 1,
+    "organicGoogleSearchImpressions": 793,
+    "organicGoogleSearchClickThroughRate": 0.0012610340479192938,
+    "organicGoogleSearchAveragePosition": 10.702395964691046
+   },
+   {
+    "landingPagePlusQueryString": "/blog/best-hostels-in-varanasi/",
+    "organicGoogleSearchClicks": 1,
+    "organicGoogleSearchImpressions": 253,
+    "organicGoogleSearchClickThroughRate": 0.003952569169960474,
+    "organicGoogleSearchAveragePosition": 15.075098814229248
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-3-5-day-itinerary-slow-travel/",
+    "organicGoogleSearchClicks": 1,
+    "organicGoogleSearchImpressions": 18,
+    "organicGoogleSearchClickThroughRate": 0.05555555555555555,
+    "organicGoogleSearchAveragePosition": 9.055555555555555
+   },
+   {
+    "landingPagePlusQueryString": "/about",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 20,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 8
+   },
+   {
+    "landingPagePlusQueryString": "/about-us/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 1,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 9
+   },
+   {
+    "landingPagePlusQueryString": "/about/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 8,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 8.125
+   },
+   {
+    "landingPagePlusQueryString": "/blog",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 11,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 9.272727272727273
+   },
+   {
+    "landingPagePlusQueryString": "/blog/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 11,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 5.454545454545454
+   },
+   {
+    "landingPagePlusQueryString": "/blog/best-time-to-visit-varanasi-month-by-month/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 119,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 12.991596638655462
+   },
+   {
+    "landingPagePlusQueryString": "/blog/co-working-spaces-cafes-assi-ghat/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 26,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 7.884615384615385
+   },
+   {
+    "landingPagePlusQueryString": "/blog/things-to-do-varanasi-local-guide/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 48,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 15.5
+   },
+   {
+    "landingPagePlusQueryString": "/blog/top-7-experiences-varanasi-traveler/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 4,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 19.75
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-2-day-itinerary-backpackers/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 10,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 33.5
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-backpacker-budget-daily-cost-breakdown/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 88,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 7.8977272727272725
+   },
+   {
+    "landingPagePlusQueryString": "/book-now",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 8,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 24.75
+   },
+   {
+    "landingPagePlusQueryString": "/book-now/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 31,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 7.193548387096774
+   },
+   {
+    "landingPagePlusQueryString": "/contact",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 20,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 8
+   },
+   {
+    "landingPagePlusQueryString": "/contact-us/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 12,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 8.583333333333332
+   },
+   {
+    "landingPagePlusQueryString": "/contact/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 8,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 8.125
+   },
+   {
+    "landingPagePlusQueryString": "/experiences/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 3,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 4.333333333333334
+   },
+   {
+    "landingPagePlusQueryString": "/gallery",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 92,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 9.532608695652174
+   },
+   {
+    "landingPagePlusQueryString": "/gallery/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 54,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 6.722222222222222
+   },
+   {
+    "landingPagePlusQueryString": "/llms-txt/",
+    "organicGoogleSearchClicks": 0,
+    "organicGoogleSearchImpressions": 3,
+    "organicGoogleSearchClickThroughRate": 0.0,
+    "organicGoogleSearchAveragePosition": 4.333333333333334
+   }
+  ],
+  "rowCount": 30,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199803
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39983
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13983
+   }
+  }
+ },
+ "site_search": {
+  "rows": [
+   {
+    "searchTerm": "",
+    "eventCount": 2809
+   }
+  ],
+  "rowCount": 1,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199802
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39982
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13982
+   }
+  }
+ },
+ "pages": {
+  "rows": [
+   {
+    "pagePath": "/",
+    "screenPageViews": 456,
+    "sessions": 160,
+    "userEngagementDuration": 10555,
+    "engagementRate": 0.64375,
+    "bounceRate": 0.35625,
+    "totalUsers": 99
+   },
+   {
+    "pagePath": "/gallery/",
+    "screenPageViews": 162,
+    "sessions": 56,
+    "userEngagementDuration": 2049,
+    "engagementRate": 0.8214285714285714,
+    "bounceRate": 0.17857142857142858,
+    "totalUsers": 21
+   },
+   {
+    "pagePath": "/blog/",
+    "screenPageViews": 136,
+    "sessions": 45,
+    "userEngagementDuration": 630,
+    "engagementRate": 0.7333333333333333,
+    "bounceRate": 0.26666666666666666,
+    "totalUsers": 11
+   },
+   {
+    "pagePath": "/book-now",
+    "screenPageViews": 94,
+    "sessions": 54,
+    "userEngagementDuration": 2777,
+    "engagementRate": 0.6851851851851852,
+    "bounceRate": 0.3148148148148148,
+    "totalUsers": 31
+   },
+   {
+    "pagePath": "/about/",
+    "screenPageViews": 74,
+    "sessions": 27,
+    "userEngagementDuration": 445,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 8
+   },
+   {
+    "pagePath": "/contact/",
+    "screenPageViews": 69,
+    "sessions": 28,
+    "userEngagementDuration": 1167,
+    "engagementRate": 0.9642857142857143,
+    "bounceRate": 0.03571428571428571,
+    "totalUsers": 8
+   },
+   {
+    "pagePath": "/book-now/",
+    "screenPageViews": 45,
+    "sessions": 24,
+    "userEngagementDuration": 2526,
+    "engagementRate": 0.9166666666666666,
+    "bounceRate": 0.08333333333333333,
+    "totalUsers": 18
+   },
+   {
+    "pagePath": "/gallery",
+    "screenPageViews": 39,
+    "sessions": 28,
+    "userEngagementDuration": 1672,
+    "engagementRate": 0.5714285714285714,
+    "bounceRate": 0.42857142857142855,
+    "totalUsers": 17
+   },
+   {
+    "pagePath": "/book-now.html",
+    "screenPageViews": 19,
+    "sessions": 6,
+    "userEngagementDuration": 39,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 2
+   },
+   {
+    "pagePath": "/contact",
+    "screenPageViews": 8,
+    "sessions": 9,
+    "userEngagementDuration": 189,
+    "engagementRate": 0.4444444444444444,
+    "bounceRate": 0.5555555555555556,
+    "totalUsers": 4
+   },
+   {
+    "pagePath": "/about",
+    "screenPageViews": 7,
+    "sessions": 7,
+    "userEngagementDuration": 42,
+    "engagementRate": 0.2857142857142857,
+    "bounceRate": 0.7142857142857143,
+    "totalUsers": 2
+   },
+   {
+    "pagePath": "/blog",
+    "screenPageViews": 7,
+    "sessions": 2,
+    "userEngagementDuration": 12,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "totalUsers": 2
+   },
+   {
+    "pagePath": "/blog/co-working-spaces-cafes-assi-ghat/",
+    "screenPageViews": 5,
+    "sessions": 5,
+    "userEngagementDuration": 9,
+    "engagementRate": 0.2,
+    "bounceRate": 0.8,
+    "totalUsers": 5
+   },
+   {
+    "pagePath": "/best-time-to-visit-varanasi-month-by-month-guide/",
+    "screenPageViews": 4,
+    "sessions": 3,
+    "userEngagementDuration": 81,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 3
+   },
+   {
+    "pagePath": "/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+    "screenPageViews": 4,
+    "sessions": 4,
+    "userEngagementDuration": 281,
+    "engagementRate": 0.75,
+    "bounceRate": 0.25,
+    "totalUsers": 4
+   },
+   {
+    "pagePath": "/blog/varanasi-solo-female-travelers-safety-travel-guide/",
+    "screenPageViews": 4,
+    "sessions": 4,
+    "userEngagementDuration": 54,
+    "engagementRate": 0.75,
+    "bounceRate": 0.25,
+    "totalUsers": 3
+   },
+   {
+    "pagePath": "/blog/assi-ghat-varanasi-complete-guide/",
+    "screenPageViews": 3,
+    "sessions": 4,
+    "userEngagementDuration": 151,
+    "engagementRate": 0.75,
+    "bounceRate": 0.25,
+    "totalUsers": 3
+   },
+   {
+    "pagePath": "/best-hostels-in-varanasi/",
+    "screenPageViews": 2,
+    "sessions": 2,
+    "userEngagementDuration": 44,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 2
+   },
+   {
+    "pagePath": "/blog/best-hostels-in-varanasi/",
+    "screenPageViews": 2,
+    "sessions": 2,
+    "userEngagementDuration": 38,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 2
+   },
+   {
+    "pagePath": "/blog/is-varanasi-safe-general-guide/",
+    "screenPageViews": 2,
+    "sessions": 2,
+    "userEngagementDuration": 21,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "totalUsers": 2
+   },
+   {
+    "pagePath": "/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/",
+    "screenPageViews": 2,
+    "sessions": 2,
+    "userEngagementDuration": 134,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "totalUsers": 2
+   },
+   {
+    "pagePath": "/policies.html",
+    "screenPageViews": 2,
+    "sessions": 3,
+    "userEngagementDuration": 14,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 2
+   },
+   {
+    "pagePath": "/varanasi-solo-female-travelers-safety-travel-guide/",
+    "screenPageViews": 2,
+    "sessions": 2,
+    "userEngagementDuration": 97,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 2
+   },
+   {
+    "pagePath": "/why-assi-ghat-perfect-base-varanasi-stay/",
+    "screenPageViews": 2,
+    "sessions": 2,
+    "userEngagementDuration": 33,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 2
+   },
+   {
+    "pagePath": "/7-must-do-experiences-near-mosaic-hostel-varanasi/",
+    "screenPageViews": 1,
+    "sessions": 2,
+    "userEngagementDuration": 0,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/Website/privacy.html",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/about.php",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 0,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/backpackers-guide-assi-ghat-varanasi/",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 28,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/blog/best-time-to-visit-varanasi-month-by-month/",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/blog/sarnath-day-trip-guide-varanasi/",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/blog/things-to-do-varanasi-local-guide/",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 7,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/blog/varanasi-2-day-itinerary-backpackers/",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/book-now.php",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 0,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/contact.php",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 0,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/gallery.php",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 0,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/ganga-aarti-guide-2026/",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 5,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/hostel-near-assi-ghat-varanasi/",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 48,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/privacy",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 12,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "totalUsers": 1
+   },
+   {
+    "pagePath": "/varanasi-itinerary-2026/",
+    "screenPageViews": 1,
+    "sessions": 1,
+    "userEngagementDuration": 35,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "totalUsers": 1
+   }
+  ],
+  "rowCount": 39,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199801
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39981
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13981
+   }
+  }
+ },
+ "page_title": {
+  "rows": [
+   {
+    "pageTitle": "Mosaic Hostel Varanasi \u2014 Near Assi Ghat",
+    "screenPageViews": 399,
+    "sessions": 113
+   },
+   {
+    "pageTitle": "Photo Gallery \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 167,
+    "sessions": 57
+   },
+   {
+    "pageTitle": "Book Now \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 154,
+    "sessions": 83
+   },
+   {
+    "pageTitle": "Blog \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 142,
+    "sessions": 44
+   },
+   {
+    "pageTitle": "About Us \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 81,
+    "sessions": 33
+   },
+   {
+    "pageTitle": "Contact \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 77,
+    "sessions": 36
+   },
+   {
+    "pageTitle": "Mosaic Hostel Varanasi \u2014 Budget Hostel near Assi Ghat",
+    "screenPageViews": 65,
+    "sessions": 46
+   },
+   {
+    "pageTitle": "Gallery \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 33,
+    "sessions": 24
+   },
+   {
+    "pageTitle": "Co-working Spaces & Cafes Near Assi Ghat \u2014 Mosaic Hostel",
+    "screenPageViews": 5,
+    "sessions": 5
+   },
+   {
+    "pageTitle": "Assi Ghat vs Dashashwamedh: Where to Stay in Varanasi",
+    "screenPageViews": 4,
+    "sessions": 4
+   },
+   {
+    "pageTitle": "Best Time to Visit Varanasi \u2014 Month by Month Guide \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 4,
+    "sessions": 3
+   },
+   {
+    "pageTitle": "Varanasi for Solo Female Travellers: Safety Guide 2026",
+    "screenPageViews": 4,
+    "sessions": 4
+   },
+   {
+    "pageTitle": "Assi Ghat, Varanasi: Complete Guide \u2014 Mosaic Hostel",
+    "screenPageViews": 3,
+    "sessions": 4
+   },
+   {
+    "pageTitle": "Best Hostels in Varanasi (2026 Honest Guide) \u2014 Mosaic",
+    "screenPageViews": 2,
+    "sessions": 2
+   },
+   {
+    "pageTitle": "Best Hostels in Varanasi \u2014 2025 Honest Guide \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 2,
+    "sessions": 2
+   },
+   {
+    "pageTitle": "Home \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 2,
+    "sessions": 2
+   },
+   {
+    "pageTitle": "Hostel Rules & Policies \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 2,
+    "sessions": 3
+   },
+   {
+    "pageTitle": "Is Varanasi Safe? A Traveller's Safety Guide \u2014 Mosaic Hostel",
+    "screenPageViews": 2,
+    "sessions": 2
+   },
+   {
+    "pageTitle": "Privacy Policy \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 2,
+    "sessions": 2
+   },
+   {
+    "pageTitle": "Varanasi Airport to Assi Ghat Transfer Guide \u2014 Mosaic Hostel",
+    "screenPageViews": 2,
+    "sessions": 2
+   },
+   {
+    "pageTitle": "Varanasi for Solo Female Travellers \u2014 Honest Safety Guide 2025 \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 2,
+    "sessions": 2
+   },
+   {
+    "pageTitle": "Why Assi Ghat is the Perfect Base for Your Varanasi Stay \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 2,
+    "sessions": 2
+   },
+   {
+    "pageTitle": "2-Day Varanasi Itinerary for Backpackers \u2014 Mosaic Hostel",
+    "screenPageViews": 1,
+    "sessions": 1
+   },
+   {
+    "pageTitle": "7 Must-Do Experiences Near Mosaic Hostel, Varanasi \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 1,
+    "sessions": 2
+   },
+   {
+    "pageTitle": "Backpacker\u2019s Complete Guide to Assi Ghat, Varanasi \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 1,
+    "sessions": 1
+   },
+   {
+    "pageTitle": "Best Time to Visit Varanasi: Month-by-Month \u2014 Mosaic Hostel",
+    "screenPageViews": 1,
+    "sessions": 1
+   },
+   {
+    "pageTitle": "Ganga Aarti in Varanasi: Complete Guide to the Evening Ceremony \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 1,
+    "sessions": 1
+   },
+   {
+    "pageTitle": "Perfect Varanasi Itinerary: 48 Hours to 7 Days \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 1,
+    "sessions": 1
+   },
+   {
+    "pageTitle": "Sarnath Day Trip Guide from Varanasi \u2014 Mosaic Hostel",
+    "screenPageViews": 1,
+    "sessions": 1
+   },
+   {
+    "pageTitle": "Staying Near Assi Ghat, Varanasi \u2014 What to Expect \u2014 Mosaic Hostel Varanasi",
+    "screenPageViews": 1,
+    "sessions": 1
+   },
+   {
+    "pageTitle": "Things to Do in Varanasi: Local's Guide \u2014 Mosaic Hostel",
+    "screenPageViews": 1,
+    "sessions": 1
+   }
+  ],
+  "rowCount": 31,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199800
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39980
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13980
+   }
+  }
+ },
+ "device": {
+  "rows": [
+   {
+    "deviceCategory": "desktop",
+    "sessions": 153,
+    "engagedSessions": 89,
+    "engagementRate": 0.5816993464052288,
+    "bounceRate": 0.41830065359477125,
+    "averageSessionDuration": 609.1188276797386,
+    "screenPageViews": 965
+   },
+   {
+    "deviceCategory": "mobile",
+    "sessions": 116,
+    "engagedSessions": 60,
+    "engagementRate": 0.5172413793103449,
+    "bounceRate": 0.4827586206896552,
+    "averageSessionDuration": 166.6872935,
+    "screenPageViews": 200
+   }
+  ],
+  "rowCount": 2,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199799
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39979
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13979
+   }
+  }
+ },
+ "organic_device": {
+  "rows": [
+   {
+    "deviceCategory": "mobile",
+    "sessions": 26,
+    "engagedSessions": 11,
+    "engagementRate": 0.4230769230769231,
+    "bounceRate": 0.5769230769230769,
+    "averageSessionDuration": 68.37269626923077,
+    "screenPageViews": 38
+   },
+   {
+    "deviceCategory": "desktop",
+    "sessions": 21,
+    "engagedSessions": 18,
+    "engagementRate": 0.8571428571428571,
+    "bounceRate": 0.14285714285714285,
+    "averageSessionDuration": 159.85738780952383,
+    "screenPageViews": 55
+   }
+  ],
+  "rowCount": 2,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199798
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39978
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13978
+   }
+  }
+ },
+ "country": {
+  "rows": [
+   {
+    "country": "India",
+    "sessions": 227,
+    "engagedSessions": 135,
+    "engagementRate": 0.5947136563876652,
+    "bounceRate": 0.4052863436123348,
+    "averageSessionDuration": 485.59201157709253,
+    "screenPageViews": 1112
+   },
+   {
+    "country": "United States",
+    "sessions": 19,
+    "engagedSessions": 4,
+    "engagementRate": 0.21052631578947367,
+    "bounceRate": 0.7894736842105263,
+    "averageSessionDuration": 20.04545610526316,
+    "screenPageViews": 21
+   },
+   {
+    "country": "Singapore",
+    "sessions": 4,
+    "engagedSessions": 2,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 205.8460345,
+    "screenPageViews": 5
+   },
+   {
+    "country": "Brazil",
+    "sessions": 3,
+    "engagedSessions": 1,
+    "engagementRate": 0.3333333333333333,
+    "bounceRate": 0.6666666666666666,
+    "averageSessionDuration": 8.036738333333334,
+    "screenPageViews": 3
+   },
+   {
+    "country": "Canada",
+    "sessions": 3,
+    "engagedSessions": 2,
+    "engagementRate": 0.6666666666666666,
+    "bounceRate": 0.3333333333333333,
+    "averageSessionDuration": 267.59310266666665,
+    "screenPageViews": 7
+   },
+   {
+    "country": "United Kingdom",
+    "sessions": 3,
+    "engagedSessions": 1,
+    "engagementRate": 0.3333333333333333,
+    "bounceRate": 0.6666666666666666,
+    "averageSessionDuration": 21.621586333333337,
+    "screenPageViews": 6
+   },
+   {
+    "country": "Mexico",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 10.040426,
+    "screenPageViews": 1
+   },
+   {
+    "country": "Nepal",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 47.048608,
+    "screenPageViews": 3
+   },
+   {
+    "country": "(not set)",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "country": "Italy",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "country": "Netherlands",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "country": "New Zealand",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "country": "Pakistan",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 62.085082,
+    "screenPageViews": 1
+   },
+   {
+    "country": "Romania",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "country": "Sweden",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 29.254817,
+    "screenPageViews": 1
+   }
+  ],
+  "rowCount": 15,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199797
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39977
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13977
+   }
+  }
+ },
+ "organic_country": {
+  "rows": [
+   {
+    "country": "India",
+    "sessions": 38,
+    "engagedSessions": 24,
+    "engagementRate": 0.631578947368421,
+    "bounceRate": 0.3684210526315789,
+    "averageSessionDuration": 103.56076239473686,
+    "screenPageViews": 78
+   },
+   {
+    "country": "United Kingdom",
+    "sessions": 3,
+    "engagedSessions": 1,
+    "engagementRate": 0.3333333333333333,
+    "bounceRate": 0.6666666666666666,
+    "averageSessionDuration": 21.621586333333337,
+    "screenPageViews": 6
+   },
+   {
+    "country": "United States",
+    "sessions": 3,
+    "engagedSessions": 2,
+    "engagementRate": 0.6666666666666666,
+    "bounceRate": 0.3333333333333333,
+    "averageSessionDuration": 102.14734600000001,
+    "screenPageViews": 5
+   },
+   {
+    "country": "Singapore",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 404.0315645,
+    "screenPageViews": 3
+   },
+   {
+    "country": "Canada",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 20.01635,
+    "screenPageViews": 1
+   }
+  ],
+  "rowCount": 5,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199796
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39976
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13976
+   }
+  }
+ },
+ "city": {
+  "rows": [
+   {
+    "city": "Varanasi",
+    "sessions": 93,
+    "engagedSessions": 57,
+    "engagementRate": 0.6129032258064516,
+    "bounceRate": 0.3870967741935484,
+    "averageSessionDuration": 798.7786175806452,
+    "screenPageViews": 806
+   },
+   {
+    "city": "(not set)",
+    "sessions": 27,
+    "engagedSessions": 13,
+    "engagementRate": 0.48148148148148145,
+    "bounceRate": 0.5185185185185185,
+    "averageSessionDuration": 142.1131770740741,
+    "screenPageViews": 49
+   },
+   {
+    "city": "Mumbai",
+    "sessions": 15,
+    "engagedSessions": 9,
+    "engagementRate": 0.6,
+    "bounceRate": 0.4,
+    "averageSessionDuration": 251.92236106666667,
+    "screenPageViews": 39
+   },
+   {
+    "city": "Delhi",
+    "sessions": 11,
+    "engagedSessions": 5,
+    "engagementRate": 0.45454545454545453,
+    "bounceRate": 0.5454545454545454,
+    "averageSessionDuration": 412.4977831818182,
+    "screenPageViews": 26
+   },
+   {
+    "city": "Kolkata",
+    "sessions": 10,
+    "engagedSessions": 7,
+    "engagementRate": 0.7,
+    "bounceRate": 0.3,
+    "averageSessionDuration": 442.8156731,
+    "screenPageViews": 19
+   },
+   {
+    "city": "Ashburn",
+    "sessions": 9,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.6263325555555556,
+    "screenPageViews": 9
+   },
+   {
+    "city": "Lucknow",
+    "sessions": 8,
+    "engagedSessions": 3,
+    "engagementRate": 0.375,
+    "bounceRate": 0.625,
+    "averageSessionDuration": 15.133431625,
+    "screenPageViews": 14
+   },
+   {
+    "city": "New Delhi",
+    "sessions": 7,
+    "engagedSessions": 5,
+    "engagementRate": 0.7142857142857143,
+    "bounceRate": 0.2857142857142857,
+    "averageSessionDuration": 381.837551,
+    "screenPageViews": 12
+   },
+   {
+    "city": "Patna",
+    "sessions": 5,
+    "engagedSessions": 1,
+    "engagementRate": 0.2,
+    "bounceRate": 0.8,
+    "averageSessionDuration": 26.072943400000003,
+    "screenPageViews": 7
+   },
+   {
+    "city": "Bengaluru",
+    "sessions": 4,
+    "engagedSessions": 2,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 347.54309925,
+    "screenPageViews": 6
+   },
+   {
+    "city": "Indore",
+    "sessions": 4,
+    "engagedSessions": 2,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 119.95777125,
+    "screenPageViews": 11
+   },
+   {
+    "city": "Raipur",
+    "sessions": 4,
+    "engagedSessions": 3,
+    "engagementRate": 0.75,
+    "bounceRate": 0.25,
+    "averageSessionDuration": 70.8342475,
+    "screenPageViews": 8
+   },
+   {
+    "city": "Singapore",
+    "sessions": 4,
+    "engagedSessions": 2,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 205.8460345,
+    "screenPageViews": 5
+   },
+   {
+    "city": "Bhubaneswar",
+    "sessions": 3,
+    "engagedSessions": 2,
+    "engagementRate": 0.6666666666666666,
+    "bounceRate": 0.3333333333333333,
+    "averageSessionDuration": 33.887591,
+    "screenPageViews": 3
+   },
+   {
+    "city": "Mysuru",
+    "sessions": 3,
+    "engagedSessions": 2,
+    "engagementRate": 0.6666666666666666,
+    "bounceRate": 0.3333333333333333,
+    "averageSessionDuration": 319.3589346666667,
+    "screenPageViews": 4
+   },
+   {
+    "city": "Prayagraj",
+    "sessions": 3,
+    "engagedSessions": 2,
+    "engagementRate": 0.6666666666666666,
+    "bounceRate": 0.3333333333333333,
+    "averageSessionDuration": 138.79895533333334,
+    "screenPageViews": 5
+   },
+   {
+    "city": "Tirupati",
+    "sessions": 3,
+    "engagedSessions": 2,
+    "engagementRate": 0.6666666666666666,
+    "bounceRate": 0.3333333333333333,
+    "averageSessionDuration": 75.336698,
+    "screenPageViews": 3
+   },
+   {
+    "city": "Bhopal",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 71.97113,
+    "screenPageViews": 5
+   },
+   {
+    "city": "Bothell",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 75.472327,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Firozabad",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 59.918198,
+    "screenPageViews": 3
+   },
+   {
+    "city": "Hyderabad",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 41.9902055,
+    "screenPageViews": 4
+   },
+   {
+    "city": "Kalyan",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 2.7181555,
+    "screenPageViews": 3
+   },
+   {
+    "city": "Mahbubnagar",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 3.469355,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Matar",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 22.9051395,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Meerut",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 13.381373,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Muzaffarnagar",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 54.312678,
+    "screenPageViews": 8
+   },
+   {
+    "city": "Panipat",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 390.884418,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Shimla",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 83.982991,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Thiruvananthapuram",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 612.81727,
+    "screenPageViews": 9
+   },
+   {
+    "city": "Warangal",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 767.122928,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Adoor",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 72.351701,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Agra",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 158.35619,
+    "screenPageViews": 0
+   },
+   {
+    "city": "Ahmedabad",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 64.664009,
+    "screenPageViews": 0
+   },
+   {
+    "city": "Ambala Cantt",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Amsterdam",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Anantapur",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 0
+   },
+   {
+    "city": "Aventura",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 2.312658,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Balasore",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Barpeta Circle",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 174.641137,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Bhavnagar",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 109.018713,
+    "screenPageViews": 0
+   },
+   {
+    "city": "Bhimavaram",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 67.990544,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Bhiwani",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 608.423291,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Bidar",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 50.143543,
+    "screenPageViews": 4
+   },
+   {
+    "city": "Borehamwood",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 4.723633,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Brodhead",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 155.497384,
+    "screenPageViews": 3
+   },
+   {
+    "city": "Bulls Gap",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Chennai",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 4373.325676,
+    "screenPageViews": 7
+   },
+   {
+    "city": "Chhatrapati Sambhajinagar",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 308.007395,
+    "screenPageViews": 0
+   },
+   {
+    "city": "Clifton",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 3.316512,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Como",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Cornwall",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 782.762958,
+    "screenPageViews": 5
+   },
+   {
+    "city": "Cuddalore",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 207.59642,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Culiacan",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 11.244646,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Dhenkanal",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 21.797418,
+    "screenPageViews": 5
+   },
+   {
+    "city": "Erode",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 0
+   },
+   {
+    "city": "Faridabad",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 92.760609,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Forest City",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 31.331776,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Gurugram",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 190.911899,
+    "screenPageViews": 0
+   },
+   {
+    "city": "Guwahati",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 128.458242,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Howrah",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 123.918429,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Jaunpur",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 68.376993,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Kakinada",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 94.372787,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Kanpur",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 54.252283,
+    "screenPageViews": 3
+   },
+   {
+    "city": "Kitchener",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Kochi",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 119.811422,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Kota",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Lahore",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 62.085082,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Lulea",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 29.254817,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Mangaluru",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 4.164417,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Mathura",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 26.894841,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Moradabad",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 33.959852,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Nashik",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 71.09482,
+    "screenPageViews": 3
+   },
+   {
+    "city": "Navi Mumbai",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 145.957392,
+    "screenPageViews": 1
+   },
+   {
+    "city": "North Dumdum",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 53.977151,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Ranaghat",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Ranchi",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 88.101039,
+    "screenPageViews": 3
+   },
+   {
+    "city": "Rishikesh",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Rourkela",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 17.695126,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Salem",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 530.899078,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Sambalpur",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 7.872769,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Santa Clara",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Sao Paulo",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 24.110215,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Sivakasi",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 0
+   },
+   {
+    "city": "Taubate",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Thane",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Tiruchirappalli",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 2.859977,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Tiruvannamalai",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Tumakuru",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 8.66519,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Vadodara",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 331.817342,
+    "screenPageViews": 8
+   },
+   {
+    "city": "Vijayawada",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 112.482473,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Westlock",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 20.01635,
+    "screenPageViews": 1
+   }
+  ],
+  "rowCount": 91,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199795
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39975
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13975
+   }
+  }
+ },
+ "organic_city": {
+  "rows": [
+   {
+    "city": "Varanasi",
+    "sessions": 12,
+    "engagedSessions": 5,
+    "engagementRate": 0.4166666666666667,
+    "bounceRate": 0.5833333333333334,
+    "averageSessionDuration": 50.752242499999994,
+    "screenPageViews": 27
+   },
+   {
+    "city": "Mumbai",
+    "sessions": 6,
+    "engagedSessions": 5,
+    "engagementRate": 0.8333333333333334,
+    "bounceRate": 0.16666666666666666,
+    "averageSessionDuration": 251.6163175,
+    "screenPageViews": 18
+   },
+   {
+    "city": "Kolkata",
+    "sessions": 5,
+    "engagedSessions": 3,
+    "engagementRate": 0.6,
+    "bounceRate": 0.4,
+    "averageSessionDuration": 125.4874264,
+    "screenPageViews": 6
+   },
+   {
+    "city": "Raipur",
+    "sessions": 3,
+    "engagedSessions": 3,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 94.44566333333334,
+    "screenPageViews": 7
+   },
+   {
+    "city": "(not set)",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 30.070563,
+    "screenPageViews": 5
+   },
+   {
+    "city": "Bothell",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 75.472327,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Lucknow",
+    "sessions": 2,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 3.262907,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Prayagraj",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 168.44972299999998,
+    "screenPageViews": 3
+   },
+   {
+    "city": "Singapore",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 404.0315645,
+    "screenPageViews": 3
+   },
+   {
+    "city": "Borehamwood",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 4.723633,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Brodhead",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 155.497384,
+    "screenPageViews": 3
+   },
+   {
+    "city": "Delhi",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 99.230315,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Howrah",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 123.918429,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Hyderabad",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 28.855945,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Meerut",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 26.762746,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Muzaffarnagar",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 83.682796,
+    "screenPageViews": 4
+   },
+   {
+    "city": "Navi Mumbai",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 145.957392,
+    "screenPageViews": 1
+   },
+   {
+    "city": "North Dumdum",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 53.977151,
+    "screenPageViews": 2
+   },
+   {
+    "city": "Rishikesh",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "city": "Westlock",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 20.01635,
+    "screenPageViews": 1
+   }
+  ],
+  "rowCount": 20,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199794
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39974
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13974
+   }
+  }
+ },
+ "new_vs_returning": {
+  "rows": [
+   {
+    "newVsReturning": "new",
+    "sessions": 143,
+    "engagedSessions": 76,
+    "engagementRate": 0.5314685314685315,
+    "bounceRate": 0.46853146853146854,
+    "averageSessionDuration": 192.93105618181818,
+    "screenPageViews": 363
+   },
+   {
+    "newVsReturning": "returning",
+    "sessions": 112,
+    "engagedSessions": 73,
+    "engagementRate": 0.6517857142857143,
+    "bounceRate": 0.3482142857142857,
+    "averageSessionDuration": 758.4086218482144,
+    "screenPageViews": 790
+   },
+   {
+    "newVsReturning": "(not set)",
+    "sessions": 14,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 12
+   }
+  ],
+  "rowCount": 3,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199793
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39973
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13973
+   }
+  }
+ },
+ "organic_new_vs_returning": {
+  "rows": [
+   {
+    "newVsReturning": "new",
+    "sessions": 25,
+    "engagedSessions": 19,
+    "engagementRate": 0.76,
+    "bounceRate": 0.24,
+    "averageSessionDuration": 133.30770352,
+    "screenPageViews": 50
+   },
+   {
+    "newVsReturning": "returning",
+    "sessions": 17,
+    "engagedSessions": 10,
+    "engagementRate": 0.5882352941176471,
+    "bounceRate": 0.4117647058823529,
+    "averageSessionDuration": 106.0001564117647,
+    "screenPageViews": 39
+   },
+   {
+    "newVsReturning": "(not set)",
+    "sessions": 5,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 4
+   }
+  ],
+  "rowCount": 3,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199792
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39972
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13972
+   }
+  }
+ },
+ "browser": {
+  "rows": [
+   {
+    "browser": "Chrome",
+    "sessions": 172,
+    "engagedSessions": 98,
+    "engagementRate": 0.5697674418604651,
+    "bounceRate": 0.43023255813953487,
+    "averageSessionDuration": 537.7580962906976,
+    "screenPageViews": 945
+   },
+   {
+    "browser": "Safari",
+    "sessions": 77,
+    "engagedSessions": 40,
+    "engagementRate": 0.5194805194805194,
+    "bounceRate": 0.4805194805194805,
+    "averageSessionDuration": 235.6105532597403,
+    "screenPageViews": 174
+   },
+   {
+    "browser": "Android Webview",
+    "sessions": 8,
+    "engagedSessions": 6,
+    "engagementRate": 0.75,
+    "bounceRate": 0.25,
+    "averageSessionDuration": 131.350705625,
+    "screenPageViews": 21
+   },
+   {
+    "browser": "Edge",
+    "sessions": 3,
+    "engagedSessions": 1,
+    "engagementRate": 0.3333333333333333,
+    "bounceRate": 0.6666666666666666,
+    "averageSessionDuration": 208.49688033333334,
+    "screenPageViews": 15
+   },
+   {
+    "browser": "Mozilla Compatible Agent",
+    "sessions": 3,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 1.105504,
+    "screenPageViews": 3
+   },
+   {
+    "browser": "Firefox",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 83.39061,
+    "screenPageViews": 2
+   },
+   {
+    "browser": "(not set)",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 0.0,
+    "screenPageViews": 1
+   },
+   {
+    "browser": "Android Runtime",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 31.331776,
+    "screenPageViews": 1
+   },
+   {
+    "browser": "Safari (in-app)",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 12.052091,
+    "screenPageViews": 2
+   },
+   {
+    "browser": "Samsung Internet",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 4.723633,
+    "screenPageViews": 1
+   }
+  ],
+  "rowCount": 10,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199791
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39971
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13971
+   }
+  }
+ },
+ "organic_browser": {
+  "rows": [
+   {
+    "browser": "Chrome",
+    "sessions": 35,
+    "engagedSessions": 22,
+    "engagementRate": 0.6285714285714286,
+    "bounceRate": 0.37142857142857144,
+    "averageSessionDuration": 116.57533862857143,
+    "screenPageViews": 62
+   },
+   {
+    "browser": "Safari",
+    "sessions": 8,
+    "engagedSessions": 5,
+    "engagementRate": 0.625,
+    "bounceRate": 0.375,
+    "averageSessionDuration": 43.063882,
+    "screenPageViews": 16
+   },
+   {
+    "browser": "Edge",
+    "sessions": 2,
+    "engagedSessions": 1,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 285.1830875,
+    "screenPageViews": 13
+   },
+   {
+    "browser": "Firefox",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 134.957531,
+    "screenPageViews": 1
+   },
+   {
+    "browser": "Samsung Internet",
+    "sessions": 1,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 4.723633,
+    "screenPageViews": 1
+   }
+  ],
+  "rowCount": 5,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199790
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39970
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13970
+   }
+  }
+ },
+ "os": {
+  "rows": [
+   {
+    "operatingSystem": "Macintosh",
+    "sessions": 115,
+    "engagedSessions": 70,
+    "engagementRate": 0.6086956521739131,
+    "bounceRate": 0.391304347826087,
+    "averageSessionDuration": 772.9924767826086,
+    "screenPageViews": 890
+   },
+   {
+    "operatingSystem": "Android",
+    "sessions": 66,
+    "engagedSessions": 35,
+    "engagementRate": 0.5303030303030303,
+    "bounceRate": 0.4696969696969697,
+    "averageSessionDuration": 245.53171557575757,
+    "screenPageViews": 126
+   },
+   {
+    "operatingSystem": "iOS",
+    "sessions": 50,
+    "engagedSessions": 25,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 62.61265636,
+    "screenPageViews": 74
+   },
+   {
+    "operatingSystem": "Windows",
+    "sessions": 33,
+    "engagedSessions": 16,
+    "engagementRate": 0.48484848484848486,
+    "bounceRate": 0.5151515151515151,
+    "averageSessionDuration": 124.29026651515153,
+    "screenPageViews": 66
+   },
+   {
+    "operatingSystem": "(not set)",
+    "sessions": 2,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 1.658256,
+    "screenPageViews": 2
+   },
+   {
+    "operatingSystem": "Chrome OS",
+    "sessions": 2,
+    "engagedSessions": 2,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 71.0866735,
+    "screenPageViews": 5
+   },
+   {
+    "operatingSystem": "Linux",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 53.977151,
+    "screenPageViews": 2
+   }
+  ],
+  "rowCount": 7,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199789
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39969
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13969
+   }
+  }
+ },
+ "organic_os": {
+  "rows": [
+   {
+    "operatingSystem": "Android",
+    "sessions": 22,
+    "engagedSessions": 9,
+    "engagementRate": 0.4090909090909091,
+    "bounceRate": 0.5909090909090909,
+    "averageSessionDuration": 71.00234513636363,
+    "screenPageViews": 29
+   },
+   {
+    "operatingSystem": "Windows",
+    "sessions": 12,
+    "engagedSessions": 10,
+    "engagementRate": 0.8333333333333334,
+    "bounceRate": 0.16666666666666666,
+    "averageSessionDuration": 238.49687600000001,
+    "screenPageViews": 37
+   },
+   {
+    "operatingSystem": "Macintosh",
+    "sessions": 7,
+    "engagedSessions": 6,
+    "engagementRate": 0.8571428571428571,
+    "bounceRate": 0.14285714285714285,
+    "averageSessionDuration": 58.88707657142857,
+    "screenPageViews": 14
+   },
+   {
+    "operatingSystem": "iOS",
+    "sessions": 4,
+    "engagedSessions": 2,
+    "engagementRate": 0.5,
+    "bounceRate": 0.5,
+    "averageSessionDuration": 53.9096275,
+    "screenPageViews": 9
+   },
+   {
+    "operatingSystem": "Chrome OS",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 28.855945,
+    "screenPageViews": 2
+   },
+   {
+    "operatingSystem": "Linux",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 53.977151,
+    "screenPageViews": 2
+   }
+  ],
+  "rowCount": 6,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199788
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39968
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13968
+   }
+  }
+ },
+ "language": {
+  "rows": [
+   {
+    "language": "English",
+    "sessions": 263,
+    "engagedSessions": 146,
+    "engagementRate": 0.5551330798479087,
+    "bounceRate": 0.4448669201520912,
+    "averageSessionDuration": 426.92503470342206,
+    "screenPageViews": 1156
+   },
+   {
+    "language": "Chinese",
+    "sessions": 5,
+    "engagedSessions": 2,
+    "engagementRate": 0.4,
+    "bounceRate": 0.6,
+    "averageSessionDuration": 7.0709722,
+    "screenPageViews": 5
+   },
+   {
+    "language": "Hindi",
+    "sessions": 1,
+    "engagedSessions": 1,
+    "engagementRate": 1.0,
+    "bounceRate": 0.0,
+    "averageSessionDuration": 214.267693,
+    "screenPageViews": 4
+   }
+  ],
+  "rowCount": 3,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199787
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39967
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13967
+   }
+  }
+ },
+ "organic_language": {
+  "rows": [
+   {
+    "language": "English",
+    "sessions": 47,
+    "engagedSessions": 29,
+    "engagementRate": 0.6170212765957447,
+    "bounceRate": 0.3829787234042553,
+    "averageSessionDuration": 109.24883504255318,
+    "screenPageViews": 93
+   }
+  ],
+  "rowCount": 1,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199786
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39966
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13966
+   }
+  }
+ },
+ "events": {
+  "rows": [
+   {
+    "eventName": "page_view",
+    "eventCount": 1165,
+    "keyEvents": 0,
+    "totalUsers": 151
+   },
+   {
+    "eventName": "user_engagement",
+    "eventCount": 909,
+    "keyEvents": 0,
+    "totalUsers": 85
+   },
+   {
+    "eventName": "scroll",
+    "eventCount": 322,
+    "keyEvents": 0,
+    "totalUsers": 59
+   },
+   {
+    "eventName": "session_start",
+    "eventCount": 252,
+    "keyEvents": 0,
+    "totalUsers": 142
+   },
+   {
+    "eventName": "first_visit",
+    "eventCount": 136,
+    "keyEvents": 0,
+    "totalUsers": 132
+   },
+   {
+    "eventName": "click",
+    "eventCount": 14,
+    "keyEvents": 0,
+    "totalUsers": 11
+   },
+   {
+    "eventName": "form_start",
+    "eventCount": 10,
+    "keyEvents": 0,
+    "totalUsers": 6
+   },
+   {
+    "eventName": "form_submit",
+    "eventCount": 1,
+    "keyEvents": 0,
+    "totalUsers": 1
+   }
+  ],
+  "rowCount": 8,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199785
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39965
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13965
+   }
+  }
+ },
+ "organic_events": {
+  "rows": [
+   {
+    "eventName": "page_view",
+    "eventCount": 93,
+    "keyEvents": 0
+   },
+   {
+    "eventName": "user_engagement",
+    "eventCount": 80,
+    "keyEvents": 0
+   },
+   {
+    "eventName": "session_start",
+    "eventCount": 47,
+    "keyEvents": 0
+   },
+   {
+    "eventName": "first_visit",
+    "eventCount": 25,
+    "keyEvents": 0
+   },
+   {
+    "eventName": "scroll",
+    "eventCount": 21,
+    "keyEvents": 0
+   },
+   {
+    "eventName": "click",
+    "eventCount": 5,
+    "keyEvents": 0
+   },
+   {
+    "eventName": "form_start",
+    "eventCount": 1,
+    "keyEvents": 0
+   },
+   {
+    "eventName": "form_submit",
+    "eventCount": 1,
+    "keyEvents": 0
+   }
+  ],
+  "rowCount": 8,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199784
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39964
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13964
+   }
+  }
+ },
+ "key_event_by_channel": {
+  "rows": [
+   {
+    "sessionDefaultChannelGroup": "AI Assistant",
+    "keyEvents": 0,
+    "sessionKeyEventRate": 0.0,
+    "sessions": 27
+   },
+   {
+    "sessionDefaultChannelGroup": "Direct",
+    "keyEvents": 0,
+    "sessionKeyEventRate": 0.0,
+    "sessions": 150
+   },
+   {
+    "sessionDefaultChannelGroup": "Organic Search",
+    "keyEvents": 0,
+    "sessionKeyEventRate": 0.0,
+    "sessions": 47
+   },
+   {
+    "sessionDefaultChannelGroup": "Organic Social",
+    "keyEvents": 0,
+    "sessionKeyEventRate": 0.0,
+    "sessions": 22
+   },
+   {
+    "sessionDefaultChannelGroup": "Referral",
+    "keyEvents": 0,
+    "sessionKeyEventRate": 0.0,
+    "sessions": 2
+   },
+   {
+    "sessionDefaultChannelGroup": "Unassigned",
+    "keyEvents": 0,
+    "sessionKeyEventRate": 0.0,
+    "sessions": 21
+   }
+  ],
+  "rowCount": 6,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199783
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39963
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13963
+   }
+  }
+ },
+ "wow_channels": {
+  "rows": [
+   {
+    "sessionDefaultChannelGroup": "Direct",
+    "dateRange": "current",
+    "sessions": 20,
+    "engagedSessions": 9,
+    "engagementRate": 0.45,
+    "bounceRate": 0.55,
+    "averageSessionDuration": 252.5098744,
+    "screenPageViews": 28
+   },
+   {
+    "sessionDefaultChannelGroup": "Direct",
+    "dateRange": "prior",
+    "sessions": 11,
+    "engagedSessions": 3,
+    "engagementRate": 0.2727272727272727,
+    "bounceRate": 0.7272727272727273,
+    "averageSessionDuration": 182.0352837272727,
+    "screenPageViews": 23
+   },
+   {
+    "sessionDefaultChannelGroup": "AI Assistant",
+    "dateRange": "current",
+    "sessions": 10,
+    "engagedSessions": 9,
+    "engagementRate": 0.9,
+    "bounceRate": 0.1,
+    "averageSessionDuration": 215.87255409999997,
+    "screenPageViews": 25
+   },
+   {
+    "sessionDefaultChannelGroup": "AI Assistant",
+    "dateRange": "prior",
+    "sessions": 8,
+    "engagedSessions": 6,
+    "engagementRate": 0.75,
+    "bounceRate": 0.25,
+    "averageSessionDuration": 269.373002,
+    "screenPageViews": 21
+   },
+   {
+    "sessionDefaultChannelGroup": "Organic Search",
+    "dateRange": "prior",
+    "sessions": 7,
+    "engagedSessions": 4,
+    "engagementRate": 0.5714285714285714,
+    "bounceRate": 0.42857142857142855,
+    "averageSessionDuration": 77.47448528571428,
+    "screenPageViews": 11
+   },
+   {
+    "sessionDefaultChannelGroup": "Unassigned",
+    "dateRange": "prior",
+    "sessions": 7,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 133.89042742857143,
+    "screenPageViews": 16
+   },
+   {
+    "sessionDefaultChannelGroup": "Organic Social",
+    "dateRange": "prior",
+    "sessions": 6,
+    "engagedSessions": 4,
+    "engagementRate": 0.6666666666666666,
+    "bounceRate": 0.3333333333333333,
+    "averageSessionDuration": 28.428901333333332,
+    "screenPageViews": 7
+   },
+   {
+    "sessionDefaultChannelGroup": "Unassigned",
+    "dateRange": "current",
+    "sessions": 6,
+    "engagedSessions": 0,
+    "engagementRate": 0.0,
+    "bounceRate": 1.0,
+    "averageSessionDuration": 332.84010566666666,
+    "screenPageViews": 13
+   },
+   {
+    "sessionDefaultChannelGroup": "Organic Social",
+    "dateRange": "current",
+    "sessions": 5,
+    "engagedSessions": 4,
+    "engagementRate": 0.8,
+    "bounceRate": 0.2,
+    "averageSessionDuration": 130.96501419999998,
+    "screenPageViews": 10
+   },
+   {
+    "sessionDefaultChannelGroup": "Organic Search",
+    "dateRange": "current",
+    "sessions": 4,
+    "engagedSessions": 3,
+    "engagementRate": 0.75,
+    "bounceRate": 0.25,
+    "averageSessionDuration": 260.2736935,
+    "screenPageViews": 6
+   }
+  ],
+  "rowCount": 5,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199782
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39962
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13962
+   }
+  }
+ },
+ "wow_landing_organic": {
+  "rows": [
+   {
+    "landingPagePlusQueryString": "/",
+    "dateRange": "prior",
+    "sessions": 2,
+    "engagementRate": 1.0
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+    "dateRange": "current",
+    "sessions": 2,
+    "engagementRate": 1.0
+   },
+   {
+    "landingPagePlusQueryString": "(not set)",
+    "dateRange": "prior",
+    "sessions": 1,
+    "engagementRate": 0.0
+   },
+   {
+    "landingPagePlusQueryString": "/",
+    "dateRange": "current",
+    "sessions": 1,
+    "engagementRate": 1.0
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-varanasi-complete-guide/",
+    "dateRange": "prior",
+    "sessions": 1,
+    "engagementRate": 1.0
+   },
+   {
+    "landingPagePlusQueryString": "/blog/best-hostels-in-varanasi/",
+    "dateRange": "prior",
+    "sessions": 1,
+    "engagementRate": 1.0
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-solo-female-travelers-safety-travel-guide/",
+    "dateRange": "prior",
+    "sessions": 1,
+    "engagementRate": 0.0
+   },
+   {
+    "landingPagePlusQueryString": "/gallery",
+    "dateRange": "current",
+    "sessions": 1,
+    "engagementRate": 0.0
+   },
+   {
+    "landingPagePlusQueryString": "/gallery",
+    "dateRange": "prior",
+    "sessions": 1,
+    "engagementRate": 0.0
+   },
+   {
+    "landingPagePlusQueryString": "(not set)",
+    "dateRange": "current",
+    "sessions": 0,
+    "engagementRate": 0.0
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-varanasi-complete-guide/",
+    "dateRange": "current",
+    "sessions": 0,
+    "engagementRate": 0.0
+   },
+   {
+    "landingPagePlusQueryString": "/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+    "dateRange": "prior",
+    "sessions": 0,
+    "engagementRate": 0.0
+   },
+   {
+    "landingPagePlusQueryString": "/blog/best-hostels-in-varanasi/",
+    "dateRange": "current",
+    "sessions": 0,
+    "engagementRate": 0.0
+   },
+   {
+    "landingPagePlusQueryString": "/blog/varanasi-solo-female-travelers-safety-travel-guide/",
+    "dateRange": "current",
+    "sessions": 0,
+    "engagementRate": 0.0
+   }
+  ],
+  "rowCount": 7,
+  "totals": [],
+  "meta": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "quota": {
+   "tokensPerDay": {
+    "consumed": 1,
+    "remaining": 199781
+   },
+   "tokensPerHour": {
+    "consumed": 1,
+    "remaining": 39961
+   },
+   "concurrentRequests": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "serverErrorsPerProjectPerHour": {
+    "consumed": 0,
+    "remaining": 10
+   },
+   "potentiallyThresholdedRequestsPerHour": {
+    "consumed": 0,
+    "remaining": 120
+   },
+   "tokensPerProjectPerHour": {
+    "consumed": 1,
+    "remaining": 13961
+   }
+  }
+ },
+ "pivot_channel_device": {
+  "pivotHeaders": [
+   {
+    "pivotDimensionHeaders": [
+     {
+      "dimensionValues": [
+       {
+        "value": "Direct"
+       }
+      ]
+     },
+     {
+      "dimensionValues": [
+       {
+        "value": "Organic Search"
+       }
+      ]
+     },
+     {
+      "dimensionValues": [
+       {
+        "value": "AI Assistant"
+       }
+      ]
+     },
+     {
+      "dimensionValues": [
+       {
+        "value": "Organic Social"
+       }
+      ]
+     },
+     {
+      "dimensionValues": [
+       {
+        "value": "Unassigned"
+       }
+      ]
+     },
+     {
+      "dimensionValues": [
+       {
+        "value": "Referral"
+       }
+      ]
+     }
+    ],
+    "rowCount": 6
+   },
+   {
+    "pivotDimensionHeaders": [
+     {
+      "dimensionValues": [
+       {
+        "value": "desktop"
+       }
+      ]
+     },
+     {
+      "dimensionValues": [
+       {
+        "value": "mobile"
+       }
+      ]
+     }
+    ],
+    "rowCount": 2
+   }
+  ],
+  "dimensionHeaders": [
+   {
+    "name": "sessionDefaultChannelGroup"
+   },
+   {
+    "name": "deviceCategory"
+   }
+  ],
+  "metricHeaders": [
+   {
+    "name": "sessions",
+    "type": "TYPE_INTEGER"
+   },
+   {
+    "name": "engagementRate",
+    "type": "TYPE_FLOAT"
+   }
+  ],
+  "rows": [
+   {
+    "dimensionValues": [
+     {
+      "value": "Direct"
+     },
+     {
+      "value": "desktop"
+     }
+    ],
+    "metricValues": [
+     {
+      "value": "112"
+     },
+     {
+      "value": "0.5625"
+     }
+    ]
+   },
+   {
+    "dimensionValues": [
+     {
+      "value": "Direct"
+     },
+     {
+      "value": "mobile"
+     }
+    ],
+    "metricValues": [
+     {
+      "value": "38"
+     },
+     {
+      "value": "0.5"
+     }
+    ]
+   },
+   {
+    "dimensionValues": [
+     {
+      "value": "Organic Search"
+     },
+     {
+      "value": "mobile"
+     }
+    ],
+    "metricValues": [
+     {
+      "value": "26"
+     },
+     {
+      "value": "0.42307692307692307"
+     }
+    ]
+   },
+   {
+    "dimensionValues": [
+     {
+      "value": "Organic Search"
+     },
+     {
+      "value": "desktop"
+     }
+    ],
+    "metricValues": [
+     {
+      "value": "21"
+     },
+     {
+      "value": "0.8571428571428571"
+     }
+    ]
+   },
+   {
+    "dimensionValues": [
+     {
+      "value": "Organic Social"
+     },
+     {
+      "value": "mobile"
+     }
+    ],
+    "metricValues": [
+     {
+      "value": "21"
+     },
+     {
+      "value": "0.7142857142857143"
+     }
+    ]
+   },
+   {
+    "dimensionValues": [
+     {
+      "value": "AI Assistant"
+     },
+     {
+      "value": "mobile"
+     }
+    ],
+    "metricValues": [
+     {
+      "value": "19"
+     },
+     {
+      "value": "0.78947368421052633"
+     }
+    ]
+   },
+   {
+    "dimensionValues": [
+     {
+      "value": "Unassigned"
+     },
+     {
+      "value": "mobile"
+     }
+    ],
+    "metricValues": [
+     {
+      "value": "11"
+     },
+     {
+      "value": "0"
+     }
+    ]
+   },
+   {
+    "dimensionValues": [
+     {
+      "value": "Unassigned"
+     },
+     {
+      "value": "desktop"
+     }
+    ],
+    "metricValues": [
+     {
+      "value": "10"
+     },
+     {
+      "value": "0"
+     }
+    ]
+   },
+   {
+    "dimensionValues": [
+     {
+      "value": "AI Assistant"
+     },
+     {
+      "value": "desktop"
+     }
+    ],
+    "metricValues": [
+     {
+      "value": "8"
+     },
+     {
+      "value": "0.75"
+     }
+    ]
+   },
+   {
+    "dimensionValues": [
+     {
+      "value": "Organic Social"
+     },
+     {
+      "value": "desktop"
+     }
+    ],
+    "metricValues": [
+     {
+      "value": "1"
+     },
+     {
+      "value": "1"
+     }
+    ]
+   },
+   {
+    "dimensionValues": [
+     {
+      "value": "Referral"
+     },
+     {
+      "value": "desktop"
+     }
+    ],
+    "metricValues": [
+     {
+      "value": "1"
+     },
+     {
+      "value": "1"
+     }
+    ]
+   },
+   {
+    "dimensionValues": [
+     {
+      "value": "Referral"
+     },
+     {
+      "value": "mobile"
+     }
+    ],
+    "metricValues": [
+     {
+      "value": "1"
+     },
+     {
+      "value": "0"
+     }
+    ]
+   }
+  ],
+  "metadata": {
+   "currencyCode": "USD",
+   "timeZone": "Asia/Calcutta"
+  },
+  "kind": "analyticsData#runPivotReport"
+ },
+ "realtime": {
+  "dimensionHeaders": [
+   {
+    "name": "unifiedScreenName"
+   },
+   {
+    "name": "country"
+   }
+  ],
+  "metricHeaders": [
+   {
+    "name": "activeUsers",
+    "type": "TYPE_INTEGER"
+   }
+  ],
+  "kind": "analyticsData#runRealtimeReport"
+ }
+}

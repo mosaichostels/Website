@@ -1,0 +1,101 @@
+GSC extract — https://www.mosaichostels.com/   2026-06-06 .. 2026-09-04
+
+  inspected 10/32
+  inspected 20/32
+  inspected 30/32
+
+raw bundle -> seo-reports/gsc/2026-09-07.json
+
+
+## Sitemaps
+  https://www.mosaichostels.com/sitemap.xml  errors=0 warnings=0 lastSubmitted=2026-07-29
+
+## Indexation
+   18  Submitted and indexed
+    4  Discovered - currently not indexed
+    4  URL is unknown to Google
+         https://www.mosaichostels.com/privacy
+         https://www.mosaichostels.com/about/
+         https://www.mosaichostels.com/blog
+         https://www.mosaichostels.com/contact/
+    4  Not found (404)
+         https://www.mosaichostels.com/about-us/
+         https://www.mosaichostels.com/contact-us/
+         https://www.mosaichostels.com/experiences/
+         https://www.mosaichostels.com/llms-txt/
+    1  Crawled - currently not indexed
+    1  Page with redirect
+         https://www.mosaichostels.com/gallery/
+
+## Rich results detected (Enhancements equivalent)
+    6  Breadcrumbs
+  searchAppearance rows: 0 (0 means no rich result has ever appeared in a SERP)
+
+## URLs with impressions but NOT in sitemap
+  imp=  168 clk=  2 pos=  9.9  https://www.mosaichostels.com/varanasi-solo-female-travelers-safety-travel-guide/  [Crawled - currently not indexed]
+  imp=   57 clk=  0 pos=  7.3  https://www.mosaichostels.com/gallery/  [Page with redirect]
+  imp=   33 clk=  0 pos=  8.5  https://www.mosaichostels.com/book-now/  [Submitted and indexed]
+  imp=   14 clk=  0 pos= 10.1  https://www.mosaichostels.com/contact-us/  [Not found (404)]
+  imp=   11 clk=  0 pos=  9.3  https://www.mosaichostels.com/blog  [URL is unknown to Google]
+  imp=    9 clk=  0 pos=  7.6  https://www.mosaichostels.com/about/  [URL is unknown to Google]
+  imp=    9 clk=  0 pos=  7.6  https://www.mosaichostels.com/contact/  [URL is unknown to Google]
+  imp=    3 clk=  0 pos=  4.3  https://www.mosaichostels.com/experiences/  [Not found (404)]
+  imp=    3 clk=  0 pos=  4.3  https://www.mosaichostels.com/llms-txt/  [Not found (404)]
+  imp=    2 clk=  0 pos= 18.0  https://www.mosaichostels.com/about-us/  [Not found (404)]
+  (a URL that 301s to a canonical page is correct here — never add a redirect to a sitemap)
+
+## In sitemap, zero impressions
+  https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/
+  https://www.mosaichostels.com/privacy
+
+## Striking distance (position 5-20)
+  imp=  152 clk=  3 ctr=  2.0% pos=  8.9  mosaic hostel
+  imp=  149 clk=  0 ctr=  0.0% pos= 15.0  hostels near assi ghat
+  imp=   60 clk=  0 ctr=  0.0% pos= 17.6  hostels in varanasi near assi ghat
+  imp=   52 clk=  0 ctr=  0.0% pos= 16.6  assi ghat varanasi
+  imp=   51 clk=  0 ctr=  0.0% pos= 13.9  hostel varanasi
+  imp=   50 clk=  0 ctr=  0.0% pos= 12.7  assi ghat
+  imp=   50 clk=  0 ctr=  0.0% pos=  7.5  is varanasi safe for women
+  imp=   48 clk=  0 ctr=  0.0% pos=  8.9  mosaic
+  imp=   38 clk=  0 ctr=  0.0% pos= 11.2  dormitory near assi ghat
+  imp=   33 clk=  1 ctr=  3.0% pos=  5.2  is it safe to visit varanasi now
+  imp=   31 clk=  0 ctr=  0.0% pos=  9.0  varanasi junction to assi ghat
+  imp=   29 clk=  0 ctr=  0.0% pos=  5.6  varanasi airport to assi ghat
+  imp=   20 clk=  0 ctr=  0.0% pos= 10.3  hostel near assi ghat
+  imp=   19 clk=  0 ctr=  0.0% pos=  9.0  assi ghat to varanasi airport
+  imp=   19 clk=  0 ctr=  0.0% pos= 20.0  varanasi best hostel
+
+## Ranked well but not clicked (position <=3, CTR <10%)
+  imp=  652 clk= 34 ctr=  5.2% pos=  1.3  mosaic hostel varanasi
+  imp=  127 clk=  2 ctr=  1.6% pos=  1.0  mosaic hotel varanasi
+  imp=   50 clk=  0 ctr=  0.0% pos=  2.1  dashashwamedh ghat
+  imp=   30 clk=  0 ctr=  0.0% pos=  2.4  varanasi
+  imp=   25 clk=  0 ctr=  0.0% pos=  1.0  varanasi station to assi ghat distance
+  imp=   21 clk=  0 ctr=  0.0% pos=  1.5  banaras railway station to assi ghat distance
+  imp=   18 clk=  0 ctr=  0.0% pos=  1.0  assi ghat to varanasi railway station distance
+  imp=   17 clk=  0 ctr=  0.0% pos=  1.5  banaras station to assi ghat distance
+  imp=   14 clk=  0 ctr=  0.0% pos=  1.0  assi ghat to varanasi junction distance
+  imp=   13 clk=  0 ctr=  0.0% pos=  2.3  mosaic hotel
+  imp=    5 clk=  0 ctr=  0.0% pos=  1.0  assi ghat to banaras railway station distance
+  imp=    4 clk=  0 ctr=  0.0% pos=  3.0  assi ghat nearest railway station
+  imp=    4 clk=  0 ctr=  0.0% pos=  1.0  hostel near me
+  imp=    4 clk=  0 ctr=  0.0% pos=  3.0  kashi
+  imp=    3 clk=  0 ctr=  0.0% pos=  2.7  assi ghat aarti time
+
+## Segments
+  device   MOBILE     imp=  5052 clk=  58 ctr=  1.1% pos=  6.5
+  device   DESKTOP    imp=  1910 clk=  25 ctr=  1.3% pos= 14.4
+  device   TABLET     imp=    55 clk=   1 ctr=  1.8% pos=  5.3
+  country  ind        imp=  5817 clk=  68 ctr=  1.2% pos=  8.1
+  country  usa        imp=   382 clk=   2 ctr=  0.5% pos= 10.7
+  country  deu        imp=    84 clk=   0 ctr=  0.0% pos= 11.8
+  country  gbr        imp=    79 clk=   3 ctr=  3.8% pos=  9.5
+  country  tha        imp=    51 clk=   0 ctr=  0.0% pos= 11.1
+
+## Result types
+  web          clicks=   84 impressions=   7017
+  image        clicks=    0 impressions=   3766
+  video        clicks=    0 impressions=      0
+  news         clicks=    0 impressions=      0
+  discover     clicks=    0 impressions=      0
+  googleNews   clicks=    0 impressions=      0

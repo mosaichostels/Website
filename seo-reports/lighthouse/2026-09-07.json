@@ -1,0 +1,3388 @@
+{
+ "site": "https://www.mosaichostels.com",
+ "mode": "full-sweep",
+ "generated": "2026-09-07T20:53:11",
+ "unlighthouse": {
+  "exit_code": 0,
+  "summary": {
+   "score": 0.9,
+   "categories": {
+    "performance": {
+     "score": 1,
+     "scores": [
+      1,
+      0.96,
+      0.84,
+      0.75,
+      0.95,
+      1,
+      0.84,
+      0.99,
+      0.92,
+      0.95,
+      0.91,
+      1,
+      0.95,
+      0.86,
+      1
+     ],
+     "averageScore": 0.93
+    },
+    "accessibility": {
+     "score": 0.95,
+     "scores": [
+      0.95,
+      0.88,
+      0.92,
+      0.93,
+      0.93,
+      0.94,
+      0.93,
+      0.93,
+      0.93,
+      0.93,
+      0.93,
+      0.89,
+      0.89,
+      0.93,
+      0.95
+     ],
+     "averageScore": 0.92
+    },
+    "best-practices": {
+     "score": 0.77,
+     "scores": [
+      0.73,
+      0.73,
+      0.73,
+      0.73,
+      0.77,
+      0.77,
+      0.77,
+      0.77,
+      0.77,
+      0.77,
+      0.77,
+      0.77,
+      0.77,
+      0.77,
+      0.77
+     ],
+     "averageScore": 0.76
+    },
+    "seo": {
+     "score": 1,
+     "scores": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "averageScore": 1
+    }
+   },
+   "metrics": {
+    "largest-contentful-paint": {
+     "numericValue": 1095.9987999999998,
+     "displayValue": "1.1\u00a0s",
+     "numericValues": [
+      1230.7024999999999,
+      2654.452,
+      4164.789,
+      5261.1715,
+      2741.5268,
+      1375.9213,
+      4467.5722,
+      2115.8509,
+      1644.2940999999998,
+      2943.0534000000002,
+      3492.4809999999993,
+      1166.9378000000002,
+      2775.1142999999993,
+      4190.0317000000005,
+      1095.9987999999998
+     ],
+     "averageNumericValue": 2754.66
+    },
+    "cumulative-layout-shift": {
+     "numericValue": 0.012227654991399902,
+     "displayValue": "0.012",
+     "numericValues": [
+      0,
+      0,
+      0.01078578531561299,
+      0.02938945310697629,
+      0.01314923652065831,
+      0.03052781050157796,
+      0.011574757155415446,
+      0,
+      0.16825593764041358,
+      0.026198448690958248,
+      0.017981517649057463,
+      0.002860314691687238,
+      0.016799554642007802,
+      0.01953462769530466,
+      0.012227654991399902
+     ],
+     "averageNumericValue": 0.02
+    },
+    "first-contentful-paint": {
+     "numericValue": 1095.9987999999998,
+     "displayValue": "1.1\u00a0s",
+     "numericValues": [
+      982.361,
+      1687.6180000000002,
+      1890.775,
+      2855.687,
+      1661.6208000000001,
+      785.0348864257812,
+      1722.0443999999998,
+      776.9644864257813,
+      1644.2940999999998,
+      848.8681864257812,
+      819.4470864257812,
+      941.9378,
+      1698.9280999999999,
+      1151.1852,
+      1095.9987999999998
+     ],
+     "averageNumericValue": 1370.85
+    },
+    "total-blocking-time": {
+     "numericValue": 0,
+     "displayValue": "0\u00a0ms",
+     "numericValues": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+     ],
+     "averageNumericValue": 0.2
+    },
+    "max-potential-fid": {
+     "numericValue": 16,
+     "displayValue": "20\u00a0ms",
+     "numericValues": [
+      48,
+      40,
+      18,
+      20,
+      20,
+      24,
+      28,
+      53,
+      16,
+      30,
+      21,
+      30,
+      21,
+      27,
+      16
+     ],
+     "averageNumericValue": 27.47
+    },
+    "interactive": {
+     "numericValue": 1095.9987999999998,
+     "displayValue": "1.1\u00a0s",
+     "numericValues": [
+      1238.9805500000002,
+      2654.452,
+      4165.839,
+      5270.313050000001,
+      2741.5268,
+      1375.9213,
+      4467.5722,
+      2115.8509,
+      1644.2941,
+      2943.0534000000007,
+      3492.4809999999998,
+      1174.4378000000002,
+      2775.1142999999993,
+      4205.031700000001,
+      1095.9987999999998
+     ],
+     "averageNumericValue": 2757.39
+    }
+   }
+  },
+  "routes": [
+   {
+    "path": "/",
+    "score": 0.92,
+    "categories": {
+     "performance": {
+      "score": 1
+     },
+     "accessibility": {
+      "score": 0.95
+     },
+     "best-practices": {
+      "score": 0.73
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 1230.7024999999999,
+      "displayValue": "1.2\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0,
+      "displayValue": "0"
+     },
+     "first-contentful-paint": {
+      "numericValue": 982.361,
+      "displayValue": "1.0\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 48,
+      "displayValue": "50\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 1238.9805500000002,
+      "displayValue": "1.2\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/about",
+    "score": 0.89,
+    "categories": {
+     "performance": {
+      "score": 0.96
+     },
+     "accessibility": {
+      "score": 0.88
+     },
+     "best-practices": {
+      "score": 0.73
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 2654.452,
+      "displayValue": "2.7\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0,
+      "displayValue": "0"
+     },
+     "first-contentful-paint": {
+      "numericValue": 1687.6180000000002,
+      "displayValue": "1.7\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 40,
+      "displayValue": "40\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 2654.452,
+      "displayValue": "2.7\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/blog/",
+    "score": 0.87,
+    "categories": {
+     "performance": {
+      "score": 0.84
+     },
+     "accessibility": {
+      "score": 0.92
+     },
+     "best-practices": {
+      "score": 0.73
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 4164.789,
+      "displayValue": "4.2\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0.01078578531561299,
+      "displayValue": "0.011"
+     },
+     "first-contentful-paint": {
+      "numericValue": 1890.775,
+      "displayValue": "1.9\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 18,
+      "displayValue": "20\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 4165.839,
+      "displayValue": "4.2\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/blog/best-hostels-in-varanasi/",
+    "score": 0.85,
+    "categories": {
+     "performance": {
+      "score": 0.75
+     },
+     "accessibility": {
+      "score": 0.93
+     },
+     "best-practices": {
+      "score": 0.73
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 5261.1715,
+      "displayValue": "5.3\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0.02938945310697629,
+      "displayValue": "0.029"
+     },
+     "first-contentful-paint": {
+      "numericValue": 2855.687,
+      "displayValue": "2.9\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 20,
+      "displayValue": "20\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 5270.313050000001,
+      "displayValue": "5.3\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/blog/co-working-spaces-cafes-assi-ghat/",
+    "score": 0.91,
+    "categories": {
+     "performance": {
+      "score": 0.95
+     },
+     "accessibility": {
+      "score": 0.93
+     },
+     "best-practices": {
+      "score": 0.77
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 2741.5268,
+      "displayValue": "2.7\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0.01314923652065831,
+      "displayValue": "0.013"
+     },
+     "first-contentful-paint": {
+      "numericValue": 1661.6208000000001,
+      "displayValue": "1.7\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 20,
+      "displayValue": "20\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 2741.5268,
+      "displayValue": "2.7\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/blog/dorm-vs-private-room-varanasi-hostel/",
+    "score": 0.93,
+    "categories": {
+     "performance": {
+      "score": 1
+     },
+     "accessibility": {
+      "score": 0.94
+     },
+     "best-practices": {
+      "score": 0.77
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 1375.9213,
+      "displayValue": "1.4\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0.03052781050157796,
+      "displayValue": "0.031"
+     },
+     "first-contentful-paint": {
+      "numericValue": 785.0348864257812,
+      "displayValue": "0.8\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 24,
+      "displayValue": "20\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 1375.9213,
+      "displayValue": "1.4\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/blog/is-varanasi-safe-general-guide/",
+    "score": 0.89,
+    "categories": {
+     "performance": {
+      "score": 0.84
+     },
+     "accessibility": {
+      "score": 0.93
+     },
+     "best-practices": {
+      "score": 0.77
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 4467.5722,
+      "displayValue": "4.5\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0.011574757155415446,
+      "displayValue": "0.012"
+     },
+     "first-contentful-paint": {
+      "numericValue": 1722.0443999999998,
+      "displayValue": "1.7\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 28,
+      "displayValue": "30\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 4467.5722,
+      "displayValue": "4.5\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/blog/sarnath-day-trip-guide-varanasi/",
+    "score": 0.92,
+    "categories": {
+     "performance": {
+      "score": 0.99
+     },
+     "accessibility": {
+      "score": 0.93
+     },
+     "best-practices": {
+      "score": 0.77
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 2115.8509,
+      "displayValue": "2.1\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0,
+      "displayValue": "0"
+     },
+     "first-contentful-paint": {
+      "numericValue": 776.9644864257813,
+      "displayValue": "0.8\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 3,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 53,
+      "displayValue": "50\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 2115.8509,
+      "displayValue": "2.1\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/blog/things-to-do-varanasi-local-guide/",
+    "score": 0.91,
+    "categories": {
+     "performance": {
+      "score": 0.92
+     },
+     "accessibility": {
+      "score": 0.93
+     },
+     "best-practices": {
+      "score": 0.77
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 1644.2940999999998,
+      "displayValue": "1.6\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0.16825593764041358,
+      "displayValue": "0.168"
+     },
+     "first-contentful-paint": {
+      "numericValue": 1644.2940999999998,
+      "displayValue": "1.6\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 16,
+      "displayValue": "20\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 1644.2941,
+      "displayValue": "1.6\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/blog/varanasi-2-day-itinerary-backpackers/",
+    "score": 0.91,
+    "categories": {
+     "performance": {
+      "score": 0.95
+     },
+     "accessibility": {
+      "score": 0.93
+     },
+     "best-practices": {
+      "score": 0.77
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 2943.0534000000002,
+      "displayValue": "2.9\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0.026198448690958248,
+      "displayValue": "0.026"
+     },
+     "first-contentful-paint": {
+      "numericValue": 848.8681864257812,
+      "displayValue": "0.8\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 30,
+      "displayValue": "30\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 2943.0534000000007,
+      "displayValue": "2.9\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/blog/varanasi-3-5-day-itinerary-slow-travel/",
+    "score": 0.9,
+    "categories": {
+     "performance": {
+      "score": 0.91
+     },
+     "accessibility": {
+      "score": 0.93
+     },
+     "best-practices": {
+      "score": 0.77
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 3492.4809999999993,
+      "displayValue": "3.5\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0.017981517649057463,
+      "displayValue": "0.018"
+     },
+     "first-contentful-paint": {
+      "numericValue": 819.4470864257812,
+      "displayValue": "0.8\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 21,
+      "displayValue": "20\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 3492.4809999999998,
+      "displayValue": "3.5\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/book-now",
+    "score": 0.92,
+    "categories": {
+     "performance": {
+      "score": 1
+     },
+     "accessibility": {
+      "score": 0.89
+     },
+     "best-practices": {
+      "score": 0.77
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 1166.9378000000002,
+      "displayValue": "1.2\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0.002860314691687238,
+      "displayValue": "0.003"
+     },
+     "first-contentful-paint": {
+      "numericValue": 941.9378,
+      "displayValue": "0.9\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 30,
+      "displayValue": "30\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 1174.4378000000002,
+      "displayValue": "1.2\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/contact",
+    "score": 0.9,
+    "categories": {
+     "performance": {
+      "score": 0.95
+     },
+     "accessibility": {
+      "score": 0.89
+     },
+     "best-practices": {
+      "score": 0.77
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 2775.1142999999993,
+      "displayValue": "2.8\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0.016799554642007802,
+      "displayValue": "0.017"
+     },
+     "first-contentful-paint": {
+      "numericValue": 1698.9280999999999,
+      "displayValue": "1.7\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 21,
+      "displayValue": "20\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 2775.1142999999993,
+      "displayValue": "2.8\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/gallery",
+    "score": 0.89,
+    "categories": {
+     "performance": {
+      "score": 0.86
+     },
+     "accessibility": {
+      "score": 0.93
+     },
+     "best-practices": {
+      "score": 0.77
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 4190.0317000000005,
+      "displayValue": "4.2\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0.01953462769530466,
+      "displayValue": "0.02"
+     },
+     "first-contentful-paint": {
+      "numericValue": 1151.1852,
+      "displayValue": "1.2\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 27,
+      "displayValue": "30\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 4205.031700000001,
+      "displayValue": "4.2\u00a0s"
+     }
+    }
+   },
+   {
+    "path": "/privacy",
+    "score": 0.93,
+    "categories": {
+     "performance": {
+      "score": 1
+     },
+     "accessibility": {
+      "score": 0.95
+     },
+     "best-practices": {
+      "score": 0.77
+     },
+     "seo": {
+      "score": 1
+     }
+    },
+    "metrics": {
+     "largest-contentful-paint": {
+      "numericValue": 1095.9987999999998,
+      "displayValue": "1.1\u00a0s"
+     },
+     "cumulative-layout-shift": {
+      "numericValue": 0.012227654991399902,
+      "displayValue": "0.012"
+     },
+     "first-contentful-paint": {
+      "numericValue": 1095.9987999999998,
+      "displayValue": "1.1\u00a0s"
+     },
+     "total-blocking-time": {
+      "numericValue": 0,
+      "displayValue": "0\u00a0ms"
+     },
+     "max-potential-fid": {
+      "numericValue": 16,
+      "displayValue": "20\u00a0ms"
+     },
+     "interactive": {
+      "numericValue": 1095.9987999999998,
+      "displayValue": "1.1\u00a0s"
+     }
+    }
+   }
+  ],
+  "metadata": {
+   "metrics": {
+    "largest-contentful-paint": {
+     "id": "largest-contentful-paint",
+     "title": "Largest Contentful Paint",
+     "description": "Largest Contentful Paint marks the time at which the largest text or image is painted. [Learn more about the Largest Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-largest-contentful-paint/)",
+     "numericUnit": "millisecond"
+    },
+    "cumulative-layout-shift": {
+     "id": "cumulative-layout-shift",
+     "title": "Cumulative Layout Shift",
+     "description": "Cumulative Layout Shift measures the movement of visible elements within the viewport. [Learn more about the Cumulative Layout Shift metric](https://web.dev/articles/cls).",
+     "numericUnit": "unitless"
+    },
+    "first-contentful-paint": {
+     "id": "first-contentful-paint",
+     "title": "First Contentful Paint",
+     "description": "First Contentful Paint marks the time at which the first text or image is painted. [Learn more about the First Contentful Paint metric](https://developer.chrome.com/docs/lighthouse/performance/first-contentful-paint/).",
+     "numericUnit": "millisecond"
+    },
+    "total-blocking-time": {
+     "id": "total-blocking-time",
+     "title": "Total Blocking Time",
+     "description": "Sum of all time periods between FCP and Time to Interactive, when task length exceeded 50ms, expressed in milliseconds. [Learn more about the Total Blocking Time metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-total-blocking-time/).",
+     "numericUnit": "millisecond"
+    },
+    "max-potential-fid": {
+     "id": "max-potential-fid",
+     "title": "Max Potential First Input Delay",
+     "description": "The maximum potential First Input Delay that your users could experience is the duration of the longest task. [Learn more about the Maximum Potential First Input Delay metric](https://developer.chrome.com/docs/lighthouse/performance/lighthouse-max-potential-fid/).",
+     "numericUnit": "millisecond"
+    },
+    "interactive": {
+     "id": "interactive",
+     "title": "Time to Interactive",
+     "description": "Time to Interactive is the amount of time it takes for the page to become fully interactive. [Learn more about the Time to Interactive metric](https://developer.chrome.com/docs/lighthouse/performance/interactive/).",
+     "numericUnit": "millisecond"
+    }
+   },
+   "categories": {
+    "performance": {
+     "id": "performance",
+     "title": "Performance"
+    },
+    "accessibility": {
+     "id": "accessibility",
+     "title": "Accessibility"
+    },
+    "best-practices": {
+     "id": "best-practices",
+     "title": "Best Practices"
+    },
+    "seo": {
+     "id": "seo",
+     "title": "SEO"
+    }
+   }
+  },
+  "audits": {
+   "https://www.mosaichostels.com/about": {
+    "errors-in-console": {
+     "title": "Browser errors were logged to the console",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 2
+    },
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "8 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 8
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 6
+    },
+    "frame-title": {
+     "title": "`<frame>` or `<iframe>` elements do not have a title",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "landmark-one-main": {
+     "title": "Document does not have a main landmark.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0.5,
+     "displayValue": "Est savings of 71\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 72888,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 2
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 10\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 10240,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0.5,
+     "displayValue": "Est savings of 63\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 64512,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0.5,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/": {
+    "errors-in-console": {
+     "title": "Browser errors were logged to the console",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 2
+    },
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "8 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 8
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 18
+    },
+    "landmark-one-main": {
+     "title": "Document does not have a main landmark.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0,
+     "displayValue": "Est savings of 71\u00a0KiB",
+     "savings_ms": 820,
+     "savings_bytes": 73078,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 800
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 2
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 10\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 10240,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "forced-reflow-insight": {
+     "title": "Forced reflow",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 2
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0,
+     "displayValue": "Est savings of 51\u00a0KiB",
+     "savings_ms": 200,
+     "savings_bytes": 52224,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 200
+     },
+     "items": 2
+    },
+    "lcp-discovery-insight": {
+     "title": "LCP request discovery",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 2
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0.5,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/": {
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "5 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 5
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 13
+    },
+    "landmark-one-main": {
+     "title": "Document does not have a main landmark.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0.5,
+     "displayValue": "Est savings of 74\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 75352,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 10\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 10240,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0.5,
+     "displayValue": "Est savings of 60\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 61440,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 2
+    },
+    "lcp-discovery-insight": {
+     "title": "LCP request discovery",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 2
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0.5,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/": {
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "5 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 5
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 12
+    },
+    "landmark-one-main": {
+     "title": "Document does not have a main landmark.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0.5,
+     "displayValue": "Est savings of 73\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 74667,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 10\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 10240,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0,
+     "displayValue": "Est savings of 87\u00a0KiB",
+     "savings_ms": 300,
+     "savings_bytes": 89088,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 300
+     },
+     "items": 3
+    },
+    "lcp-discovery-insight": {
+     "title": "LCP request discovery",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 2
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0.5,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/": {
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "5 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 5
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 14
+    },
+    "landmark-one-main": {
+     "title": "Document does not have a main landmark.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0,
+     "displayValue": "Est savings of 73\u00a0KiB",
+     "savings_ms": 300,
+     "savings_bytes": 75229,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 300
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 10\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 10240,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0,
+     "displayValue": "Est savings of 139\u00a0KiB",
+     "savings_ms": 600,
+     "savings_bytes": 142336,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 600
+     },
+     "items": 2
+    },
+    "lcp-discovery-insight": {
+     "title": "LCP request discovery",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 2
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0.5,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/blog/": {
+    "errors-in-console": {
+     "title": "Browser errors were logged to the console",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 2
+    },
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "8 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 8
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 2
+    },
+    "heading-order": {
+     "title": "Heading elements are not in a sequentially-descending order",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0,
+     "displayValue": "Est savings of 70\u00a0KiB",
+     "savings_ms": 490,
+     "savings_bytes": 71968,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 500
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 2
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 10\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 10240,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 2
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0.5,
+     "displayValue": "Est savings of 8\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 8192,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0.5,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/": {
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "5 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 5
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 14
+    },
+    "landmark-one-main": {
+     "title": "Document does not have a main landmark.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0.5,
+     "displayValue": "Est savings of 73\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 75231,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 10\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 10240,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0,
+     "displayValue": "Est savings of 99\u00a0KiB",
+     "savings_ms": 450,
+     "savings_bytes": 101376,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 450
+     },
+     "items": 2
+    },
+    "lcp-discovery-insight": {
+     "title": "LCP request discovery",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 2
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0.5,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/": {
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "5 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 5
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 17
+    },
+    "landmark-one-main": {
+     "title": "Document does not have a main landmark.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0.5,
+     "displayValue": "Est savings of 73\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 75231,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 10\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 10240,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "cls-culprits-insight": {
+     "title": "Layout shift culprits",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "CLS": 0
+     },
+     "items": 1
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0.5,
+     "displayValue": "Est savings of 8\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 8192,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0.5,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/": {
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "5 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 5
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 17
+    },
+    "landmark-one-main": {
+     "title": "Document does not have a main landmark.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0.5,
+     "displayValue": "Est savings of 73\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 75229,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 10\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 10240,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0.5,
+     "displayValue": "Est savings of 47\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 48128,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 2
+    },
+    "lcp-discovery-insight": {
+     "title": "LCP request discovery",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 2
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0.5,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/": {
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "5 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 5
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 15
+    },
+    "landmark-one-main": {
+     "title": "Document does not have a main landmark.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0,
+     "displayValue": "Est savings of 73\u00a0KiB",
+     "savings_ms": 580,
+     "savings_bytes": 74667,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 600
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 10\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 10240,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0,
+     "displayValue": "Est savings of 102\u00a0KiB",
+     "savings_ms": 750,
+     "savings_bytes": 104448,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 750
+     },
+     "items": 2
+    },
+    "lcp-discovery-insight": {
+     "title": "LCP request discovery",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 2
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0.5,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/book-now": {
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "5 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 5
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 8
+    },
+    "frame-title": {
+     "title": "`<frame>` or `<iframe>` elements do not have a title",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "landmark-one-main": {
+     "title": "Document does not have a main landmark.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0.5,
+     "displayValue": "Est savings of 97\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 99593,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 2
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 70\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 71680,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0.5,
+     "displayValue": "Est savings of 8\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 8192,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "legacy-javascript-insight": {
+     "title": "Legacy JavaScript",
+     "score": 0.5,
+     "displayValue": "Est savings of 20\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 20480,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0,
+     "displayValue": "Est savings of 150\u00a0ms",
+     "savings_ms": 150,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 150,
+      "LCP": 150
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/contact": {
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "5 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 5
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 7
+    },
+    "frame-title": {
+     "title": "`<frame>` or `<iframe>` elements do not have a title",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "landmark-one-main": {
+     "title": "Document does not have a main landmark.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0.5,
+     "displayValue": "Est savings of 73\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 74708,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 24\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 24576,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0.5,
+     "displayValue": "Est savings of 8\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 8192,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0.5,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/gallery": {
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "5 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 5
+    },
+    "unsized-images": {
+     "title": "Image elements do not have explicit `width` and `height`",
+     "score": 0.5,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "CLS": 0
+     },
+     "items": 18
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 4
+    },
+    "landmark-one-main": {
+     "title": "Document does not have a main landmark.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "total-byte-weight": {
+     "title": "Avoid enormous network payloads",
+     "score": 0.5,
+     "displayValue": "Total size was 8,464\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 475136,
+     "metric_savings": {},
+     "items": 10
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0,
+     "displayValue": "Est savings of 72\u00a0KiB",
+     "savings_ms": 350,
+     "savings_bytes": 73888,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 350
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 626\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 641024,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 19
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0,
+     "displayValue": "Est savings of 1,012\u00a0KiB",
+     "savings_ms": 300,
+     "savings_bytes": 12288,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 300
+     },
+     "items": 18
+    },
+    "lcp-discovery-insight": {
+     "title": "LCP request discovery",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 2
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0,
+     "displayValue": "Est savings of 150\u00a0ms",
+     "savings_ms": 150,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 150,
+      "LCP": 0
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/": {
+    "errors-in-console": {
+     "title": "Browser errors were logged to the console",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 8
+    },
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "8 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 8
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 3
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0.5,
+     "displayValue": "Est savings of 72\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 73300,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 2
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 10\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 10240,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0.5,
+     "displayValue": "Est savings of 37\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 37888,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 2
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0,
+     "displayValue": "Est savings of 160\u00a0ms",
+     "savings_ms": 150,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 150,
+      "LCP": 150
+     },
+     "items": 1
+    }
+   },
+   "https://www.mosaichostels.com/privacy": {
+    "third-party-cookies": {
+     "title": "Uses third-party cookies",
+     "score": 0,
+     "displayValue": "5 cookies found",
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 5
+    },
+    "color-contrast": {
+     "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 2
+    },
+    "unused-javascript": {
+     "title": "Reduce unused JavaScript",
+     "score": 0.5,
+     "displayValue": "Est savings of 73\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 75231,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "inspector-issues": {
+     "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {},
+     "items": 1
+    },
+    "cache-insight": {
+     "title": "Use efficient cache lifetimes",
+     "score": 0.5,
+     "displayValue": "Est savings of 10\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 10240,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "image-delivery-insight": {
+     "title": "Improve image delivery",
+     "score": 0.5,
+     "displayValue": "Est savings of 8\u00a0KiB",
+     "savings_ms": null,
+     "savings_bytes": 8192,
+     "metric_savings": {
+      "FCP": 0,
+      "LCP": 0
+     },
+     "items": 1
+    },
+    "network-dependency-tree-insight": {
+     "title": "Network dependency tree",
+     "score": 0,
+     "displayValue": null,
+     "savings_ms": null,
+     "savings_bytes": null,
+     "metric_savings": {
+      "LCP": 0
+     },
+     "items": 3
+    },
+    "render-blocking-insight": {
+     "title": "Render-blocking requests",
+     "score": 0,
+     "displayValue": "Est savings of 300\u00a0ms",
+     "savings_ms": 300,
+     "savings_bytes": null,
+     "metric_savings": {
+      "FCP": 300,
+      "LCP": 300
+     },
+     "items": 1
+    }
+   }
+  },
+  "lighthouse_version": "13.4.1"
+ },
+ "drift": {
+  "store": {
+   "cache_path_is_symlink": true,
+   "resolves_to": "/Users/nk/.local/share/mosaic-seo/drift",
+   "safe": true,
+   "baselines": [
+    {
+     "id": 1,
+     "url": "https://www.mosaichostels.com/",
+     "captured": "2026-09-07T06:22:17.783397+00:00"
+    },
+    {
+     "id": 2,
+     "url": "https://www.mosaichostels.com/book-now",
+     "captured": "2026-09-07T06:22:18.448421+00:00"
+    },
+    {
+     "id": 3,
+     "url": "https://www.mosaichostels.com/blog",
+     "captured": "2026-09-07T06:22:18.943721+00:00"
+    }
+   ]
+  },
+  "pages": {
+   "/": {
+    "status": "ok",
+    "url": "https://www.mosaichostels.com/",
+    "baseline_id": 1,
+    "baseline_timestamp": "2026-09-07T06:22:17.783397+00:00",
+    "comparison_timestamp": "2026-09-07T15:24:17.155019+00:00",
+    "summary": {
+     "total_rules": 17,
+     "triggered": 0,
+     "critical": 0,
+     "warning": 0,
+     "info": 0
+    },
+    "triggered_findings": [],
+    "untriggered_findings": [
+     {
+      "rule": "schema_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "3 schema block(s)",
+      "new_value": "0 schema blocks",
+      "message": "Schema presence unchanged."
+     },
+     {
+      "rule": "canonical_changed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "https://www.mosaichostels.com/",
+      "new_value": "https://www.mosaichostels.com/",
+      "message": "Canonical URL unchanged."
+     },
+     {
+      "rule": "canonical_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "https://www.mosaichostels.com/",
+      "new_value": null,
+      "message": "Canonical tag presence unchanged."
+     },
+     {
+      "rule": "noindex_added",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": null,
+      "new_value": null,
+      "message": "Robots directives unchanged regarding noindex."
+     },
+     {
+      "rule": "h1_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "Budget Hostel in Varanasinear Assi Ghat",
+      "new_value": null,
+      "message": "H1 presence unchanged."
+     },
+     {
+      "rule": "h1_changed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "Budget Hostel in Varanasinear Assi Ghat",
+      "new_value": "Budget Hostel in Varanasinear Assi Ghat",
+      "message": "H1 text is similar enough (similarity: 100%)."
+     },
+     {
+      "rule": "title_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "Mosaic Hostel Varanasi \u2014 Budget Hostel near Assi Ghat",
+      "new_value": null,
+      "message": "Title tag presence unchanged."
+     },
+     {
+      "rule": "status_code_error",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": 200,
+      "new_value": 200,
+      "message": "Status code: 200 -> 200."
+     },
+     {
+      "rule": "title_changed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": "Mosaic Hostel Varanasi \u2014 Budget Hostel near Assi Ghat",
+      "new_value": "Mosaic Hostel Varanasi \u2014 Budget Hostel near Assi Ghat",
+      "message": "Title text unchanged."
+     },
+     {
+      "rule": "meta_description_changed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": "Mosaic Hostel Varanasi \u2014 Budget hostel near Assi Ghat. Dorms from \u20b9549. 24-hour check-in, free WiFi, rooftop, kitchen. B...",
+      "new_value": "Mosaic Hostel Varanasi \u2014 Budget hostel near Assi Ghat. Dorms from \u20b9549. 24-hour check-in, free WiFi, rooftop, kitchen. B...",
+      "message": "Meta description unchanged."
+     },
+     {
+      "rule": "cwv_regressed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": null,
+      "new_value": null,
+      "message": "CWV comparison skipped (data unavailable)."
+     },
+     {
+      "rule": "perf_score_dropped",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": null,
+      "new_value": null,
+      "message": "Performance score comparison skipped."
+     },
+     {
+      "rule": "og_tags_removed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": [
+       "og:image",
+       "og:title",
+       "og:description",
+       "og:url",
+       "og:type",
+       "og:site_name",
+       "og:locale"
+      ],
+      "new_value": [],
+      "message": "OG tags presence unchanged."
+     },
+     {
+      "rule": "schema_modified",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": "fb1fb4502e7d...",
+      "new_value": "fb1fb4502e7d...",
+      "message": "Schema content hash unchanged."
+     },
+     {
+      "rule": "schema_added",
+      "severity": "INFO",
+      "triggered": false,
+      "old_value": "0 schema blocks",
+      "new_value": "3 schema block(s)",
+      "message": "No new schema added."
+     },
+     {
+      "rule": "h2_structure_changed",
+      "severity": "INFO",
+      "triggered": false,
+      "old_value": "2 H2s",
+      "new_value": "2 H2s",
+      "message": "H2 structure unchanged."
+     },
+     {
+      "rule": "content_hash_changed",
+      "severity": "INFO",
+      "triggered": false,
+      "old_value": "710c78668e0c...",
+      "new_value": "710c78668e0c...",
+      "message": "Page content hash unchanged."
+     }
+    ],
+    "current_status_code": 200,
+    "cwv_compared": false
+   },
+   "/book-now": {
+    "status": "ok",
+    "url": "https://www.mosaichostels.com/book-now",
+    "baseline_id": 2,
+    "baseline_timestamp": "2026-09-07T06:22:18.448421+00:00",
+    "comparison_timestamp": "2026-09-07T15:24:17.539689+00:00",
+    "summary": {
+     "total_rules": 17,
+     "triggered": 0,
+     "critical": 0,
+     "warning": 0,
+     "info": 0
+    },
+    "triggered_findings": [],
+    "untriggered_findings": [
+     {
+      "rule": "schema_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "2 schema block(s)",
+      "new_value": "0 schema blocks",
+      "message": "Schema presence unchanged."
+     },
+     {
+      "rule": "canonical_changed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "https://www.mosaichostels.com/book-now",
+      "new_value": "https://www.mosaichostels.com/book-now",
+      "message": "Canonical URL unchanged."
+     },
+     {
+      "rule": "canonical_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "https://www.mosaichostels.com/book-now",
+      "new_value": null,
+      "message": "Canonical tag presence unchanged."
+     },
+     {
+      "rule": "noindex_added",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": null,
+      "new_value": null,
+      "message": "Robots directives unchanged regarding noindex."
+     },
+     {
+      "rule": "h1_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "Book Your Stay at Mosaic Hostel",
+      "new_value": null,
+      "message": "H1 presence unchanged."
+     },
+     {
+      "rule": "h1_changed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "Book Your Stay at Mosaic Hostel",
+      "new_value": "Book Your Stay at Mosaic Hostel",
+      "message": "H1 text is similar enough (similarity: 100%)."
+     },
+     {
+      "rule": "title_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "Book Now \u2014 Mosaic Hostel Varanasi",
+      "new_value": null,
+      "message": "Title tag presence unchanged."
+     },
+     {
+      "rule": "status_code_error",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": 200,
+      "new_value": 200,
+      "message": "Status code: 200 -> 200."
+     },
+     {
+      "rule": "title_changed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": "Book Now \u2014 Mosaic Hostel Varanasi",
+      "new_value": "Book Now \u2014 Mosaic Hostel Varanasi",
+      "message": "Title text unchanged."
+     },
+     {
+      "rule": "meta_description_changed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": "Book Mosaic Hostel direct \u2014 Dorms from \u20b9549, private rooms available. Instant booking with best rates on Assi Ghat.",
+      "new_value": "Book Mosaic Hostel direct \u2014 Dorms from \u20b9549, private rooms available. Instant booking with best rates on Assi Ghat.",
+      "message": "Meta description unchanged."
+     },
+     {
+      "rule": "cwv_regressed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": null,
+      "new_value": null,
+      "message": "CWV comparison skipped (data unavailable)."
+     },
+     {
+      "rule": "perf_score_dropped",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": null,
+      "new_value": null,
+      "message": "Performance score comparison skipped."
+     },
+     {
+      "rule": "og_tags_removed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": [
+       "og:site_name",
+       "og:image",
+       "og:title",
+       "og:description",
+       "og:url",
+       "og:locale",
+       "og:type"
+      ],
+      "new_value": [],
+      "message": "OG tags presence unchanged."
+     },
+     {
+      "rule": "schema_modified",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": "8092dfb9a7a4...",
+      "new_value": "8092dfb9a7a4...",
+      "message": "Schema content hash unchanged."
+     },
+     {
+      "rule": "schema_added",
+      "severity": "INFO",
+      "triggered": false,
+      "old_value": "0 schema blocks",
+      "new_value": "2 schema block(s)",
+      "message": "No new schema added."
+     },
+     {
+      "rule": "h2_structure_changed",
+      "severity": "INFO",
+      "triggered": false,
+      "old_value": "0 H2s",
+      "new_value": "0 H2s",
+      "message": "H2 structure unchanged."
+     },
+     {
+      "rule": "content_hash_changed",
+      "severity": "INFO",
+      "triggered": false,
+      "old_value": "1d971e8c96ae...",
+      "new_value": "1d971e8c96ae...",
+      "message": "Page content hash unchanged."
+     }
+    ],
+    "current_status_code": 200,
+    "cwv_compared": false
+   },
+   "/blog/": {
+    "status": "ok",
+    "url": "https://www.mosaichostels.com/blog",
+    "baseline_id": 3,
+    "baseline_timestamp": "2026-09-07T06:22:18.943721+00:00",
+    "comparison_timestamp": "2026-09-07T15:24:17.931904+00:00",
+    "summary": {
+     "total_rules": 17,
+     "triggered": 0,
+     "critical": 0,
+     "warning": 0,
+     "info": 0
+    },
+    "triggered_findings": [],
+    "untriggered_findings": [
+     {
+      "rule": "schema_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "3 schema block(s)",
+      "new_value": "0 schema blocks",
+      "message": "Schema presence unchanged."
+     },
+     {
+      "rule": "canonical_changed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "https://www.mosaichostels.com/blog/",
+      "new_value": "https://www.mosaichostels.com/blog/",
+      "message": "Canonical URL unchanged."
+     },
+     {
+      "rule": "canonical_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "https://www.mosaichostels.com/blog/",
+      "new_value": null,
+      "message": "Canonical tag presence unchanged."
+     },
+     {
+      "rule": "noindex_added",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": null,
+      "new_value": null,
+      "message": "Robots directives unchanged regarding noindex."
+     },
+     {
+      "rule": "h1_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "Travel Guides \u2014 Varanasi Blog",
+      "new_value": null,
+      "message": "H1 presence unchanged."
+     },
+     {
+      "rule": "h1_changed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "Travel Guides \u2014 Varanasi Blog",
+      "new_value": "Travel Guides \u2014 Varanasi Blog",
+      "message": "H1 text is similar enough (similarity: 100%)."
+     },
+     {
+      "rule": "title_removed",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": "Blog \u2014 Mosaic Hostel Varanasi",
+      "new_value": null,
+      "message": "Title tag presence unchanged."
+     },
+     {
+      "rule": "status_code_error",
+      "severity": "CRITICAL",
+      "triggered": false,
+      "old_value": 200,
+      "new_value": 200,
+      "message": "Status code: 200 -> 200."
+     },
+     {
+      "rule": "title_changed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": "Blog \u2014 Mosaic Hostel Varanasi",
+      "new_value": "Blog \u2014 Mosaic Hostel Varanasi",
+      "message": "Title text unchanged."
+     },
+     {
+      "rule": "meta_description_changed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": "Stories, travel guides, and insights from Varanasi and our hostel community.",
+      "new_value": "Stories, travel guides, and insights from Varanasi and our hostel community.",
+      "message": "Meta description unchanged."
+     },
+     {
+      "rule": "cwv_regressed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": null,
+      "new_value": null,
+      "message": "CWV comparison skipped (data unavailable)."
+     },
+     {
+      "rule": "perf_score_dropped",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": null,
+      "new_value": null,
+      "message": "Performance score comparison skipped."
+     },
+     {
+      "rule": "og_tags_removed",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": [
+       "og:type",
+       "og:url",
+       "og:site_name",
+       "og:image",
+       "og:locale"
+      ],
+      "new_value": [],
+      "message": "OG tags presence unchanged."
+     },
+     {
+      "rule": "schema_modified",
+      "severity": "WARNING",
+      "triggered": false,
+      "old_value": "177b00860371...",
+      "new_value": "177b00860371...",
+      "message": "Schema content hash unchanged."
+     },
+     {
+      "rule": "schema_added",
+      "severity": "INFO",
+      "triggered": false,
+      "old_value": "0 schema blocks",
+      "new_value": "3 schema block(s)",
+      "message": "No new schema added."
+     },
+     {
+      "rule": "h2_structure_changed",
+      "severity": "INFO",
+      "triggered": false,
+      "old_value": "0 H2s",
+      "new_value": "0 H2s",
+      "message": "H2 structure unchanged."
+     },
+     {
+      "rule": "content_hash_changed",
+      "severity": "INFO",
+      "triggered": false,
+      "old_value": "a7726a250db1...",
+      "new_value": "a7726a250db1...",
+      "message": "Page content hash unchanged."
+     }
+    ],
+    "current_status_code": 200,
+    "cwv_compared": false
+   }
+  }
+ },
+ "audit_index": {
+  "errors-in-console": {
+   "title": "Browser errors were logged to the console",
+   "pages": [
+    "https://www.mosaichostels.com/about",
+    "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+    "https://www.mosaichostels.com/blog/",
+    "https://www.mosaichostels.com/"
+   ],
+   "ms": 0,
+   "bytes": 0
+  },
+  "third-party-cookies": {
+   "title": "Uses third-party cookies",
+   "pages": [
+    "https://www.mosaichostels.com/about",
+    "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+    "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/",
+    "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+    "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+    "https://www.mosaichostels.com/blog/",
+    "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+    "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/",
+    "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/",
+    "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/",
+    "https://www.mosaichostels.com/book-now",
+    "https://www.mosaichostels.com/contact",
+    "https://www.mosaichostels.com/gallery",
+    "https://www.mosaichostels.com/",
+    "https://www.mosaichostels.com/privacy"
+   ],
+   "ms": 0,
+   "bytes": 0
+  },
+  "color-contrast": {
+   "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+   "pages": [
+    "https://www.mosaichostels.com/about",
+    "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+    "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/",
+    "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+    "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+    "https://www.mosaichostels.com/blog/",
+    "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+    "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/",
+    "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/",
+    "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/",
+    "https://www.mosaichostels.com/book-now",
+    "https://www.mosaichostels.com/contact",
+    "https://www.mosaichostels.com/gallery",
+    "https://www.mosaichostels.com/",
+    "https://www.mosaichostels.com/privacy"
+   ],
+   "ms": 0,
+   "bytes": 0
+  },
+  "frame-title": {
+   "title": "`<frame>` or `<iframe>` elements do not have a title",
+   "pages": [
+    "https://www.mosaichostels.com/about",
+    "https://www.mosaichostels.com/book-now",
+    "https://www.mosaichostels.com/contact"
+   ],
+   "ms": 0,
+   "bytes": 0
+  },
+  "landmark-one-main": {
+   "title": "Document does not have a main landmark.",
+   "pages": [
+    "https://www.mosaichostels.com/about",
+    "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+    "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/",
+    "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+    "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+    "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+    "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/",
+    "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/",
+    "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/",
+    "https://www.mosaichostels.com/book-now",
+    "https://www.mosaichostels.com/contact",
+    "https://www.mosaichostels.com/gallery"
+   ],
+   "ms": 0,
+   "bytes": 0
+  },
+  "unused-javascript": {
+   "title": "Reduce unused JavaScript",
+   "pages": [
+    "https://www.mosaichostels.com/about",
+    "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+    "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/",
+    "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+    "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+    "https://www.mosaichostels.com/blog/",
+    "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+    "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/",
+    "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/",
+    "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/",
+    "https://www.mosaichostels.com/book-now",
+    "https://www.mosaichostels.com/contact",
+    "https://www.mosaichostels.com/gallery",
+    "https://www.mosaichostels.com/",
+    "https://www.mosaichostels.com/privacy"
+   ],
+   "ms": 2540,
+   "bytes": 1140260
+  },
+  "inspector-issues": {
+   "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+   "pages": [
+    "https://www.mosaichostels.com/about",
+    "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+    "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/",
+    "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+    "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+    "https://www.mosaichostels.com/blog/",
+    "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+    "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/",
+    "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/",
+    "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/",
+    "https://www.mosaichostels.com/book-now",
+    "https://www.mosaichostels.com/contact",
+    "https://www.mosaichostels.com/gallery",
+    "https://www.mosaichostels.com/",
+    "https://www.mosaichostels.com/privacy"
+   ],
+   "ms": 0,
+   "bytes": 0
+  },
+  "cache-insight": {
+   "title": "Use efficient cache lifetimes",
+   "pages": [
+    "https://www.mosaichostels.com/about",
+    "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+    "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/",
+    "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+    "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+    "https://www.mosaichostels.com/blog/",
+    "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+    "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/",
+    "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/",
+    "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/",
+    "https://www.mosaichostels.com/book-now",
+    "https://www.mosaichostels.com/contact",
+    "https://www.mosaichostels.com/gallery",
+    "https://www.mosaichostels.com/",
+    "https://www.mosaichostels.com/privacy"
+   ],
+   "ms": 0,
+   "bytes": 860160
+  },
+  "image-delivery-insight": {
+   "title": "Improve image delivery",
+   "pages": [
+    "https://www.mosaichostels.com/about",
+    "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+    "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/",
+    "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+    "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+    "https://www.mosaichostels.com/blog/",
+    "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+    "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/",
+    "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/",
+    "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/",
+    "https://www.mosaichostels.com/book-now",
+    "https://www.mosaichostels.com/contact",
+    "https://www.mosaichostels.com/gallery",
+    "https://www.mosaichostels.com/",
+    "https://www.mosaichostels.com/privacy"
+   ],
+   "ms": 2600,
+   "bytes": 754688
+  },
+  "network-dependency-tree-insight": {
+   "title": "Network dependency tree",
+   "pages": [
+    "https://www.mosaichostels.com/about",
+    "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+    "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/",
+    "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+    "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+    "https://www.mosaichostels.com/blog/",
+    "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+    "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/",
+    "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/",
+    "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/",
+    "https://www.mosaichostels.com/book-now",
+    "https://www.mosaichostels.com/contact",
+    "https://www.mosaichostels.com/gallery",
+    "https://www.mosaichostels.com/",
+    "https://www.mosaichostels.com/privacy"
+   ],
+   "ms": 0,
+   "bytes": 0
+  },
+  "render-blocking-insight": {
+   "title": "Render-blocking requests",
+   "pages": [
+    "https://www.mosaichostels.com/about",
+    "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+    "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/",
+    "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+    "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+    "https://www.mosaichostels.com/blog/",
+    "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+    "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/",
+    "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/",
+    "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/",
+    "https://www.mosaichostels.com/book-now",
+    "https://www.mosaichostels.com/contact",
+    "https://www.mosaichostels.com/gallery",
+    "https://www.mosaichostels.com/",
+    "https://www.mosaichostels.com/privacy"
+   ],
+   "ms": 750,
+   "bytes": 0
+  },
+  "forced-reflow-insight": {
+   "title": "Forced reflow",
+   "pages": [
+    "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/"
+   ],
+   "ms": 0,
+   "bytes": 0
+  },
+  "lcp-discovery-insight": {
+   "title": "LCP request discovery",
+   "pages": [
+    "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+    "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/",
+    "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+    "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+    "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+    "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/",
+    "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/",
+    "https://www.mosaichostels.com/gallery"
+   ],
+   "ms": 0,
+   "bytes": 0
+  },
+  "heading-order": {
+   "title": "Heading elements are not in a sequentially-descending order",
+   "pages": [
+    "https://www.mosaichostels.com/blog/"
+   ],
+   "ms": 0,
+   "bytes": 0
+  },
+  "cls-culprits-insight": {
+   "title": "Layout shift culprits",
+   "pages": [
+    "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/"
+   ],
+   "ms": 0,
+   "bytes": 0
+  },
+  "legacy-javascript-insight": {
+   "title": "Legacy JavaScript",
+   "pages": [
+    "https://www.mosaichostels.com/book-now"
+   ],
+   "ms": 0,
+   "bytes": 20480
+  },
+  "unsized-images": {
+   "title": "Image elements do not have explicit `width` and `height`",
+   "pages": [
+    "https://www.mosaichostels.com/gallery"
+   ],
+   "ms": 0,
+   "bytes": 0
+  },
+  "total-byte-weight": {
+   "title": "Avoid enormous network payloads",
+   "pages": [
+    "https://www.mosaichostels.com/gallery"
+   ],
+   "ms": 0,
+   "bytes": 475136
+  }
+ }
+}

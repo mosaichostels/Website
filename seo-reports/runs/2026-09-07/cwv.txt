@@ -1,0 +1,94 @@
+CWV extract — https://www.mosaichostels.com   22 sitemap URLs, 5 PSI targets x 2 strategies
+
+  crux origin ALL      no data (404)
+  crux origin PHONE    no data (404)
+  crux origin DESKTOP  no data (404)
+  crux origin TABLET   no data (404)
+  crux history ALL      no data (404)
+  crux history PHONE    no data (404)
+  crux history DESKTOP  no data (404)
+  crux per-URL: 0/22 have field data
+  [1/10] psi mobile  perf=0.88 a11y=0.95 bp=0.92 seo=1  https://www.mosaichostels.com/
+  [2/10] psi desktop perf=0.83 a11y=0.95 bp=0.92 seo=1  https://www.mosaichostels.com/
+  [3/10] psi mobile  perf=0.89 a11y=0.92 bp=0.92 seo=1  https://www.mosaichostels.com/blog/
+  [4/10] psi desktop perf=0.95 a11y=0.87 bp=0.92 seo=1  https://www.mosaichostels.com/blog/
+  [5/10] psi mobile  perf=0.93 a11y=0.88 bp=0.92 seo=1  https://www.mosaichostels.com/about
+  [6/10] psi desktop perf=0.99 a11y=0.8 bp=0.92 seo=1  https://www.mosaichostels.com/about
+  [7/10] psi mobile  perf=0.77 a11y=0.89 bp=0.92 seo=1  https://www.mosaichostels.com/contact
+  [8/10] psi desktop perf=0.96 a11y=0.85 bp=0.92 seo=1  https://www.mosaichostels.com/contact
+  [9/10] psi mobile  perf=0.81 a11y=0.89 bp=0.92 seo=1  https://www.mosaichostels.com/book-now
+  [10/10] psi desktop perf=0.85 a11y=0.85 bp=0.92 seo=1  https://www.mosaichostels.com/book-now
+
+raw bundle -> seo-reports/cwv/2026-09-07.json
+
+## Field data (CrUX) — real users, the one Google ranks on
+  origin ALL      NO DATA — chrome ux report data not found
+  origin PHONE    NO DATA — chrome ux report data not found
+  origin DESKTOP  NO DATA — chrome ux report data not found
+  origin TABLET   NO DATA — chrome ux report data not found
+  The origin has NO CrUX record at any form factor. That is not an API error —
+  it means this origin has never had enough opted-in Chrome samples in a
+  28-day window to be published. Consequence: there is zero real-user CWV
+  data for this site, Search Console's CWV report will also be empty, and
+  every number below is LAB SIMULATION only. Treat lab as directional.
+
+## Field trend (CrUX History, 25 weeks) — improving or degrading?
+  origin ALL      NO HISTORY — chrome ux report data not found
+  origin PHONE    NO HISTORY — chrome ux report data not found
+  origin DESKTOP  NO HISTORY — chrome ux report data not found
+
+## Field data per URL
+  0/22 sitemap URLs have a CrUX record.
+  Expected on a ~7k-impressions/90d site: page-level CrUX needs roughly a few
+  hundred qualifying Chrome samples per 28-day window per page. Nothing to fix.
+
+## Lab scores (PSI Lighthouse) — simulation, not user experience
+  page                                                 strat    perf a11y  bp  seo   LCP    CLS    TBT
+  https://www.mosaichostels.com/                       mobile     88   95   92  100  2.91s 0.005    18ms
+  https://www.mosaichostels.com/                       desktop    83   95   92  100  0.95s 0.001   314ms
+  https://www.mosaichostels.com/blog/                  mobile     89   92   92  100  2.72s 0.012   180ms
+  https://www.mosaichostels.com/blog/                  desktop    95   87   92  100  1.16s 0.009    78ms
+  https://www.mosaichostels.com/about                  mobile     93   88   92  100  2.59s 0.003    23ms
+  https://www.mosaichostels.com/about                  desktop    99   80   92  100  0.73s 0.003    34ms
+  https://www.mosaichostels.com/contact                mobile     77   89   92  100  4.40s 0.000    86ms
+  https://www.mosaichostels.com/contact                desktop    96   85   92  100  0.87s 0.052   138ms
+  https://www.mosaichostels.com/book-now               mobile     81   89   92  100  2.92s 0.003   295ms
+  https://www.mosaichostels.com/book-now               desktop    85   85   92  100  0.74s 0.006   309ms
+
+## Pages ranked by opportunity
+  weight=    2423  worst-perf= 77   24 failing audits  https://www.mosaichostels.com/contact
+  weight=     867  worst-perf= 81   33 failing audits  https://www.mosaichostels.com/book-now
+  weight=     585  worst-perf= 83   24 failing audits  https://www.mosaichostels.com/
+  weight=     413  worst-perf= 93   24 failing audits  https://www.mosaichostels.com/about
+  weight=     360  worst-perf= 89   24 failing audits  https://www.mosaichostels.com/blog/
+  weight = summed metricSavings ms + KiB across both strategies; a relative
+  ordering only, not a promise of that many milliseconds.
+
+## Failing audits, by total savings across all pages
+  weight=    4445  score=0.00   5 pages  unused-javascript                  Est savings of 70 KiB
+  weight=      52  score=0.50   1 pages  unused-css-rules                   Est savings of 26 KiB
+  weight=      50  score=0.00   5 pages  image-delivery-insight             Est savings of 165 KiB
+  weight=      50  score=0.00   5 pages  cache-insight                      Est savings of 10 KiB
+  weight=      50  score=0.00   1 pages  legacy-javascript-insight          Est savings of 20 KiB
+  weight=       0  score=0.42   5 pages  first-contentful-paint             2.9 s
+  weight=       0  score=0.00   5 pages  network-dependency-tree-insight    Network dependency tree
+  weight=       0  score=0.50   5 pages  render-blocking-insight            Render-blocking requests
+  weight=       0  score=0.00   5 pages  inspector-issues                   Issues were logged in the `Issues` panel in Chrome
+  weight=       0  score=0.00   5 pages  errors-in-console                  Browser errors were logged to the console
+  weight=       0  score=0.00   2 pages  forced-reflow-insight              Forced reflow
+  weight=       0  score=0.39   5 pages  largest-contentful-paint           2.9 s
+  weight=       0  score=0.43   5 pages  interactive                        4.6 s
+  weight=       0  score=0.71   4 pages  speed-index                        4.3 s
+  weight=       0  score=0.00   5 pages  color-contrast                     Background and foreground colors do not have a suf
+  weight=       0  score=0.72   3 pages  max-potential-fid                  170 ms
+  weight=       0  score=0.56   2 pages  total-blocking-time                310 ms
+  weight=       0  score=0.00   1 pages  heading-order                      Heading elements are not in a sequentially-descend
+  weight=       0  score=0.00   1 pages  lcp-discovery-insight              LCP request discovery
+  weight=       0  score=0.00   3 pages  frame-title                        `<frame>` or `<iframe>` elements do not have a tit
+  weight=       0  score=0.00   3 pages  landmark-one-main                  Document does not have a main landmark.
+
+## Lab vs field
+  No field data exists, so nothing can be cross-checked. Every lab number
+  above is unvalidated. Priority order: (1) fix the lab-visible regressions
+  that are cheap, (2) grow traffic until CrUX publishes an origin record,
+  (3) only then trust CWV as a ranking input.
