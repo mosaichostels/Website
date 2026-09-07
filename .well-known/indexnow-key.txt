@@ -1,0 +1,5 @@
+[PLACEHOLDER-INDEXNOW-KEY]
+
+Replace this with your actual IndexNow key from Bing Webmaster Tools.
+Get key at: https://www.bing.com/webmasters/indexnow
+Instructions: https://www.bing.com/indexnow
