@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/naveen/Projects/hostel/Website/.claude/hooks/block-diagnostic-file-deploy"
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/block-diagnostic-file-deploy"
           }
         ]
       },
@@ -15,7 +15,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/naveen/Projects/hostel/Website/.claude/hooks/block-creds-edit"
+            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/block-creds-edit"
           }
         ]
       }
