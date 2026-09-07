@@ -149,9 +149,13 @@
   # never requested directly, but had no server-side deny.
   RewriteRule ^api/lib/ - [F,L]
 
-  # Redirect non-www to www
+  # Force HTTPS (http → https, single hop)
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+  # Redirect bare apex to www (single hop to www HTTPS)
   RewriteCond %{HTTP_HOST} ^mosaichostels\.com$ [NC]
-  RewriteRule ^(.*)$ https://www.mosaichostels.com/$1 [L,R=301]
+  RewriteRule ^(.*)$ https://www.mosaichostels.com/$1 [R=301,L]
 
   # Canonicalize direct .html requests to their clean extensionless URL —
   # without these, the same content was reachable at two different URLs
@@ -174,6 +178,19 @@
   RewriteRule ^blog/why-assi-ghat-perfect-base-varanasi-stay/?$ /blog/assi-ghat-varanasi-complete-guide/ [R=301,L]
   RewriteRule ^blog/hostel-near-assi-ghat-varanasi/?$ /blog/assi-ghat-varanasi-complete-guide/ [R=301,L]
   RewriteRule ^blog/backpackers-guide-assi-ghat-varanasi/?$ /blog/assi-ghat-varanasi-complete-guide/ [R=301,L]
+
+  # Cannibalization redirect: top-7-experiences → things-to-do (audit finding 2026-09-08)
+  # Both target same intent. Source: 647w, 0 inbound. Target: 1146w, 12 inbound.
+  RewriteRule ^blog/top-7-experiences-varanasi-traveler/?$ /blog/things-to-do-varanasi-local-guide/ [R=301,L]
+
+  # Legacy URLs still drawing impressions while returning 404. GSC URL
+  # Inspection on 2026-09-07 reported all four as "Not found (404)" with live
+  # impressions over the prior 90 days: /contact-us/ 14, /experiences/ 3,
+  # /llms-txt/ 3, /about-us/ 2. A 404 discards that equity; a 301 reclaims it.
+  RewriteRule ^about-us/?$ /about [R=301,L]
+  RewriteRule ^contact-us/?$ /contact [R=301,L]
+  RewriteRule ^experiences/?$ /blog/top-7-experiences-varanasi-traveler/ [R=301,L]
+  RewriteRule ^llms-txt/?$ /llms.txt [R=301,L]
 
   # Normalize trailing slash on core pages to the non-slash canonical form
   # (these are .html files, not directories, unlike /blog/<slug> — both

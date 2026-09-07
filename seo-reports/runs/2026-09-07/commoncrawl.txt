@@ -1,0 +1,64 @@
+Common Crawl extract — mosaichostels.com   (control: example.com)
+
+  [1/12] CC-MAIN-2026-34 (August 2026 Index)
+  [2/12] CC-MAIN-2026-30 (July 2026 Index)
+  [3/12] CC-MAIN-2026-25 (June 2026 Index)
+  [4/12] CC-MAIN-2026-21 (May 2026 Index)
+  [5/12] CC-MAIN-2026-17 (April 2026 Index)
+  [6/12] CC-MAIN-2026-12 (March 2026 Index)
+  [7/12] CC-MAIN-2026-08 (February 2026 Index)
+  [8/12] CC-MAIN-2026-04 (January 2026 Index)
+  [9/12] CC-MAIN-2025-51 (December 2025 Index)
+  [10/12] CC-MAIN-2025-47 (November 2025 Index)
+  [11/12] CC-MAIN-2025-43 (October 2025 Index)
+  [12/12] CC-MAIN-2025-38 (September 2025 Index)
+
+raw bundle -> seo-reports/commoncrawl/2026-09-07.json
+
+## Capture history — mosaichostels.com, last 12 crawls
+  CC-MAIN-2026-34    August 2026 Index      captures=0   (control example.com: 220)
+  CC-MAIN-2026-30    July 2026 Index        captures=0   (control example.com: 246)
+  CC-MAIN-2026-25    June 2026 Index        captures=0   (control example.com: 255)
+  CC-MAIN-2026-21    May 2026 Index         captures=0
+  CC-MAIN-2026-17    April 2026 Index       captures=0
+  CC-MAIN-2026-12    March 2026 Index       captures=0
+  CC-MAIN-2026-08    February 2026 Index    captures=0
+  CC-MAIN-2026-04    January 2026 Index     captures=0
+  CC-MAIN-2025-51    December 2025 Index    captures=0
+  CC-MAIN-2025-47    November 2025 Index    captures=0
+  CC-MAIN-2025-43    October 2025 Index     captures=0
+  CC-MAIN-2025-38    September 2025 Index   captures=0
+  ---- total captures across 12 crawls: 0
+
+## Verdict
+  mosaichostels.com is ABSENT from Common Crawl. The control domain returns captures
+  from the same queries, so this is the site's real state, not a broken query.
+  Consequence: this site contributed ZERO tokens to every model trained on CC,
+  and is invisible to every retrieval pipeline built on it.
+
+## Is CCBot blocked? (blocked and undiscovered need opposite fixes)
+  robots.txt names CCBot: True
+    | User-agent: *
+    | Disallow: /api/
+    | User-agent: CCBot
+  as CCBot: 200  22315B  https://www.mosaichostels.com/
+  as CCBot: 200  2933B  https://www.mosaichostels.com/sitemap.xml
+  as CCBot: 200  24236B  https://www.mosaichostels.com/gallery
+  as CCBot: 200  22605B  https://www.mosaichostels.com/blog/
+  -> CCBot is SERVED 200 on every URL tested. Nothing is blocking the crawl.
+     Absence is a DISCOVERY problem: Common Crawl seeds from links it already
+     knows about, so a domain with no inbound links from crawled pages is never
+     reached, no matter how good its robots.txt and sitemap are.
+
+## Inbound links — what Common Crawl can and cannot tell you
+  The CDX index is keyed by crawled URL, never by link target: there is no
+  backlink query, and any tool claiming otherwise is using the webgraph.
+  Run again with --webgraph for the one CC dataset that does answer it
+  (quarterly domain-vertices, ~900 MB gzip, streamed with early exit,
+  verdict cached permanently).
+
+## Coverage context
+  crawls published all-time: 127  (checked the 12 newest)
+  URLs in sitemap.xml: 22 — every one of them is uncrawled by CC
+  Common Crawl accepts no submissions and pings no sitemaps. The only lever
+  is inbound links from domains CC already crawls.

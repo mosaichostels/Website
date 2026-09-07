@@ -18,3 +18,4 @@ User-agent: CCBot
 Allow: /
 
 Sitemap: https://www.mosaichostels.com/sitemap.xml
+Sitemap: https://www.mosaichostels.com/sitemap-images.xml

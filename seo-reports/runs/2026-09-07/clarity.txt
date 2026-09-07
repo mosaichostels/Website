@@ -1,0 +1,88 @@
+Clarity extract — https://www.mosaichostels.com   last 3 day(s)
+
+  cached  numOfDays=3
+  cached  numOfDays=3&dimension1=URL&dimension2=Device&dimension3=Country
+  cached  numOfDays=3&dimension1=Channel&dimension2=Source
+
+raw bundle -> seo-reports/clarity/2026-09-07.json
+quota used this run: 0 of 10/day
+
+
+## Site totals
+  sessions=9  distinct users=22  bot sessions=8  (47% of all traffic is bots)
+  ScrollDepth    averageScrollDepth=43.94
+  EngagementTime totalTime=161  activeTime=133
+  RageClickCount   events=0  pages affected=0  0.0% of sessions
+  DeadClickCount   events=0  pages affected=0  0.0% of sessions
+  QuickbackClick   events=4  pages affected=4  44.4% of sessions
+  ExcessiveScroll  events=0  pages affected=0  0.0% of sessions
+  ErrorClickCount  events=0  pages affected=0  0.0% of sessions
+  ScriptErrorCount events=0  pages affected=0  0.0% of sessions
+
+## Friction by page — SXO failures (a page can rank fine and still do this)
+   rage  dead qback xscrl errcl jserr  sess  page
+      0     0     1     0     0     0     5  https://www.mosaichostels.com/
+      0     0     1     0     0     0     1  https://www.mosaichostels.com/gallery
+      0     0     1     0     0     0     4  https://www.mosaichostels.com/?utm_source=chatgpt.com
+      0     0     1     0     0     0     1  https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/
+      0     0     0     0     0     0     1  https://www.mosaichostels.com/about
+      0     0     0     0     0     0     6  https://www.mosaichostels.com/book-now
+      0     0     0     0     0     0     2  https://www.mosaichostels.com/contact
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/privacy
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/
+      0     0     0     0     0     0     0  (none)
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/top-7-experiences-varanasi-traveler/
+
+## Scroll depth and engagement by page
+  scroll= 11.8%  total=   97s  active=   97s  https://www.mosaichostels.com/  <-- shallow scroll, check above-the-fold answer
+  scroll= 60.0%  total=   44s  active=   44s  https://www.mosaichostels.com/about
+  scroll= 76.0%  total=   69s  active=   69s  https://www.mosaichostels.com/gallery
+  scroll= 83.0%  total=  216s  active=  216s  https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/
+  scroll= 51.0%  total=  102s  active=   42s  https://www.mosaichostels.com/contact
+  scroll= 54.4%  total=  249s  active=   62s  https://www.mosaichostels.com/?utm_source=chatgpt.com
+  scroll= 61.3%  total=  314s  active=  314s  https://www.mosaichostels.com/book-now
+
+## Device split
+  Mobile   sessions=   11 bots=  15 scroll= 39.8% quic=2
+  PC       sessions=    7 bots=   1 scroll= 66.3% quic=1
+  Tablet   sessions=    2 bots=   0 scroll= 26.0% quic=1
+  Other    sessions=    0 bots=   2 scroll=  0.0% 
+
+## Bot traffic by page (pages Clarity sees crawlers on but humans rarely)
+  bot=   4 human=   5  https://www.mosaichostels.com/
+  bot=   1 human=   1  https://www.mosaichostels.com/about
+  bot=   1 human=   1  https://www.mosaichostels.com/gallery
+  bot=   1 human=   2  https://www.mosaichostels.com/contact
+  bot=   1 human=   0  https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/privacy   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/   <-- crawler-only page
+  bot=   1 human=   0  (none)   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/blog/   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/blog/top-7-experiences-varanasi-traveler/   <-- crawler-only page
+
+## Acquisition channels (Clarity classifies AI assistants as their own channel)
+  Direct         www.mosaichostels.com            sessions=   8 scroll= 55.2% friction=1
+  AiPlatform     chatgpt.com                      sessions=   4 scroll= 37.7% friction=1
+  OrganicSearch  google                           sessions=   3 scroll= 29.5% friction=2
+  Referral       l.wl.co                          sessions=   1 scroll= 11.0% friction=0
+  Other          (none)                           sessions=   1 scroll= 11.0% friction=0
+
+## What this API cannot answer — do not fill these in from imagination
+  - WHICH element was rage/dead clicked (page-level counts only; open the
+    Clarity recording for the selector)
+  - anything before the last 3 days (no historical export; keep dated bundles)
+  - heatmaps, recordings, funnels, Smart Events, custom tags
+  - referrer URLs (the ReferrerURL dimension returns 200 and is then ignored)
+  - conversions: Clarity has no booking/revenue join — use GA4 for that

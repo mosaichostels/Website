@@ -1,0 +1,4394 @@
+{
+ "site": "https://www.mosaichostels.com",
+ "domain": "mosaichostels.com",
+ "control": "example.com",
+ "generated": "2026-09-07T20:41:36",
+ "crawls_total_published": 127,
+ "crawls_checked": [
+  "CC-MAIN-2026-34",
+  "CC-MAIN-2026-30",
+  "CC-MAIN-2026-25",
+  "CC-MAIN-2026-21",
+  "CC-MAIN-2026-17",
+  "CC-MAIN-2026-12",
+  "CC-MAIN-2026-08",
+  "CC-MAIN-2026-04",
+  "CC-MAIN-2025-51",
+  "CC-MAIN-2025-47",
+  "CC-MAIN-2025-43",
+  "CC-MAIN-2025-38"
+ ],
+ "captures": {
+  "CC-MAIN-2026-34": [],
+  "CC-MAIN-2026-30": [],
+  "CC-MAIN-2026-25": [],
+  "CC-MAIN-2026-21": [],
+  "CC-MAIN-2026-17": [],
+  "CC-MAIN-2026-12": [],
+  "CC-MAIN-2026-08": [],
+  "CC-MAIN-2026-04": [],
+  "CC-MAIN-2025-51": [],
+  "CC-MAIN-2025-47": [],
+  "CC-MAIN-2025-43": [],
+  "CC-MAIN-2025-38": []
+ },
+ "control_captures": {
+  "CC-MAIN-2026-34": [
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260807104456",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260807131537",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260807152311",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260807155806",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260807210946",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260807212404",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260808001230",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260808100030",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260808133858",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260809004127",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260809065011",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260809103903",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260809104936",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260809160157",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260809185335",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260809230231",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260809231345",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260810005435",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260810014005",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260810021742",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260810053237",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260810070034",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260810080049",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260810100009",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260810100220",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260810102612",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260810131615",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260810133554",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260810234934",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260811023328",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260811043220",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260811114118",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260811114750",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260811145816",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260811235233",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260812015753",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260812052921",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260812105553",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260812150911",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260812153423",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260812200526",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260812230859",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260813003525",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260813024451",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260813112154",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260813113536",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260813142942",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260813184637",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260813211625",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260814005448",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260814060316",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260814071014",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260814151253",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260814175621",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260814175750",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260814223229",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260815124727",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260815151858",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260815182136",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260815182147",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260815191241",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260816050404",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260816063653",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260816093435",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260816095759",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260816123717",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260816184327",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260816214956",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260817035640",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260817044657",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260817100143",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260817130853",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260817132112",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260817173516",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260817204300",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260817221743",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com./",
+    "timestamp": "20260817223458",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260817233439",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260818042544",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260818060422",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260818072804",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260818102708",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260818112126",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260818133047",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260818144548",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260818163443",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260818171005",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260818204314",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260818223910",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260818224009",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260819013940",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260819024157",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260819031635",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260819074447",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260819092921",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260819104634",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260819104808",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260819105647",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260819134921",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260819165209",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260819171901",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260819205708",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260819230714",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260820002401",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260807103418",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260807104456",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260807152311",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260807155806",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260807175913",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260807210513",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260807210946",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260807212404",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260808001230",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260808091142",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260808100030",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260808133858",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260809004127",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260809040706",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260809065011",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260809103903",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260809104936",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260809160157",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260809185335",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260809230231",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260809231345",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260810005435",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260810014005",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260810021742",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260810053237",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260810070034",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260810080049",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260810100009",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260810100220",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260810102612",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260810131615",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260810133554",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260810234934",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260811022446",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260811023328",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260811043220",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260811103401",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260811114118",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260811145816",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260811235233",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260812015753",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260812052921",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260812105553",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260812135835",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260812150911",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260812172248",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260812200526",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260812230859",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260812230911",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260813021209",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260813054329",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260813112154",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260813113536",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260813142942",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260813184637",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260813210142",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260814005448",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260814034828",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260814065358",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260814071014",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260814101808",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260814151253",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260814175621",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260814175750",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260814213754",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260815124727",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260815163837",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260815182136",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260815182147",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260815191241",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260816050404",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260816063653",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260816093435",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260816095759",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260816123717",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260816184327",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260816214956",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260817035640",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260817044657",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260817073407",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260817100143",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260817130853",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260817132112",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260817133022",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260817161249",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260817173516",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260817204300",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260817221743",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com./robots.txt",
+    "timestamp": "20260817223458",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260817233439",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260818042544",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260818060422",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260818072804",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260818104329",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260818112126",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260818133047",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260818144548",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260818163443",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260818171005",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260818204314",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260818223737",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260819000421",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260819013940",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260819014230",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260819024157",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260819074447",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260819092921",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260819104634",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260819105647",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260819115824",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260819134921",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260819165209",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260819171901",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260819205708",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260819230714",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260820002401",
+    "status": "404",
+    "mime": "text/html"
+   }
+  ],
+  "CC-MAIN-2026-30": [
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260710071441",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260710114910",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260710131541",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260710140729",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260710161939",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260710201132",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260710203044",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260710222612",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260710231442",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260710233643",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260711024936",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260711043554",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260711074047",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260711083006",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260711104414",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260711115355",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260711165158",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260711201947",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260711212309",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260711225941",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260712020301",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260712111352",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260712123452",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260712142050",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260712145410",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260712205505",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260712233334",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260713024755",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260713032645",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260713054218",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260713114914",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260713115537",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260713145013",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260713151701",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260713161024",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260713161602",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260713175603",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260713190420",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260714001618",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260714061032",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260714075605",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260714121618",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260714152845",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260714160652",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260714182228",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260714183953",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260714214135",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260714221747",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260715005540",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260715033353",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260715042710",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260715070207",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260715072938",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260715101351",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260715215516",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260716005453",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260716070259",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260716100515",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260716130803",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260716140628",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260716161232",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260716204730",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260716222054",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260716225630",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260717020918",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260717042956",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260717103833",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260717114604",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260717135236",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260717142009",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260717164455",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260717194846",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260717225553",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260718002245",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260718020401",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260718021750",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260718050339",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260718080818",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260718084307",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260718111140",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260718122439",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260718182356",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260718185900",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260719040116",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260719054348",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260719054410",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260719054446",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260719061346",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260719084254",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260719092739",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260719114541",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260719115524",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260719145045",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260719160031",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260719175325",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260719175455",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260719205900",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260719210228",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260720012132",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260720042326",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260720061241",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260720095055",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260720152155",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260720182342",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260721045828",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260721094211",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260721111330",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260721154625",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260721215056",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260721215437",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260722050612",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260722104137",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260722112411",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260722130553",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260722191410",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260722203346",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260722221623",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260722223054",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260722230823",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260710071441",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260710114910",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260710131541",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260710140728",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260710161939",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260710162002",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260710201132",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260710203044",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260710222446",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260710222612",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260710233643",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260711014802",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260711051254",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260711074047",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260711083006",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260711104414",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260711115355",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260711165158",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260711181155",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260711201947",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260711210427",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260711212309",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260711233447",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260712020301",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260712111352",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260712123452",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260712145410",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260712152807",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260712205505",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260712233334",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260713023740",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260713024755",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260713054218",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260713084258",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260713114914",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260713115537",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260713145013",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260713145132",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260713151701",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260713161024",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260713185705",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260713190420",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260714001530",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260714001618",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260714065545",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260714071419",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260714121618",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260714152845",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260714160652",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260714182228",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260714183953",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260714212545",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260714214135",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260715005540",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260715033353",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260715042710",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260715070207",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260715072938",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260715094021",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260715101351",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260715215516",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260716005453",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260716070259",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260716100515",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260716130803",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260716140628",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260716171405",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260716204730",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260716222252",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260716225630",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260717012512",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260717020918",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260717042956",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260717105824",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260717114604",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260717135236",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260717142009",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260717164455",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260717194846",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260717225553",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260718002245",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260718020401",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260718021750",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260718023503",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260718050339",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260718080818",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260718084307",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260718111140",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260718122439",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260718182356",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260718185900",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260719040116",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260719054348",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260719054410",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260719054446",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260719061346",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260719084254",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260719092739",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260719114541",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260719115524",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260719145045",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260719160031",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260719175325",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260719184517",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260719205900",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260719210228",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260720012132",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260720042326",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260720061241",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260720095055",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260720152155",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260720182342",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260721045828",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260721094211",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260721111330",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260721154625",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260721215056",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260721215437",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260722050611",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260722102832",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260722112411",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260722130553",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260722191410",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260722203346",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260722221623",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260722223054",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260722230823",
+    "status": "404",
+    "mime": "text/html"
+   }
+  ],
+  "CC-MAIN-2026-25": [
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260605214940",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260605215222",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260606005404",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260606014725",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260606072852",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260606130007",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260606162129",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260606190653",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260606190759",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260606202438",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260606220902",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260607011024",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260607024105",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260607052253",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260607075854",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260607083627",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260607101528",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260607131724",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260607143815",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260607173103",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260607191932",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260607234127",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260608042738",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260608052106",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260608103322",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260608113814",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260608133731",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260608142629",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260608174311",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260608234058",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260609015048",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260609020024",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260609023903",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260609045352",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260609051612",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260609055935",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260609110340",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260609122848",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260609141200",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260609171312",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260609201719",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260609232023",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260609235708",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260610022118",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260610053117",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260610061321",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260610085011",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260610102618",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260610121048",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260610131440",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260610174238",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260610235831",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260611031209",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260611031410",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260611061807",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260611103811",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260611124917",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260611172155",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260611184849",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260611222308",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260612010426",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260612010615",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260612010845",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260612041337",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260612072108",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260612080627",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260612102851",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260612103043",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260612150637",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260612150804",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260612164929",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260612195409",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260612210654",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260612230331",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260613125123",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260613205520",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260614011700",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260614031112",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260614061649",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260614074409",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260614092628",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260614102559",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260614103917",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260614131747",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260614134931",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260614160059",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260614191200",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260614200633",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260615042616",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260615071845",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260615081627",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260615132938",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260615163815",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260615181640",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260615195308",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260615225443",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260616030215",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260616034030",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260616085649",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260616090440",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260616112430",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260616113028",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260616143424",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260616173934",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260616191912",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260616205115",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260616235701",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260617030532",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260617061338",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260617073424",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260617095621",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260617214741",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260618005758",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260618040228",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260618040408",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260618040424",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/",
+    "timestamp": "20260618051732",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260618071556",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260618102141",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260618103101",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260618134429",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/",
+    "timestamp": "20260618141537",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/",
+    "timestamp": "20260618144805",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/",
+    "timestamp": "20260618163626",
+    "status": "200",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260605214940",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260605215222",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260606010136",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260606014724",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260606072852",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260606130006",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260606162129",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260606190653",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260606190759",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260606202438",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260606220902",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260607011024",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260607013648",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260607045258",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260607075854",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260607083627",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260607101528",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260607131724",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260607143815",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260607173103",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260607191932",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260607233657",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260608021359",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260608042738",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260608044204",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260608103322",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260608103533",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260608113814",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260608133731",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260608142629",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260608174311",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260608234058",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260609015048",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260609020024",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260609023903",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260609045352",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260609051612",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260609055935",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260609110340",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260609122848",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260609141200",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260609171312",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260609201719",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260609232023",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260609235708",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260610022118",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260610052541",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260610061321",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260610082940",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260610091606",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260610121048",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260610131440",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260610174238",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260610235831",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260611031209",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260611031410",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260611072130",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260611092602",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260611124059",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260611160914",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260611184849",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260611222308",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260612010426",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260612010615",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260612010845",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260612041337",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260612072108",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260612080627",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260612102851",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260612103043",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260612133837",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260612150804",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260612172536",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260612195409",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260612210654",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260612230331",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260613125123",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260613205520",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260614011700",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260614031112",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260614061649",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260614071658",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260614074409",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260614092628",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260614102559",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260614103917",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260614123540",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260614134931",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260614160059",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260614191200",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260614200633",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260615052458",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260615071845",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260615074644",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260615081627",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260615132938",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260615132959",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260615163815",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260615180411",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260615195308",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260615225443",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260616030215",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260616034030",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260616053232",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260616081948",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260616090440",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260616112430",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260616113028",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260616143118",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260616173934",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260616191912",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260616205115",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260616235701",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260617004257",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260617030532",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260617061338",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260617073424",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260617092040",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260617214741",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260618005758",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260618040228",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260618040408",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260618040424",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://example.com/robots.txt",
+    "timestamp": "20260618051732",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260618071556",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260618102141",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260618103101",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260618132816",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://example.com/robots.txt",
+    "timestamp": "20260618134530",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "http://www.example.com/robots.txt",
+    "timestamp": "20260618141537",
+    "status": "404",
+    "mime": "text/html"
+   },
+   {
+    "url": "https://www.example.com/robots.txt",
+    "timestamp": "20260618163626",
+    "status": "404",
+    "mime": "text/html"
+   }
+  ]
+ },
+ "robots_txt": "User-agent: *\nAllow: /\nDisallow: /api/\n\nUser-agent: GPTBot\nAllow: /\n\nUser-agent: OAI-SearchBot\nAllow: /\n\nUser-agent: ClaudeBot\nAllow: /\n\nUser-agent: PerplexityBot\nAllow: /\n\nUser-agent: CCBot\nAllow: /\n\nSitemap: https://www.mosaichostels.com/sitemap.xml\n",
+ "robots_mentions_ccbot": true,
+ "sitemap_url_count": 22,
+ "ccbot_fetch": {
+  "https://www.mosaichostels.com/": {
+   "status": 200,
+   "bytes": 22315,
+   "final": "https://www.mosaichostels.com/"
+  },
+  "https://www.mosaichostels.com/sitemap.xml": {
+   "status": 200,
+   "bytes": 2933,
+   "final": "https://www.mosaichostels.com/sitemap.xml"
+  },
+  "https://www.mosaichostels.com/gallery": {
+   "status": 200,
+   "bytes": 24236,
+   "final": "https://www.mosaichostels.com/gallery"
+  },
+  "https://www.mosaichostels.com/blog/": {
+   "status": 200,
+   "bytes": 22605,
+   "final": "https://www.mosaichostels.com/blog/"
+  }
+ }
+}

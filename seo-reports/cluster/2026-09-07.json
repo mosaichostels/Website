@@ -1,0 +1,1052 @@
+{
+  "version": "2.2.5",
+  "seed_keyword": "assi ghat varanasi hostel travel guide",
+  "created_at": "2026-09-07",
+  "source": "https://www.mosaichostels.com/blog/ (15 published posts) + Google Search Console query x page export (seo-reports/gsc/2026-09-07.json) + WebSearch SERP spot-checks",
+  "pillar": {
+    "title": "Assi Ghat, Varanasi \u2014 Complete Guide for Travelers",
+    "keyword": "assi ghat varanasi",
+    "volume_proxy_impressions_28d": 219,
+    "template": "ultimate-guide",
+    "wordCount": {
+      "current": 1316,
+      "target": 3000
+    },
+    "url": "/blog/assi-ghat-varanasi-complete-guide/",
+    "status": "written-needs-expansion",
+    "intent": "Informational (broad)"
+  },
+  "clusters": [
+    {
+      "name": "Where to Stay: Location & Room Type",
+      "posts": [
+        {
+          "slug": "best-hostels-in-varanasi",
+          "title": null,
+          "keyword": "best hostels in varanasi",
+          "intent": "Commercial (rank)",
+          "volume_proxy_impressions_28d": 151,
+          "template": "best-of",
+          "wordCount": {
+            "current": 1670,
+            "target": 1670
+          },
+          "url": "/blog/best-hostels-in-varanasi/",
+          "status": "written",
+          "inbound_current": 10
+        },
+        {
+          "slug": "assi-ghat-vs-dashashwamedh-where-to-stay",
+          "title": null,
+          "keyword": "assi ghat vs dashashwamedh ghat",
+          "intent": "Commercial (compare)",
+          "volume_proxy_impressions_28d": 301,
+          "template": "comparison",
+          "wordCount": {
+            "current": 680,
+            "target": 1500
+          },
+          "url": "/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+          "status": "written-needs-expansion",
+          "inbound_current": 3
+        },
+        {
+          "slug": "dorm-vs-private-room-varanasi-hostel",
+          "title": null,
+          "keyword": "dorm vs private room varanasi hostel",
+          "intent": "Commercial (compare)",
+          "volume_proxy_impressions_28d": 0,
+          "template": "comparison",
+          "wordCount": {
+            "current": 627,
+            "target": 1500
+          },
+          "url": "/blog/dorm-vs-private-room-varanasi-hostel/",
+          "status": "written-needs-expansion",
+          "inbound_current": 2
+        }
+      ]
+    },
+    {
+      "name": "Getting To & Around Varanasi",
+      "posts": [
+        {
+          "slug": "varanasi-airport-railway-to-assi-ghat-transfer-guide",
+          "title": null,
+          "keyword": "varanasi airport to assi ghat",
+          "intent": "Informational (how)",
+          "volume_proxy_impressions_28d": 363,
+          "template": "how-to",
+          "wordCount": {
+            "current": 677,
+            "target": 1500
+          },
+          "url": "/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/",
+          "status": "written-needs-expansion",
+          "inbound_current": 7
+        },
+        {
+          "slug": "sarnath-day-trip-guide-varanasi",
+          "title": null,
+          "keyword": "sarnath day trip from varanasi",
+          "intent": "Informational (how)",
+          "volume_proxy_impressions_28d": 9,
+          "template": "how-to",
+          "wordCount": {
+            "current": 705,
+            "target": 1500
+          },
+          "url": "/blog/sarnath-day-trip-guide-varanasi/",
+          "status": "written-needs-expansion",
+          "inbound_current": 5
+        }
+      ]
+    },
+    {
+      "name": "Safety & Budget Prep",
+      "posts": [
+        {
+          "slug": "is-varanasi-safe-general-guide",
+          "title": null,
+          "keyword": "is varanasi safe to visit",
+          "intent": "Informational (concept)",
+          "volume_proxy_impressions_28d": 210,
+          "template": "explainer",
+          "wordCount": {
+            "current": 812,
+            "target": 1500
+          },
+          "url": "/blog/is-varanasi-safe-general-guide/",
+          "status": "written-needs-expansion",
+          "inbound_current": 3
+        },
+        {
+          "slug": "varanasi-solo-female-travelers-safety-travel-guide",
+          "title": null,
+          "keyword": "is varanasi safe for solo female travelers",
+          "intent": "Informational (concept)",
+          "volume_proxy_impressions_28d": 111,
+          "template": "explainer",
+          "wordCount": {
+            "current": 645,
+            "target": 1500
+          },
+          "url": "/blog/varanasi-solo-female-travelers-safety-travel-guide/",
+          "status": "written-needs-expansion",
+          "inbound_current": 6
+        },
+        {
+          "slug": "varanasi-backpacker-budget-daily-cost-breakdown",
+          "title": null,
+          "keyword": "varanasi backpacker daily budget",
+          "intent": "Informational (how)",
+          "volume_proxy_impressions_28d": 7,
+          "template": "how-to",
+          "wordCount": {
+            "current": 620,
+            "target": 1500
+          },
+          "url": "/blog/varanasi-backpacker-budget-daily-cost-breakdown/",
+          "status": "written-needs-expansion",
+          "inbound_current": 8
+        }
+      ]
+    },
+    {
+      "name": "Trip Planning & Itineraries",
+      "posts": [
+        {
+          "slug": "best-time-to-visit-varanasi-month-by-month",
+          "title": null,
+          "keyword": "best time to visit varanasi",
+          "intent": "Informational (concept)",
+          "volume_proxy_impressions_28d": 15,
+          "template": "explainer",
+          "wordCount": {
+            "current": 869,
+            "target": 1500
+          },
+          "url": "/blog/best-time-to-visit-varanasi-month-by-month/",
+          "status": "written-needs-expansion",
+          "inbound_current": 7
+        },
+        {
+          "slug": "varanasi-2-day-itinerary-backpackers",
+          "title": null,
+          "keyword": "2 day varanasi itinerary",
+          "intent": "Informational (how)",
+          "volume_proxy_impressions_28d": 7,
+          "template": "how-to",
+          "wordCount": {
+            "current": 572,
+            "target": 1500
+          },
+          "url": "/blog/varanasi-2-day-itinerary-backpackers/",
+          "status": "written-needs-expansion",
+          "inbound_current": 2
+        },
+        {
+          "slug": "varanasi-3-5-day-itinerary-slow-travel",
+          "title": null,
+          "keyword": "varanasi itinerary for 5 days",
+          "intent": "Informational (how)",
+          "volume_proxy_impressions_28d": 5,
+          "template": "how-to",
+          "wordCount": {
+            "current": 599,
+            "target": 1500
+          },
+          "url": "/blog/varanasi-3-5-day-itinerary-slow-travel/",
+          "status": "written-needs-expansion",
+          "inbound_current": 3
+        }
+      ]
+    },
+    {
+      "name": "Things to Do & Local Life",
+      "posts": [
+        {
+          "slug": "things-to-do-varanasi-local-guide",
+          "title": null,
+          "keyword": "things to do in varanasi",
+          "intent": "Informational (list)",
+          "volume_proxy_impressions_28d": 12,
+          "template": "listicle",
+          "wordCount": {
+            "current": 1146,
+            "target": 1500
+          },
+          "url": "/blog/things-to-do-varanasi-local-guide/",
+          "status": "written-needs-expansion",
+          "inbound_current": 4
+        },
+        {
+          "slug": "top-7-experiences-varanasi-traveler",
+          "title": null,
+          "keyword": "top varanasi experiences",
+          "intent": "Informational (list)",
+          "volume_proxy_impressions_28d": 0,
+          "template": "listicle",
+          "wordCount": {
+            "current": 647,
+            "target": 1500
+          },
+          "url": "/blog/top-7-experiences-varanasi-traveler/",
+          "status": "written-needs-expansion",
+          "inbound_current": 1
+        },
+        {
+          "slug": "co-working-spaces-cafes-assi-ghat",
+          "title": null,
+          "keyword": "coworking spaces assi ghat",
+          "intent": "Informational (list)",
+          "volume_proxy_impressions_28d": 3,
+          "template": "listicle",
+          "wordCount": {
+            "current": 692,
+            "target": 1500
+          },
+          "url": "/blog/co-working-spaces-cafes-assi-ghat/",
+          "status": "written-needs-expansion",
+          "inbound_current": 2
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "from": "pillar",
+      "to": "best-hostels-in-varanasi",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "best-hostels-in-varanasi",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "best hostels in varanasi"
+    },
+    {
+      "from": "pillar",
+      "to": "assi-ghat-vs-dashashwamedh-where-to-stay",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "assi-ghat-vs-dashashwamedh-where-to-stay",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "assi ghat vs dashashwamedh ghat"
+    },
+    {
+      "from": "pillar",
+      "to": "dorm-vs-private-room-varanasi-hostel",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "dorm-vs-private-room-varanasi-hostel",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "dorm vs private room varanasi hostel"
+    },
+    {
+      "from": "pillar",
+      "to": "varanasi-airport-railway-to-assi-ghat-transfer-guide",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "varanasi-airport-railway-to-assi-ghat-transfer-guide",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "varanasi airport to assi ghat"
+    },
+    {
+      "from": "pillar",
+      "to": "sarnath-day-trip-guide-varanasi",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "sarnath-day-trip-guide-varanasi",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "sarnath day trip from varanasi"
+    },
+    {
+      "from": "pillar",
+      "to": "is-varanasi-safe-general-guide",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "is-varanasi-safe-general-guide",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "is varanasi safe to visit"
+    },
+    {
+      "from": "pillar",
+      "to": "varanasi-solo-female-travelers-safety-travel-guide",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "varanasi-solo-female-travelers-safety-travel-guide",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "is varanasi safe for solo female travelers"
+    },
+    {
+      "from": "pillar",
+      "to": "varanasi-backpacker-budget-daily-cost-breakdown",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "varanasi-backpacker-budget-daily-cost-breakdown",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "varanasi backpacker daily budget"
+    },
+    {
+      "from": "pillar",
+      "to": "best-time-to-visit-varanasi-month-by-month",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "best-time-to-visit-varanasi-month-by-month",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "best time to visit varanasi"
+    },
+    {
+      "from": "pillar",
+      "to": "varanasi-2-day-itinerary-backpackers",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "varanasi-2-day-itinerary-backpackers",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "2 day varanasi itinerary"
+    },
+    {
+      "from": "pillar",
+      "to": "varanasi-3-5-day-itinerary-slow-travel",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "varanasi-3-5-day-itinerary-slow-travel",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "varanasi itinerary for 5 days"
+    },
+    {
+      "from": "pillar",
+      "to": "things-to-do-varanasi-local-guide",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "things-to-do-varanasi-local-guide",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "things to do in varanasi"
+    },
+    {
+      "from": "pillar",
+      "to": "top-7-experiences-varanasi-traveler",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "top-7-experiences-varanasi-traveler",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "top varanasi experiences"
+    },
+    {
+      "from": "pillar",
+      "to": "co-working-spaces-cafes-assi-ghat",
+      "type": "mandatory",
+      "anchor": "Assi Ghat, Varanasi \u2014 Complete Guide"
+    },
+    {
+      "from": "co-working-spaces-cafes-assi-ghat",
+      "to": "pillar",
+      "type": "mandatory",
+      "anchor": "coworking spaces assi ghat"
+    },
+    {
+      "from": "best-hostels-in-varanasi",
+      "to": "assi-ghat-vs-dashashwamedh-where-to-stay",
+      "type": "recommended",
+      "anchor": "assi ghat vs dashashwamedh ghat"
+    },
+    {
+      "from": "assi-ghat-vs-dashashwamedh-where-to-stay",
+      "to": "best-hostels-in-varanasi",
+      "type": "recommended",
+      "anchor": "best hostels in varanasi"
+    },
+    {
+      "from": "best-hostels-in-varanasi",
+      "to": "dorm-vs-private-room-varanasi-hostel",
+      "type": "recommended",
+      "anchor": "dorm vs private room varanasi hostel"
+    },
+    {
+      "from": "dorm-vs-private-room-varanasi-hostel",
+      "to": "best-hostels-in-varanasi",
+      "type": "recommended",
+      "anchor": "best hostels in varanasi"
+    },
+    {
+      "from": "assi-ghat-vs-dashashwamedh-where-to-stay",
+      "to": "dorm-vs-private-room-varanasi-hostel",
+      "type": "recommended",
+      "anchor": "dorm vs private room varanasi hostel"
+    },
+    {
+      "from": "dorm-vs-private-room-varanasi-hostel",
+      "to": "assi-ghat-vs-dashashwamedh-where-to-stay",
+      "type": "recommended",
+      "anchor": "assi ghat vs dashashwamedh ghat"
+    },
+    {
+      "from": "varanasi-airport-railway-to-assi-ghat-transfer-guide",
+      "to": "sarnath-day-trip-guide-varanasi",
+      "type": "recommended",
+      "anchor": "sarnath day trip from varanasi"
+    },
+    {
+      "from": "sarnath-day-trip-guide-varanasi",
+      "to": "varanasi-airport-railway-to-assi-ghat-transfer-guide",
+      "type": "recommended",
+      "anchor": "varanasi airport to assi ghat"
+    },
+    {
+      "from": "is-varanasi-safe-general-guide",
+      "to": "varanasi-solo-female-travelers-safety-travel-guide",
+      "type": "recommended",
+      "anchor": "is varanasi safe for solo female travelers"
+    },
+    {
+      "from": "varanasi-solo-female-travelers-safety-travel-guide",
+      "to": "is-varanasi-safe-general-guide",
+      "type": "recommended",
+      "anchor": "is varanasi safe to visit"
+    },
+    {
+      "from": "is-varanasi-safe-general-guide",
+      "to": "varanasi-backpacker-budget-daily-cost-breakdown",
+      "type": "recommended",
+      "anchor": "varanasi backpacker daily budget"
+    },
+    {
+      "from": "varanasi-backpacker-budget-daily-cost-breakdown",
+      "to": "is-varanasi-safe-general-guide",
+      "type": "recommended",
+      "anchor": "is varanasi safe to visit"
+    },
+    {
+      "from": "varanasi-solo-female-travelers-safety-travel-guide",
+      "to": "varanasi-backpacker-budget-daily-cost-breakdown",
+      "type": "recommended",
+      "anchor": "varanasi backpacker daily budget"
+    },
+    {
+      "from": "varanasi-backpacker-budget-daily-cost-breakdown",
+      "to": "varanasi-solo-female-travelers-safety-travel-guide",
+      "type": "recommended",
+      "anchor": "is varanasi safe for solo female travelers"
+    },
+    {
+      "from": "best-time-to-visit-varanasi-month-by-month",
+      "to": "varanasi-2-day-itinerary-backpackers",
+      "type": "recommended",
+      "anchor": "2 day varanasi itinerary"
+    },
+    {
+      "from": "varanasi-2-day-itinerary-backpackers",
+      "to": "best-time-to-visit-varanasi-month-by-month",
+      "type": "recommended",
+      "anchor": "best time to visit varanasi"
+    },
+    {
+      "from": "best-time-to-visit-varanasi-month-by-month",
+      "to": "varanasi-3-5-day-itinerary-slow-travel",
+      "type": "recommended",
+      "anchor": "varanasi itinerary for 5 days"
+    },
+    {
+      "from": "varanasi-3-5-day-itinerary-slow-travel",
+      "to": "best-time-to-visit-varanasi-month-by-month",
+      "type": "recommended",
+      "anchor": "best time to visit varanasi"
+    },
+    {
+      "from": "varanasi-2-day-itinerary-backpackers",
+      "to": "varanasi-3-5-day-itinerary-slow-travel",
+      "type": "recommended",
+      "anchor": "varanasi itinerary for 5 days"
+    },
+    {
+      "from": "varanasi-3-5-day-itinerary-slow-travel",
+      "to": "varanasi-2-day-itinerary-backpackers",
+      "type": "recommended",
+      "anchor": "2 day varanasi itinerary"
+    },
+    {
+      "from": "things-to-do-varanasi-local-guide",
+      "to": "top-7-experiences-varanasi-traveler",
+      "type": "recommended",
+      "anchor": "top varanasi experiences"
+    },
+    {
+      "from": "top-7-experiences-varanasi-traveler",
+      "to": "things-to-do-varanasi-local-guide",
+      "type": "recommended",
+      "anchor": "things to do in varanasi"
+    },
+    {
+      "from": "things-to-do-varanasi-local-guide",
+      "to": "co-working-spaces-cafes-assi-ghat",
+      "type": "recommended",
+      "anchor": "coworking spaces assi ghat"
+    },
+    {
+      "from": "co-working-spaces-cafes-assi-ghat",
+      "to": "things-to-do-varanasi-local-guide",
+      "type": "recommended",
+      "anchor": "things to do in varanasi"
+    },
+    {
+      "from": "top-7-experiences-varanasi-traveler",
+      "to": "co-working-spaces-cafes-assi-ghat",
+      "type": "recommended",
+      "anchor": "coworking spaces assi ghat"
+    },
+    {
+      "from": "co-working-spaces-cafes-assi-ghat",
+      "to": "top-7-experiences-varanasi-traveler",
+      "type": "recommended",
+      "anchor": "top varanasi experiences"
+    },
+    {
+      "from": "varanasi-backpacker-budget-daily-cost-breakdown",
+      "to": "varanasi-airport-railway-to-assi-ghat-transfer-guide",
+      "type": "optional",
+      "anchor": "transport costs"
+    },
+    {
+      "from": "co-working-spaces-cafes-assi-ghat",
+      "to": "varanasi-3-5-day-itinerary-slow-travel",
+      "type": "optional",
+      "anchor": "slow travel itinerary"
+    },
+    {
+      "from": "best-time-to-visit-varanasi-month-by-month",
+      "to": "things-to-do-varanasi-local-guide",
+      "type": "optional",
+      "anchor": "things to do in varanasi"
+    },
+    {
+      "from": "sarnath-day-trip-guide-varanasi",
+      "to": "things-to-do-varanasi-local-guide",
+      "type": "optional",
+      "anchor": "things to do in varanasi"
+    },
+    {
+      "from": "sarnath-day-trip-guide-varanasi",
+      "to": "varanasi-2-day-itinerary-backpackers",
+      "type": "optional",
+      "anchor": "2 day varanasi itinerary"
+    },
+    {
+      "from": "varanasi-3-5-day-itinerary-slow-travel",
+      "to": "sarnath-day-trip-guide-varanasi",
+      "type": "optional",
+      "anchor": "sarnath day trip"
+    },
+    {
+      "from": "best-hostels-in-varanasi",
+      "to": "dorm-vs-private-room-varanasi-hostel",
+      "type": "recommended-fix",
+      "anchor": "dorm vs private room"
+    },
+    {
+      "from": "assi-ghat-varanasi-complete-guide",
+      "to": "co-working-spaces-cafes-assi-ghat",
+      "type": "recommended-fix",
+      "anchor": "coworking spaces near Assi Ghat"
+    },
+    {
+      "from": "varanasi-backpacker-budget-daily-cost-breakdown",
+      "to": "co-working-spaces-cafes-assi-ghat",
+      "type": "recommended-fix",
+      "anchor": "coworking spaces near Assi Ghat"
+    },
+    {
+      "from": "things-to-do-varanasi-local-guide",
+      "to": "varanasi-2-day-itinerary-backpackers",
+      "type": "recommended-fix",
+      "anchor": "2 day varanasi itinerary"
+    },
+    {
+      "from": "best-time-to-visit-varanasi-month-by-month",
+      "to": "varanasi-2-day-itinerary-backpackers",
+      "type": "recommended-fix",
+      "anchor": "2 day varanasi itinerary"
+    },
+    {
+      "from": "things-to-do-varanasi-local-guide",
+      "to": "top-7-experiences-varanasi-traveler",
+      "type": "recommended-fix",
+      "anchor": "top varanasi experiences"
+    },
+    {
+      "from": "best-hostels-in-varanasi",
+      "to": "top-7-experiences-varanasi-traveler",
+      "type": "recommended-fix",
+      "anchor": "top varanasi experiences"
+    }
+  ],
+  "serp_matrix": {
+    "keywords": [
+      "assi ghat varanasi",
+      "best hostels in varanasi",
+      "assi ghat vs dashashwamedh ghat",
+      "dorm vs private room varanasi hostel",
+      "varanasi airport to assi ghat",
+      "sarnath day trip from varanasi",
+      "is varanasi safe to visit",
+      "is varanasi safe for solo female travelers",
+      "varanasi backpacker daily budget",
+      "best time to visit varanasi",
+      "2 day varanasi itinerary",
+      "varanasi itinerary for 5 days",
+      "things to do in varanasi",
+      "top varanasi experiences",
+      "coworking spaces assi ghat"
+    ],
+    "slugs": [
+      "assi-ghat-varanasi-complete-guide",
+      "best-hostels-in-varanasi",
+      "assi-ghat-vs-dashashwamedh-where-to-stay",
+      "dorm-vs-private-room-varanasi-hostel",
+      "varanasi-airport-railway-to-assi-ghat-transfer-guide",
+      "sarnath-day-trip-guide-varanasi",
+      "is-varanasi-safe-general-guide",
+      "varanasi-solo-female-travelers-safety-travel-guide",
+      "varanasi-backpacker-budget-daily-cost-breakdown",
+      "best-time-to-visit-varanasi-month-by-month",
+      "varanasi-2-day-itinerary-backpackers",
+      "varanasi-3-5-day-itinerary-slow-travel",
+      "things-to-do-varanasi-local-guide",
+      "top-7-experiences-varanasi-traveler",
+      "co-working-spaces-cafes-assi-ghat"
+    ],
+    "scores": [
+      [
+        10,
+        3,
+        5,
+        2,
+        4,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        3
+      ],
+      [
+        3,
+        10,
+        5,
+        5,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        5,
+        5,
+        10,
+        5,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        5,
+        5,
+        10,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        4,
+        1,
+        1,
+        1,
+        10,
+        4,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        1,
+        1,
+        4,
+        10,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        10,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        10,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        1,
+        1,
+        3,
+        1,
+        2,
+        2,
+        10,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        10,
+        3,
+        5,
+        3,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        10,
+        5,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        5,
+        5,
+        10,
+        1,
+        1,
+        3
+      ],
+      [
+        2,
+        1,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        1,
+        3,
+        1,
+        1,
+        10,
+        8,
+        5
+      ],
+      [
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        8,
+        10,
+        5
+      ],
+      [
+        3,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        5,
+        5,
+        10
+      ]
+    ]
+  },
+  "cannibalization": [
+    {
+      "queries_overlapping_in_gsc": [
+        "assi ghat varanasi",
+        "assi ghat"
+      ],
+      "pages": [
+        "assi-ghat-varanasi-complete-guide",
+        "assi-ghat-vs-dashashwamedh-where-to-stay",
+        "varanasi-airport-railway-to-assi-ghat-transfer-guide"
+      ],
+      "serp_overlap_score": "4-5 (same cluster, not same-post)",
+      "severity": "medium",
+      "action": "Differentiate H1/title emphasis (complete-guide = neighborhood overview, transfer-guide = distance/transport, vs-dashashwamedh = comparison) and cross-link explicitly; do not merge."
+    },
+    {
+      "queries_overlapping_in_gsc": [
+        "varanasi safety",
+        "is varanasi safe for a woman",
+        "varanasi safe for women"
+      ],
+      "pages": [
+        "is-varanasi-safe-general-guide",
+        "varanasi-solo-female-travelers-safety-travel-guide"
+      ],
+      "serp_overlap_score": "0-2 (verified via WebSearch: zero shared top-10 organic URLs)",
+      "severity": "low",
+      "action": "Keep separate (different audience intent). Add explicit cross-links (already present) and disambiguating title copy to reduce internal query overlap in GSC."
+    },
+    {
+      "queries_overlapping_in_gsc": [
+        "mosaic hostel varanasi"
+      ],
+      "pages": [
+        "/blog/ (index)",
+        "best-hostels-in-varanasi"
+      ],
+      "serp_overlap_score": "n/a (branded query)",
+      "severity": "low",
+      "action": "Navigational/branded query \u2014 excluded from clustering per methodology. No action needed."
+    },
+    {
+      "queries_overlapping_in_gsc": [],
+      "pages": [
+        "things-to-do-varanasi-local-guide",
+        "top-7-experiences-varanasi-traveler"
+      ],
+      "serp_overlap_score": "7-8 (estimated same-post threshold: near-duplicate keyword + intent, both zero-position content)",
+      "severity": "high",
+      "action": "MERGE: 301-redirect top-7-experiences-varanasi-traveler into things-to-do-varanasi-local-guide, folding its 7 experiences in as a subsection. top-7 has 0 GSC impressions, 1 inbound link, 647 words \u2014 thin duplicate content actively splitting authority for the same query intent."
+    }
+  ],
+  "orphans": [
+    {
+      "slug": "top-7-experiences-varanasi-traveler",
+      "inbound_current": 1,
+      "gsc_impressions_28d": 0,
+      "note": "Zero organic visibility. Primary recommendation: merge (see cannibalization). If kept, needs 2+ more inbound links."
+    },
+    {
+      "slug": "dorm-vs-private-room-varanasi-hostel",
+      "inbound_current": 2,
+      "gsc_impressions_28d": 0,
+      "note": "Below 3-link minimum and zero impressions; needs promotion from best-hostels-in-varanasi and assi-ghat-vs-dashashwamedh."
+    },
+    {
+      "slug": "co-working-spaces-cafes-assi-ghat",
+      "inbound_current": 2,
+      "gsc_impressions_28d": 3,
+      "note": "Below 3-link minimum; niche digital-nomad audience, needs pillar + budget-post promotion."
+    },
+    {
+      "slug": "varanasi-2-day-itinerary-backpackers",
+      "inbound_current": 2,
+      "gsc_impressions_28d": 7,
+      "note": "Below 3-link minimum; needs promotion from things-to-do and best-time posts."
+    }
+  ],
+  "content_gaps": [
+    {
+      "gap": "No dedicated Ganga Aarti post",
+      "evidence": "GSC query 'ganga aarti time in varanasi which ghat' currently splits across assi-ghat-varanasi-complete-guide and assi-ghat-vs-dashashwamedh-where-to-stay (imp 1 each, pos 3)",
+      "recommendation": "Optional 16th spoke in Cluster 5 (Things to Do) if volume grows; low priority given current impressions are minimal."
+    },
+    {
+      "gap": "All spoke posts are under the 1,200-1,800 word spec (avg ~750 words); pillar is under 2,500-4,000 word spec (1,316 words)",
+      "evidence": "word count audit of /blogs/*.md",
+      "recommendation": "Expand content depth before adding new posts \u2014 thin content is likely suppressing rankings (median position for most spokes is 15-50, e.g. best-time-to-visit at pos 56-102, sarnath at pos 25-38)."
+    }
+  ],
+  "scorecard": {
+    "coverage": 1.0,
+    "linkDensity_avg_planned_inbound_per_spoke": 3.79,
+    "orphanPages_before_fix": 4,
+    "orphanPages_after_plan": 0,
+    "cannibalization_flags": 4,
+    "merge_recommendations": 1,
+    "contentGaps": 2
+  }
+}

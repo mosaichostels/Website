@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://www.mosaichostels.com/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/hero-poster.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — Hero Image</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/gallery</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1223.jpg</image:loc>
+      <image:caption>Dorm Room with View</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1294.jpg</image:loc>
+      <image:caption>Private Room</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1316.jpg</image:loc>
+      <image:caption>Shared Kitchen</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1357.jpg</image:loc>
+      <image:caption>Rooftop Space</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1912.jpg</image:loc>
+      <image:caption>Lounge Area</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1920.jpg</image:loc>
+      <image:caption>Guest Interaction Space</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/123e2e1a-479c-4a38-9634-fcbb95683f8b1.jpg</image:loc>
+      <image:caption>Hostel Amenities</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/about</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1928-room.jpg</image:loc>
+      <image:caption>About Mosaic Hostel</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/hero-poster.jpg</image:loc>
+      <image:caption>Blog — Mosaic Hostel</image:caption>
+    </image:image>
+  </url>
+</urlset>

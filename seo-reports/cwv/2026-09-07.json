@@ -1,0 +1,1725 @@
+{
+ "origin": "https://www.mosaichostels.com",
+ "generated": "2026-09-07T20:48:54",
+ "sitemap_urls": [
+  "https://www.mosaichostels.com/",
+  "https://www.mosaichostels.com/gallery",
+  "https://www.mosaichostels.com/blog/",
+  "https://www.mosaichostels.com/about",
+  "https://www.mosaichostels.com/contact",
+  "https://www.mosaichostels.com/book-now",
+  "https://www.mosaichostels.com/privacy",
+  "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+  "https://www.mosaichostels.com/blog/top-7-experiences-varanasi-traveler/",
+  "https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide/",
+  "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+  "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/",
+  "https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/",
+  "https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/",
+  "https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/",
+  "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+  "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+  "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+  "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+  "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/",
+  "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/",
+  "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/"
+ ],
+ "psi_targets": [
+  "https://www.mosaichostels.com/",
+  "https://www.mosaichostels.com/blog/",
+  "https://www.mosaichostels.com/about",
+  "https://www.mosaichostels.com/contact",
+  "https://www.mosaichostels.com/book-now"
+ ],
+ "note": "CrUX 404 = insufficient real-user sample, not an API failure.",
+ "crux_origin": {
+  "ALL": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "PHONE": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "DESKTOP": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "TABLET": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  }
+ },
+ "crux_history": {
+  "ALL": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "PHONE": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "DESKTOP": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  }
+ },
+ "crux_url": {
+  "https://www.mosaichostels.com/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/gallery": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/about": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/contact": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/book-now": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/privacy": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/top-7-experiences-varanasi-traveler/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  },
+  "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/": {
+   "_status": 404,
+   "_msg": "chrome ux report data not found"
+  }
+ },
+ "psi": {
+  "https://www.mosaichostels.com/": {
+   "mobile": {
+    "scores": {
+     "performance": 0.88,
+     "accessibility": 0.95,
+     "best-practices": 0.92,
+     "seo": 1
+    },
+    "metrics": {
+     "first-contentful-paint": 2914.768276186428,
+     "largest-contentful-paint": 2914.768276186428,
+     "cumulative-layout-shift": 0.005224958070597892,
+     "total-blocking-time": 18.5,
+     "speed-index": 4291.4869144811,
+     "interactive": 4643.071495432208,
+     "server-response-time": 6
+    },
+    "field_url": {
+     "initial_url": "https://www.mosaichostels.com/"
+    },
+    "field_origin": null,
+    "run_warnings": [],
+    "audits": {
+     "first-contentful-paint": {
+      "score": 0.52,
+      "title": "First Contentful Paint",
+      "display": "2.9\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "title": "Network dependency tree",
+      "display": null,
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "image-delivery-insight": {
+      "score": 0.5,
+      "title": "Improve image delivery",
+      "display": "Est savings of 165\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "render-blocking-insight": {
+      "score": 0.5,
+      "title": "Render-blocking requests",
+      "display": null,
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "unused-javascript": {
+      "score": 0.5,
+      "title": "Reduce unused JavaScript",
+      "display": "Est savings of 70\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 71791,
+      "metric_savings": {},
+      "weight": 70.1083984375
+     },
+     "inspector-issues": {
+      "score": 0,
+      "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "errors-in-console": {
+      "score": 0,
+      "title": "Browser errors were logged to the console",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "forced-reflow-insight": {
+      "score": 0,
+      "title": "Forced reflow",
+      "display": null,
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "largest-contentful-paint": {
+      "score": 0.8,
+      "title": "Largest Contentful Paint",
+      "display": "2.9\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "interactive": {
+      "score": 0.81,
+      "title": "Time to Interactive",
+      "display": "4.6\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "title": "Use efficient cache lifetimes",
+      "display": "Est savings of 10\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "speed-index": {
+      "score": 0.76,
+      "title": "Speed Index",
+      "display": "4.3\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "color-contrast": {
+      "score": 0,
+      "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     }
+    },
+    "error": null
+   },
+   "desktop": {
+    "scores": {
+     "performance": 0.83,
+     "accessibility": 0.95,
+     "best-practices": 0.92,
+     "seo": 1
+    },
+    "metrics": {
+     "first-contentful-paint": 674.0476095105341,
+     "largest-contentful-paint": 947.3523708206174,
+     "cumulative-layout-shift": 0.0008374423197395796,
+     "total-blocking-time": 314.2438017623274,
+     "speed-index": 1785.0448982398032,
+     "interactive": 1974.348283028301,
+     "server-response-time": 5
+    },
+    "field_url": {
+     "initial_url": "https://www.mosaichostels.com/"
+    },
+    "field_origin": null,
+    "run_warnings": [],
+    "audits": {
+     "max-potential-fid": {
+      "score": 0.77,
+      "title": "Max Potential First Input Delay",
+      "display": "170\u00a0ms",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "title": "Network dependency tree",
+      "display": null,
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "render-blocking-insight": {
+      "score": 0.5,
+      "title": "Render-blocking requests",
+      "display": null,
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "errors-in-console": {
+      "score": 0,
+      "title": "Browser errors were logged to the console",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "total-blocking-time": {
+      "score": 0.56,
+      "title": "Total Blocking Time",
+      "display": "310\u00a0ms",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "color-contrast": {
+      "score": 0,
+      "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "title": "Use efficient cache lifetimes",
+      "display": "Est savings of 13\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "image-delivery-insight": {
+      "score": 0.5,
+      "title": "Improve image delivery",
+      "display": "Est savings of 160\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "inspector-issues": {
+      "score": 0,
+      "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "unused-javascript": {
+      "score": 0,
+      "title": "Reduce unused JavaScript",
+      "display": "Est savings of 295\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 120,
+      "bytes": 301817,
+      "metric_savings": {
+       "LCP": 100
+      },
+      "weight": 514.7431640625
+     },
+     "speed-index": {
+      "score": 0.71,
+      "title": "Speed Index",
+      "display": "1.8\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     }
+    },
+    "error": null
+   }
+  },
+  "https://www.mosaichostels.com/blog/": {
+   "mobile": {
+    "scores": {
+     "performance": 0.89,
+     "accessibility": 0.92,
+     "best-practices": 0.92,
+     "seo": 1
+    },
+    "metrics": {
+     "first-contentful-paint": 2715.1351082315564,
+     "largest-contentful-paint": 2715.1351082315564,
+     "cumulative-layout-shift": 0.01152049913465064,
+     "total-blocking-time": 180,
+     "speed-index": 2715.1351082315564,
+     "interactive": 4463.403388819554,
+     "server-response-time": 3
+    },
+    "field_url": {
+     "initial_url": "https://www.mosaichostels.com/blog/"
+    },
+    "field_origin": null,
+    "run_warnings": [],
+    "audits": {
+     "inspector-issues": {
+      "score": 0,
+      "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "image-delivery-insight": {
+      "score": 0.5,
+      "title": "Improve image delivery",
+      "display": "Est savings of 8\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "color-contrast": {
+      "score": 0,
+      "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "largest-contentful-paint": {
+      "score": 0.85,
+      "title": "Largest Contentful Paint",
+      "display": "2.7\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "heading-order": {
+      "score": 0,
+      "title": "Heading elements are not in a sequentially-descending order",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "interactive": {
+      "score": 0.83,
+      "title": "Time to Interactive",
+      "display": "4.5\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "max-potential-fid": {
+      "score": 0.72,
+      "title": "Max Potential First Input Delay",
+      "display": "180\u00a0ms",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "unused-javascript": {
+      "score": 0.5,
+      "title": "Reduce unused JavaScript",
+      "display": "Est savings of 70\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 71513,
+      "metric_savings": {},
+      "weight": 69.8369140625
+     },
+     "first-contentful-paint": {
+      "score": 0.59,
+      "title": "First Contentful Paint",
+      "display": "2.7\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "title": "Network dependency tree",
+      "display": null,
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "errors-in-console": {
+      "score": 0,
+      "title": "Browser errors were logged to the console",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "render-blocking-insight": {
+      "score": 0.5,
+      "title": "Render-blocking requests",
+      "display": null,
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "title": "Use efficient cache lifetimes",
+      "display": "Est savings of 10\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     }
+    },
+    "error": null
+   },
+   "desktop": {
+    "scores": {
+     "performance": 0.95,
+     "accessibility": 0.87,
+     "best-practices": 0.92,
+     "seo": 1
+    },
+    "metrics": {
+     "first-contentful-paint": 762.5736262888919,
+     "largest-contentful-paint": 1158.5816260992087,
+     "cumulative-layout-shift": 0.008684322549239938,
+     "total-blocking-time": 78.49999999999989,
+     "speed-index": 1463.3650520458264,
+     "interactive": 1169.7504151926007,
+     "server-response-time": 27
+    },
+    "field_url": {
+     "initial_url": "https://www.mosaichostels.com/blog/"
+    },
+    "field_origin": null,
+    "run_warnings": [],
+    "audits": {
+     "speed-index": {
+      "score": 0.84,
+      "title": "Speed Index",
+      "display": "1.5\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "title": "Use efficient cache lifetimes",
+      "display": "Est savings of 10\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "inspector-issues": {
+      "score": 0,
+      "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "errors-in-console": {
+      "score": 0,
+      "title": "Browser errors were logged to the console",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "heading-order": {
+      "score": 0,
+      "title": "Heading elements are not in a sequentially-descending order",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "color-contrast": {
+      "score": 0,
+      "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "image-delivery-insight": {
+      "score": 0.5,
+      "title": "Improve image delivery",
+      "display": "Est savings of 14\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "render-blocking-insight": {
+      "score": 0.5,
+      "title": "Render-blocking requests",
+      "display": null,
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "lcp-discovery-insight": {
+      "score": 0,
+      "title": "LCP request discovery",
+      "display": null,
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "unused-javascript": {
+      "score": 0,
+      "title": "Reduce unused JavaScript",
+      "display": "Est savings of 70\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 120,
+      "bytes": 71521,
+      "metric_savings": {
+       "LCP": 100
+      },
+      "weight": 289.8447265625
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "title": "Network dependency tree",
+      "display": null,
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     }
+    },
+    "error": null
+   }
+  },
+  "https://www.mosaichostels.com/about": {
+   "mobile": {
+    "scores": {
+     "performance": 0.93,
+     "accessibility": 0.88,
+     "best-practices": 0.92,
+     "seo": 1
+    },
+    "metrics": {
+     "first-contentful-paint": 2588.1380841394525,
+     "largest-contentful-paint": 2588.1380841394525,
+     "cumulative-layout-shift": 0.002776683347885305,
+     "total-blocking-time": 23.499999999999773,
+     "speed-index": 3063.0764361547726,
+     "interactive": 4522.844523213222,
+     "server-response-time": 23
+    },
+    "field_url": {
+     "initial_url": "https://www.mosaichostels.com/about"
+    },
+    "field_origin": null,
+    "run_warnings": [],
+    "audits": {
+     "image-delivery-insight": {
+      "score": 0.5,
+      "title": "Improve image delivery",
+      "display": "Est savings of 110\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "frame-title": {
+      "score": 0,
+      "title": "`<frame>` or `<iframe>` elements do not have a title",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "unused-javascript": {
+      "score": 0.5,
+      "title": "Reduce unused JavaScript",
+      "display": "Est savings of 70\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 71389,
+      "metric_savings": {},
+      "weight": 69.7158203125
+     },
+     "landmark-one-main": {
+      "score": 0,
+      "title": "Document does not have a main landmark.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "largest-contentful-paint": {
+      "score": 0.88,
+      "title": "Largest Contentful Paint",
+      "display": "2.6\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "interactive": {
+      "score": 0.82,
+      "title": "Time to Interactive",
+      "display": "4.5\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "title": "Use efficient cache lifetimes",
+      "display": "Est savings of 10\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "color-contrast": {
+      "score": 0,
+      "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "render-blocking-insight": {
+      "score": 0.5,
+      "title": "Render-blocking requests",
+      "display": null,
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "errors-in-console": {
+      "score": 0,
+      "title": "Browser errors were logged to the console",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "forced-reflow-insight": {
+      "score": 0,
+      "title": "Forced reflow",
+      "display": null,
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "title": "Network dependency tree",
+      "display": null,
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "first-contentful-paint": {
+      "score": 0.64,
+      "title": "First Contentful Paint",
+      "display": "2.6\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "inspector-issues": {
+      "score": 0,
+      "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     }
+    },
+    "error": null
+   },
+   "desktop": {
+    "scores": {
+     "performance": 0.99,
+     "accessibility": 0.8,
+     "best-practices": 0.92,
+     "seo": 1
+    },
+    "metrics": {
+     "first-contentful-paint": 732.0393573097145,
+     "largest-contentful-paint": 732.0393573097145,
+     "cumulative-layout-shift": 0.0026254408654404326,
+     "total-blocking-time": 34,
+     "speed-index": 1162.2268850300397,
+     "interactive": 1769.9643270953256,
+     "server-response-time": 5
+    },
+    "field_url": {
+     "initial_url": "https://www.mosaichostels.com/about"
+    },
+    "field_origin": null,
+    "run_warnings": [],
+    "audits": {
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "title": "Network dependency tree",
+      "display": null,
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "errors-in-console": {
+      "score": 0,
+      "title": "Browser errors were logged to the console",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "color-contrast": {
+      "score": 0,
+      "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "title": "Use efficient cache lifetimes",
+      "display": "Est savings of 26\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "unused-javascript": {
+      "score": 0.5,
+      "title": "Reduce unused JavaScript",
+      "display": "Est savings of 293\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 299818,
+      "metric_savings": {},
+      "weight": 292.791015625
+     },
+     "landmark-one-main": {
+      "score": 0,
+      "title": "Document does not have a main landmark.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "frame-title": {
+      "score": 0,
+      "title": "`<frame>` or `<iframe>` elements do not have a title",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "render-blocking-insight": {
+      "score": 0.5,
+      "title": "Render-blocking requests",
+      "display": null,
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "image-delivery-insight": {
+      "score": 0,
+      "title": "Improve image delivery",
+      "display": "Est savings of 137\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {
+       "LCP": 50
+      },
+      "weight": 50.0
+     },
+     "inspector-issues": {
+      "score": 0,
+      "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     }
+    },
+    "error": null
+   }
+  },
+  "https://www.mosaichostels.com/contact": {
+   "mobile": {
+    "scores": {
+     "performance": 0.77,
+     "accessibility": 0.89,
+     "best-practices": 0.92,
+     "seo": 1
+    },
+    "metrics": {
+     "first-contentful-paint": 3219.0654314299463,
+     "largest-contentful-paint": 4404.764715276046,
+     "cumulative-layout-shift": 0,
+     "total-blocking-time": 85.5,
+     "speed-index": 4077.0772785661266,
+     "interactive": 7003.280270427023,
+     "server-response-time": 11
+    },
+    "field_url": {
+     "initial_url": "https://www.mosaichostels.com/contact"
+    },
+    "field_origin": null,
+    "run_warnings": [],
+    "audits": {
+     "speed-index": {
+      "score": 0.79,
+      "title": "Speed Index",
+      "display": "4.1\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "largest-contentful-paint": {
+      "score": 0.39,
+      "title": "Largest Contentful Paint",
+      "display": "4.4\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "color-contrast": {
+      "score": 0,
+      "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "landmark-one-main": {
+      "score": 0,
+      "title": "Document does not have a main landmark.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "interactive": {
+      "score": 0.53,
+      "title": "Time to Interactive",
+      "display": "7.0\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "first-contentful-paint": {
+      "score": 0.42,
+      "title": "First Contentful Paint",
+      "display": "3.2\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "unused-javascript": {
+      "score": 0,
+      "title": "Reduce unused JavaScript",
+      "display": "Est savings of 299\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 600,
+      "bytes": 306339,
+      "metric_savings": {
+       "LCP": 600,
+       "FCP": 450
+      },
+      "weight": 1949.1591796875
+     },
+     "inspector-issues": {
+      "score": 0,
+      "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "frame-title": {
+      "score": 0,
+      "title": "`<frame>` or `<iframe>` elements do not have a title",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "errors-in-console": {
+      "score": 0,
+      "title": "Browser errors were logged to the console",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "title": "Use efficient cache lifetimes",
+      "display": "Est savings of 25\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "image-delivery-insight": {
+      "score": 0.5,
+      "title": "Improve image delivery",
+      "display": "Est savings of 12\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "title": "Network dependency tree",
+      "display": null,
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "render-blocking-insight": {
+      "score": 0.5,
+      "title": "Render-blocking requests",
+      "display": null,
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     }
+    },
+    "error": null
+   },
+   "desktop": {
+    "scores": {
+     "performance": 0.96,
+     "accessibility": 0.85,
+     "best-practices": 0.92,
+     "seo": 1
+    },
+    "metrics": {
+     "first-contentful-paint": 689.6578486205786,
+     "largest-contentful-paint": 870.9581249327719,
+     "cumulative-layout-shift": 0.0521020088145854,
+     "total-blocking-time": 138.5,
+     "speed-index": 821.4375406970607,
+     "interactive": 1804.2036732609454,
+     "server-response-time": 1
+    },
+    "field_url": {
+     "initial_url": "https://www.mosaichostels.com/contact"
+    },
+    "field_origin": null,
+    "run_warnings": [],
+    "audits": {
+     "frame-title": {
+      "score": 0,
+      "title": "`<frame>` or `<iframe>` elements do not have a title",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "image-delivery-insight": {
+      "score": 0.5,
+      "title": "Improve image delivery",
+      "display": "Est savings of 14\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "errors-in-console": {
+      "score": 0,
+      "title": "Browser errors were logged to the console",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "color-contrast": {
+      "score": 0,
+      "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "render-blocking-insight": {
+      "score": 0.5,
+      "title": "Render-blocking requests",
+      "display": null,
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "unused-javascript": {
+      "score": 0,
+      "title": "Reduce unused JavaScript",
+      "display": "Est savings of 294\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 80,
+      "bytes": 301150,
+      "metric_savings": {
+       "LCP": 100
+      },
+      "weight": 474.091796875
+     },
+     "landmark-one-main": {
+      "score": 0,
+      "title": "Document does not have a main landmark.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "inspector-issues": {
+      "score": 0,
+      "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "title": "Network dependency tree",
+      "display": null,
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "title": "Use efficient cache lifetimes",
+      "display": "Est savings of 13\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     }
+    },
+    "error": null
+   }
+  },
+  "https://www.mosaichostels.com/book-now": {
+   "mobile": {
+    "scores": {
+     "performance": 0.81,
+     "accessibility": 0.89,
+     "best-practices": 0.92,
+     "seo": 1
+    },
+    "metrics": {
+     "first-contentful-paint": 2922.4520436560497,
+     "largest-contentful-paint": 2922.4520436560497,
+     "cumulative-layout-shift": 0.003097657403931579,
+     "total-blocking-time": 295,
+     "speed-index": 4355.793510420063,
+     "interactive": 7971.745866523341,
+     "server-response-time": 16
+    },
+    "field_url": {
+     "initial_url": "https://www.mosaichostels.com/book-now"
+    },
+    "field_origin": null,
+    "run_warnings": [],
+    "audits": {
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "title": "Network dependency tree",
+      "display": null,
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "cache-insight": {
+      "score": 0.5,
+      "title": "Use efficient cache lifetimes",
+      "display": "Est savings of 69\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "unused-javascript": {
+      "score": 0.5,
+      "title": "Reduce unused JavaScript",
+      "display": "Est savings of 245\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 251322,
+      "metric_savings": {},
+      "weight": 245.431640625
+     },
+     "render-blocking-insight": {
+      "score": 0.5,
+      "title": "Render-blocking requests",
+      "display": null,
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "color-contrast": {
+      "score": 0,
+      "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "landmark-one-main": {
+      "score": 0,
+      "title": "Document does not have a main landmark.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "total-blocking-time": {
+      "score": 0.79,
+      "title": "Total Blocking Time",
+      "display": "300\u00a0ms",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "first-contentful-paint": {
+      "score": 0.52,
+      "title": "First Contentful Paint",
+      "display": "2.9\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "errors-in-console": {
+      "score": 0,
+      "title": "Browser errors were logged to the console",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "speed-index": {
+      "score": 0.75,
+      "title": "Speed Index",
+      "display": "4.4\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "inspector-issues": {
+      "score": 0,
+      "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "legacy-javascript-insight": {
+      "score": 0.5,
+      "title": "Legacy JavaScript",
+      "display": "Est savings of 20\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "max-potential-fid": {
+      "score": 0.88,
+      "title": "Max Potential First Input Delay",
+      "display": "140\u00a0ms",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "interactive": {
+      "score": 0.43,
+      "title": "Time to Interactive",
+      "display": "8.0\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "largest-contentful-paint": {
+      "score": 0.8,
+      "title": "Largest Contentful Paint",
+      "display": "2.9\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "image-delivery-insight": {
+      "score": 0.5,
+      "title": "Improve image delivery",
+      "display": "Est savings of 178\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "frame-title": {
+      "score": 0,
+      "title": "`<frame>` or `<iframe>` elements do not have a title",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "unused-css-rules": {
+      "score": 0.5,
+      "title": "Reduce unused CSS",
+      "display": "Est savings of 26\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 26750,
+      "metric_savings": {},
+      "weight": 26.123046875
+     }
+    },
+    "error": null
+   },
+   "desktop": {
+    "scores": {
+     "performance": 0.85,
+     "accessibility": 0.85,
+     "best-practices": 0.92,
+     "seo": 1
+    },
+    "metrics": {
+     "first-contentful-paint": 743.6423960371691,
+     "largest-contentful-paint": 743.6423960371691,
+     "cumulative-layout-shift": 0.006343037913103481,
+     "total-blocking-time": 308.99999999999955,
+     "speed-index": 1210.4775958460955,
+     "interactive": 2526.4503778777134,
+     "server-response-time": 9
+    },
+    "field_url": {
+     "initial_url": "https://www.mosaichostels.com/book-now"
+    },
+    "field_origin": null,
+    "run_warnings": [],
+    "audits": {
+     "interactive": {
+      "score": 0.89,
+      "title": "Time to Interactive",
+      "display": "2.5\u00a0s",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "unused-css-rules": {
+      "score": 0.5,
+      "title": "Reduce unused CSS",
+      "display": "Est savings of 26\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 26750,
+      "metric_savings": {},
+      "weight": 26.123046875
+     },
+     "image-delivery-insight": {
+      "score": 0.5,
+      "title": "Improve image delivery",
+      "display": "Est savings of 274\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "legacy-javascript-insight": {
+      "score": 0,
+      "title": "Legacy JavaScript",
+      "display": "Est savings of 20\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {
+       "LCP": 50
+      },
+      "weight": 50.0
+     },
+     "landmark-one-main": {
+      "score": 0,
+      "title": "Document does not have a main landmark.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "errors-in-console": {
+      "score": 0,
+      "title": "Browser errors were logged to the console",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "color-contrast": {
+      "score": 0,
+      "title": "Background and foreground colors do not have a sufficient contrast ratio.",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "network-dependency-tree-insight": {
+      "score": 0,
+      "title": "Network dependency tree",
+      "display": null,
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "total-blocking-time": {
+      "score": 0.57,
+      "title": "Total Blocking Time",
+      "display": "310\u00a0ms",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "frame-title": {
+      "score": 0,
+      "title": "`<frame>` or `<iframe>` elements do not have a title",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "inspector-issues": {
+      "score": 0,
+      "title": "Issues were logged in the `Issues` panel in Chrome Devtools",
+      "display": null,
+      "mode": "binary",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "render-blocking-insight": {
+      "score": 0.5,
+      "title": "Render-blocking requests",
+      "display": null,
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "max-potential-fid": {
+      "score": 0.87,
+      "title": "Max Potential First Input Delay",
+      "display": "140\u00a0ms",
+      "mode": "numeric",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {},
+      "weight": 0.0
+     },
+     "cache-insight": {
+      "score": 0,
+      "title": "Use efficient cache lifetimes",
+      "display": "Est savings of 72\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 0,
+      "metric_savings": {
+       "LCP": 50
+      },
+      "weight": 50.0
+     },
+     "unused-javascript": {
+      "score": 0.5,
+      "title": "Reduce unused JavaScript",
+      "display": "Est savings of 469\u00a0KiB",
+      "mode": "metricSavings",
+      "ms": 0,
+      "bytes": 480730,
+      "metric_savings": {},
+      "weight": 469.462890625
+     }
+    },
+    "error": null
+   }
+  }
+ }
+}
