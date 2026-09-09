@@ -1,6 +1,6 @@
 ---
 name: weekly-seo
-description: Exhaustive SEO/AEO/GEO/SXO/AIO/LLMO audit-and-repair for mosaichostels.com. Pulls 7 data sources (GSC, GA4, CWV, Bing, Clarity, Common Crawl, Unlighthouse), runs 14 parallel claude-seo audits (discovery, content, ranking, structure, experience, performance), AI platform access check, ranks gaps, applies top fixes, verifies, commits. Use when the user says "weekly SEO", "SEO run", "SEO sweep", "run the SEO automation", or asks for a full audit-and-fix pass on this site.
+description: Exhaustive SEO/AEO/GEO/SXO/AIO/LLMO audit-and-repair for mosaichostels.com. Pulls 7 data sources (GSC, GA4, CWV, Bing, Clarity, Common Crawl, Unlighthouse), runs 15 claude-seo audits — 12 concurrent via Task tool, 3 Skill-tool-only (seo-audit, seo-bing, seo-unlighthouse) — covering discovery, content, ranking, structure, experience, performance, AI platform access check, ranks gaps, applies top fixes, verifies, commits. Use when the user says "weekly SEO", "SEO run", "SEO sweep", "run the SEO automation", or asks for a full audit-and-fix pass on this site.
 ---
 
 # Weekly SEO run
@@ -8,8 +8,10 @@ description: Exhaustive SEO/AEO/GEO/SXO/AIO/LLMO audit-and-repair for mosaichost
 One pass over https://www.mosaichostels.com. Audit, rank, repair the top gaps,
 prove nothing broke, commit. Manually triggered — run it whenever the owner asks.
 
-Credentials live in `~/.config/mosaic-seo/env`. Google tooling reads
-`~/.config/claude-seo/google-api.json` on its own; Bing, Clarity, and
+Credentials live in `~/.config/mosaic-seo/env`. One-time platform wiring (new
+credential, re-auth, new machine) is `./.claude/seo/setup-platforms.sh` —
+idempotent, safe to re-run, never writes secrets into the repo. Google tooling
+reads `~/.config/claude-seo/google-api.json` on its own; Bing, Clarity, and
 IndexNow commands need the env sourced in the same shell:
 
 ```bash
@@ -332,10 +334,20 @@ cannot back.
 
 ## (c) Audits
 
-Run 14 concurrent agents — they do not share state. Use Task tool to parallelize:
+15 checks total, split by invocation mechanism — they do not share state.
+**12 are Agent-tool subagents** (`agents/*.md` in the claude-seo plugin —
+confirmed dispatchable via Task tool, run concurrently). **3 are Skill-tool
+only** (`skills/*` or `extensions/*/skills/*` in the same plugin — no
+`agents/` counterpart exists, so the Task tool cannot spawn them; invoke each
+with the Skill tool, one at a time, before or after the concurrent batch).
+Conflating the two groups is why `seo-audit` silently gets skipped when
+someone tries to dispatch all "14" via Task tool — verify against
+`~/.claude/plugins/cache/*/claude-seo/*/agents/` before assuming a new
+claude-seo capability belongs in the concurrent batch.
 
-**Discovery + Crawlability (3)**
-- `claude-seo:seo-audit` — full site crawl, blocked routes, health score
+**Concurrent, via Task/Agent tool (12):**
+
+**Discovery + Crawlability (2)**
 - `claude-seo:seo-technical` — crawlability, indexability, URL structure, canonicals, mobile
 - `claude-seo:seo-backlinks` — inbound link profile (free: Common Crawl web graph + Bing + control test)
 
@@ -356,22 +368,25 @@ Run 14 concurrent agents — they do not share state. Use Task tool to paralleli
 - `claude-seo:seo-visual` — screenshots at 375px/768px/1440px, LCP element, above-fold content, rendering issues
 - `claude-seo:seo-geo` — AI crawler access (real GETs per UA), `llms.txt` presence, passage citability (GEO/AIO/LLMO)
 
-**Performance + Drift (2)**
-- `seo-unlighthouse` — multi-page Lighthouse (15 routes), 4 scores, all audits + savings, drift comparison
+**Drift (1)**
 - `claude-seo:seo-drift` — diff vs baselines: title, meta, canonical, robots, headings, JSON-LD, OG, status, content hash
 
-**Bonus: Bing + Index Access (1)**
-- `seo-bing` — Bing-specific visibility, IndexNow status, Bing index coverage (vs Google)
+**Skill-tool only, sequential (3) — no `agents/` definition exists for these:**
+- `claude-seo:seo-audit` (skill) — full site crawl, blocked routes, health score. Internally fans out to its own specialist set; overlaps most of the 12 above, so treat its output as a cross-check, not new signal, unless the 12 disagree with it.
+- `seo-unlighthouse` (skill, `extensions/unlighthouse/`) — multi-page Lighthouse (15 routes), 4 scores, all audits + savings, drift comparison
+- `seo-bing` (skill, `extensions/bing-webmaster/`) — Bing-specific visibility, IndexNow status, Bing index coverage (vs Google)
 
-### Running all 14 audits
+### Running all 15
 
-Dispatch all 14 agents concurrently — no agent blocks another. Typical runtime:
-3-8 min depending on site size and API lag. Each agent writes its findings to
-a separate report file in the task system or returns structured output directly.
+Dispatch the 12 concurrently via Task tool — no agent blocks another. Typical
+runtime: 3-8 min depending on site size and API lag. Invoke the 3 Skill-tool
+checks separately (each is synchronous in the main thread, not backgroundable
+the way an Agent-tool dispatch is). Each writes its findings to a separate
+report file in the task system or returns structured output directly.
 
-After all complete:
-1. **Collect every finding** — 14 agents may report the same gap (e.g., missing H2 on `/blog`)
-2. **Deduplicate** — one finding per gap, note which agents found it (confidence boost)
+After all 15 complete:
+1. **Collect every finding** — multiple checks may report the same gap (e.g., missing H2 on `/blog`)
+2. **Deduplicate** — one finding per gap, note which checks found it (confidence boost)
 3. **Merge** into master gap list for step (d) ranking
 
 ### New audits for full coverage
