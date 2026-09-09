@@ -42,7 +42,7 @@ If the error path doesn't require it, that's the root cause — add the include.
 # That's: api/lib -> api -> docroot -> parent of docroot
 
 # Verify the directory structure:
-cd /Users/naveen/Projects/hostel/Website
+cd $CLAUDE_PROJECT_DIR
 ls -la ../ezee-pending-orders/
 ls -la ../ezee-pending-orders/pending/
 ls -la ../ezee-pending-orders/processing/
