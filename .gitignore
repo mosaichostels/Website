@@ -14,3 +14,11 @@ api/secrets.php
 
 # IDE
 .idea/
+
+# OS / editor cruft
+.DS_Store
+*.swp
+*.bak
+
+# Scratch output from SEO agent runs — never a deploy/commit target
+screenshots/

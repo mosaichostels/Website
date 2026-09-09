@@ -60,6 +60,10 @@ if [ "$1" = "all" ]; then
     -not -path "./scripts/*" \
     -not -path "./mosaichostels.com-audit/*" \
     -not -path "./images/unused/*" \
+    -not -path "./seo-reports/*" \
+    -not -path "./screenshots/*" \
+    -not -path "./docs/*" \
+    -not -path "./blogs/*" \
     -not -name "secrets.php" -print0)
 else
   FILES_TO_DEPLOY=("$@")
