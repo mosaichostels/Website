@@ -7,6 +7,21 @@
  */
 require_once __DIR__ . '/ezee.php';
 
+/**
+ * One AddPayment attempt, normalised to a plain _ok. eZee reports failure two
+ * different ways here — a transport/`_ok` failure, or a non-zero ErrorCode in
+ * an Errors LIST (this endpoint returns a list; the reservation_api endpoints
+ * return an object — see docs/eZee-Connectivity-API.md ~L6139). ErrorCode "0"
+ * means success.
+ */
+function ezee_add_payment_once(array $request): array {
+  $response = ezee_post_json($request);
+  if (!$response['_ok'] || !empty($response['Errors'][0]['ErrorCode'])) {
+    $response['_ok'] = false;
+  }
+  return $response;
+}
+
 function confirm_paid_order(string $orderId, string $paymentId): array {
   ensure_pending_dirs();
   $pendingPath = PENDING_ORDERS_DIR . '/pending/' . $orderId . '.json';
@@ -89,7 +104,7 @@ function confirm_paid_order(string $orderId, string $paymentId): array {
   // Reconciliation only — doesn't move money, payment is already captured by
   // Razorpay. A failure here doesn't fail the caller.
   if (EZEE_PAYMENT_ID !== '' && EZEE_CURRENCY_ID !== '') {
-    $paymentResponse = ezee_post_json([
+    $request = [
       'RES_Request' => [
         'Request_Type' => 'AddPayment',
         'Authentication' => ['HotelCode' => EZEE_HOTEL_CODE, 'AuthCode' => EZEE_AUTH_CODE],
@@ -101,9 +116,24 @@ function confirm_paid_order(string $orderId, string $paymentId): array {
           'Comment' => 'Razorpay payment ' . $paymentId,
         ]],
       ],
-    ]);
-    if (!$paymentResponse['_ok'] || !empty($paymentResponse['Errors'][0]['ErrorCode'])) {
-      bookings_log("WARN AddPayment failed reservation=$reservationNo response=" . json_encode($paymentResponse));
+    ];
+    // Retried once, because the common failure here is a transient timeout and
+    // the consequence of losing it is a reservation eZee believes is UNPAID for
+    // money we have already taken — which is how a guest gets asked to pay
+    // twice at the front desk. Still non-fatal: the booking itself exists and
+    // the guest must not be told it failed.
+    // ponytail: one retry, not a queue. If these start failing in pairs, the
+    // fix is a proper outbox, not a third attempt.
+    $paymentResponse = ezee_add_payment_once($request);
+    if (!$paymentResponse['_ok']) {
+      sleep(1);
+      $paymentResponse = ezee_add_payment_once($request);
+    }
+    if (!$paymentResponse['_ok']) {
+      // Deliberately loud and greppable: this is a manual reconciliation item.
+      // Everything needed to post the payment by hand is on this one line.
+      bookings_log("ACTION REQUIRED AddPayment failed twice reservation=$reservationNo"
+        . " payment=$paymentId amount={$record['total']} response=" . json_encode($paymentResponse));
     }
   }
 

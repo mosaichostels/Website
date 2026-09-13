@@ -7,29 +7,18 @@
 require __DIR__ . '/lib/config.php';
 require __DIR__ . '/lib/ezee.php';
 
+// Searching is cheap but each call is a live eZee query; generous enough that
+// a guest comparing dates never notices it.
+rate_limit('availability', 60, 600);
+
 $checkIn = $_GET['check_in'] ?? '';
 $checkOut = $_GET['check_out'] ?? '';
 $adults = (int)($_GET['adults'] ?? 1);
 $children = (int)($_GET['children'] ?? 0);
 $rooms = (int)($_GET['rooms'] ?? 1);
 
-$today = new DateTime('today');
-$dCheckIn = DateTime::createFromFormat('Y-m-d', $checkIn);
-$dCheckOut = DateTime::createFromFormat('Y-m-d', $checkOut);
+validate_stay_dates($checkIn, $checkOut);
 
-if (!$dCheckIn || !$dCheckOut) {
-  json_error(400, 'Please provide valid check-in and check-out dates.');
-}
-if ($dCheckIn < $today) {
-  json_error(400, 'Check-in date cannot be in the past.');
-}
-if ($dCheckOut <= $dCheckIn) {
-  json_error(400, 'Check-out date must be after check-in date.');
-}
-$nights = $dCheckIn->diff($dCheckOut)->days;
-if ($nights > 30) {
-  json_error(400, 'Stays longer than 30 nights cannot be searched here — please WhatsApp us directly.');
-}
 if ($adults < 1 || $adults > 20) {
   json_error(400, 'Please enter a valid number of adults.');
 }
@@ -52,26 +41,25 @@ $ezeeResponse = ezee_get('RoomList', [
 ]);
 
 if (!$ezeeResponse['_ok']) {
-  if (!empty($ezeeResponse['_rateLimited'])) json_error(429, $ezeeResponse['_error']);
-  json_error(502, $ezeeResponse['_error']);
+  if (!empty($ezeeResponse['_rateLimited'])) json_error(429, 'Our booking system is busy — please try again in a moment.');
+  json_error_upstream(502, 'We couldn\'t load live availability just now. Please try again shortly, or WhatsApp us.', $ezeeResponse['_error']);
 }
 
 json_ok(['rooms' => extract_room_options($ezeeResponse)]);
 
 /**
- * eZee's RoomList response nests room/rate entries under a structure that
- * varies by account configuration. Rather than assume one exact shape,
- * walk the decoded response and collect every associative array that looks
- * like a room-rate entry (has roomtypeunkid + roomrateunkid).
+ * Maps eZee's RoomList response down to what the widget needs.
  *
  * Verified against a live response (2026-08-10): per-night and total prices
  * live as scalars under entry['room_rates_info'], not at the entry's top
  * level — inclusive_tax_adjustment/exclusive_tax there are date-keyed
  * arrays, not scalars, so they're only usable as a last-resort fallback.
+ * Stay totals come from ezee_room_total() so create-order.php resolves the
+ * identical number from the identical response — see its docblock.
  */
 function extract_room_options(array $data): array {
   $found = [];
-  find_room_entries($data, $found);
+  ezee_find_room_entries($data, $found);
 
   $options = [];
   foreach ($found as $entry) {
@@ -82,21 +70,14 @@ function extract_room_options(array $data): array {
       ?? $entry['exclusive_tax']
       ?? null;
     if (is_array($perNight)) $perNight = reset($perNight);
-    $total = $rates['totalprice_inclusive_all']
-      ?? $rates['totalprice_room_only']
-      ?? $entry['totalprice_inclusive_all']
-      ?? $entry['totalprice_room_only']
-      ?? null;
-    if (is_array($total)) $total = reset($total);
+    $total = ezee_room_total($entry);
     $available = $entry['available_rooms'] ?? $entry['min_ava_rooms'] ?? null;
     if (is_array($available)) $available = min($available) ?: 0;
 
     // Base (room-only, pre-tax) vs tax split — eZee gives both the room-only
     // and tax-inclusive stay totals; tax is the difference between them.
-    $baseTotal = $rates['totalprice_room_only'] ?? $entry['totalprice_room_only'] ?? null;
-    if (is_array($baseTotal)) $baseTotal = reset($baseTotal);
-    $baseTotal = $baseTotal !== null ? round((float)$baseTotal, 2) : null;
-    $taxTotal = ($total !== null && $baseTotal !== null) ? round((float)$total - $baseTotal, 2) : null;
+    $baseTotal = ezee_room_base_total($entry);
+    $taxTotal = ($total !== null && $baseTotal !== null) ? round($total - $baseTotal, 2) : null;
 
     $options[] = [
       'roomtypeunkid' => (string)($entry['roomtypeunkid'] ?? ''),
@@ -104,23 +85,20 @@ function extract_room_options(array $data): array {
       'roomrateunkid' => (string)($entry['roomrateunkid'] ?? ''),
       'name' => $entry['Roomtype_Name'] ?? $entry['Room_Name'] ?? 'Room',
       'description' => $entry['Room_Description'] ?? $entry['Package_Description'] ?? '',
+      // How many adults the rate already covers. Guests may declare up to this
+      // many; beyond it eZee charges an extra-adult rate we don't yet compute
+      // into the Razorpay amount, so those bookings go via WhatsApp instead.
+      'base_adults' => max(1, (int)($entry['base_adult_occupancy'] ?? 1)),
       'per_night' => $perNight !== null ? round((float)$perNight, 2) : null,
-      'total' => $total !== null ? round((float)$total, 2) : null,
+      'total' => $total,
       'base_total' => $baseTotal,
       'tax_total' => $taxTotal,
-      'available' => (int)($available ?? 0),
+      // null is preserved rather than collapsed to 0: eZee omitting a count
+      // means "unknown", which is not the same as "sold out", and the widget
+      // renders them differently. Coercing both to 0 made every room with an
+      // unreported count look sold out with a dead + button.
+      'available' => $available === null ? null : (int)$available,
     ];
   }
   return $options;
-}
-
-function find_room_entries(array $data, array &$found) {
-  $isRoomEntry = isset($data['roomtypeunkid']) && isset($data['roomrateunkid']);
-  if ($isRoomEntry) {
-    $found[] = $data;
-    return; // don't recurse further into a matched entry
-  }
-  foreach ($data as $value) {
-    if (is_array($value)) find_room_entries($value, $found);
-  }
 }

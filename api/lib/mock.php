@@ -12,11 +12,13 @@ function ezee_mock_roomlist(array $params): array {
   $nights = max(1, $checkIn->diff($checkOut)->days);
 
   $roomTypes = [
-    ['id' => '187270000000000101', 'name' => '4-Bed Mixed Dorm', 'desc' => 'Shared dorm bed, lockers, AC.', 'rate' => 550, 'avail' => 4],
-    ['id' => '187270000000000102', 'name' => '6-Bed Mixed Dorm', 'desc' => 'Shared dorm bed, lockers, AC.', 'rate' => 499, 'avail' => 6],
-    ['id' => '187270000000000103', 'name' => '6-Bed Female Dorm', 'desc' => 'Female-only dorm bed, lockers, AC.', 'rate' => 520, 'avail' => 3],
-    ['id' => '187270000000000104', 'name' => '8-Bed Mixed Dorm', 'desc' => 'Shared dorm bed, lockers, AC.', 'rate' => 450, 'avail' => 8],
-    ['id' => '187270000000000105', 'name' => 'Double Room', 'desc' => 'Private double room, ensuite bathroom, AC.', 'rate' => 1500, 'avail' => 2],
+    // 'base' = base_adult_occupancy: adults the rate covers. Dorm rates are
+    // per bed, so 1; the private double covers 2.
+    ['id' => '187270000000000101', 'name' => '4-Bed Mixed Dorm', 'desc' => 'Shared dorm bed, lockers, AC.', 'rate' => 550, 'avail' => 4, 'base' => 1],
+    ['id' => '187270000000000102', 'name' => '6-Bed Mixed Dorm', 'desc' => 'Shared dorm bed, lockers, AC.', 'rate' => 499, 'avail' => 6, 'base' => 1],
+    ['id' => '187270000000000103', 'name' => '6-Bed Female Dorm', 'desc' => 'Female-only dorm bed, lockers, AC.', 'rate' => 520, 'avail' => 3, 'base' => 1],
+    ['id' => '187270000000000104', 'name' => '8-Bed Mixed Dorm', 'desc' => 'Shared dorm bed, lockers, AC.', 'rate' => 450, 'avail' => 8, 'base' => 1],
+    ['id' => '187270000000000105', 'name' => 'Double Room', 'desc' => 'Private double room, ensuite bathroom, AC.', 'rate' => 1500, 'avail' => 2, 'base' => 2],
   ];
 
   $rooms = [];
@@ -33,6 +35,8 @@ function ezee_mock_roomlist(array $params): array {
       'totalprice_inclusive_all' => (string)$total,
       'totalprice_room_only' => (string)round($total * 0.95, 2),
       'available_rooms' => $rt['avail'],
+      'base_adult_occupancy' => (string)$rt['base'],
+      'max_adult_occupancy' => (string)$rt['base'],
       'room_rates_info' => ['exclusive_tax' => (string)round($rt['rate'] * 0.95, 2)],
       'extra_adult_rates_info' => ['exclusive_tax' => '0'],
       'extra_child_rates_info' => ['exclusive_tax' => '0'],
