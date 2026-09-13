@@ -80,6 +80,32 @@ else
   done
 fi
 
+# Gate: never ship booking/payment PHP without running its assertions. The
+# selftest covers the pieces that fail silently rather than loudly — eZee price
+# resolution, strict date parsing, the refund window, Razorpay signature
+# verification, the atomic rename() claim and paise rounding. It is CLI-only and
+# takes well under a second.
+DEPLOYING_PHP=""
+for file in "${FILES_TO_DEPLOY[@]}"; do
+  case "$file" in *.php) DEPLOYING_PHP="yes"; break;; esac
+done
+
+if [ -n "$DEPLOYING_PHP" ]; then
+  if ! command -v php >/dev/null 2>&1; then
+    echo -e "${RED}❌ Deploy includes PHP but no php binary is available to run api/lib/selftest.php.${NC}"
+    echo -e "${RED}   Install PHP, or deploy the non-PHP files separately. Shipping payment code${NC}"
+    echo -e "${RED}   whose assertions have not run is exactly how a silent pricing bug gets live.${NC}"
+    exit 1
+  fi
+  echo -e "${YELLOW}Running api/lib/selftest.php...${NC}"
+  # zend.assertions defaults to -1 (assertions compiled out) on production
+  # builds, which would make the whole gate a no-op that still prints success.
+  if ! php -d zend.assertions=1 -d assert.exception=1 api/lib/selftest.php; then
+    echo -e "${RED}❌ selftest failed — aborting deploy.${NC}"
+    exit 1
+  fi
+fi
+
 echo -e "${YELLOW}Files to deploy: ${#FILES_TO_DEPLOY[@]}${NC}"
 for file in "${FILES_TO_DEPLOY[@]}"; do
   echo "  - $file"

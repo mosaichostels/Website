@@ -6,6 +6,57 @@
  * HotelCode+AuthCode pair inside a JSON "Authentication" block.
  */
 
+/**
+ * eZee's date-keyed rate fields (e.g. {"2026-08-13": "500.0000"}) collapse to a
+ * single scalar for single-night-rate lookups; already-scalar values pass through.
+ */
+function ezee_price_scalar($val): float {
+  if (is_array($val)) return (float)(reset($val) ?: 0);
+  return (float)$val;
+}
+
+/**
+ * Stay total (tax-inclusive where eZee gives it) for one room entry.
+ *
+ * eZee puts this EITHER nested under room_rates_info OR at the entry's top
+ * level, depending on account configuration. Both are checked here, in one
+ * place, because availability.php and create-order.php must agree: when they
+ * disagreed, search rendered a price from the top level that checkout then
+ * couldn't resolve, and every booking died on a 502 after the guest had filled
+ * in the whole form. Add a location here, never in a caller.
+ */
+function ezee_room_total(array $entry): ?float {
+  $rates = $entry['room_rates_info'] ?? [];
+  $total = $rates['totalprice_inclusive_all']
+    ?? $rates['totalprice_room_only']
+    ?? $entry['totalprice_inclusive_all']
+    ?? $entry['totalprice_room_only']
+    ?? null;
+  return $total === null ? null : round(ezee_price_scalar($total), 2);
+}
+
+/** Room-only (pre-tax) stay total — same dual-location lookup as ezee_room_total(). */
+function ezee_room_base_total(array $entry): ?float {
+  $rates = $entry['room_rates_info'] ?? [];
+  $base = $rates['totalprice_room_only'] ?? $entry['totalprice_room_only'] ?? null;
+  return $base === null ? null : round(ezee_price_scalar($base), 2);
+}
+
+/**
+ * Walk a decoded eZee response and collect every associative array that looks
+ * like a room-rate entry (has roomtypeunkid + roomrateunkid). The nesting
+ * varies by account configuration, so this doesn't assume one exact shape.
+ */
+function ezee_find_room_entries(array $data, array &$found) {
+  if (isset($data['roomtypeunkid']) && isset($data['roomrateunkid'])) {
+    $found[] = $data;
+    return; // don't recurse further into a matched entry
+  }
+  foreach ($data as $value) {
+    if (is_array($value)) ezee_find_room_entries($value, $found);
+  }
+}
+
 function ezee_get(string $requestType, array $params): array {
   if (getenv('EZEE_MOCK_ROOMLIST') && in_array($requestType, ['RoomList', 'InsertBooking'], true)) {
     require_once __DIR__ . '/mock.php';

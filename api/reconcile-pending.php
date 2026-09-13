@@ -17,8 +17,14 @@ require __DIR__ . '/lib/booking.php';
 
 ensure_pending_dirs();
 $cutoff = time() - 180; // give the fast paths 3 minutes before we intervene
+// Unpaid orders used to sit in pending/ forever, so this glob grew without
+// bound and every tick re-polled Razorpay for orders nobody ever paid. After a
+// day they're abandoned carts. They're MOVED, not deleted: a Razorpay order
+// stays payable indefinitely, so on the remote chance one is paid later the
+// record it needs still exists — just not somewhere that costs a poll a minute.
+$abandonCutoff = time() - 86400;
 
-foreach (glob(PENDING_ORDERS_DIR . '/pending/*.json') as $file) {
+foreach (glob(PENDING_ORDERS_DIR . '/pending/*.json') ?: [] as $file) {
   $orderId = basename($file, '.json');
   if (filemtime($file) > $cutoff) continue;
 
@@ -32,8 +38,22 @@ foreach (glob(PENDING_ORDERS_DIR . '/pending/*.json') as $file) {
   foreach ($payments['items'] ?? [] as $payment) {
     if ($payment['status'] === 'captured') { $captured = $payment; break; }
   }
-  if (!$captured) continue; // still unpaid or abandoned — leave pending
+  if (!$captured) {
+    // Confirmed unpaid by Razorpay itself, not merely quiet.
+    if (filemtime($file) < $abandonCutoff) {
+      @rename($file, PENDING_ORDERS_DIR . '/abandoned/' . $orderId . '.json');
+      bookings_log("ABANDONED order=$orderId (unpaid for over 24h)");
+    }
+    continue;
+  }
 
   $result = confirm_paid_order($orderId, $captured['id']);
   bookings_log("RECONCILE order=$orderId payment={$captured['id']} status={$result['status']}");
+}
+
+// Rate-limit counters are disposable: each is a fixed window of at most a few
+// minutes, so anything untouched for an hour is dead weight. Pruned here
+// because this is the only thing already running on a schedule.
+foreach (glob(PENDING_ORDERS_DIR . '/ratelimit/*.json') ?: [] as $file) {
+  if (filemtime($file) < time() - 3600) @unlink($file);
 }
