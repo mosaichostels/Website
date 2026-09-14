@@ -22,3 +22,4 @@ api/secrets.php
 
 # Scratch output from SEO agent runs — never a deploy/commit target
 screenshots/
+.playwright-mcp/
