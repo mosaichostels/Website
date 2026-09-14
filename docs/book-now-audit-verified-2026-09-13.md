@@ -180,6 +180,14 @@ This is not hypothetical — **it is exactly what mock mode produces.**
 stage looks healthy. The mock path — the only way to test the flow without touching
 the live hotel account — is broken end to end.
 
+> **Update, 2026-09-14.** `api/lib/mock.php` and the `EZEE_MOCK_ROOMLIST` branches
+> have since been removed at the owner's direction, so there is no mock path at
+> all: `api/` talks only to real eZee and real Razorpay. The N1 fix itself stands
+> and is guarded by `selftest.php` assertion 4, which now carries the two response
+> shapes as inline fixtures rather than reading them from the mock.
+> `scripts/e2e-booking-test.php` is consequently an integration suite requiring
+> live credentials.
+
 **Fix:** give `create-order.php:131` the same four-step fallback, or better, extract the
 price-resolution into one function both endpoints call. One source of truth, since
 a divergence here is silent on one side and fatal on the other.

@@ -58,12 +58,6 @@ function ezee_find_room_entries(array $data, array &$found) {
 }
 
 function ezee_get(string $requestType, array $params): array {
-  if (getenv('EZEE_MOCK_ROOMLIST') && in_array($requestType, ['RoomList', 'InsertBooking', 'CancelBooking'], true)) {
-    require_once __DIR__ . '/mock.php';
-    if ($requestType === 'RoomList') return ezee_mock_roomlist($params);
-    if ($requestType === 'CancelBooking') return ezee_mock_cancelbooking($params['ResNo'] ?? '');
-    return ezee_mock_insertbooking($params);
-  }
   $query = array_merge([
     'request_type' => $requestType,
     'HotelCode' => EZEE_HOTEL_CODE,
@@ -87,10 +81,6 @@ function ezee_get(string $requestType, array $params): array {
  * which all share the querystring HotelCode+APIKey endpoint via ezee_get().
  */
 function ezee_fetch_booking(string $bookingId): array {
-  if (getenv('EZEE_MOCK_ROOMLIST')) {
-    require_once __DIR__ . '/mock.php';
-    return ezee_mock_fetchsinglebooking($bookingId);
-  }
   $requestBody = [
     'RES_Request' => [
       'Request_Type' => 'FetchSingleBooking',
@@ -103,10 +93,6 @@ function ezee_fetch_booking(string $bookingId): array {
 }
 
 function ezee_post_json(array $requestBody): array {
-  if (getenv('EZEE_MOCK_ROOMLIST') && ($requestBody['RES_Request']['Request_Type'] ?? '') === 'AddPayment') {
-    require_once __DIR__ . '/mock.php';
-    return ezee_mock_addpayment($requestBody);
-  }
   $url = EZEE_BASE_URL . 'index.php/page/service.kioskconnectivity';
   return ezee_curl($url, json_encode($requestBody));
 }
