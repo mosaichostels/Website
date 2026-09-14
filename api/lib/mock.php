@@ -52,10 +52,75 @@ function ezee_mock_roomlist(array $params): array {
  * production hotel account even with fake guest data.
  */
 function ezee_mock_insertbooking(array $params): array {
-  $resNo = 'MOCK' . substr((string)time(), -6);
+  // Random, not time-based: a time-based id collides for bookings made in the
+  // same second, and cancel-booking.php looks a reservation up by number.
+  $resNo = 'MOCK' . strtoupper(bin2hex(random_bytes(4)));
   return ['_ok' => true, '_mock' => true, 'ReservationNo' => $resNo, 'SubReservationNo' => [$resNo], 'Inventory_Mode' => 'ALLOCATED'];
 }
 
 function ezee_mock_addpayment(array $requestBody): array {
   return ['_ok' => true, '_mock' => true, 'Success' => ['SuccessMsg' => 'Mock payment recorded'], 'Errors' => [['ErrorCode' => '0', 'ErrorMessage' => 'Success']]];
+}
+
+/**
+ * Mock FetchSingleBooking — lets cancel-booking.php be exercised end to end
+ * without a live reservation. Email is echoed from the booking we wrote in
+ * done/, so the ownership check is tested for real rather than bypassed.
+ */
+function ezee_mock_fetchsinglebooking(string $bookingId): array {
+  $email = '';
+  foreach (glob(PENDING_ORDERS_DIR . '/done/*.json') ?: [] as $file) {
+    $record = json_decode((string)file_get_contents($file), true);
+    if (is_array($record) && (string)($record['reservation_no'] ?? '') === $bookingId) {
+      $email = $record['email'] ?? '';
+      break;
+    }
+  }
+  if ($email === '') return ['_ok' => true, '_mock' => true, 'Reservations' => []];
+  return ['_ok' => true, '_mock' => true, 'Reservations' => ['Reservation' => [[
+    'Email' => $email,
+    'BookingTran' => [['CurrentStatus' => 'Confirm']],
+  ]]]];
+}
+
+function ezee_mock_cancelbooking(string $bookingId): array {
+  return ['_ok' => true, '_mock' => true, 'status' => 'Successful'];
+}
+
+/**
+ * Mock Razorpay Orders API. Orders are persisted under PENDING_ORDERS_DIR/mock-rzp
+ * so reconcile-pending.php can poll them and the harness can flip a payment
+ * between captured / failed / absent — which is the whole point of the switch.
+ */
+function razorpay_mock_dir(): string {
+  $dir = PENDING_ORDERS_DIR . '/mock-rzp';
+  if (!is_dir($dir)) mkdir($dir, 0700, true);
+  return $dir;
+}
+
+function razorpay_mock_create_order(int $amountPaise, string $receipt, array $notes): array {
+  $order = [
+    '_ok' => true, '_mock' => true,
+    'id' => 'order_MOCK' . bin2hex(random_bytes(6)),
+    'amount' => $amountPaise, 'currency' => 'INR', 'receipt' => $receipt,
+    'notes' => $notes, 'status' => 'created',
+  ];
+  file_put_contents(razorpay_mock_dir() . '/' . $order['id'] . '.json', json_encode($order));
+  return $order;
+}
+
+/**
+ * Payment status is whatever the harness wrote onto the stored order:
+ * 'captured', 'failed', or nothing at all (guest never paid). Default is
+ * nothing, so an untouched order looks exactly like an abandoned cart.
+ */
+function razorpay_mock_fetch_order_payments(string $orderId): array {
+  $file = razorpay_mock_dir() . '/' . $orderId . '.json';
+  if (!file_exists($file)) return ['_ok' => false, '_error' => 'Mock order not found'];
+  $order = json_decode((string)file_get_contents($file), true);
+  $items = [];
+  if (!empty($order['_payment_status'])) {
+    $items[] = ['id' => $order['_payment_id'] ?? 'pay_MOCK', 'status' => $order['_payment_status'], 'amount' => $order['amount']];
+  }
+  return ['_ok' => true, '_mock' => true, 'count' => count($items), 'items' => $items];
 }

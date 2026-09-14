@@ -91,6 +91,12 @@
     if (!widget) return;
     populateCountrySelects();
 
+    // Read the landing query string ONCE, before anything can rewrite it. The
+    // search stage's own URL is the bare path, so syncHistory('search') strips
+    // ?check_in= — and a deep link read after that finds nothing. Capturing
+    // here makes restoreFromUrl() independent of bootstrap ordering.
+    const landingParams = new URLSearchParams(window.location.search);
+
     const stages = {
       search: document.getElementById('stageSearch'),
       results: document.getElementById('stageResults'),
@@ -156,12 +162,6 @@
     attachCalendar(checkInEl, () => today);
     attachCalendar(checkOutEl, () => checkInEl.value || today);
 
-    // Mark the entry we landed on as the search stage. Without this a
-    // deep-linked arrival (?check_in=...) has a null state underneath it, and
-    // "Change Dates" would navigate off the site instead of back a stage.
-    syncHistory('search', 'replace');
-    updateSteps('search');
-
     // Dates live in the query string so a search can be linked, bookmarked or
     // pointed at from an ad, and so a refresh lands somewhere useful.
     function stageUrl(name) {
@@ -225,9 +225,8 @@
     // guest has to fill in again. Also what makes a refresh mid-flow land
     // somewhere useful rather than back at square one.
     function restoreFromUrl() {
-      const params = new URLSearchParams(window.location.search);
-      const from = params.get('check_in') || '';
-      const to = params.get('check_out') || '';
+      const from = landingParams.get('check_in') || '';
+      const to = landingParams.get('check_out') || '';
       // Same YYYY-MM-DD strictness the calendar and the server apply; a bad
       // link should show the normal empty form, not an error.
       const valid = /^\d{4}-\d{2}-\d{2}$/;
@@ -843,6 +842,16 @@
       return selection ? selection.total : 0;
     }
 
+    // Bootstrap runs last, after every const in this scope exists. It used to
+    // sit up by the calendar wiring, which put updateSteps() ahead of the
+    // STEP_ORDER it reads — a temporal-dead-zone ReferenceError that aborted
+    // the rest of initBookingWidget() on every page load.
+    //
+    // Marking the entry we landed on as the search stage matters because a
+    // deep-linked arrival (?check_in=...) otherwise has a null state beneath
+    // it, and "Change Dates" would navigate off the site instead of back.
+    syncHistory('search', 'replace');
+    updateSteps('search');
     restoreFromUrl();
   }
 
