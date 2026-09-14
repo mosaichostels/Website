@@ -4,25 +4,7 @@
  * https://razorpay.com/docs/api/orders/ · https://razorpay.com/docs/payments/server-integration/php/payment-gateway/build-integration/#3-verify-payment-signature
  */
 
-/**
- * Is this server in booking-mock mode? Same single switch as the eZee mocks —
- * one flag for "nothing here talks to a real service", rather than two that
- * could be half-set. Refuses outright on a live key: a mocked order against
- * rzp_live_* would mean a guest paying for an order that does not exist.
- */
-function razorpay_mock_enabled(): bool {
-  if (!getenv('EZEE_MOCK_ROOMLIST')) return false;
-  if (str_starts_with(RAZORPAY_KEY_ID, 'rzp_live_')) {
-    json_error(500, 'Mock mode refused: live Razorpay key present.');
-  }
-  return true;
-}
-
 function razorpay_create_order(int $amountPaise, string $receipt, array $notes): array {
-  if (razorpay_mock_enabled()) {
-    require_once __DIR__ . '/mock.php';
-    return razorpay_mock_create_order($amountPaise, $receipt, $notes);
-  }
   $ch = curl_init('https://api.razorpay.com/v1/orders');
   curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,
@@ -63,10 +45,6 @@ function razorpay_verify_signature(string $orderId, string $paymentId, string $s
 // doesn't depend on the client callback firing or the webhook being
 // registered/reachable, both of which have been observed to fail silently.
 function razorpay_fetch_order_payments(string $orderId): array {
-  if (razorpay_mock_enabled()) {
-    require_once __DIR__ . '/mock.php';
-    return razorpay_mock_fetch_order_payments($orderId);
-  }
   $ch = curl_init('https://api.razorpay.com/v1/orders/' . urlencode($orderId) . '/payments');
   curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,
