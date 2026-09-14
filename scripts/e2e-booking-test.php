@@ -9,16 +9,19 @@
 error_reporting(E_ALL & ~E_DEPRECATED);
 
 // Usage, from the repo root:
-//   EZEE_MOCK_ROOMLIST=1 php -S 127.0.0.1:8899 -t . &
+//   php -S 127.0.0.1:8899 -t . &
 //   php scripts/e2e-booking-test.php
 //
-// Requires api/secrets.php whose RAZORPAY_KEY_SECRET matches SECRET below.
+// There are no mocks left in api/ — not for eZee, not for Razorpay — so this is
+// an INTEGRATION suite. It needs api/secrets.php pointing at real credentials:
+//   - an eZee account whose RoomList returns data for the requested dates;
+//   - Razorpay rzp_test_ keys, with RAZORPAY_KEY_SECRET matching SECRET below.
 //
-// There is no Razorpay mock: api/lib/razorpay.php talks to the real Orders API,
-// deliberately, so no test code sits in the money path. Without working
-// rzp_test_ credentials the payment half of this suite cannot run and is
-// reported as SKIP — the validation half still runs in full. Never point this
-// at rzp_live_ credentials: it creates real orders.
+// Without eZee the suite cannot run at all and exits 2. Without Razorpay the
+// payment half is reported as SKIP and the validation half still runs in full.
+//
+// NEVER point this at rzp_live_ keys or a production eZee account: it creates
+// real Razorpay orders and real reservations.
 const BASE = 'http://127.0.0.1:8899';
 const SECRET = 'mockseceretlocaltestonly';
 // Mirrors PENDING_ORDERS_DIR in api/lib/config.php: one level above the docroot.
@@ -98,6 +101,9 @@ function sign(string $orderId, string $paymentId): string {
   return hash_hmac('sha256', $orderId . '|' . $paymentId, SECRET);
 }
 
+// NOTE: these ids came from the removed mock fixture. Against a real eZee
+// account they must be replaced with ids from a live RoomList response — run
+// the eZee probe below and read them off it.
 function base_order(array $over = []): array {
   return array_merge([
     'check_in' => d(20), 'check_out' => d(22),
@@ -107,6 +113,17 @@ function base_order(array $over = []): array {
     'first_name' => 'Test', 'last_name' => 'Guest', 'email' => 'test@example.com',
     'phone' => '9876543210', 'phone_code' => '+91', 'nationality' => 'India',
   ], $over);
+}
+
+// Can this environment reach eZee at all? Nothing downstream is meaningful
+// without live availability, so say so once and stop rather than emit 80
+// failures that all share one cause.
+$ezeeProbe = req('GET', '/api/availability.php?check_in=' . d(20) . '&check_out=' . d(22) . '&adults=1');
+if ($ezeeProbe['code'] !== 200 || empty($ezeeProbe['json']['rooms'])) {
+  echo "SUITE NOT RUN: eZee availability unavailable (HTTP {$ezeeProbe['code']}).\n"
+     . "Point api/secrets.php at an eZee account whose RoomList returns data, then re-run.\n"
+     . "Response: " . substr($ezeeProbe['raw'], 0, 300) . "\n";
+  exit(2);
 }
 
 // One probe: can this environment create a Razorpay order at all?
@@ -286,8 +303,7 @@ $abandonOrder = $r['json']['order_id'] ?? '';
 set_payment($abandonOrder, null);
 touch(PENDING . '/pending/' . $abandonOrder . '.json', time() - 90000);
 
-exec('EZEE_MOCK_ROOMLIST=1 php '
-  . escapeshellarg(dirname(__DIR__) . '/api/reconcile-pending.php') . ' 2>&1', $out, $rc);
+exec('php ' . escapeshellarg(dirname(__DIR__) . '/api/reconcile-pending.php') . ' 2>&1', $out, $rc);
 check('reconcile ran cleanly', $rc === 0, implode("\n", $out));
 check('(a) captured order confirmed by cron', file_exists(PENDING . '/done/' . $cronOrder . '.json'), 'still pending');
 check('(b) FAILED payment did NOT create a booking', !file_exists(PENDING . '/done/' . $failOrder . '.json'));

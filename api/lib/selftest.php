@@ -52,8 +52,9 @@ $nested = ['roomtypeunkid' => 'a', 'roomrateunkid' => 'b',
 assert(ezee_room_total($nested) === 1650.00);
 assert(ezee_room_base_total($nested) === 1567.50);
 
-// Exactly the shape mock.php emits: totals at top level, room_rates_info
-// carrying only exclusive_tax. This returned 0 before ezee_room_total() existed.
+// The other shape eZee has been observed to return: totals at the entry's top
+// level, with room_rates_info carrying only exclusive_tax. This returned 0
+// before ezee_room_total() existed.
 $topLevel = ['roomtypeunkid' => 'a', 'roomrateunkid' => 'b',
   'totalprice_inclusive_all' => '1650.0000', 'totalprice_room_only' => '1567.50',
   'room_rates_info' => ['exclusive_tax' => '522.50']];
