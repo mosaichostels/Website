@@ -8,11 +8,14 @@ Static website for Mosaic Hostel Varanasi, built with HTML, CSS, and JavaScript.
 ├── blog/                 # Blog post routing (HTML templates)
 ├── blogs/                # Blog content (Markdown files)
 ├── components/           # Reusable JS components
-├── styles/               # CSS stylesheets  
+├── styles/               # CSS stylesheets
 ├── images/               # Image assets
-├── static/               # SEO/verification files (robots.txt, sitemap.xml, etc.)
-├── config/               # Configuration files (.htaccess, etc.)
-├── docs/                 # Documentation (CLAUDE.md, etc.)
+├── api/                  # Booking/payment PHP endpoints (eZee + Razorpay)
+├── docs/                 # Documentation
+├── scripts/              # E2E test scripts
+├── seo-reports/          # SEO audit data (SEO cache dirs are gitignored)
+├── robots.txt, sitemap.xml, .htaccess,
+│   BingSiteAuth.xml, google*.html      # SEO/verification files (root-level)
 └── *.html                # Root-level pages
 ```
 
@@ -47,10 +50,8 @@ FTP Configuration:
 
 - `robots.txt` - Search engine crawler rules
 - `sitemap.xml` - XML sitemap
-- `static/BingSiteAuth.xml` - Bing verification
-- `static/IndexNow.xml` - IndexNow feed
-- `static/.indexnow-key` - IndexNow API key
-- `static/google*.html` - Google verification
+- `BingSiteAuth.xml` - Bing verification
+- `google*.html` - Google verification
 
 ## Development Notes
 
@@ -61,4 +62,4 @@ FTP Configuration:
 
 ## Last Updated
 
-2026-07-28 - Reorganization and cleanup
+2026-09-23 - Repo cleanup and README sync with actual structure
