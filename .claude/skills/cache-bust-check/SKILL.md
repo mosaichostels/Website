@@ -11,7 +11,7 @@ This site's `components/*.js` and `styles/*.css` files are served by `.htaccess`
 - **Every edit to a shared JS/CSS file requires bumping its `?v=YYYYMMDD` query string in every HTML file that references it**
 - Failure to bump means returning visitors keep serving the stale cached file for up to 30 days after deploy
 
-See `deploy.sh` lines 4-13 for the detailed rationale and warnings.
+See `scripts/deploy.sh` lines 4-13 for the detailed rationale and warnings.
 
 ## Finding and Bumping Query Strings
 
@@ -53,7 +53,7 @@ done
 
 ## Pre-Deploy Checklist
 
-Before running `deploy.sh`:
+Before running `scripts/deploy.sh`:
 
 1. **Did you edit any `components/*.js` or `styles/*.css` files?** → Run the bump workflow above
 2. **Run the verification grep** to confirm no stale query strings remain:

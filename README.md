@@ -12,7 +12,7 @@ Static website for Mosaic Hostel Varanasi, built with HTML, CSS, and JavaScript.
 ├── images/               # Image assets
 ├── api/                  # Booking/payment PHP endpoints (eZee + Razorpay)
 ├── docs/                 # Documentation
-├── scripts/              # E2E test scripts
+├── scripts/              # deploy.sh, indexnow-submit.sh, E2E test scripts
 ├── seo-reports/          # SEO audit data (SEO cache dirs are gitignored)
 ├── robots.txt, sitemap.xml, .htaccess,
 │   BingSiteAuth.xml, google*.html      # SEO/verification files (root-level)
@@ -27,7 +27,7 @@ Static website for Mosaic Hostel Varanasi, built with HTML, CSS, and JavaScript.
 - **components/blog-renderer.js** - Dynamic blog rendering with markdown fetch
 - **components/site.js** - Site navigation and common functionality
 - **styles/global.css** - Global styles
-- **config/.htaccess** - Apache server configuration
+- **.htaccess** - Apache server configuration
 
 ## Blog System
 
@@ -39,7 +39,7 @@ Blog posts are markdown files in `/blogs/` directory. The blog system:
 
 ## Deployment
 
-The site is deployed to Hostinger via FTP. All files in root, components/, styles/, images/, and blogs/ are deployed as-is.
+The site is deployed to Hostinger via FTP using `scripts/deploy.sh` (requires `FTP_HOST`/`FTP_USER`/`FTP_PASS` env vars). All files in root, components/, styles/, images/, and blogs/ are deployed as-is. After a content deploy, run `scripts/indexnow-submit.sh` to push updated URLs to Bing/Yandex/Seznam.
 
 FTP Configuration:
 - **Host**: 147.93.17.169

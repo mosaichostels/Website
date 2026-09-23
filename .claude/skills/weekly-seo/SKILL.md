@@ -31,7 +31,7 @@ Touchable: `*.html`, `styles/`, `components/`, `sitemap.xml`, `robots.txt`,
 `llms.txt`, `seo-reports/`.
 
 Off limits, no exceptions: `api/` (PHP endpoints, Razorpay, eZee PMS),
-`deploy.sh`, `.claude/hooks/`, anything under `~/.config/`. A booking or
+`scripts/deploy.sh`, `.claude/hooks/`, anything under `~/.config/`. A booking or
 payment path is never an SEO fix.
 
 Never add a build step, bundler, framework, or npm dependency to the site. It
@@ -91,7 +91,7 @@ Record the table. If any page shows DRIFT, say so at the top of the report and
 treat every audit finding for that page as provisional — the gap may already
 be fixed locally and merely unshipped.
 
-Deploying is the owner's call, never this workflow's: `deploy.sh` needs
+Deploying is the owner's call, never this workflow's: `scripts/deploy.sh` needs
 `FTP_HOST` / `FTP_USER` / `FTP_PASS`, which are deliberately absent from the
 env file. Ask; do not attempt the push.
 
@@ -560,7 +560,7 @@ submissions are noise. If the fixes are committed but not deployed, skip this
 step entirely and record in the report that submission is pending a deploy.
 
 ```bash
-./indexnow-submit.sh                                   # Bing, Yandex, Seznam
+./scripts/indexnow-submit.sh                            # Bing, Yandex, Seznam
 "$SEOPY" "$SEO/indexing_notify.py" --url <changed-url>  # Google Indexing API
 ```
 

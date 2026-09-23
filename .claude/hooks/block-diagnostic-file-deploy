@@ -19,7 +19,7 @@ Files matching 'diag', 'debug', or 'test' in the filename should not be deployed
 
 Either:
 - Rename the file before deploying, or
-- Run: ./deploy.sh all (to deploy all non-diagnostic files), or
+- Run: ./scripts/deploy.sh all (to deploy all non-diagnostic files), or
 - Remove the block-diagnostic-file-deploy hook in .claude/settings.json if this is intentional
 
 Past incident: A debug script was accidentally deployed to production and had to be manually deleted.

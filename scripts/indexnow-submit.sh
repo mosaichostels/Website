@@ -8,7 +8,7 @@ set -euo pipefail
 
 HOST="www.mosaichostels.com"
 KEY="140ef5ae933ea27ef5ec39a4c06690e1"
-SITEMAP="$(dirname "$0")/sitemap.xml"
+SITEMAP="$(dirname "$0")/../sitemap.xml"
 
 urls=$(grep -oE '<loc>[^<]+</loc>' "$SITEMAP" | sed -e 's/<loc>//' -e 's#</loc>##')
 
