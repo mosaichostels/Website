@@ -3,7 +3,7 @@
 #
 #   ./.claude/seo/deploy-drift.sh
 #
-# Deployment is a manual FTP push (deploy.sh), so the repo routinely runs ahead
+# Deployment is a manual FTP push (scripts/deploy.sh), so the repo routinely runs ahead
 # of production. That gap matters twice over: audits read the live site while
 # fixes are written against local files, and submitting a URL to IndexNow or
 # the Indexing API before the change is live asks Google to re-crawl a page
@@ -62,6 +62,6 @@ done <<< "$FILES"
 echo
 if [[ $DRIFT -eq 1 ]]; then
   echo "Repo is ahead of production. Deploy before submitting URLs:"
-  echo "  FTP_HOST=... FTP_USER=... FTP_PASS=... ./deploy.sh"
+  echo "  FTP_HOST=... FTP_USER=... FTP_PASS=... ./scripts/deploy.sh"
 fi
 exit $DRIFT

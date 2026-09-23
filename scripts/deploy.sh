@@ -32,12 +32,12 @@ echo -e "${YELLOW}🚀 Starting deployment to Hostinger...${NC}"
 
 # Get list of changed files
 if [ -z "$1" ]; then
-  echo "Usage: ./deploy.sh [file1] [file2] ... or 'all' for everything"
+  echo "Usage: ./scripts/deploy.sh [file1] [file2] ... or 'all' for everything"
   echo ""
   echo "Examples:"
-  echo "  ./deploy.sh styles/global.css          # Deploy CSS only"
-  echo "  ./deploy.sh index.html book-now.html   # Deploy specific HTML files"
-  echo "  ./deploy.sh all                        # Deploy all files"
+  echo "  ./scripts/deploy.sh styles/global.css          # Deploy CSS only"
+  echo "  ./scripts/deploy.sh index.html book-now.html   # Deploy specific HTML files"
+  echo "  ./scripts/deploy.sh all                        # Deploy all files"
   exit 1
 fi
 
