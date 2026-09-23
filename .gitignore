@@ -23,3 +23,6 @@ api/secrets.php
 # Scratch output from SEO agent runs — never a deploy/commit target
 screenshots/
 .playwright-mcp/
+
+# Regenerable API-response caches from SEO report runs — not source content
+seo-reports/**/.cache/
