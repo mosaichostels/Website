@@ -53,7 +53,7 @@ if [ "$1" = "all" ]; then
   # then failed the -f check below and got dropped from the deploy).
   while IFS= read -r -d '' file; do
     FILES_TO_DEPLOY+=("$file")
-  done < <(find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.webp" -o -name "*.jpg" -o -name "*.png" -o -name ".htaccess" -o -name "*.txt" -o -name "*.xml" -o -name "*.php" \) \
+  done < <(find . -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.webp" -o -name "*.jpg" -o -name "*.png" -o -name "*.ico" -o -name ".htaccess" -o -name "*.txt" -o -name "*.xml" -o -name "*.php" \) \
     -not -path "./.git/*" \
     -not -path "./.github/*" \
     -not -path "./.claude/*" \
