@@ -540,74 +540,91 @@ checks above turned up anything, because the two surfaces (API vs UI) don't
 overlap. The only acceptable reason to leave an item unfetched is the login
 gate below — never "looked fine last time" or "probably unchanged."
 
-**Tool: AppleScript/Apple Events (`osascript`), not a browser-automation MCP.**
-This drives the owner's actual Safari.app — the same windows, same cookies,
-same logins they use every day — via `tell application "Safari"`, a
-completely different mechanism from WebDriver. There is no separate profile,
-so there is nothing to re-authenticate every run: log in once in real Safari
-and it stays logged in, permanently, like any other tab.
+**Tool (current, as of 2026-09-28): the shared automation Chromium, driven via
+Playwright CDP — not AppleScript, not a browser-automation MCP.** Full setup,
+launch command, and drive-it code: `~/.config/mosaic-seo/BROWSER.md`. In
+short — `ungoogled-chromium` (open source, Chromium-based; `/Applications/
+Chromium.app`), a dedicated persistent profile at `~/.config/mosaic-seo/
+browser-profile/` with the owner's logins (Google `mosaichostels@gmail.com`,
+Microsoft for Bing/Clarity) already signed in, `--remote-debugging-port=9333`
+so either agent (Claude or Codex) can attach without relaunching:
 
-**If a `mcp__safari-mcp__*` (or any other browser-automation MCP) tool is
-available in the session, do not use it for this step — not even as a
-faster-looking substitute.** Confirmed by direct mistake on 2026-09-28: it
-drives a separate, blank WebKit automation context with none of the owner's
-cookies, not real Safari.app. That run's `mcp__safari-mcp__navigate_to_url`
-calls to GSC/GA4/Bing Webmaster/GBP/Clarity all came back logged-out — which
-briefly got written up as a "confirmed" result, but it wasn't; it only proved
-that *tool's* blank profile has no session, and said nothing true about
-whether the owner is actually logged in on their real Safari. That distinction
-is the entire point of this section. Only `osascript` reaches the browser this
-step is actually supposed to check.
+```python
+from playwright.sync_api import sync_playwright
+with sync_playwright() as p:
+    browser = p.chromium.connect_over_cdp("http://localhost:9333")
+    page = browser.contexts[0].new_page()
+    page.goto("<dashboard URL>")
+```
+
+This replaced AppleScript/Safari specifically because Google's account
+switcher (and other UI panels on these platforms) render in a **cross-origin
+iframe** — Safari's `do JavaScript` runs in the top frame only and cannot
+read or click into one at all, confirmed live on 2026-09-28. Playwright's
+frame API reaches cross-origin iframes directly, which is the actual
+capability gap AppleScript couldn't close no matter how the DOM query was
+written.
+
+**If AppleScript/`osascript` or a `mcp__safari-mcp__*` (or any other
+browser-automation MCP) tool gets reached for instead, that's a regression —
+stop and use the shared Chromium above.** Historical note, still worth
+knowing: `mcp__safari-mcp__*` drives a separate, blank WebKit automation
+context with none of the owner's cookies — confirmed by direct mistake on
+2026-09-28, when its `navigate_to_url` calls to GSC/GA4/Bing Webmaster/GBP/
+Clarity all came back logged-out and briefly got written up as a "confirmed"
+result. It wasn't — it only proved that tool's blank profile has no session,
+and said nothing true about the owner's real logins. Same failure mode two
+tools in a row: reaching for whatever's newest/shiniest in the session
+instead of the one thing actually wired to the owner's real accounts.
 
 **One-time prerequisite, GUI-only, cannot be scripted:** Safari → Settings →
 Advanced → "Show features for web developers", then Develop menu → "Allow
 JavaScript from Apple Events." Without it, `do JavaScript` fails with exactly
-this error: `You must enable 'Allow JavaScript from Apple Events'...` — that
-exact string is the detection signal; treat it as a stop-and-ask condition
-(ask the owner to flip the toggle), not a `DOWN` on whichever platform
-happened to be loading.
+this error is now moot — Playwright's frame/page API doesn't depend on
+Safari's "Allow JavaScript from Apple Events" toggle at all. Kept here only
+as a fact in case a future run genuinely has no choice but AppleScript
+(shared Chromium unreachable, `~/.config/mosaic-seo/BROWSER.md` unreadable):
+that toggle is Safari → Settings → Advanced → "Show features for web
+developers", then Develop menu → "Allow JavaScript from Apple Events," and
+its absence surfaces as the exact string `You must enable 'Allow JavaScript
+from Apple Events'...`.
 
-Core patterns:
+Core patterns (Playwright against the shared Chromium —
+`~/.config/mosaic-seo/BROWSER.md` has the launch/connect boilerplate):
 
-```bash
-# Open a tab
-osascript -e 'tell application "Safari" to make new document with properties {URL:"<url>"}'
-# Read the live, post-render text (needs the toggle above) — the primary read path
-osascript -e 'tell application "Safari" to do JavaScript "document.body.innerText" in document 1'
-# Cheap state checks that need no toggle: current URL / title
-osascript -e 'tell application "Safari" to get URL of document 1'
-osascript -e 'tell application "Safari" to get name of document 1'
-# Click (via JS — there is no native Safari-dictionary click)
-osascript -e 'tell application "Safari" to do JavaScript "document.querySelector(\"<selector>\").click()" in document 1'
-# Close when done
-osascript -e 'tell application "Safari" to close document 1'
+```python
+page = browser.contexts[0].new_page()
+page.goto("<url>")                       # open
+page.inner_text("body")                  # read live, post-render text — the primary read path
+page.url; page.title()                   # cheap state checks
+page.click("<selector>")                 # click
+page.frame_locator("<iframe selector>")  # reach INTO a cross-origin iframe — the specific
+                                          # capability AppleScript never had
+page.close()                             # close when done
 ```
 
-`source of document 1` (raw, pre-render HTML) needs no toggle either, but
-every one of these six platforms is a JS-rendered SPA — raw source will not
-contain the actual dashboard content, only the app shell. Use it only for a
-quick login-redirect check via URL, never as the read path for real data.
+`page.content()` (raw, pre-render HTML) works with no gate either, but every
+one of these six platforms is a JS-rendered SPA — raw source will not contain
+the actual dashboard content, only the app shell. Use it only for a quick
+login-redirect check via URL, never as the read path for real data.
 
-- Reuse an already-open tab on the target dashboard where one exists (`get
-  URL of every document`) rather than opening a duplicate.
-- `do JavaScript "document.body.innerText"` is the default read — cheaper and
-  more reliable than a screenshot for quota tables, IAM binding lists, SEO
-  Reports, backlink lists, tag-health panels.
-- `screencapture` only where the signal is genuinely visual and text
-  extraction loses it: GBP listing photos, Clarity's heatmap overlays. Scope
-  it to Safari's window, not the full screen:
-  `screencapture -x -o -l$(osascript -e 'tell application "System Events" to id of window 1 of process "Safari"') <path>.png`
-- Close any tab this pass opened when done — leave the owner's existing tabs
-  and windows exactly as found. This is their daily browser, not a disposable
-  automation profile; tidiness here matters more than it did before.
+- Reuse an already-open page on the target dashboard where one exists
+  (`browser.contexts[0].pages`) rather than opening a duplicate.
+- `page.inner_text("body")` is the default read — cheaper and more reliable
+  than a screenshot for quota tables, IAM binding lists, SEO Reports,
+  backlink lists, tag-health panels.
+- `page.screenshot(path=...)` only where the signal is genuinely visual and
+  text extraction loses it: GBP listing photos, Clarity's heatmap overlays.
+- Close any page this pass opened when done — leave the shared browser's
+  other open tabs alone, and leave the browser process itself running for
+  the next agent/run rather than killing it.
 
 **Account check — mandatory before trusting any Google property's content.**
-The owner uses multiple Google accounts in this Safari. A page loading
-successfully is not enough; confirm *which* account is active before treating
-what it shows as real:
+Confirm *which* account is active before treating a page's content as real:
 
-```bash
-osascript -e 'tell application "Safari" to do JavaScript "(document.body.innerText.match(/[\\w.+-]+@[\\w.-]+\\.[\\w.-]+/)||[\"none\"])[0]" in document 1'
+```python
+import re
+email = (re.search(r"[\w.+-]+@[\w.-]+\.[\w.-]+", page.inner_text("body")) or [None])
 ```
 
 Run this on every GBP/GCP/GA4 page load (PSI/CrUX needs no login, so skip it
@@ -615,75 +632,53 @@ there). Expected account is `mosaichostels@gmail.com` — the same one used for
 `gcloud auth login` in setup. A different email back is a distinct state from
 "not signed in."
 
-**On a mismatch, try an automatic switch before asking the owner — this is
-selecting an already-authenticated session, not logging in, so no credential
-ever gets entered.** Google's account chooser lists every account already
-signed into this Safari; switching to one of them requires no password, the
-same way clicking between two already-open tabs does:
-
-```bash
-osascript -e 'tell application "Safari" to make new document with properties {URL:"https://accounts.google.com/AccountChooser?continue=<url-encoded target URL>"}'
-```
-
-Read the chooser's account list via `do JavaScript`, and only click an entry
-if it contains the exact target email as a text match — never the first
-entry, never a positional guess. A generic, DOM-shape-agnostic pattern:
-
-```bash
-osascript -e 'tell application "Safari" to do JavaScript "(() => { const el = Array.from(document.querySelectorAll(\"div,a,li,span\")).find(e => e.textContent.includes(\"mosaichostels@gmail.com\") && e.children.length < 3); if (el) { el.click(); return \"clicked\"; } return \"not-found\"; })()" in document 1'
-```
-
-**Confirmed live 2026-09-28: this only ever helps when a second account is
-already signed in.** If it isn't, `AccountChooser` silently bounces straight
-back to the `continue=` target with no picker rendered at all — there is
-nothing for the `do JavaScript` query above to find, and it will correctly
-return `not-found`. **Do not try to script the in-page profile-picture /
-avatar account-switcher button as an alternative** — that control opens
-`ogs.google.com/u/0/widget/app` as a **cross-origin iframe**, which `do
-JavaScript` cannot read or click into under any DOM query; this was tried
-and confirmed structurally impossible, not a query-quality problem. In
-practice this means: on a mismatch, treat "stop and ask the owner" as the
-primary path, not a fallback after retrying — the owner switching accounts
-manually (their own click) is the only reliable path once a mismatch is
-confirmed.
-
-If that returns `not-found` — the target email isn't among this Safari's
-signed-in accounts at all — that's the real "stop and ask" case: record
+**On a mismatch, stop and ask the owner — do not spend turns attempting an
+automatic switch.** Tried and confirmed unautomatable twice on 2026-09-28,
+for two different structural reasons, neither fixable by refining the
+approach: (1) navigating to `accounts.google.com/AccountChooser?continue=...`
+only ever helps when a second account is *already* signed in — if it isn't,
+it silently bounces straight back to the `continue=` target with no picker
+rendered at all; (2) the in-page profile-picture/avatar switcher opens
+`ogs.google.com/u/0/widget/app` as a cross-origin iframe, which — this is the
+one case Playwright doesn't trivially solve either, since the iframe's origin
+actively rejects being driven by an unfamiliar top frame/session — did not
+yield a working click path in practice. The owner switching accounts
+manually (their own click, in the shared Chromium so it persists for next
+time) is the only reliable path once a mismatch is confirmed. Record
 `DOWN — wrong account (found: <email>)`, name expected vs. found in the
-report, and ask the owner to log into `mosaichostels@gmail.com` in Safari
-directly (a real login, credentials required, not something to script). Never
-force an account via URL parameters like `authuser=` — that picks a session
-by position, not identity, which is exactly the guess this check exists to
-avoid.
+report, and ask them to switch or sign in — a real action, not something to
+script. Never force an account via URL parameters like `authuser=` — that
+picks a session by position, not identity, which is exactly the guess this
+check exists to avoid.
 
 **Prerequisite this workflow cannot satisfy itself:** the relevant accounts
-need to already be signed into this Safari — Google (`mosaichostels@gmail.com`)
-for GBP/GCP/GA4, and the Microsoft/Bing account for Webmaster Tools and
-Clarity. This is the same manual-auth boundary as `gcloud auth login` in
-setup-platforms.sh — the automation can navigate to the login screen but not
-past it, and must never fill one in via `do JavaScript`.
+need to already be signed into the shared Chromium's profile — Google
+(`mosaichostels@gmail.com`) for GBP/GCP/GA4, and the Microsoft/Bing account
+for Webmaster Tools and Clarity. This is the same manual-auth boundary as
+`gcloud auth login` in setup-platforms.sh — the automation can navigate to
+the login screen but not past it, and must never fill one in via script.
 
 If a dashboard URL resolves to a login page (check the URL first — Google and
 Microsoft both redirect logged-out visits to a distinct sign-in/marketing
 URL), **do not mark it DOWN yet.** Stop and ask the owner to complete the
-login in Safari — name the exact platform and account (e.g. "Bing Webmaster
-needs you signed into the Microsoft account in Safari — go ahead and log in,
-then tell me when you're done"). Wait for their reply before touching that
-platform again; this is a real login prompt, not a poll, so don't retry in a
-loop guessing at completion. Once they confirm, re-navigate and re-check —
-this login persists for every future run, so it only has to happen once,
-ever, per account. Only if they say to skip it, or the page still isn't past
-login after they've confirmed, record `DOWN — not signed in` and move to the
-next platform — one stuck login should never block auditing the other four.
+login in the shared Chromium — name the exact platform and account (e.g.
+"Bing Webmaster needs you signed into the Microsoft account — go ahead and
+log in, then tell me when you're done"). Wait for their reply before touching
+that platform again; this is a real login prompt, not a poll, so don't retry
+in a loop guessing at completion. Once they confirm, re-navigate and
+re-check — this login persists for every future run, so it only has to
+happen once, ever, per account. Only if they say to skip it, or the page
+still isn't past login after they've confirmed, record `DOWN — not signed
+in` and move to the next platform — one stuck login should never block
+auditing the other four.
 
-**Read-only, with two named exceptions below — and stricter here than the
-disposable-profile version of this section used to be.** This is the owner's
-real, daily-use browser with real, live accounts behind it: a misclick is not
-contained to a throwaway session, it is an actual production change. Look and
-record; never use `do JavaScript` to click Save on a setting, touch billing,
-IAM roles, GBP listing fields, Bing site settings, or Clarity project config.
+**Read-only, with two named exceptions below.** Real, live accounts sit
+behind this profile — a misclick is not contained to a throwaway session, it
+is an actual production change. Look and record; never script a click to
+Save a setting, touch billing, IAM roles, GBP listing fields, Bing site
+settings, or Clarity project config.
 
-### Access grants via osascript
+### Access grants
 
 Two of `setup-platforms.sh`'s `MANUAL` lines are access grants, not
 credentials — adding a known service account email with a fixed role, nothing
