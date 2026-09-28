@@ -547,6 +547,18 @@ completely different mechanism from WebDriver. There is no separate profile,
 so there is nothing to re-authenticate every run: log in once in real Safari
 and it stays logged in, permanently, like any other tab.
 
+**If a `mcp__safari-mcp__*` (or any other browser-automation MCP) tool is
+available in the session, do not use it for this step — not even as a
+faster-looking substitute.** Confirmed by direct mistake on 2026-09-28: it
+drives a separate, blank WebKit automation context with none of the owner's
+cookies, not real Safari.app. That run's `mcp__safari-mcp__navigate_to_url`
+calls to GSC/GA4/Bing Webmaster/GBP/Clarity all came back logged-out — which
+briefly got written up as a "confirmed" result, but it wasn't; it only proved
+that *tool's* blank profile has no session, and said nothing true about
+whether the owner is actually logged in on their real Safari. That distinction
+is the entire point of this section. Only `osascript` reaches the browser this
+step is actually supposed to check.
+
 **One-time prerequisite, GUI-only, cannot be scripted:** Safari → Settings →
 Advanced → "Show features for web developers", then Develop menu → "Allow
 JavaScript from Apple Events." Without it, `do JavaScript` fails with exactly
@@ -620,6 +632,20 @@ entry, never a positional guess. A generic, DOM-shape-agnostic pattern:
 ```bash
 osascript -e 'tell application "Safari" to do JavaScript "(() => { const el = Array.from(document.querySelectorAll(\"div,a,li,span\")).find(e => e.textContent.includes(\"mosaichostels@gmail.com\") && e.children.length < 3); if (el) { el.click(); return \"clicked\"; } return \"not-found\"; })()" in document 1'
 ```
+
+**Confirmed live 2026-09-28: this only ever helps when a second account is
+already signed in.** If it isn't, `AccountChooser` silently bounces straight
+back to the `continue=` target with no picker rendered at all — there is
+nothing for the `do JavaScript` query above to find, and it will correctly
+return `not-found`. **Do not try to script the in-page profile-picture /
+avatar account-switcher button as an alternative** — that control opens
+`ogs.google.com/u/0/widget/app` as a **cross-origin iframe**, which `do
+JavaScript` cannot read or click into under any DOM query; this was tried
+and confirmed structurally impossible, not a query-quality problem. In
+practice this means: on a mismatch, treat "stop and ask the owner" as the
+primary path, not a fallback after retrying — the owner switching accounts
+manually (their own click) is the only reliable path once a mismatch is
+confirmed.
 
 If that returns `not-found` — the target email isn't among this Safari's
 signed-in accounts at all — that's the real "stop and ask" case: record
