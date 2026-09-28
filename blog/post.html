@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="noindex, follow">
+<meta id="post-robots" name="robots" content="noindex, follow">
 <title>Blog Post — Mosaic Hostel Varanasi</title>
 <link id="canonical" rel="canonical" href="">
 <meta id="post-meta-description" name="description" content="Blog post from Mosaic Hostel Varanasi">
@@ -365,6 +365,8 @@ async function renderBlogPost() {
       );
       // Update canonical link for SEO
       document.getElementById('canonical').href = `/blog/${slug}`;
+      // Clear the static noindex default now that the real post rendered
+      document.getElementById('post-robots').content = 'index, follow';
     }
 
   } catch (error) {

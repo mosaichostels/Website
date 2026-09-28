@@ -11,6 +11,10 @@
   <url>
     <loc>https://www.mosaichostels.com/gallery</loc>
     <image:image>
+      <image:loc>https://www.mosaichostels.com/images/123e2e1a-479c-4a38-9634-fcbb95683f8b1.jpg</image:loc>
+      <image:caption>Hostel Amenities</image:caption>
+    </image:image>
+    <image:image>
       <image:loc>https://www.mosaichostels.com/images/IMG_1223.jpg</image:loc>
       <image:caption>Dorm Room with View</image:caption>
     </image:image>
@@ -35,8 +39,60 @@
       <image:caption>Guest Interaction Space</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/123e2e1a-479c-4a38-9634-fcbb95683f8b1.jpg</image:loc>
-      <image:caption>Hostel Amenities</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1928.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — Room View</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1930.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — Guest Space</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1931-1.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — Guest Space</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1933.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — Private Room</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_4450.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — Common Area</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_4451.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — Common Area</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG-20251228-WA0137.jpg</image:loc>
+      <image:caption>Assi Ghat, Varanasi — Near Mosaic Hostel</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG-20251228-WA0140.jpg</image:loc>
+      <image:caption>Varanasi — Near Mosaic Hostel</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/PXL_20260119_064300909.MP_.jpg</image:loc>
+      <image:caption>Assi Ghat, Varanasi</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/PXL_20260119_064603355.MP_.jpg</image:loc>
+      <image:caption>Varanasi Ghats</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/unnamed.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/unnamed%20%281%29.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/unnamed%20%282%29.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/unnamed%20%283%29.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi</image:caption>
     </image:image>
   </url>
   <url>
@@ -51,6 +107,104 @@
     <image:image>
       <image:loc>https://www.mosaichostels.com/images/hero-poster.jpg</image:loc>
       <image:caption>Blog — Mosaic Hostel</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/best-hostels-in-varanasi/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1912.jpg</image:loc>
+      <image:caption>Best Hostels in Varanasi — 2026 Honest Guide</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1930.jpg</image:loc>
+      <image:caption>Varanasi for Solo Female Travellers — Honest Safety Guide 2026</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG-20251228-WA0137.jpg</image:loc>
+      <image:caption>Assi Ghat, Varanasi — Complete Guide for Travelers</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1294.jpg</image:loc>
+      <image:caption>Things to Do in Varanasi: Local's Guide</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG-20251228-WA0140.jpg</image:loc>
+      <image:caption>Best Time to Visit Varanasi: Month-by-Month Guide</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_4450.jpg</image:loc>
+      <image:caption>Varanasi Airport &amp; Railway Station to Assi Ghat: Transfer Guide</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/unnamed.jpg</image:loc>
+      <image:caption>Varanasi Backpacker Budget: Daily Cost Breakdown</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_4451.jpg</image:loc>
+      <image:caption>Is Varanasi Safe? A General Safety Guide for Every Traveler</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1223.jpg</image:loc>
+      <image:caption>Sarnath Day Trip Guide from Varanasi</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/PXL_20260119_064300909.MP_.jpg</image:loc>
+      <image:caption>Assi Ghat vs Dashashwamedh: Where Should You Stay in Varanasi?</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1933.jpg</image:loc>
+      <image:caption>Dorm vs Private Room in Varanasi: Which Should You Book?</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1316.jpg</image:loc>
+      <image:caption>2-Day Varanasi Itinerary for Backpackers</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/PXL_20260119_064603355.MP_.jpg</image:loc>
+      <image:caption>3-5 Day Varanasi Itinerary for Slow Travelers</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1928.jpg</image:loc>
+      <image:caption>Co-working Spaces &amp; Cafes Near Assi Ghat for Remote Work</image:caption>
     </image:image>
   </url>
 </urlset>

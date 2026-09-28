@@ -44,7 +44,7 @@ mkdir -p "$HOME/.local/share/mosaic-seo/drift" "$HOME/.cache/claude-seo"
 if [[ ! -L "$HOME/.cache/claude-seo/drift" ]]; then
   [[ -d "$HOME/.cache/claude-seo/drift" ]] && \
     mv "$HOME/.cache/claude-seo/drift"/* "$HOME/.local/share/mosaic-seo/drift/" 2>/dev/null
-  rmdir "$HOME/.cache/claude-seo/drift" 2>/dev/null
+  rmdir "$HOME/.cache/claude-seo/drift" 2>/dev/null || true
   ln -s "$HOME/.local/share/mosaic-seo/drift" "$HOME/.cache/claude-seo/drift"
 fi
 ok "drift baselines -> $HOME/.local/share/mosaic-seo/drift"
