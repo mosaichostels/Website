@@ -185,10 +185,33 @@
   # Inspection on 2026-09-07 reported all four as "Not found (404)" with live
   # impressions over the prior 90 days: /contact-us/ 14, /experiences/ 3,
   # /llms-txt/ 3, /about-us/ 2. A 404 discards that equity; a 301 reclaims it.
+  # /experiences/ targets the final destination directly (was a 2-hop redirect
+  # through top-7-experiences-varanasi-traveler, itself redirected below).
   RewriteRule ^about-us/?$ /about [R=301,L]
   RewriteRule ^contact-us/?$ /contact [R=301,L]
-  RewriteRule ^experiences/?$ /blog/top-7-experiences-varanasi-traveler/ [R=301,L]
+  RewriteRule ^experiences/?$ /blog/things-to-do-varanasi-local-guide/ [R=301,L]
   RewriteRule ^llms-txt/?$ /llms.txt [R=301,L]
+
+  # 6 more legacy WordPress-era URLs found still 404ing in GSC's full
+  # indexing drill-down (weekly-seo run, 2026-09-28) — same pattern as the
+  # four above, pre-migration slugs with no /blog/ prefix or a since-renamed
+  # slug, each with an obvious live-content target. The two "experiences"
+  # posts had a temporary Google removal (submitted 2026-04-27) that has
+  # since expired, so they're now crawlable-but-broken rather than
+  # suppressed — reclaiming them now matters more than it did in April.
+  RewriteRule ^hostel-near-assi-ghat-varanasi/?$ /blog/assi-ghat-varanasi-complete-guide/ [R=301,L]
+  RewriteRule ^10-reasons-why-backpackers-love-staying-at-mosaic-hostels-in-varanasi/?$ /blog/best-hostels-in-varanasi/ [R=301,L]
+  RewriteRule ^best-time-to-visit-varanasi-month-by-month-guide/?$ /blog/best-time-to-visit-varanasi-month-by-month/ [R=301,L]
+  RewriteRule ^top-7-experiences-you-cant-miss-in-varanasi-as-a-traveler/?$ /blog/things-to-do-varanasi-local-guide/ [R=301,L]
+  RewriteRule ^7-must-do-experiences-near-mosaic-hostels-in-varanasi/?$ /blog/things-to-do-varanasi-local-guide/ [R=301,L]
+  RewriteRule ^varanasi-for-solo-female-travelers-a-complete-safety-travel-guide/?$ /blog/varanasi-solo-female-travelers-safety-travel-guide/ [R=301,L]
+
+  # Malformed URLs Google AI Overviews invented when citing this site (GSC's
+  # new "Performance on Search generative AI features" report, 2026-09-28) —
+  # typos and a wrong slug that would 404 if a real user clicked through.
+  RewriteRule ^blog/assi-ghat-vs-dashashwamedh-where-should-you-stay/?$ /blog/assi-ghat-vs-dashashwamedh-where-to-stay/ [R=301,L]
+  RewriteRule ^blog/assi-ghate-vs-dashashwamedh-where-to-stay/?$ /blog/assi-ghat-vs-dashashwamedh-where-to-stay/ [R=301,L]
+  RewriteRule ^blog/is-vaganas-safe-general-guide/?$ /blog/is-varanasi-safe-general-guide/ [R=301,L]
 
   # Normalize trailing slash on core pages to the non-slash canonical form
   # (these are .html files, not directories, unlike /blog/<slug> — both
