@@ -1,6 +1,6 @@
 ---
 name: weekly-seo
-description: Exhaustive SEO/AEO/GEO/SXO/AIO/LLMO audit-and-repair for mosaichostels.com. Pulls 7 data sources (GSC, GA4, CWV, Bing, Clarity, Common Crawl, Unlighthouse), runs 17 claude-seo audits — 14 concurrent via Task tool (incl. Google Business Profile / Maps), 3 Skill-tool-only (seo-audit, seo-bing, seo-unlighthouse) — plus a mandatory browser deep-dive into GBP, GCP, GA4, PSI/CrUX, Bing Webmaster, and Clarity for UI-only signals no API exposes. Covers discovery, content, ranking, structure, experience, performance, AI platform access check, ranks gaps, applies top fixes, verifies, commits. When Herdr is active, splits the slow extractor sweep and (when the ranked fixes land on disjoint files) the fix work itself to a parallel Codex agent, then gets an independent Codex review of the combined diff before commit. Use when the user says "weekly SEO", "SEO run", "SEO sweep", "run the SEO automation", or asks for a full audit-and-fix pass on this site.
+description: Exhaustive SEO/AEO/GEO/SXO/AIO/LLMO audit-and-repair for mosaichostels.com. Pulls 7 data sources (GSC, GA4, CWV, Bing, Clarity, Common Crawl, Unlighthouse), runs 17 claude-seo audits — 14 concurrent via Task tool (incl. Google Business Profile / Maps), 3 Skill-tool-only (seo-audit, seo-bing, seo-unlighthouse) — plus a mandatory browser deep-dive (via OpenCLI against a shared Chromium) into GBP, GCP, GA4, PSI/CrUX, Bing Webmaster, and Clarity for UI-only signals no API exposes. Covers discovery, content, ranking, structure, experience, performance, AI platform access check, ranks gaps, applies top fixes, verifies, commits. When Herdr is active: splits the slow extractor sweep, the browser deep-dive (GBP/GCP/GA4 vs. Bing/Clarity), and (when the ranked fixes land on disjoint files) the fix work itself to a parallel Codex agent — each with its own capacity check, logged every run in the report's "Codex usage this run" section, never silently skipped — then gets an independent Codex review of the combined diff before commit. Use when the user says "weekly SEO", "SEO run", "SEO sweep", "run the SEO automation", or asks for a full audit-and-fix pass on this site.
 ---
 
 # Weekly SEO run
@@ -169,8 +169,7 @@ nothing.
    exist. Missing or stale → run that one solo at that point rather than
    guessing at findings — both feed real gaps into step (d).
 
-**Why step (c)'s three groups don't get split to Codex, for three different
-reasons — not the same reason repeated:**
+**Why two of step (c)'s three groups don't get split to Codex:**
 - The 14 concurrent Task-tool agents are already Claude Code's own
   parallelism; a second agent running alongside adds a redundant analysis
   stream, not a shorter critical path — Claude still has to run all 14
@@ -180,17 +179,28 @@ reasons — not the same reason repeated:**
   Claude Code Skill invocations against the `claude-seo` plugin's own
   internal orchestration. Codex has no Skill tool and no `claude-seo` plugin
   — there is nothing to hand it here, not a judgment call.
-- The browser deep-dive drives one shared, real Safari session — a second
-  agent clicking the same browser at the same time is a collision, not a
-  speedup, regardless of what tool that second agent used to drive it.
 
-Codex earns its keep specifically in the sequential Python-script sweep
-above, the one place in this skill that's serial purely because it's plain
-shell commands, not Task-tool-dispatchable agents or plugin-only Skills — and
-again at step (e), splitting the fix list itself when it's genuinely
-disjoint. Everywhere else in this skill, adding Codex would add coordination
-overhead without shortening the actual critical path — which is the one
-thing "fasten up the run" is asking for.
+**The browser deep-dive is different, as of the 2026-09-28 switch to
+OpenCLI/shared Chromium (see "Browser deep-dive" below).** The old
+reasoning — "one shared Safari session, a second agent clicking it is a
+collision" — was true for AppleScript driving a single, un-multiplexed
+Safari window. It is no longer true. `opencli browser <session>` gives each
+named session its own tab within the same logged-in Chromium profile;
+Codex driving `opencli browser codex-seo open <url>` in parallel with
+Claude's `opencli browser seo open <url>` does not collide, since they're
+different tabs sharing the same cookies, not the same tab. **Splitting the
+5-platform browser deep-dive is a real, available option now** — e.g. Codex
+takes Bing + Clarity while Claude takes GSC + GA4 + GBP — same capacity-check
+protocol as everywhere else in this skill. Not yet exercised as of
+2026-09-28; try it next run rather than defaulting to solo out of habit from
+the old Safari-era reasoning.
+
+Codex earns its keep in the sequential Python-script sweep above (the one
+place in this skill that's serial purely because it's plain shell commands,
+not Task-tool-dispatchable agents or plugin-only Skills), the browser
+deep-dive split described above, and step (e)'s fix-list split when it's
+genuinely disjoint. Elsewhere, adding Codex would add coordination overhead
+without shortening the actual critical path.
 
 The per-resource notes below say what each source can and cannot provide. Read
 the one you are about to use; do not promise a report section that its API
@@ -539,6 +549,30 @@ of step (c), not an optional extra: run it whether or not the API-based
 checks above turned up anything, because the two surfaces (API vs UI) don't
 overlap. The only acceptable reason to leave an item unfetched is the login
 gate below — never "looked fine last time" or "probably unchanged."
+
+**Split across GBP+GCP+GA4 vs. Bing+Clarity with Codex, when `HERDR_ENV=1`.**
+Available since the 2026-09-28 switch to OpenCLI/shared Chromium (each
+`opencli browser <session>` owns its own tab in the same logged-in profile,
+so two sessions don't collide the way two Safari clicks on one window did).
+Not yet run for real as of 2026-09-28 — try it, don't skip it by habit:
+
+1. Same capacity check as everywhere else — ACCEPT/DECLINE, current task,
+   headroom. DECLINE or no answer → one agent does all six platforms, same
+   as before this was available.
+2. On ACCEPT, hand Codex a bounded prompt: drive `opencli browser
+   codex-seo <command>` (a session name distinct from Claude's, e.g. `seo`)
+   against Bing Webmaster and Clarity specifically — the two platforms with
+   no Google-account login-gate complexity, the simplest half to hand off.
+   Point it at `~/.config/mosaic-seo/BROWSER.md` and the `opencli-browser`
+   skill for the command reference; it needs both regardless of which
+   agent is asking.
+3. Claude takes GBP + GCP + GA4 in parallel, same session-naming pattern
+   (`opencli browser seo <command>`).
+4. Converge before writing step (h)'s report — both sets of findings land
+   in the same "Browser deep-dive findings" section, no special merge step
+   needed since they're independent platform write-ups.
+5. If Codex hits a login gate or account mismatch on its half, same rule as
+   solo: stop and ask the owner, don't force it — see "Account check" below.
 
 **Tool (current, as of 2026-09-28): OpenCLI's `opencli browser` commands
 against the shared automation Chromium — not AppleScript, not a
@@ -1038,6 +1072,21 @@ Write `seo-reports/YYYY-MM-DD.md`:
 9. **Skill updated** — see "Self-improvement" below. One line per edit: which
    fact changed, in which section, why. Empty is a fine answer some weeks —
    don't manufacture an edit to fill this line.
+10. **Codex usage this run** (when `HERDR_ENV=1`; omit entirely otherwise) —
+    one line per mechanism, always, even when the answer is boring:
+    - Extractor split (step b): dispatched / DECLINE / sandbox pre-flight
+      failed (name which probe) / not attempted.
+    - Fix split (step e): checked for a disjoint file split, found
+      none — one writer did it / split and dispatched / DECLINE / not
+      checked.
+    - Independent review (step e): ran, findings acted on or logged as
+      Deferred / DECLINE / **not run** — say why.
+    This section exists specifically so "not attempted" is a visible,
+    embarrassing line in the report rather than a silent gap. Confirmed
+    2026-09-28: the independent-review step is written as mandatory whenever
+    Herdr is active, and it was skipped before all ~10 commits made that
+    session with nothing recorded anywhere — this line is the fix for that,
+    not a suggestion.
 
 Compare against the most recent existing file in `seo-reports/`. If there is
 none, say so and treat this run as the baseline.
