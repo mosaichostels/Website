@@ -540,56 +540,56 @@ checks above turned up anything, because the two surfaces (API vs UI) don't
 overlap. The only acceptable reason to leave an item unfetched is the login
 gate below — never "looked fine last time" or "probably unchanged."
 
-**Tool (current, as of 2026-09-28): the shared automation Chromium, driven via
-Playwright CDP — not AppleScript, not a browser-automation MCP.** Full setup,
-launch command, and drive-it code: `~/.config/mosaic-seo/BROWSER.md`. In
-short — `ungoogled-chromium` (open source, Chromium-based; `/Applications/
-Chromium.app`), a dedicated persistent profile at `~/.config/mosaic-seo/
-browser-profile/` with the owner's logins (Google `mosaichostels@gmail.com`,
-Microsoft for Bing/Clarity) already signed in, `--remote-debugging-port=9333`
-so either agent (Claude or Codex) can attach without relaunching:
+**Tool (current, as of 2026-09-28): OpenCLI's `opencli browser` commands
+against the shared automation Chromium — not AppleScript, not a
+browser-automation MCP.** Full setup and command reference:
+`~/.config/mosaic-seo/BROWSER.md` and the `opencli-browser` Claude Code skill
+(invoke it, don't hand-roll calls from memory). In short — `ungoogled-chromium`
+(open source; `/Applications/Chromium.app`) with a dedicated persistent
+profile at `~/.config/mosaic-seo/browser-profile/`, the owner's logins
+(Google `mosaichostels@gmail.com`, Microsoft for Bing/Clarity) already signed
+in, and OpenCLI's Browser Bridge extension attached so either agent (Claude
+or Codex) can drive it without relaunching:
 
-```python
-from playwright.sync_api import sync_playwright
-with sync_playwright() as p:
-    browser = p.chromium.connect_over_cdp("http://localhost:9333")
-    page = browser.contexts[0].new_page()
-    page.goto("<dashboard URL>")
+```
+opencli doctor
+opencli browser seo open "<dashboard URL>"
+opencli browser seo state
+opencli browser seo close
 ```
 
 This replaced AppleScript/Safari specifically because Google's account
 switcher (and other UI panels on these platforms) render in a **cross-origin
 iframe** — Safari's `do JavaScript` runs in the top frame only and cannot
-read or click into one at all, confirmed live on 2026-09-28. Playwright's
-frame API reaches cross-origin iframes directly, which is the actual
-capability gap AppleScript couldn't close no matter how the DOM query was
-written.
+read or click into one at all, confirmed live on 2026-09-28.
+`opencli browser <session> frames` lists cross-origin iframes (including
+Google's `ogs.google.com` account-switcher widget) and
+`opencli browser <session> eval "..." --frame <N>` reads real content out of
+one — verified live the same day. That's the actual capability gap
+AppleScript couldn't close no matter how the DOM query was written.
 
-**If AppleScript/`osascript` or a `mcp__safari-mcp__*` (or any other
-browser-automation MCP) tool gets reached for instead, that's a regression —
-stop and use the shared Chromium above.** Historical note, still worth
-knowing: `mcp__safari-mcp__*` drives a separate, blank WebKit automation
-context with none of the owner's cookies — confirmed by direct mistake on
-2026-09-28, when its `navigate_to_url` calls to GSC/GA4/Bing Webmaster/GBP/
-Clarity all came back logged-out and briefly got written up as a "confirmed"
-result. It wasn't — it only proved that tool's blank profile has no session,
-and said nothing true about the owner's real logins. Same failure mode two
-tools in a row: reaching for whatever's newest/shiniest in the session
-instead of the one thing actually wired to the owner's real accounts.
+**If AppleScript/`osascript`, a `mcp__safari-mcp__*` (or any other
+browser-automation MCP) tool, or hand-rolled Playwright/CDP gets reached for
+instead, that's a regression — stop and use `opencli browser` against the
+shared Chromium above.** Historical note, still worth knowing:
+`mcp__safari-mcp__*` drives a separate, blank WebKit automation context with
+none of the owner's cookies — confirmed by direct mistake on 2026-09-28, when
+its `navigate_to_url` calls to GSC/GA4/Bing Webmaster/GBP/Clarity all came
+back logged-out and briefly got written up as a "confirmed" result. It
+wasn't — it only proved that tool's blank profile has no session, and said
+nothing true about the owner's real logins. A raw Playwright/CDP setup
+(`connect_over_cdp` against the same Chromium) was also tried and worked for
+plain pages, but OpenCLI supersedes it — structured envelopes, ref
+fingerprinting, semantic locators, and the `frames`/`eval --frame` combo,
+instead of hand-rolled calls with no error-code contract.
 
-**One-time prerequisite, GUI-only, cannot be scripted:** Safari → Settings →
+**One-time prerequisite, GUI-only, cannot be scripted (historical, kept only
+in case a future run genuinely has no other option):** Safari → Settings →
 Advanced → "Show features for web developers", then Develop menu → "Allow
-JavaScript from Apple Events." Without it, `do JavaScript` fails with exactly
-this error is now moot — Playwright's frame/page API doesn't depend on
-Safari's "Allow JavaScript from Apple Events" toggle at all. Kept here only
-as a fact in case a future run genuinely has no choice but AppleScript
-(shared Chromium unreachable, `~/.config/mosaic-seo/BROWSER.md` unreadable):
-that toggle is Safari → Settings → Advanced → "Show features for web
-developers", then Develop menu → "Allow JavaScript from Apple Events," and
-its absence surfaces as the exact string `You must enable 'Allow JavaScript
-from Apple Events'...`.
+JavaScript from Apple Events." This is moot for the current OpenCLI/Chromium
+setup — it only ever applied to the old AppleScript path.
 
-Core patterns (Playwright against the shared Chromium —
+Core patterns (`opencli browser` against the shared Chromium —
 `~/.config/mosaic-seo/BROWSER.md` has the launch/connect boilerplate):
 
 ```python
