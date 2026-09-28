@@ -1,0 +1,190 @@
+GA4 extract — properties/507278393   2026-06-28 .. 2026-09-26
+
+raw bundle -> seo-reports/ga4/2026-09-28.json
+
+
+## Property scale (read this before believing any percentage below)
+  window          2026-06-28 .. 2026-09-26  (90 days, ends 2 days back for GA4 lag)
+  sessions        323
+  users           244
+  custom dims     [{'api': 'customEvent:googlesitekit_post_type', 'ui': 'WordPress Post Type', 'scope': 'Event-scoped Custom Dimension'}]
+  custom metrics  none
+  fields incompatible with the core landing-page report: 120 (all Ads/DV360/SA360/CM360, ecommerce item scope, cohorts, and the Search-Console-joined metrics — those need their own report)
+  NOTE: 323 sessions in 90 days is a low-traffic property. Every split below is small-sample; treat single-page numbers as anecdotes, not signal. Do not compute CTR-style ratios on <30-session rows.
+
+## Channel mix
+  Direct             sess=  155 users=  100 new=   93 eng= 60.6% bounce= 39.4% avgdur=7:14 keyEvents=1
+  AI Assistant       sess=   65 users=   59 new=   59 eng= 75.4% bounce= 24.6% avgdur=3:24 keyEvents=0
+  Organic Search     sess=   40 users=   34 new=   29 eng= 80.0% bounce= 20.0% avgdur=2:37 keyEvents=1
+  Organic Social     sess=   30 users=   26 new=   25 eng= 56.7% bounce= 43.3% avgdur=1:05 keyEvents=0
+  Unassigned         sess=   28 users=   21 new=    0 eng=  0.0% bounce=100.0% avgdur=2:27 keyEvents=0
+  Referral           sess=    5 users=    4 new=    1 eng= 60.0% bounce= 40.0% avgdur=4:27 keyEvents=0
+  organic share of sessions:  12.4%
+  GA4 attributes 65 sessions to the 'AI Assistant' channel (ChatGPT/Perplexity/Copilot referrers) — that is the AEO/LLMO number
+
+## Top organic sources
+  google                   sess=  39 eng= 79.5% bounce= 20.5%
+  in.search.yahoo.com      sess=   1 eng=100.0% bounce=  0.0%
+
+## Organic landing pages
+  sess=  21 eng= 95.2% bounce=  4.8% dur=2:22 views=  67 key=  1  /
+  sess=   4 eng= 50.0% bounce= 50.0% dur=2:08 views=   9 key=  0  /blog/best-hostels-in-varanasi/
+  sess=   3 eng=100.0% bounce=  0.0% dur=6:05 views=   4 key=  0  /blog/assi-ghat-vs-dashashwamedh-where-to-stay/
+  sess=   3 eng= 66.7% bounce= 33.3% dur=0:24 views=   3 key=  0  /blog/varanasi-solo-female-travelers-safety-travel-guide/
+  sess=   3 eng=  0.0% bounce=100.0% dur=0:02 views=   3 key=  0  /gallery
+  sess=   2 eng=100.0% bounce=  0.0% dur=1:30 views=   5 key=  0  /blog/assi-ghat-varanasi-complete-guide/
+  sess=   2 eng=100.0% bounce=  0.0% dur=1:38 views=   2 key=  0  /blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/
+  sess=   1 eng=  0.0% bounce=100.0% dur=0:00 views=   0 key=  0  (not set)
+  sess=   1 eng=100.0% bounce=  0.0% dur=20:46 views=   1 key=  0  /blog/is-varanasi-safe-general-guide/
+
+## SXO findings — organic entries with weak engagement
+  site-wide engagement rate baseline:  60.4%
+  -60.4pp vs site   sess=   3 eng=  0.0% dur=0:02  /gallery
+  -10.4pp vs site   sess=   4 eng= 50.0% dur=2:08  /blog/best-hostels-in-varanasi/
+  ^ these rank well enough to be entered from search and then fail to hold the visitor — content/intent mismatch, slow LCP, or a weak above-the-fold offer
+
+## Landing pages: organic vs everything else
+  organic=  21 other=  98  /  
+  organic=   3 other=  36  /gallery  
+  organic=   0 other=  34  /book-now  
+  organic=   0 other=  16  /blog/  
+  organic=   1 other=  10  (not set)  
+  organic=   3 other=   7  /blog/assi-ghat-vs-dashashwamedh-where-to-stay/  
+  organic=   0 other=   7  /blog/co-working-spaces-cafes-assi-ghat/  
+  organic=   2 other=   5  /blog/assi-ghat-varanasi-complete-guide/  
+  organic=   4 other=   2  /blog/best-hostels-in-varanasi/  ORGANIC-DEPENDENT
+  organic=   3 other=   3  /blog/varanasi-solo-female-travelers-safety-travel-guide/  
+  organic=   0 other=   5  /book-now.html  
+  organic=   0 other=   4  /about  
+  organic=   0 other=   4  /contact  
+  organic=   0 other=   3  /book-now/  
+  organic=   0 other=   3  /gallery/  
+  organic=   0 other=   3  /gallery?fbclid=PAVERFWAUPewNwZG9mAmZkaWQWUOI1HvC1zLCGqstZ23Crx7fjKzlREWV4dG4DYWVtAjEwAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp8WwXKxvcuXT5oHJTfmoj85CzoO8NmJFXMprxd3QZFRKL4D-Ee1rr5kQOfL0_aem_AM09gmloW-aLc1Za7tyq9A  
+  organic=   1 other=   2  /blog/is-varanasi-safe-general-guide/  
+  organic=   0 other=   3  /blog/sarnath-day-trip-guide-varanasi/  
+  organic=   2 other=   1  /blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/  ORGANIC-DEPENDENT
+  organic=   0 other=   2  /?fbclid=PAdGRleAUNM7lwZG9mAmZkaWQWUOBwXi-XbZkL9FlR7uxpkqAmh29brGV4dG4DYWVtAjExAHNydGMGYXBwX2lkDzEyNDAyNDU3NDI4NzQxNAABp0s0DAhvHyzPX_3H_EPzC0xUHr6307k7XwR5oLzfBwEz2KcguKGOqGqerOuc_aem_9ZbUfgDmj-k1U8xP6BJQjg  
+  organic=   0 other=   2  /blog/best-time-to-visit-varanasi-month-by-month/  
+  organic=   0 other=   2  /privacy  
+  entry pages with real traffic but ZERO organic entries (indexed? titled for search? linked internally?):
+    /book-now
+    /blog/
+    /blog/co-working-spaces-cafes-assi-ghat/
+    /book-now.html
+
+## Search Console join (only present when the GA4<->GSC link is live)
+  clicks/impr/position come from GSC; sessions from GA4. A page with clicks but
+  far fewer organic sessions is losing users before the tag fires (redirect, slow
+  load, consent block) or GA4 is misattributing the entry.
+  clk=   62 imp=  2498 ctr=  2.5% pos=  8.3 ga4sess=  21  /  <-- clicks >> sessions
+  clk=    7 imp=   886 ctr=  0.8% pos=  7.4 ga4sess=   3  /blog/assi-ghat-vs-dashashwamedh-where-to-stay/  <-- clicks >> sessions
+  clk=    6 imp=   782 ctr=  0.8% pos=  5.7 ga4sess=   1  /blog/is-varanasi-safe-general-guide/  <-- clicks >> sessions
+  clk=    4 imp=   417 ctr=  1.0% pos= 14.6 ga4sess=   4  /blog/best-hostels-in-varanasi/
+  clk=    4 imp=  1584 ctr=  0.3% pos=  7.8 ga4sess=   2  /blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/
+  clk=    3 imp=  1234 ctr=  0.2% pos= 10.3 ga4sess=   2  /blog/assi-ghat-varanasi-complete-guide/
+  clk=    3 imp=   104 ctr=  2.9% pos=  9.3 ga4sess=   0  /blog/sarnath-day-trip-guide-varanasi/
+  clk=    3 imp=   571 ctr=  0.5% pos=  7.7 ga4sess=   3  /blog/varanasi-solo-female-travelers-safety-travel-guide/
+  clk=    1 imp=    29 ctr=  3.4% pos=  8.2 ga4sess=   0  /blog/varanasi-3-5-day-itinerary-slow-travel/
+  clk=    1 imp=   148 ctr=  0.7% pos=  9.3 ga4sess=   3  /gallery
+  clk=    0 imp=    21 ctr=  0.0% pos=  8.1 ga4sess=   0  /about
+  clk=    0 imp=     6 ctr=  0.0% pos= 10.5 ga4sess=   0  /about/
+  clk=    0 imp=    11 ctr=  0.0% pos=  9.3 ga4sess=   0  /blog
+  clk=    0 imp=    10 ctr=  0.0% pos=  6.9 ga4sess=   0  /blog/
+  clk=    0 imp=     1 ctr=  0.0% pos=  1.0 ga4sess=   0  /blog/assi-ghat-vs-dashashwamedh-where-should-you-stay/
+  clk=    0 imp=     1 ctr=  0.0% pos=  1.0 ga4sess=   0  /blog/assi-ghate-vs-dashashwamedh-where-to-stay/
+  clk=    0 imp=   155 ctr=  0.0% pos= 11.8 ga4sess=   0  /blog/best-time-to-visit-varanasi-month-by-month/
+  clk=    0 imp=    41 ctr=  0.0% pos=  8.6 ga4sess=   0  /blog/co-working-spaces-cafes-assi-ghat/
+  clk=    0 imp=     1 ctr=  0.0% pos=  1.0 ga4sess=   0  /blog/is-vaganas-safe-general-guide/
+  clk=    0 imp=    62 ctr=  0.0% pos= 13.9 ga4sess=   0  /blog/things-to-do-varanasi-local-guide/
+
+## Most-viewed pages (any entry point)
+  views=  338 sess= 161 eng= 75.8% engdur/sess=1:01  /
+  views=  206 sess= 119 eng= 78.2% engdur/sess=0:53  /book-now
+  views=  104 sess=  81 eng= 71.6% engdur/sess=0:32  /gallery
+  views=   97 sess=  38 eng= 71.1% engdur/sess=0:15  /blog/
+  views=   93 sess=  20 eng= 85.0% engdur/sess=1:19  /gallery/
+  views=   44 sess=  14 eng=100.0% engdur/sess=0:25  /about/
+  views=   41 sess=  13 eng=100.0% engdur/sess=1:00  /contact/
+  views=   31 sess=   8 eng= 87.5% engdur/sess=1:19  /book-now.html
+  views=   26 sess=  20 eng= 65.0% engdur/sess=0:09  /about
+  views=   26 sess=   9 eng= 88.9% engdur/sess=2:27  /book-now/
+  views=   25 sess=  25 eng= 56.0% engdur/sess=0:10  /contact
+  views=   10 sess=  10 eng= 60.0% engdur/sess=0:48  /blog/assi-ghat-vs-dashashwamedh-where-to-stay/
+  views=    9 sess=   9 eng= 77.8% engdur/sess=0:22  /blog/varanasi-solo-female-travelers-safety-travel-guide/
+  views=    8 sess=   9 eng= 55.6% engdur/sess=0:25  /blog/assi-ghat-varanasi-complete-guide/
+  views=    8 sess=   7 eng= 71.4% engdur/sess=0:47  /blog/best-hostels-in-varanasi/
+  views=    8 sess=   8 eng= 37.5% engdur/sess=0:01  /blog/co-working-spaces-cafes-assi-ghat/
+  views=    7 sess=   7 eng= 57.1% engdur/sess=0:03  /privacy
+  views=    6 sess=   1 eng=100.0% engdur/sess=0:12  /blog
+  views=    6 sess=   6 eng= 83.3% engdur/sess=0:33  /blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/
+  views=    5 sess=   5 eng= 80.0% engdur/sess=0:17  /blog/is-varanasi-safe-general-guide/
+
+## Device / country / new vs returning (all traffic | organic only)
+  device           mobile               all sess=  184 eng= 60.9% | org sess=  21 eng= 66.7%
+  device           desktop              all sess=  137 eng= 59.9% | org sess=  18 eng= 94.4%
+  device           tablet               all sess=    2 eng= 50.0% | org sess=   1 eng=100.0%
+  country          India                all sess=  273 eng= 65.6% | org sess=  33 eng= 81.8%
+  country          United States        all sess=   22 eng= 27.3% | org sess=   1 eng=100.0%
+  country          Singapore            all sess=    7 eng= 28.6% | org sess=   2 eng= 50.0%
+  country          Brazil               all sess=    3 eng= 33.3% | org sess=   0
+  country          Mexico               all sess=    3 eng= 66.7% | org sess=   0
+  country          (not set)            all sess=    2 eng=  0.0% | org sess=   0
+  country          Canada               all sess=    2 eng= 50.0% | org sess=   1 eng=100.0%
+  country          Nepal                all sess=    2 eng= 50.0% | org sess=   0
+  new_vs_returning new                  all sess=  223 eng= 60.5% | org sess=  29 eng= 86.2%
+  new_vs_returning returning            all sess=   92 eng= 65.2% | org sess=  10 eng= 70.0%
+  new_vs_returning (not set)            all sess=    8 eng=  0.0% | org sess=   1 eng=  0.0%
+
+## Events and key events
+  page_view              count=  1128 keyEvents=    0
+  user_engagement        count=   796 keyEvents=    0
+  scroll                 count=   317 keyEvents=    0
+  session_start          count=   298 keyEvents=    0
+  first_visit            count=   207 keyEvents=    0
+  add_to_cart            count=    27 keyEvents=    0
+  view_item_list         count=    27 keyEvents=    0
+  form_start             count=    21 keyEvents=    0
+  remove_from_cart       count=    11 keyEvents=    0
+  begin_checkout         count=    10 keyEvents=    0
+  click                  count=    10 keyEvents=    0
+  add_payment_info       count=     4 keyEvents=    0
+  purchase               count=     2 keyEvents=    2
+  site-search terms (searchTerm): [('', 2858)]
+
+## Week over week
+  AI Assistant       current=  10 prior=  16 delta=  -6 (-38%)
+  Direct             current=   9 prior=  22 delta= -13 (-59%)
+  Organic Search     current=   8 prior=  12 delta=  -4 (-33%)
+  Organic Social     current=   4 prior=   2 delta=  +2 (+100%)
+  Referral           current=   3 prior=   1 delta=  +2 (+200%)
+  (7-day windows on a property this small: a swing of a few sessions is noise)
+
+## Lifetime monthly sessions — data continuity
+  202510  sess=  126 users=  113 views=   244
+  202511  sess=  203 users=  133 views=   408
+  202512  sess=  336 users=  238 views=   655
+  202601  sess=  220 users=  183 views=   414
+  202602  sess=   71 users=   53 views=   168
+  202603  sess=   78 users=   46 views=   188
+  202604  sess=  173 users=  106 views=   660
+  202605  sess=  102 users=   69 views=   181
+  202606  sess=  160 users=   74 views=   957
+  202608  sess=   93 users=   57 views=   201
+  202609  sess=  202 users=  169 views=   485
+  MISSING MONTHS (zero sessions recorded): 202607 — either the tag was removed/broken or the site genuinely had no traffic; check the deploy history
+
+## Realtime (last 30 min)
+  ['Book Now — Mosaic Hostel Varanasi', 'India'] active=1
+  ['Gallery — Mosaic Hostel Varanasi', 'India'] active=1
+  ['Mosaic Hostel Varanasi — Budget Hostel near Assi Ghat', 'India'] active=1
+
+## Requests that failed
+  none
+
+## What GA4 still cannot tell you (pair with other sources)
+  - which query brought the session            -> gsc-extract.py (the GSC join above
+    gives clicks/impressions/position per landing page but never the query text)
+  - whether the page is indexed / rich results -> gsc-extract.py URL inspection
+  - Core Web Vitals of real users              -> CrUX / PageSpeed
+  - whether ChatGPT et al. can fetch the page  -> ai-visibility.sh
+  - key-event configuration, custom dim setup  -> GA4 Admin API (not this one)

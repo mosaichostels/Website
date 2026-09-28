@@ -1,9 +1,5 @@
 # ════════ SECURITY HEADERS ════════
 <IfModule mod_headers.c>
-  # IndexNow — instant reindex protocol for search engines (Bing, Yandex, Seznam)
-  # Key will be generated and placed at /.well-known/indexnow-key.txt by owner
-  Header set IndexNow-Key "indexnow-key"
-
   # HSTS (force HTTPS for 1 year)
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 
@@ -153,11 +149,9 @@
   # never requested directly, but had no server-side deny.
   RewriteRule ^api/lib/ - [F,L]
 
-  # Force HTTPS (http → https, single hop)
-  RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
-
-  # Redirect bare apex to www (single hop to www HTTPS)
+  # Force HTTPS + www in a single hop (http apex, http www, and https apex
+  # all used to bounce through an intermediate hop before landing here)
+  RewriteCond %{HTTPS} off [OR]
   RewriteCond %{HTTP_HOST} ^mosaichostels\.com$ [NC]
   RewriteRule ^(.*)$ https://www.mosaichostels.com/$1 [R=301,L]
 

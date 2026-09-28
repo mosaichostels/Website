@@ -4,6 +4,12 @@
 
 **Author:** Mosaic Hostel Team, Varanasi
 
+## Summary
+
+A local's guide to the best things to do in Varanasi: exploring the sacred ghats at sunrise and sunset, visiting Kashi Vishwanath and other temples, walking the old city's lanes and markets, and experiences beyond the tourist circuit — plus budget tips and solo and female traveler advice. Curated by the Mosaic Hostel team, who live and work steps from Assi Ghat.
+
+---
+
 Varanasi is not a city you visit — it's a city that visits you, long after you leave. If this is your first time in India, or your first time in one of the world's oldest living cities, you'll want a guide. We've curated the best things to do in Varanasi, including hidden spots that backpackers and solo travelers discover only when they stay at a hostel like [Mosaic](/book-now), where our team knows the city by heart.
 
 ## The Sacred Ghats: Where Varanasi Comes Alive

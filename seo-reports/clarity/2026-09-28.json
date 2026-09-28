@@ -1,0 +1,3080 @@
+{
+ "site": "https://www.mosaichostels.com",
+ "numOfDays": 3,
+ "generated": "2026-09-28T11:31:00",
+ "totals": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 53,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 53,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 53,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 53,
+     "sessionsWithMetricPercentage": 7.55,
+     "sessionsWithoutMetricPercentage": 92.45,
+     "pagesViews": 4,
+     "subTotal": 4
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 53,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 53,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 44.62
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 53,
+     "totalBotSessionCount": 26,
+     "distinctUserCount": 75,
+     "pagesPerSessionPercentage": 1.5625
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 122,
+     "activeTime": 50
+    }
+   ]
+  },
+  {
+   "metricName": "Browser",
+   "information": [
+    {
+     "name": "ChromeMobile",
+     "sessionsCount": 37
+    },
+    {
+     "name": "Chrome",
+     "sessionsCount": 5
+    },
+    {
+     "name": "MobileSafari",
+     "sessionsCount": 4
+    },
+    {
+     "name": "GoogleApp",
+     "sessionsCount": 4
+    },
+    {
+     "name": "InstagramApp",
+     "sessionsCount": 2
+    },
+    {
+     "name": "Safari",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "Device",
+   "information": [
+    {
+     "name": "Mobile",
+     "sessionsCount": 47
+    },
+    {
+     "name": "PC",
+     "sessionsCount": 6
+    }
+   ]
+  },
+  {
+   "metricName": "OS",
+   "information": [
+    {
+     "name": "Android",
+     "sessionsCount": 37
+    },
+    {
+     "name": "IOS",
+     "sessionsCount": 10
+    },
+    {
+     "name": "MacOSX",
+     "sessionsCount": 4
+    },
+    {
+     "name": "Windows",
+     "sessionsCount": 2
+    }
+   ]
+  },
+  {
+   "metricName": "Country",
+   "information": [
+    {
+     "name": "France",
+     "sessionsCount": 24
+    },
+    {
+     "name": "India",
+     "sessionsCount": 24
+    },
+    {
+     "name": "United States",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Austria",
+     "sessionsCount": 1
+    },
+    {
+     "name": "Cambodia",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PageTitle",
+   "information": [
+    {
+     "name": "Mosaic Hostel Varanasi \u2014 Budget Hostel near Assi Ghat",
+     "sessionsCount": 17
+    },
+    {
+     "name": "Book Now \u2014 Mosaic Hostel Varanasi",
+     "sessionsCount": 12
+    },
+    {
+     "name": "R\u00e9servez maintenant \u2014 Auberge Mosaic Varanasi",
+     "sessionsCount": 12
+    },
+    {
+     "name": "About Us \u2014 Mosaic Hostel Varanasi",
+     "sessionsCount": 10
+    },
+    {
+     "name": "Gallery \u2014 Mosaic Hostel Varanasi",
+     "sessionsCount": 9
+    },
+    {
+     "name": "Assi Ghat vs Dashashwamedh: Where to Stay in Varanasi",
+     "sessionsCount": 3
+    },
+    {
+     "name": "Assi Ghat, Varanasi: Complete Guide \u2014 Mosaic Hostel",
+     "sessionsCount": 2
+    }
+   ]
+  },
+  {
+   "metricName": "ReferrerUrl",
+   "information": [
+    {
+     "name": null,
+     "sessionsCount": 29
+    },
+    {
+     "name": "https://www.mosaichostels.com/gallery",
+     "sessionsCount": 10
+    },
+    {
+     "name": "https://www.mosaichostels.com/",
+     "sessionsCount": 9
+    },
+    {
+     "name": "https://www.google.com/",
+     "sessionsCount": 8
+    },
+    {
+     "name": "https://www.mosaichostels.com/?utm_source=chatgpt.com",
+     "sessionsCount": 4
+    },
+    {
+     "name": "https://l.wl.co/",
+     "sessionsCount": 2
+    },
+    {
+     "name": "https://l.instagram.com/",
+     "sessionsCount": 1
+    },
+    {
+     "name": "https://www.mosaichostels.com/about",
+     "sessionsCount": 1
+    },
+    {
+     "name": "https://mosaichostels.com/",
+     "sessionsCount": 1
+    },
+    {
+     "name": "https://www.mosaichostels.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJmZGlkFlD0xl7Hty0ceRNaybKPJ5_cS4creVpzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeIIprhyHRf2XFfI6XlqUw7rdjSyD8hve3aMU7g6msvnxh7kc1RiaNigS8Hig_aem_CiBXOOa9iTcIdPvtgIiP_w",
+     "sessionsCount": 1
+    }
+   ]
+  },
+  {
+   "metricName": "PopularPages",
+   "information": [
+    {
+     "url": "https://www.mosaichostels.com/book-now",
+     "visitsCount": 25
+    },
+    {
+     "url": "https://www.mosaichostels.com/",
+     "visitsCount": 24
+    },
+    {
+     "url": "https://www.mosaichostels.com/gallery",
+     "visitsCount": 13
+    },
+    {
+     "url": "https://www.mosaichostels.com/about",
+     "visitsCount": 11
+    },
+    {
+     "url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://www.mosaichostels.com/contact",
+     "visitsCount": 3
+    },
+    {
+     "url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/",
+     "visitsCount": 2
+    },
+    {
+     "url": "https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide/",
+     "visitsCount": 2
+    }
+   ]
+  }
+ ],
+ "by_url_device_country": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-09-30",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-12-01&check_out=2026-12-03",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJmZGlkFlD0xl7Hty0ceRNaybKPJ5_cS4creVpzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeIIprhyHRf2XFfI6XlqUw7rdjSyD8hve3aMU7g6msvnxh7kc1RiaNigS8Hig_aem_CiBXOOa9iTcIdPvtgIiP_w",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-27&check_out=2026-11-29",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-26&check_out=2026-09-27",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-23&check_out=2026-11-24",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "Austria"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-23",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-22",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "PC",
+     "Country": "Cambodia"
+    },
+    {
+     "sessionsCount": 9,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/gallery",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 9,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/?utm_source=chatgpt.com",
+     "Device": "Mobile",
+     "Country": "India"
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-09-30",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-12-01&check_out=2026-12-03",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJmZGlkFlD0xl7Hty0ceRNaybKPJ5_cS4creVpzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeIIprhyHRf2XFfI6XlqUw7rdjSyD8hve3aMU7g6msvnxh7kc1RiaNigS8Hig_aem_CiBXOOa9iTcIdPvtgIiP_w",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-27&check_out=2026-11-29",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-26&check_out=2026-09-27",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-23&check_out=2026-11-24",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "Austria"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-23",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-22",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "PC",
+     "Country": "Cambodia"
+    },
+    {
+     "sessionsCount": 9,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/gallery",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 9,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/?utm_source=chatgpt.com",
+     "Device": "Mobile",
+     "Country": "India"
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-09-30",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-12-01&check_out=2026-12-03",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJmZGlkFlD0xl7Hty0ceRNaybKPJ5_cS4creVpzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeIIprhyHRf2XFfI6XlqUw7rdjSyD8hve3aMU7g6msvnxh7kc1RiaNigS8Hig_aem_CiBXOOa9iTcIdPvtgIiP_w",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-27&check_out=2026-11-29",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-26&check_out=2026-09-27",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-23&check_out=2026-11-24",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "Austria"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-23",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-22",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "PC",
+     "Country": "Cambodia"
+    },
+    {
+     "sessionsCount": 9,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/gallery",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 9,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/?utm_source=chatgpt.com",
+     "Device": "Mobile",
+     "Country": "India"
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-09-30",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-12-01&check_out=2026-12-03",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJmZGlkFlD0xl7Hty0ceRNaybKPJ5_cS4creVpzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeIIprhyHRf2XFfI6XlqUw7rdjSyD8hve3aMU7g6msvnxh7kc1RiaNigS8Hig_aem_CiBXOOa9iTcIdPvtgIiP_w",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-27&check_out=2026-11-29",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-26&check_out=2026-09-27",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-23&check_out=2026-11-24",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "Austria"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-23",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-22",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "PC",
+     "Country": "Cambodia"
+    },
+    {
+     "sessionsCount": 9,
+     "sessionsWithMetricPercentage": 11.11,
+     "sessionsWithoutMetricPercentage": 88.89,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Url": "https://www.mosaichostels.com/gallery",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 9,
+     "sessionsWithMetricPercentage": 22.22,
+     "sessionsWithoutMetricPercentage": 77.78,
+     "pagesViews": 2,
+     "subTotal": 2,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 25,
+     "sessionsWithoutMetricPercentage": 75,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Url": "https://www.mosaichostels.com/?utm_source=chatgpt.com",
+     "Device": "Mobile",
+     "Country": "India"
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-09-30",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-12-01&check_out=2026-12-03",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJmZGlkFlD0xl7Hty0ceRNaybKPJ5_cS4creVpzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeIIprhyHRf2XFfI6XlqUw7rdjSyD8hve3aMU7g6msvnxh7kc1RiaNigS8Hig_aem_CiBXOOa9iTcIdPvtgIiP_w",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-27&check_out=2026-11-29",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-26&check_out=2026-09-27",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-23&check_out=2026-11-24",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "Austria"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-23",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-22",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "PC",
+     "Country": "Cambodia"
+    },
+    {
+     "sessionsCount": 9,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/gallery",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 9,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/?utm_source=chatgpt.com",
+     "Device": "Mobile",
+     "Country": "India"
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-09-30",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-12-01&check_out=2026-12-03",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJmZGlkFlD0xl7Hty0ceRNaybKPJ5_cS4creVpzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeIIprhyHRf2XFfI6XlqUw7rdjSyD8hve3aMU7g6msvnxh7kc1RiaNigS8Hig_aem_CiBXOOa9iTcIdPvtgIiP_w",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-27&check_out=2026-11-29",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-26&check_out=2026-09-27",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-23&check_out=2026-11-24",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "Austria"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-23",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 3,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-22",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "PC",
+     "Country": "Cambodia"
+    },
+    {
+     "sessionsCount": 9,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/gallery",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 7,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 9,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Url": "https://www.mosaichostels.com/?utm_source=chatgpt.com",
+     "Device": "Mobile",
+     "Country": "India"
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 37,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-23&check_out=2026-11-24",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 9,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "averageScrollDepth": 78,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "Austria"
+    },
+    {
+     "averageScrollDepth": 12,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 66.9,
+     "Url": "https://www.mosaichostels.com/gallery",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 63,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-27&check_out=2026-11-29",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 47.5,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 70,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 17,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "PC",
+     "Country": "Cambodia"
+    },
+    {
+     "averageScrollDepth": 78,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-12-01&check_out=2026-12-03",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 79,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 28.42,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 100,
+     "Url": "https://www.mosaichostels.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJmZGlkFlD0xl7Hty0ceRNaybKPJ5_cS4creVpzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeIIprhyHRf2XFfI6XlqUw7rdjSyD8hve3aMU7g6msvnxh7kc1RiaNigS8Hig_aem_CiBXOOa9iTcIdPvtgIiP_w",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 49,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-26&check_out=2026-09-27",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 8,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 8,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "averageScrollDepth": 100,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "averageScrollDepth": 57,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-22",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "averageScrollDepth": 81,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 54.36,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 71.25,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-23",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "averageScrollDepth": 59,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-09-30",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "averageScrollDepth": 60.86,
+     "Url": "https://www.mosaichostels.com/?utm_source=chatgpt.com",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "averageScrollDepth": 26.12,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "France"
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-23&check_out=2026-11-24",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "Austria"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 3,
+     "pagesPerSessionPercentage": 2,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+     "Device": "Mobile",
+     "Country": "Singapore"
+    },
+    {
+     "totalSessionCount": 9,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 6,
+     "pagesPerSessionPercentage": 1.1111111111111112,
+     "Url": "https://www.mosaichostels.com/gallery",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 3,
+     "distinctUserCount": 3,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "Mobile",
+     "Country": "China"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-27&check_out=2026-11-29",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 2,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 2,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "PC",
+     "Country": "Cambodia"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-12-01&check_out=2026-12-03",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/contact",
+     "Device": "Mobile",
+     "Country": "China"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 2,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 1.5,
+     "Url": "https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide/",
+     "Device": "Mobile",
+     "Country": "China"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 1.5,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 2,
+     "Url": "https://www.mosaichostels.com/contact",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 7,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 7,
+     "pagesPerSessionPercentage": 1.7142857142857142,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 2,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/",
+     "Device": "Mobile",
+     "Country": "China"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "Mobile",
+     "Country": "United States"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJmZGlkFlD0xl7Hty0ceRNaybKPJ5_cS4creVpzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeIIprhyHRf2XFfI6XlqUw7rdjSyD8hve3aMU7g6msvnxh7kc1RiaNigS8Hig_aem_CiBXOOa9iTcIdPvtgIiP_w",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/contact",
+     "Device": "Mobile",
+     "Country": "Singapore"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-26&check_out=2026-09-27",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/gallery",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/",
+     "Device": "Mobile",
+     "Country": "China"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "Maldives"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/?fbclid=IwZXh0bgNhZW0CMTEAcGRvZgRzcnRjBmFwcF9pZAwyNTYyODEwNDA1NTgAAR5Amq64jIRXf81j0Zlk7F5Se3ITXC4LYu-bcyTxaCmMJ7FDYBv5tXX1dBMFCg_aem_fusOnkgMB4FsOtt8P8BACw",
+     "Device": "Mobile",
+     "Country": "Sweden"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/",
+     "Device": "Mobile",
+     "Country": "China"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+     "Device": "Mobile",
+     "Country": "China"
+    },
+    {
+     "totalSessionCount": 8,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 8,
+     "pagesPerSessionPercentage": 1.125,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 2,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "China"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 3,
+     "distinctUserCount": 3,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/",
+     "Device": "Mobile",
+     "Country": "China"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 3,
+     "distinctUserCount": 3,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/gallery",
+     "Device": "Mobile",
+     "Country": "China"
+    },
+    {
+     "totalSessionCount": 3,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 3,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-22",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+     "Device": "Mobile",
+     "Country": "Singapore"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 9,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 9,
+     "pagesPerSessionPercentage": 1.2222222222222223,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 4,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 4,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-23",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-09-30",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/varanasi-solo-female-travelers-safety-travel-guide/",
+     "Device": "Mobile",
+     "Country": "United States"
+    },
+    {
+     "totalSessionCount": 4,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 4,
+     "pagesPerSessionPercentage": 1.75,
+     "Url": "https://www.mosaichostels.com/?utm_source=chatgpt.com",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalSessionCount": 8,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 8,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Url": "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/",
+     "Device": "Mobile",
+     "Country": "China"
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 26,
+     "activeTime": 19,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-09-30",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "totalTime": 4,
+     "activeTime": 4,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "totalTime": 1,
+     "activeTime": 0,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "totalTime": 57,
+     "activeTime": 51,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-12-01&check_out=2026-12-03",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalTime": 17,
+     "activeTime": 17,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "totalTime": 24,
+     "activeTime": 24,
+     "Url": "https://www.mosaichostels.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJmZGlkFlD0xl7Hty0ceRNaybKPJ5_cS4creVpzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAaeIIprhyHRf2XFfI6XlqUw7rdjSyD8hve3aMU7g6msvnxh7kc1RiaNigS8Hig_aem_CiBXOOa9iTcIdPvtgIiP_w",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalTime": 22,
+     "activeTime": 22,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "totalTime": 25,
+     "activeTime": 25,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-27&check_out=2026-11-29",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalTime": 58,
+     "activeTime": 23,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "totalTime": 33,
+     "activeTime": 33,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "PC",
+     "Country": "United States"
+    },
+    {
+     "totalTime": 23,
+     "activeTime": 23,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-26&check_out=2026-09-27",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalTime": 11,
+     "activeTime": 11,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-23&check_out=2026-11-24",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalTime": 353,
+     "activeTime": 353,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "Austria"
+    },
+    {
+     "totalTime": 103,
+     "activeTime": 103,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalTime": 238,
+     "activeTime": 165,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-23",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "totalTime": 91,
+     "activeTime": 91,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-09-29&check_out=2026-10-01",
+     "Device": "PC",
+     "Country": "India"
+    },
+    {
+     "totalTime": 93,
+     "activeTime": 44,
+     "Url": "https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-22",
+     "Device": "Mobile",
+     "Country": "France"
+    },
+    {
+     "totalTime": 556,
+     "activeTime": 3,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "PC",
+     "Country": "Cambodia"
+    },
+    {
+     "totalTime": 268,
+     "activeTime": 18,
+     "Url": "https://www.mosaichostels.com/gallery",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalTime": 32,
+     "activeTime": 31,
+     "Url": "https://www.mosaichostels.com/book-now",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalTime": 55,
+     "activeTime": 21,
+     "Url": "https://www.mosaichostels.com/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalTime": 1,
+     "activeTime": 1,
+     "Url": "https://www.mosaichostels.com/about",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalTime": 185,
+     "activeTime": 185,
+     "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+     "Device": "Mobile",
+     "Country": "India"
+    },
+    {
+     "totalTime": 20,
+     "activeTime": 20,
+     "Url": "https://www.mosaichostels.com/?utm_source=chatgpt.com",
+     "Device": "Mobile",
+     "Country": "India"
+    }
+   ]
+  }
+ ],
+ "by_channel_source": [
+  {
+   "metricName": "DeadClickCount",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Social",
+     "Source": "ig"
+    },
+    {
+     "sessionsCount": 23,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Direct",
+     "Source": "www.mosaichostels.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Referral",
+     "Source": "mosaichostels.com"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Referral",
+     "Source": "l.wl.co"
+    },
+    {
+     "sessionsCount": 25,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Other",
+     "Source": ""
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "OrganicSearch",
+     "Source": "google"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "AiPlatform",
+     "Source": "chatgpt.com"
+    }
+   ]
+  },
+  {
+   "metricName": "ExcessiveScroll",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Social",
+     "Source": "ig"
+    },
+    {
+     "sessionsCount": 23,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Direct",
+     "Source": "www.mosaichostels.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Referral",
+     "Source": "mosaichostels.com"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Referral",
+     "Source": "l.wl.co"
+    },
+    {
+     "sessionsCount": 25,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Other",
+     "Source": ""
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "OrganicSearch",
+     "Source": "google"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "AiPlatform",
+     "Source": "chatgpt.com"
+    }
+   ]
+  },
+  {
+   "metricName": "RageClickCount",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Social",
+     "Source": "ig"
+    },
+    {
+     "sessionsCount": 23,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Direct",
+     "Source": "www.mosaichostels.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Referral",
+     "Source": "mosaichostels.com"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Referral",
+     "Source": "l.wl.co"
+    },
+    {
+     "sessionsCount": 25,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Other",
+     "Source": ""
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "OrganicSearch",
+     "Source": "google"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "AiPlatform",
+     "Source": "chatgpt.com"
+    }
+   ]
+  },
+  {
+   "metricName": "QuickbackClick",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Social",
+     "Source": "ig"
+    },
+    {
+     "sessionsCount": 23,
+     "sessionsWithMetricPercentage": 4.35,
+     "sessionsWithoutMetricPercentage": 95.65,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Channel": "Direct",
+     "Source": "www.mosaichostels.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Referral",
+     "Source": "mosaichostels.com"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Referral",
+     "Source": "l.wl.co"
+    },
+    {
+     "sessionsCount": 25,
+     "sessionsWithMetricPercentage": 4,
+     "sessionsWithoutMetricPercentage": 96,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Channel": "Other",
+     "Source": ""
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 12.5,
+     "sessionsWithoutMetricPercentage": 87.5,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Channel": "OrganicSearch",
+     "Source": "google"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 25,
+     "sessionsWithoutMetricPercentage": 75,
+     "pagesViews": 1,
+     "subTotal": 1,
+     "Channel": "AiPlatform",
+     "Source": "chatgpt.com"
+    }
+   ]
+  },
+  {
+   "metricName": "ScriptErrorCount",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Social",
+     "Source": "ig"
+    },
+    {
+     "sessionsCount": 23,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Direct",
+     "Source": "www.mosaichostels.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Referral",
+     "Source": "mosaichostels.com"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Referral",
+     "Source": "l.wl.co"
+    },
+    {
+     "sessionsCount": 25,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Other",
+     "Source": ""
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "OrganicSearch",
+     "Source": "google"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "AiPlatform",
+     "Source": "chatgpt.com"
+    }
+   ]
+  },
+  {
+   "metricName": "ErrorClickCount",
+   "information": [
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Social",
+     "Source": "ig"
+    },
+    {
+     "sessionsCount": 23,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Direct",
+     "Source": "www.mosaichostels.com"
+    },
+    {
+     "sessionsCount": 1,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Referral",
+     "Source": "mosaichostels.com"
+    },
+    {
+     "sessionsCount": 2,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Referral",
+     "Source": "l.wl.co"
+    },
+    {
+     "sessionsCount": 25,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "Other",
+     "Source": ""
+    },
+    {
+     "sessionsCount": 8,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "OrganicSearch",
+     "Source": "google"
+    },
+    {
+     "sessionsCount": 4,
+     "sessionsWithMetricPercentage": 0,
+     "sessionsWithoutMetricPercentage": 100,
+     "pagesViews": 0,
+     "subTotal": 0,
+     "Channel": "AiPlatform",
+     "Source": "chatgpt.com"
+    }
+   ]
+  },
+  {
+   "metricName": "ScrollDepth",
+   "information": [
+    {
+     "averageScrollDepth": 60.86,
+     "Channel": "AiPlatform",
+     "Source": "chatgpt.com"
+    },
+    {
+     "averageScrollDepth": 87.5,
+     "Channel": "Referral",
+     "Source": "l.wl.co"
+    },
+    {
+     "averageScrollDepth": 35.5,
+     "Channel": "OrganicSearch",
+     "Source": "google"
+    },
+    {
+     "averageScrollDepth": 36.54,
+     "Channel": "Direct",
+     "Source": "www.mosaichostels.com"
+    },
+    {
+     "averageScrollDepth": 10,
+     "Channel": "Referral",
+     "Source": "mosaichostels.com"
+    },
+    {
+     "averageScrollDepth": 100,
+     "Channel": "Social",
+     "Source": "ig"
+    },
+    {
+     "averageScrollDepth": 51.29,
+     "Channel": "Other",
+     "Source": ""
+    }
+   ]
+  },
+  {
+   "metricName": "Traffic",
+   "information": [
+    {
+     "totalSessionCount": 4,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 4,
+     "pagesPerSessionPercentage": 1.75,
+     "Channel": "AiPlatform",
+     "Source": "chatgpt.com"
+    },
+    {
+     "totalSessionCount": 2,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 2,
+     "pagesPerSessionPercentage": 1,
+     "Channel": "Referral",
+     "Source": "l.wl.co"
+    },
+    {
+     "totalSessionCount": 8,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 10,
+     "pagesPerSessionPercentage": 1.3,
+     "Channel": "OrganicSearch",
+     "Source": "google"
+    },
+    {
+     "totalSessionCount": 23,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 20,
+     "pagesPerSessionPercentage": 1.9583333333333333,
+     "Channel": "Direct",
+     "Source": "www.mosaichostels.com"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Channel": "Referral",
+     "Source": "mosaichostels.com"
+    },
+    {
+     "totalSessionCount": 0,
+     "totalBotSessionCount": 1,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Channel": "Referral",
+     "Source": "www.facebook.com"
+    },
+    {
+     "totalSessionCount": 1,
+     "totalBotSessionCount": 0,
+     "distinctUserCount": 1,
+     "pagesPerSessionPercentage": 1,
+     "Channel": "Social",
+     "Source": "ig"
+    },
+    {
+     "totalSessionCount": 25,
+     "totalBotSessionCount": 24,
+     "distinctUserCount": 49,
+     "pagesPerSessionPercentage": 1.0816326530612246,
+     "Channel": "Other",
+     "Source": ""
+    }
+   ]
+  },
+  {
+   "metricName": "EngagementTime",
+   "information": [
+    {
+     "totalTime": 24,
+     "activeTime": 24,
+     "Channel": "Social",
+     "Source": "ig"
+    },
+    {
+     "totalTime": 128,
+     "activeTime": 30,
+     "Channel": "Direct",
+     "Source": "www.mosaichostels.com"
+    },
+    {
+     "totalTime": 7,
+     "activeTime": 4,
+     "Channel": "Referral",
+     "Source": "mosaichostels.com"
+    },
+    {
+     "totalTime": 24,
+     "activeTime": 24,
+     "Channel": "Referral",
+     "Source": "l.wl.co"
+    },
+    {
+     "totalTime": 77,
+     "activeTime": 48,
+     "Channel": "Other",
+     "Source": ""
+    },
+    {
+     "totalTime": 180,
+     "activeTime": 72,
+     "Channel": "OrganicSearch",
+     "Source": "google"
+    },
+    {
+     "totalTime": 20,
+     "activeTime": 20,
+     "Channel": "AiPlatform",
+     "Source": "chatgpt.com"
+    }
+   ]
+  }
+ ],
+ "api_calls_this_run": 3
+}
