@@ -129,41 +129,56 @@ anywhere in this skill — done early enough, that 5-9 minutes overlaps with
 both the rest of this step and all of step (c)'s agent dispatch, costing
 nothing.
 
-1. `herdr agent list` — reuse an idle Codex agent in this cwd, or `herdr tab
-   create --cwd "$(pwd)" --no-focus` then `herdr agent start codex --kind
-   codex --pane <ID>` if none exists.
+1. `herdr agent list` — reuse an idle Codex agent in this cwd **only if it
+   was started with the `weekly-seo` profile** (step 3 below explains why).
+   Otherwise `herdr tab create --cwd "$(pwd)" --no-focus` then start fresh
+   with the profile.
 2. Capacity check first, always, same protocol as the independent-review step
    later in this file: ACCEPT/DECLINE + current task + context headroom.
    DECLINE or no answer → skip the split, run `extract-all.sh` solo, note it
    in the report.
-3. **Sandbox pre-flight, before dispatching anything real** — an ACCEPT only
-   means Codex has spare capacity, not that its sandbox can do this work.
-   `cwv` needs outbound HTTPS to Google's APIs; `lighthouse` writes drift
-   baselines to `~/.cache/claude-seo/drift`, outside the repo. Both fail
+3. **Start (or reuse) the Codex agent with the `weekly-seo` profile, not the
+   bare default sandbox.** `cwv` needs outbound HTTPS to Google's APIs;
+   `lighthouse` writes drift baselines outside the repo. Both fail
    silently-ish (exit 1, buried in the extractor's own error text) under
-   Codex's default `workspace-write` + restricted-network sandbox — confirmed
-   2026-09-28: `curl` got `Could not resolve host` and a write outside the
-   repo got `operation not permitted`. Ask Codex to run one cheap probe of
-   each before handing over the real command:
+   Codex's plain `workspace-write` default — confirmed 2026-09-28: `curl` got
+   `Could not resolve host` and a write outside the repo got `operation not
+   permitted`. Fixed the same day with a **named Codex config profile**,
+   `~/.codex/weekly-seo.config.toml` — network access plus one extra
+   writable root (`~/.local/share/mosaic-seo/drift`, the real directory;
+   `~/.cache/claude-seo/drift` is a symlink to it and Codex's sandbox
+   rejects symlinked writable roots), nothing broader than that, and scoped
+   to only sessions that opt in — the machine's global Codex default
+   (`~/.codex/config.toml`) is untouched, so every other project's Codex
+   sessions are unaffected. Verified live end-to-end 2026-09-28 via `codex
+   exec --profile weekly-seo`: both the network probe and the write probe
+   below now succeed. Start the agent with the profile:
+   `herdr agent start codex --kind codex --pane <ID> -- --profile
+   weekly-seo` (a fresh pane), or if reusing an idle agent from `herdr agent
+   list` that was **not** started with this profile, start a new one instead
+   of reusing it — the profile is set at process start, not per-prompt.
+4. **Sandbox pre-flight anyway, even with the profile** — confirms the
+   profile actually applied to *this* agent (e.g. it wasn't reused from a
+   plain-default session) before spending a real dispatch on it. Same two
+   cheap probes as always:
    `curl -sS -o /dev/null -w '%{http_code}' https://www.googleapis.com/` and
-   `touch ~/.cache/claude-seo/drift/.codex-probe && rm
-   ~/.cache/claude-seo/drift/.codex-probe && echo WRITE_OK`. Either one
-   failing means this Codex agent's sandbox can't run the split this run —
-   treat it exactly like a DECLINE (skip the split, run `extract-all.sh`
-   solo, note *which* probe failed in the report) rather than dispatching
-   into a sandbox that will just fail the extractor. Don't silently change
-   Codex's sandbox/approval settings to work around this — that's the
-   owner's config, not this skill's to flip.
-4. On a clean pre-flight, dispatch immediately, before anything else in this
+   `touch ~/.local/share/mosaic-seo/drift/.codex-probe && rm
+   ~/.local/share/mosaic-seo/drift/.codex-probe && echo WRITE_OK`. Either one
+   failing now means something's wrong with the profile itself (check
+   `~/.codex/weekly-seo.config.toml` exists and is valid TOML) or this agent
+   really was started without it — treat it like a DECLINE (skip the split,
+   run `extract-all.sh` solo, note *which* probe failed in the report), but
+   this should be rare now, not the expected outcome.
+5. On a clean pre-flight, dispatch immediately, before anything else in this
    step, and don't wait on it: `cd <repo> && source ~/.config/mosaic-seo/env
    && ./.claude/seo/extract-all.sh cwv lighthouse`.
-5. Proceed with the rest of the sweep in this session right away:
+6. Proceed with the rest of the sweep in this session right away:
    `./.claude/seo/extract-all.sh gsc ga4 bing clarity commoncrawl` — the five
    fast extractors.
-6. Move straight on to step (c)'s audits without waiting on Codex. Its output
+7. Move straight on to step (c)'s audits without waiting on Codex. Its output
    lands in the same `seo-reports/cwv/` and `seo-reports/lighthouse/` files
    `extract-all.sh` always writes — nothing to merge by hand.
-7. Before step (d), and only then, confirm it actually finished (`herdr agent
+8. Before step (d), and only then, confirm it actually finished (`herdr agent
    wait <codex-agent> --until idle,done`, or just ask it) and that today's
    `seo-reports/cwv/YYYY-MM-DD.json` and `seo-reports/lighthouse/YYYY-MM-DD.json`
    exist. Missing or stale → run that one solo at that point rather than
