@@ -1,6 +1,7 @@
 ---
 name: weekly-seo
-description: Exhaustive SEO/AEO/GEO/SXO/AIO/LLMO audit-and-repair for mosaichostels.com. Pulls 7 data sources (GSC, GA4, CWV, Bing, Clarity, Common Crawl, Unlighthouse), runs 17 claude-seo audits — 14 concurrent via Task tool (incl. Google Business Profile / Maps), 3 Skill-tool-only (seo-audit, seo-bing, seo-unlighthouse) — plus a mandatory browser deep-dive (via OpenCLI against a shared Chromium) into GBP, GCP, GA4, PSI/CrUX, Bing Webmaster, and Clarity for UI-only signals no API exposes. Covers discovery, content, ranking, structure, experience, performance, AI platform access check, ranks gaps, applies top fixes, verifies, commits. When Herdr is active: splits the slow extractor sweep, the browser deep-dive (GBP/GCP/GA4 vs. Bing/Clarity), and (when the ranked fixes land on disjoint files) the fix work itself to a parallel Codex agent — each with its own capacity check, logged every run in the report's "Codex usage this run" section, never silently skipped — then gets an independent Codex review of the combined diff before commit. Use when the user says "weekly SEO", "SEO run", "SEO sweep", "run the SEO automation", or asks for a full audit-and-fix pass on this site.
+description: >-
+  Exhaustive SEO/AEO/GEO/SXO/AIO/LLMO audit-and-repair for mosaichostels.com. Pulls 7 data sources (GSC, GA4, CWV, Bing, Clarity, Common Crawl, Unlighthouse), runs 17 claude-seo audits — 14 concurrent via Task tool (incl. Google Business Profile / Maps), 3 Skill-tool-only (seo-audit, seo-bing, seo-unlighthouse) — plus a mandatory browser deep-dive (via OpenCLI against a shared Chromium) into GBP, GCP, GA4, PSI/CrUX, Bing Webmaster, and Clarity for UI-only signals no API exposes. Covers discovery, content, ranking, structure, experience, performance, AI platform access check, ranks gaps, applies top fixes, verifies, commits. When Herdr is active: splits the slow extractor sweep, the browser deep-dive (GBP/GCP/GA4 vs. Bing/Clarity), and (when the ranked fixes land on disjoint files) the fix work itself to a parallel Codex agent — each with its own capacity check, logged every run in the report's "Codex usage this run" section, never silently skipped — then gets an independent Codex review of the combined diff before commit. Use when the user says "weekly SEO", "SEO run", "SEO sweep", "run the SEO automation", or asks for a full audit-and-fix pass on this site.
 ---
 
 # Weekly SEO run
@@ -129,46 +130,36 @@ anywhere in this skill — done early enough, that 5-9 minutes overlaps with
 both the rest of this step and all of step (c)'s agent dispatch, costing
 nothing.
 
-1. `herdr agent list` — reuse an idle Codex agent in this cwd **only if it
-   was started with the `weekly-seo` profile** (step 3 below explains why).
-   Otherwise `herdr tab create --cwd "$(pwd)" --no-focus` then start fresh
-   with the profile.
+1. `herdr agent list` — reuse any idle Codex agent in this cwd. Otherwise
+   `herdr tab create --cwd "$(pwd)" --no-focus` then `herdr agent start codex
+   --kind codex --pane <ID>`.
 2. Capacity check first, always, same protocol as the independent-review step
    later in this file: ACCEPT/DECLINE + current task + context headroom.
    DECLINE or no answer → skip the split, run `extract-all.sh` solo, note it
    in the report.
-3. **Start (or reuse) the Codex agent with the `weekly-seo` profile, not the
-   bare default sandbox.** `cwv` needs outbound HTTPS to Google's APIs;
-   `lighthouse` writes drift baselines outside the repo. Both fail
-   silently-ish (exit 1, buried in the extractor's own error text) under
-   Codex's plain `workspace-write` default — confirmed 2026-09-28: `curl` got
-   `Could not resolve host` and a write outside the repo got `operation not
-   permitted`. Fixed the same day with a **named Codex config profile**,
-   `~/.codex/weekly-seo.config.toml` — network access plus one extra
-   writable root (`~/.local/share/mosaic-seo/drift`, the real directory;
-   `~/.cache/claude-seo/drift` is a symlink to it and Codex's sandbox
-   rejects symlinked writable roots), nothing broader than that, and scoped
-   to only sessions that opt in — the machine's global Codex default
-   (`~/.codex/config.toml`) is untouched, so every other project's Codex
-   sessions are unaffected. Verified live end-to-end 2026-09-28 via `codex
-   exec --profile weekly-seo`: both the network probe and the write probe
-   below now succeed. Start the agent with the profile:
-   `herdr agent start codex --kind codex --pane <ID> -- --profile
-   weekly-seo` (a fresh pane), or if reusing an idle agent from `herdr agent
-   list` that was **not** started with this profile, start a new one instead
-   of reusing it — the profile is set at process start, not per-prompt.
-4. **Sandbox pre-flight anyway, even with the profile** — confirms the
-   profile actually applied to *this* agent (e.g. it wasn't reused from a
-   plain-default session) before spending a real dispatch on it. Same two
-   cheap probes as always:
+3. **No profile needed — start (or reuse) the Codex agent normally.** `cwv`
+   needs outbound HTTPS to Google's APIs; `lighthouse` writes drift baselines
+   outside the repo. Both failed silently-ish (exit 1, buried in the
+   extractor's own error text) under Codex's old plain `workspace-write`
+   default — confirmed 2026-09-28: `curl` got `Could not resolve host` and a
+   write outside the repo got `operation not permitted`. That was fixed the
+   same day with a scoped named profile, `~/.codex/weekly-seo.config.toml`
+   (network access plus one extra writable root). As of 2026-09-29 the
+   owner intentionally changed `~/.codex/config.toml`'s global `sandbox_mode`
+   to `danger-full-access` — every Codex session on this machine, not just
+   this skill's, now has unrestricted network and filesystem access by
+   default. That makes the scoped profile redundant, so it's been retired
+   (`~/.codex/weekly-seo.config.toml` deleted) — don't recreate it or pass
+   `--profile weekly-seo`; it no longer exists.
+4. **Sandbox pre-flight anyway** — the global default is a machine setting,
+   not something this skill controls, so confirm it's still in effect before
+   spending a real dispatch on it. Same two cheap probes as always:
    `curl -sS -o /dev/null -w '%{http_code}' https://www.googleapis.com/` and
    `touch ~/.local/share/mosaic-seo/drift/.codex-probe && rm
    ~/.local/share/mosaic-seo/drift/.codex-probe && echo WRITE_OK`. Either one
-   failing now means something's wrong with the profile itself (check
-   `~/.codex/weekly-seo.config.toml` exists and is valid TOML) or this agent
-   really was started without it — treat it like a DECLINE (skip the split,
-   run `extract-all.sh` solo, note *which* probe failed in the report), but
-   this should be rare now, not the expected outcome.
+   failing means the global sandbox has been tightened back up since —
+   treat it like a DECLINE (skip the split, run `extract-all.sh` solo, note
+   *which* probe failed in the report) rather than guessing at a fix here.
 5. On a clean pre-flight, dispatch immediately, before anything else in this
    step, and don't wait on it: `cd <repo> && source ~/.config/mosaic-seo/env
    && ./.claude/seo/extract-all.sh cwv lighthouse`.
