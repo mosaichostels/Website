@@ -1,0 +1,114 @@
+Clarity extract — https://www.mosaichostels.com   last 3 day(s)
+
+  API 1/3  numOfDays=3
+  API 2/3  numOfDays=3&dimension1=URL&dimension2=Device&dimension3=Country
+  API 3/3  numOfDays=3&dimension1=Channel&dimension2=Source
+
+raw bundle -> seo-reports/clarity/2026-10-01.json
+quota used this run: 3 of 10/day
+
+
+## Site totals
+  sessions=22  distinct users=89  bot sessions=69  (76% of all traffic is bots)
+  ScrollDepth    averageScrollDepth=43.48
+  EngagementTime totalTime=92  activeTime=45
+  RageClickCount   events=0  pages affected=0  0.0% of sessions
+  DeadClickCount   events=2  pages affected=2  9.1% of sessions
+  QuickbackClick   events=5  pages affected=5  18.2% of sessions
+  ExcessiveScroll  events=0  pages affected=0  0.0% of sessions
+  ErrorClickCount  events=0  pages affected=0  0.0% of sessions
+  ScriptErrorCount events=0  pages affected=0  0.0% of sessions
+
+## Friction by page — SXO failures (a page can rank fine and still do this)
+   rage  dead qback xscrl errcl jserr  sess  page
+      0     1     3     0     0     0     4  https://www.mosaichostels.com/?utm_source=chatgpt.com
+      0     1     1     0     0     0    11  https://www.mosaichostels.com/
+      0     0     1     0     0     0     2  https://www.mosaichostels.com/book-now?check_in=2026-09-30&check_out=2026-10-02
+      0     0     0     0     0     0     1  https://www.mosaichostels.com/book-now?check_in=2026-10-11&check_out=2026-10-13
+      0     0     0     0     0     0     8  https://www.mosaichostels.com/book-now
+      0     0     0     0     0     0     1  https://www.mosaichostels.com/book-now?check_in=2026-11-23&check_out=2026-11-24
+      0     0     0     0     0     0     2  https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-23
+      0     0     0     0     0     0     1  https://www.mosaichostels.com/book-now?check_in=2026-10-02&check_out=2026-10-03
+      0     0     0     0     0     0     1  https://www.mosaichostels.com/contact
+      0     0     0     0     0     0     1  https://www.mosaichostels.com/gallery
+      0     0     0     0     0     0     1  https://www.mosaichostels.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAac3NZGLTV94_g1D1a5smxXpaj6QL2cGMCNNr465uS9QGK9d2XwlWJbiGLFLcQ_aem_8R2lpGIy5MN9QjQ3WzNEmQ
+      0     0     0     0     0     0     1  https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/
+      0     0     0     0     0     0     1  https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/
+      0     0     0     0     0     0     0  http://localhost:8934/about.html
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/privacy
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide/
+      0     0     0     0     0     0     0  (none)
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/best-hostels-in-varanasi/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/about
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/contact?gtm_latency=1
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/
+      0     0     0     0     0     0     0  https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/
+
+## Scroll depth and engagement by page
+  scroll= 10.0%  total=    5s  active=    5s  https://www.mosaichostels.com/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAcGRvZgJzcnRjBmFwcF9pZA81NjcwNjczNDMzNTI0MjcAAac3NZGLTV94_g1D1a5smxXpaj6QL2cGMCNNr465uS9QGK9d2XwlWJbiGLFLcQ_aem_8R2lpGIy5MN9QjQ3WzNEmQ  <-- shallow scroll, check above-the-fold answer
+  scroll= 20.0%  total=    1s  active=    0s  https://www.mosaichostels.com/book-now?check_in=2026-11-21&check_out=2026-11-23  <-- shallow scroll, check above-the-fold answer
+  scroll= 16.5%  total=   24s  active=   22s  https://www.mosaichostels.com/book-now  <-- shallow scroll, check above-the-fold answer
+  scroll= 36.5%  total=   20s  active=   20s  https://www.mosaichostels.com/?utm_source=chatgpt.com  <-- shallow scroll, check above-the-fold answer
+  scroll= 55.0%  total=   14s  active=   14s  https://www.mosaichostels.com/contact
+  scroll= 64.0%  total=   61s  active=   61s  https://www.mosaichostels.com/book-now?check_in=2026-10-11&check_out=2026-10-13
+  scroll= 66.0%  total=   48s  active=   48s  https://www.mosaichostels.com/book-now?check_in=2026-09-30&check_out=2026-10-02
+  scroll= 80.0%  total=  132s  active=  132s  https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/
+  scroll= 86.0%  total=   23s  active=   23s  https://www.mosaichostels.com/book-now?check_in=2026-11-23&check_out=2026-11-24
+  scroll= 88.0%  total=   14s  active=   14s  https://www.mosaichostels.com/gallery
+  scroll= 91.0%  total=  174s  active=  174s  https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/
+  scroll= 99.0%  total= 1063s  active=  147s  https://www.mosaichostels.com/book-now?check_in=2026-10-02&check_out=2026-10-03
+  scroll= 33.9%  total=   60s  active=   23s  https://www.mosaichostels.com/  <-- shallow scroll, check above-the-fold answer
+
+## Device split
+  Mobile   sessions=   27 bots=  47 scroll= 52.8% dead=2 quic=4
+  PC       sessions=    8 bots=  26 scroll= 49.2% quic=1
+  Other    sessions=    0 bots=   4 scroll=  0.0% 
+
+## Bot traffic by page (pages Clarity sees crawlers on but humans rarely)
+  bot=  18 human=  11  https://www.mosaichostels.com/
+  bot=  10 human=   8  https://www.mosaichostels.com/book-now
+  bot=   8 human=   0  https://www.mosaichostels.com/about   <-- crawler-only page
+  bot=   6 human=   1  https://www.mosaichostels.com/gallery
+  bot=   3 human=   1  https://www.mosaichostels.com/contact
+  bot=   3 human=   0  https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/   <-- crawler-only page
+  bot=   3 human=   0  https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/   <-- crawler-only page
+  bot=   3 human=   0  (none)   <-- crawler-only page
+  bot=   3 human=   0  https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/   <-- crawler-only page
+  bot=   3 human=   0  https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/   <-- crawler-only page
+  bot=   3 human=   0  https://www.mosaichostels.com/blog/   <-- crawler-only page
+  bot=   3 human=   0  https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/   <-- crawler-only page
+  bot=   2 human=   0  https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/   <-- crawler-only page
+  bot=   1 human=   1  https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/
+  bot=   1 human=   1  https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/
+  bot=   1 human=   0  http://localhost:8934/about.html   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/privacy   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide/   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/blog/best-hostels-in-varanasi/   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/contact?gtm_latency=1   <-- crawler-only page
+  bot=   1 human=   0  https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/   <-- crawler-only page
+
+## Acquisition channels (Clarity classifies AI assistants as their own channel)
+  Other          (none)                           sessions=  12 scroll= 23.8% friction=1
+  Direct         www.mosaichostels.com            sessions=   8 scroll= 47.3% friction=1
+  AiPlatform     chatgpt.com                      sessions=   3 scroll= 43.3% friction=3
+  OrganicSearch  google                           sessions=   2 scroll= 80.7% friction=1
+  Social         ig                               sessions=   1 scroll= 10.0% friction=0
+  Referral       l.wl.co                          sessions=   1 scroll= 69.0% friction=0
+  OrganicSearch  bing                             sessions=   1 scroll= 91.0% friction=0
+  Other          chatgpt.com                      sessions=   1 scroll= 16.0% friction=1
+
+## What this API cannot answer — do not fill these in from imagination
+  - WHICH element was rage/dead clicked (page-level counts only; open the
+    Clarity recording for the selector)
+  - anything before the last 3 days (no historical export; keep dated bundles)
+  - heatmaps, recordings, funnels, Smart Events, custom tags
+  - referrer URLs (the ReferrerURL dimension returns 200 and is then ignored)
+  - conversions: Clarity has no booking/revenue join — use GA4 for that

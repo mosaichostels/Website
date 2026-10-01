@@ -72,3 +72,5 @@
   .cal-pop{opacity:1;transform:none}
   .direct-badge-dot{animation:none!important}
 }
+
+h2.direct-title,h2.section-title{margin-top:0}
