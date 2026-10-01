@@ -231,7 +231,7 @@
   <div class="page-hero-content">
     <div class="page-eyebrow">Direct Booking</div>
     <div class="page-title">Book Your Stay</div>
-    <div class="page-sub">Best price guaranteed when you book direct</div>
+    <div class="page-sub">Book direct and skip the commission</div>
     <p class="page-sub" style="font-size:0.85em;opacity:0.9;margin-top:8px"><a href="https://www.google.com/maps?cid=10826956351092739131" target="_blank" rel="noopener" style="color:inherit">4.5 ★ Google Rating (65 reviews)</a></p>
   </div>
 </div>
@@ -369,7 +369,7 @@
           <input type="checkbox" id="gTerms" required>
           <span>I agree to Mosaic Hostel's <a href="#" id="openPolicyModal" onclick="event.stopPropagation()">booking terms and cancellation policy</a>. Prepayment secures this reservation; valid photo ID is required at check-in.</span>
         </label>
-        <p style="text-align:center;font-size:0.85em;opacity:0.85;margin-bottom:10px">★ 4.9/5 on Tripadvisor — 1500+ happy guests</p>
+        <p style="text-align:center;font-size:0.85em;opacity:0.85;margin-bottom:10px">★ 4.5 on Google · 65 reviews</p>
         <button type="submit" class="form-submit">Pay &amp; Confirm Booking</button>
         <div class="form-msg" id="guestMsg"></div>
       </form>
@@ -412,9 +412,9 @@
       mosaichostels@gmail.com
     </a>
     <div class="why-row">
-      <div class="why-pill"><div class="why-dot c-gold"></div>Lowest rate guaranteed</div>
+      <div class="why-pill"><div class="why-dot c-gold"></div>Book direct, skip the commission</div>
       <div class="why-pill"><div class="why-dot c-teal"></div>Instant confirmation</div>
-      <div class="why-pill"><div class="why-dot c-burg"></div>Flexible cancellation</div>
+      <div class="why-pill"><div class="why-dot c-burg"></div>Free cancellation up to 72 hours</div>
       <div class="why-pill"><div class="why-dot c-cobalt"></div>Special requests welcome</div>
     </div>
   </div>
@@ -435,7 +435,7 @@
     </div>
     <div class="benefit reveal reveal-d2">
       <div class="benefit-icon" id="bi3"></div>
-      <div class="benefit-title">Flexible Plans</div>
+      <div class="benefit-title">Personal Help</div>
       <div class="benefit-body">Dates changed? Early arrival? We sort it out — no call centres, no bots.</div>
     </div>
     <div class="benefit reveal reveal-d3">
@@ -445,6 +445,25 @@
     </div>
   </div>
 </div>
+
+<!-- ── FAQ (visible copy of the FAQPage markup above) ── -->
+<section class="faq" aria-labelledby="faq-heading">
+  <style>
+    .faq{max-width:820px;margin:0 auto;padding:48px 24px}
+    .faq h2{font-family:Cinzel,serif;font-weight:500;font-size:clamp(1.5rem,4vw,2.2rem);color:var(--ink);text-align:center;margin:0 0 28px}
+    .faq details{border-bottom:1px solid var(--border);padding:4px 0}
+    .faq summary{font-family:Cormorant Garamond,serif;font-size:1.3rem;color:var(--ink2);cursor:pointer;list-style:none;padding:18px 40px 18px 4px;position:relative}
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{content:"+";position:absolute;right:8px;top:50%;transform:translateY(-50%);font-family:Jost,sans-serif;font-size:1.5rem;color:var(--gold)}
+    .faq details[open] summary::after{content:"–"}
+    .faq details p{font-family:Jost,sans-serif;font-weight:300;line-height:1.7;color:var(--muted);padding:0 4px 20px}
+  </style>
+  <h2 id="faq-heading">Booking FAQs</h2>
+  <details><summary>What is the cancellation policy?</summary><p>Cancellations made 72 hours or more before check-in are free. Cancellations within 72 hours are charged in full. Late arrivals must notify us with your expected arrival time; we hold rooms until midnight. No-shows without notification will be charged in full.</p></details>
+  <details><summary>What ID do I need to check in?</summary><p>A valid passport or government-issued ID is required at check-in. Indian nationals can use an Aadhar card, driving licence, or passport. Foreign nationals must have a valid passport.</p></details>
+  <details><summary>What are your check-in and check-out times?</summary><p>Standard check-in is from 1:00 PM and check-out is by 10:30 AM. Late check-outs are available for an additional charge if rooms are available. Reception is staffed 24 hours, so early arrivals and late check-ins are welcome — just notify us of your expected arrival time.</p></details>
+  <details><summary>Can I bring guests to the hostel?</summary><p>Day visitors are welcome in common areas until 10:00 PM. Overnight guests are not permitted in dorm rooms. Private room guests may arrange prior approval with reception for overnight visitors.</p></details>
+</section>
 
 <!-- ── MANAGE / CANCEL A BOOKING ── -->
 <div class="direct-section reveal marketing-section">
