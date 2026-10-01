@@ -76,6 +76,10 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
     return ['status' => 'unknown'];
   }
 
+  // rename() keeps the file's old mtime. Without this, an order that waited in
+  // pending/ looks "stuck" to reconcile-pending.php's processing/ sweep the moment
+  // it is claimed, and gets parked in failed/ while eZee is still being called.
+  @touch($processingPath);
   $record = json_decode(file_get_contents($processingPath), true);
 
   // One Room_N entry per physical room — occupancy and guest identity
