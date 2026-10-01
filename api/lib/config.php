@@ -24,6 +24,9 @@ if (!file_exists($secretsFile)) {
   exit;
 }
 require $secretsFile;
+// Alert address: secrets.php may define ALERT_EMAIL itself; otherwise fall back to
+// the committed api/alert-email.php so no live-credentials file needs editing.
+if (!defined('ALERT_EMAIL') && is_file(__DIR__ . '/../alert-email.php')) require __DIR__ . '/../alert-email.php';
 
 // eZee sandbox vs production is differentiated by which HotelCode/APIKey
 // pair is in secrets.php, not by a different base URL.
