@@ -4,8 +4,13 @@
  * https://razorpay.com/docs/api/orders/ · https://razorpay.com/docs/payments/server-integration/php/payment-gateway/build-integration/#3-verify-payment-signature
  */
 
+// Overridable only so tests can point at a local mock; production leaves it unset.
+function razorpay_api_base(): string {
+  return defined('RAZORPAY_API_BASE') ? RAZORPAY_API_BASE : 'https://api.razorpay.com';
+}
+
 function razorpay_create_order(int $amountPaise, string $receipt, array $notes): array {
-  $ch = curl_init('https://api.razorpay.com/v1/orders');
+  $ch = curl_init(razorpay_api_base() . '/v1/orders');
   curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_TIMEOUT => 15,
@@ -45,7 +50,7 @@ function razorpay_verify_signature(string $orderId, string $paymentId, string $s
 // doesn't depend on the client callback firing or the webhook being
 // registered/reachable, both of which have been observed to fail silently.
 function razorpay_fetch_order_payments(string $orderId): array {
-  $ch = curl_init('https://api.razorpay.com/v1/orders/' . urlencode($orderId) . '/payments');
+  $ch = curl_init(razorpay_api_base() . '/v1/orders/' . urlencode($orderId) . '/payments');
   curl_setopt_array($ch, [
     CURLOPT_RETURNTRANSFER => true,
     CURLOPT_TIMEOUT => 15,

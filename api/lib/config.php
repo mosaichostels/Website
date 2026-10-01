@@ -27,7 +27,9 @@ require $secretsFile;
 
 // eZee sandbox vs production is differentiated by which HotelCode/APIKey
 // pair is in secrets.php, not by a different base URL.
-define('EZEE_BASE_URL', 'https://live.ipms247.com/');
+// secrets.php may pre-define EZEE_BASE_URL (tests point it at a local mock);
+// production never does, so this stays the live endpoint.
+if (!defined('EZEE_BASE_URL')) define('EZEE_BASE_URL', 'https://live.ipms247.com/');
 
 // Pending-order JSON files live OUTSIDE the web root (one level above the
 // site's docroot) so they're never HTTP-reachable and untouched by
