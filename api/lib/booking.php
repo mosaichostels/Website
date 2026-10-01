@@ -22,14 +22,52 @@ function ezee_add_payment_once(array $request): array {
   return $response;
 }
 
-function confirm_paid_order(string $orderId, string $paymentId): array {
+// How many times a definite eZee rejection of InsertBooking is retried.
+// Ambiguous failures (timeouts) are never retried.
+const MAX_CONFIRM_ATTEMPTS = 3;
+
+/**
+ * $payment is Razorpay's payment entity when the caller has one (webhook,
+ * cron): its amount/currency/status are checked against what we created the
+ * order for before any reservation is made. verify-payment.php only has the
+ * signed ids, and Razorpay orders are amount-locked, so it passes null.
+ *
+ * Statuses: done | failed (needs a human) | retry (will be retried) |
+ * unknown | mismatch.
+ */
+function confirm_paid_order(string $orderId, string $paymentId, ?array $payment = null): array {
+  // Ids end up in file paths. The signature gate makes traversal impractical
+  // for verify-payment, but the webhook and cron take ids from other sources,
+  // so the shape is enforced once, here, where every caller passes through.
+  if (!preg_match('/^order_[A-Za-z0-9]{6,40}$/', $orderId) || !preg_match('/^pay_[A-Za-z0-9]{6,40}$/', $paymentId)) {
+    bookings_log('REJECTED malformed order/payment id');
+    return ['status' => 'unknown'];
+  }
   ensure_pending_dirs();
   $pendingPath = PENDING_ORDERS_DIR . '/pending/' . $orderId . '.json';
+  $abandonedPath = PENDING_ORDERS_DIR . '/abandoned/' . $orderId . '.json';
   $processingPath = PENDING_ORDERS_DIR . '/processing/' . $orderId . '.json';
   $donePath = PENDING_ORDERS_DIR . '/done/' . $orderId . '.json';
   $failedPath = PENDING_ORDERS_DIR . '/failed/' . $orderId . '.json';
 
-  if (!@rename($pendingPath, $processingPath)) {
+  if ($payment !== null) {
+    $source = file_exists($pendingPath) ? $pendingPath : (file_exists($abandonedPath) ? $abandonedPath : null);
+    $expected = $source ? json_decode((string)@file_get_contents($source), true) : null;
+    if (is_array($expected) && (
+      ($payment['status'] ?? '') !== 'captured'
+      || (int)($payment['amount'] ?? -1) !== (int)($expected['amount'] ?? -2)
+      || ($payment['currency'] ?? '') !== 'INR'
+    )) {
+      booking_alert('payment does not match order', "order=$orderId payment=$paymentId status=" . ($payment['status'] ?? '?')
+        . ' amount=' . ($payment['amount'] ?? '?') . ' expected=' . ($expected['amount'] ?? '?'));
+      return ['status' => 'mismatch'];
+    }
+  }
+
+  // A Razorpay order stays payable forever and cron moves unpaid ones to
+  // abandoned/ after a day, so a late payment must still find its record.
+  $claimed = @rename($pendingPath, $processingPath) || @rename($abandonedPath, $processingPath);
+  if (!$claimed) {
     if (file_exists($donePath)) {
       $record = json_decode(file_get_contents($donePath), true);
       return ['status' => 'done', 'reservation_no' => $record['reservation_no'] ?? null, 'sub_reservation_no' => $record['sub_reservation_no'] ?? null];
@@ -93,8 +131,27 @@ function confirm_paid_order(string $orderId, string $paymentId): array {
   $insertResponse = ezee_get('InsertBooking', ['BookingData' => json_encode($bookingData)]);
 
   if (!$insertResponse['_ok'] || empty($insertResponse['ReservationNo'])) {
+    $record['attempts'] = ($record['attempts'] ?? 0) + 1;
+    $record['last_failure'] = json_encode($insertResponse);
+    // Retry only when eZee EXPLICITLY rejected the request: an error reply
+    // (_ok=false) that is not a transport/5xx failure, or a 429 that was
+    // refused before processing. Everything else is ambiguous — a timeout, an
+    // unreadable or 5xx reply, or a well-formed reply that simply lacks a
+    // ReservationNo (it may have been created) — and retrying risks a double
+    // booking, so it goes to a human with the evidence.
+    $ambiguous = !empty($insertResponse['_transport']) || !empty($insertResponse['_ok']);
+    file_put_contents($processingPath, json_encode($record, JSON_PRETTY_PRINT));
+    if (!$ambiguous && $record['attempts'] < MAX_CONFIRM_ATTEMPTS) {
+      // Back to pending/: reconcile-pending.php re-polls it, and the fresh
+      // mtime gives eZee a few minutes before the next attempt.
+      @rename($processingPath, $pendingPath);
+      bookings_log("RETRY InsertBooking order=$orderId payment=$paymentId attempt={$record['attempts']} response=" . json_encode($insertResponse));
+      return ['status' => 'retry'];
+    }
     @rename($processingPath, $failedPath);
-    bookings_log("FAILED InsertBooking order=$orderId payment=$paymentId response=" . json_encode($insertResponse));
+    booking_alert('PAID but booking NOT created', "order=$orderId payment=$paymentId amount={$record['total']} email={$record['email']}"
+      . ' ambiguous=' . ($ambiguous ? 'yes (check eZee for an existing reservation BEFORE re-queueing)' : 'no')
+      . ' response=' . json_encode($insertResponse));
     return ['status' => 'failed'];
   }
 
@@ -132,7 +189,7 @@ function confirm_paid_order(string $orderId, string $paymentId): array {
     if (!$paymentResponse['_ok']) {
       // Deliberately loud and greppable: this is a manual reconciliation item.
       // Everything needed to post the payment by hand is on this one line.
-      bookings_log("ACTION REQUIRED AddPayment failed twice reservation=$reservationNo"
+      booking_alert('ACTION REQUIRED AddPayment failed twice', "reservation=$reservationNo"
         . " payment=$paymentId amount={$record['total']} response=" . json_encode($paymentResponse));
     }
   }

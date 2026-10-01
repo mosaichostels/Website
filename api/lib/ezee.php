@@ -117,15 +117,23 @@ function ezee_curl(string $url, ?string $jsonBody, ?array $formFields = null): a
   $curlError = curl_error($ch);
   $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 
+  // _transport marks failures where we cannot know whether eZee acted on the
+  // request (timeout, dropped connection, garbage reply). InsertBooking
+  // callers must NOT blindly retry those — the reservation may already exist.
   if ($curlErrno !== 0) {
-    return ['_ok' => false, '_error' => "eZee request failed: $curlError"];
+    return ['_ok' => false, '_transport' => true, '_error' => "eZee request failed: $curlError"];
   }
   if ($httpCode === 429) {
     return ['_ok' => false, '_error' => 'eZee rate limit hit, please try again shortly.', '_rateLimited' => true];
   }
+  // A 5xx means the gateway or eZee itself failed; whatever JSON came back says
+  // nothing about whether the request was acted on.
+  if ($httpCode >= 500) {
+    return ['_ok' => false, '_transport' => true, '_error' => "eZee returned HTTP $httpCode."];
+  }
   $decoded = json_decode($response, true);
   if (!is_array($decoded)) {
-    return ['_ok' => false, '_error' => "eZee returned an unexpected response (HTTP $httpCode)."];
+    return ['_ok' => false, '_transport' => true, '_error' => "eZee returned an unexpected response (HTTP $httpCode)."];
   }
   if (isset($decoded['Errors']['ErrorMessage'])) {
     return ['_ok' => false, '_error' => 'eZee error: ' . $decoded['Errors']['ErrorMessage']];

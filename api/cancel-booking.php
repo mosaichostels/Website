@@ -14,14 +14,22 @@ require __DIR__ . '/lib/ezee.php';
 
 // Tightest of the three: without a ceiling this is a free oracle for guessing
 // reservation numbers. Nobody legitimately cancels five times in ten minutes.
+require_method('POST');
 rate_limit('cancel-booking', 5, 600);
+// The per-client limit above is keyed on a header a caller can rotate, so the
+// guessing ceiling also lives where it cannot be: per reservation, and site-wide.
+rate_limit('cancel-all', 60, 600, 'all');
 
 $body = read_json_body();
-$reservationNo = trim($body['reservation_no'] ?? '');
-$email = trim($body['email'] ?? '');
+$reservationNo = str_field($body, 'reservation_no');
+$email = str_field($body, 'email');
 if ($reservationNo === '' || $email === '') {
   json_error(400, 'Please provide your reservation number and email.');
 }
+if (!preg_match('/^[A-Za-z0-9-]{1,32}$/', $reservationNo)) {
+  json_error(404, 'Reservation not found or email does not match. Please check the details or WhatsApp us.');
+}
+rate_limit('cancel-reservation', 5, 3600, $reservationNo);
 
 $booking = ezee_fetch_booking($reservationNo);
 $reservation = $booking['Reservations']['Reservation'][0] ?? null;
@@ -69,6 +77,15 @@ bookings_log(sprintf(
   $record['total'] ?? 'unknown',
   $refundDue === null ? 'unknown' : ($refundDue ? 'YES' : 'no')
 ));
+
+// Nothing here moves money, so make sure a person finds out. Without this the
+// only trace was one log line and the guest was promised 7-10 days.
+if ($refundDue !== false) {
+  $refund = ['reservation_no' => $reservationNo, 'razorpay_payment_id' => $record['razorpay_payment_id'] ?? null,
+    'amount' => $record['total'] ?? null, 'refund_due' => $refundDue === null ? 'unknown' : 'yes', 'cancelled_at' => date('c')];
+  @file_put_contents(PENDING_ORDERS_DIR . '/refunds/' . $reservationNo . '.json', json_encode($refund, JSON_PRETTY_PRINT), LOCK_EX);
+  booking_alert('REFUND to review after cancellation', json_encode($refund));
+}
 
 if ($refundDue === true) {
   $refundNote = 'Your refund will be processed within 7–10 business days.';

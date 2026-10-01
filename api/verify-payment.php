@@ -12,10 +12,17 @@ require __DIR__ . '/lib/ezee.php';
 require __DIR__ . '/lib/razorpay.php';
 require __DIR__ . '/lib/booking.php';
 
+require_method('POST');
+// An empty secret makes the HMAC below forgeable by anyone. create-order
+// already refuses to start a payment in that state; refuse here too.
+if (RAZORPAY_KEY_SECRET === '') {
+  json_error(503, 'Online payment isn\'t set up yet.');
+}
+
 $body = read_json_body();
-$orderId = $body['razorpay_order_id'] ?? '';
-$paymentId = $body['razorpay_payment_id'] ?? '';
-$signature = $body['razorpay_signature'] ?? '';
+$orderId = str_field($body, 'razorpay_order_id');
+$paymentId = str_field($body, 'razorpay_payment_id');
+$signature = str_field($body, 'razorpay_signature');
 if ($orderId === '' || $paymentId === '' || $signature === '') {
   json_error(400, 'Missing payment verification fields.');
 }
@@ -35,7 +42,7 @@ if ($result['status'] === 'done') {
     'sub_reservation_no' => $result['sub_reservation_no'],
   ]);
 }
-if ($result['status'] === 'failed') {
+if ($result['status'] === 'failed' || $result['status'] === 'retry') {
   json_error(502, 'Payment received but booking confirmation is still pending — our team will follow up shortly.');
 }
 json_error(409, 'This booking is already being processed. Please wait a moment and refresh.');

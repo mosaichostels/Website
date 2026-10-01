@@ -35,7 +35,7 @@ define('EZEE_BASE_URL', 'https://live.ipms247.com/');
 define('PENDING_ORDERS_DIR', dirname(__DIR__, 3) . '/ezee-pending-orders');
 
 function ensure_pending_dirs() {
-  foreach (['pending', 'processing', 'done', 'failed', 'abandoned', 'ratelimit'] as $sub) {
+  foreach (['pending', 'processing', 'done', 'failed', 'abandoned', 'ratelimit', 'refunds'] as $sub) {
     $dir = PENDING_ORDERS_DIR . '/' . $sub;
     if (!is_dir($dir)) mkdir($dir, 0700, true);
   }
@@ -43,8 +43,44 @@ function ensure_pending_dirs() {
 
 function bookings_log(string $line) {
   ensure_pending_dirs();
+  // Guest-supplied text reaches log lines (cancel email etc.). Newlines would
+  // let a caller forge a whole line (a fake "CONFIRMED"), and eZee's APIKey
+  // rides in the query string, so a cURL error naming the URL would leak it.
+  $line = preg_replace('/[\x00-\x1f\x7f]+/', ' ', $line);
+  $line = preg_replace('/(APIKey=)[^&\s"]+/i', '$1***', $line);
   $ts = date('c');
   file_put_contents(PENDING_ORDERS_DIR . '/bookings.log', "[$ts] $line\n", FILE_APPEND | LOCK_EX);
+}
+
+/**
+ * Tell a human. Logging alone meant a stranded paid order was only ever found
+ * by someone grepping bookings.log. Mails ALERT_EMAIL (define it in
+ * secrets.php) and always logs, so a missing address degrades to the old
+ * behaviour instead of failing.
+ */
+function booking_alert(string $subject, string $detail): void {
+  bookings_log("ALERT $subject $detail");
+  if (defined('ALERT_EMAIL') && ALERT_EMAIL !== '') {
+    @mail(ALERT_EMAIL, '[Mosaic booking] ' . $subject, $detail);
+  }
+}
+
+/** Reject anything but the expected verb; these endpoints never take others. */
+function require_method(string $method): void {
+  if (($_SERVER['REQUEST_METHOD'] ?? '') !== $method) {
+    header('Allow: ' . $method);
+    json_error(405, 'Method not allowed.');
+  }
+}
+
+/**
+ * Scalar string from decoded JSON/query input. A client can send an array or
+ * number where a string is expected, which used to reach trim()/preg_replace()
+ * and surface as a TypeError (HTTP 500, empty body) instead of a clean 400.
+ */
+function str_field(array $source, string $key): string {
+  $v = $source[$key] ?? '';
+  return is_string($v) ? trim($v) : '';
 }
 
 /**
@@ -80,9 +116,12 @@ function client_ip(): string {
  * up to six times while the booking confirms (see VERIFY_RETRY_DELAYS in
  * book-now.js), and refusing one of those strands a paid booking.
  */
-function rate_limit(string $bucket, int $maxHits, int $windowSeconds): void {
+function rate_limit(string $bucket, int $maxHits, int $windowSeconds, ?string $subject = null): void {
   ensure_pending_dirs();
-  $file = PENDING_ORDERS_DIR . '/ratelimit/' . hash('sha256', $bucket . '|' . client_ip()) . '.json';
+  // $subject replaces the client address as the counter key. Pass a fixed
+  // string for a site-wide ceiling, or a reservation number to cap guesses
+  // against one booking — both survive a caller rotating X-Forwarded-For.
+  $file = PENDING_ORDERS_DIR . '/ratelimit/' . hash('sha256', $bucket . '|' . ($subject ?? client_ip())) . '.json';
   $handle = @fopen($file, 'c+');
   // Can't track: let the request through rather than locking out real guests
   // because of a disk problem. Failing open is the right call for a speed bump.

@@ -27,9 +27,23 @@ if (RAZORPAY_KEY_ID === '' || RAZORPAY_KEY_SECRET === '') {
 // Each call creates a REAL Razorpay order and a pending file. A genuine guest
 // needs one or two; the order-reuse path in book-now.js means retries mostly
 // don't come back here at all.
+require_method('POST');
 rate_limit('create-order', 10, 600);
+// Site-wide ceiling: the per-client one above keys on a spoofable header.
+rate_limit('create-order-all', 60, 600, 'all');
 
 $body = read_json_body();
+// Scalars must really be strings: an array here used to reach preg_replace()
+// or strlen() below and die as a 500 with an empty body.
+foreach (['check_in', 'check_out', 'first_name', 'last_name', 'email', 'phone', 'phone_code', 'nationality', 'special_request', 'arrival_time'] as $k) {
+  if (isset($body[$k]) && !is_string($body[$k])) json_error(400, 'Invalid request.');
+}
+if (isset($body['guest'])) {
+  if (!is_array($body['guest'])) json_error(400, 'Invalid request.');
+  foreach (['title', 'first_name', 'last_name', 'gender'] as $k) {
+    if (isset($body['guest'][$k]) && !is_string($body['guest'][$k])) json_error(400, 'Invalid request.');
+  }
+}
 
 $required = ['check_in', 'check_out', 'rooms', 'first_name', 'email', 'phone'];
 foreach ($required as $field) {
@@ -51,6 +65,10 @@ if (!is_array($body['rooms']) || count($body['rooms']) === 0) {
 $cart = [];
 $totalUnits = 0;
 foreach ($body['rooms'] as $item) {
+  if (!is_array($item)) json_error(400, 'Invalid room selection.');
+  foreach (['roomtypeunkid', 'ratetypeunkid', 'roomrateunkid'] as $k) {
+    if (isset($item[$k]) && !is_scalar($item[$k])) json_error(400, 'Invalid room selection.');
+  }
   $qty = (int)($item['qty'] ?? 0);
   if ($qty < 1) continue;
   if (empty($item['roomtypeunkid']) || empty($item['ratetypeunkid']) || empty($item['roomrateunkid'])) {
@@ -123,6 +141,7 @@ if (!$ezeeResponse['_ok']) {
 // a single guest — wrong on the arrival list and in occupancy reporting.
 $roomUnits = [];
 $total = 0.0;
+$requestedByRate = []; // the same rate can appear on several cart lines
 foreach ($cart as $item) {
   $matched = find_matching_room($ezeeResponse, $item['roomrateunkid']);
   if (!$matched) {
@@ -130,7 +149,9 @@ foreach ($cart as $item) {
   }
   $available = $matched['available_rooms'] ?? $matched['min_ava_rooms'] ?? null;
   if (is_array($available)) $available = min($available) ?: 0;
-  if ($available !== null && $item['qty'] > (int)$available) {
+  $rateKey = (string)$item['roomrateunkid'];
+  $requestedByRate[$rateKey] = ($requestedByRate[$rateKey] ?? 0) + $item['qty'];
+  if ($available !== null && $requestedByRate[$rateKey] > (int)$available) {
     json_error(409, 'Only ' . (int)$available . ' left of "' . ($matched['Roomtype_Name'] ?? 'this room') . '" — please adjust quantity.');
   }
   // Same resolver availability.php used to render the price the guest saw —

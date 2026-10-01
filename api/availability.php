@@ -9,10 +9,12 @@ require __DIR__ . '/lib/ezee.php';
 
 // Searching is cheap but each call is a live eZee query; generous enough that
 // a guest comparing dates never notices it.
+require_method('GET');
 rate_limit('availability', 60, 600);
 
-$checkIn = $_GET['check_in'] ?? '';
-$checkOut = $_GET['check_out'] ?? '';
+// check_in[]=1 gives an array, which used to 500 downstream.
+$checkIn = is_string($_GET['check_in'] ?? null) ? $_GET['check_in'] : '';
+$checkOut = is_string($_GET['check_out'] ?? null) ? $_GET['check_out'] : '';
 $adults = (int)($_GET['adults'] ?? 1);
 $children = (int)($_GET['children'] ?? 0);
 $rooms = (int)($_GET['rooms'] ?? 1);

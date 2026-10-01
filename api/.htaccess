@@ -1,3 +1,15 @@
+# Secrets are included by PHP, never fetched over HTTP. If PHP handling ever
+# breaks, this keeps the file from being served as text.
+<FilesMatch "^secrets(\.example)?\.php$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
 # API responses are dynamic (live pricing, booking state, error responses)
 # and must never be cached — the root .htaccess's ExpiresDefault "access
 # plus 1 day" otherwise applies here too, since PHP/JSON isn't covered by
