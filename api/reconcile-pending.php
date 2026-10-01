@@ -36,7 +36,7 @@ foreach (glob(PENDING_ORDERS_DIR . '/pending/*.json') ?: [] as $file) {
 
   $captured = null;
   foreach ($payments['items'] ?? [] as $payment) {
-    if ($payment['status'] === 'captured') { $captured = $payment; break; }
+    if (($payment['status'] ?? '') === 'captured') { $captured = $payment; break; }
   }
   if (!$captured) {
     // Confirmed unpaid by Razorpay itself, not merely quiet.
@@ -47,8 +47,20 @@ foreach (glob(PENDING_ORDERS_DIR . '/pending/*.json') ?: [] as $file) {
     continue;
   }
 
-  $result = confirm_paid_order($orderId, $captured['id']);
+  $result = confirm_paid_order($orderId, $captured['id'], $captured);
   bookings_log("RECONCILE order=$orderId payment={$captured['id']} status={$result['status']}");
+}
+
+// An order sits in processing/ only for the seconds it takes to call eZee. One
+// that lingers means PHP died mid-claim (timeout, fatal). We cannot tell
+// whether InsertBooking had already succeeded, so it is NOT re-queued
+// automatically — that could double-book. Park it in failed/ and tell a human.
+foreach (glob(PENDING_ORDERS_DIR . '/processing/*.json') ?: [] as $file) {
+  if (filemtime($file) > time() - 600) continue;
+  $orderId = basename($file, '.json');
+  if (@rename($file, PENDING_ORDERS_DIR . '/failed/' . $orderId . '.json')) {
+    booking_alert('order stuck in processing', "order=$orderId — check eZee for an existing reservation BEFORE re-queueing");
+  }
 }
 
 // Rate-limit counters are disposable: each is a fixed window of at most a few

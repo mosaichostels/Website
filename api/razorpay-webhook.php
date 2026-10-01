@@ -33,12 +33,16 @@ if (!is_array($event) || ($event['event'] ?? '') !== 'payment.captured') {
 }
 
 $payment = $event['payload']['payment']['entity'] ?? [];
-$orderId = $payment['order_id'] ?? '';
-$paymentId = $payment['id'] ?? '';
+$orderId = is_string($payment['order_id'] ?? null) ? $payment['order_id'] : '';
+$paymentId = is_string($payment['id'] ?? null) ? $payment['id'] : '';
 if ($orderId === '' || $paymentId === '') {
   http_response_code(400);
   exit;
 }
 
-confirm_paid_order($orderId, $paymentId);
-http_response_code(200);
+$result = confirm_paid_order($orderId, $paymentId, $payment);
+// A 5xx makes Razorpay redeliver the event. That is what we want when the
+// booking could not be created yet (transient eZee trouble); the claim in
+// confirm_paid_order() keeps redelivery idempotent. done / unknown (not our
+// order) / mismatch (already alerted) are final, so acknowledge those.
+http_response_code(in_array($result['status'], ['failed', 'retry'], true) ? 500 : 200);

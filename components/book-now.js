@@ -122,6 +122,10 @@
       // the new stage's heading announces the change and puts the tab order in
       // the right place. preventScroll keeps the page from jumping on mobile.
       if (changed) {
+        // preventScroll below stops focus from jumping the page, but then nothing
+        // brought the new stage into view: on a phone, Continue at the foot of a
+        // long results list opened the guest form scrolled past its top.
+        if (mode && stages[name].scrollIntoView) stages[name].scrollIntoView({ block: 'start' });
         const heading = stages[name].querySelector('.direct-title');
         if (heading) {
           heading.setAttribute('tabindex', '-1');
@@ -141,6 +145,8 @@
     // double-counting is worse than a missing event, so this is keyed by
     // reservation rather than being a plain boolean.
     let purchaseReported = null;
+    let beganCheckoutKey = ''; // dedupes begin_checkout across Back/Continue
+    let paymentOpen = false; // a Razorpay window is up — a second submit must not open another
     const ORDER_REUSE_MS = 10 * 60 * 1000;
 
     const searchForm = document.getElementById('searchForm');
@@ -156,7 +162,9 @@
     const resultsMsg = document.getElementById('resultsMsg');
 
     // Sensible date bounds: check-in from today, check-out from check-in.
-    const today = new Date().toISOString().slice(0, 10);
+    // Hotel-local date (IST, UTC+5:30). toISOString() is UTC, which made "today"
+    // yesterday for anyone searching between 00:00 and 05:30 IST.
+    const today = new Date(Date.now() + 330 * 60000).toISOString().slice(0, 10);
     const checkInEl = document.getElementById('checkIn');
     const checkOutEl = document.getElementById('checkOut');
     attachCalendar(checkInEl, () => today);
@@ -213,7 +221,7 @@
       if (!stage || !stages[stage]) return;
       // Never restore a stage whose data is gone (e.g. Back after a completed
       // booking, which clears the selection): send them to the start instead.
-      if ((stage === 'guest' || stage === 'confirm') && !selection) {
+      if (((stage === 'guest' || stage === 'confirm') && !selection) || (stage === 'results' && !roomOptions.children.length)) {
         showStage('search', 'none');
         return;
       }
@@ -236,6 +244,26 @@
       if (searchForm) searchForm.requestSubmit ? searchForm.requestSubmit() : searchForm.dispatchEvent(new Event('submit'));
     }
 
+    // fetch + JSON with a timeout and guest-safe errors. A non-JSON reply (a 5xx
+    // HTML page, an empty 500) or a dropped connection used to surface as
+    // "Unexpected token '<'" or "Failed to fetch", because err.message is always
+    // truthy and the friendly fallback below it never ran.
+    async function fetchJson(url, options, timeoutMs, failureText) {
+      const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      const timer = ctrl ? setTimeout(() => ctrl.abort(), timeoutMs || 30000) : null;
+      let res;
+      try {
+        res = await fetch(url, Object.assign({}, options, ctrl ? { signal: ctrl.signal } : {}));
+      } catch (err) {
+        throw new Error(failureText + ' Check your connection, or WhatsApp us.');
+      } finally {
+        if (timer) clearTimeout(timer);
+      }
+      let data = null;
+      try { data = await res.json(); } catch (err) { data = null; }
+      return { res, data };
+    }
+
     // Errors are assertive, progress updates are polite. Without a role these
     // appeared silently — "Email addresses do not match", "Payment failed" and
     // "Confirming your booking..." all announced nothing at all.
@@ -245,6 +273,8 @@
       el.setAttribute('role', cls === 'error' ? 'alert' : 'status');
       el.setAttribute('aria-live', cls === 'error' ? 'assertive' : 'polite');
       el.style.display = 'block';
+      // Messages sit below long forms; an error nobody can see is no error.
+      if (cls === 'error' && el.scrollIntoView) el.scrollIntoView({ block: 'nearest' });
     }
     function clearMsg(el) {
       el.style.display = 'none';
@@ -266,9 +296,8 @@
       btn.disabled = true;
       btn.textContent = 'Searching...';
       try {
-        const res = await fetch('/api/availability.php?' + params.toString());
-        const data = await res.json();
-        if (!res.ok || data.error) throw new Error(data.error || 'Search failed');
+        const { res, data } = await fetchJson('/api/availability.php?' + params.toString(), {}, 30000, 'We couldn\'t reach the booking system.');
+        if (!res.ok || !data || data.error) throw new Error((data && data.error) || 'We couldn\'t load availability just now. Please try again, or WhatsApp us.');
         renderRoomOptions(data.rooms || [], params);
         track('view_item_list', {
           item_list_name: 'Availability results',
@@ -429,7 +458,12 @@
         };
         renderPriceSummary();
         clearMsg(guestMsg);
-        track('begin_checkout', { currency: 'INR', value: selection.total, items: trackItems(selection.items) });
+        // Back/Continue re-enters here; counting each pass inflated the funnel.
+        const checkoutKey = JSON.stringify(selection.items.map((i) => [i.roomrateunkid, i.qty]));
+        if (checkoutKey !== beganCheckoutKey) {
+          beganCheckoutKey = checkoutKey;
+          track('begin_checkout', { currency: 'INR', value: selection.total, items: trackItems(selection.items) });
+        }
         showStage('guest', 'push');
       };
     }
@@ -446,15 +480,16 @@
     if (guestForm) guestForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       if (!selection) { showStage('search', 'replace'); return; }
+      if (paymentOpen) return;
       clearMsg(guestMsg);
-      if (document.getElementById('gEmail').value !== document.getElementById('gEmailConfirm').value) {
+      if (document.getElementById('gEmail').value.trim().toLowerCase() !== document.getElementById('gEmailConfirm').value.trim().toLowerCase()) {
         showMsg(guestMsg, 'Email addresses do not match.', 'error');
         return;
       }
       const guest = {
         title: document.getElementById('gTitle').value,
-        first_name: document.getElementById('gFirstName').value,
-        last_name: document.getElementById('gLastName').value,
+        first_name: document.getElementById('gFirstName').value.trim(),
+        last_name: document.getElementById('gLastName').value.trim(),
         gender: document.getElementById('gGender').value,
       };
       const payload = {
@@ -470,8 +505,8 @@
         guest: guest,
         first_name: guest.first_name,
         last_name: guest.last_name,
-        email: document.getElementById('gEmail').value,
-        phone: document.getElementById('gPhone').value,
+        email: document.getElementById('gEmail').value.trim(),
+        phone: document.getElementById('gPhone').value.trim(),
         phone_code: document.getElementById('gPhoneCode').value,
         nationality: document.getElementById('gNationality').value,
         special_request: document.getElementById('gRequest').value,
@@ -495,12 +530,11 @@
           openRazorpay(lastOrder.order, payload);
           return;
         }
-        const res = await fetch('/api/create-order.php', {
+        const { res, data: order } = await fetchJson('/api/create-order.php', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
-        });
-        const order = await res.json();
+        }, 30000, 'We couldn\'t start the payment.');
         if (order && order.price_changed) {
           // Re-price the visible summary and let them decide. Submitting again
           // now sends the new figure and goes through.
@@ -510,7 +544,7 @@
             + 'The summary above is updated — press Pay & Confirm Booking again to continue at the new rate.', 'error');
           return;
         }
-        if (!res.ok || order.error) throw new Error(order.error || 'Could not start payment');
+        if (!res.ok || !order || order.error) throw new Error((order && order.error) || 'We couldn\'t start the payment just now. Please try again, or WhatsApp us.');
         lastOrder = { order, payload, key: payloadKey, createdAt: Date.now() };
         openRazorpay(order, payload);
       } catch (err) {
@@ -566,11 +600,14 @@
         },
         modal: {
           ondismiss: function () {
+            paymentOpen = false;
+            track('payment_dismissed', { currency: 'INR', value: paidAmount() });
             offerRetry('Payment cancelled. Your rooms are still selected — pick up where you left off below.');
           },
         },
       });
       rzp.on('payment.failed', function () {
+        track('payment_failed', { currency: 'INR', value: paidAmount() });
         offerRetry('That payment didn\'t go through. No money has been taken — try again, or book over WhatsApp.');
       });
       hideRetry();
@@ -580,6 +617,7 @@
         payment_type: 'Razorpay',
         items: selection ? trackItems(selection.items) : [],
       });
+      paymentOpen = true;
       rzp.open();
     }
 
@@ -669,6 +707,11 @@
     const VERIFY_RETRY_DELAYS = [1000, 2000, 3000, 5000, 5000]; // ~16s total
 
     async function verifyPayment(response) {
+      // Razorpay's window stays open after payment.failed, so a guest can still
+      // pay inside it; once a payment actually succeeded the retry button must
+      // not offer to reopen an order that is already paid.
+      paymentOpen = false;
+      hideRetry();
       showMsg(guestMsg, 'Confirming your booking...', 'success');
       // The pay button was re-enabled the moment Razorpay's modal opened, and
       // this can now sit here for ~16s — long enough for an anxious guest to
@@ -681,8 +724,12 @@
 
       for (let attempt = 0; ; attempt++) {
         let res = null;
+        let timer = null;
         try {
+          const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+          timer = ctrl ? setTimeout(() => ctrl.abort(), 25000) : null;
           res = await fetch('/api/verify-payment.php', {
+            signal: ctrl ? ctrl.signal : undefined,
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
@@ -692,8 +739,9 @@
             }),
           });
         } catch (err) {
-          res = null; // network failure — transient, same handling as a 409
+          res = null; // network failure or timeout — transient, same handling as a 409
         }
+        if (timer) clearTimeout(timer);
 
         if (res) {
           let result = null;
@@ -723,6 +771,8 @@
             selection = null;
             cart = [];
             lastOrder = null;
+            roomOptions.innerHTML = '';
+            cartBar.style.display = 'none';
             return;
           }
         }
@@ -891,9 +941,9 @@
       const t = todayDate();
       pop.innerHTML = `
         <div class="cal-head">
-          <button type="button" class="cal-nav cal-prev">‹</button>
+          <button type="button" class="cal-nav cal-prev" aria-label="Previous month">‹</button>
           <div class="cal-month">${MONTHS[viewMonth]} ${viewYear}</div>
-          <button type="button" class="cal-nav cal-next">›</button>
+          <button type="button" class="cal-nav cal-next" aria-label="Next month">›</button>
         </div>
         <div class="cal-weekdays">${WEEKDAYS.map((d) => `<span>${d}</span>`).join('')}</div>
         <div class="cal-days"></div>`;
@@ -1021,20 +1071,29 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       msg.style.display = 'none';
+      // One click used to cancel outright, while the policy right above says a
+      // cancellation inside 72 hours of check-in is not refunded.
+      const resNo = document.getElementById('cResNo').value.trim();
+      if (!window.confirm('Cancel reservation ' + resNo + '? This cannot be undone. Cancelling within 72 hours of check-in is not refundable under our policy.')) return;
       const btn = form.querySelector('.form-submit');
       btn.disabled = true;
       btn.textContent = 'Cancelling...';
       try {
-        const res = await fetch('/api/cancel-booking.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            reservation_no: document.getElementById('cResNo').value,
-            email: document.getElementById('cEmail').value,
-          }),
-        });
-        const result = await res.json();
-        if (!res.ok || result.error) throw new Error(result.error || 'Could not cancel booking');
+        let res, result = null;
+        try {
+          res = await fetch('/api/cancel-booking.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              reservation_no: resNo,
+              email: document.getElementById('cEmail').value.trim(),
+            }),
+          });
+          try { result = await res.json(); } catch (err) { result = null; }
+        } catch (err) {
+          throw new Error('We couldn\'t reach the booking system. Check your connection, or WhatsApp us.');
+        }
+        if (!res.ok || !result || result.error) throw new Error((result && result.error) || 'We couldn\'t cancel that automatically. Please WhatsApp us and we\'ll cancel it for you.');
         msg.textContent = `Reservation #${result.reservation_no} has been cancelled. ${result.refund_note || ''}`.trim();
         msg.className = 'form-msg success';
         msg.style.display = 'block';

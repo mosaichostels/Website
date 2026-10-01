@@ -159,6 +159,10 @@
   # without these, the same content was reachable at two different URLs
   # (e.g. /about.html AND /about both returning 200), a duplicate-content risk.
   RewriteRule ^index\.html$ / [R=301,L]
+  # Only for a real client request: DirectoryIndex re-requests /blog/index.html
+  # internally when serving /blog/, and an unconditioned rule would loop.
+  RewriteCond %{THE_REQUEST} \s/blog/index\.html[\s?]
+  RewriteRule ^blog/index\.html$ /blog/ [R=301,L]
   RewriteRule ^about\.html$ /about [R=301,L]
   RewriteRule ^contact\.html$ /contact [R=301,L]
   RewriteRule ^book-now\.html$ /book-now [R=301,L]

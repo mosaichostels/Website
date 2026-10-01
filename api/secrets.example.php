@@ -32,3 +32,9 @@ define('RAZORPAY_KEY_SECRET', '');
 // webhook pointed at api/razorpay-webhook.php. Blank disables the webhook
 // endpoint (it 400s every request) without breaking the main booking flow.
 define('RAZORPAY_WEBHOOK_SECRET', '');
+
+// ── Alerts ──
+// Where booking_alert() emails: a paid order whose booking could not be
+// created, an order stuck mid-claim, a payment/amount mismatch, a failed
+// AddPayment, a cancellation that may owe a refund. Blank = log only.
+define('ALERT_EMAIL', '');

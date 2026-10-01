@@ -74,3 +74,9 @@
 }
 
 h2.direct-title,h2.section-title{margin-top:0}
+
+/* iOS Safari zooms the page on focus when a form control is under 16px. */
+@media (max-width:768px){.field input,.field select,.field textarea,.cal-input{font-size:16px}}
+/* Contrast: success text was ~2.9:1, inactive step labels were 10px at 50% opacity. */
+.form-msg.success{color:#0f7a3c}
+.widget-steps li{opacity:.75}
