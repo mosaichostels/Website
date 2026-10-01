@@ -1,0 +1,5417 @@
+{
+ "site": "https://www.mosaichostels.com/",
+ "days": 90,
+ "generated": "2026-10-01T08:01:13",
+ "sites": [
+  {
+   "__type": "Site:#Microsoft.Bing.Webmaster.Api",
+   "AuthenticationCode": "3A7EF1A41B013C61E8012AB27405154A",
+   "DnsVerificationCode": "2c6bd6b1604626cf065f75e2283dc251.mosaichostels.com",
+   "IsVerified": true,
+   "Url": "https://www.mosaichostels.com/"
+  }
+ ],
+ "site_roles": [
+  {
+   "__type": "SiteRoles:#Microsoft.Bing.Webmaster.Api",
+   "Date": "/Date(1786278270057)/",
+   "DelegatedCode": null,
+   "DelegatedCodeOwnerEmail": null,
+   "DelegatorEmail": "GSCImport",
+   "Email": "mosaichostels@gmail.com",
+   "Expired": false,
+   "Role": 0,
+   "Site": "https://www.mosaichostels.com/",
+   "VerificationSite": "https://www.mosaichostels.com/"
+  }
+ ],
+ "feeds": [
+  {
+   "__type": "Feed:#Microsoft.Bing.Webmaster.Api",
+   "Compressed": false,
+   "FileSize": 0,
+   "LastCrawled": "/Date(1790757306000)/",
+   "Status": "Success",
+   "Submitted": "/Date(1786278271859)/",
+   "Type": "Sitemap",
+   "Url": "https://www.mosaichostels.com/sitemap.xml",
+   "UrlCount": 22
+  }
+ ],
+ "crawl_stats": [
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 9,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 27,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 2,
+   "Code5xx": 2,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 2,
+   "CrawlErrors": 3,
+   "Date": "/Date(1783036800000)/",
+   "DnsFailures": 0,
+   "InIndex": 24,
+   "InLinks": 1,
+   "day": "2026-07-03"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 10,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 26,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 6,
+   "Code5xx": 2,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 6,
+   "Date": "/Date(1783123200000)/",
+   "DnsFailures": 0,
+   "InIndex": 24,
+   "InLinks": 1,
+   "day": "2026-07-04"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 10,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 26,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 5,
+   "Code5xx": 2,
+   "ConnectionTimeout": 2,
+   "ContainsMalware": 0,
+   "CrawledPages": 11,
+   "CrawlErrors": 13,
+   "Date": "/Date(1783209600000)/",
+   "DnsFailures": 0,
+   "InIndex": 24,
+   "InLinks": 1,
+   "day": "2026-07-05"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 10,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 24,
+   "Code301": 3,
+   "Code302": 10,
+   "Code4xx": 6,
+   "Code5xx": 2,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 8,
+   "CrawlErrors": 9,
+   "Date": "/Date(1783296000000)/",
+   "DnsFailures": 0,
+   "InIndex": 23,
+   "InLinks": 1,
+   "day": "2026-07-06"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 10,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 23,
+   "Code301": 3,
+   "Code302": 11,
+   "Code4xx": 3,
+   "Code5xx": 2,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 2,
+   "CrawlErrors": 2,
+   "Date": "/Date(1783382400000)/",
+   "DnsFailures": 0,
+   "InIndex": 23,
+   "InLinks": 1,
+   "day": "2026-07-07"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 9,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 23,
+   "Code301": 3,
+   "Code302": 11,
+   "Code4xx": 6,
+   "Code5xx": 2,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 10,
+   "CrawlErrors": 5,
+   "Date": "/Date(1783468800000)/",
+   "DnsFailures": 0,
+   "InIndex": 23,
+   "InLinks": 1,
+   "day": "2026-07-08"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 7,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 22,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 3,
+   "Code5xx": 2,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 7,
+   "CrawlErrors": 2,
+   "Date": "/Date(1783555200000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 1,
+   "day": "2026-07-09"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 7,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 21,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 3,
+   "Code5xx": 2,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 6,
+   "CrawlErrors": 2,
+   "Date": "/Date(1783641600000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 1,
+   "day": "2026-07-10"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 7,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 21,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 5,
+   "Code5xx": 2,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 4,
+   "CrawlErrors": 5,
+   "Date": "/Date(1783728000000)/",
+   "DnsFailures": 0,
+   "InIndex": 21,
+   "InLinks": 1,
+   "day": "2026-07-11"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 7,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 20,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 3,
+   "Code5xx": 2,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 2,
+   "CrawlErrors": 2,
+   "Date": "/Date(1783814400000)/",
+   "DnsFailures": 0,
+   "InIndex": 20,
+   "InLinks": 1,
+   "day": "2026-07-12"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 8,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 19,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 3,
+   "Code5xx": 2,
+   "ConnectionTimeout": 3,
+   "ContainsMalware": 0,
+   "CrawledPages": 8,
+   "CrawlErrors": 6,
+   "Date": "/Date(1783900800000)/",
+   "DnsFailures": 0,
+   "InIndex": 20,
+   "InLinks": 1,
+   "day": "2026-07-13"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 8,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 19,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 4,
+   "Code5xx": 2,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 3,
+   "CrawlErrors": 3,
+   "Date": "/Date(1783987200000)/",
+   "DnsFailures": 0,
+   "InIndex": 20,
+   "InLinks": 1,
+   "day": "2026-07-14"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 9,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 18,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 3,
+   "Code5xx": 2,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 4,
+   "CrawlErrors": 3,
+   "Date": "/Date(1784073600000)/",
+   "DnsFailures": 0,
+   "InIndex": 19,
+   "InLinks": 1,
+   "day": "2026-07-15"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 9,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 18,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 3,
+   "Code5xx": 2,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 6,
+   "CrawlErrors": 3,
+   "Date": "/Date(1784160000000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-16"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 9,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 18,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 1,
+   "Code5xx": 1,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 4,
+   "Date": "/Date(1784246400000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-17"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 9,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 18,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 4,
+   "Code5xx": 1,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 4,
+   "CrawlErrors": 5,
+   "Date": "/Date(1784332800000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-18"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 8,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 19,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 3,
+   "Code5xx": 1,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 13,
+   "CrawlErrors": 3,
+   "Date": "/Date(1784419200000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-19"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 8,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 19,
+   "Code301": 4,
+   "Code302": 11,
+   "Code4xx": 3,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 11,
+   "CrawlErrors": 7,
+   "Date": "/Date(1784505600000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-20"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 8,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 17,
+   "Code301": 5,
+   "Code302": 11,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 6,
+   "CrawlErrors": 0,
+   "Date": "/Date(1784592000000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-21"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 6,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 18,
+   "Code301": 6,
+   "Code302": 10,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 3,
+   "CrawlErrors": 1,
+   "Date": "/Date(1784678400000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-22"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 19,
+   "Code301": 6,
+   "Code302": 10,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 4,
+   "CrawlErrors": 1,
+   "Date": "/Date(1784764800000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-23"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 19,
+   "Code301": 6,
+   "Code302": 10,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 2,
+   "CrawlErrors": 0,
+   "Date": "/Date(1784851200000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-24"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 5,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 19,
+   "Code301": 6,
+   "Code302": 10,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 2,
+   "Date": "/Date(1784937600000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-25"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 6,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 18,
+   "Code301": 6,
+   "Code302": 10,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 1,
+   "CrawlErrors": 1,
+   "Date": "/Date(1785024000000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-26"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 5,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 19,
+   "Code301": 6,
+   "Code302": 10,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 3,
+   "CrawlErrors": 2,
+   "Date": "/Date(1785110400000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-27"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 20,
+   "Code301": 6,
+   "Code302": 10,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 3,
+   "CrawlErrors": 1,
+   "Date": "/Date(1785196800000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-28"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 20,
+   "Code301": 6,
+   "Code302": 10,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 7,
+   "CrawlErrors": 4,
+   "Date": "/Date(1785283200000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-29"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 19,
+   "Code301": 17,
+   "Code302": 9,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 26,
+   "CrawlErrors": 1,
+   "Date": "/Date(1785369600000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-30"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 18,
+   "Code301": 18,
+   "Code302": 9,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 0,
+   "Date": "/Date(1785456000000)/",
+   "DnsFailures": 0,
+   "InIndex": 18,
+   "InLinks": 1,
+   "day": "2026-07-31"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 20,
+   "Code301": 17,
+   "Code302": 8,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 14,
+   "CrawlErrors": 2,
+   "Date": "/Date(1785542400000)/",
+   "DnsFailures": 0,
+   "InIndex": 17,
+   "InLinks": 1,
+   "day": "2026-08-01"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 19,
+   "Code301": 18,
+   "Code302": 7,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 3,
+   "CrawlErrors": 2,
+   "Date": "/Date(1785628800000)/",
+   "DnsFailures": 0,
+   "InIndex": 16,
+   "InLinks": 1,
+   "day": "2026-08-02"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 20,
+   "Code301": 17,
+   "Code302": 6,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 9,
+   "CrawlErrors": 3,
+   "Date": "/Date(1785715200000)/",
+   "DnsFailures": 0,
+   "InIndex": 17,
+   "InLinks": 1,
+   "day": "2026-08-03"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 20,
+   "Code301": 17,
+   "Code302": 6,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 3,
+   "CrawlErrors": 0,
+   "Date": "/Date(1785801600000)/",
+   "DnsFailures": 0,
+   "InIndex": 17,
+   "InLinks": 1,
+   "day": "2026-08-04"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 20,
+   "Code301": 18,
+   "Code302": 4,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 4,
+   "Date": "/Date(1785888000000)/",
+   "DnsFailures": 0,
+   "InIndex": 17,
+   "InLinks": 1,
+   "day": "2026-08-05"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 20,
+   "Code301": 18,
+   "Code302": 4,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 14,
+   "CrawlErrors": 4,
+   "Date": "/Date(1785974400000)/",
+   "DnsFailures": 0,
+   "InIndex": 17,
+   "InLinks": 1,
+   "day": "2026-08-06"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 20,
+   "Code301": 18,
+   "Code302": 4,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 14,
+   "CrawlErrors": 3,
+   "Date": "/Date(1786060800000)/",
+   "DnsFailures": 0,
+   "InIndex": 17,
+   "InLinks": 1,
+   "day": "2026-08-07"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 20,
+   "Code301": 18,
+   "Code302": 4,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 3,
+   "Date": "/Date(1786147200000)/",
+   "DnsFailures": 0,
+   "InIndex": 17,
+   "InLinks": 1,
+   "day": "2026-08-08"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 24,
+   "Code301": 17,
+   "Code302": 3,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 9,
+   "CrawlErrors": 2,
+   "Date": "/Date(1786233600000)/",
+   "DnsFailures": 0,
+   "InIndex": 21,
+   "InLinks": 1,
+   "day": "2026-08-09"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 24,
+   "Code301": 17,
+   "Code302": 3,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 3,
+   "CrawlErrors": 1,
+   "Date": "/Date(1786320000000)/",
+   "DnsFailures": 0,
+   "InIndex": 21,
+   "InLinks": 1,
+   "day": "2026-08-10"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 25,
+   "Code301": 17,
+   "Code302": 3,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 10,
+   "CrawlErrors": 2,
+   "Date": "/Date(1786406400000)/",
+   "DnsFailures": 0,
+   "InIndex": 21,
+   "InLinks": 1,
+   "day": "2026-08-11"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 24,
+   "Code301": 17,
+   "Code302": 3,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 3,
+   "CrawlErrors": 0,
+   "Date": "/Date(1786492800000)/",
+   "DnsFailures": 0,
+   "InIndex": 21,
+   "InLinks": 1,
+   "day": "2026-08-12"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 23,
+   "Code301": 17,
+   "Code302": 3,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 11,
+   "CrawlErrors": 2,
+   "Date": "/Date(1786579200000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 1,
+   "day": "2026-08-13"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 22,
+   "Code301": 18,
+   "Code302": 3,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 13,
+   "CrawlErrors": 0,
+   "Date": "/Date(1786665600000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 1,
+   "day": "2026-08-14"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 22,
+   "Code301": 18,
+   "Code302": 3,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 6,
+   "CrawlErrors": 1,
+   "Date": "/Date(1786752000000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 1,
+   "day": "2026-08-15"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 23,
+   "Code301": 18,
+   "Code302": 3,
+   "Code4xx": 3,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 11,
+   "CrawlErrors": 3,
+   "Date": "/Date(1786838400000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 2,
+   "day": "2026-08-16"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 23,
+   "Code301": 17,
+   "Code302": 3,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 2,
+   "CrawlErrors": 2,
+   "Date": "/Date(1786924800000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 2,
+   "day": "2026-08-17"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 2,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 24,
+   "Code301": 17,
+   "Code302": 3,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 4,
+   "CrawlErrors": 1,
+   "Date": "/Date(1787011200000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 2,
+   "day": "2026-08-18"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 2,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 24,
+   "Code301": 18,
+   "Code302": 3,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 0,
+   "Date": "/Date(1787097600000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 2,
+   "day": "2026-08-19"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 2,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 23,
+   "Code301": 18,
+   "Code302": 3,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 1,
+   "Date": "/Date(1787184000000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 2,
+   "day": "2026-08-20"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 2,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 24,
+   "Code301": 19,
+   "Code302": 3,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 8,
+   "CrawlErrors": 1,
+   "Date": "/Date(1787356800000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 2,
+   "day": "2026-08-22"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 23,
+   "Code301": 19,
+   "Code302": 3,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 6,
+   "CrawlErrors": 0,
+   "Date": "/Date(1787443200000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 2,
+   "day": "2026-08-23"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 23,
+   "Code301": 19,
+   "Code302": 3,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 2,
+   "CrawlErrors": 1,
+   "Date": "/Date(1787529600000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 2,
+   "day": "2026-08-24"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 24,
+   "Code301": 19,
+   "Code302": 3,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 9,
+   "CrawlErrors": 5,
+   "Date": "/Date(1787616000000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 2,
+   "day": "2026-08-25"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 24,
+   "Code301": 19,
+   "Code302": 3,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 2,
+   "CrawlErrors": 2,
+   "Date": "/Date(1787702400000)/",
+   "DnsFailures": 0,
+   "InIndex": 22,
+   "InLinks": 2,
+   "day": "2026-08-26"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 24,
+   "Code301": 15,
+   "Code302": 3,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 10,
+   "CrawlErrors": 2,
+   "Date": "/Date(1787788800000)/",
+   "DnsFailures": 0,
+   "InIndex": 24,
+   "InLinks": 2,
+   "day": "2026-08-27"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 5,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 22,
+   "Code301": 16,
+   "Code302": 3,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 0,
+   "CrawlErrors": 0,
+   "Date": "/Date(1787875200000)/",
+   "DnsFailures": 0,
+   "InIndex": 24,
+   "InLinks": 2,
+   "day": "2026-08-28"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 5,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 22,
+   "Code301": 16,
+   "Code302": 3,
+   "Code4xx": 3,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 6,
+   "CrawlErrors": 5,
+   "Date": "/Date(1787961600000)/",
+   "DnsFailures": 0,
+   "InIndex": 24,
+   "InLinks": 2,
+   "day": "2026-08-29"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 5,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 22,
+   "Code301": 17,
+   "Code302": 3,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 3,
+   "CrawlErrors": 0,
+   "Date": "/Date(1788048000000)/",
+   "DnsFailures": 0,
+   "InIndex": 24,
+   "InLinks": 2,
+   "day": "2026-08-30"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 5,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 24,
+   "Code301": 15,
+   "Code302": 1,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 2,
+   "Date": "/Date(1788134400000)/",
+   "DnsFailures": 0,
+   "InIndex": 24,
+   "InLinks": 2,
+   "day": "2026-08-31"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 5,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 24,
+   "Code301": 15,
+   "Code302": 1,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 3,
+   "CrawlErrors": 1,
+   "Date": "/Date(1788220800000)/",
+   "DnsFailures": 0,
+   "InIndex": 24,
+   "InLinks": 2,
+   "day": "2026-09-01"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 5,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 24,
+   "Code301": 16,
+   "Code302": 1,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 6,
+   "CrawlErrors": 1,
+   "Date": "/Date(1788307200000)/",
+   "DnsFailures": 0,
+   "InIndex": 25,
+   "InLinks": 2,
+   "day": "2026-09-02"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 6,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 23,
+   "Code301": 14,
+   "Code302": 1,
+   "Code4xx": 3,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 9,
+   "CrawlErrors": 2,
+   "Date": "/Date(1788393600000)/",
+   "DnsFailures": 0,
+   "InIndex": 25,
+   "InLinks": 3,
+   "day": "2026-09-03"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 5,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 25,
+   "Code301": 13,
+   "Code302": 1,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 8,
+   "CrawlErrors": 2,
+   "Date": "/Date(1788480000000)/",
+   "DnsFailures": 0,
+   "InIndex": 26,
+   "InLinks": 3,
+   "day": "2026-09-04"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 25,
+   "Code301": 14,
+   "Code302": 1,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 7,
+   "CrawlErrors": 5,
+   "Date": "/Date(1788566400000)/",
+   "DnsFailures": 0,
+   "InIndex": 25,
+   "InLinks": 3,
+   "day": "2026-09-05"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 25,
+   "Code301": 14,
+   "Code302": 1,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 6,
+   "CrawlErrors": 3,
+   "Date": "/Date(1788652800000)/",
+   "DnsFailures": 0,
+   "InIndex": 25,
+   "InLinks": 3,
+   "day": "2026-09-06"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 25,
+   "Code301": 14,
+   "Code302": 1,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 2,
+   "Date": "/Date(1788739200000)/",
+   "DnsFailures": 0,
+   "InIndex": 25,
+   "InLinks": 3,
+   "day": "2026-09-07"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 26,
+   "Code301": 13,
+   "Code302": 1,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 1,
+   "CrawlErrors": 0,
+   "Date": "/Date(1788825600000)/",
+   "DnsFailures": 0,
+   "InIndex": 26,
+   "InLinks": 3,
+   "day": "2026-09-08"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 27,
+   "Code301": 12,
+   "Code302": 1,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 0,
+   "CrawlErrors": 0,
+   "Date": "/Date(1788912000000)/",
+   "DnsFailures": 0,
+   "InIndex": 26,
+   "InLinks": 3,
+   "day": "2026-09-09"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 28,
+   "Code301": 11,
+   "Code302": 1,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 3,
+   "Date": "/Date(1788998400000)/",
+   "DnsFailures": 0,
+   "InIndex": 27,
+   "InLinks": 3,
+   "day": "2026-09-10"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 28,
+   "Code301": 9,
+   "Code302": 1,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 2,
+   "Date": "/Date(1789084800000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 28,
+   "Code301": 9,
+   "Code302": 1,
+   "Code4xx": 3,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 3,
+   "CrawlErrors": 2,
+   "Date": "/Date(1789171200000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-12"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 28,
+   "Code301": 10,
+   "Code302": 0,
+   "Code4xx": 3,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 15,
+   "CrawlErrors": 4,
+   "Date": "/Date(1789257600000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-13"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 28,
+   "Code301": 9,
+   "Code302": 0,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 8,
+   "CrawlErrors": 1,
+   "Date": "/Date(1789344000000)/",
+   "DnsFailures": 0,
+   "InIndex": 28,
+   "InLinks": 3,
+   "day": "2026-09-14"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 30,
+   "Code301": 10,
+   "Code302": 0,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 4,
+   "CrawlErrors": 1,
+   "Date": "/Date(1789430400000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-15"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 30,
+   "Code301": 10,
+   "Code302": 0,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 2,
+   "CrawlErrors": 3,
+   "Date": "/Date(1789516800000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-16"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 4,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 28,
+   "Code301": 9,
+   "Code302": 0,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 4,
+   "CrawlErrors": 2,
+   "Date": "/Date(1789603200000)/",
+   "DnsFailures": 0,
+   "InIndex": 28,
+   "InLinks": 3,
+   "day": "2026-09-17"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 30,
+   "Code301": 10,
+   "Code302": 0,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 2,
+   "CrawlErrors": 2,
+   "Date": "/Date(1789689600000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 30,
+   "Code301": 10,
+   "Code302": 0,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 7,
+   "CrawlErrors": 1,
+   "Date": "/Date(1789776000000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-19"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 30,
+   "Code301": 10,
+   "Code302": 0,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 2,
+   "Date": "/Date(1789862400000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-20"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 3,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 30,
+   "Code301": 10,
+   "Code302": 0,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 3,
+   "CrawlErrors": 1,
+   "Date": "/Date(1789948800000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-21"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 2,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 30,
+   "Code301": 10,
+   "Code302": 0,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 7,
+   "CrawlErrors": 0,
+   "Date": "/Date(1790035200000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-22"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 2,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 29,
+   "Code301": 11,
+   "Code302": 0,
+   "Code4xx": 1,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 14,
+   "CrawlErrors": 1,
+   "Date": "/Date(1790121600000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-23"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 2,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 29,
+   "Code301": 12,
+   "Code302": 0,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 10,
+   "CrawlErrors": 2,
+   "Date": "/Date(1790208000000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-24"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 2,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 29,
+   "Code301": 12,
+   "Code302": 0,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 11,
+   "CrawlErrors": 3,
+   "Date": "/Date(1790294400000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 2,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 29,
+   "Code301": 12,
+   "Code302": 0,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 5,
+   "CrawlErrors": 0,
+   "Date": "/Date(1790380800000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-26"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 2,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 29,
+   "Code301": 11,
+   "Code302": 0,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 11,
+   "CrawlErrors": 2,
+   "Date": "/Date(1790467200000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-27"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 2,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 29,
+   "Code301": 11,
+   "Code302": 0,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 8,
+   "CrawlErrors": 1,
+   "Date": "/Date(1790553600000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-28"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 2,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 29,
+   "Code301": 11,
+   "Code302": 0,
+   "Code4xx": 0,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 12,
+   "CrawlErrors": 0,
+   "Date": "/Date(1790640000000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-29"
+  },
+  {
+   "__type": "CrawlStats:#Microsoft.Bing.Webmaster.Api",
+   "AllOtherCodes": 2,
+   "BlockedByRobotsTxt": 0,
+   "Code2xx": 29,
+   "Code301": 11,
+   "Code302": 0,
+   "Code4xx": 2,
+   "Code5xx": 0,
+   "ConnectionTimeout": 0,
+   "ContainsMalware": 0,
+   "CrawledPages": 15,
+   "CrawlErrors": 2,
+   "Date": "/Date(1790726400000)/",
+   "DnsFailures": 0,
+   "InIndex": 29,
+   "InLinks": 3,
+   "day": "2026-09-30"
+  }
+ ],
+ "crawl_stats_all_days": 182,
+ "crawl_settings": {
+  "__type": "CrawlSettings:#Microsoft.Bing.Webmaster.Api",
+  "CrawlBoostAvailable": false,
+  "CrawlBoostEnabled": false,
+  "CrawlRate": [
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ]
+ },
+ "crawl_issues": [],
+ "blocked_urls": [],
+ "deep_link_blocks": [],
+ "fetched_urls": [],
+ "connected_pages": [],
+ "rank_and_traffic": [
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1783036800000)/",
+   "Impressions": 0,
+   "day": "2026-07-03"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1783123200000)/",
+   "Impressions": 0,
+   "day": "2026-07-04"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1783209600000)/",
+   "Impressions": 0,
+   "day": "2026-07-05"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1783296000000)/",
+   "Impressions": 1,
+   "day": "2026-07-06"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1783382400000)/",
+   "Impressions": 0,
+   "day": "2026-07-07"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1783468800000)/",
+   "Impressions": 0,
+   "day": "2026-07-08"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1783555200000)/",
+   "Impressions": 0,
+   "day": "2026-07-09"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1783641600000)/",
+   "Impressions": 0,
+   "day": "2026-07-10"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1783728000000)/",
+   "Impressions": 0,
+   "day": "2026-07-11"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1783814400000)/",
+   "Impressions": 0,
+   "day": "2026-07-12"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1783900800000)/",
+   "Impressions": 0,
+   "day": "2026-07-13"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1783987200000)/",
+   "Impressions": 0,
+   "day": "2026-07-14"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1784073600000)/",
+   "Impressions": 0,
+   "day": "2026-07-15"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1784160000000)/",
+   "Impressions": 0,
+   "day": "2026-07-16"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1784246400000)/",
+   "Impressions": 5,
+   "day": "2026-07-17"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1784332800000)/",
+   "Impressions": 0,
+   "day": "2026-07-18"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1784419200000)/",
+   "Impressions": 0,
+   "day": "2026-07-19"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1784505600000)/",
+   "Impressions": 0,
+   "day": "2026-07-20"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 1,
+   "Date": "/Date(1784592000000)/",
+   "Impressions": 1,
+   "day": "2026-07-21"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1784678400000)/",
+   "Impressions": 0,
+   "day": "2026-07-22"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1784764800000)/",
+   "Impressions": 2,
+   "day": "2026-07-23"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1784851200000)/",
+   "Impressions": 0,
+   "day": "2026-07-24"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1784937600000)/",
+   "Impressions": 0,
+   "day": "2026-07-25"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1785024000000)/",
+   "Impressions": 2,
+   "day": "2026-07-26"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1785110400000)/",
+   "Impressions": 3,
+   "day": "2026-07-27"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1785196800000)/",
+   "Impressions": 2,
+   "day": "2026-07-28"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1785283200000)/",
+   "Impressions": 0,
+   "day": "2026-07-29"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1785369600000)/",
+   "Impressions": 0,
+   "day": "2026-07-30"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1785456000000)/",
+   "Impressions": 0,
+   "day": "2026-07-31"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1785542400000)/",
+   "Impressions": 0,
+   "day": "2026-08-01"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1785628800000)/",
+   "Impressions": 3,
+   "day": "2026-08-02"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1785715200000)/",
+   "Impressions": 1,
+   "day": "2026-08-03"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1785801600000)/",
+   "Impressions": 0,
+   "day": "2026-08-04"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1785888000000)/",
+   "Impressions": 0,
+   "day": "2026-08-05"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1785974400000)/",
+   "Impressions": 0,
+   "day": "2026-08-06"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1786060800000)/",
+   "Impressions": 0,
+   "day": "2026-08-07"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1786147200000)/",
+   "Impressions": 0,
+   "day": "2026-08-08"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1786233600000)/",
+   "Impressions": 4,
+   "day": "2026-08-09"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1786320000000)/",
+   "Impressions": 0,
+   "day": "2026-08-10"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1786406400000)/",
+   "Impressions": 0,
+   "day": "2026-08-11"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1786492800000)/",
+   "Impressions": 4,
+   "day": "2026-08-12"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1786579200000)/",
+   "Impressions": 4,
+   "day": "2026-08-13"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1786665600000)/",
+   "Impressions": 0,
+   "day": "2026-08-14"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1786752000000)/",
+   "Impressions": 0,
+   "day": "2026-08-15"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1786838400000)/",
+   "Impressions": 0,
+   "day": "2026-08-16"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1786924800000)/",
+   "Impressions": 0,
+   "day": "2026-08-17"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1787011200000)/",
+   "Impressions": 0,
+   "day": "2026-08-18"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1787097600000)/",
+   "Impressions": 0,
+   "day": "2026-08-19"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1787184000000)/",
+   "Impressions": 2,
+   "day": "2026-08-20"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1787270400000)/",
+   "Impressions": 0,
+   "day": "2026-08-21"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1787356800000)/",
+   "Impressions": 0,
+   "day": "2026-08-22"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1787443200000)/",
+   "Impressions": 0,
+   "day": "2026-08-23"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1787529600000)/",
+   "Impressions": 0,
+   "day": "2026-08-24"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1787616000000)/",
+   "Impressions": 0,
+   "day": "2026-08-25"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1787702400000)/",
+   "Impressions": 0,
+   "day": "2026-08-26"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1787788800000)/",
+   "Impressions": 0,
+   "day": "2026-08-27"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1787875200000)/",
+   "Impressions": 7,
+   "day": "2026-08-28"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1787961600000)/",
+   "Impressions": 0,
+   "day": "2026-08-29"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1788048000000)/",
+   "Impressions": 0,
+   "day": "2026-08-30"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1788134400000)/",
+   "Impressions": 0,
+   "day": "2026-08-31"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1788220800000)/",
+   "Impressions": 0,
+   "day": "2026-09-01"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1788307200000)/",
+   "Impressions": 0,
+   "day": "2026-09-02"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 2,
+   "Date": "/Date(1788393600000)/",
+   "Impressions": 3,
+   "day": "2026-09-03"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1788480000000)/",
+   "Impressions": 0,
+   "day": "2026-09-04"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1788566400000)/",
+   "Impressions": 0,
+   "day": "2026-09-05"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1788652800000)/",
+   "Impressions": 0,
+   "day": "2026-09-06"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1788739200000)/",
+   "Impressions": 5,
+   "day": "2026-09-07"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1788825600000)/",
+   "Impressions": 5,
+   "day": "2026-09-08"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1788912000000)/",
+   "Impressions": 4,
+   "day": "2026-09-09"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1788998400000)/",
+   "Impressions": 1,
+   "day": "2026-09-10"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 2,
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1789171200000)/",
+   "Impressions": 4,
+   "day": "2026-09-12"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1789257600000)/",
+   "Impressions": 0,
+   "day": "2026-09-13"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1789344000000)/",
+   "Impressions": 1,
+   "day": "2026-09-14"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1789430400000)/",
+   "Impressions": 1,
+   "day": "2026-09-15"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1789516800000)/",
+   "Impressions": 7,
+   "day": "2026-09-16"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1789603200000)/",
+   "Impressions": 0,
+   "day": "2026-09-17"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 0,
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1789776000000)/",
+   "Impressions": 4,
+   "day": "2026-09-19"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 1,
+   "Date": "/Date(1789862400000)/",
+   "Impressions": 3,
+   "day": "2026-09-20"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1789948800000)/",
+   "Impressions": 9,
+   "day": "2026-09-21"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1790035200000)/",
+   "Impressions": 5,
+   "day": "2026-09-22"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1790121600000)/",
+   "Impressions": 0,
+   "day": "2026-09-23"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1790208000000)/",
+   "Impressions": 6,
+   "day": "2026-09-24"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 0,
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1790380800000)/",
+   "Impressions": 1,
+   "day": "2026-09-26"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1790467200000)/",
+   "Impressions": 1,
+   "day": "2026-09-27"
+  },
+  {
+   "__type": "RankAndTrafficStats:#Microsoft.Bing.Webmaster.Api",
+   "Clicks": 0,
+   "Date": "/Date(1790553600000)/",
+   "Impressions": 0,
+   "day": "2026-09-28"
+  }
+ ],
+ "query_stats": [
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 0,
+   "Date": "/Date(1783036800000)/",
+   "Impressions": 2,
+   "Query": "mosaic hostel varanasi",
+   "day": "2026-07-03"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 3,
+   "Clicks": 0,
+   "Date": "/Date(1783036800000)/",
+   "Impressions": 1,
+   "Query": "where to stay in varanasi as a solo woman",
+   "day": "2026-07-03"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 1,
+   "Clicks": 0,
+   "Date": "/Date(1783641600000)/",
+   "Impressions": 1,
+   "Query": "mosaic hostel varanasi",
+   "day": "2026-07-10"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 2,
+   "Clicks": 1,
+   "Date": "/Date(1784851200000)/",
+   "Impressions": 1,
+   "Query": "mosaic hostels",
+   "day": "2026-07-24"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 6,
+   "Clicks": 0,
+   "Date": "/Date(1785456000000)/",
+   "Impressions": 2,
+   "Query": "i am arriving at varanasi junction at 8 am and staying near assi ghat",
+   "day": "2026-07-31"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 7,
+   "Clicks": 0,
+   "Date": "/Date(1785456000000)/",
+   "Impressions": 2,
+   "Query": "asgiriya ghat travel guide",
+   "day": "2026-07-31"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 0,
+   "Date": "/Date(1785456000000)/",
+   "Impressions": 1,
+   "Query": "hostels near assi ghat",
+   "day": "2026-07-31"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 0,
+   "Date": "/Date(1785456000000)/",
+   "Impressions": 1,
+   "Query": "hostel dormitory near assi ghat varanasi",
+   "day": "2026-07-31"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 5,
+   "Clicks": 0,
+   "Date": "/Date(1785456000000)/",
+   "Impressions": 1,
+   "Query": "hostel dormitory near assi ghat",
+   "day": "2026-07-31"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 3,
+   "Clicks": 0,
+   "Date": "/Date(1786060800000)/",
+   "Impressions": 3,
+   "Query": "affordable hostels near assi ghat varanasi",
+   "day": "2026-08-07"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 7,
+   "Clicks": 0,
+   "Date": "/Date(1786060800000)/",
+   "Impressions": 1,
+   "Query": "best hostels near assi ghat varanasi for groups 2025 2026",
+   "day": "2026-08-07"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 7,
+   "Clicks": 0,
+   "Date": "/Date(1786665600000)/",
+   "Impressions": 4,
+   "Query": "female hostel varanasi near assi ghat reviews",
+   "day": "2026-08-14"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 1,
+   "Clicks": 0,
+   "Date": "/Date(1786665600000)/",
+   "Impressions": 4,
+   "Query": "varanasi backpacker hostels wifi assi ghat",
+   "day": "2026-08-14"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 7,
+   "Clicks": 0,
+   "Date": "/Date(1786665600000)/",
+   "Impressions": 2,
+   "Query": "good cafes with wifi at varanasi ghat",
+   "day": "2026-08-14"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 5,
+   "Clicks": 0,
+   "Date": "/Date(1786665600000)/",
+   "Impressions": 1,
+   "Query": "mosaic",
+   "day": "2026-08-14"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 2,
+   "Clicks": 0,
+   "Date": "/Date(1786665600000)/",
+   "Impressions": 1,
+   "Query": "good cafes with wifi at varanasi ghat for work",
+   "day": "2026-08-14"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 3,
+   "Clicks": 0,
+   "Date": "/Date(1787270400000)/",
+   "Impressions": 2,
+   "Query": "mosaic hotel",
+   "day": "2026-08-21"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 2,
+   "Clicks": 2,
+   "Date": "/Date(1788480000000)/",
+   "Impressions": 2,
+   "Query": "mosaic hostel varanasi: rooms cost",
+   "day": "2026-09-04"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 1,
+   "Clicks": 0,
+   "Date": "/Date(1788480000000)/",
+   "Impressions": 2,
+   "Query": "mosaic hostel varanasi",
+   "day": "2026-09-04"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 8,
+   "Clicks": 0,
+   "Date": "/Date(1788480000000)/",
+   "Impressions": 1,
+   "Query": "how safe in varanasi to go for mangalarati at 3 am",
+   "day": "2026-09-04"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 1,
+   "Clicks": 0,
+   "Date": "/Date(1788480000000)/",
+   "Impressions": 1,
+   "Query": "mosaic hostel varanasi:",
+   "day": "2026-09-04"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 2,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 3,
+   "Query": "mosaic hostel varanasi",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 3,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 2,
+   "Query": "varanasi hostel near assi ghat",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 2,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 2,
+   "Query": "mosaic hostel varanasi address",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 1,
+   "Query": "hostels in varanasi near ghat",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 1,
+   "Query": "which time has less crowd in varanasi",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 1,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 1,
+   "Query": "varanasi assi ghat vs dashashwamedh where to stay",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 1,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 1,
+   "Query": ", assi ghat road, varanasi, up",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 2,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 1,
+   "Query": "asi ghat well child less",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 3,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 1,
+   "Query": "cheap hostel near assi ghat",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 3,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 1,
+   "Query": ", assi ghat road, varanasi, up to durgakund road, varanasi, uttar pradesh 221005",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 6,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 1,
+   "Query": "is mid-late july the absolute best time for a varanasi trip, or the worst time",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 2,
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 4,
+   "Query": "varanasi ghats overnight stay sleeping prohibited safety rules",
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 1,
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 3,
+   "Query": "varanasi hotel areas noise dashashwamedh assi ghat cantonment",
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 6,
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 2,
+   "Query": "mosaic hostels",
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 6,
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 2,
+   "Query": "mosaic hostels rate card 2025",
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 3,
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 1,
+   "Query": "hostel near assi ghat",
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 7,
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 1,
+   "Query": "youth hostewl benras assi ghat",
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 9,
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 1,
+   "Query": "varanasi to sarnath distance up and down auto cost",
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 9,
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 1,
+   "Query": "is it safe to go to varanasi now ?",
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 3,
+   "Clicks": 1,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 2,
+   "Query": "mosaic-hostel",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 7,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 4,
+   "Query": "mosaic cafe varanasi",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 4,
+   "Query": "varanasi travel safety scams ghats official tourism",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 7,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 3,
+   "Query": "varanasi best areas to stay solo traveller assi ghat godowlia dashashwamedh safety",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 6,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 3,
+   "Query": "varanasi important ghats assi tulsi shivala kedar dashashwamedh walking route",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 6,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 2,
+   "Query": "india budget train travel hostel dorm varanasi price 2026",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 1,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 1,
+   "Query": "mosaic hostel varanasi",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 1,
+   "Query": "hostel near ghat varanasi",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 7,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 1,
+   "Query": "assi ghat kaise jaye",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 6,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 1,
+   "Query": "best and least prize hostels in varanasi",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 2,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 1,
+   "Query": "varanasi neighborhoods assi ghat sigra where to stay official travel guide",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 5,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 1,
+   "Query": "varanasi assi ghat bhelupur sigra cantonment area stay guide safety solo women",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 6,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 1,
+   "Query": "assi ghat to dashashwamedh ghat which is better",
+   "day": "2026-09-25"
+  }
+ ],
+ "page_stats": [
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 1,
+   "Clicks": 0,
+   "Date": "/Date(1783036800000)/",
+   "Impressions": 1,
+   "Query": "https://mosaichostels.com/",
+   "day": "2026-07-03"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 3,
+   "Clicks": 0,
+   "Date": "/Date(1783036800000)/",
+   "Impressions": 1,
+   "Query": "https://www.mosaichostels.com/varanasi-solo-female-travelers-safety-travel-guide/",
+   "day": "2026-07-03"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 6,
+   "Clicks": 0,
+   "Date": "/Date(1783036800000)/",
+   "Impressions": 1,
+   "Query": "https://www.mosaichostels.com/book-now/",
+   "day": "2026-07-03"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 1,
+   "Clicks": 0,
+   "Date": "/Date(1783641600000)/",
+   "Impressions": 1,
+   "Query": "https://mosaichostels.com/",
+   "day": "2026-07-10"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 2,
+   "Clicks": 1,
+   "Date": "/Date(1784851200000)/",
+   "Impressions": 1,
+   "Query": "https://mosaichostels.com/",
+   "day": "2026-07-24"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 7,
+   "Clicks": 0,
+   "Date": "/Date(1785456000000)/",
+   "Impressions": 4,
+   "Query": "https://www.mosaichostels.com/backpackers-guide-assi-ghat-varanasi/",
+   "day": "2026-07-31"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 0,
+   "Date": "/Date(1785456000000)/",
+   "Impressions": 3,
+   "Query": "https://mosaichostels.com/",
+   "day": "2026-07-31"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 0,
+   "Date": "/Date(1786060800000)/",
+   "Impressions": 4,
+   "Query": "https://mosaichostels.com/",
+   "day": "2026-08-07"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 0,
+   "Date": "/Date(1786665600000)/",
+   "Impressions": 9,
+   "Query": "https://mosaichostels.com/",
+   "day": "2026-08-14"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 5,
+   "Clicks": 0,
+   "Date": "/Date(1786665600000)/",
+   "Impressions": 3,
+   "Query": "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/",
+   "day": "2026-08-14"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 3,
+   "Clicks": 0,
+   "Date": "/Date(1787270400000)/",
+   "Impressions": 2,
+   "Query": "https://mosaichostels.com/",
+   "day": "2026-08-21"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 1,
+   "Clicks": 1,
+   "Date": "/Date(1788480000000)/",
+   "Impressions": 4,
+   "Query": "https://mosaichostels.com/",
+   "day": "2026-09-04"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 1,
+   "Date": "/Date(1788480000000)/",
+   "Impressions": 1,
+   "Query": "https://www.mosaichostels.com/book-now/",
+   "day": "2026-09-04"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 8,
+   "Clicks": 0,
+   "Date": "/Date(1788480000000)/",
+   "Impressions": 1,
+   "Query": "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+   "day": "2026-09-04"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 2,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 7,
+   "Query": "https://mosaichostels.com/",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 2,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 3,
+   "Query": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 5,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 2,
+   "Query": "https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 1,
+   "Query": "https://www.mosaichostels.com/book-now/",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 1,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 1,
+   "Query": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 2,
+   "Clicks": 0,
+   "Date": "/Date(1789084800000)/",
+   "Impressions": 1,
+   "Query": "https://www.mosaichostels.com/contact",
+   "day": "2026-09-11"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 5,
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 5,
+   "Query": "https://mosaichostels.com/",
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 5,
+   "Query": "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 1,
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 3,
+   "Query": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 9,
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 1,
+   "Query": "https://www.mosaichostels.com/book-now/",
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 9,
+   "Clicks": 0,
+   "Date": "/Date(1789689600000)/",
+   "Impressions": 1,
+   "Query": "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+   "day": "2026-09-18"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 3,
+   "Clicks": 1,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 5,
+   "Query": "https://mosaichostels.com/",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 6,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 6,
+   "Query": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 4,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 4,
+   "Query": "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 7,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 4,
+   "Query": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 8,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 3,
+   "Query": "https://www.mosaichostels.com/book-now/",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 6,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 2,
+   "Query": "https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/",
+   "day": "2026-09-25"
+  },
+  {
+   "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+   "AvgClickPosition": -1,
+   "AvgImpressionPosition": 6,
+   "Clicks": 0,
+   "Date": "/Date(1790294400000)/",
+   "Impressions": 1,
+   "Query": "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+   "day": "2026-09-25"
+  }
+ ],
+ "link_counts": [],
+ "url_links": [],
+ "sitemap_urls": [
+  "https://www.mosaichostels.com/",
+  "https://www.mosaichostels.com/gallery",
+  "https://www.mosaichostels.com/blog/",
+  "https://www.mosaichostels.com/about",
+  "https://www.mosaichostels.com/contact",
+  "https://www.mosaichostels.com/book-now",
+  "https://www.mosaichostels.com/privacy",
+  "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+  "https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide/",
+  "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+  "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/",
+  "https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/",
+  "https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/",
+  "https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/",
+  "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+  "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/",
+  "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+  "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+  "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/",
+  "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/",
+  "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/"
+ ],
+ "url_info": {
+  "https://www.mosaichostels.com/": {
+   "known": true,
+   "info": {
+    "__type": "UrlInfo:#Microsoft.Bing.Webmaster.Api",
+    "AnchorCount": 2,
+    "DiscoveryDate": "/Date(1763020800000)/",
+    "DocumentSize": 23751,
+    "HttpStatus": 0,
+    "IsPage": true,
+    "LastCrawledDate": "/Date(1790754963000)/",
+    "TotalChildUrlCount": 0,
+    "Url": "https://www.mosaichostels.com/"
+   },
+   "traffic": {
+    "__type": "UrlTrafficInfo:#Microsoft.Bing.Webmaster.Api",
+    "Clicks": 0,
+    "Impressions": 0,
+    "IsPage": true,
+    "Url": "https://www.mosaichostels.com/"
+   }
+  },
+  "https://www.mosaichostels.com/gallery": {
+   "known": true,
+   "info": {
+    "__type": "UrlInfo:#Microsoft.Bing.Webmaster.Api",
+    "AnchorCount": 0,
+    "DiscoveryDate": "/Date(1770883200000)/",
+    "DocumentSize": 207406,
+    "HttpStatus": 0,
+    "IsPage": true,
+    "LastCrawledDate": "/Date(1788923573000)/",
+    "TotalChildUrlCount": 0,
+    "Url": "https://www.mosaichostels.com/gallery"
+   },
+   "traffic": {
+    "__type": "UrlTrafficInfo:#Microsoft.Bing.Webmaster.Api",
+    "Clicks": 0,
+    "Impressions": 0,
+    "IsPage": true,
+    "Url": "https://www.mosaichostels.com/gallery"
+   }
+  },
+  "https://www.mosaichostels.com/blog/": {
+   "known": true,
+   "info": {
+    "__type": "UrlInfo:#Microsoft.Bing.Webmaster.Api",
+    "AnchorCount": 0,
+    "DiscoveryDate": "/Date(1765094400000)/",
+    "DocumentSize": 148412,
+    "HttpStatus": 0,
+    "IsPage": true,
+    "LastCrawledDate": "/Date(1787672131000)/",
+    "TotalChildUrlCount": 0,
+    "Url": "https://www.mosaichostels.com/blog/"
+   },
+   "traffic": {
+    "__type": "UrlTrafficInfo:#Microsoft.Bing.Webmaster.Api",
+    "Clicks": 0,
+    "Impressions": 0,
+    "IsPage": true,
+    "Url": "https://www.mosaichostels.com/blog/"
+   }
+  },
+  "https://www.mosaichostels.com/about": {
+   "known": true,
+   "info": {
+    "__type": "UrlInfo:#Microsoft.Bing.Webmaster.Api",
+    "AnchorCount": 0,
+    "DiscoveryDate": "/Date(1780642800000)/",
+    "DocumentSize": 33696,
+    "HttpStatus": 0,
+    "IsPage": true,
+    "LastCrawledDate": "/Date(1789589419000)/",
+    "TotalChildUrlCount": 0,
+    "Url": "https://www.mosaichostels.com/about"
+   },
+   "traffic": {
+    "__type": "UrlTrafficInfo:#Microsoft.Bing.Webmaster.Api",
+    "Clicks": 0,
+    "Impressions": 0,
+    "IsPage": true,
+    "Url": "https://www.mosaichostels.com/about"
+   }
+  },
+  "https://www.mosaichostels.com/contact": {
+   "known": true,
+   "info": {
+    "__type": "UrlInfo:#Microsoft.Bing.Webmaster.Api",
+    "AnchorCount": 0,
+    "DiscoveryDate": "/Date(1780642800000)/",
+    "DocumentSize": 17879,
+    "HttpStatus": 0,
+    "IsPage": true,
+    "LastCrawledDate": "/Date(1789644337000)/",
+    "TotalChildUrlCount": 0,
+    "Url": "https://www.mosaichostels.com/contact"
+   },
+   "traffic": {
+    "__type": "UrlTrafficInfo:#Microsoft.Bing.Webmaster.Api",
+    "Clicks": 0,
+    "Impressions": 0,
+    "IsPage": true,
+    "Url": "https://www.mosaichostels.com/contact"
+   }
+  },
+  "https://www.mosaichostels.com/book-now": {
+   "known": false,
+   "info": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   },
+   "traffic": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   }
+  },
+  "https://www.mosaichostels.com/privacy": {
+   "known": false,
+   "info": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   },
+   "traffic": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   }
+  },
+  "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/": {
+   "known": false,
+   "info": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   },
+   "traffic": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   }
+  },
+  "https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide/": {
+   "known": false,
+   "info": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   },
+   "traffic": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   }
+  },
+  "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/": {
+   "known": false,
+   "info": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   },
+   "traffic": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   }
+  },
+  "https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/": {
+   "known": false,
+   "info": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   },
+   "traffic": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   }
+  },
+  "https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/": {
+   "known": false,
+   "info": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   },
+   "traffic": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   }
+  },
+  "https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/": {
+   "known": true,
+   "info": {
+    "__type": "UrlInfo:#Microsoft.Bing.Webmaster.Api",
+    "AnchorCount": 0,
+    "DiscoveryDate": "/Date(1785222000000)/",
+    "DocumentSize": 0,
+    "HttpStatus": 0,
+    "IsPage": true,
+    "LastCrawledDate": "/Date(1786753186000)/",
+    "TotalChildUrlCount": 0,
+    "Url": "https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/"
+   },
+   "traffic": {
+    "__type": "UrlTrafficInfo:#Microsoft.Bing.Webmaster.Api",
+    "Clicks": 0,
+    "Impressions": 0,
+    "IsPage": true,
+    "Url": "https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/"
+   }
+  },
+  "https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/": {
+   "known": true,
+   "info": {
+    "__type": "UrlInfo:#Microsoft.Bing.Webmaster.Api",
+    "AnchorCount": 0,
+    "DiscoveryDate": "/Date(1785222000000)/",
+    "DocumentSize": 795,
+    "HttpStatus": 0,
+    "IsPage": true,
+    "LastCrawledDate": "/Date(1788943125000)/",
+    "TotalChildUrlCount": 0,
+    "Url": "https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/"
+   },
+   "traffic": {
+    "__type": "UrlTrafficInfo:#Microsoft.Bing.Webmaster.Api",
+    "Clicks": 0,
+    "Impressions": 0,
+    "IsPage": true,
+    "Url": "https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/"
+   }
+  },
+  "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/": {
+   "known": true,
+   "info": {
+    "__type": "UrlInfo:#Microsoft.Bing.Webmaster.Api",
+    "AnchorCount": 0,
+    "DiscoveryDate": "/Date(1785222000000)/",
+    "DocumentSize": 16924,
+    "HttpStatus": 0,
+    "IsPage": true,
+    "LastCrawledDate": "/Date(1789741646000)/",
+    "TotalChildUrlCount": 0,
+    "Url": "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/"
+   },
+   "traffic": {
+    "__type": "UrlTrafficInfo:#Microsoft.Bing.Webmaster.Api",
+    "Clicks": 0,
+    "Impressions": 0,
+    "IsPage": true,
+    "Url": "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/"
+   }
+  },
+  "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/": {
+   "known": true,
+   "info": {
+    "__type": "UrlInfo:#Microsoft.Bing.Webmaster.Api",
+    "AnchorCount": 0,
+    "DiscoveryDate": "/Date(1785222000000)/",
+    "DocumentSize": 12678,
+    "HttpStatus": 0,
+    "IsPage": true,
+    "LastCrawledDate": "/Date(1789791628000)/",
+    "TotalChildUrlCount": 0,
+    "Url": "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/"
+   },
+   "traffic": {
+    "__type": "UrlTrafficInfo:#Microsoft.Bing.Webmaster.Api",
+    "Clicks": 0,
+    "Impressions": 0,
+    "IsPage": true,
+    "Url": "https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/"
+   }
+  },
+  "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/": {
+   "known": true,
+   "info": {
+    "__type": "UrlInfo:#Microsoft.Bing.Webmaster.Api",
+    "AnchorCount": 0,
+    "DiscoveryDate": "/Date(1786086000000)/",
+    "DocumentSize": 11412,
+    "HttpStatus": 0,
+    "IsPage": true,
+    "LastCrawledDate": "/Date(1789476188000)/",
+    "TotalChildUrlCount": 0,
+    "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/"
+   },
+   "traffic": {
+    "__type": "UrlTrafficInfo:#Microsoft.Bing.Webmaster.Api",
+    "Clicks": 0,
+    "Impressions": 0,
+    "IsPage": true,
+    "Url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/"
+   }
+  },
+  "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/": {
+   "known": false,
+   "info": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   },
+   "traffic": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   }
+  },
+  "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/": {
+   "known": false,
+   "info": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   },
+   "traffic": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   }
+  },
+  "https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/": {
+   "known": false,
+   "info": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   },
+   "traffic": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   }
+  },
+  "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/": {
+   "known": false,
+   "info": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   },
+   "traffic": {
+    "error": "HTTP 400 {\"ErrorCode\":5,\"Message\":\"ERROR!!! ThrottleHost\"}"
+   }
+  }
+ },
+ "query_page_stats": {
+  "mosaic hostel varanasi": [
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1765497600000)/",
+    "Impressions": 1,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1766102400000)/",
+    "Impressions": 4,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1766707200000)/",
+    "Impressions": 3,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1770940800000)/",
+    "Impressions": 1,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 1,
+    "Date": "/Date(1771545600000)/",
+    "Impressions": 3,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1772150400000)/",
+    "Impressions": 3,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1773360000000)/",
+    "Impressions": 4,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 8,
+    "Clicks": 0,
+    "Date": "/Date(1773360000000)/",
+    "Impressions": 1,
+    "Query": "https://www.mosaichostels.com/about-us/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1775779200000)/",
+    "Impressions": 1,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1778198400000)/",
+    "Impressions": 1,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1780617600000)/",
+    "Impressions": 1,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1783036800000)/",
+    "Impressions": 1,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1783036800000)/",
+    "Impressions": 1,
+    "Query": "https://www.mosaichostels.com/book-now/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1783641600000)/",
+    "Impressions": 1,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1788480000000)/",
+    "Impressions": 2,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 2,
+    "Query": "https://mosaichostels.com/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 1,
+    "Query": "https://www.mosaichostels.com/book-now/"
+   }
+  ],
+  "female hostel varanasi near assi ghat reviews": [],
+  "varanasi backpacker hostels wifi assi ghat": [],
+  "varanasi ghats overnight stay sleeping prohibited safety rules": [],
+  "mosaic cafe varanasi": [],
+  "varanasi travel safety scams ghats official tourism": [],
+  "mosaic hostels": [
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 5,
+    "Clicks": 0,
+    "Date": "/Date(1776384000000)/",
+    "Impressions": 2,
+    "Query": "https://www.mosaichostels.com/about-us/"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 1,
+    "Date": "/Date(1784851200000)/",
+    "Impressions": 1,
+    "Query": "https://www.mosaichostels.com/"
+   }
+  ],
+  "affordable hostels near assi ghat varanasi": [],
+  "varanasi hotel areas noise dashashwamedh assi ghat cantonment": [],
+  "varanasi best areas to stay solo traveller assi ghat godowlia dashashwamedh safety": []
+ },
+ "page_query_stats": {
+  "https://mosaichostels.com/": [
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1764892800000)/",
+    "Impressions": 2,
+    "Query": "varanasi hostel near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 5,
+    "Clicks": 0,
+    "Date": "/Date(1764892800000)/",
+    "Impressions": 1,
+    "Query": "hostels near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1764892800000)/",
+    "Impressions": 1,
+    "Query": "airbnb mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1764892800000)/",
+    "Impressions": 1,
+    "Query": "hostel on assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1764892800000)/",
+    "Impressions": 1,
+    "Query": "hostels near assi ghat'"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 1,
+    "Date": "/Date(1765497600000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi agoda"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1765497600000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 7,
+    "Clicks": 0,
+    "Date": "/Date(1765497600000)/",
+    "Impressions": 1,
+    "Query": "hostels in varanasi near ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 5,
+    "Clicks": 0,
+    "Date": "/Date(1765497600000)/",
+    "Impressions": 1,
+    "Query": "hostel at assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1765497600000)/",
+    "Impressions": 1,
+    "Query": "hostile assi varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1765497600000)/",
+    "Impressions": 1,
+    "Query": "budget hostels in assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 7,
+    "Clicks": 0,
+    "Date": "/Date(1765497600000)/",
+    "Impressions": 1,
+    "Query": "hostels near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1765497600000)/",
+    "Impressions": 1,
+    "Query": "mossaic hostel"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1766102400000)/",
+    "Impressions": 4,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 9,
+    "Clicks": 0,
+    "Date": "/Date(1766102400000)/",
+    "Impressions": 2,
+    "Query": "mosaic hostel google rating"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 7,
+    "Clicks": 0,
+    "Date": "/Date(1766102400000)/",
+    "Impressions": 1,
+    "Query": "hostels in assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1766102400000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1766102400000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel near assi ghat varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1766707200000)/",
+    "Impressions": 3,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 7,
+    "Clicks": 0,
+    "Date": "/Date(1766707200000)/",
+    "Impressions": 2,
+    "Query": "hostel near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1766707200000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel near assi ghat varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1766707200000)/",
+    "Impressions": 1,
+    "Query": "hostel and dormatry near assi ghat varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 7,
+    "Clicks": 0,
+    "Date": "/Date(1766707200000)/",
+    "Impressions": 1,
+    "Query": "hostel stays near assi ghat varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1766707200000)/",
+    "Impressions": 1,
+    "Query": "dormitory near assi ghat varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 7,
+    "Clicks": 0,
+    "Date": "/Date(1766707200000)/",
+    "Impressions": 1,
+    "Query": "varanasi dormitory near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 1,
+    "Date": "/Date(1770940800000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel, varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1770940800000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 10,
+    "Clicks": 0,
+    "Date": "/Date(1770940800000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel, varanasi to banaras distance"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1770940800000)/",
+    "Impressions": 1,
+    "Query": "hostel to stay near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1770940800000)/",
+    "Impressions": 1,
+    "Query": "hostels in assi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 3,
+    "Clicks": 0,
+    "Date": "/Date(1770940800000)/",
+    "Impressions": 1,
+    "Query": "varanasi dom stay with lockers"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1770940800000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi hostelworld"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 1,
+    "Date": "/Date(1771545600000)/",
+    "Impressions": 3,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 5,
+    "Clicks": 0,
+    "Date": "/Date(1771545600000)/",
+    "Impressions": 1,
+    "Query": "hostel near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1772150400000)/",
+    "Impressions": 3,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1772150400000)/",
+    "Impressions": 1,
+    "Query": "hostels near to assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 5,
+    "Clicks": 0,
+    "Date": "/Date(1772150400000)/",
+    "Impressions": 1,
+    "Query": "varanasi hostels near ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 8,
+    "Clicks": 0,
+    "Date": "/Date(1772755200000)/",
+    "Impressions": 1,
+    "Query": "hostels in varanasi near ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1773360000000)/",
+    "Impressions": 4,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1773360000000)/",
+    "Impressions": 2,
+    "Query": "mosaic hostel"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1773360000000)/",
+    "Impressions": 1,
+    "Query": "hostels in varanasi near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1773360000000)/",
+    "Impressions": 1,
+    "Query": "hostels at assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 7,
+    "Clicks": 0,
+    "Date": "/Date(1773964800000)/",
+    "Impressions": 1,
+    "Query": "hostels in varanasi near ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1773964800000)/",
+    "Impressions": 1,
+    "Query": "female dormitory room near dashaswmedh ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1773964800000)/",
+    "Impressions": 1,
+    "Query": "hostels in varanasi near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1773964800000)/",
+    "Impressions": 1,
+    "Query": "varanasi hostel near ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1774569600000)/",
+    "Impressions": 3,
+    "Query": "hostel near assi ghat, varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1774569600000)/",
+    "Impressions": 2,
+    "Query": "girls hostels near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1774569600000)/",
+    "Impressions": 1,
+    "Query": "hostels in varanasi near ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1774569600000)/",
+    "Impressions": 1,
+    "Query": "can we find prostities in assi hat varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 8,
+    "Clicks": 0,
+    "Date": "/Date(1774569600000)/",
+    "Impressions": 1,
+    "Query": "hostels in banaras near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1774569600000)/",
+    "Impressions": 1,
+    "Query": "hostel at assi area varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 8,
+    "Clicks": 0,
+    "Date": "/Date(1775174400000)/",
+    "Impressions": 4,
+    "Query": "varanasi near hostel for female"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1775174400000)/",
+    "Impressions": 1,
+    "Query": "hostels near assi ghat varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1775779200000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1775779200000)/",
+    "Impressions": 1,
+    "Query": "institute of performing arts in varanasi assi ghat hostel"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 7,
+    "Clicks": 0,
+    "Date": "/Date(1776384000000)/",
+    "Impressions": 4,
+    "Query": "hostel near assi ghat, varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 3,
+    "Clicks": 0,
+    "Date": "/Date(1776384000000)/",
+    "Impressions": 3,
+    "Query": "mosaic hostel goibibo"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 3,
+    "Clicks": 0,
+    "Date": "/Date(1776988800000)/",
+    "Impressions": 1,
+    "Query": "hostels in assi ghat varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1777593600000)/",
+    "Impressions": 1,
+    "Query": "hostels in varanasi near ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1777593600000)/",
+    "Impressions": 1,
+    "Query": "hostel stay in varnasi for female"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1778198400000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 10,
+    "Clicks": 0,
+    "Date": "/Date(1778198400000)/",
+    "Impressions": 1,
+    "Query": "+mosaclab lab varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1778803200000)/",
+    "Impressions": 1,
+    "Query": "hostels near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 8,
+    "Clicks": 0,
+    "Date": "/Date(1779408000000)/",
+    "Impressions": 1,
+    "Query": "hostel"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1779408000000)/",
+    "Impressions": 1,
+    "Query": "dormatry and hostel near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 8,
+    "Clicks": 0,
+    "Date": "/Date(1779408000000)/",
+    "Impressions": 1,
+    "Query": "hostal"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 8,
+    "Clicks": 0,
+    "Date": "/Date(1780012800000)/",
+    "Impressions": 3,
+    "Query": "hostel"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 7,
+    "Clicks": 0,
+    "Date": "/Date(1780012800000)/",
+    "Impressions": 1,
+    "Query": "near assighat fickle solr"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1780012800000)/",
+    "Impressions": 1,
+    "Query": "near assighat fickle solr sk"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1780617600000)/",
+    "Impressions": 2,
+    "Query": "mosaic hostel"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1780617600000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1780617600000)/",
+    "Impressions": 1,
+    "Query": "mosaiac hostel"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1781222400000)/",
+    "Impressions": 2,
+    "Query": "mosaic"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 3,
+    "Clicks": 0,
+    "Date": "/Date(1781827200000)/",
+    "Impressions": 2,
+    "Query": "hostels near assi ghat varanasi india"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1783036800000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1783641600000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 1,
+    "Date": "/Date(1784851200000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostels"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1785456000000)/",
+    "Impressions": 1,
+    "Query": "hostels near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1785456000000)/",
+    "Impressions": 1,
+    "Query": "hostel dormitory near assi ghat varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 5,
+    "Clicks": 0,
+    "Date": "/Date(1785456000000)/",
+    "Impressions": 1,
+    "Query": "hostel dormitory near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 3,
+    "Clicks": 0,
+    "Date": "/Date(1786060800000)/",
+    "Impressions": 3,
+    "Query": "affordable hostels near assi ghat varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 7,
+    "Clicks": 0,
+    "Date": "/Date(1786060800000)/",
+    "Impressions": 1,
+    "Query": "best hostels near assi ghat varanasi for groups 2025 2026"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1786665600000)/",
+    "Impressions": 4,
+    "Query": "varanasi backpacker hostels wifi assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 7,
+    "Clicks": 0,
+    "Date": "/Date(1786665600000)/",
+    "Impressions": 4,
+    "Query": "female hostel varanasi near assi ghat reviews"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 5,
+    "Clicks": 0,
+    "Date": "/Date(1786665600000)/",
+    "Impressions": 1,
+    "Query": "mosaic"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 3,
+    "Clicks": 0,
+    "Date": "/Date(1787270400000)/",
+    "Impressions": 2,
+    "Query": "mosaic hotel"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 1,
+    "Date": "/Date(1788480000000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi: rooms cost"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1788480000000)/",
+    "Impressions": 2,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1788480000000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi:"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 2,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 3,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 2,
+    "Query": "varanasi hostel near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 1,
+    "Query": "hostels in varanasi near ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 3,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 1,
+    "Query": "cheap hostel near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi address"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1789689600000)/",
+    "Impressions": 2,
+    "Query": "mosaic hostels"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 3,
+    "Clicks": 0,
+    "Date": "/Date(1789689600000)/",
+    "Impressions": 1,
+    "Query": "hostel near assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 7,
+    "Clicks": 0,
+    "Date": "/Date(1789689600000)/",
+    "Impressions": 1,
+    "Query": "youth hostewl benras assi ghat"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 3,
+    "Clicks": 0,
+    "Date": "/Date(1789689600000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostels rate card 2025"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 1,
+    "Date": "/Date(1790294400000)/",
+    "Impressions": 1,
+    "Query": "mosaic-hostel"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1790294400000)/",
+    "Impressions": 2,
+    "Query": "mosaic cafe varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1790294400000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1790294400000)/",
+    "Impressions": 1,
+    "Query": "hostel near ghat varanasi"
+   }
+  ],
+  "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/": [
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 8,
+    "Clicks": 0,
+    "Date": "/Date(1788480000000)/",
+    "Impressions": 1,
+    "Query": "how safe in varanasi to go for mangalarati at 3 am"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1789689600000)/",
+    "Impressions": 4,
+    "Query": "varanasi ghats overnight stay sleeping prohibited safety rules"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 9,
+    "Clicks": 0,
+    "Date": "/Date(1789689600000)/",
+    "Impressions": 1,
+    "Query": "is it safe to go to varanasi now ?"
+   }
+  ],
+  "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/": [
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 1,
+    "Query": "asi ghat well child less"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 1,
+    "Query": ", assi ghat road, varanasi, up"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 3,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 1,
+    "Query": ", assi ghat road, varanasi, up to durgakund road, varanasi, uttar pradesh 221005"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1790294400000)/",
+    "Impressions": 3,
+    "Query": "varanasi important ghats assi tulsi shivala kedar dashashwamedh walking route"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 5,
+    "Clicks": 0,
+    "Date": "/Date(1790294400000)/",
+    "Impressions": 1,
+    "Query": "varanasi assi ghat bhelupur sigra cantonment area stay guide safety solo women"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1790294400000)/",
+    "Impressions": 1,
+    "Query": "varanasi neighborhoods assi ghat sigra where to stay official travel guide"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 7,
+    "Clicks": 0,
+    "Date": "/Date(1790294400000)/",
+    "Impressions": 1,
+    "Query": "assi ghat kaise jaye"
+   }
+  ],
+  "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/": [
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 1,
+    "Query": "varanasi assi ghat vs dashashwamedh where to stay"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 1,
+    "Clicks": 0,
+    "Date": "/Date(1789689600000)/",
+    "Impressions": 3,
+    "Query": "varanasi hotel areas noise dashashwamedh assi ghat cantonment"
+   }
+  ],
+  "https://www.mosaichostels.com/book-now/": [
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 3,
+    "Clicks": 0,
+    "Date": "/Date(1780617600000)/",
+    "Impressions": 2,
+    "Query": "mosaic hostel"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1783036800000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 1,
+    "Date": "/Date(1788480000000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi: rooms cost"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostel varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 9,
+    "Clicks": 0,
+    "Date": "/Date(1789689600000)/",
+    "Impressions": 1,
+    "Query": "mosaic hostels rate card 2025"
+   }
+  ],
+  "https://www.mosaichostels.com/backpackers-guide-assi-ghat-varanasi/": [],
+  "https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/": [],
+  "https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/": [
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 4,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 1,
+    "Query": "which time has less crowd in varanasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1789084800000)/",
+    "Impressions": 1,
+    "Query": "is mid-late july the absolute best time for a varanasi trip, or the worst time"
+   }
+  ],
+  "https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/": [
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 6,
+    "Clicks": 0,
+    "Date": "/Date(1790294400000)/",
+    "Impressions": 2,
+    "Query": "india budget train travel hostel dorm varanasi price 2026"
+   }
+  ],
+  "https://www.mosaichostels.com/varanasi-solo-female-travelers-safety-travel-guide/": [
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 2,
+    "Clicks": 0,
+    "Date": "/Date(1780012800000)/",
+    "Impressions": 1,
+    "Query": "varanasi guide for solo travellers"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 5,
+    "Clicks": 0,
+    "Date": "/Date(1781222400000)/",
+    "Impressions": 2,
+    "Query": "solo woman in varanasi madurai india"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 26,
+    "Clicks": 0,
+    "Date": "/Date(1781222400000)/",
+    "Impressions": 1,
+    "Query": "varanasi female solo traveler harrassed"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 5,
+    "Clicks": 0,
+    "Date": "/Date(1781222400000)/",
+    "Impressions": 1,
+    "Query": "solo woman in vranasi"
+   },
+   {
+    "__type": "QueryStats:#Microsoft.Bing.Webmaster.Api",
+    "AvgClickPosition": -1,
+    "AvgImpressionPosition": 5,
+    "Clicks": 0,
+    "Date": "/Date(1781222400000)/",
+    "Impressions": 1,
+    "Query": "solo woman in varanasi"
+   }
+  ]
+ },
+ "related_keywords": {
+  "varanasi hostel": [
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 7,
+    "Impressions": 7,
+    "Query": "alaknanda cruise varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 25,
+    "Impressions": 25,
+    "Query": "varanasi to prayagraj distance"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 42202,
+    "Impressions": 2583,
+    "Query": "district"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 1537,
+    "Impressions": 376,
+    "Query": "kashi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 21,
+    "Impressions": 21,
+    "Query": "weather varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 24,
+    "Impressions": 24,
+    "Query": "varanasi ghats"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 49999,
+    "Impressions": 26115,
+    "Query": "s"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 7,
+    "Impressions": 7,
+    "Query": "ss rajamouli\u2019s son reveals what happened backstage during mahesh babu\u2019s varanasi event glitch"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 12,
+    "Impressions": 11,
+    "Query": "mahesh babu varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 1,
+    "Impressions": 1,
+    "Query": "varanasi 2027"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 17,
+    "Impressions": 17,
+    "Query": "varanasi movie budget"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 1,
+    "Impressions": 1,
+    "Query": "vinay varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 28,
+    "Impressions": 6,
+    "Query": "bangalore to varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 13,
+    "Impressions": 13,
+    "Query": "jhv cinemas varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 24,
+    "Impressions": 24,
+    "Query": "hotels in varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 1,
+    "Impressions": 1,
+    "Query": "taj varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 227,
+    "Impressions": 141,
+    "Query": "varanasi movie"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 29,
+    "Impressions": 29,
+    "Query": "weather in varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 40,
+    "Impressions": 40,
+    "Query": "ss rajamouli varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 46818,
+    "Impressions": 30322,
+    "Query": "n"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 45,
+    "Impressions": 45,
+    "Query": "manasa varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 31,
+    "Impressions": 26,
+    "Query": "varanasi airport"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 7,
+    "Impressions": 7,
+    "Query": "varanasi hotels"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 32,
+    "Impressions": 2,
+    "Query": "mumbai to varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 66,
+    "Impressions": 66,
+    "Query": "jhv mall varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 30,
+    "Impressions": 30,
+    "Query": "mumbai to varanasi flight"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 6,
+    "Impressions": 6,
+    "Query": "varanasi development authority"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 35,
+    "Impressions": 35,
+    "Query": "varanasi weather today"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 39010,
+    "Impressions": 706,
+    "Query": "first"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 32,
+    "Impressions": 32,
+    "Query": "\u6b4c\u8a5e"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 28,
+    "Impressions": 28,
+    "Query": "varanasi map"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 22,
+    "Impressions": 22,
+    "Query": "hotel in varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 13,
+    "Impressions": 13,
+    "Query": "delhi to varanasi distance"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 5507,
+    "Impressions": 5506,
+    "Query": "varanasi india"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 1,
+    "Impressions": 1,
+    "Query": "varanasi to delhi train"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 4,
+    "Impressions": 4,
+    "Query": "ahmedabad to varanasi flights"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 72412,
+    "Impressions": 3871,
+    "Query": "5"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 47,
+    "Impressions": 47,
+    "Query": "varanasi pin code"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 18,
+    "Impressions": 18,
+    "Query": "lucknow to varanasi distance"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 484,
+    "Impressions": 155,
+    "Query": "banaras"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 17,
+    "Impressions": 17,
+    "Query": "ayodhya to varanasi distance"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 13,
+    "Impressions": 13,
+    "Query": "taj ganges varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 44,
+    "Impressions": 44,
+    "Query": "varanasi release date"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 72897,
+    "Impressions": 24335,
+    "Query": "c"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 8,
+    "Impressions": 8,
+    "Query": "places to visit in varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 77217,
+    "Impressions": 489,
+    "Query": "state"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 1,
+    "Impressions": 1,
+    "Query": "bhajan jamming at gostops varanasi at gostops lite varanasi varanasi on 26th september"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 3,
+    "Impressions": 3,
+    "Query": "varanasi places to visit"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 51,
+    "Impressions": 4,
+    "Query": "varanasi to ayodhya"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 17,
+    "Impressions": 17,
+    "Query": "hyderabad to varanasi flight"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 197,
+    "Impressions": 196,
+    "Query": "varanasi news"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 79,
+    "Impressions": 44,
+    "Query": "varanasi weather"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 23,
+    "Impressions": 23,
+    "Query": "bookmyshow varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 34,
+    "Impressions": 34,
+    "Query": "iit bhu varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 7,
+    "Impressions": 7,
+    "Query": "delhi to varanasi train"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 47,
+    "Impressions": 47,
+    "Query": "varanasi to ayodhya distance"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 134,
+    "Impressions": 10,
+    "Query": "kashi vishwanath temple varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 17,
+    "Impressions": 17,
+    "Query": "prayagraj to varanasi distance"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 12,
+    "Impressions": 12,
+    "Query": "varanasi temperature"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 42,
+    "Impressions": 11,
+    "Query": "delhi to varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 6,
+    "Impressions": 6,
+    "Query": "varanasi temple"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 19529,
+    "Impressions": 227,
+    "Query": "place"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 47,
+    "Impressions": 47,
+    "Query": "varanasi movie release date"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 21,
+    "Impressions": 21,
+    "Query": "banaras city"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 25,
+    "Impressions": 25,
+    "Query": "cancel varanasi 2024 election results arrest gyanesh kumar congress' ajay rai continues attack on centre cec"
+   }
+  ],
+  "hostel in varanasi": [
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 24,
+    "Impressions": 24,
+    "Query": "hotels in varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 29,
+    "Impressions": 29,
+    "Query": "weather in varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 22,
+    "Impressions": 22,
+    "Query": "hotel in varanasi"
+   },
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 8,
+    "Impressions": 8,
+    "Query": "places to visit in varanasi"
+   }
+  ],
+  "assi ghat stay": [
+   {
+    "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+    "BroadImpressions": 4,
+    "Impressions": 4,
+    "Query": "assi ghat"
+   }
+  ],
+  "backpacker hostel varanasi": []
+ },
+ "keyword_volume": {
+  "varanasi hostel": {
+   "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+   "BroadImpressions": 0,
+   "Impressions": 0,
+   "Query": null
+  },
+  "mosaic hostels": {
+   "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+   "BroadImpressions": 0,
+   "Impressions": 0,
+   "Query": null
+  },
+  "hostels near assi ghat": {
+   "__type": "Keyword:#Microsoft.Bing.Webmaster.Api",
+   "BroadImpressions": 0,
+   "Impressions": 0,
+   "Query": null
+  }
+ },
+ "url_submission_quota": {
+  "__type": "UrlSubmissionQuota:#Microsoft.Bing.Webmaster.Api",
+  "DailyQuota": 100,
+  "MonthlyQuota": 3100
+ },
+ "content_submission_quota": {
+  "__type": "ContentSubmissionQuota:#Microsoft.Bing.Webmaster.Api",
+  "DailyQuota": 100,
+  "MonthlyQuota": 3100
+ },
+ "indexnow": {
+  "key_file_http": 200,
+  "key_file_matches": true,
+  "key_file_path": "140ef5ae933ea27ef5ec39a4c06690e1.txt"
+ },
+ "unavailable_methods": {
+  "GetActiveKeywords": {
+   "error": "HTTP 404"
+  },
+  "GetSiteMoves": {
+   "error": "HTTP 404"
+  },
+  "GetSiteUrlParameters": {
+   "error": "HTTP 404"
+  },
+  "GetQuerySpecificPageStats": {
+   "error": "HTTP 404"
+  },
+  "GetChildrenUrlInfo": {
+   "error": "HTTP 405"
+  }
+ }
+}

@@ -1,0 +1,162 @@
+Bing extract — https://www.mosaichostels.com/   last 90 days
+
+  url_info 5/21
+  url_info 10/21
+  url_info 15/21
+  url_info 20/21
+
+raw bundle -> seo-reports/bing/2026-10-01.json
+
+
+## Property
+  https://www.mosaichostels.com/  verified=True
+  role=0 via=GSCImport expired=False
+  Sitemap https://www.mosaichostels.com/sitemap.xml  status=Success urls=22 lastCrawled=2026-09-30
+
+## Bing index coverage
+  InIndex (Bing, 2026-09-30):  29
+  sitemap URLs:                21
+  gap:                         -8
+  peak InIndex in window:      29 on 2026-09-11
+  crawled pages, 90d total:  577
+
+  per-URL: Bing knows 10/21 sitemap URLs
+  NOT KNOWN TO BING (never crawled, cannot be cited by Copilot):
+    https://www.mosaichostels.com/book-now
+    https://www.mosaichostels.com/privacy
+    https://www.mosaichostels.com/blog/best-hostels-in-varanasi/
+    https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide/
+    https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/
+    https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/
+    https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/
+    https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/
+    https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/
+    https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/
+    https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/
+  known, but content stored is empty or a stub (DocumentSize <= 1KB):
+         0B  https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/
+       795B  https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/
+
+## Crawl errors and issues
+  CrawlErrors          13  <-- fix
+  Code2xx              30
+  Code301              19
+  Code302              11
+  Code4xx              6  <-- fix
+  Code5xx              2  <-- fix
+  AllOtherCodes        10
+  BlockedByRobotsTxt   0
+  DnsFailures          0
+  ConnectionTimeout    3  <-- fix
+  ContainsMalware      0
+  (peak-of-window per counter; Bing reports these as running site totals)
+  GetCrawlIssues rows: 0
+  crawl rate: 5-5/hr  boost available=False
+
+## Inbound links (Bing exposes this; Google Search Console has no links API)
+  ZERO inbound links known to Bing across all GetLinkCounts pages.
+  Bing has crawled the site but has discovered no external page linking to it.
+  This is the single biggest lever here: Bing weights inbound links heavily
+  for index depth, which is what gates Copilot citation eligibility.
+  (GetUrlInfo AnchorCount across sitemap URLs: 2)
+
+## Query stats
+     imp  clk   pos  query
+       9    0   1.8  mosaic hostel varanasi
+       4    0   7.0  female hostel varanasi near assi ghat reviews
+       4    0   1.0  varanasi backpacker hostels wifi assi ghat
+       4    0   2.0  varanasi ghats overnight stay sleeping prohibited safety rules
+       4    0   7.0  mosaic cafe varanasi
+       4    0   4.0  varanasi travel safety scams ghats official tourism
+       3    1   4.0  mosaic hostels
+       3    0   3.0  affordable hostels near assi ghat varanasi
+       3    0   1.0  varanasi hotel areas noise dashashwamedh assi ghat cantonment
+       3    0   7.0  varanasi best areas to stay solo traveller assi ghat godowlia dashashwamedh safety
+       3    0   6.0  varanasi important ghats assi tulsi shivala kedar dashashwamedh walking route
+       2    0   6.0  i am arriving at varanasi junction at 8 am and staying near assi ghat
+       2    0   7.0  asgiriya ghat travel guide
+       2    0   7.0  good cafes with wifi at varanasi ghat
+       2    0   3.0  mosaic hotel
+       2    2   2.0  mosaic hostel varanasi: rooms cost
+       2    0   3.0  varanasi hostel near assi ghat
+       2    0   2.0  mosaic hostel varanasi address
+       2    0   6.0  mosaic hostels rate card 2025
+       2    1   3.0  mosaic-hostel
+       2    0   6.0  india budget train travel hostel dorm varanasi price 2026
+       1    0   3.0  where to stay in varanasi as a solo woman
+       1    0   4.0  hostels near assi ghat
+       1    0   4.0  hostel dormitory near assi ghat varanasi
+       1    0   5.0  hostel dormitory near assi ghat
+
+  site total, 90d: impressions=103 clicks=4 ctr=3.9%
+
+## Page stats
+     imp  clk  page
+      42    3  https://mosaichostels.com/
+      10    0  https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/
+       9    0  https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/
+       8    0  https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/
+       7    1  https://www.mosaichostels.com/book-now/
+       4    0  https://www.mosaichostels.com/backpackers-guide-assi-ghat-varanasi/
+       3    0  https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/
+       2    0  https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/
+       2    0  https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/
+       1    0  https://www.mosaichostels.com/varanasi-solo-female-travelers-safety-travel-guide/
+       1    0  https://www.mosaichostels.com/contact
+       1    0  https://www.mosaichostels.com/blog/sarnath-day-trip-guide-varanasi/
+       1    0  https://www.mosaichostels.com/blog/best-hostels-in-varanasi/
+  (Bing returns page URLs in a field named 'Query' — that is the API, not a bug)
+
+## Keyword volume (Bing impression counts, free)
+  seed: varanasi hostel
+     30322  n
+     26115  s
+     24335  c
+      5506  varanasi india
+      3871  5
+      2583  district
+       706  first
+       489  state
+       376  kashi
+       227  place
+  seed: hostel in varanasi
+        29  weather in varanasi
+        24  hotels in varanasi
+        22  hotel in varanasi
+         8  places to visit in varanasi
+  seed: assi ghat stay
+         4  assi ghat
+
+## Submission quota (read only — this run submitted nothing)
+  url_submission_quota: daily=100 monthly=3100
+  content_submission_quota: daily=100 monthly=3100
+  IndexNow key file 140ef5ae933ea27ef5ec39a4c06690e1.txt: HTTP 200 match=True
+  IndexNow draws on the same Bing URL submission allowance shown above.
+
+## Bing vs Google indexation
+  Google source: 2026-10-01.json
+  in both:              7
+  Google only:          9   <-- invisible to Copilot
+    https://www.mosaichostels.com/book-now   [google: Submitted and indexed]
+    https://www.mosaichostels.com/blog/best-hostels-in-varanasi/   [google: Submitted and indexed]
+    https://www.mosaichostels.com/blog/varanasi-solo-female-travelers-safety-travel-guide/   [google: Submitted and indexed]
+    https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/   [google: Submitted and indexed]
+    https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/   [google: Submitted and indexed]
+    https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/   [google: Submitted and indexed]
+    https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/   [google: Submitted and indexed]
+    https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/   [google: Submitted and indexed]
+    https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/   [google: Submitted and indexed]
+  Bing only:            3
+    https://www.mosaichostels.com/blog/   [google: Discovered - currently not indexed]
+    https://www.mosaichostels.com/about   [google: Discovered - currently not indexed]
+    https://www.mosaichostels.com/contact   [google: Discovered - currently not indexed]
+  in neither:           2
+    https://www.mosaichostels.com/privacy   [google: URL is unknown to Google]
+    https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/   [google: Discovered - currently not indexed]
+
+## Dead API surface (recorded so nobody re-tests it)
+  GetActiveKeywords            {'error': 'HTTP 404'}
+  GetSiteMoves                 {'error': 'HTTP 404'}
+  GetSiteUrlParameters         {'error': 'HTTP 404'}
+  GetQuerySpecificPageStats    {'error': 'HTTP 404'}
+  GetChildrenUrlInfo           {'error': 'HTTP 405'}

@@ -1,0 +1,93 @@
+Lighthouse + drift extract — https://www.mosaichostels.com   mode=full-sweep
+
+  $ unlighthouse-ci --site https://www.mosaichostels.com --output-path ...  (several minutes, do not interrupt)
+
+raw bundle -> seo-reports/lighthouse/2026-10-01.json
+
+## Per-page category scores (15 routes, Lighthouse 13.5.0)
+  route                                     perf  a11y bestp   seo
+  /                                           99    95    73   100
+  /about                                      98    88    73   100
+  /blog/                                      81    92    73   100
+  /blog/assi-ghat-varanasi-complete-guide/    99    93    73   100
+  /blog/assi-ghat-vs-dashashwamedh-where-t    82    93    77   100
+  /blog/best-hostels-in-varanasi/             94    93    77   100
+  /blog/best-time-to-visit-varanasi-month-    93    93    77   100
+  /blog/co-working-spaces-cafes-assi-ghat/    96    93    77   100
+  /blog/things-to-do-varanasi-local-guide/    96    93    77   100
+  /blog/varanasi-3-5-day-itinerary-slow-tr    89    93    77   100
+  /blog/varanasi-airport-railway-to-assi-g    97    93    77   100
+  /book-now                                   99    90    77   100
+  /contact                                    99    89    77   100
+  /gallery                                    93    93    77   100
+  /privacy                                   100    95    77   100
+  AVERAGE                                     94    92    76   100
+  performance      min= 81 on /blog/
+  accessibility    min= 88 on /about
+  best-practices   min= 73 on /
+  seo              min=100 on /
+
+## Lab metrics (site average — lab, not field; do not quote as CWV)
+  cumulative-layout-shift              0.02
+  first-contentful-paint               1405.83
+  interactive                          2624.79
+  largest-contentful-paint             2624.26
+  max-potential-fid                    28.93
+  total-blocking-time                  0
+
+## Failing audits by reach (15 pages audited)
+  pages   save ms  save KiB  audit
+   15/15      3100       878  image-delivery-insight — Improve image delivery
+   15/15      1650         0  render-blocking-insight — Render-blocking requests
+   15/15       360      1163  unused-javascript — Reduce unused JavaScript
+   15/15       150       859  cache-insight — Use efficient cache lifetimes
+   15/15         0         0  third-party-cookies — Uses third-party cookies
+   15/15         0         0  color-contrast — Background and foreground colors do not have a sufficient co
+   15/15         0         0  inspector-issues — Issues were logged in the `Issues` panel in Chrome Devtools
+   15/15         0         0  network-dependency-tree-insight — Network dependency tree
+   12/15         0         0  landmark-one-main — Document does not have a main landmark.
+    9/15      1510        91  unused-css-rules — Reduce unused CSS
+    8/15         0         0  lcp-discovery-insight — LCP request discovery
+    4/15         0         0  errors-in-console — Browser errors were logged to the console
+    3/15         0         0  frame-title — `<frame>` or `<iframe>` elements do not have a title
+    1/15         0         0  forced-reflow-insight — Forced reflow
+    1/15         0         0  heading-order — Heading elements are not in a sequentially-descending order
+    1/15         0         6  unminified-javascript — Minify JavaScript
+    1/15         0        20  legacy-javascript-insight — Legacy JavaScript
+    1/15         0         0  unsized-images — Image elements do not have explicit `width` and `height`
+    1/15         0       353  total-byte-weight — Avoid enormous network payloads
+
+## Biggest single-page wins
+    1350ms     82KiB  image-delivery-insight             /blog/assi-ghat-vs-dashashwamedh-where-to-stay/
+     600ms    109KiB  image-delivery-insight             /blog/things-to-do-varanasi-local-guide/
+     450ms    102KiB  image-delivery-insight             /blog/varanasi-3-5-day-itinerary-slow-travel/
+     360ms     72KiB  unused-javascript                  /blog/
+     300ms     10KiB  unused-css-rules                   /blog/assi-ghat-vs-dashashwamedh-where-to-stay/
+     300ms     10KiB  unused-css-rules                   /blog/co-working-spaces-cafes-assi-ghat/
+     300ms      0KiB  render-blocking-insight            /blog/co-working-spaces-cafes-assi-ghat/
+     300ms      0KiB  render-blocking-insight            /blog/varanasi-3-5-day-itinerary-slow-travel/
+     300ms      0KiB  render-blocking-insight            /gallery
+     300ms      0KiB  render-blocking-insight            /privacy
+     200ms     54KiB  image-delivery-insight             /blog/assi-ghat-varanasi-complete-guide/
+     200ms     24KiB  image-delivery-insight             /blog/best-time-to-visit-varanasi-month-by-month/
+
+## Site-wide failures (every audited page)
+  cache-insight — Use efficient cache lifetimes
+  color-contrast — Background and foreground colors do not have a sufficient contrast ratio.
+  image-delivery-insight — Improve image delivery
+  inspector-issues — Issues were logged in the `Issues` panel in Chrome Devtools
+  network-dependency-tree-insight — Network dependency tree
+  render-blocking-insight — Render-blocking requests
+  third-party-cookies — Uses third-party cookies
+  unused-javascript — Reduce unused JavaScript
+
+## Drift baseline store
+  ~/.cache/claude-seo/drift -> /Users/naveen/.local/share/mosaic-seo/drift  OK (survives a cache wipe)
+  #1  2026-09-28T06:04:15  https://www.mosaichostels.com/
+  #2  2026-09-28T06:18:14  https://www.mosaichostels.com/book-now
+  #3  2026-09-28T06:18:14  https://www.mosaichostels.com/blog
+
+## Drift findings vs baseline
+  /              vs baseline #1 (2026-09-28)  CLEAN
+  /book-now      vs baseline #2 (2026-09-28)  CLEAN
+  /blog/         vs baseline #3 (2026-09-28)  CLEAN
