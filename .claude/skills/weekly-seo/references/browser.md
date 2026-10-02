@@ -21,8 +21,7 @@ gate below — never "looked fine last time" or "probably unchanged."
 Run the required GBP, GCP, GA4, PSI/CrUX, Bing Webmaster, and Clarity browser checks in this agent. Use a dedicated OpenCLI browser session and stop at any login gate or account mismatch as described below. Inside Macterm, send the findings and evidence through `macterm-pair` step reviews; outside Macterm, work solo unless the user asks for pairing.
 
 **Tool (current, as of 2026-09-28): OpenCLI's `opencli browser` commands
-against the shared automation Chromium — not AppleScript, not a
-browser-automation MCP.** Full setup and command reference:
+against the shared automation Chromium.** Full setup and command reference:
 `~/.config/mosaic-seo/BROWSER.md` and the `opencli-browser` Claude Code skill
 (invoke it, don't hand-roll calls from memory). In short — `ungoogled-chromium`
 (open source; `/Applications/Chromium.app`) with a dedicated persistent
@@ -38,74 +37,23 @@ opencli browser seo state
 opencli browser seo close
 ```
 
-This replaced AppleScript/Safari specifically because Google's account
-switcher (and other UI panels on these platforms) render in a **cross-origin
-iframe** — Safari's `do JavaScript` runs in the top frame only and cannot
-read or click into one at all, confirmed live on 2026-09-28.
-`opencli browser <session> frames` lists cross-origin iframes (including
-Google's `ogs.google.com` account-switcher widget) and
-`opencli browser <session> eval "..." --frame <N>` reads real content out of
-one — verified live the same day. That's the actual capability gap
-AppleScript couldn't close no matter how the DOM query was written.
+`opencli browser <session> frames` lists cross-origin iframes (for example Google's
+`ogs.google.com` account-switcher widget) and
+`opencli browser <session> eval "..." --frame <N>` reads real content out of one.
 
-**If AppleScript/`osascript`, a `mcp__safari-mcp__*` (or any other
-browser-automation MCP) tool, or hand-rolled Playwright/CDP gets reached for
-instead, that's a regression — stop and use `opencli browser` against the
-shared Chromium above.** Historical note, still worth knowing:
-`mcp__safari-mcp__*` drives a separate, blank WebKit automation context with
-none of the owner's cookies — confirmed by direct mistake on 2026-09-28, when
-its `navigate_to_url` calls to GSC/GA4/Bing Webmaster/GBP/Clarity all came
-back logged-out and briefly got written up as a "confirmed" result. It
-wasn't — it only proved that tool's blank profile has no session, and said
-nothing true about the owner's real logins. A raw Playwright/CDP setup
-(`connect_over_cdp` against the same Chromium) was also tried and worked for
-plain pages, but OpenCLI supersedes it — structured envelopes, ref
-fingerprinting, semantic locators, and the `frames`/`eval --frame` combo,
-instead of hand-rolled calls with no error-code contract.
-
-**One-time prerequisite, GUI-only, cannot be scripted (historical, kept only
-in case a future run genuinely has no other option):** Safari → Settings →
-Advanced → "Show features for web developers", then Develop menu → "Allow
-JavaScript from Apple Events." This is moot for the current OpenCLI/Chromium
-setup — it only ever applied to the old AppleScript path.
-
-Core patterns (`opencli browser` against the shared Chromium —
-`~/.config/mosaic-seo/BROWSER.md` has the launch/connect boilerplate):
-
-```python
-page = browser.contexts[0].new_page()
-page.goto("<url>")                       # open
-page.inner_text("body")                  # read live, post-render text — the primary read path
-page.url; page.title()                   # cheap state checks
-page.click("<selector>")                 # click
-page.frame_locator("<iframe selector>")  # reach INTO a cross-origin iframe — the specific
-                                          # capability AppleScript never had
-page.close()                             # close when done
-```
-
-`page.content()` (raw, pre-render HTML) works with no gate either, but every
-one of these six platforms is a JS-rendered SPA — raw source will not contain
-the actual dashboard content, only the app shell. Use it only for a quick
-login-redirect check via URL, never as the read path for real data.
-
-- Reuse an already-open page on the target dashboard where one exists
-  (`browser.contexts[0].pages`) rather than opening a duplicate.
-- `page.inner_text("body")` is the default read — cheaper and more reliable
-  than a screenshot for quota tables, IAM binding lists, SEO Reports,
-  backlink lists, tag-health panels.
-- `page.screenshot(path=...)` only where the signal is genuinely visual and
-  text extraction loses it: GBP listing photos, Clarity's heatmap overlays.
-- Close any page this pass opened when done — leave the shared browser's
-  other open tabs alone, and leave the browser process itself running for
-  the next agent/run rather than killing it.
+Read pages with `opencli browser seo eval "document.body.innerText"`: cheaper and more
+reliable than a screenshot for quota tables, IAM binding lists, SEO reports, backlink
+lists and tag-health panels. Raw page source is only an app shell on these JS-rendered
+dashboards; use it just to spot a login redirect via the URL. Screenshot only where the
+signal is visual (GBP listing photos, Clarity heatmap overlays). Reuse an already-open
+dashboard tab instead of opening a duplicate, close any tab this pass opened, and leave
+the browser process running for the next run.
 
 **Account check — mandatory before trusting any Google property's content.**
 Confirm *which* account is active before treating a page's content as real:
 
-```python
-import re
-email = (re.search(r"[\w.+-]+@[\w.-]+\.[\w.-]+", page.inner_text("body")) or [None])
-```
+Read the page text (`opencli browser seo eval \"document.body.innerText\"`) and match the
+first address with the regex `[\w.+-]+@[\w.-]+\.[\w.-]+`.
 
 Run this on every GBP/GCP/GA4 page load (PSI/CrUX needs no login, so skip it
 there). Expected account is `mosaichostels@gmail.com` — the same one used for
@@ -169,7 +117,7 @@ only pass with a working grant), so most runs will find this step already
 done and it's a no-op:
 
 1. **Grant GSC access** — `search.google.com/search-console/users`. Read the
-   user list via `do JavaScript "document.body.innerText"` first; if the
+   user list via `opencli browser seo eval "document.body.innerText"` first; if the
    service account is already listed as Owner, stop here. Otherwise Add user
    → the service account email → Owner (the Indexing API rejects anything
    below Owner).
@@ -186,7 +134,7 @@ ask, don't assume.
 **Bing Webmaster API key and Clarity API token stay manual.** Both require
 generating a new secret and reading its value off the page — there is no
 CLI-only path for either the way `gcloud services api-keys get-key-string`
-gave for `GOOGLE_API_KEY`, so pulling either through this Safari session would
+gave for `GOOGLE_API_KEY`, so pulling either through this browser session would
 put the raw secret through this conversation's context, same as it would
 through any other browser-automation path. Navigate to the right settings
 screen so the owner doesn't have to hunt for it (`bing.com/webmasters` →
