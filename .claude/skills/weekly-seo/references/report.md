@@ -51,3 +51,13 @@ none, say so and treat this run as the baseline.
 Where a source had no data, say which source and why — quota, insufficient
 CrUX sample, credential down. A blank cell with no explanation reads as zero,
 and zero is a very different claim from "not measured".
+
+## Coverage items (step h)
+
+`coverage_ledger.py init` seeds these ids; mark each with `coverage_ledger.py mark ITEM done|skipped|blocked REASON` as the run proceeds. A reason is required for `skipped` and `blocked`.
+
+- `extract:<source>` for gsc, ga4, bing, clarity, cwv, lighthouse, commoncrawl: set automatically from the data; mark `skipped` or `blocked` yourself when a platform is DOWN.
+- `browser:gbp`, `browser:gcp`, `browser:ga4-ui`, `browser:psi-web`, `browser:bing-ui`, `browser:clarity-ui`: the six browser reviews in `references/browser.md`.
+- `audits:claude-seo-14`: the 14 concurrent audit agents; `audits:skill-3`: the three Skill-tool-only checks; `ai-visibility`: `ai-visibility.sh`.
+
+Item 2 of the report (metric deltas) is generated: paste the output of `python3 .claude/seo/deltas.py`. `not measured` is never zero; `_90d` rows overlap between runs.

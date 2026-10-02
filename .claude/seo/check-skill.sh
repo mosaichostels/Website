@@ -43,6 +43,9 @@ sec_f=$(awk '/^## \(f\) /{f=1;next} /^## /{f=0} f' "$S")
 grep -qF 'deploy-drift.sh' <<<"$sec_f" || bad "step (f) does not require the drift check"
 grep -qF 'gsc-sitemap-submit.py' <<<"$sec_f" || bad "step (f) does not use gsc-sitemap-submit.py"
 
+for needle in 'deltas.py' 'coverage_ledger.py mark' 'coverage_ledger.py check'; do
+  grep -qF "$needle" "$S" || bad "SKILL.md does not mention: $needle"
+done
 hits=$(grep -rnE 'osascript|AppleScript|Safari|safari-mcp|Herdr|HERDR|MOZ_API|indexing_notify|browser\.contexts|page\.(goto|inner_text|click|screenshot|content|frame_locator)' "$D" || true)
 [[ -z "$hits" ]] || bad "obsolete text present:"$'\n'"$hits"
 

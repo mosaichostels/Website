@@ -26,3 +26,4 @@ screenshots/
 
 # Regenerable API-response caches from SEO report runs — not source content
 seo-reports/**/.cache/
+__pycache__/
