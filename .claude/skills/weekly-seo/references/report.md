@@ -40,7 +40,7 @@ Write `seo-reports/YYYY-MM-DD.md`:
 7. **Deferred** — the gap, the reason, its priority score.
 8. **Next week / needs a human** — anything requiring a decision, a
    credential, a deploy, or a factual claim you could not verify.
-9. **Skill updated** — see "Self-improvement" below. One line per edit: which
+9. **Skill updated** — see "Self-improvement" in SKILL.md and `references/self-improvement.md`. One line per edit: which
    fact changed, in which section, why. Empty is a fine answer some weeks —
    don't manufacture an edit to fill this line.
 10. **Pairing and scope review this run** — inside Macterm, record the paired reviewer's whole-diff scope verdict and any objections or resolutions. Outside Macterm, record the solo scope check and any user-requested paired review. For a report-only run, say that no fix diff was reviewed.

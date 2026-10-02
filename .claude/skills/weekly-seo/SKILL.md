@@ -148,10 +148,10 @@ The URL is positional (no `--url` flag). Add `--skip-cwv` while the PageSpeed ke
 is unconfigured.
 
 ```bash
+[ -L ~/.cache/claude-seo/drift ] || ln -s ~/.local/share/mosaic-seo/drift ~/.cache/claude-seo/drift
 for u in / /book-now /blog/; do
   "$SEOPY" "$SEO/drift_baseline.py" --skip-cwv "https://www.mosaichostels.com$u"
 done
-[ -L ~/.cache/claude-seo/drift ] || ln -s ~/.local/share/mosaic-seo/drift ~/.cache/claude-seo/drift
 ```
 
 The plugin hardcodes `~/.cache/claude-seo/drift/baselines.db`; a cache wipe once

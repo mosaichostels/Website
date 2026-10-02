@@ -26,7 +26,7 @@ cache-bust string in every HTML file that references it. The
 
 ### Fix ownership and scope review
 
-Use one writer for the ranked fixes. Keep each edit tied to a finding and inside the Scope lock above; defer claims about hostel facts, prices, or amenities that cannot be verified. After the edits, run `cache-bust-check` once across the full diff.
+Use one writer for the ranked fixes. Keep each edit tied to a finding and inside the Scope lock in SKILL.md; defer claims about hostel facts, prices, or amenities that cannot be verified. After the edits, run `cache-bust-check` once across the full diff.
 
 Before the verify gate, check the complete diff for files outside the Scope lock, changes to facts without citations, and edits without a corresponding finding. Inside Macterm, give the paired reviewer the actual diff and the finding behind each hunk; the `macterm-pair` skill also governs every earlier step review. Outside Macterm, perform this scope check locally unless the user explicitly asks for pairing. For a report-only run there is no fix diff to review.
 
