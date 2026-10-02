@@ -80,14 +80,14 @@ from the env file): ask, never attempt the push.
 ./.claude/seo/extract-all.sh gsc bing   # only the named ones
 ```
 
-Each extractor writes a raw bundle to `seo-reports/<name>/YYYY-MM-DD.json` and
-its text report to `seo-reports/runs/YYYY-MM-DD/<name>.txt`. One failure never
+Each extractor writes a raw bundle to `seo-reports/<name>/YYYY-MM-DD.json` and its
+text report to `seo-reports/runs/YYYY-MM-DD/<name>.txt`; the wrapper then writes
+`seo-reports/data/YYYY-MM-DD/*.metrics.json` and `coverage.json`. One failure never
 aborts the sweep: check the summary for `FAILED:`, rerun a failed or missing
-extractor, and record the cause if it still fails. Confirm today's CWV and
-Lighthouse bundles exist before step (d). Skip any source whose platform is
-DOWN. Use the extractors, never hand-rolled API calls: they encode quota limits,
-freshness lags and which endpoints do not exist. Inside Macterm, use
-`macterm-pair` for each step's review; outside, run solo unless asked to pair.
+extractor, and record the cause if it still fails. Skip any source whose platform
+is DOWN. Never hand-roll API calls: the extractors encode quota limits and
+freshness lags. Inside Macterm, use `macterm-pair` for each step's review; outside,
+run solo unless asked to pair.
 
 ## (c) Audits
 
@@ -161,9 +161,9 @@ production); with no baseline, capture one and note the week had no comparison.
 
 ## (h) Report
 
-Write `seo-reports/YYYY-MM-DD.md` using `references/report.md`, compared against
-the newest earlier file (none means this run is the baseline). Say which source and
-why when it had no data: a blank cell reads as zero, which is not "not measured".
+Write `seo-reports/YYYY-MM-DD.md` using `references/report.md`, with the metric table
+from `python3 .claude/seo/deltas.py`. Mark every browser and audit item with
+`coverage_ledger.py mark ITEM STATUS REASON`; the run is complete only when `coverage_ledger.py check` passes.
 
 ## Self-improvement
 
