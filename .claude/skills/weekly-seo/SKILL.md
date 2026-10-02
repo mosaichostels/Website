@@ -1,7 +1,7 @@
 ---
 name: weekly-seo
 description: >-
-  Exhaustive SEO/AEO/GEO/SXO/AIO/LLMO audit-and-repair for mosaichostels.com. Pulls 7 data sources (GSC, GA4, CWV, Bing, Clarity, Common Crawl, Unlighthouse), runs 17 claude-seo audits — 14 concurrent via Task tool (incl. Google Business Profile / Maps), 3 Skill-tool-only (seo-audit, seo-bing, seo-unlighthouse) — plus a mandatory browser deep-dive (via OpenCLI against a shared Chromium) into GBP, GCP, GA4, PSI/CrUX, Bing Webmaster, and Clarity for UI-only signals no API exposes. Covers discovery, content, ranking, structure, experience, performance, AI platform access check, ranks gaps, applies top fixes, verifies, commits. When Herdr is active: splits the slow extractor sweep, the browser deep-dive (GBP/GCP/GA4 vs. Bing/Clarity), and (when the ranked fixes land on disjoint files) the fix work itself to a parallel Codex agent — each with its own capacity check, logged every run in the report's "Codex usage this run" section, never silently skipped — then gets an independent Codex review of the combined diff before commit. Use when the user says "weekly SEO", "SEO run", "SEO sweep", "run the SEO automation", or asks for a full audit-and-fix pass on this site.
+  Use when the owner asks for the weekly SEO sweep or a full audit-and-fix pass on mosaichostels.com. Runs data extractors, Claude SEO audits, browser review, ranked fixes, verification, and reporting. Inside Macterm, follow macterm-pair; outside Macterm, Claude may run solo.
 ---
 
 # Weekly SEO run
@@ -119,94 +119,11 @@ Run the extractors rather than hand-rolling API calls. They already encode the
 quota limits, the freshness lags, and the "this endpoint does not exist" facts
 that are expensive to rediscover.
 
-### Split the sweep with Codex, when `HERDR_ENV=1`
+### Extractor sweep
 
-`extract-all.sh` runs its seven extractors strictly sequentially, cheapest
-first — deliberate, so a broken credential surfaces in seconds rather than
-after a ten-minute wait. That ordering also means the two slow ones (`cwv`,
-~4 min; `lighthouse`, ~5 min) sit serialized at the end. Handing one of them
-to Codex to run in parallel is the single biggest wall-clock win available
-anywhere in this skill — done early enough, that 5-9 minutes overlaps with
-both the rest of this step and all of step (c)'s agent dispatch, costing
-nothing.
+Run `./.claude/seo/extract-all.sh` for all seven sources. Keep its cheapest-first order, inspect the summary for `FAILED:`, and confirm that today's CWV and Lighthouse bundles exist before ranking fixes in step (d). Rerun a missing or failed extractor and record the cause if it still fails.
 
-1. `herdr agent list` — reuse any idle Codex agent in this cwd. Otherwise
-   `herdr tab create --cwd "$(pwd)" --no-focus` then `herdr agent start codex
-   --kind codex --pane <ID>`.
-2. Capacity check first, always, same protocol as the independent-review step
-   later in this file: ACCEPT/DECLINE + current task + context headroom.
-   DECLINE or no answer → skip the split, run `extract-all.sh` solo, note it
-   in the report.
-3. **No profile needed — start (or reuse) the Codex agent normally.** `cwv`
-   needs outbound HTTPS to Google's APIs; `lighthouse` writes drift baselines
-   outside the repo. Both failed silently-ish (exit 1, buried in the
-   extractor's own error text) under Codex's old plain `workspace-write`
-   default — confirmed 2026-09-28: `curl` got `Could not resolve host` and a
-   write outside the repo got `operation not permitted`. That was fixed the
-   same day with a scoped named profile, `~/.codex/weekly-seo.config.toml`
-   (network access plus one extra writable root). As of 2026-09-29 the
-   owner intentionally changed `~/.codex/config.toml`'s global `sandbox_mode`
-   to `danger-full-access` — every Codex session on this machine, not just
-   this skill's, now has unrestricted network and filesystem access by
-   default. That makes the scoped profile redundant, so it's been retired
-   (`~/.codex/weekly-seo.config.toml` deleted) — don't recreate it or pass
-   `--profile weekly-seo`; it no longer exists.
-4. **Sandbox pre-flight anyway** — the global default is a machine setting,
-   not something this skill controls, so confirm it's still in effect before
-   spending a real dispatch on it. Same two cheap probes as always:
-   `curl -sS -o /dev/null -w '%{http_code}' https://www.googleapis.com/` and
-   `touch ~/.local/share/mosaic-seo/drift/.codex-probe && rm
-   ~/.local/share/mosaic-seo/drift/.codex-probe && echo WRITE_OK`. Either one
-   failing means the global sandbox has been tightened back up since —
-   treat it like a DECLINE (skip the split, run `extract-all.sh` solo, note
-   *which* probe failed in the report) rather than guessing at a fix here.
-5. On a clean pre-flight, dispatch immediately, before anything else in this
-   step, and don't wait on it: `cd <repo> && source ~/.config/mosaic-seo/env
-   && ./.claude/seo/extract-all.sh cwv lighthouse`.
-6. Proceed with the rest of the sweep in this session right away:
-   `./.claude/seo/extract-all.sh gsc ga4 bing clarity commoncrawl` — the five
-   fast extractors.
-7. Move straight on to step (c)'s audits without waiting on Codex. Its output
-   lands in the same `seo-reports/cwv/` and `seo-reports/lighthouse/` files
-   `extract-all.sh` always writes — nothing to merge by hand.
-8. Before step (d), and only then, confirm it actually finished (`herdr agent
-   wait <codex-agent> --until idle,done`, or just ask it) and that today's
-   `seo-reports/cwv/YYYY-MM-DD.json` and `seo-reports/lighthouse/YYYY-MM-DD.json`
-   exist. Missing or stale → run that one solo at that point rather than
-   guessing at findings — both feed real gaps into step (d).
-
-**Why two of step (c)'s three groups don't get split to Codex:**
-- The 14 concurrent Task-tool agents are already Claude Code's own
-  parallelism; a second agent running alongside adds a redundant analysis
-  stream, not a shorter critical path — Claude still has to run all 14
-  regardless of what Codex does elsewhere.
-- The 3 Skill-tool-only checks (`seo-audit`, `seo-unlighthouse`, `seo-bing`)
-  are **not just unhelpful to delegate, they're impossible to**: they're
-  Claude Code Skill invocations against the `claude-seo` plugin's own
-  internal orchestration. Codex has no Skill tool and no `claude-seo` plugin
-  — there is nothing to hand it here, not a judgment call.
-
-**The browser deep-dive is different, as of the 2026-09-28 switch to
-OpenCLI/shared Chromium (see "Browser deep-dive" below).** The old
-reasoning — "one shared Safari session, a second agent clicking it is a
-collision" — was true for AppleScript driving a single, un-multiplexed
-Safari window. It is no longer true. `opencli browser <session>` gives each
-named session its own tab within the same logged-in Chromium profile;
-Codex driving `opencli browser codex-seo open <url>` in parallel with
-Claude's `opencli browser seo open <url>` does not collide, since they're
-different tabs sharing the same cookies, not the same tab. **Splitting the
-5-platform browser deep-dive is a real, available option now** — e.g. Codex
-takes Bing + Clarity while Claude takes GSC + GA4 + GBP — same capacity-check
-protocol as everywhere else in this skill. Not yet exercised as of
-2026-09-28; try it next run rather than defaulting to solo out of habit from
-the old Safari-era reasoning.
-
-Codex earns its keep in the sequential Python-script sweep above (the one
-place in this skill that's serial purely because it's plain shell commands,
-not Task-tool-dispatchable agents or plugin-only Skills), the browser
-deep-dive split described above, and step (e)'s fix-list split when it's
-genuinely disjoint. Elsewhere, adding Codex would add coordination overhead
-without shortening the actual critical path.
+Inside Macterm, use the `macterm-pair` skill for each step's review. Outside Macterm, run the sweep solo unless the user asks for pairing.
 
 The per-resource notes below say what each source can and cannot provide. Read
 the one you are about to use; do not promise a report section that its API
@@ -299,11 +216,14 @@ cannot back.
   - **269 sessions, 158 users.** Low traffic. Every split is small-sample —
     say so in the report instead of drawing confident conclusions from 4
     sessions.
-  - **Zero key events configured.** All 8 event types report `keyEvents=0`,
-    including the one `form_submit` in 90 days (against 10 `form_start`).
-    Nothing ties to a booking: no conversion rate, no per-page value. This is
-    the single largest gap in the property and **the Data API cannot fix it** —
-    it needs the Admin API or the GA4 UI. Flag it, do not attempt it.
+  - **Key events changed (2026-10-01): `purchase` is now a key event** (2 in
+    90 days); every other event, including `form_start` (22), reports
+    `keyEvents=0` and `form_submit` does not fire at all. So a booking
+    conversion is now measurable but the funnel (`begin_checkout` 16 →
+    `add_payment_info` 5 → `purchase` 2 in 28 days) is tiny-sample. Key-event
+    *configuration* is still the Admin API / GA4 UI, never the Data API. Flag
+    it, do not attempt it. The GA4 data stream is registered to the apex
+    `https://mosaichostels.com`, not `www`.
   - **July 2026 recorded zero sessions** while June had 160 and August 93. The
     tag broke or was removed for a month. Any year-over-year or trend claim
     crossing July is invalid.
@@ -375,7 +295,8 @@ cannot back.
   Because Common Crawl is training input for many LLMs, the capture count is
   the single most direct free measure of whether LLMs can see this site at
   all. Track it every week. **Standing finding: zero captures across
-  CC-MAIN-2026-12 through CC-MAIN-2026-34**, verified against a control
+  CC-MAIN-2026-12 through CC-MAIN-2026-34** (re-confirmed 2026-10-01 across
+  the 12 newest crawls, CCBot served 200 on every URL), verified against a control
   domain, while CCBot itself returns 200 — a discovery problem driven by a
   thin backlink profile, not a technical block.
 
@@ -451,7 +372,7 @@ claude-seo capability belongs in the concurrent batch.
 
 **Content Quality (3)**
 - `claude-seo:seo-content` — E-E-A-T signals, thin content, AI citation readiness
-- `claude-seo:seo-flow` — FLOW framework per page (Freshness, LinkAccess, OutlineQuality, WordCount)
+- `claude-seo:seo-flow` — FLOW framework per page (the agent applies Find/Leverage/Optimize/Win/Local; Freshness, LinkAccess, OutlineQuality, WordCount is only the lens we ask it to use)
 - `claude-seo:seo-cluster` — topic clustering for blog, semantic overlaps, hub-and-spoke gaps
 
 **Ranking + Intent (2)**
@@ -556,29 +477,7 @@ checks above turned up anything, because the two surfaces (API vs UI) don't
 overlap. The only acceptable reason to leave an item unfetched is the login
 gate below — never "looked fine last time" or "probably unchanged."
 
-**Split across GBP+GCP+GA4 vs. Bing+Clarity with Codex, when `HERDR_ENV=1`.**
-Available since the 2026-09-28 switch to OpenCLI/shared Chromium (each
-`opencli browser <session>` owns its own tab in the same logged-in profile,
-so two sessions don't collide the way two Safari clicks on one window did).
-Not yet run for real as of 2026-09-28 — try it, don't skip it by habit:
-
-1. Same capacity check as everywhere else — ACCEPT/DECLINE, current task,
-   headroom. DECLINE or no answer → one agent does all six platforms, same
-   as before this was available.
-2. On ACCEPT, hand Codex a bounded prompt: drive `opencli browser
-   codex-seo <command>` (a session name distinct from Claude's, e.g. `seo`)
-   against Bing Webmaster and Clarity specifically — the two platforms with
-   no Google-account login-gate complexity, the simplest half to hand off.
-   Point it at `~/.config/mosaic-seo/BROWSER.md` and the `opencli-browser`
-   skill for the command reference; it needs both regardless of which
-   agent is asking.
-3. Claude takes GBP + GCP + GA4 in parallel, same session-naming pattern
-   (`opencli browser seo <command>`).
-4. Converge before writing step (h)'s report — both sets of findings land
-   in the same "Browser deep-dive findings" section, no special merge step
-   needed since they're independent platform write-ups.
-5. If Codex hits a login gate or account mismatch on its half, same rule as
-   solo: stop and ask the owner, don't force it — see "Account check" below.
+Run the required GBP, GCP, GA4, PSI/CrUX, Bing Webmaster, and Clarity browser checks in this agent. Use a dedicated OpenCLI browser session and stop at any login gate or account mismatch as described below. Inside Macterm, send the findings and evidence through `macterm-pair` step reviews; outside Macterm, work solo unless the user asks for pairing.
 
 **Tool (current, as of 2026-09-28): OpenCLI's `opencli browser` commands
 against the shared automation Chromium — not AppleScript, not a
@@ -789,8 +688,10 @@ For each platform, navigate and note:
   (UI-only, per step (b)'s CWV notes) still shows empty.
 - **Bing Webmaster Tools** (`bing.com/webmasters`) — the SEO Reports tab, Site
   Scan issue list, the backlinks detail view (the API's `GetLinkCounts` only
-  gives a number, not which pages or anchor text), and submission/IndexNow
-  history.
+  gives a number, not which pages or anchor text — and it can undercount: on
+  2026-10-01 the API said 0 inbound links while
+  `bing.com/webmasters/backlinks?siteUrl=...` listed 2 referring domains), and
+  submission/IndexNow history. Site Scan URL is `/webmasters/sitescan?siteUrl=...`.
 - **Microsoft Clarity** (`clarity.microsoft.com`) — click and scroll heatmaps
   per page, and a sample of session recordings flagged rage-click or
   dead-click — the recording gives the *why* behind a number the API-based
@@ -941,63 +842,13 @@ After editing any shared file in `components/` or `styles/`, bump the `?v=`
 cache-bust string in every HTML file that references it. The
 `cache-bust-check` skill covers this.
 
-### Split the fixes with Codex, when `HERDR_ENV=1`
+### Fix ownership and scope review
 
-Once the top 10 are ranked, check whether they split into two disjoint file
-sets — fix #3 only touches `/blog/dorm-vs-private-room-varanasi-hostel/`,
-fix #7 only touches `sitemap.xml`, and so on, with no fix requiring another
-fix's file first. When they do, editing both halves at once is real
-throughput, not just review after the fact:
+Use one writer for the ranked fixes. Keep each edit tied to a finding and inside the Scope lock above; defer claims about hostel facts, prices, or amenities that cannot be verified. After the edits, run `cache-bust-check` once across the full diff.
 
-1. Same capacity check as everywhere else in this skill — ACCEPT/DECLINE,
-   current task, context headroom. DECLINE or no answer → one writer does
-   all ten, same as before Codex was wired in.
-2. On ACCEPT, hand Codex its half as a bounded prompt: the specific findings
-   it owns, the exact "In scope" list from above, and the same fact-check
-   rule — defer anything needing a claim about the hostel it can't verify,
-   don't guess. Don't hand it fixes that share a file with your half.
-3. Work your half in parallel, don't wait on it.
-4. Converge before cache-bust-check and the independent review below — pull
-   Codex's edits into the same working tree (they're editing the same
-   checkout, not a fork, so this is usually already true) and run
-   cache-bust-check once, across the combined diff, not per-half.
+Before the verify gate, check the complete diff for files outside the Scope lock, changes to facts without citations, and edits without a corresponding finding. Inside Macterm, give the paired reviewer the actual diff and the finding behind each hunk; the `macterm-pair` skill also governs every earlier step review. Outside Macterm, perform this scope check locally unless the user explicitly asks for pairing. For a report-only run there is no fix diff to review.
 
-**When not to split:** most weeks, the top 10 cluster on 2-3 shared files
-(the homepage, one blog post, `sitemap.xml`) because that is where the
-highest-impact gaps concentrate — there is often nothing disjoint to hand
-off. Forcing a split by picking arbitrary low-value fixes just to give Codex
-something to do is slower than one writer doing all ten, not faster. Skip it
-outright rather than manufacture a split.
-
-The independent review below still runs on the whole combined diff
-afterward, including whatever Codex itself wrote — a scope check is
-mechanical (right file types, a named finding behind every edit) and stays
-meaningful even reviewing one's own work, unlike a subjective quality pass.
-
-### Independent review (Codex), when `HERDR_ENV=1`
-
-Before the verify gate, get a second opinion on the diff from Codex — the
-scope-violation check is exactly the kind of independent review the Herdr
-coordination policy calls for, and it is cheap insurance against a fix that
-drifts outside "In scope" above. Skip entirely outside Herdr, or for a
-report-only run.
-
-1. `herdr agent list` — reuse an idle Codex agent in this cwd if one exists.
-   Otherwise: `herdr tab create --cwd "$(pwd)" --no-focus` for a pane, then
-   `herdr agent start codex --kind codex --pane <ID>`.
-2. Capacity check first, always — never skip straight to the real ask:
-   `herdr agent prompt <codex-agent> "Reply only with ACCEPT or DECLINE, your
-   current task, and your context headroom." --wait`. DECLINE or no answer →
-   skip Codex this run, note it in the report, proceed solo.
-3. On ACCEPT, send one bounded prompt: the fix commit's `git diff` plus the
-   finding each hunk claims to address. Ask only for scope violations — a file
-   outside `*.html`/`styles/`/`components/`/`sitemap.xml`/`robots.txt`/
-   `llms.txt`/`seo-reports/`, a changed price/amenity/fact with no citation, an
-   edit with no finding behind it. Not a style pass.
-4. Its findings land in the report — under "Fixed this week" if you act on
-   one, "Deferred" if you disagree and keep the fix. Codex's read never
-   overrides `verify.sh`; that script's parse/link/JSON-LD checks are the only
-   hard gate before commit.
+Record objections or scope findings under "Fixed this week" when addressed, or "Deferred" when retained with a reason. The independent scope check does not override `verify.sh`; its parse, link, and JSON-LD checks remain the hard gate before commit.
 
 ## (f) Submit changed URLs
 
@@ -1078,21 +929,7 @@ Write `seo-reports/YYYY-MM-DD.md`:
 9. **Skill updated** — see "Self-improvement" below. One line per edit: which
    fact changed, in which section, why. Empty is a fine answer some weeks —
    don't manufacture an edit to fill this line.
-10. **Codex usage this run** (when `HERDR_ENV=1`; omit entirely otherwise) —
-    one line per mechanism, always, even when the answer is boring:
-    - Extractor split (step b): dispatched / DECLINE / sandbox pre-flight
-      failed (name which probe) / not attempted.
-    - Fix split (step e): checked for a disjoint file split, found
-      none — one writer did it / split and dispatched / DECLINE / not
-      checked.
-    - Independent review (step e): ran, findings acted on or logged as
-      Deferred / DECLINE / **not run** — say why.
-    This section exists specifically so "not attempted" is a visible,
-    embarrassing line in the report rather than a silent gap. Confirmed
-    2026-09-28: the independent-review step is written as mandatory whenever
-    Herdr is active, and it was skipped before all ~10 commits made that
-    session with nothing recorded anywhere — this line is the fix for that,
-    not a suggestion.
+10. **Pairing and scope review this run** — inside Macterm, record the paired reviewer's whole-diff scope verdict and any objections or resolutions. Outside Macterm, record the solo scope check and any user-requested paired review. For a report-only run, say that no fix diff was reviewed.
 
 Compare against the most recent existing file in `seo-reports/`. If there is
 none, say so and treat this run as the baseline.
