@@ -14,6 +14,7 @@ SEO="$(ls -d "$HOME"/.claude/plugins/cache/*/claude-seo/*/scripts 2>/dev/null | 
 SEOPY="$HOME/.config/mosaic-seo/venv/bin/python3"
 export SEOPY
 SITE_URL="${SITE_URL:-https://www.mosaichostels.com}"
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"; export HERE
 ROWS=(); FAILED=0
 
 # check <platform> <auth method> <feeds> <command...>
@@ -35,8 +36,8 @@ check "GSC Search Analytics" "service account" "step (b) — query/page/CTR/posi
 check "GSC URL Inspection" "service account" "step (b) — indexation coverage" \
   bash -c '"$SEOPY" "$0/google_auth.py" --check gsc --json | grep -q "\"available\": true"' "$SEO"
 
-check "Google Indexing API" "service account" "step (f) — push changed URLs" \
-  bash -c '"$SEOPY" "$0/google_auth.py" --check indexing --json | grep -q "\"available\": true"' "$SEO"
+check "GSC sitemap resubmit" "service account" "step (f) — sitemap resubmit" \
+  bash -c '[[ -n "${GSC_PROPERTY:-}" ]] && "$SEOPY" "$HERE/gsc-sitemap-submit.py" --self-check >/dev/null'
 
 check "GA4 Data API" "service account" "step (b) — organic sessions" \
   bash -c '[[ -n "${GA4_PROPERTY_ID:-}" ]] && "$SEOPY" "$0/google_auth.py" --check ga4 --json | grep -q "\"available\": true"' "$SEO"
