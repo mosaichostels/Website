@@ -1,46 +1,38 @@
 ---
 name: weekly-seo
 description: >-
-  Use when the owner asks for the weekly SEO sweep or a full audit-and-fix pass on mosaichostels.com. Runs data extractors, Claude SEO audits, browser review, ranked fixes, verification, and reporting. Inside Macterm, follow macterm-pair; outside Macterm, Claude may run solo.
+  Use when the owner asks for the weekly SEO sweep, "weekly SEO", "SEO run", "SEO sweep", "run the SEO automation", or a full audit-and-fix pass on mosaichostels.com. Pulls data from every connected source, runs the Claude SEO audits and a browser review of the dashboards that have no API, ranks the gaps, fixes the top ones, verifies, and writes the report. Inside Macterm, follow macterm-pair; outside Macterm, Claude may run solo.
 ---
 
 # Weekly SEO run
 
 One pass over https://www.mosaichostels.com. Audit, rank, repair the top gaps,
-prove nothing broke, commit. Manually triggered — run it whenever the owner asks.
+prove nothing broke, commit. Manually triggered: run it whenever the owner asks.
+Report-only / dry run: do (a) through (d) and (h) only; skip every edit,
+submission, re-baseline and commit.
 
-Credentials live in `~/.config/mosaic-seo/env`. One-time platform wiring (new
-credential, re-auth, new machine) is `./.claude/seo/setup-platforms.sh` —
-idempotent, safe to re-run, never writes secrets into the repo. Google tooling
-reads `~/.config/claude-seo/google-api.json` on its own; Bing, Clarity, and
-IndexNow commands need the env sourced in the same shell:
+## Credentials
 
-```bash
-source ~/.config/mosaic-seo/env && <command>
-```
-
-Each Bash call is a fresh shell, so that prefix repeats per command. **Never**
-read a credential value into the transcript, copy one into the repo, or echo
-one to a log.
-
-If the user asks for a report-only / dry run, do steps (a) through (d) and (h)
-only. Skip every edit, submission, re-baseline, and commit.
+`~/.config/mosaic-seo/env` holds them; `./.claude/seo/setup-platforms.sh` is the
+idempotent one-time wiring. Google tooling reads `~/.config/claude-seo/google-api.json`
+itself; Bing, Clarity and IndexNow commands need the env sourced in the same shell,
+so prefix each Bash call with `source ~/.config/mosaic-seo/env &&`. **Never** read a
+credential value into the transcript, copy one into the repo, or echo one to a log.
 
 ## Scope lock
 
 Touchable: `*.html`, `styles/`, `components/`, `sitemap.xml`, `robots.txt`,
-`llms.txt`, `seo-reports/`, and — for facts only, never rules, see
-"Self-improvement" near the end — this file itself,
-`.claude/skills/weekly-seo/SKILL.md`.
+`llms.txt`, `seo-reports/`, and, for facts only and never rules (see
+Self-improvement), `.claude/skills/weekly-seo/`.
 
 Off limits, no exceptions: `api/` (PHP endpoints, Razorpay, eZee PMS),
 `scripts/deploy.sh`, `.claude/hooks/`, anything under `~/.config/`. A booking or
 payment path is never an SEO fix.
 
-Never add a build step, bundler, framework, or npm dependency to the site. It
-is static HTML by design.
+Never add a build step, bundler, framework or npm dependency to the site. It is
+static HTML by design.
 
-## Resolving the toolchain
+## Toolchain
 
 ```bash
 SEO="$(ls -d "$HOME"/.claude/plugins/cache/*/claude-seo/*/scripts | sort -V | tail -1)"
@@ -48,773 +40,78 @@ SEOPY="$HOME/.config/mosaic-seo/venv/bin/python3"
 ```
 
 **Always `$SEOPY`, never bare `python3`.** Homebrew's Python is PEP 668
-externally-managed, so claude-seo's dependencies (`requests`,
-`beautifulsoup4`, `google-auth`, `google-api-python-client`) live in that venv
-instead. Under the system interpreter every one of these scripts dies at
-import.
+externally-managed, so claude-seo's dependencies live in that venv. Never
+hand-roll an auditor that duplicates one of these scripts or the claude-seo skills.
 
-Never hand-roll an auditor that duplicates one of these scripts or the
-claude-seo skills.
+## Run order
 
----
+Steps (a) to (h) below. Detail lives in `references/`: read the file for the source
+you are about to use, and do not promise a report section its API cannot back. Dated
+numbers there are historical; the newest file in `seo-reports/` has current values.
+
+- (b) `references/gsc.md` `references/ga4.md` `references/cwv.md` `references/bing.md`
+  `references/clarity.md` `references/commoncrawl.md` `references/lighthouse.md`
+- (c) `references/audits.md` `references/browser.md` `references/ai-visibility.md`
+- (e) `references/fix.md`; (h) `references/report.md`
 
 ## (a) Health gate
 
 ```bash
 curl -sS -o /dev/null -w '%{http_code}\n' https://www.mosaichostels.com/
-```
-
-Non-200 means **stop**. This site has served 504s before. Write a report
-naming the status code, skip every remaining step except (h), and exit. Fixing
-SEO on a site that is down is wasted work and the audit data would be garbage.
-
-Then confirm the platforms:
-
-```bash
 ./.claude/seo/health-check.sh
-```
-
-Record the table in the report. A DOWN platform is not a failure — note it,
-skip the data it feeds, and carry on with the rest.
-
-### Deploy drift
-
-```bash
 ./.claude/seo/deploy-drift.sh
 ```
 
-Deployment is a manual FTP push, so the repo routinely runs ahead of
-production. This matters more than it looks: audits read the **live** site
-while fixes are written against **local** files, so a stale production copy
-makes the audit describe a page that no longer exists in the repo. Commit
-`29de946` sat undeployed for a week, which meant an entire audit cycle
-measured the wrong content.
+Non-200 means **stop**: write a report naming the status code, skip every step
+except (h), exit. This site has served 504s before. A DOWN platform is not a
+failure: note it and skip the data it feeds.
 
-Record the table. If any page shows DRIFT, say so at the top of the report and
-treat every audit finding for that page as provisional — the gap may already
-be fixed locally and merely unshipped.
-
-Deploying is the owner's call, never this workflow's: `scripts/deploy.sh` needs
-`FTP_HOST` / `FTP_USER` / `FTP_PASS`, which are deliberately absent from the
-env file. Ask; do not attempt the push.
+Deployment is a manual FTP push, so production lags the repo: audits read the
+**live** site while fixes are written against **local** files. If any page shows
+DRIFT, say so at the top of the report and treat its findings as provisional.
+Deploying is the owner's call (`scripts/deploy.sh` needs FTP credentials absent
+from the env file): ask, never attempt the push.
 
 ## (b) Data pull
 
-Skip any source whose platform is DOWN.
-
-**One command runs every extractor:**
-
 ```bash
-./.claude/seo/extract-all.sh            # everything
+./.claude/seo/extract-all.sh            # all seven, cheapest first
 ./.claude/seo/extract-all.sh --fast     # skip the slow sweeps (PSI, Unlighthouse)
 ./.claude/seo/extract-all.sh gsc bing   # only the named ones
 ```
 
-Each extractor writes a raw JSON bundle to `seo-reports/<name>/YYYY-MM-DD.json`
-and prints its own gap analysis; the wrapper tees each to
-`seo-reports/runs/YYYY-MM-DD/<name>.txt`. One extractor failing never aborts
-the sweep — check the summary line for `FAILED:`.
-
-Run the extractors rather than hand-rolling API calls. They already encode the
-quota limits, the freshness lags, and the "this endpoint does not exist" facts
-that are expensive to rediscover.
-
-### Extractor sweep
-
-Run `./.claude/seo/extract-all.sh` for all seven sources. Keep its cheapest-first order, inspect the summary for `FAILED:`, and confirm that today's CWV and Lighthouse bundles exist before ranking fixes in step (d). Rerun a missing or failed extractor and record the cause if it still fails.
-
-Inside Macterm, use the `macterm-pair` skill for each step's review. Outside Macterm, run the sweep solo unless the user asks for pairing.
-
-The per-resource notes below say what each source can and cannot provide. Read
-the one you are about to use; do not promise a report section that its API
-cannot back.
-
-- **Search Console — full sweep.** One command pulls everything the API has:
-
-  ```bash
-  source ~/.config/mosaic-seo/env && "$SEOPY" .claude/seo/gsc-extract.py 90
-  ```
-
-  Raw bundle lands in `seo-reports/gsc/YYYY-MM-DD.json`; the run prints a gap
-  analysis. Takes ~1s per inspected URL.
-
-  **Know what the API cannot give you**, and never imply otherwise in a report.
-  It exposes exactly four surfaces — `sites`, `sitemaps`, `searchanalytics`
-  (6 dimensions × 6 result types), and `urlInspection`. The aggregate Coverage
-  report, every Enhancements report, Core Web Vitals, manual actions, security
-  issues, the links report, and removals are **UI-only**. URL Inspection is the
-  substitute: per-URL coverage state plus detected rich results, one URL at a
-  time, capped at 2000/day. Core Web Vitals come from CrUX instead.
-
-  Read these out of the result, in this order:
-
-  1. **Indexation by coverage state.** `Discovered - currently not indexed`
-     means Google knows the URL and chose not to spend crawl budget — an
-     authority and internal-linking problem, not a technical one. `URL is
-     unknown to Google` on a page that has impressions means it was dropped
-     from the index. `Crawled - currently not indexed` means Google fetched it
-     and judged it not worth keeping.
-  2. **URLs with impressions that are not in the sitemap.** A URL that 301s to
-     a canonical page belongs here and is correct — never add a redirect to a
-     sitemap. What matters is any such URL whose state is `Not found (404)`:
-     that is live search demand hitting a dead end, and a 301 in `.htaccess`
-     reclaims it.
-  3. **`searchAppearance` row count.** Zero means no rich result has ever
-     appeared for this site, regardless of what markup validates. Compare
-     against the rich result types URL Inspection detects — markup that
-     validates but never appears is worth understanding before adding more.
-  4. **Striking distance, positions 5-20.** One nudge from page one. Rank by
-     impressions, not by position.
-  5. **Ranked well but not clicked** — position ≤3 with CTR under 10%. This is
-     a title, meta description, and SERP-presentation problem, never a ranking
-     problem. Do not try to fix it by chasing rank.
-  6. **Sitemap state** — errors and warnings, and `lastSubmitted` age.
-
-  Standing findings from 2026-09-07, re-verify rather than assume:
-
-  - 18 of 22 sitemap URLs indexed. `/about`, `/privacy`, `/blog/`, and
-    `/blog/dorm-vs-private-room-varanasi-hostel/` are discovered but not
-    indexed; `/contact` was `URL is unknown to Google`.
-  - `searchAppearance` returned **0 rows over 90 days** while URL Inspection
-    detected Breadcrumbs on 6 pages. Every blog post carries `FAQPage`, and as
-    of 2026-05-07 Google **fully retired the FAQ rich result for all sites**
-    (superseding the earlier "restricted to gov/health sites since 2023"
-    note) — so that markup earns nothing in the SERP for anyone now, not just
-    non-exempt sites. Keep it for AI extraction; do not count it as a
-    rich-result win, and do not add new FAQPage blocks expecting one.
-  - Branded CTR is the largest single gap by volume: `mosaic hostel varanasi`
-    drew 652 impressions at position 1.3 for 34 clicks (5.2%), and
-    `mosaic hotel varanasi` 127 impressions at position 1.0 for 2 clicks
-    (1.6%). Some of that is the Business Profile absorbing the click, so
-    diagnose before rewriting the title.
-  - Best non-branded opportunity: `hostels near assi ghat`, 149 impressions at
-    position 15.0, zero clicks. High commercial intent, stuck on page two.
-- **GA4 — `.claude/seo/ga4-extract.py`.** Data API v1beta: `getMetadata`,
-  `runReport`, `batchRunReports`, `runPivotReport`, `runRealtimeReport`,
-  `checkCompatibility`. This property exposes 376 dimensions and 89 metrics.
-
-  Segment to organic and read landing-page engagement, not raw sessions. A
-  page drawing organic sessions with poor engagement is an SXO finding: it
-  ranks, then fails the visitor. GA4 lags ~2 days — never query up to today,
-  the partial day reads as a traffic collapse.
-
-  **The GA4↔Search Console link is live on this property**, so
-  `organicGoogleSearchClicks/Impressions/ClickThroughRate/AveragePosition`
-  join onto `landingPagePlusQueryString`. `checkCompatibility` confirms they
-  are incompatible with every session-scoped dimension, so they get their own
-  report and can never be split by channel or device. There is no query
-  dimension — `googleSearchQuery` does not exist.
-
-  Not in this API despite being in the UI: search query text; key-event,
-  custom-dimension and data-stream *configuration* (that is the separate Admin
-  API); Explorations — funnel, path, cohort, segment overlap — which are
-  v1alpha only; Ads cost and ROAS; attribution and conversion paths; anything
-  user-level.
-
-  Standing findings from 2026-09-07 (90 days), re-verify rather than assume:
-
-  - **269 sessions, 158 users.** Low traffic. Every split is small-sample —
-    say so in the report instead of drawing confident conclusions from 4
-    sessions.
-  - **Key events changed (2026-10-01): `purchase` is now a key event** (2 in
-    90 days); every other event, including `form_start` (22), reports
-    `keyEvents=0` and `form_submit` does not fire at all. So a booking
-    conversion is now measurable but the funnel (`begin_checkout` 16 →
-    `add_payment_info` 5 → `purchase` 2 in 28 days) is tiny-sample. Key-event
-    *configuration* is still the Admin API / GA4 UI, never the Data API. Flag
-    it, do not attempt it. The GA4 data stream is registered to the apex
-    `https://mosaichostels.com`, not `www`.
-  - **July 2026 recorded zero sessions** while June had 160 and August 93. The
-    tag broke or was removed for a month. Any year-over-year or trend claim
-    crossing July is invalid.
-  - **Roughly half of clicked organic entries never fire the tag.** `/` shows
-    62 GSC clicks against 30 GA4 organic sessions;
-    `/blog/is-varanasi-safe-general-guide/` 5 clicks against 0 sessions.
-    Redirect, consent, or tag-placement loss. Treat GA4 organic counts as a
-    floor, not truth.
-  - **`AI Assistant` channel: 27 sessions at 77.8% engagement** — the
-    best-engaging channel on the site. That is the AEO number; track it weekly.
-  - Duplicate-URL fragmentation is visible here too (`/gallery/` vs
-    `/gallery`, `/book-now` vs `/book-now/` vs `/book-now.html`), splitting
-    sessions across both forms.
-  - `landingPagePlusQueryString` treats `?fbclid=…` permutations as separate
-    pages. The extractor drops rows under 2 sessions from the listing; the raw
-    bundle keeps everything.
-
-- **Core Web Vitals — `.claude/seo/cwv-extract.py`.** Three APIs with
-  different meanings, and the distinction decides which number to trust:
-  PageSpeed Insights returns **lab** data (a simulated load on synthetic
-  hardware), CrUX returns **field** data (what real Chrome users experienced),
-  and CrUX History returns 25 weekly points. Field wins whenever they disagree.
-
-  Defaults to 5 key pages × 2 strategies (~4 min); `--all-pages` widens to all
-  22 × 2. CrUX is cheap so it always sweeps every URL — *which* pages have
-  field data is itself the finding.
-
-  **Standing finding: this origin has ZERO CrUX data at every scope.** Origin
-  ALL/PHONE/DESKTOP/TABLET → 404, origin history → 404, 0 of 22 URLs → 404.
-  Control-tested against `web.dev`, which returns a full record, so the key
-  and both APIs are fine — this origin has simply never crossed the sampling
-  threshold. PSI agrees from the other direction: `originLoadingExperience` is
-  `null`.
-
-  Three consequences, and stating them wrongly is worse than omitting them:
-  the field trend is **absent, not "stable"**; GSC's Core Web Vitals report
-  will also be empty, so do not go looking for it; and every CWV number this
-  workflow can produce is **unvalidated lab simulation**. Label it as such in
-  the report every single time.
-
-  **Lighthouse ≥13 moved the savings fields** — both the PSI and Unlighthouse
-  extractors hit this independently, so it is not a fluke. The classic
-  `details.overallSavingsMs` / `overallSavingsBytes` are gone from the new
-  `*-insight` audits: milliseconds now live in `audit.metricSavings`
-  (per-metric LCP/FCP/TBT/CLS), and the byte figure survives **only as prose
-  in `displayValue`** ("Est savings of 97 KiB"). Any extractor keyed on the old
-  field reports "no opportunities" — which is flatly wrong. Both scripts read
-  both shapes; do not "simplify" that away.
-
-- **Bing Webmaster Tools — `.claude/seo/bing-extract.py`.** Bing's index feeds
-  Microsoft Copilot, so this is answer-engine data, not a Google afterthought.
-  It also exposes **inbound link data that Google's API does not** — given
-  this site's backlink profile is the root cause of both its Common Crawl
-  absence and its crawl-budget starvation, that link data is the most valuable
-  thing Bing offers here. Also read crawl errors and index coverage, and
-  compare against Google's indexation: a URL indexed in one engine but not the
-  other is a finding worth chasing.
-
-- **Microsoft Clarity — `.claude/seo/clarity-extract.py`.** Behavioural, not
-  search, data. Rage clicks, dead clicks, quick-back clicks, scroll depth and
-  engagement time, broken down by URL. These are the SXO signals: a page can
-  rank perfectly and still fail every visitor who lands on it. **Hard quota of
-  10 requests per project per day** and `numOfDays` accepts only 1-3 — budget
-  the calls deliberately and never retry carelessly, because burning the quota
-  costs a full day of data.
-
-- **Common Crawl — `.claude/seo/commoncrawl-extract.py`.** No auth, no quota.
-  Checks how many pages the corpus holds for this domain across recent crawls.
-  Because Common Crawl is training input for many LLMs, the capture count is
-  the single most direct free measure of whether LLMs can see this site at
-  all. Track it every week. **Standing finding: zero captures across
-  CC-MAIN-2026-12 through CC-MAIN-2026-34** (re-confirmed 2026-10-01 across
-  the 12 newest crawls, CCBot served 200 on every URL), verified against a control
-  domain, while CCBot itself returns 200 — a discovery problem driven by a
-  thin backlink profile, not a technical block.
-
-- **Unlighthouse and drift — `.claude/seo/lighthouse-drift-extract.py`.**
-  Multi-page Lighthouse across the sitemap plus the claude-seo drift
-  comparison. Flags: `--key-pages` (3 routes, ~1 min vs ~5), `--skip-sweep`,
-  `--skip-drift`, `--refresh-baselines`, `--self-check`.
-
-  **`unlighthouse-ci` only deletes per-page `lighthouse.json` when you pass
-  `--build-static`** — that flag globs and `rm`s them after building the
-  static HTML, which is how an earlier run lost all its detail. The extractor
-  never passes it; it runs into a temp dir with `--reporter jsonExpanded`,
-  harvests every LHR into the bundle, and cleans up in a `finally`. The bundle
-  is the durable artifact. Do not add `--build-static`.
-
-  Two more traps it already handles: scored metric audits (LCP, TTI, SI, FCP)
-  otherwise show up as "failing audits" and pollute the fix queue — filtered by
-  dropping `auditRefs.group` of `metrics` or `hidden`, since they are already
-  in the metrics block. And `unlighthouse-ci` **exits non-zero on a budget
-  failure**, so exit code alone is not a success signal; a written
-  `ci-result.json` is.
-
-  Unlighthouse gives 4 category scores, every audit with savings, and lab
-  metrics for many URLs in one pass. It cannot give field data, stable
-  performance scores (±10 run to run; a11y/best-practices/SEO are
-  deterministic), or real INP (TBT is a proxy). Route count is
-  sampling-dependent, so page counts differ between runs and sweeps are not
-  directly comparable page-for-page.
-
-  claude-seo drift gives a SQLite snapshot per URL (title, meta, canonical,
-  robots, headings, JSON-LD, OG/Twitter, status, content hash) graded by 17
-  rules at CRITICAL/WARNING/INFO. It cannot tell you anything about a page
-  that has no baseline — it is a diff, not a crawler — nor about rankings,
-  traffic, or index state, and it reads raw HTML, never the rendered DOM.
-
-  Standing findings from the 2026-09-07 sweep (15 routes), re-verify:
-
-  - **SEO 100/100 on all 15.** Averages: performance 92, accessibility 92,
-    best-practices 76. Worst performance `/about` at 79.
-  - Failing on 15/15, with savings summed across pages: `unused-javascript`
-    (2650 ms, 1116 KiB — the single biggest win on the site),
-    `image-delivery-insight` (2550 ms, 704 KiB), `render-blocking-insight`
-    (1150 ms), `cache-insight` (840 KiB). Also 15/15 but unquantified:
-    third-party cookies, colour contrast, inspector issues, network dependency
-    tree.
-  - `landmark-one-main` fails on 12/15, `lcp-discovery-insight` on 9/15,
-    `errors-in-console` on 4/15, `frame-title` on 3/15.
-  - **Drift comparison: CLEAN** — 0 CRITICAL, 0 WARNING, 0 INFO across all
-    three baselines. Symlink verified intact.
+Each extractor writes a raw bundle to `seo-reports/<name>/YYYY-MM-DD.json` and
+its text report to `seo-reports/runs/YYYY-MM-DD/<name>.txt`. One failure never
+aborts the sweep: check the summary for `FAILED:`, rerun a failed or missing
+extractor, and record the cause if it still fails. Confirm today's CWV and
+Lighthouse bundles exist before step (d). Skip any source whose platform is
+DOWN. Use the extractors, never hand-rolled API calls: they encode quota limits,
+freshness lags and which endpoints do not exist. Inside Macterm, use
+`macterm-pair` for each step's review; outside, run solo unless asked to pair.
 
 ## (c) Audits
 
-17 checks total, split by invocation mechanism — they do not share state.
-**14 are Agent-tool subagents** (`agents/*.md` in the claude-seo plugin —
-confirmed dispatchable via Task tool, run concurrently). **3 are Skill-tool
-only** (`skills/*` or `extensions/*/skills/*` in the same plugin — no
-`agents/` counterpart exists, so the Task tool cannot spawn them; invoke each
-with the Skill tool, one at a time, before or after the concurrent batch).
-Conflating the two groups is why `seo-audit` silently gets skipped when
-someone tries to dispatch all "14" via Task tool — verify against
-`~/.claude/plugins/cache/*/claude-seo/*/agents/` before assuming a new
-claude-seo capability belongs in the concurrent batch.
-
-**Concurrent, via Task/Agent tool (14):**
-
-**Discovery + Crawlability (2)**
-- `claude-seo:seo-technical` — crawlability, indexability, URL structure, canonicals, mobile
-- `claude-seo:seo-backlinks` — inbound link profile (free: Common Crawl web graph + Bing + control test)
-
-**Local + GBP (2)**
-- `claude-seo:seo-local` — GBP signals, NAP consistency, citations, reviews, local schema, from what the site itself exposes
-- `claude-seo:seo-maps` — Maps Health Score, cross-platform NAP (Google/Bing/Apple/OSM), Tier 0 free APIs (Nominatim, Overpass); upgrades to live GBP profile/review/post data only if DataForSEO MCP tools are connected (not configured here — see the browser deep-dive below for the live-listing gap this leaves)
-
-**Content Quality (3)**
-- `claude-seo:seo-content` — E-E-A-T signals, thin content, AI citation readiness
-- `claude-seo:seo-flow` — FLOW framework per page (the agent applies Find/Leverage/Optimize/Win/Local; Freshness, LinkAccess, OutlineQuality, WordCount is only the lens we ask it to use)
-- `claude-seo:seo-cluster` — topic clustering for blog, semantic overlaps, hub-and-spoke gaps
-
-**Ranking + Intent (2)**
-- `claude-seo:seo-sxo` — SERP-backwards intent match, page-type mismatch, persona scoring
-- `claude-seo:seo-google` — GSC + GA4 + CrUX via native APIs (alternative to Python extractors; unified report)
-
-**Structure + Markup (2)**
-- `claude-seo:seo-schema` — JSON-LD validity and coverage (Hostel, FAQPage, BreadcrumbList, Article)
-- `claude-seo:seo-sitemap` — XML validation, image sitemap gaps, lastmod optimization, priority ranking
-
-**Experience + Authority (2)**
-- `claude-seo:seo-visual` — screenshots at 375px/768px/1440px, LCP element, above-fold content, rendering issues
-- `claude-seo:seo-geo` — AI crawler access (real GETs per UA), `llms.txt` presence, passage citability (GEO/AIO/LLMO)
-
-**Drift (1)**
-- `claude-seo:seo-drift` — diff vs baselines: title, meta, canonical, robots, headings, JSON-LD, OG, status, content hash
-
-**Skill-tool only, sequential (3) — no `agents/` definition exists for these:**
-- `claude-seo:seo-audit` (skill) — full site crawl, blocked routes, health score. Internally fans out to its own specialist set; overlaps most of the 12 above, so treat its output as a cross-check, not new signal, unless the 12 disagree with it.
-- `seo-unlighthouse` (skill, `extensions/unlighthouse/`) — multi-page Lighthouse (15 routes), 4 scores, all audits + savings, drift comparison
-- `seo-bing` (skill, `extensions/bing-webmaster/`) — Bing-specific visibility, IndexNow status, Bing index coverage (vs Google)
-
-### Running all 17
-
-Dispatch the 14 concurrently via Task tool — no agent blocks another. Typical
-runtime: 3-8 min depending on site size and API lag. Invoke the 3 Skill-tool
-checks separately (each is synchronous in the main thread, not backgroundable
-the way an Agent-tool dispatch is). Each writes its findings to a separate
-report file in the task system or returns structured output directly.
-
-After all 17 complete:
-1. **Collect every finding** — multiple checks may report the same gap (e.g., missing H2 on `/blog`)
-2. **Deduplicate** — one finding per gap, note which checks found it (confidence boost)
-3. **Merge** into master gap list for step (d) ranking
-
-### New audits for full coverage
-
-**`seo-backlinks` — inbound link profile.** Free tier only: Common Crawl web graph
-(quarterly hyperlink graph, ~900 MB), Bing Webmaster API `GetLinkCounts`, control
-domain testing. Answers: *does anyone link to us?* Since this site has **zero
-Common Crawl captures**, the absence of inbound links is the root cause — CCBot
-cannot discover what nobody links to. Bing link data validates that finding.
-Does not provide: Ahrefs, SEMrush backlink counts (paid APIs; Common Crawl free data only).
-
-**`seo-flow` — FLOW framework per page.** FreshContentFlair (freshness signals),
-LinkAccess (internal link distribution), OutlineQuality (H1 hierarchy, sections),
-WordCount (depth). Scores every page. Identifies thin content, poor hierarchy,
-orphaned pages. Matters for AEO/LLMO citability — LLMs prefer well-structured,
-authoritative content. Standing finding: `/book-now` and `/blog` jump H1→H3
-(no H2), a hierarchy failure.
-
-**`seo-cluster` — topic clustering for blog.** Semantic analysis of all blog posts.
-Detects overlapping topics, cannibalization, orphaned keywords, gaps. Designs
-hub-and-spoke link strategy. Matters for organic reach and AI passage selection
-(each hub becomes a "preferred source" for its cluster). 15+ posts exist; likely
-clusters around "Varanasi travel", "hostel guides", "solo female traveler safety".
-
-**`seo-google` — native GSC + GA4 + CrUX APIs.** Unified report. Alternative to
-Python extractors (step b). Provides: GSC property list + verification state,
-GA4 metadata + full report queries, CrUX origin + URL field data (if sampled),
-CrUX historical trends (25 weeks). Does not require sourcing env creds in this
-agent. Integrates all three APIs in one findings document.
-
-**`seo-sitemap` — XML validation + optimization.** Checks `sitemap.xml`: valid
-XML, URL count, lastmod recency, priority distribution. Suggests: add image
-sitemap (if gallery/blog images exist), optimize lastmod dates, review priority
-weighting. Standing finding: sitemap exists but is minimal; image sitemap could
-expand rich result opportunities.
-
-**`seo-visual` — screenshots + rendering audit.** Captures at 375px (mobile),
-768px (tablet), 1440px (desktop). Flags rendering breaks, missing responsive
-images, text overflow, tap targets too small, LCP element identification.
-Validates above-the-fold content loads first. Catches CSS/JS rendering failures
-that crawlers cannot see. Essential for SXO.
-
-**`seo-local` — Google Business Profile signals, from the website's side.**
-NAP extraction and cross-source consistency (visible HTML vs JSON-LD vs meta),
-LocalBusiness schema validation, review/rating signals visible in markup,
-Tier-1 citation presence, GBP widgets/embeds on-page. Reads only what
-mosaichostels.com itself exposes — it never touches the live GBP listing.
-That gap is exactly what the browser deep-dive below closes.
-
-**`seo-maps` — cross-platform local presence.** Tier 0 (free, no DataForSEO
-configured here): Nominatim geocoding, Overpass competitor discovery in
-Varanasi, a static GBP completeness checklist, and cross-platform presence
-guidance (Bing Places, Apple Maps, OSM). Cannot geo-grid rank or pull live
-review/post data at this tier — same gap, same fix: the browser deep-dive.
-
-### Browser deep-dive (GBP, GCP, GA4, PSI/CrUX, Bing, Clarity)
-
-Six things this workflow reads elsewhere have a UI-only layer no API reaches
-— the live Google Business Profile listing, GCP quota/billing/IAM, GA4
-Explorations/Realtime, the PSI/CrUX web report's visual diagnostics, Bing
-Webmaster's Site Scan and backlink detail, and Clarity's heatmaps and
-recordings. `seo-local`/`seo-maps` (above) and the Python extractors (step b)
-already pull everything their APIs expose; this
-pass exists for exactly what's left over — **anything on the per-platform
-list below that gcloud/the API extractors cannot reach gets fetched here,
-every run, not sampled or skipped for convenience.** It is a required part
-of step (c), not an optional extra: run it whether or not the API-based
-checks above turned up anything, because the two surfaces (API vs UI) don't
-overlap. The only acceptable reason to leave an item unfetched is the login
-gate below — never "looked fine last time" or "probably unchanged."
-
-Run the required GBP, GCP, GA4, PSI/CrUX, Bing Webmaster, and Clarity browser checks in this agent. Use a dedicated OpenCLI browser session and stop at any login gate or account mismatch as described below. Inside Macterm, send the findings and evidence through `macterm-pair` step reviews; outside Macterm, work solo unless the user asks for pairing.
-
-**Tool (current, as of 2026-09-28): OpenCLI's `opencli browser` commands
-against the shared automation Chromium — not AppleScript, not a
-browser-automation MCP.** Full setup and command reference:
-`~/.config/mosaic-seo/BROWSER.md` and the `opencli-browser` Claude Code skill
-(invoke it, don't hand-roll calls from memory). In short — `ungoogled-chromium`
-(open source; `/Applications/Chromium.app`) with a dedicated persistent
-profile at `~/.config/mosaic-seo/browser-profile/`, the owner's logins
-(Google `mosaichostels@gmail.com`, Microsoft for Bing/Clarity) already signed
-in, and OpenCLI's Browser Bridge extension attached so either agent (Claude
-or Codex) can drive it without relaunching:
-
-```
-opencli doctor
-opencli browser seo open "<dashboard URL>"
-opencli browser seo state
-opencli browser seo close
-```
-
-This replaced AppleScript/Safari specifically because Google's account
-switcher (and other UI panels on these platforms) render in a **cross-origin
-iframe** — Safari's `do JavaScript` runs in the top frame only and cannot
-read or click into one at all, confirmed live on 2026-09-28.
-`opencli browser <session> frames` lists cross-origin iframes (including
-Google's `ogs.google.com` account-switcher widget) and
-`opencli browser <session> eval "..." --frame <N>` reads real content out of
-one — verified live the same day. That's the actual capability gap
-AppleScript couldn't close no matter how the DOM query was written.
-
-**If AppleScript/`osascript`, a `mcp__safari-mcp__*` (or any other
-browser-automation MCP) tool, or hand-rolled Playwright/CDP gets reached for
-instead, that's a regression — stop and use `opencli browser` against the
-shared Chromium above.** Historical note, still worth knowing:
-`mcp__safari-mcp__*` drives a separate, blank WebKit automation context with
-none of the owner's cookies — confirmed by direct mistake on 2026-09-28, when
-its `navigate_to_url` calls to GSC/GA4/Bing Webmaster/GBP/Clarity all came
-back logged-out and briefly got written up as a "confirmed" result. It
-wasn't — it only proved that tool's blank profile has no session, and said
-nothing true about the owner's real logins. A raw Playwright/CDP setup
-(`connect_over_cdp` against the same Chromium) was also tried and worked for
-plain pages, but OpenCLI supersedes it — structured envelopes, ref
-fingerprinting, semantic locators, and the `frames`/`eval --frame` combo,
-instead of hand-rolled calls with no error-code contract.
-
-**One-time prerequisite, GUI-only, cannot be scripted (historical, kept only
-in case a future run genuinely has no other option):** Safari → Settings →
-Advanced → "Show features for web developers", then Develop menu → "Allow
-JavaScript from Apple Events." This is moot for the current OpenCLI/Chromium
-setup — it only ever applied to the old AppleScript path.
-
-Core patterns (`opencli browser` against the shared Chromium —
-`~/.config/mosaic-seo/BROWSER.md` has the launch/connect boilerplate):
-
-```python
-page = browser.contexts[0].new_page()
-page.goto("<url>")                       # open
-page.inner_text("body")                  # read live, post-render text — the primary read path
-page.url; page.title()                   # cheap state checks
-page.click("<selector>")                 # click
-page.frame_locator("<iframe selector>")  # reach INTO a cross-origin iframe — the specific
-                                          # capability AppleScript never had
-page.close()                             # close when done
-```
-
-`page.content()` (raw, pre-render HTML) works with no gate either, but every
-one of these six platforms is a JS-rendered SPA — raw source will not contain
-the actual dashboard content, only the app shell. Use it only for a quick
-login-redirect check via URL, never as the read path for real data.
-
-- Reuse an already-open page on the target dashboard where one exists
-  (`browser.contexts[0].pages`) rather than opening a duplicate.
-- `page.inner_text("body")` is the default read — cheaper and more reliable
-  than a screenshot for quota tables, IAM binding lists, SEO Reports,
-  backlink lists, tag-health panels.
-- `page.screenshot(path=...)` only where the signal is genuinely visual and
-  text extraction loses it: GBP listing photos, Clarity's heatmap overlays.
-- Close any page this pass opened when done — leave the shared browser's
-  other open tabs alone, and leave the browser process itself running for
-  the next agent/run rather than killing it.
-
-**Account check — mandatory before trusting any Google property's content.**
-Confirm *which* account is active before treating a page's content as real:
-
-```python
-import re
-email = (re.search(r"[\w.+-]+@[\w.-]+\.[\w.-]+", page.inner_text("body")) or [None])
-```
-
-Run this on every GBP/GCP/GA4 page load (PSI/CrUX needs no login, so skip it
-there). Expected account is `mosaichostels@gmail.com` — the same one used for
-`gcloud auth login` in setup. A different email back is a distinct state from
-"not signed in."
-
-**On a mismatch, stop and ask the owner — do not spend turns attempting an
-automatic switch.** Tried and confirmed unautomatable twice on 2026-09-28,
-for two different structural reasons, neither fixable by refining the
-approach: (1) navigating to `accounts.google.com/AccountChooser?continue=...`
-only ever helps when a second account is *already* signed in — if it isn't,
-it silently bounces straight back to the `continue=` target with no picker
-rendered at all; (2) the in-page profile-picture/avatar switcher opens
-`ogs.google.com/u/0/widget/app` as a cross-origin iframe, which — this is the
-one case Playwright doesn't trivially solve either, since the iframe's origin
-actively rejects being driven by an unfamiliar top frame/session — did not
-yield a working click path in practice. The owner switching accounts
-manually (their own click, in the shared Chromium so it persists for next
-time) is the only reliable path once a mismatch is confirmed. Record
-`DOWN — wrong account (found: <email>)`, name expected vs. found in the
-report, and ask them to switch or sign in — a real action, not something to
-script. Never force an account via URL parameters like `authuser=` — that
-picks a session by position, not identity, which is exactly the guess this
-check exists to avoid.
-
-**Prerequisite this workflow cannot satisfy itself:** the relevant accounts
-need to already be signed into the shared Chromium's profile — Google
-(`mosaichostels@gmail.com`) for GBP/GCP/GA4, and the Microsoft/Bing account
-for Webmaster Tools and Clarity. This is the same manual-auth boundary as
-`gcloud auth login` in setup-platforms.sh — the automation can navigate to
-the login screen but not past it, and must never fill one in via script.
-
-If a dashboard URL resolves to a login page (check the URL first — Google and
-Microsoft both redirect logged-out visits to a distinct sign-in/marketing
-URL), **do not mark it DOWN yet.** Stop and ask the owner to complete the
-login in the shared Chromium — name the exact platform and account (e.g.
-"Bing Webmaster needs you signed into the Microsoft account — go ahead and
-log in, then tell me when you're done"). Wait for their reply before touching
-that platform again; this is a real login prompt, not a poll, so don't retry
-in a loop guessing at completion. Once they confirm, re-navigate and
-re-check — this login persists for every future run, so it only has to
-happen once, ever, per account. Only if they say to skip it, or the page
-still isn't past login after they've confirmed, record `DOWN — not signed
-in` and move to the next platform — one stuck login should never block
-auditing the other four.
-
-**Read-only, with two named exceptions below.** Real, live accounts sit
-behind this profile — a misclick is not contained to a throwaway session, it
-is an actual production change. Look and record; never script a click to
-Save a setting, touch billing, IAM roles, GBP listing fields, Bing site
-settings, or Clarity project config.
-
-### Access grants
-
-Two of `setup-platforms.sh`'s `MANUAL` lines are access grants, not
-credentials — adding a known service account email with a fixed role, nothing
-to read back or write anywhere. **Check first, every run** — both were
-already granted for `mosaic-seo-weekly@ai-seo-manager.iam.gserviceaccount.com`
-as of 2026-09-28 (confirmed live via `health-check.sh`'s GSC/GA4 rows, which
-only pass with a working grant), so most runs will find this step already
-done and it's a no-op:
-
-1. **Grant GSC access** — `search.google.com/search-console/users`. Read the
-   user list via `do JavaScript "document.body.innerText"` first; if the
-   service account is already listed as Owner, stop here. Otherwise Add user
-   → the service account email → Owner (the Indexing API rejects anything
-   below Owner).
-2. **Grant GA4 access** — `analytics.google.com` → Admin > Property Access
-   Management. Same check-first: read the access list, only Add → the same
-   service account email → Viewer if it's missing.
-
-Run the account check above before either of these — granting access while
-signed into the wrong Google account either fails outright or, worse, grants
-it on the wrong resource. If either grant list can't be read (login gate),
-this folds into the same login-prompt handling as the rest of the deep-dive —
-ask, don't assume.
-
-**Bing Webmaster API key and Clarity API token stay manual.** Both require
-generating a new secret and reading its value off the page — there is no
-CLI-only path for either the way `gcloud services api-keys get-key-string`
-gave for `GOOGLE_API_KEY`, so pulling either through this Safari session would
-put the raw secret through this conversation's context, same as it would
-through any other browser-automation path. Navigate to the right settings
-screen so the owner doesn't have to hunt for it (`bing.com/webmasters` →
-Settings → API access; `clarity.microsoft.com` → project Settings → Data
-Export), then stop and ask them to click Generate and paste the value into
-`~/.config/mosaic-seo/env` themselves.
-
-For each platform, navigate and note:
-
-- **Google Business Profile** — the public Search/Maps listing
-  (`https://www.google.com/search?q=Mosaic+Hostel+Varanasi`) for what any
-  visitor sees: category, attributes, hours, services menu, photo count and
-  recency, review count/rating and how recent the newest one is, Q&A activity.
-  If signed into Business Profile Manager, also check the "profile
-  performance" and "updates Google suggests" panels — the latter is often the
-  fastest field-level completeness signal there is. Cross-check review
-  velocity against `seo-local`'s 18-day-rule finding above.
-- **GCP** (`console.cloud.google.com`, project `ai-seo-manager`) — API quota
-  usage against limits on the 5 enabled APIs (searchconsole, indexing,
-  analyticsdata, pagespeedonline, chromeuxreport), any billing account
-  attached (there should be none — this project is free-tier by design; an
-  attached billing account is itself a finding), IAM bindings on
-  `mosaic-seo-weekly@ai-seo-manager.iam.gserviceaccount.com` (flag anything
-  beyond what setup-platforms.sh granted), and API error rates in Logs
-  Explorer for repeated 4xx/5xx from the weekly extractor calls.
-- **GA4** (`analytics.google.com`, property `507278393`) — Explorations
-  (funnel/path/cohort/segment-overlap: v1alpha only, the Data API this skill
-  scripts against cannot reach these at all), the Realtime report, any
-  anomaly-detection or Insights cards GA4 surfaces on its own, and Admin >
-  Data Streams tag-health — cross-check directly against the standing finding
-  that roughly half of GSC-clicked organic sessions never fire the GA4 tag.
-- **PSI/CrUX web report** (`https://pagespeed.web.dev/report?url=https://www.mosaichostels.com/`)
-  — no login needed, unlike the other five, so this one should never come back
-  `DOWN — not signed in`. Read the filmstrip and the grouped "Diagnose
-  performance issues" / "Insights" panels for the same audits `cwv-extract.py`
-  pulls as raw JSON, but laid out with the visual before/after the API doesn't
-  carry. Also re-check the CrUX Origin/URL panel directly on this page — it's
-  the fastest confirmation of the standing zero-CrUX-data finding without
-  re-running the extractor, and note whether GSC's own Core Web Vitals report
-  (UI-only, per step (b)'s CWV notes) still shows empty.
-- **Bing Webmaster Tools** (`bing.com/webmasters`) — the SEO Reports tab, Site
-  Scan issue list, the backlinks detail view (the API's `GetLinkCounts` only
-  gives a number, not which pages or anchor text — and it can undercount: on
-  2026-10-01 the API said 0 inbound links while
-  `bing.com/webmasters/backlinks?siteUrl=...` listed 2 referring domains), and
-  submission/IndexNow history. Site Scan URL is `/webmasters/sitescan?siteUrl=...`.
-- **Microsoft Clarity** (`clarity.microsoft.com`) — click and scroll heatmaps
-  per page, and a sample of session recordings flagged rage-click or
-  dead-click — the recording gives the *why* behind a number the API-based
-  `clarity-extract.py` pull in step (b) can only count. Mind the 10
-  requests/day API quota note in step (b); the browser dashboard itself has
-  no such quota.
-
-Findings from this pass are visual observations, not numbers with a source
-API behind them — fold them into the merged gap list at step (d) same as any
-agent finding, but mark **confidence lower** (0.3-0.5, per the scoring rubric
-below) than a GSC or GA4 number pulled via API, since there is no raw data to
-re-verify against later.
-
-### AI platform read-check (AIO/LLMO)
-
-```bash
-./.claude/seo/ai-visibility.sh
-```
-
-Answers three questions that fail independently — never collapse them into
-one "AI-friendly" verdict:
-
-1. **Can each AI crawler actually fetch us?** A real GET per user agent.
-   `robots.txt` is a request, not enforcement: the host can return 403 or 429
-   to an agent that robots.txt explicitly allows. Any non-200 is a finding
-   against the host, not the markup.
-2. **Are we in Common Crawl?** CCBot's corpus is training input for many LLMs,
-   so presence is the closest free proxy for "an LLM has read us". Absence
-   across several crawls means the site was never discovered — a backlink and
-   link-graph problem, not a technical one.
-3. **Are we in the Google and Bing indexes?** Those drive retrieval-time
-   citation in AI Overviews and Copilot, which is a different mechanism from
-   training-corpus inclusion.
-
-Rate limits produce false positives. When an agent returns 429, retest that
-agent alone before recording it — a burst of thirteen sequential requests can
-trip a limiter that a real crawler never would. Confirm with repeated GETs on
-more than one path before calling it a block.
-
-Standing findings, re-verify rather than assume:
-
-- **GPTBot is real but probabilistic edge throttling (~17% success), not a
-  hard block on every GET** — corrected 2026-09-28 via a controlled test (6
-  rounds, ~140 requests, 20s spacing, OAI-SearchBot always sent first in each
-  pair as a control). Result: GPTBot 1/6 success vs. OAI-SearchBot 6/6 on
-  identical alternating paths; aggregate GPTBot 3/18 (~17%) vs. OAI-SearchBot
-  11/13 (~85%) and plain Chrome 7/9 (~78%). GPTBot failed 4/5 even completely
-  alone at 30s spacing, ruling out ordering/concurrency as the cause — this is
-  UA-targeted, from `server: hcdn` (Hostinger), no `Retry-After` header.
-  `HEAD` still returns 200 for GPTBot; `robots.txt` still says `Allow: /`.
-  **Impact is narrower than the throttle suggests**: GPTBot is OpenAI's
-  *training* crawler only — OAI-SearchBot, which governs ChatGPT Search
-  citability, is clean. This costs training-corpus inclusion, not citation
-  visibility. There is also a **separate, UA-agnostic per-IP burst limiter**
-  on top — any UA (including plain Chrome) draws 429s under rapid sequential
-  requests, which is what earlier, faster test passes were picking up and
-  over-generalizing from. Any future retest of this must space GETs ≥20s with
-  zero parallel fetches, or it will reproduce the burst limiter instead of
-  measuring the real per-UA throttle.
-- **Zero Common Crawl captures**, reconfirmed 2026-09-28 across a wider range
-  (CC-MAIN-2026-04 through -39, plus 2025-43/47/51) than the original
-  2026-09-07 finding (CC-MAIN-2026-12 through -34). CCBot itself returns 200,
-  so this is a discovery problem driven by a thin backlink profile, not a
-  technical block.
-
-### Google Preferred Sources
-
-Readers can mark a site as a preferred source. Google then surfaces it more
-prominently in Top Stories with a "preferred" badge, and favours it in AI Mode
-and AI Overviews **for those users who selected it**.
-
-Set expectations honestly when reporting on this. Preferred Sources is built
-for news publishers, and Top Stories is where most of its value sits — a
-hostel will realistically see close to nothing there. The AI Overviews and AI
-Mode preference is the only part that plausibly matters here, and it only
-applies to users who have already opted in, so it cannot win new audiences. It
-is a retention nicety, not a growth lever. Never rank it above indexation,
-Common Crawl presence, or CTR work.
-
-Eligibility is not something the site can influence:
-
-- Domain and subdomain level only. `https://www.mosaichostels.com/` qualifies;
-  a subdirectory such as `/blog` never can.
-- The site must already appear in Google's source preferences tool.
-- **No structured data or markup is required.** Adding the button does not
-  affect eligibility — it only makes the option easier for a reader to find.
-
-Current implementation, verify rather than assume:
-
-- `index.html` carries both required parts — the loader
-  `<script async src="https://news.google.com/swg/js/v1/publisher.js"></script>`
-  and `<div google-add-preferred-source-btn></div>` in the footer's Connect
-  block. That loader is shared with Subscribe with Google; it is correct here
-  and must not be "fixed".
-- Both were committed in `29de946` and were **not live** as of 2026-09-07 —
-  the deploy drift check above catches exactly this.
-- The button is on the homepage only. Extending it to other pages is optional
-  and low value; do not spend a ranked slot on it.
-
-Optional attributes if the owner asks: `data-theme="dark"` or `"light"`, and
-`data-lang` to override the reader's browser language. The equivalent plain
-link, for contexts where the script is unwanted, is
-`https://www.google.com/preferences/source?q=mosaichostels.com`.
-
-Known standing gaps from the last audit, re-check each one rather than
-assuming it is still open: missing robots meta tags sitewide; `/book-now` and
-`/blog` jump H1 straight to H3 with no H2; schema and Open Graph coverage
-varies page to page; Google indexation is thin; thin backlink profile (zero CC
-captures); blog topic overlap (15 posts, potential cannibalization); image
-sitemap missing (blog/gallery); LCP rendering issues (visual audit may flag).
+Three groups, all required:
+
+1. **claude-seo audits:** 14 concurrent Agent-tool subagents plus 3 Skill-tool-only
+   checks. The list and the dedupe-and-merge rule are in `references/audits.md`.
+2. **Browser review** of GBP, GCP, the GA4 UI, the PSI/CrUX web report, the Bing
+   Webmaster UI and the Clarity UI, through `opencli` against the shared Chromium
+   (`references/browser.md`). Read-only, stop at any login gate or account
+   mismatch, and fetch every item on its list each run: only the login gate
+   excuses an unfetched item.
+3. **AI platform read-check:** `./.claude/seo/ai-visibility.sh` (`references/ai-visibility.md`).
 
 ## (d) Rank the gaps
 
-Merge every finding. Deduplicate — the same missing H2 will surface from three
-different agents. Score each:
+Merge every finding and deduplicate. Score each:
 
 ```
 priority = (impact × confidence) ÷ effort
 ```
 
 - **impact** 1-5: how much organic traffic or AI citation share it moves
-- **confidence** 0.1-1.0: how sure the evidence is. A GSC number is 1.0. An
-  agent's opinion about tone is 0.3.
+- **confidence** 0.1-1.0: a GSC number is 1.0, an agent's opinion about tone is 0.3
 - **effort** 1-5: edits required
 
 Take the **top 10 only**. Everything else goes in the report's deferred list
@@ -822,194 +119,82 @@ with the reason. A capped list that ships beats a complete list that stalls.
 
 ## (e) Fix
 
-Apply the ranked fixes. Every edit must name the finding that caused it in the
-report — no speculative rewrites, no copy changes for their own sake, no design
-changes, no refactors.
-
-In scope: title and meta description length and uniqueness, robots meta,
-canonicals, heading hierarchy, JSON-LD (Hostel, FAQPage, BreadcrumbList,
-Article), Open Graph and Twitter cards, image `alt` / `width` / `height` /
-`loading`, internal links, `sitemap.xml` entries and `lastmod`, `llms.txt`,
-answer-shaped opening paragraphs for AEO.
-
-Out of scope even when an agent suggests it: rewriting page copy wholesale,
-changing prices or policies, restructuring navigation, touching booking flow.
-
-If a fix needs a judgement call about facts — a claim about the hostel, a
-price, an amenity — do not guess. Defer it and say why in the report.
-
-After editing any shared file in `components/` or `styles/`, bump the `?v=`
-cache-bust string in every HTML file that references it. The
-`cache-bust-check` skill covers this.
-
-### Fix ownership and scope review
-
-Use one writer for the ranked fixes. Keep each edit tied to a finding and inside the Scope lock above; defer claims about hostel facts, prices, or amenities that cannot be verified. After the edits, run `cache-bust-check` once across the full diff.
-
-Before the verify gate, check the complete diff for files outside the Scope lock, changes to facts without citations, and edits without a corresponding finding. Inside Macterm, give the paired reviewer the actual diff and the finding behind each hunk; the `macterm-pair` skill also governs every earlier step review. Outside Macterm, perform this scope check locally unless the user explicitly asks for pairing. For a report-only run there is no fix diff to review.
-
-Record objections or scope findings under "Fixed this week" when addressed, or "Deferred" when retained with a reason. The independent scope check does not override `verify.sh`; its parse, link, and JSON-LD checks remain the hard gate before commit.
+Apply the ranked fixes under the scope lock. Every edit names the finding that
+caused it: no speculative rewrites, no copy, design or refactor changes. A fix
+that needs a judgement call about hostel facts, prices or amenities is deferred
+with the reason. Scope, cache-bust and whole-diff review rules are in
+`references/fix.md`. After editing a shared file in `components/` or `styles/`,
+bump `?v=` in every HTML file that references it (`cache-bust-check` skill).
 
 ## (f) Submit changed URLs
 
-Only URLs actually changed this run, and only once those changes are **live**.
-
-Re-run `./.claude/seo/deploy-drift.sh` first. Submitting a URL that is still
-showing the old content asks Google and Bing to re-crawl a page that has not
-changed — it burns Indexing API quota and teaches the crawlers that your
-submissions are noise. If the fixes are committed but not deployed, skip this
-step entirely and record in the report that submission is pending a deploy.
+Only URLs changed this run, and only once those changes are **live**. Re-run
+`./.claude/seo/deploy-drift.sh` first; if any page still shows DRIFT, skip this
+step and record "submission pending a deploy" (stale content burns quota and
+teaches crawlers your submissions are noise).
 
 ```bash
-./scripts/indexnow-submit.sh                            # Bing, Yandex, Seznam
-"$SEOPY" "$SEO/indexing_notify.py" --url <changed-url>  # Google Indexing API
+./scripts/indexnow-submit.sh                                        # Bing, Yandex, Seznam
+"$SEOPY" .claude/seo/gsc-sitemap-submit.py --submit                 # Google: resubmit sitemap.xml
 ```
+
+Do not use Google's Indexing API here: it is limited to `JobPosting` and
+`BroadcastEvent` markup. For one important page, list "Request indexing in URL
+Inspection" under "Needs a human" (an owner action in the Search Console UI).
 
 ## (g) Re-baseline
 
-The URL is positional — there is no `--url` flag. Add `--skip-cwv` while the
-PageSpeed API key is unconfigured, otherwise the CWV fetch fails the capture.
+The URL is positional (no `--url` flag). Add `--skip-cwv` while the PageSpeed key
+is unconfigured.
 
 ```bash
-"$SEOPY" "$SEO/drift_baseline.py" --skip-cwv https://www.mosaichostels.com/
-"$SEOPY" "$SEO/drift_baseline.py" --skip-cwv https://www.mosaichostels.com/book-now
-"$SEOPY" "$SEO/drift_baseline.py" --skip-cwv https://www.mosaichostels.com/blog/
-```
-
-The plugin hardcodes `~/.cache/claude-seo/drift/baselines.db`. A cache wipe
-already destroyed one set of baselines, so that path is now a symlink to
-`~/.local/share/mosaic-seo/drift/`. Check the symlink survives before relying
-on a drift comparison:
-
-```bash
+for u in / /book-now /blog/; do
+  "$SEOPY" "$SEO/drift_baseline.py" --skip-cwv "https://www.mosaichostels.com$u"
+done
 [ -L ~/.cache/claude-seo/drift ] || ln -s ~/.local/share/mosaic-seo/drift ~/.cache/claude-seo/drift
 ```
 
-If step (c) still reports no baseline, capture one and note in the report that
-this week had no drift comparison.
+The plugin hardcodes `~/.cache/claude-seo/drift/baselines.db`; a cache wipe once
+destroyed the baselines, so that path is a symlink to `~/.local/share/mosaic-seo/drift/`:
+check it survives. Skip this step while drift is unresolved (it would baseline old
+production); with no baseline, capture one and note the week had no comparison.
 
 ## (h) Report
 
-Write `seo-reports/YYYY-MM-DD.md`:
-
-1. **Platform status** — the table from step (a), plus the deploy-drift table.
-   Lead with drift if any page is out of sync; every finding below it is
-   provisional until production matches the repo.
-2. **Metric deltas vs last week**, one row per source so a regression in any
-   one of them is visible at a glance:
-
-   | Source | Metric | This week | Last week | Δ |
-   |---|---|---|---|---|
-   | GSC | clicks, impressions, CTR, avg position | | | |
-   | GSC | URLs indexed / total in sitemap | | | |
-   | GA4 | organic sessions, engagement rate | | | |
-   | CrUX | LCP, INP, CLS (field, mobile) | | | |
-   | Bing | indexed URLs, inbound links | | | |
-   | Clarity | rage clicks, dead clicks | | | |
-   | Common Crawl | pages captured | | | |
-   | Lighthouse | perf / a11y / best-practices / SEO | | | |
-
-3. **Browser deep-dive findings** — one entry per platform (GBP, GCP, GA4 UI,
-   PSI/CrUX web report, Bing Webmaster UI, Clarity UI): what was fetched, what
-   it showed, and whether it's new since last week. A platform skipped
-   because of a login gate goes here too, `DOWN — not signed in`, not
-   silently dropped from the report — PSI/CrUX has no login gate, so it
-   should never carry that excuse.
-4. **AI visibility** — crawler reachability table, Common Crawl capture count,
-   Google and Bing index presence. The capture count is the clearest single
-   number for whether LLMs can see this site; track it every week.
-5. **Indexation detail** — every URL not in `Submitted and indexed`, with its
-   coverage state. Call out any 404 still drawing impressions: that is live
-   demand hitting a dead end and it is always worth a redirect.
-6. **Fixed this week** — one line each: what changed, which file, which
-   finding drove it.
-7. **Deferred** — the gap, the reason, its priority score.
-8. **Next week / needs a human** — anything requiring a decision, a
-   credential, a deploy, or a factual claim you could not verify.
-9. **Skill updated** — see "Self-improvement" below. One line per edit: which
-   fact changed, in which section, why. Empty is a fine answer some weeks —
-   don't manufacture an edit to fill this line.
-10. **Pairing and scope review this run** — inside Macterm, record the paired reviewer's whole-diff scope verdict and any objections or resolutions. Outside Macterm, record the solo scope check and any user-requested paired review. For a report-only run, say that no fix diff was reviewed.
-
-Compare against the most recent existing file in `seo-reports/`. If there is
-none, say so and treat this run as the baseline.
-
-Where a source had no data, say which source and why — quota, insufficient
-CrUX sample, credential down. A blank cell with no explanation reads as zero,
-and zero is a very different claim from "not measured".
+Write `seo-reports/YYYY-MM-DD.md` using `references/report.md`, compared against
+the newest earlier file (none means this run is the baseline). Say which source and
+why when it had no data: a blank cell reads as zero, which is not "not measured".
 
 ## Self-improvement
 
-Two different things live in this file, and only one of them updates itself:
-
-- **Facts about the world** — standing-finding blocks, discovered URL
-  patterns, DOM quirks, resolved gaps. These decay by design and are meant to
-  be overwritten. Update these every run, right in this file.
-- **Rules about behavior** — the scope lock, the read-only/exceptions list in
-  the browser deep-dive, anything that would need a permission grant. These
-  never self-update. A rule changes only when the owner asks for it in
-  conversation, the same way every boundary in this file changed so far.
-  Earlier attempts in this skill's own history to have it grant itself new
-  capabilities were correctly blocked by the harness — self-modifying its own
-  permissions is not something this workflow does on its own initiative,
-  ever, no matter how reasonable the edit seems in the moment.
-
-Before the verify/commit step, fold what this run learned into the file:
-
-1. Any "Standing finding from `<date>`" block re-verified this run — update
-   the date and numbers in place. If it changed, say it changed; if it held,
-   write "confirmed" rather than leaving a stale date sitting there.
-2. Any newly-discovered technical fact that saves the next run real work — a
-   URL pattern (e.g. Bing's `/webmasters/<page>?siteUrl=...`), a DOM quirk
-   (e.g. Bing's Configuration nav being Shadow DOM and needing a manual click
-   to expand before its children exist in the DOM), a platform's exact
-   settings path once found. Add it next to where that platform is already
-   discussed — don't create a new junk-drawer section for it.
-3. Any line in "Known standing gaps" or the deferred list that this run
-   actually fixed — remove it. If the fix needs a sentence of context for
-   next time, fold that into whatever finding replaced it.
-4. Anything in this file that turned out to be flatly wrong (a moved script
-   path, a changed flag, a fact that no longer holds) — correct just that,
-   not the surrounding prose.
-
-This edit rides in the same commit as everything else and goes through the
-same review the site changes do — nothing here is silent or separate.
-`verify.sh` doesn't check markdown, so a SKILL.md edit isn't gated by it, but
-it's still a real diff in the same `git add -A` — if it looks wrong, `git
-restore` it same as any other file, and say so in the report instead of
-forcing a "self-improvement" that didn't actually improve anything.
-
----
+Facts about the world (standing findings, URL patterns, DOM quirks, resolved gaps)
+are updated in the reference files each run. Rules (scope lock, read-only browser
+rule, anything needing a permission) never self-update and change only when the
+owner asks. The edit rides in its own commit. Procedure: `references/self-improvement.md`.
 
 ## Verify, then commit
 
-Never commit without passing the gate:
-
 ```bash
 ./.claude/seo/verify.sh
+./.claude/seo/check-skill.sh      # when the skill files changed
 ```
 
-It checks that every changed HTML file parses, internal links resolve
-(extensionless URLs included), `sitemap.xml` is valid, and every JSON-LD block
-is valid JSON.
-
-**On failure:** `git restore` the working tree, commit nothing, and write the
-failure into the report. A broken deploy costs more than a week of missed fixes.
-
-**On pass:**
+`verify.sh` checks that changed HTML parses, internal links resolve,
+`sitemap.xml` is valid and every JSON-LD block is valid JSON. **On failure:**
+`git restore` the working tree, commit nothing, and write the failure into the
+report. **On pass:** stage the files this run changed by explicit path (never
+`git add -A`), keep skill edits in their own commit, then:
 
 ```bash
-git add -A ':!api'
 git commit -m "chore(seo): weekly automated fixes $(date +%F)"
 git push
 ```
 
-The commit goes to `main` by explicit instruction from the site owner. Never
-force-push, never rewrite history.
+The commit goes to `main` by explicit instruction from the site owner. Never force-push, never rewrite history.
 
 ## Stop and ask
 
-Halt and surface to the user rather than proceeding: any change inside `api/`
-looks warranted; a fix requires a factual claim you cannot verify; the health
+Halt and surface to the user rather than proceeding when: any change inside
+`api/` looks warranted; a fix needs a factual claim you cannot verify; the health
 gate fails two weeks running; verify fails two weeks running; a platform needs
 re-authentication.
