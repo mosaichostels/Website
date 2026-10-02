@@ -114,7 +114,100 @@ def ga4(b):
     return _out("ga4", b["generated"], win, m, errors)
 
 
-NORMALIZERS = {"gsc": gsc, "ga4": ga4}
+def bing(b):
+    errors = []
+    traffic = {_day(r["day"]): r for r in b.get("rank_and_traffic", [])}
+    win = _window(list(traffic), errors)
+    m = {"clicks": None, "impressions": None}
+    if win:
+        sel = [r for d, r in traffic.items() if win[0] <= d <= win[1]]
+        m.update(clicks=sum(r["Clicks"] for r in sel), impressions=sum(r["Impressions"] for r in sel))
+    stats = sorted(b.get("crawl_stats", []), key=lambda r: r["day"])
+    last = stats[-1] if stats else {}
+    m["pages_in_index"] = last.get("InIndex")
+    m["crawl_errors"] = last.get("CrawlErrors")
+    links = b.get("link_counts") or []
+    m["inbound_links_api"] = sum(int(x.get("Count", 0)) for x in links)
+    if not links:
+        errors.append("link_counts empty: Bing's API undercounts inbound links; read the Webmaster UI")
+    return _out("bing", b["generated"], win, m, errors)
+
+
+def clarity(b):
+    totals = {x["metricName"]: (x.get("information") or [{}])[0] for x in b["totals"]}
+    end = _day(b["generated"][:10])
+    start = end - dt.timedelta(days=b["numOfDays"] - 1)
+
+    def get(name, field):
+        return _num(totals.get(name, {}).get(field))
+
+    m = {"sessions_human": get("Traffic", "totalSessionCount"),
+         "sessions_bot": get("Traffic", "totalBotSessionCount"),
+         "dead_click_pct": get("DeadClickCount", "sessionsWithMetricPercentage"),
+         "rage_click_pct": get("RageClickCount", "sessionsWithMetricPercentage"),
+         "quickback_pct": get("QuickbackClick", "sessionsWithMetricPercentage"),
+         "script_error_pct": get("ScriptErrorCount", "sessionsWithMetricPercentage"),
+         "dead_click_events": get("DeadClickCount", "subTotal"),
+         "rage_click_events": get("RageClickCount", "subTotal")}
+    return _out("clarity", b["generated"], (start, end), m, [])
+
+
+def cwv(b):
+    errors = []
+    gen = _day(b["generated"][:10])
+    perf = []
+    for url, r in b.get("psi", {}).items():
+        p = ((r.get("mobile") or {}).get("scores") or {}).get("performance")
+        if p is None:
+            errors.append(f"no mobile PSI score: {url}")
+        else:
+            perf.append(p)
+    crux_url = b.get("crux_url", {})
+    m = {"psi_urls": len(perf),
+         "psi_mobile_perf_mean": sum(perf) / len(perf) if perf else None,
+         "psi_mobile_perf_min": min(perf) if perf else None,
+         "crux_origin_forms_with_data": sum(1 for v in b.get("crux_origin", {}).values() if "_status" not in v),
+         "crux_urls_with_data": sum(1 for v in crux_url.values() if "_status" not in v),
+         "crux_urls_checked": len(crux_url)}
+    return _out("cwv", b["generated"], (gen, gen), m, errors)
+
+
+def lighthouse(b):
+    errors = []
+    gen = _day(b["generated"][:10])
+    un = b.get("unlighthouse") or {}
+    cats = (un.get("summary") or {}).get("categories", {})
+    m = {"routes": len(un.get("routes", [])),
+         "failing_audits": len(b.get("audit_index", {})),
+         "drift_baselines": len(((b.get("drift") or {}).get("store") or {}).get("baselines", []))}
+    for key, name in (("performance", "lh_performance"), ("accessibility", "lh_accessibility"),
+                      ("best-practices", "lh_best_practices"), ("seo", "lh_seo")):
+        m[name] = cats.get(key, {}).get("averageScore")
+    if un.get("exit_code") not in (0, None):
+        errors.append(f"unlighthouse exit code {un['exit_code']}")
+    return _out("lighthouse", b["generated"], (gen, gen), m, errors)
+
+
+def commoncrawl(b):
+    errors = []
+    total = errored = 0
+    for crawl, v in b.get("captures", {}).items():
+        if isinstance(v, list):
+            total += len(v)
+        else:
+            errored += 1
+            errors.append(f"{crawl}: {' '.join(str(v.get('error', v)).split())[:60]}")
+    gen = _day(b["generated"][:10])
+    fetch = b.get("ccbot_fetch", {})
+    m = {"crawls_checked": len(b.get("captures", {})), "crawls_errored": errored,
+         "captures_total": total,
+         "ccbot_urls_ok": sum(1 for v in fetch.values() if v.get("status") == 200),
+         "ccbot_urls_checked": len(fetch)}
+    return _out("commoncrawl", b["generated"], (gen, gen), m, errors)
+
+
+NORMALIZERS = {"gsc": gsc, "ga4": ga4, "bing": bing, "clarity": clarity,
+               "cwv": cwv, "lighthouse": lighthouse, "commoncrawl": commoncrawl}
 
 
 def validate(doc):

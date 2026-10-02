@@ -101,6 +101,58 @@ class TestNormalize(unittest.TestCase):
             with self.assertRaises(ValueError):
                 normalize.validate({**base, "metrics": {"k": bad}})
 
+    def test_bing(self):
+        d = self.doc("bing")
+        m = d["metrics"]
+        self.assertEqual(d["window"]["end"], "2026-09-28")
+        self.assertEqual((m["clicks"], m["impressions"]), (3, 62))
+        self.assertEqual((m["pages_in_index"], m["crawl_errors"], m["inbound_links_api"]), (29, 2, 0))
+        self.assertTrue(any("undercounts" in e for e in d["errors"]))
+
+    def test_clarity(self):
+        d = self.doc("clarity")
+        m = d["metrics"]
+        self.assertEqual(d["window"], {"start": "2026-09-29", "end": "2026-10-01", "days": 3})
+        self.assertEqual((m["sessions_human"], m["sessions_bot"]), (22, 69))
+        self.assertEqual((m["dead_click_pct"], m["dead_click_events"], m["rage_click_pct"]), (9.09, 2, 0))
+
+    def test_clarity_string_counts_are_coerced(self):
+        b = {"generated": "2026-09-07T10:00:00", "numOfDays": 3, "totals": [
+            {"metricName": "Traffic", "information": [{"totalSessionCount": "9", "totalBotSessionCount": "8"}]},
+            {"metricName": "DeadClickCount", "information": [{"sessionsWithMetricPercentage": "11.5", "subTotal": "2"}]}]}
+        m = normalize.clarity(b)["metrics"]
+        self.assertEqual((m["sessions_human"], m["sessions_bot"], m["dead_click_events"]), (9, 8, 2))
+        self.assertEqual(m["dead_click_pct"], 11.5)
+        self.assertIsNone(m["quickback_pct"])
+        normalize.validate(normalize.clarity(b))
+
+    def test_cwv(self):
+        m = self.doc("cwv")["metrics"]
+        self.assertEqual(m["psi_urls"], 5)
+        self.assertAlmostEqual(m["psi_mobile_perf_mean"], 0.852)
+        self.assertEqual(m["psi_mobile_perf_min"], 0.7)
+        self.assertEqual((m["crux_origin_forms_with_data"], m["crux_urls_with_data"], m["crux_urls_checked"]), (0, 0, 21))
+
+    def test_lighthouse(self):
+        m = self.doc("lighthouse")["metrics"]
+        self.assertEqual((m["lh_performance"], m["lh_accessibility"], m["lh_best_practices"], m["lh_seo"]),
+                         (0.94, 0.92, 0.76, 1))
+        self.assertEqual((m["routes"], m["failing_audits"], m["drift_baselines"]), (15, 19, 3))
+
+    def test_commoncrawl_reports_the_errored_crawl(self):
+        d = self.doc("commoncrawl")
+        m = d["metrics"]
+        self.assertEqual((m["captures_total"], m["crawls_checked"], m["crawls_errored"]), (0, 12, 1))
+        self.assertEqual((m["ccbot_urls_ok"], m["ccbot_urls_checked"]), (4, 4))
+        self.assertTrue(d["errors"][0].startswith("CC-MAIN-2026-30: HTTP 502"))
+        self.assertNotIn("\n", d["errors"][0])
+
+    def test_all_seven_sources_are_normalized(self):
+        self.assertEqual(list(normalize.NORMALIZERS),
+                         ["gsc", "ga4", "bing", "clarity", "cwv", "lighthouse", "commoncrawl"])
+        for d in DATES:
+            self.assertEqual({s for s, day in self.docs if day == d}, set(normalize.NORMALIZERS))
+
 
 if __name__ == "__main__":
     unittest.main()
