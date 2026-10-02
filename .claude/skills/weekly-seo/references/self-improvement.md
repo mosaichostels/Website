@@ -4,11 +4,11 @@
 
 ## Self-improvement
 
-Two different things live in this file, and only one of them updates itself:
+Two different things live in the matching `references/*.md` file, and only one of them updates itself:
 
 - **Facts about the world** — standing-finding blocks, discovered URL
   patterns, DOM quirks, resolved gaps. These decay by design and are meant to
-  be overwritten. Update these every run, right in this file.
+  be overwritten. Update these every run, right in the matching `references/*.md` file.
 - **Rules about behavior** — the scope lock, the read-only/exceptions list in
   the browser deep-dive, anything that would need a permission grant. These
   never self-update. A rule changes only when the owner asks for it in
@@ -32,13 +32,8 @@ Before the verify/commit step, fold what this run learned into the file:
 3. Any line in "Known standing gaps" or the deferred list that this run
    actually fixed — remove it. If the fix needs a sentence of context for
    next time, fold that into whatever finding replaced it.
-4. Anything in this file that turned out to be flatly wrong (a moved script
+4. Anything in the matching `references/*.md` file that turned out to be flatly wrong (a moved script
    path, a changed flag, a fact that no longer holds) — correct just that,
    not the surrounding prose.
 
-This edit rides in the same commit as everything else and goes through the
-same review the site changes do — nothing here is silent or separate.
-`verify.sh` doesn't check markdown, so a SKILL.md edit isn't gated by it, but
-it's still a real diff in the same `git add -A` — if it looks wrong, `git
-restore` it same as any other file, and say so in the report instead of
-forcing a "self-improvement" that didn't actually improve anything.
+This edit rides in its own commit, staged by explicit path, and gets the same review as site changes. `verify.sh` does not check markdown; run `check-skill.sh`. If the edit looks wrong, `git restore` it and say so in the report.

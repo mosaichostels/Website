@@ -52,7 +52,7 @@ the browser process running for the next run.
 **Account check — mandatory before trusting any Google property's content.**
 Confirm *which* account is active before treating a page's content as real:
 
-Read the page text (`opencli browser seo eval \"document.body.innerText\"`) and match the
+Read the page text (`opencli browser seo eval "document.body.innerText"`) and match the
 first address with the regex `[\w.+-]+@[\w.-]+\.[\w.-]+`.
 
 Run this on every GBP/GCP/GA4 page load (PSI/CrUX needs no login, so skip it
@@ -119,8 +119,8 @@ done and it's a no-op:
 1. **Grant GSC access** — `search.google.com/search-console/users`. Read the
    user list via `opencli browser seo eval "document.body.innerText"` first; if the
    service account is already listed as Owner, stop here. Otherwise Add user
-   → the service account email → Owner (the Indexing API rejects anything
-   below Owner).
+   → the service account email → Owner (sitemap resubmit in step (f) needs Owner
+   or Full).
 2. **Grant GA4 access** — `analytics.google.com` → Admin > Property Access
    Management. Same check-first: read the access list, only Add → the same
    service account email → Viewer if it's missing.
