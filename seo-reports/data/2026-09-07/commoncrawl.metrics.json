@@ -1,0 +1,18 @@
+{
+  "errors": [],
+  "fetched_at": "2026-09-07T20:41:36",
+  "findings": [],
+  "metrics": {
+    "captures_total": 0,
+    "ccbot_urls_checked": 4,
+    "ccbot_urls_ok": 4,
+    "crawls_checked": 12,
+    "crawls_errored": 0
+  },
+  "source": "commoncrawl",
+  "window": {
+    "days": 1,
+    "end": "2026-09-07",
+    "start": "2026-09-07"
+  }
+}

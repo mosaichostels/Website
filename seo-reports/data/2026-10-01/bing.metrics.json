@@ -1,0 +1,20 @@
+{
+  "errors": [
+    "link_counts empty: Bing's API undercounts inbound links; read the Webmaster UI"
+  ],
+  "fetched_at": "2026-10-01T08:01:13",
+  "findings": [],
+  "metrics": {
+    "clicks": 3,
+    "crawl_errors": 2,
+    "impressions": 62,
+    "inbound_links_api": 0,
+    "pages_in_index": 29
+  },
+  "source": "bing",
+  "window": {
+    "days": 28,
+    "end": "2026-09-28",
+    "start": "2026-09-01"
+  }
+}
