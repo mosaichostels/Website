@@ -23,7 +23,7 @@ credential value into the transcript, copy one into the repo, or echo one to a l
 
 Touchable: `*.html`, `styles/`, `components/`, `sitemap.xml`, `robots.txt`,
 `llms.txt`, `seo-reports/`, and, for facts only and never rules (see
-Self-improvement), `.claude/skills/weekly-seo/`.
+Self-improvement), `.claude/skills/weekly-seo/SKILL.md` and `references/*.md`.
 
 Off limits, no exceptions: `api/` (PHP endpoints, Razorpay, eZee PMS),
 `scripts/deploy.sh`, `.claude/hooks/`, anything under `~/.config/`. A booking or
