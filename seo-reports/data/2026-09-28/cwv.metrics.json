@@ -1,0 +1,19 @@
+{
+  "errors": [],
+  "fetched_at": "2026-09-28T11:32:00",
+  "findings": [],
+  "metrics": {
+    "crux_origin_forms_with_data": 0,
+    "crux_urls_checked": 22,
+    "crux_urls_with_data": 0,
+    "psi_mobile_perf_mean": 0.754,
+    "psi_mobile_perf_min": 0.59,
+    "psi_urls": 5
+  },
+  "source": "cwv",
+  "window": {
+    "days": 1,
+    "end": "2026-09-28",
+    "start": "2026-09-28"
+  }
+}
