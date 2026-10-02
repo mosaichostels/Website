@@ -25,6 +25,10 @@ function ezee_add_payment_once(array $request): array {
 // How many times a definite eZee rejection of InsertBooking is retried.
 // Ambiguous failures (timeouts) are never retried.
 const MAX_CONFIRM_ATTEMPTS = 3;
+// Minimum gap between attempts. Razorpay redelivers a webhook that got a 5xx
+// within seconds, which used all the attempts at once and gave eZee no time to
+// recover. A delivery inside the gap is handed back untouched and not counted.
+const CONFIRM_RETRY_GAP_SECONDS = 120;
 
 /**
  * $payment is Razorpay's payment entity when the caller has one (webhook,
@@ -46,7 +50,11 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
   ensure_pending_dirs();
   $pendingPath = PENDING_ORDERS_DIR . '/pending/' . $orderId . '.json';
   $abandonedPath = PENDING_ORDERS_DIR . '/abandoned/' . $orderId . '.json';
-  $processingPath = PENDING_ORDERS_DIR . '/processing/' . $orderId . '.json';
+  // The claim time is part of the NAME, set by the same rename() that claims the
+  // order, so "how long has this been processing" never depends on a file's mtime
+  // (which rename() keeps from the old pending/ file) and no window exists in which
+  // a live claim looks stale to reconcile-pending.php's sweep.
+  $processingPath = PENDING_ORDERS_DIR . '/processing/' . $orderId . '@' . time() . '.json';
   $donePath = PENDING_ORDERS_DIR . '/done/' . $orderId . '.json';
   $failedPath = PENDING_ORDERS_DIR . '/failed/' . $orderId . '.json';
 
@@ -76,11 +84,12 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
     return ['status' => 'unknown'];
   }
 
-  // rename() keeps the file's old mtime. Without this, an order that waited in
-  // pending/ looks "stuck" to reconcile-pending.php's processing/ sweep the moment
-  // it is claimed, and gets parked in failed/ while eZee is still being called.
-  @touch($processingPath);
   $record = json_decode(file_get_contents($processingPath), true);
+
+  if (!empty($record['last_attempt_at']) && time() - (int)$record['last_attempt_at'] < CONFIRM_RETRY_GAP_SECONDS) {
+    @rename($processingPath, $pendingPath);
+    return ['status' => 'retry'];
+  }
 
   // One Room_N entry per physical room — occupancy and guest identity
   // (title/name/gender) already split per unit by create-order.php.
@@ -136,6 +145,7 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
 
   if (!$insertResponse['_ok'] || empty($insertResponse['ReservationNo'])) {
     $record['attempts'] = ($record['attempts'] ?? 0) + 1;
+    $record['last_attempt_at'] = time();
     $record['last_failure'] = json_encode($insertResponse);
     // Retry only when eZee EXPLICITLY rejected the request: an error reply
     // (_ok=false) that is not a transport/5xx failure, or a 429 that was
@@ -152,6 +162,10 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
       bookings_log("RETRY InsertBooking order=$orderId payment=$paymentId attempt={$record['attempts']} response=" . json_encode($insertResponse));
       return ['status' => 'retry'];
     }
+    // Parked for a human: drop the timestamp so a manual re-queue (move the file
+    // back to pending/) is attempted immediately instead of waiting out the gap.
+    unset($record['last_attempt_at']);
+    file_put_contents($processingPath, json_encode($record, JSON_PRETTY_PRINT));
     @rename($processingPath, $failedPath);
     booking_alert('PAID but booking NOT created', "order=$orderId payment=$paymentId amount={$record['total']} email={$record['email']}"
       . ' ambiguous=' . ($ambiguous ? 'yes (check eZee for an existing reservation BEFORE re-queueing)' : 'no')

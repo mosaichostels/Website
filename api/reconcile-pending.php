@@ -56,10 +56,29 @@ foreach (glob(PENDING_ORDERS_DIR . '/pending/*.json') ?: [] as $file) {
 // whether InsertBooking had already succeeded, so it is NOT re-queued
 // automatically — that could double-book. Park it in failed/ and tell a human.
 foreach (glob(PENDING_ORDERS_DIR . '/processing/*.json') ?: [] as $file) {
-  if (filemtime($file) > time() - 600) continue;
+  $name = basename($file);
+  // A claim is named ORDER@<unixtime>: the time is written by the same rename()
+  // that took the order, so a live claim can never look old.
+  if (preg_match('/^(order_[A-Za-z0-9]+)@(\d+)\.json$/', $name, $m)) {
+    [, $orderId, $claimedAt] = $m;
+    if ((int)$claimedAt > time() - 600) continue;
+    if (@rename($file, PENDING_ORDERS_DIR . '/failed/' . $orderId . '.json')) {
+      booking_alert('order stuck in processing', "order=$orderId — check eZee for an existing reservation BEFORE re-queueing");
+    }
+    continue;
+  }
+  // A bare ORDER.json is a claim made by the previous version of this code. Its
+  // mtime is the old pending/ file's, not the claim time, so around a deploy a
+  // LIVE claim can look old: it must never be moved on that evidence. Alert a
+  // human once (marker file) and leave it where it is.
   $orderId = basename($file, '.json');
-  if (@rename($file, PENDING_ORDERS_DIR . '/failed/' . $orderId . '.json')) {
-    booking_alert('order stuck in processing', "order=$orderId — check eZee for an existing reservation BEFORE re-queueing");
+  $marker = PENDING_ORDERS_DIR . '/processing/' . $orderId . '.alerted';
+  // The marker's mtime is the time of the last alert. It expires after a day, so
+  // if that mail never arrived (booking_alert() cannot tell), the alert repeats
+  // daily until a human moves the file, instead of going silent for good.
+  if ((int)@filemtime($file) < time() - 3600 && (!file_exists($marker) || (int)@filemtime($marker) < time() - 86400)) {
+    @touch($marker);
+    booking_alert('legacy claim lingering in processing', "order=$orderId — may be a crashed old-version claim OR a live one around a deploy; check eZee for an existing reservation, then move the file to failed/ or pending/ by hand");
   }
 }
 
