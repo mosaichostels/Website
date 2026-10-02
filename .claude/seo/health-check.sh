@@ -59,9 +59,6 @@ check "Microsoft Clarity" "bearer token" "step (b) — rage/dead-click pages" \
     -H "Authorization: Bearer $CLARITY_API_TOKEN" \
     "https://www.clarity.ms/export-data/api/v1/project-live-insights?numOfDays=1"'
 
-check "Moz (free tier)" "API key" "seo-backlinks — referring domains, DA" \
-  bash -c '[[ -n "${MOZ_API_KEY:-}" ]]'
-
 check "Common Crawl" "none" "seo-backlinks — link graph" \
   bash -c 'curl -sSf --max-time 25 -o /dev/null "https://index.commoncrawl.org/collinfo.json"'
 
