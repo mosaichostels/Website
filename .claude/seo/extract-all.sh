@@ -72,6 +72,9 @@ for spec in "${EXTRACTORS[@]}"; do
   fi
 done
 
+printf '\n\033[1m===== normalize =====\033[0m\n'
+if "$PY" .claude/seo/normalize.py "$(date +%F)"; then :; else FAILED+=("normalize"); fi
+"$PY" .claude/seo/coverage_ledger.py init "$(date +%F)" || FAILED+=("coverage")
 printf '\n\033[1m===== summary =====\033[0m\n'
 printf 'reports: %s\n' "$LOG_DIR"
 [[ ${#RAN[@]}     -gt 0 ]] && printf 'ran:      %s\n' "$(IFS=', '; echo "${RAN[*]}")"
