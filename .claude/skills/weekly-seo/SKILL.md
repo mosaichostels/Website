@@ -104,18 +104,14 @@ Three groups, all required:
 
 ## (d) Rank the gaps
 
-Merge every finding and deduplicate. Score each:
-
-```
-priority = (impact × confidence) ÷ effort
-```
-
-- **impact** 1-5: how much organic traffic or AI citation share it moves
-- **confidence** 0.1-1.0: a GSC number is 1.0, an agent's opinion about tone is 0.3
-- **effort** 1-5: edits required
-
-Take the **top 10 only**. Everything else goes in the report's deferred list
-with the reason. A capped list that ships beats a complete list that stalls.
+Record each finding once with `python3 .claude/seo/ledger.py add` (the same gap from several
+checks is one finding). It scores `priority = (impact × confidence) ÷ effort`: impact 1-5
+(traffic or AI citation share moved), confidence 0.1-1.0 (a GSC number is 1.0, an agent's
+opinion about tone 0.3), effort 1-5 (edits required). Give each a `--check` for its defect
+where one exists and run `ledger.py verify`: a claim whose check finds no defect is rejected
+and never fixed. Confirm the rest with `ledger.py verify ID --manual verified|rejected --note TEXT`.
+`ledger.py list --status verified --top 10` is the work list; the rest goes in the report's
+deferred list with the reason. Details: `references/ledger.md`.
 
 ## (e) Fix
 
@@ -125,6 +121,7 @@ that needs a judgement call about hostel facts, prices or amenities is deferred
 with the reason. Scope, cache-bust and whole-diff review rules are in
 `references/fix.md`. After editing a shared file in `components/` or `styles/`,
 bump `?v=` in every HTML file that references it (`cache-bust-check` skill).
+Record each fix: `ledger.py fix ID COMMIT --metric source.metric`.
 
 ## (f) Submit changed URLs
 
@@ -141,6 +138,8 @@ teaches crawlers your submissions are noise).
 Do not use Google's Indexing API here: it is limited to `JobPosting` and
 `BroadcastEvent` markup. For one important page, list "Request indexing in URL
 Inspection" under "Needs a human" (an owner action in the Search Console UI).
+
+Then `ledger.py deploy-check` marks each fixed finding whose defect is gone from the live page.
 
 ## (g) Re-baseline
 
@@ -162,7 +161,8 @@ production); with no baseline, capture one and note the week had no comparison.
 ## (h) Report
 
 Write `seo-reports/YYYY-MM-DD.md` using `references/report.md`, with the metric table
-from `python3 .claude/seo/deltas.py`. Mark every browser and audit item with
+from `python3 .claude/seo/deltas.py` and `ledger.py measure ID` for each deployed finding
+whose fix has a newer run. Mark every browser and audit item with
 `coverage_ledger.py mark ITEM STATUS REASON`; the run is complete only when `coverage_ledger.py check` passes.
 
 ## Self-improvement
