@@ -1,3 +1,5 @@
+import contextlib
+import io
 import json
 import pathlib
 import shutil
@@ -201,3 +203,44 @@ class TestLifecycle(Base):
                      lambda: ledger.fix("F-9999", "abc", reports=self.tmp)):
             with self.assertRaises(ValueError):
                 call()
+
+
+class TestCli(Base):
+    def cli(self, *argv):
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            ledger.main(list(argv), reports=self.tmp, root=self.root)
+        return buf.getvalue()
+
+    def test_add_list_and_manual_flow(self):
+        fid = self.cli("add", "seo-flow", "H1 jumps to H3 on /book-now", "--impact", "3",
+                       "--confidence", "0.9", "--effort", "1").strip()
+        self.assertEqual(fid, "F-0001")
+        self.assertIn("F-0001  p=2.7", self.cli("list"))
+        self.cli("verify", fid, "--manual", "verified", "--note", "read the source")
+        self.assertIn("verified", self.cli("list", "--status", "verified"))
+        self.assertEqual(self.cli("list", "--status", "open"), "")
+
+    def test_auto_verify_runs_every_open_finding_and_reports_the_outcome(self):
+        chk = json.dumps({"where": "local", "target": "index.html", "pattern": "<title>", "defect_if": "absent"})
+        fid = self.cli("add", "seo-technical", "title missing", "--impact", "2", "--confidence", "0.5",
+                       "--effort", "1", "--check", chk).strip()
+        self.assertEqual(self.cli("verify").strip(), f"{fid} rejected")
+
+    def test_errors_exit_cleanly_not_with_a_traceback(self):
+        with self.assertRaises(SystemExit) as cm:
+            self.cli("fix", "F-0042", "abc")
+        self.assertIn("unknown finding", str(cm.exception))
+        with self.assertRaises(SystemExit):
+            self.cli("add", "s", "c", "--impact", "9", "--confidence", "0.5", "--effort", "1")
+        with self.assertRaises(SystemExit):
+            self.cli("add", "s", "c", "--impact", "1", "--confidence", "0.5", "--effort", "1", "--check", "{not json")
+        with self.assertRaises(SystemExit):
+            self.cli("add", "s", "c", "--impact", "1", "--confidence", "0.5", "--effort", "1",
+                     "--check", '{"where":"local","target":"index.html","pattern":7,"defect_if":"absent"}')
+        with self.assertRaises(SystemExit):
+            self.cli("add", "s", "c", "--impact", "1", "--confidence", "nan", "--effort", "1")
+
+
+if __name__ == "__main__":
+    unittest.main()
