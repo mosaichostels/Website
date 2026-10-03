@@ -166,3 +166,85 @@ def verify_manual(fid, status, note, reports=REPORTS):
     _move(f, status)
     f["note"] = note
     save(doc, reports)
+
+
+def latest_metric(spec, reports=REPORTS):
+    """(value, date) of 'source.metric' in the newest data directory that has that source."""
+    source, _, name = spec.partition(".")
+    base = pathlib.Path(reports) / "data"
+    dirs = sorted((p for p in base.iterdir() if p.is_dir() and (p / f"{source}.metrics.json").exists()),
+                  key=lambda p: p.name) if base.exists() else []
+    if not dirs:
+        raise ValueError(f"no metrics for source {source!r}")
+    metrics = json.loads((dirs[-1] / f"{source}.metrics.json").read_text())["metrics"]
+    if name not in metrics:
+        raise ValueError(f"unknown metric: {spec}")
+    return metrics[name], dirs[-1].name
+
+
+def fix(fid, commit, metric=None, reports=REPORTS):
+    """Record the fixing commit; with metric, remember its current value as the baseline."""
+    doc = load(reports)
+    f = _find(doc, fid)
+    baseline = None
+    if metric:
+        value, date = latest_metric(metric, reports)
+        baseline = {"metric": metric, "value": value, "date": date}
+    _move(f, "fixed")
+    f["commit"] = commit
+    f["baseline"] = baseline
+    save(doc, reports)
+
+
+def deploy_check(fid, root=ROOT, fetch=_fetch, reports=REPORTS):
+    """Re-read the live page for a fixed finding. True (and status deployed) once the defect is gone."""
+    doc = load(reports)
+    f = _find(doc, fid)
+    if f["status"] != "fixed":
+        raise ValueError(f"{fid} is {f['status']}, not fixed")
+    if not f["check"]:
+        raise ValueError(f"{fid} has no check: use deploy-check --manual with a note")
+    try:
+        present = defect_present(f["check"], root, fetch, live=True)
+    except (OSError, ValueError) as e:
+        f["note"] = f"deploy check could not run: {e}"
+        save(doc, reports)
+        return False
+    if present:
+        f["note"] = "defect still on the live page: fix not deployed yet"
+        save(doc, reports)
+        return False
+    _move(f, "deployed")
+    f["note"] = "live page no longer shows the defect"
+    save(doc, reports)
+    return True
+
+
+def deploy_manual(fid, note, reports=REPORTS):
+    if not note.strip():
+        raise ValueError("manual deploy confirmation needs a note")
+    doc = load(reports)
+    f = _find(doc, fid)
+    _move(f, "deployed")
+    f["note"] = note
+    save(doc, reports)
+
+
+def measure(fid, reports=REPORTS):
+    """Compare the fix-time baseline with the newest run's value; status becomes measured."""
+    doc = load(reports)
+    f = _find(doc, fid)
+    if f["status"] != "deployed":
+        raise ValueError(f"{fid} is {f['status']}, not deployed")
+    if not f["baseline"]:
+        raise ValueError(f"{fid} has no metric baseline: record one with fix --metric")
+    after, date = latest_metric(f["baseline"]["metric"], reports)
+    if date <= f["baseline"]["date"]:
+        raise ValueError("no newer run than the baseline yet")
+    before = f["baseline"]["value"]
+    _move(f, "measured")
+    f["measured"] = {"metric": f["baseline"]["metric"], "before": before, "after": after,
+                     "delta": None if before is None or after is None else round(after - before, 3),
+                     "date": date}
+    save(doc, reports)
+    return f["measured"]

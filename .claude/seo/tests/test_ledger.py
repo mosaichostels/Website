@@ -115,3 +115,89 @@ class TestVerify(Base):
         a = self.add()
         ledger.verify_manual(a, "rejected", "og:type exists", reports=self.tmp)
         self.assertNotEqual(self.add(), a)
+
+
+class TestLifecycle(Base):
+    def verified(self, **kw):
+        f = self.add(**kw)
+        ledger.verify_manual(f, "verified", "ok", reports=self.tmp)
+        return f
+
+    def test_fix_records_commit_and_metric_baseline(self):
+        self.metrics("2026-10-01", "gsc", {"clicks": 44})
+        f = self.verified()
+        ledger.fix(f, "abc1234", "gsc.clicks", reports=self.tmp)
+        got = self.get(f)
+        self.assertEqual((got["status"], got["commit"]), ("fixed", "abc1234"))
+        self.assertEqual(got["baseline"], {"metric": "gsc.clicks", "value": 44, "date": "2026-10-01"})
+
+    def test_fix_requires_a_verified_finding(self):
+        f = self.add()
+        with self.assertRaises(ValueError):
+            ledger.fix(f, "abc1234", reports=self.tmp)
+
+    def test_fix_with_an_unknown_metric_changes_nothing(self):
+        self.metrics("2026-10-01", "gsc", {"clicks": 44})
+        f = self.verified()
+        with self.assertRaises(ValueError):
+            ledger.fix(f, "abc1234", "gsc.nope", reports=self.tmp)
+        self.assertEqual(self.get(f)["status"], "verified")
+
+    def test_deploy_check_needs_the_defect_gone_from_the_live_page(self):
+        f = self.verified(check={"where": "local", "target": "index.html", "pattern": "og:type",
+                                 "defect_if": "absent", "live_url": "https://x.test/"})
+        ledger.fix(f, "abc1234", reports=self.tmp)
+        self.assertFalse(ledger.deploy_check(f, self.root, fetch=lambda u: "<html>", reports=self.tmp))
+        self.assertEqual(self.get(f)["status"], "fixed")
+        self.assertIn("not deployed yet", self.get(f)["note"])
+        self.assertTrue(ledger.deploy_check(f, self.root, fetch=lambda u: '<meta property="og:type">', reports=self.tmp))
+        self.assertEqual(self.get(f)["status"], "deployed")
+
+    def test_deploy_check_without_a_live_url_or_check_explains_itself(self):
+        f = self.verified(check={"where": "local", "target": "index.html", "pattern": "x", "defect_if": "present"})
+        ledger.fix(f, "abc1234", reports=self.tmp)
+        self.assertFalse(ledger.deploy_check(f, self.root, reports=self.tmp))
+        self.assertIn("could not run", self.get(f)["note"])
+        g = self.verified(claim="no check at all")
+        ledger.fix(g, "def5678", reports=self.tmp)
+        with self.assertRaises(ValueError):
+            ledger.deploy_check(g, self.root, reports=self.tmp)
+        ledger.deploy_manual(g, "owner confirmed on the live site", reports=self.tmp)
+        self.assertEqual(self.get(g)["status"], "deployed")
+
+    def test_measure_compares_baseline_with_a_newer_run(self):
+        self.metrics("2026-10-01", "gsc", {"clicks": 44})
+        f = self.verified()
+        ledger.fix(f, "abc1234", "gsc.clicks", reports=self.tmp)
+        ledger.deploy_manual(f, "live", reports=self.tmp)
+        with self.assertRaises(ValueError):
+            ledger.measure(f, reports=self.tmp)
+        self.assertEqual(self.get(f)["status"], "deployed")
+        self.metrics("2026-10-08", "gsc", {"clicks": 51})
+        got = ledger.measure(f, reports=self.tmp)
+        self.assertEqual(got, {"metric": "gsc.clicks", "before": 44, "after": 51, "delta": 7, "date": "2026-10-08"})
+        self.assertEqual(self.get(f)["status"], "measured")
+
+    def test_measure_with_a_null_metric_has_no_delta(self):
+        self.metrics("2026-10-01", "bing", {"inbound_links_api": None})
+        f = self.verified()
+        ledger.fix(f, "abc1234", "bing.inbound_links_api", reports=self.tmp)
+        ledger.deploy_manual(f, "live", reports=self.tmp)
+        self.metrics("2026-10-08", "bing", {"inbound_links_api": 2})
+        self.assertIsNone(ledger.measure(f, reports=self.tmp)["delta"])
+
+    def test_measure_without_a_baseline_says_how_to_get_one(self):
+        f = self.verified()
+        ledger.fix(f, "abc1234", reports=self.tmp)
+        ledger.deploy_manual(f, "live", reports=self.tmp)
+        with self.assertRaises(ValueError) as cm:
+            ledger.measure(f, reports=self.tmp)
+        self.assertIn("fix --metric", str(cm.exception))
+
+    def test_statuses_cannot_skip_steps_and_unknown_ids_fail(self):
+        f = self.add()
+        for call in (lambda: ledger.deploy_manual(f, "x", reports=self.tmp),
+                     lambda: ledger.measure(f, reports=self.tmp),
+                     lambda: ledger.fix("F-9999", "abc", reports=self.tmp)):
+            with self.assertRaises(ValueError):
+                call()
