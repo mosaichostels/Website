@@ -63,3 +63,55 @@ class TestAddAndList(Base):
         self.assertEqual([f["id"] for f in ledger.ranked(reports=self.tmp)], [high, mid, low])
         self.assertEqual([f["id"] for f in ledger.ranked(top=2, reports=self.tmp)], [high, mid])
         self.assertEqual([f["id"] for f in ledger.ranked("verified", reports=self.tmp)], [])
+
+
+class TestVerify(Base):
+    def check(self, pattern, defect_if, where="local", target="index.html", **kw):
+        return {"where": where, "target": target, "pattern": pattern, "defect_if": defect_if, **kw}
+
+    def test_defect_present_is_verified(self):
+        f = self.add(check=self.check("og:type", "absent"))
+        self.assertEqual(ledger.verify(f, self.root, reports=self.tmp), "verified")
+        self.assertEqual(self.get(f)["note"], "check confirmed the defect")
+
+    def test_claim_that_is_wrong_is_rejected(self):
+        f = self.add(check=self.check("<title>", "absent"))
+        self.assertEqual(ledger.verify(f, self.root, reports=self.tmp), "rejected")
+        self.assertIn("claim was wrong", self.get(f)["note"])
+
+    def test_defect_if_present(self):
+        f = self.add(check=self.check("hello", "present"))
+        self.assertEqual(ledger.verify(f, self.root, reports=self.tmp), "verified")
+
+    def test_live_check_uses_the_fetcher(self):
+        f = self.add(check=self.check("noindex", "present", where="live", target="https://x.test/"))
+        self.assertEqual(ledger.verify(f, self.root, fetch=lambda u: "<meta noindex>", reports=self.tmp), "verified")
+
+    def test_unreadable_page_leaves_the_finding_open_with_a_note(self):
+        f = self.add(check=self.check("x", "present", target="missing.html"))
+        self.assertIsNone(ledger.verify(f, self.root, reports=self.tmp))
+        self.assertEqual(self.get(f)["status"], "open")
+        self.assertIn("could not run", self.get(f)["note"])
+
+    def test_no_check_means_undecided(self):
+        f = self.add()
+        self.assertIsNone(ledger.verify(f, self.root, reports=self.tmp))
+
+    def test_manual_verify_needs_a_note_and_a_valid_status(self):
+        f = self.add()
+        with self.assertRaises(ValueError):
+            ledger.verify_manual(f, "verified", "  ", reports=self.tmp)
+        with self.assertRaises(ValueError):
+            ledger.verify_manual(f, "fixed", "x", reports=self.tmp)
+        ledger.verify_manual(f, "verified", "read the source", reports=self.tmp)
+        self.assertEqual(self.get(f)["status"], "verified")
+
+    def test_only_open_findings_are_verified(self):
+        f = self.add(check=self.check("hello", "present"))
+        ledger.verify(f, self.root, reports=self.tmp)
+        self.assertIsNone(ledger.verify(f, self.root, reports=self.tmp))
+
+    def test_a_rejected_claim_found_again_is_a_new_finding(self):
+        a = self.add()
+        ledger.verify_manual(a, "rejected", "og:type exists", reports=self.tmp)
+        self.assertNotEqual(self.add(), a)
