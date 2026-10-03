@@ -19,11 +19,14 @@ after a deploy}. Defect found -> verified; defect not found -> rejected (the cla
 wrong). After a fix, the defect must be gone from the LIVE page for the finding to count
 as deployed. Stdlib only.
 """
+import argparse
 import datetime as dt
 import json
+import math
 import pathlib
 import re
 import subprocess
+import sys
 import urllib.request
 
 ROOT = pathlib.Path(subprocess.run(["git", "rev-parse", "--show-toplevel"],
@@ -72,6 +75,9 @@ def _check_spec(c):
         raise ValueError("check needs where, target, pattern, defect_if (and optionally live_url)")
     if c["where"] not in ("local", "live") or c["defect_if"] not in ("present", "absent"):
         raise ValueError("check.where is local|live and check.defect_if is present|absent")
+    if not all(isinstance(c[key], str) for key in ("target", "pattern")) or (
+            "live_url" in c and not isinstance(c["live_url"], str)):
+        raise ValueError("check.target, check.pattern and check.live_url must be strings")
     try:
         re.compile(c["pattern"])
     except re.error as e:
@@ -84,7 +90,7 @@ def add(source, claim, impact, confidence, effort, evidence="", check=None, repo
     A claim already recorded (case- and whitespace-insensitive, not rejected) gains the
     source instead of a second entry, so the same gap found by several checks is one finding.
     """
-    if not (1 <= impact <= 5 and 0.1 <= confidence <= 1.0 and 1 <= effort <= 5):
+    if not (1 <= impact <= 5 and math.isfinite(confidence) and 0.1 <= confidence <= 1.0 and 1 <= effort <= 5):
         raise ValueError("impact is 1-5, confidence 0.1-1.0, effort 1-5")
     if check is not None:
         _check_spec(check)
@@ -248,3 +254,71 @@ def measure(fid, reports=REPORTS):
                      "date": date}
     save(doc, reports)
     return f["measured"]
+
+
+def _row(f):
+    return (f"{f['id']}  p={f['priority']:<6} {f['status']:<9} [{','.join(f['sources'])}] "
+            f"{f['claim']}" + (f"  ({f['note']})" if f["note"] else ""))
+
+
+def main(argv=None, reports=REPORTS, root=ROOT):
+    ap = argparse.ArgumentParser(prog="ledger.py", description=__doc__.split("\n\n")[0])
+    sub = ap.add_subparsers(dest="cmd", required=True)
+    a = sub.add_parser("add")
+    a.add_argument("source")
+    a.add_argument("claim")
+    a.add_argument("--impact", type=int, required=True)
+    a.add_argument("--confidence", type=float, required=True)
+    a.add_argument("--effort", type=int, required=True)
+    a.add_argument("--evidence", default="")
+    a.add_argument("--check", help="JSON object describing the defect")
+    v = sub.add_parser("verify")
+    v.add_argument("id", nargs="?")
+    v.add_argument("--manual", choices=["verified", "rejected"])
+    v.add_argument("--note", default="")
+    x = sub.add_parser("fix")
+    x.add_argument("id")
+    x.add_argument("commit")
+    x.add_argument("--metric")
+    d = sub.add_parser("deploy-check")
+    d.add_argument("id", nargs="?")
+    d.add_argument("--manual", action="store_true")
+    d.add_argument("--note", default="")
+    m = sub.add_parser("measure")
+    m.add_argument("id")
+    ls = sub.add_parser("list")
+    ls.add_argument("--status")
+    ls.add_argument("--top", type=int)
+    args = ap.parse_args(argv)
+    try:
+        if args.cmd == "add":
+            check = json.loads(args.check) if args.check else None
+            print(add(args.source, args.claim, args.impact, args.confidence, args.effort,
+                      args.evidence, check, reports=reports))
+        elif args.cmd == "verify":
+            if args.manual:
+                verify_manual(args.id, args.manual, args.note, reports=reports)
+            else:
+                ids = [args.id] if args.id else [f["id"] for f in ranked("open", reports=reports)]
+                for fid in ids:
+                    print(fid, verify(fid, root=root, reports=reports) or "undecided")
+        elif args.cmd == "fix":
+            fix(args.id, args.commit, args.metric, reports=reports)
+        elif args.cmd == "deploy-check":
+            if args.manual:
+                deploy_manual(args.id, args.note, reports=reports)
+            else:
+                ids = [args.id] if args.id else [f["id"] for f in ranked("fixed", reports=reports)]
+                for fid in ids:
+                    print(fid, "deployed" if deploy_check(fid, root=root, reports=reports) else "not live yet")
+        elif args.cmd == "measure":
+            print(json.dumps(measure(args.id, reports=reports)))
+        else:
+            for f in ranked(args.status, args.top, reports=reports):
+                print(_row(f))
+    except (ValueError, json.JSONDecodeError) as e:
+        sys.exit(f"error: {e}")
+
+
+if __name__ == "__main__":
+    main()
