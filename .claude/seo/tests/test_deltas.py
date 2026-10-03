@@ -56,9 +56,16 @@ class TestDeltas(unittest.TestCase):
     def test_previous_date_picks_the_newest_earlier_run(self):
         for d in ("2026-09-07", "2026-09-28", "2026-10-01"):
             (self.tmp / "data" / d).mkdir(parents=True)
+            (self.tmp / "data" / d / "gsc.metrics.json").write_text("{}")
         self.assertEqual(deltas.previous_date("2026-10-01", self.tmp), "2026-09-28")
         self.assertIsNone(deltas.previous_date("2026-09-07", self.tmp))
         self.assertIsNone(deltas.previous_date("2026-10-01", self.tmp / "nowhere"))
+
+    def test_previous_date_skips_runs_without_metrics(self):
+        for d, f in (("2026-09-28", "gsc.metrics.json"), ("2026-09-30", "coverage.json")):
+            (self.tmp / "data" / d).mkdir(parents=True)
+            (self.tmp / "data" / d / f).write_text("{}")
+        self.assertEqual(deltas.previous_date("2026-10-01", self.tmp), "2026-09-28")
 
     def test_windows_and_notes_are_listed(self):
         w = {"start": "2026-09-01", "end": "2026-09-28", "days": 28}

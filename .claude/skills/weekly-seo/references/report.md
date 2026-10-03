@@ -56,7 +56,7 @@ and zero is a very different claim from "not measured".
 
 `coverage_ledger.py init` seeds these ids; mark each with `coverage_ledger.py mark ITEM done|skipped|blocked REASON` as the run proceeds. A reason is required for `skipped` and `blocked`.
 
-- `extract:<source>` for gsc, ga4, bing, clarity, cwv, lighthouse, commoncrawl: set automatically from the data; mark `skipped` or `blocked` yourself when a platform is DOWN.
+- `extract:<source>` for gsc, ga4, bing, clarity, cwv, lighthouse, commoncrawl: set automatically from the data; mark `skipped` or `blocked` yourself when a platform is DOWN. An extractor you deliberately did not run (a subset like `extract-all.sh gsc bing`, or `--fast`) must also be marked `skipped` with that reason. Read the `coverage: N item(s) still open` line that extract-all.sh prints before step (c): a CWV or Lighthouse gap found at step (h) is too late for ranking.
 - `browser:gbp`, `browser:gcp`, `browser:ga4-ui`, `browser:psi-web`, `browser:bing-ui`, `browser:clarity-ui`: the six browser reviews in `references/browser.md`.
 - `audits:claude-seo-14`: the 14 concurrent audit agents; `audits:skill-3`: the three Skill-tool-only checks; `ai-visibility`: `ai-visibility.sh`.
 

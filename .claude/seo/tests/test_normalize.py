@@ -106,7 +106,7 @@ class TestNormalize(unittest.TestCase):
         m = d["metrics"]
         self.assertEqual(d["window"]["end"], "2026-09-28")
         self.assertEqual((m["clicks"], m["impressions"]), (3, 62))
-        self.assertEqual((m["pages_in_index"], m["crawl_errors"], m["inbound_links_api"]), (29, 2, 0))
+        self.assertEqual((m["pages_in_index"], m["crawl_errors"], m["inbound_links_api"]), (29, 2, None))
         self.assertTrue(any("undercounts" in e for e in d["errors"]))
 
     def test_clarity(self):
@@ -152,6 +152,37 @@ class TestNormalize(unittest.TestCase):
                          ["gsc", "ga4", "bing", "clarity", "cwv", "lighthouse", "commoncrawl"])
         for d in DATES:
             self.assertEqual({s for s, day in self.docs if day == d}, set(normalize.NORMALIZERS))
+
+    def test_run_survives_any_exception_from_a_normalizer(self):
+        tmp = stage(["ga4"])
+        (tmp / "ga4" / "2026-10-01.json").write_text(json.dumps(
+            {"daily": [], "channels": {}, "generated": "2026-10-01T00:00:00"}))
+        paths, failures = normalize.run("2026-10-01", reports=tmp)
+        shutil.rmtree(tmp)
+        self.assertIn("ga4", failures)
+        self.assertIsNone(paths["ga4"])
+
+    def test_ga4_channel_metrics_null_when_report_empty(self):
+        b = {"generated": "2026-10-01T00:00:00", "channels": {"rows": []},
+             "daily": {"rows": [{"date": "20260930", "sessions": 4, "engagedSessions": 2,
+                                 "totalUsers": 3, "keyEvents": 1}]}}
+        m = normalize.ga4(b)["metrics"]
+        self.assertIsNone(m["organic_sessions_90d"])
+        self.assertIsNone(m["ai_assistant_sessions_90d"])
+        b["channels"] = {"rows": [{"sessionDefaultChannelGroup": "Direct", "sessions": 5}]}
+        self.assertEqual(normalize.ga4(b)["metrics"]["organic_sessions_90d"], 0)
+
+    def test_failed_rerun_removes_the_old_metrics_file(self):
+        tmp = stage(["ga4"])
+        normalize.run("2026-10-01", reports=tmp)
+        f = tmp / "data" / "2026-10-01" / "ga4.metrics.json"
+        self.assertTrue(f.exists())
+        (tmp / "ga4" / "2026-10-01.json").write_text("{}")
+        _, failures = normalize.run("2026-10-01", reports=tmp)
+        gone = not f.exists()
+        shutil.rmtree(tmp)
+        self.assertIn("ga4", failures)
+        self.assertTrue(gone)
 
 
 if __name__ == "__main__":

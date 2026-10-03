@@ -33,7 +33,8 @@ for a in "$@"; do
   esac
 done
 
-LOG_DIR="seo-reports/runs/$(date +%F)"
+TODAY="$(date +%F)"
+LOG_DIR="seo-reports/runs/$TODAY"
 mkdir -p "$LOG_DIR"
 
 # name | slow? | command
@@ -73,8 +74,8 @@ for spec in "${EXTRACTORS[@]}"; do
 done
 
 printf '\n\033[1m===== normalize =====\033[0m\n'
-if "$PY" .claude/seo/normalize.py "$(date +%F)"; then :; else FAILED+=("normalize"); fi
-"$PY" .claude/seo/coverage_ledger.py init "$(date +%F)" || FAILED+=("coverage")
+if "$PY" .claude/seo/normalize.py "$TODAY"; then :; else FAILED+=("normalize"); fi
+"$PY" .claude/seo/coverage_ledger.py init "$TODAY" || FAILED+=("coverage")
 printf '\n\033[1m===== summary =====\033[0m\n'
 printf 'reports: %s\n' "$LOG_DIR"
 [[ ${#RAN[@]}     -gt 0 ]] && printf 'ran:      %s\n' "$(IFS=', '; echo "${RAN[*]}")"
