@@ -27,7 +27,7 @@ def _load(date, reports):
 
 def previous_date(date, reports=REPORTS):
     base = pathlib.Path(reports) / "data"
-    earlier = sorted(p.name for p in base.iterdir() if p.is_dir() and p.name < date) if base.exists() else []
+    earlier = sorted(p.name for p in base.iterdir() if p.is_dir() and p.name < date and any(p.glob("*.metrics.json"))) if base.exists() else []
     return earlier[-1] if earlier else None
 
 

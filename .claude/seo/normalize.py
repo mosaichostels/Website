@@ -108,9 +108,10 @@ def ga4(b):
         m.update(sessions=sessions, user_days=sum(r["totalUsers"] for r in sel),
                  engagement_rate=engaged / sessions if sessions else None,
                  key_events=sum(r["keyEvents"] for r in sel))
-    channels = {r["sessionDefaultChannelGroup"]: r for r in b["channels"].get("rows", [])}
-    m["organic_sessions_90d"] = channels.get("Organic Search", {}).get("sessions", 0)
-    m["ai_assistant_sessions_90d"] = channels.get("AI Assistant", {}).get("sessions", 0)
+    channel_rows = b["channels"].get("rows", [])
+    channels = {r["sessionDefaultChannelGroup"]: r for r in channel_rows}
+    m["organic_sessions_90d"] = channels.get("Organic Search", {}).get("sessions", 0) if channel_rows else None
+    m["ai_assistant_sessions_90d"] = channels.get("AI Assistant", {}).get("sessions", 0) if channel_rows else None
     return _out("ga4", b["generated"], win, m, errors)
 
 
@@ -127,7 +128,7 @@ def bing(b):
     m["pages_in_index"] = last.get("InIndex")
     m["crawl_errors"] = last.get("CrawlErrors")
     links = b.get("link_counts") or []
-    m["inbound_links_api"] = sum(int(x.get("Count", 0)) for x in links)
+    m["inbound_links_api"] = sum(int(x.get("Count", 0)) for x in links) if links else None
     if not links:
         errors.append("link_counts empty: Bing's API undercounts inbound links; read the Webmaster UI")
     return _out("bing", b["generated"], win, m, errors)
@@ -236,17 +237,19 @@ def run(date, reports=REPORTS):
     paths, failures = {}, {}
     for source, fn in NORMALIZERS.items():
         bundle = pathlib.Path(reports) / source / f"{date}.json"
+        path = out_dir / f"{source}.metrics.json"
         paths[source] = None
+        if path.exists():
+            path.unlink()  # a failed or missing re-run must not leave an old file reading as done
         if not bundle.exists():
             continue
         try:
             doc = fn(json.loads(bundle.read_text()))
             validate(doc)
-        except (KeyError, IndexError, TypeError, ValueError) as e:
+        except Exception as e:
             failures[source] = f"{type(e).__name__}: {e}"
             continue
         out_dir.mkdir(parents=True, exist_ok=True)
-        path = out_dir / f"{source}.metrics.json"
         path.write_text(json.dumps(doc, indent=2, sort_keys=True) + "\n")
         paths[source] = path
     return paths, failures
