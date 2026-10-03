@@ -24,6 +24,7 @@ import json
 import pathlib
 import re
 import subprocess
+import urllib.request
 
 ROOT = pathlib.Path(subprocess.run(["git", "rev-parse", "--show-toplevel"],
                                    capture_output=True, text=True).stdout.strip())
@@ -112,3 +113,56 @@ def ranked(status=None, top=None, reports=REPORTS):
     items = [f for f in load(reports)["findings"] if status is None or f["status"] == status]
     items.sort(key=lambda f: (-f["priority"], f["id"]))
     return items[:top] if top else items
+
+
+def _fetch(url):
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (mosaic-seo ledger)",
+                                               "Cache-Control": "no-cache"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        return r.read().decode("utf-8", "replace")
+
+
+def defect_present(check, root=ROOT, fetch=_fetch, live=False):
+    """True when the page shows the defect. OSError/ValueError mean the page could not be read.
+
+    live=True reads the live URL (check.live_url for local checks) instead of the local file.
+    """
+    if live:
+        url = check["target"] if check["where"] == "live" else check.get("live_url")
+        if not url:
+            raise ValueError("no live URL to re-read")
+        text = fetch(url)
+    elif check["where"] == "local":
+        text = (pathlib.Path(root) / check["target"]).read_text()
+    else:
+        text = fetch(check["target"])
+    found = re.search(check["pattern"], text, re.S) is not None
+    return found if check["defect_if"] == "present" else not found
+
+
+def verify(fid, root=ROOT, fetch=_fetch, reports=REPORTS):
+    """Run an open finding's check. Returns the new status, or None when nothing was decided."""
+    doc = load(reports)
+    f = _find(doc, fid)
+    if f["status"] != "open" or not f["check"]:
+        return None
+    try:
+        present = defect_present(f["check"], root, fetch)
+    except (OSError, ValueError) as e:
+        f["note"] = f"check could not run: {e}"
+        save(doc, reports)
+        return None
+    _move(f, "verified" if present else "rejected")
+    f["note"] = "check confirmed the defect" if present else "check found no defect: the claim was wrong"
+    save(doc, reports)
+    return f["status"]
+
+
+def verify_manual(fid, status, note, reports=REPORTS):
+    if status not in ("verified", "rejected") or not note.strip():
+        raise ValueError("manual verify needs verified|rejected and a note")
+    doc = load(reports)
+    f = _find(doc, fid)
+    _move(f, status)
+    f["note"] = note
+    save(doc, reports)
