@@ -8,7 +8,7 @@
     "clicks": 2,
     "crawl_errors": 3,
     "impressions": 24,
-    "inbound_links_api": 0,
+    "inbound_links_api": null,
     "pages_in_index": 25
   },
   "source": "bing",
