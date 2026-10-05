@@ -118,7 +118,7 @@ def add(source, claim, impact, confidence, effort, evidence="", check=None, repo
 def ranked(status=None, top=None, reports=REPORTS):
     items = [f for f in load(reports)["findings"] if status is None or f["status"] == status]
     items.sort(key=lambda f: (-f["priority"], f["id"]))
-    return items[:top] if top else items
+    return items[:top] if top is not None else items
 
 
 def _fetch(url):

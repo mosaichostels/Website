@@ -26,4 +26,14 @@ screenshots/
 
 # Regenerable API-response caches from SEO report runs — not source content
 seo-reports/**/.cache/
+# Fresh extractor bundles and console logs stay local; committed historical data remains tracked.
+seo-reports/gsc/*.json
+seo-reports/ga4/*.json
+seo-reports/bing/*.json
+seo-reports/clarity/*.json
+seo-reports/cwv/*.json
+seo-reports/lighthouse/*.json
+seo-reports/commoncrawl/*.json
+seo-reports/runs/*/
+seo-reports/mosaichostels.com-audit/findings/_raw_capture_results.json
 __pycache__/

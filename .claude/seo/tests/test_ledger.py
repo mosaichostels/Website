@@ -64,6 +64,7 @@ class TestAddAndList(Base):
         mid = self.add(claim="mid", impact=3, confidence=0.5, effort=1)
         self.assertEqual([f["id"] for f in ledger.ranked(reports=self.tmp)], [high, mid, low])
         self.assertEqual([f["id"] for f in ledger.ranked(top=2, reports=self.tmp)], [high, mid])
+        self.assertEqual(ledger.ranked(top=0, reports=self.tmp), [])
         self.assertEqual([f["id"] for f in ledger.ranked("verified", reports=self.tmp)], [])
 
 
