@@ -46,7 +46,9 @@ svc = build("searchconsole", "v1", credentials=creds, cache_discovery=False)
 # GSC data lags ~2-3 days; asking for yesterday returns a misleading partial day.
 END = (dt.date.today() - dt.timedelta(days=3)).isoformat()
 START = (dt.date.today() - dt.timedelta(days=3 + DAYS)).isoformat()
+QUERY_START = (dt.date.fromisoformat(END) - dt.timedelta(days=27)).isoformat()
 bundle = {"property": PROP, "start": START, "end": END,
+          "query_start": QUERY_START,
           "generated": dt.datetime.now().isoformat(timespec="seconds")}
 
 print(f"GSC extract — {PROP}   {START} .. {END}\n")
@@ -58,10 +60,10 @@ bundle["sites"] = svc.sites().list().execute().get("siteEntry", [])
 bundle["sitemaps"] = svc.sitemaps().list(siteUrl=PROP).execute().get("sitemap", [])
 
 # --- 3. search analytics ----------------------------------------------------
-def sa(dims, limit=1000, dtype="web"):
+def sa(dims, limit=1000, dtype="web", start=None):
     try:
         return svc.searchanalytics().query(siteUrl=PROP, body={
-            "startDate": START, "endDate": END, "dimensions": dims,
+            "startDate": start or START, "endDate": END, "dimensions": dims,
             "rowLimit": limit, "type": dtype}).execute().get("rows", [])
     except Exception as e:
         return {"error": str(e)[:200]}
@@ -72,6 +74,7 @@ for name, dims in [("query", ["query"]), ("page", ["page"]), ("country", ["count
                    ("date", ["date"]), ("query_page", ["query", "page"]),
                    ("page_device", ["page", "device"]), ("date_country", ["date", "country"])]:
     bundle["search_analytics"][name] = sa(dims)
+bundle["search_analytics"]["query_page_28d"] = sa(["query", "page"], 25000, start=QUERY_START)
 
 bundle["search_types"] = {t: sa(["date"], 500, t)
                           for t in ("web", "image", "video", "news", "discover", "googleNews")}

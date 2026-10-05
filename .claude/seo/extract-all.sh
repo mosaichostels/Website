@@ -75,6 +75,14 @@ done
 
 printf '\n\033[1m===== normalize =====\033[0m\n'
 if "$PY" .claude/seo/normalize.py "$TODAY"; then :; else FAILED+=("normalize"); fi
+if wanted booking-probe; then
+  if "$PY" .claude/seo/booking_probe.py "$TODAY"; then :; else FAILED+=("booking-probe"); fi
+fi
+if wanted hostinger; then
+  if "$PY" .claude/seo/hostinger_check.py "$TODAY"; then :; else FAILED+=("hostinger"); fi
+fi
+if "$PY" .claude/seo/query_discovery.py "$TODAY"; then :; else FAILED+=("query-discovery"); fi
+if "$PY" .claude/seo/manual_signals.py "$TODAY"; then :; else FAILED+=("manual-signals"); fi
 "$PY" .claude/seo/coverage_ledger.py init "$TODAY" || FAILED+=("coverage")
 printf '\n\033[1m===== summary =====\033[0m\n'
 printf 'reports: %s\n' "$LOG_DIR"
