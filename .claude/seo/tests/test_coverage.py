@@ -53,12 +53,6 @@ class TestCoverage(unittest.TestCase):
         self.assertEqual(item["status"], "blocked")
         self.assertIn("503", item["reason"])
 
-    def test_hostinger_missing_token_remains_blocked(self):
-        self.write_metrics("hostinger", ["Hostinger API token missing"])
-        item = cl.init(self.date, self.tmp)["items"]["extract:hostinger"]
-        self.assertEqual(item["status"], "blocked")
-        self.assertIn("token", item["reason"])
-
     def test_manual_signal_absence_is_explicit_for_each_source(self):
         items = cl.init(self.date, self.tmp)["items"]
         for source in ("gbp-reviews", "bing-ui-links", "rank-ai"):
@@ -76,7 +70,7 @@ class TestCoverage(unittest.TestCase):
         self.assertIn("HTTP 502", item["reason"])
 
     def test_init_keeps_manual_marks_on_the_new_extractor_items(self):
-        new = ("booking-probe", "hostinger", "gbp-reviews", "bing-ui-links", "rank-ai")
+        new = ("booking-probe", "gbp-reviews", "bing-ui-links", "rank-ai")
         cl.init(self.date, self.tmp)
         for source in new:
             cl.mark(self.date, f"extract:{source}", "skipped", "not run today", self.tmp)
@@ -86,7 +80,7 @@ class TestCoverage(unittest.TestCase):
 
     def test_check_lists_every_pending_item(self):
         cl.init(self.date, self.tmp)
-        self.assertEqual(len(cl.check(self.date, self.tmp)), len(cl.SOURCES) + len(cl.MANUAL) + 6)
+        self.assertEqual(len(cl.check(self.date, self.tmp)), len(cl.SOURCES) + len(cl.MANUAL) + 5)
 
     def test_check_without_a_ledger_says_so(self):
         self.assertIn("no coverage.json", cl.check(self.date, self.tmp)[0])
@@ -118,7 +112,6 @@ class TestCoverage(unittest.TestCase):
         for s in cl.SOURCES:
             self.write_metrics(s)
         self.write_metrics("booking-probe")
-        self.write_metrics("hostinger")
         for source in ("gbp-reviews", "bing-ui-links", "rank-ai"):
             self.write_metrics(source)
         (self.tmp / "data" / self.date / "tracked-queries.json").write_text(json.dumps({
