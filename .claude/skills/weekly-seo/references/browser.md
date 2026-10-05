@@ -193,3 +193,25 @@ API behind them — fold them into the merged gap list at step (d) same as any
 agent finding, but mark **confidence lower** (0.3-0.5, per the scoring rubric
 below) than a GSC or GA4 number pulled via API, since there is no raw data to
 re-verify against later.
+
+### Dated browser capture for the data layer
+
+After reading the live listing and account pages, write only observations actually
+seen to `seo-reports/manual/YYYY-MM-DD.json`. The `manual_signals.py` ingestor
+requires a capture date and source URLs; absent fields stay null and coverage
+remains open. Example shape (values below are illustrative, not a baseline):
+
+```json
+{
+  "captured_at": "YYYY-MM-DDTHH:MM:SSZ",
+  "gbp": {"url": "https://www.google.com/search?q=...", "rating": 4.5, "review_count": 68, "category": "Backpacker Hostel"},
+  "ota_reviews": [{"url": "https://www.example.com/listing", "rating": 4.9, "review_count": 8}],
+  "bing_links": {"url": "https://www.bing.com/webmasters/backlinks?...", "referring_domains": 2},
+  "ai_mentions": [{"prompt": "a tracked question", "assistant": "provider", "mentioned": true, "evidence_url": "https://..."}]
+}
+```
+
+Never set `mentioned: false` unless the actual answer was inspected. A search
+result or crawler-access check is not an AI-answer observation. The full GBP
+photos, hours, Q&A, and account-only checks still need their browser coverage
+marks even when this compact metrics capture exists.
