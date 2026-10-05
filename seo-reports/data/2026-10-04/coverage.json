@@ -1,0 +1,109 @@
+{
+  "date": "2026-10-04",
+  "items": {
+    "ai-visibility": {
+      "reason": "not run in the completion task: no weekly audit or browser sweep was executed for 2026-10-04",
+      "status": "skipped"
+    },
+    "audits:claude-seo-14": {
+      "reason": "not run in the completion task: no weekly audit or browser sweep was executed for 2026-10-04",
+      "status": "skipped"
+    },
+    "audits:skill-3": {
+      "reason": "not run in the completion task: no weekly audit or browser sweep was executed for 2026-10-04",
+      "status": "skipped"
+    },
+    "browser:bing-links": {
+      "reason": "referring-domain count captured in manual/2026-10-04.json (not verified by this task); anchor text and page-level detail were not read",
+      "status": "skipped"
+    },
+    "browser:bing-ui": {
+      "reason": "not run in the completion task: no weekly audit or browser sweep was executed for 2026-10-04",
+      "status": "skipped"
+    },
+    "browser:clarity-ui": {
+      "reason": "not run in the completion task: no weekly audit or browser sweep was executed for 2026-10-04",
+      "status": "skipped"
+    },
+    "browser:ga4-ui": {
+      "reason": "not run in the completion task: no weekly audit or browser sweep was executed for 2026-10-04",
+      "status": "skipped"
+    },
+    "browser:gbp": {
+      "reason": "only rating, review count and category were captured in manual/2026-10-04.json (not verified by this task); photos, hours, Q&A and updates were not read",
+      "status": "skipped"
+    },
+    "browser:gcp": {
+      "reason": "not run in the completion task: no weekly audit or browser sweep was executed for 2026-10-04",
+      "status": "skipped"
+    },
+    "browser:hostinger": {
+      "reason": "not run in the completion task: no weekly audit or browser sweep was executed for 2026-10-04",
+      "status": "skipped"
+    },
+    "browser:ota-reviews": {
+      "reason": "one Tripadvisor observation in manual/2026-10-04.json (not verified by this task); other review platforms and OTA price parity were not read",
+      "status": "skipped"
+    },
+    "browser:psi-web": {
+      "reason": "not run in the completion task: no weekly audit or browser sweep was executed for 2026-10-04",
+      "status": "skipped"
+    },
+    "extract:bing": {
+      "reason": "1 informational note(s)",
+      "status": "done"
+    },
+    "extract:bing-ui-links": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:booking-probe": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:clarity": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:commoncrawl": {
+      "reason": "CC-MAIN-2026-39: HTTP 504 <html> <head><title>504 Gateway Time-out</title></h; CC-MAIN-2026-12: HTTP 502 <html> <head><title>502 Bad Gateway</title></head> ; CC-MAIN-2026-04: HTTP 502 <html> <head><title>502 Bad Gateway</title></head> ",
+      "status": "blocked"
+    },
+    "extract:cwv": {
+      "reason": "no mobile PSI score: https://www.mosaichostels.com/book-now",
+      "status": "blocked"
+    },
+    "extract:ga4": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gbp-reviews": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gsc": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:hostinger": {
+      "reason": "Hostinger access-log bot/404/429 summary unavailable without log export",
+      "status": "blocked"
+    },
+    "extract:lighthouse": {
+      "reason": "unlighthouse exit code 1",
+      "status": "blocked"
+    },
+    "extract:rank-ai": {
+      "reason": "fresh AI-answer observations with evidence URLs missing",
+      "status": "blocked"
+    },
+    "query-discovery": {
+      "reason": "",
+      "status": "done"
+    },
+    "rank-ai-mentions": {
+      "reason": "no AI-answer observations with evidence URLs exist for 2026-10-04; none were invented",
+      "status": "blocked"
+    }
+  }
+}

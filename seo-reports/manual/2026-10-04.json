@@ -1,0 +1,24 @@
+{
+  "captured_at": "2026-10-04T10:04:52Z",
+  "gbp": {
+    "url": "https://www.google.com/search?q=Mosaic+Hostel+Varanasi",
+    "rating": 4.5,
+    "review_count": 68,
+    "category": "Backpacker Hostel",
+    "note": "Signed-in managed profile showed 68 Google reviews; an adjacent review module showed 67. Recheck before publishing an exact count."
+  },
+  "ota_reviews": [
+    {
+      "url": "https://www.tripadvisor.in/Hotel_Review-g297685-d33877461-Reviews-Mosaic_Hostel_Varanasi-Varanasi_Varanasi_District_Uttar_Pradesh.html",
+      "rating": 4.9,
+      "review_count": 8,
+      "note": "Tripadvisor listing offers a Claim this free listing action."
+    }
+  ],
+  "bing_links": {
+    "url": "https://www.bing.com/webmasters/backlinks?siteUrl=https%3A%2F%2Fwww.mosaichostels.com%2F",
+    "referring_domains": 2,
+    "referring_pages": 2,
+    "domains": ["voiceofkashi.com", "charudutt.shop"]
+  }
+}
