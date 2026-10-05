@@ -62,7 +62,7 @@ Guesthouse hybridPrivacy + socialAny zone₹800–2000/night
 
 ## [Mosaic Hostel](/book-now) — Near Assi Ghat
 
-Mosaic Hostel sits a two-minute walk from Assi Ghat in the southern part of the city, at B1/85C, Assi Ghat Road, Anandbagh, Bhelupur. The hostel opened with a clear focus on community and comfort — the name reflects the idea that every guest is a piece of a larger picture.
+Mosaic Hostel sits steps from Assi Ghat in the southern part of the city, at B1/85C, Assi Ghat Road, Anandbagh, Bhelupur. The hostel opened with a clear focus on community and comfort — the name reflects the idea that every guest is a piece of a larger picture.
 
 Five room types — from private rooms to mixed and female-only dorms — make it suitable for solo travellers, couples, and groups. Beds are proper, not bunks crammed into a cupboard. Common areas are genuinely social: a rooftop with neighbourhood views, a ground-floor common room, and a team that actively facilitates connections between guests.
 

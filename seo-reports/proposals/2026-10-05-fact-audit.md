@@ -27,3 +27,14 @@ Visible copy and JSON-LD agree on the rating figure where both exist (visible Go
 `/`, `/book-now`, `/about`, `/contact`, `/gallery`, `/blog/`, `/privacy`, `/sitemap.xml`, `/robots.txt`, `/llms.txt` all returned HTTP 200 from `https://www.mosaichostels.com`.
 
 Account-only signals remain documented gaps in `seo-reports/data/2026-10-04/coverage.json`: GBP photos, hours and Q&A; the GA4, Clarity and GCP consoles; Hostinger access-log export; AI-answer mentions with evidence URLs.
+
+## Decisions, 2026-10-05 (owner)
+
+Closed:
+- Row 2 ("1500+ Happy Guests"): relabelled "Guests Hosted" on `index.html` and `about.html`; the number is unchanged.
+- Row 4 (2-minute walk): the minute count is replaced by "steps from Assi Ghat" in `index.html:16` and `:189`, `blog/best-hostels-in-varanasi/index.html:123` and `:135`, and `blogs/best-hostels-in-varanasi.md:65`. The comparative "closest of the five" wording was not part of the decision and is unchanged.
+- Row 6 ("Best Price Direct"): kept; the owner states the guarantee exists.
+- Rows 5, 7 and 10 (prices, excluding tax) and rows 8 and 11 (amenities, structured and visible): confirmed accurate as written; no copy change.
+- Row 9: only the front-desk and 24-hour check-in wording is confirmed.
+
+Still open and unchanged: row 1 (the 4.8/427 rating, owner-confirmed on 2026-09-28), row 3 (Tripadvisor stat card, not decided this round), and the "within 24 hours" reply promises (`contact.html:225,283`) and blog advice lines in row 9.
