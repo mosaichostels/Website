@@ -1,0 +1,18 @@
+{
+  "errors": [],
+  "fetched_at": "2026-10-04T10:04:52Z",
+  "findings": [],
+  "metrics": {
+    "google_rating": 4.5,
+    "google_review_count": 68,
+    "ota_rating_max": 4.9,
+    "ota_rating_min": 4.9,
+    "ota_sources_checked": 1
+  },
+  "source": "gbp-reviews",
+  "window": {
+    "days": 1,
+    "end": "2026-10-04",
+    "start": "2026-10-04"
+  }
+}

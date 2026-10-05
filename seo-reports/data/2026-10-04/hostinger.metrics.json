@@ -1,0 +1,23 @@
+{
+  "errors": [
+    "Hostinger access-log bot/404/429 summary unavailable without log export"
+  ],
+  "fetched_at": "2026-10-04T10:18:13.056671+00:00",
+  "findings": [],
+  "metrics": {
+    "access_log_404": null,
+    "access_log_429": null,
+    "access_log_bot_requests": null,
+    "cron_configured": 1,
+    "cron_interval_minutes": 5,
+    "cron_last_output_empty": 1,
+    "llms_cache_age_seconds": null,
+    "sitemap_cache_age_seconds": null
+  },
+  "source": "hostinger",
+  "window": {
+    "days": 1,
+    "end": "2026-10-04",
+    "start": "2026-10-04"
+  }
+}

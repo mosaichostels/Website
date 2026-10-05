@@ -1,0 +1,22 @@
+{
+  "errors": [
+    "CC-MAIN-2026-39: HTTP 504 <html> <head><title>504 Gateway Time-out</title></h",
+    "CC-MAIN-2026-12: HTTP 502 <html> <head><title>502 Bad Gateway</title></head> ",
+    "CC-MAIN-2026-04: HTTP 502 <html> <head><title>502 Bad Gateway</title></head> "
+  ],
+  "fetched_at": "2026-10-04T15:46:15",
+  "findings": [],
+  "metrics": {
+    "captures_total": 0,
+    "ccbot_urls_checked": 4,
+    "ccbot_urls_ok": 4,
+    "crawls_checked": 12,
+    "crawls_errored": 3
+  },
+  "source": "commoncrawl",
+  "window": {
+    "days": 1,
+    "end": "2026-10-04",
+    "start": "2026-10-04"
+  }
+}
