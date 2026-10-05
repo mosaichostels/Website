@@ -42,7 +42,7 @@
 **Files:** `.claude/seo/booking_probe.py`, `.claude/seo/tests/test_booking_probe.py`, `.claude/seo/coverage_ledger.py`, `.claude/seo/extract-all.sh`, source references.
 
 - [ ] Add failing tests for GET-only requests, redirects, latency, non-200 results, and exception handling.
-- [ ] Implement the booking probe and expose explicit coverage states for Hostinger, listing/reviews, Bing UI links and AI mentions where automated access is unavailable.
+- [ ] Implement the booking probe and expose explicit coverage states for listing/reviews, Bing UI links and AI mentions where automated access is unavailable.
 - [ ] Run tests and check metrics shape.
 
 ### Task 3: Tier 2 proposals and site facts

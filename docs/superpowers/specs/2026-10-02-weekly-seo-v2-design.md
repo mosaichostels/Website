@@ -26,7 +26,7 @@ Skill and process:
 5. "Mandatory" steps were not enforced: GCP IAM/quota/logs, GA4 Explorations, Clarity heatmaps/recordings, GBP photos/Q&A, the unread GSC message were skipped; `seo-audit`, `seo-bing`, `seo-unlighthouse` were never invoked; nothing records coverage.
 
 Extractors:
-6. Not extracted: live GBP data, Hostinger (cron, CDN cache, access logs), rank tracking, AI-answer mentions (one manual run on 2026-09-16), OTA/review parity, a booking-flow synthetic check.
+6. Not extracted: live GBP data, rank tracking, AI-answer mentions (one manual run on 2026-09-16), OTA/review parity, a booking-flow synthetic check.
 7. Wrong or noisy: Bing API reports 0 inbound links while the UI shows 2; one Common Crawl crawl returned `ERROR` unflagged; five Bing endpoints 404 every run.
 8. Output is free text plus 400KB+ raw JSON per source, no normalized metrics, overlapping 90-day windows, deltas compiled by hand.
 
@@ -58,11 +58,12 @@ Fixer:
 
 | Extractor | Reads | Notes |
 |---|---|---|
-| hostinger | cron status, CDN cache age on `.txt`/`.xml`, access-log bot/404/429 summary | same API that confirmed the cron |
 | gbp-reviews | public GBP listing, Tripadvisor, OTA ratings | browser read; flags rating conflicts (4.9 vs 4.5 vs 4.8) |
 | booking-probe | GET-only `/book-now` and `availability.php` status and latency | never POSTs, never touches orders |
 | rank-ai | fixed query list rank and AI-assistant mentions | list lives in a data file |
 | bing-ui-links | Bing UI referring domains | overrides the API's 0 |
+
+Hostinger is not an extractor: it was removed on 2026-10-05 by owner decision, because the cron job it read is booking operations outside the scope lock and the access-log summary was never available.
 
 Fixes to existing extractors: Common Crawl `ERROR` becomes a reported failure; the always-404 Bing endpoints are dropped; Moz is removed from the health check and the toolchain (owner decision 2026-10-02), so it no longer shows as a DOWN platform.
 

@@ -37,10 +37,6 @@
       "reason": "not run in the completion task: no weekly audit or browser sweep was executed for 2026-10-04",
       "status": "skipped"
     },
-    "browser:hostinger": {
-      "reason": "not run in the completion task: no weekly audit or browser sweep was executed for 2026-10-04",
-      "status": "skipped"
-    },
     "browser:ota-reviews": {
       "reason": "one Tripadvisor observation in manual/2026-10-04.json (not verified by this task); other review platforms and OTA price parity were not read",
       "status": "skipped"
@@ -84,10 +80,6 @@
     "extract:gsc": {
       "reason": "",
       "status": "done"
-    },
-    "extract:hostinger": {
-      "reason": "Hostinger access-log bot/404/429 summary unavailable without log export",
-      "status": "blocked"
     },
     "extract:lighthouse": {
       "reason": "unlighthouse exit code 1",

@@ -75,7 +75,7 @@ from the env file): ask, never attempt the push.
 ## (b) Data pull
 
 ```bash
-./.claude/seo/extract-all.sh            # API, booking, Hostinger, query and manual signals
+./.claude/seo/extract-all.sh            # API, booking, query and manual signals
 ./.claude/seo/extract-all.sh --fast     # skip the slow sweeps (PSI, Unlighthouse)
 ./.claude/seo/extract-all.sh gsc bing   # only the named ones
 ```

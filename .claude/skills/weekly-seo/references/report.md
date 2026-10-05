@@ -23,7 +23,6 @@ Write `seo-reports/YYYY-MM-DD.md`:
    | Common Crawl | pages captured | | | |
    | Lighthouse | perf / a11y / best-practices / SEO | | | |
    | Booking probe | GET status and latency | | | |
-   | Hostinger | cron state, public cache age; log gaps | | | |
    | Browser signals | GBP/OTA reviews, Bing UI links, AI mentions | | | |
 
    List `tracked-queries.json` selection and its evidence window; if

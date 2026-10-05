@@ -21,7 +21,7 @@ REPORTS = ROOT / "seo-reports"
 SOURCES = ["gsc", "ga4", "bing", "clarity", "cwv", "lighthouse", "commoncrawl"]
 MANUAL = ["browser:gbp", "browser:gcp", "browser:ga4-ui", "browser:psi-web",
           "browser:bing-ui", "browser:clarity-ui", "audits:claude-seo-14",
-          "audits:skill-3", "ai-visibility", "browser:hostinger",
+          "audits:skill-3", "ai-visibility",
           "browser:ota-reviews", "browser:bing-links", "rank-ai-mentions"]
 STATUSES = {"done", "skipped", "blocked"}
 
@@ -47,7 +47,7 @@ def init(date, reports=REPORTS):
     data = pathlib.Path(reports) / "data" / date
     for source in SOURCES:
         _apply(items, f"extract:{source}", _state(data / f"{source}.metrics.json", strict=False))
-    for source in ("booking-probe", "hostinger", "gbp-reviews", "bing-ui-links", "rank-ai"):
+    for source in ("booking-probe", "gbp-reviews", "bing-ui-links", "rank-ai"):
         _apply(items, f"extract:{source}", _state(data / f"{source}.metrics.json", strict=True))
     for key in MANUAL:
         items.setdefault(key, {"status": "pending", "reason": ""})
