@@ -75,14 +75,14 @@ from the env file): ask, never attempt the push.
 ## (b) Data pull
 
 ```bash
-./.claude/seo/extract-all.sh            # all seven, cheapest first
+./.claude/seo/extract-all.sh            # API, booking, Hostinger, query and manual signals
 ./.claude/seo/extract-all.sh --fast     # skip the slow sweeps (PSI, Unlighthouse)
 ./.claude/seo/extract-all.sh gsc bing   # only the named ones
 ```
 
-Each extractor writes a raw bundle to `seo-reports/<name>/YYYY-MM-DD.json` and its
-text report to `seo-reports/runs/YYYY-MM-DD/<name>.txt`; the wrapper then writes
-`seo-reports/data/YYYY-MM-DD/*.metrics.json` and `coverage.json`. One failure never
+API extractors write raw local bundles; the wrapper writes normalized metrics,
+`tracked-queries.json`, browser-ingested metrics and `coverage.json`. First capture
+browser-only facts with dated URLs in `seo-reports/manual/YYYY-MM-DD.json` (`references/browser.md`). One failure never
 aborts the sweep: check the summary for `FAILED:`, rerun a failed or missing
 extractor, and record the cause if it still fails. Skip any source whose platform
 is DOWN. Never hand-roll API calls: the extractors encode quota limits and
@@ -121,7 +121,7 @@ that needs a judgement call about hostel facts, prices or amenities is deferred
 with the reason. Scope, cache-bust and whole-diff review rules are in
 `references/fix.md`. After editing a shared file in `components/` or `styles/`,
 bump `?v=` in every HTML file that references it (`cache-bust-check` skill).
-Record each fix: `ledger.py fix ID COMMIT --metric source.metric`.
+Record each fix: `ledger.py fix ID COMMIT --metric source.metric`. Tier 2 changes use `proposal.py ID reviewed.patch` on an unpushed review branch.
 
 ## (f) Submit changed URLs
 

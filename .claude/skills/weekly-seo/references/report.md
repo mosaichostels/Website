@@ -22,6 +22,12 @@ Write `seo-reports/YYYY-MM-DD.md`:
    | Clarity | rage clicks, dead clicks | | | |
    | Common Crawl | pages captured | | | |
    | Lighthouse | perf / a11y / best-practices / SEO | | | |
+   | Booking probe | GET status and latency | | | |
+   | Hostinger | cron state, public cache age; log gaps | | | |
+   | Browser signals | GBP/OTA reviews, Bing UI links, AI mentions | | | |
+
+   List `tracked-queries.json` selection and its evidence window; if
+   `stale_queries` is true, say why and do not call reused positions fresh.
 
 3. **Browser deep-dive findings** — one entry per platform (GBP, GCP, GA4 UI,
    PSI/CrUX web report, Bing Webmaster UI, Clarity UI): what was fetched, what

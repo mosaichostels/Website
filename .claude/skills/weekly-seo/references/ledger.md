@@ -25,3 +25,12 @@ A check describes the DEFECT as JSON:
 - `live_url`: for `local` checks, the URL `deploy-check` re-reads after a deploy. Without it (or a `live` target) use `deploy-check --manual`.
 
 Scores: impact 1-5, confidence 0.1-1.0 (a GSC number is 1.0, an agent's opinion about tone 0.3), effort 1-5. Priority is impact x confidence / effort.
+
+## Tier 2 proposals
+
+For a verified copy, fact, booking, or API finding, prepare a reviewed Git patch,
+then run `python3 .claude/seo/proposal.py ID path/to/reviewed.patch`. It creates
+or reuses a local `seo/proposals-YYYY-MM-DD` worktree, applies the patch there,
+runs the site verifier when present, and commits the patch with a per-finding
+note under `seo-reports/proposals/`. The main checkout is untouched. Do not
+push, deploy, or merge a Tier 2 item until the owner approves that item.
