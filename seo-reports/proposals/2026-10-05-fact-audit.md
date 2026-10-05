@@ -35,6 +35,11 @@ Closed:
 - Row 4 (2-minute walk): the minute count is replaced by "steps from Assi Ghat" in `index.html:16` and `:189`, `blog/best-hostels-in-varanasi/index.html:123` and `:135`, and `blogs/best-hostels-in-varanasi.md:65`. The comparative "closest of the five" wording was not part of the decision and is unchanged.
 - Row 6 ("Best Price Direct"): kept; the owner states the guarantee exists.
 - Rows 5, 7 and 10 (prices, excluding tax) and rows 8 and 11 (amenities, structured and visible): confirmed accurate as written; no copy change.
-- Row 9: only the front-desk and 24-hour check-in wording is confirmed.
+- Row 9: the front-desk and 24-hour check-in wording is confirmed; the reply promises were confirmed later the same day (see below) and the blog advice lines remain open.
 
-Still open and unchanged: row 1 (the 4.8/427 rating, owner-confirmed on 2026-09-28), row 3 (Tripadvisor stat card, not decided this round), and the "within 24 hours" reply promises (`contact.html:225,283`) and blog advice lines in row 9.
+Confirmed by the owner on 2026-10-05, no change (the owner's own statement: "they are correct, no need to fix"; not verified by either agent):
+- Row 1: the 4.8/427 `aggregateRating`, which the owner had also confirmed on 2026-09-28.
+- Row 3: the Tripadvisor stat card.
+- Row 9: the "within 24 hours" reply promises (`contact.html:225,283`).
+
+Still open: the blog advice lines in row 9 that mention 24 hours, which the owner did not address and which belong to a later Tier 2 pass.
