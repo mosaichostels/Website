@@ -1,0 +1,16 @@
+{
+  "captured_at": "2026-10-06T05:30:00Z",
+  "gbp": {
+    "url": "https://www.google.com/search?q=Mosaic+Hostel+Varanasi",
+    "rating": 4.5,
+    "review_count": 71,
+    "category": "Backpacker Hostel",
+    "note": "Signed in as mosaichostels@gmail.com; knowledge panel shows 71 Google reviews, an adjacent reviews module shows 69. Recheck before publishing an exact count."
+  },
+  "bing_links": {
+    "url": "https://www.bing.com/webmasters/backlinks?siteUrl=https%3A%2F%2Fwww.mosaichostels.com%2F",
+    "referring_domains": 2,
+    "referring_pages": 2,
+    "domains": ["voiceofkashi.com", "charudutt.shop"]
+  }
+}

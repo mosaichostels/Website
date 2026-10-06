@@ -1,0 +1,101 @@
+{
+  "date": "2026-10-06",
+  "items": {
+    "ai-visibility": {
+      "reason": "13 crawler GET probes and index checks ran; 429 responses need spaced confirmation before becoming findings",
+      "status": "done"
+    },
+    "audits:claude-seo-14": {
+      "reason": "14 agents ran: technical backlinks local maps content flow cluster sxo google schema sitemap visual geo drift",
+      "status": "done"
+    },
+    "audits:skill-3": {
+      "reason": "seo-audit/seo-unlighthouse/seo-bing not invoked: seo-audit duplicates the 14 agents; bing and lighthouse extractors already ran with full data",
+      "status": "skipped"
+    },
+    "browser:bing-links": {
+      "reason": "2 referring domains: voiceofkashi.com, charudutt.shop",
+      "status": "done"
+    },
+    "browser:bing-ui": {
+      "reason": "Site Scan 21 pages 0 errors 0 warnings; backlinks 2 referring domains",
+      "status": "done"
+    },
+    "browser:clarity-ui": {
+      "reason": "dashboard last 3 days read: 35 sessions, 0 rage/dead clicks; heatmaps and recordings not opened",
+      "status": "done"
+    },
+    "browser:ga4-ui": {
+      "reason": "property 507278393 home read; Explorations and data-stream tag health not read",
+      "status": "done"
+    },
+    "browser:gbp": {
+      "reason": "Google search panel read signed in as mosaichostels@gmail.com: 4.5, 71 reviews; photos/Q&A/performance not read",
+      "status": "done"
+    },
+    "browser:gcp": {
+      "reason": "billing disabled on ai-seo-manager; IAM shows only owner account, no extra bindings; quota and logs pages not read",
+      "status": "done"
+    },
+    "browser:ota-reviews": {
+      "reason": "tripadvisor.in returned HTTP 403 to the browser; no fresh OTA count",
+      "status": "blocked"
+    },
+    "browser:psi-web": {
+      "reason": "mobile perf 86, a11y 95, BP 92, SEO 100; CrUX No Data",
+      "status": "done"
+    },
+    "extract:bing": {
+      "reason": "1 informational note(s)",
+      "status": "done"
+    },
+    "extract:bing-ui-links": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:booking-probe": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:clarity": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:commoncrawl": {
+      "reason": "CC-MAIN-2026-30: HTTP 502 <html> <head><title>502 Bad Gateway</title></head> ",
+      "status": "blocked"
+    },
+    "extract:cwv": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:ga4": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gbp-reviews": {
+      "reason": "fresh OTA review observations with source URLs missing",
+      "status": "blocked"
+    },
+    "extract:gsc": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:lighthouse": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:rank-ai": {
+      "reason": "fresh AI-answer observations with evidence URLs missing",
+      "status": "blocked"
+    },
+    "query-discovery": {
+      "reason": "",
+      "status": "done"
+    },
+    "rank-ai-mentions": {
+      "reason": "needs inspecting real AI-assistant answers; not done this run",
+      "status": "blocked"
+    }
+  }
+}
