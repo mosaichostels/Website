@@ -130,7 +130,7 @@ step and record "submission pending a deploy" (stale content burns quota and
 teaches crawlers your submissions are noise).
 
 ```bash
-./scripts/indexnow-submit.sh                                        # Bing, Yandex, Seznam
+./scripts/indexnow-submit.sh --since "$BASE"      # $BASE = commit before this run's first fix; Bing, Yandex, Seznam
 "$SEOPY" .claude/seo/gsc-sitemap-submit.py --submit                 # Google: resubmit sitemap.xml
 ```
 
@@ -138,7 +138,8 @@ Do not use Google's Indexing API here: it is limited to `JobPosting` and
 `BroadcastEvent` markup. For one important page, list "Request indexing in URL
 Inspection" under "Needs a human" (an owner action in the Search Console UI).
 
-Then `ledger.py deploy-check` marks each fixed finding whose defect is gone from the live page.
+Then `python3 .claude/seo/live_check.py` (live URLs, redirects, 404s; edit `live_check.json` when URLs change on
+purpose) and `ledger.py deploy-check`, which marks each fixed finding whose defect is gone from the live page.
 
 ## (g) Re-baseline
 
