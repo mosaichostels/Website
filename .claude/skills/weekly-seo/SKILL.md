@@ -1,7 +1,7 @@
 ---
 name: weekly-seo
 description: >-
-  Use when the owner asks for the weekly SEO sweep, "weekly SEO", "SEO run", "SEO sweep", "run the SEO automation", or a full audit-and-fix pass on mosaichostels.com. Pulls data from every connected source, runs the Claude SEO audits and a browser review of the dashboards that have no API, ranks the gaps, fixes the top ones, verifies, and writes the report. Inside Macterm, follow macterm-pair; outside Macterm, Claude may run solo.
+  Use when the owner asks for the weekly SEO sweep, "weekly SEO", "SEO run", "SEO sweep", "run the SEO automation", or a full audit-and-fix pass on mosaichostels.com.
 ---
 
 # Weekly SEO run
@@ -22,10 +22,11 @@ credential value into the transcript, copy one into the repo, or echo one to a l
 ## Scope lock
 
 Touchable: `*.html`, `styles/`, `components/`, `sitemap.xml`, `robots.txt`,
-`llms.txt`, `seo-reports/`, and, for facts only and never rules (see
+`llms.txt`, verified SEO 301 redirects in `.htaccess`, `seo-reports/`, and,
+for facts only and never rules (see
 Self-improvement), `.claude/skills/weekly-seo/SKILL.md` and `references/*.md`.
 
-Off limits, no exceptions: `api/` (PHP endpoints, Razorpay, eZee PMS),
+Off limits for automatic edits: `api/` (PHP endpoints, Razorpay, eZee PMS),
 `scripts/deploy.sh`, `.claude/hooks/`, anything under `~/.config/`. A booking or
 payment path is never an SEO fix.
 
@@ -51,7 +52,7 @@ numbers there are historical; the newest file in `seo-reports/` has current valu
 
 - (b) `references/gsc.md` `references/ga4.md` `references/cwv.md` `references/bing.md`
   `references/clarity.md` `references/commoncrawl.md` `references/lighthouse.md`
-- (c) `references/audits.md` `references/browser.md` `references/ai-visibility.md`
+- (c) `references/audits.md` `references/ai-visibility.md`
 - (e) `references/fix.md`; (h) `references/report.md`
 
 ## (a) Health gate
@@ -81,26 +82,20 @@ from the env file): ask, never attempt the push.
 ```
 
 API extractors write raw local bundles; the wrapper writes normalized metrics,
-`tracked-queries.json`, browser-ingested metrics and `coverage.json`. First capture
-browser-only facts with dated URLs in `seo-reports/manual/YYYY-MM-DD.json` (`references/browser.md`). One failure never
+`tracked-queries.json` and `coverage.json`. One failure never
 aborts the sweep: check the summary for `FAILED:`, rerun a failed or missing
 extractor, and record the cause if it still fails. Skip any source whose platform
 is DOWN. Never hand-roll API calls: the extractors encode quota limits and
-freshness lags. Inside Macterm, use `macterm-pair` for each step's review; outside,
-run solo unless asked to pair.
+freshness lags. For ad-hoc questions the MCP servers `mosaic-gsc`, `mosaic-ga4`, `mosaic-clarity` and
+`mosaic-bing` are registered; the extractors stay the weekly source of record. Work solo unless the owner asks for pairing; then use `macterm-pair`.
 
 ## (c) Audits
 
-Three groups, all required:
+Two groups, both required:
 
 1. **claude-seo audits:** 14 concurrent Agent-tool subagents plus 3 Skill-tool-only
    checks. The list and the dedupe-and-merge rule are in `references/audits.md`.
-2. **Browser review** of GBP, GCP, the GA4 UI, the PSI/CrUX web report, the Bing
-   Webmaster UI and the Clarity UI, through `opencli` against the shared Chromium
-   (`references/browser.md`). Read-only, stop at any login gate or account
-   mismatch, and fetch every item on its list each run: only the login gate
-   excuses an unfetched item.
-3. **AI platform read-check:** `./.claude/seo/ai-visibility.sh` (`references/ai-visibility.md`).
+2. **AI platform read-check:** `./.claude/seo/ai-visibility.sh` (`references/ai-visibility.md`).
 
 ## (d) Rank the gaps
 
@@ -162,14 +157,14 @@ production); with no baseline, capture one and note the week had no comparison.
 
 Write `seo-reports/YYYY-MM-DD.md` using `references/report.md`, with the metric table
 from `python3 .claude/seo/deltas.py` and `ledger.py measure ID` for each deployed finding
-whose fix has a newer run. Mark every browser and audit item with
+whose fix has a newer run. Mark every audit item with
 `coverage_ledger.py mark ITEM STATUS REASON`; the run is complete only when `coverage_ledger.py check` passes.
 
 ## Self-improvement
 
 Facts about the world (standing findings, URL patterns, DOM quirks, resolved gaps)
-are updated in the reference files each run. Rules (scope lock, read-only browser
-rule, anything needing a permission) never self-update and change only when the
+are updated in the reference files each run. Rules (scope lock,
+anything needing a permission) never self-update and change only when the
 owner asks. The edit rides in its own commit. Procedure: `references/self-improvement.md`.
 
 ## Verify, then commit

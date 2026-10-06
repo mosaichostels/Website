@@ -6,7 +6,7 @@
     coverage_ledger.py check [DATE]                     # exit 1 while anything is open
 
 Writes seo-reports/data/<date>/coverage.json. Extractor items turn "done" when their
-metrics file exists; browser and audit items stay "pending" until the run marks them.
+metrics file exists; audit items stay "pending" until the run marks them.
 A skipped or blocked item must carry a reason. Stdlib only.
 """
 import datetime as dt
@@ -19,10 +19,7 @@ ROOT = pathlib.Path(subprocess.run(["git", "rev-parse", "--show-toplevel"],
                                    capture_output=True, text=True).stdout.strip())
 REPORTS = ROOT / "seo-reports"
 SOURCES = ["gsc", "ga4", "bing", "clarity", "cwv", "lighthouse", "commoncrawl"]
-MANUAL = ["browser:gbp", "browser:gcp", "browser:ga4-ui", "browser:psi-web",
-          "browser:bing-ui", "browser:clarity-ui", "audits:claude-seo-14",
-          "audits:skill-3", "ai-visibility",
-          "browser:ota-reviews", "browser:bing-links", "rank-ai-mentions"]
+MANUAL = ["audits:claude-seo-14", "audits:skill-3", "ai-visibility"]
 STATUSES = {"done", "skipped", "blocked"}
 
 
@@ -47,7 +44,7 @@ def init(date, reports=REPORTS):
     data = pathlib.Path(reports) / "data" / date
     for source in SOURCES:
         _apply(items, f"extract:{source}", _state(data / f"{source}.metrics.json", strict=False))
-    for source in ("booking-probe", "gbp-reviews", "bing-ui-links", "rank-ai"):
+    for source in ("booking-probe",):
         _apply(items, f"extract:{source}", _state(data / f"{source}.metrics.json", strict=True))
     for key in MANUAL:
         items.setdefault(key, {"status": "pending", "reason": ""})
