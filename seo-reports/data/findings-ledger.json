@@ -135,7 +135,55 @@
       ],
       "status": "deployed",
       "updated": "2026-10-06"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-06",
+        "metric": "gsc.urls_indexed",
+        "value": 17
+      },
+      "check": null,
+      "claim": "Unknown /blog/<x>/ URLs return 200 with a noindex template (soft 404) via legacy rewrite",
+      "commit": "8435a11",
+      "confidence": 1.0,
+      "created": "2026-10-06",
+      "effort": 1,
+      "evidence": "live GET /blog/zzz/ = 200 14475B noindex before; 404 after",
+      "id": "F-0007",
+      "impact": 3,
+      "measured": null,
+      "note": "live /blog/zzz/, /blog/zzz and /blog/this-post-does-not-exist/ return 404; 38-URL live suite 0 failures, run twice",
+      "priority": 3.0,
+      "sources": [
+        "seo-technical"
+      ],
+      "status": "deployed",
+      "updated": "2026-10-06"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-06",
+        "metric": "gsc.urls_indexed",
+        "value": 17
+      },
+      "check": null,
+      "claim": "Unused and stale files deployed on Hostinger: placeholder indexnow-key, orphan blog.html, unused components, old IndexNow key file",
+      "commit": "8435a11",
+      "confidence": 1.0,
+      "created": "2026-10-06",
+      "effort": 1,
+      "evidence": "FTP listing vs repo and reference search; 7 files removed",
+      "id": "F-0008",
+      "impact": 2,
+      "measured": null,
+      "note": "fresh FTP listing: none of the 7 files remain; their URLs return 404; only api/secrets.php is untracked (expected)",
+      "priority": 2.0,
+      "sources": [
+        "repo-audit"
+      ],
+      "status": "deployed",
+      "updated": "2026-10-06"
     }
   ],
-  "next_id": 7
+  "next_id": 9
 }
