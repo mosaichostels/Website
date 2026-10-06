@@ -37,3 +37,6 @@ seo-reports/commoncrawl/*.json
 seo-reports/runs/*/
 seo-reports/mosaichostels.com-audit/findings/_raw_capture_results.json
 __pycache__/
+
+# Local planning notes (include a candid concerns list; keep out of the public repo)
+.planning/
