@@ -1,0 +1,32 @@
+{
+  "site": "https://www.mosaichostels.com",
+  "status": {
+    "200": ["/", "/about", "/contact", "/gallery", "/book-now", "/privacy", "/blog/",
+            "/sitemap.xml", "/sitemap-images.xml", "/robots.txt", "/llms.txt",
+            "/140ef5ae933ea27ef5ec39a4c06690e1.txt", "/BingSiteAuth.xml"],
+    "403": ["/api/", "/api/secrets.php", "/api/lib/selftest.php"],
+    "404": ["/blog/zzz/", "/blog/zzz", "/blog/this-post-does-not-exist/", "/totally-missing-page",
+            "/components/blog-renderer.js", "/components/footer.html",
+            "/components/navbar.html", "/components/blog.js", "/.well-known/indexnow-key.txt",
+            "/c756cfecf232b14e75f41f5da7dbf63d.txt"]
+  },
+  "redirects": [
+    ["/blog", "/blog/"],
+    ["/blog.html", "/blog/"],
+    ["/blog/index.html", "/blog/"],
+    ["/blog/post.html", "/blog/"],
+    ["/blog/top-7-experiences-varanasi-traveler/", "/blog/things-to-do-varanasi-local-guide/"],
+    ["/experiences", "/blog/things-to-do-varanasi-local-guide/"],
+    ["/policies.html", "/book-now#faq-heading"],
+    ["/policies", "/book-now#faq-heading"],
+    ["/Website/privacy.html", "/privacy"],
+    ["/backpackers-guide-assi-ghat-varanasi/", "/blog/assi-ghat-varanasi-complete-guide/"],
+    ["/book-now.html", "/book-now"],
+    ["/book-now/", "/book-now"],
+    ["/gallery/", "/gallery"],
+    ["/about.html", "/about"],
+    ["/contact.html", "/contact"],
+    ["/privacy.html", "/privacy"],
+    ["/index.html", "/"]
+  ]
+}
