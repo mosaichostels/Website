@@ -40,3 +40,11 @@ __pycache__/
 
 # Local planning notes (include a candid concerns list; keep out of the public repo)
 .planning/
+
+# Internal docs kept locally, not in the public repo (vendor documentation, payment-flow audits, integration notes)
+docs/eZee-Connectivity-API.md
+docs/book-now-audit-verified-2026-09-13.md
+docs/book-now-gaps-and-issues.md
+docs/ezee-roomlist-issue.md
+docs/ezee-charge-posting-integration.md
+docs/competitor-booking-flow-livefreehostels.md
