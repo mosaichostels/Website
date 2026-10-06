@@ -236,15 +236,9 @@
   RewriteCond %{REQUEST_URI} !/blogs/ [NC]
   RewriteRule ^gallery/?$ gallery.html [QSA,L]
 
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} !/blogs/ [NC]
-  RewriteRule ^blog/?$ blog.html [QSA,L]
-
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_URI} !/blogs/ [NC]
-  RewriteRule ^blog/([a-zA-Z0-9-]+)/?$ blog/post.html [QSA,L]
+  # Removed 2026-10-06: the legacy /blog and /blog/<slug> routes to blog.html and
+  # blog/post.html. Posts are static pages now, and the slug route answered 200 with
+  # a noindex template for any unknown /blog/<anything>/ URL (soft 404).
 
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
