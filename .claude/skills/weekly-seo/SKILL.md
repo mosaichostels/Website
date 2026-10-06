@@ -30,6 +30,10 @@ Off limits for automatic edits: `api/` (PHP endpoints, Razorpay, eZee PMS),
 `scripts/deploy.sh`, `.claude/hooks/`, anything under `~/.config/`. A booking or
 payment path is never an SEO fix.
 
+MCP servers `mosaic-gsc`, `mosaic-ga4`, `mosaic-clarity`, `mosaic-bing`, `mosaic-gbp`: read freely. Their write tools
+(sitemap or site add/delete/submit, URL submit/removal, Business Profile edits, replies, posts, deletes) run only when the
+owner asks for that exact action in the current conversation, and never replace step (f)'s drift gate.
+
 Never add a build step, bundler, framework or npm dependency to the site. It is
 static HTML by design.
 
