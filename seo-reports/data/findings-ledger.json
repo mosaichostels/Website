@@ -107,7 +107,31 @@
       ],
       "status": "open",
       "updated": "2026-10-06"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-06",
+        "metric": "lighthouse.failing_audits",
+        "value": 21
+      },
+      "check": null,
+      "claim": "Map iframes on about, book-now, contact have no title attribute",
+      "commit": "e87d715",
+      "confidence": 1.0,
+      "created": "2026-10-06",
+      "effort": 1,
+      "evidence": "Lighthouse frame-title fails on 3 pages",
+      "id": "F-0006",
+      "impact": 2,
+      "measured": null,
+      "note": "Lighthouse frame-title + grep of iframe tags",
+      "priority": 2.0,
+      "sources": [
+        "seo-unlighthouse"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-06"
     }
   ],
-  "next_id": 6
+  "next_id": 7
 }
