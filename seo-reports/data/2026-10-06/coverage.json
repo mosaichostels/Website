@@ -10,8 +10,8 @@
       "status": "done"
     },
     "audits:skill-3": {
-      "reason": "seo-audit/seo-unlighthouse/seo-bing not invoked: seo-audit duplicates the 14 agents; bing and lighthouse extractors already ran with full data",
-      "status": "skipped"
+      "reason": "seo-bing: Bing knows 20/21 URLs (3-5-day itinerary unknown), IndexNow key OK, API links 0 vs UI 2. seo-unlighthouse: 15 routes, perf 0.86 avg, book-now/gallery 0.55, 12 pages lack main landmark, 3 iframes lacked title. seo-audit: 21/21 pages clean on canonical/H1/JSON-LD/noindex/headers",
+      "status": "done"
     },
     "browser:bing-links": {
       "reason": "2 referring domains: voiceofkashi.com, charudutt.shop",
