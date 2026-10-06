@@ -1,0 +1,113 @@
+{
+  "findings": [
+    {
+      "baseline": {
+        "date": "2026-10-06",
+        "metric": "gsc.urls_indexed",
+        "value": 17
+      },
+      "check": null,
+      "claim": "sitemap.xml lastmod stale for pages edited 2026-10-05 (/, /about, best-hostels)",
+      "commit": "ac8a6ac",
+      "confidence": 0.9,
+      "created": "2026-10-06",
+      "effort": 1,
+      "evidence": "git log last commit 10-05 vs sitemap 09-09/08-20/08-18",
+      "id": "F-0001",
+      "impact": 2,
+      "measured": null,
+      "note": "git log dates vs sitemap lastmod read",
+      "priority": 1.8,
+      "sources": [
+        "seo-sitemap"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-06"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-06",
+        "metric": "gsc.clicks",
+        "value": 51
+      },
+      "check": null,
+      "claim": "things-to-do guide hub is linked from too few posts (7 posts lacked a link)",
+      "commit": "ac8a6ac",
+      "confidence": 0.9,
+      "created": "2026-10-06",
+      "effort": 1,
+      "evidence": "grep -c things-to-do-varanasi-local-guide = 0 in 7 posts",
+      "id": "F-0002",
+      "impact": 3,
+      "measured": null,
+      "note": "grep showed 0 links in 7 posts before edit",
+      "priority": 2.7,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-06"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Phone number is plain text with no tel: link anywhere",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-10-06",
+      "effort": 2,
+      "evidence": "grep tel: finds 0 in index.html and components/*.js",
+      "id": "F-0003",
+      "impact": 3,
+      "measured": null,
+      "note": "grep tel: = 0; deferred: footer component styling is a design call",
+      "priority": 1.35,
+      "sources": [
+        "seo-local"
+      ],
+      "status": "verified",
+      "updated": "2026-10-06"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "http://mosaichostels.com redirects through two hops before https://www",
+      "commit": null,
+      "confidence": 0.8,
+      "created": "2026-10-06",
+      "effort": 3,
+      "evidence": "agent curl -sIL chain",
+      "id": "F-0004",
+      "impact": 2,
+      "measured": null,
+      "note": "",
+      "priority": 0.533,
+      "sources": [
+        "seo-technical"
+      ],
+      "status": "open",
+      "updated": "2026-10-06"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Footer/nav tap targets under 44px; email button overflows 375px on /book-now",
+      "commit": null,
+      "confidence": 0.5,
+      "created": "2026-10-06",
+      "effort": 3,
+      "evidence": "agent DOM probe, unverified visually",
+      "id": "F-0005",
+      "impact": 3,
+      "measured": null,
+      "note": "",
+      "priority": 0.5,
+      "sources": [
+        "seo-visual"
+      ],
+      "status": "open",
+      "updated": "2026-10-06"
+    }
+  ],
+  "next_id": 6
+}

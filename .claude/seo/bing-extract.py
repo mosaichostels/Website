@@ -82,6 +82,8 @@ from collections import defaultdict
 
 import requests
 
+sys.stdout.reconfigure(line_buffering=True)   # progress must reach the tee'd log while running
+
 DAYS = int(sys.argv[1]) if len(sys.argv) > 1 else 90
 KEY = os.environ.get("BING_WEBMASTER_API_KEY") or sys.exit(
     "BING_WEBMASTER_API_KEY not set — source ~/.config/mosaic-seo/env")
@@ -110,13 +112,19 @@ _last = [0.0]
 
 def api(method, **params):
     """One GET. Returns the unwrapped "d" payload, or {"error": ...}."""
-    time.sleep(max(0.0, 0.6 - (time.time() - _last[0])))   # be polite, Bing throttles hard
-    _last[0] = time.time()
-    try:
-        r = requests.get(f"{BASE}/{method}", params={**params, "apikey": KEY},
-                         headers={"User-Agent": "mosaic-seo/1.0"}, timeout=30)
-    except Exception as e:
-        return {"error": f"{type(e).__name__}"}
+    for attempt in range(4):
+        time.sleep(max(0.6, 8.0 * attempt) - min(0.6, time.time() - _last[0]))   # polite; backoff on throttle
+        _last[0] = time.time()
+        try:
+            r = requests.get(f"{BASE}/{method}", params={**params, "apikey": KEY},
+                             headers={"User-Agent": "mosaic-seo/1.0"}, timeout=15)
+        except Exception as e:
+            if attempt == 3:
+                return {"error": f"{type(e).__name__}"}
+            continue
+        if r.status_code == 400 and "Throttle" in r.text and attempt < 3:
+            continue   # ThrottleHost: wait 8s, 16s, 24s then retry
+        break
     if r.status_code != 200:
         # Never echo r.url — it carries the apikey.
         body = r.text.strip()
