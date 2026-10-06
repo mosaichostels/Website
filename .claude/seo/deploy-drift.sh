@@ -24,7 +24,10 @@ printf '| Page | Served as | Local | Live | State |\n|---|---|---|---|---|\n'
 # Root index.html plus any <dir>/index.html, since the host serves directories
 # from their index file. A bare <name>.html that redirects away is not the
 # canonical source for any URL and is reported separately.
-FILES=$( { find . -maxdepth 1 -name '*.html'; find . -mindepth 2 -maxdepth 2 -name 'index.html'; } \
+# Blog posts live at blog/<slug>/index.html (depth 3). The crawler-facing static files
+# (sitemaps, robots.txt, llms.txt) are compared too: a stale sitemap misleads crawlers.
+FILES=$( { find . -maxdepth 1 -name '*.html'; find . -mindepth 2 -maxdepth 3 -name 'index.html' -not -path './node_modules/*' -not -path './.*';
+           find . -maxdepth 1 \( -name 'sitemap*.xml' -o -name robots.txt -o -name llms.txt \); } \
          | sed 's|^\./||' | sort )
 
 while IFS= read -r f; do
@@ -33,6 +36,7 @@ while IFS= read -r f; do
     index.html)   url="$SITE/" ;;
     */index.html) url="$SITE/${f%/index.html}/" ;;
     google*.html) url="$SITE/$f" ;;              # verification files keep .html
+    *.xml|*.txt)  url="$SITE/$f" ;;               # sitemaps, robots.txt, llms.txt
     *)            url="$SITE/${f%.html}" ;;
   esac
 
