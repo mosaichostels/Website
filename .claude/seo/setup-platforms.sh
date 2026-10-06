@@ -7,7 +7,7 @@
 #
 # Anything needing a browser is printed as a numbered manual step instead of
 # being attempted. Enables only free-tier Google APIs (no billing account
-# required for PSI, CrUX, Search Console, Indexing, or GA4 Data API).
+# required for PSI, CrUX, Search Console, or GA4 Data API).
 
 set -euo pipefail
 
@@ -70,7 +70,7 @@ gcloud config set project "$GCP_PROJECT_ID" >/dev/null
 ok "project $GCP_PROJECT_ID"
 
 say "Enabling free-tier APIs"
-for api in searchconsole.googleapis.com indexing.googleapis.com \
+for api in searchconsole.googleapis.com \
            analyticsdata.googleapis.com pagespeedonline.googleapis.com \
            chromeuxreport.googleapis.com; do
   if gcloud services list --enabled --format='value(config.name)' | grep -qx "$api"; then
@@ -80,7 +80,7 @@ for api in searchconsole.googleapis.com indexing.googleapis.com \
   fi
 done
 
-say "Service account (unattended auth for GSC / Indexing / GA4)"
+say "Service account (unattended auth for GSC / GA4)"
 SA_EMAIL="${SA_NAME}@${GCP_PROJECT_ID}.iam.gserviceaccount.com"
 if ! gcloud iam service-accounts describe "$SA_EMAIL" >/dev/null 2>&1; then
   gcloud iam service-accounts create "$SA_NAME" --display-name="Mosaic weekly SEO"
@@ -114,8 +114,7 @@ say "Manual steps (browser required — nothing else can do these)"
             then set GOOGLE_API_KEY in $ENV_FILE and re-run this script."
 todo "Grant GSC access — https://search.google.com/search-console/users
             Add user: $SA_EMAIL
-            Permission: Owner. 'Full' is enough for Search Analytics and URL
-            Inspection, but the Indexing API rejects anything below Owner."
+            Permission: Owner (required for sitemap submission)."
 todo "Grant GA4 read access — Admin > Property access management
             Add: $SA_EMAIL   Role: Viewer
             Then set GA4_PROPERTY_ID (Admin > Property details) in $ENV_FILE"

@@ -36,7 +36,7 @@ check "GSC Search Analytics" "service account" "step (b) — query/page/CTR/posi
 check "GSC URL Inspection" "service account" "step (b) — indexation coverage" \
   bash -c '"$SEOPY" "$0/google_auth.py" --check gsc --json | grep -q "\"available\": true"' "$SEO"
 
-check "GSC sitemap resubmit" "service account" "step (f) — sitemap resubmit" \
+check "GSC sitemap read" "service account" "step (f) — submission also requires Owner" \
   bash -c '[[ -n "${GSC_PROPERTY:-}" ]] && "$SEOPY" "$HERE/gsc-sitemap-submit.py" --self-check >/dev/null'
 
 check "GA4 Data API" "service account" "step (b) — organic sessions" \
