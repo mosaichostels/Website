@@ -16,12 +16,12 @@
       "id": "F-0001",
       "impact": 2,
       "measured": null,
-      "note": "git log dates vs sitemap lastmod read",
+      "note": "live sitemap.xml: / lastmod 2026-10-05, about/contact/book-now 2026-10-06 (fetched 2026-10-06 after FTP deploy)",
       "priority": 1.8,
       "sources": [
         "seo-sitemap"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-06"
     },
     {
@@ -40,19 +40,23 @@
       "id": "F-0002",
       "impact": 3,
       "measured": null,
-      "note": "grep showed 0 links in 7 posts before edit",
+      "note": "live co-working post contains the things-to-do link; drift check in sync for all 7 posts",
       "priority": 2.7,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-06"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-10-06",
+        "metric": "gsc.clicks",
+        "value": 51
+      },
       "check": null,
       "claim": "Phone number is plain text with no tel: link anywhere",
-      "commit": null,
+      "commit": "c9ac64a",
       "confidence": 0.9,
       "created": "2026-10-06",
       "effort": 2,
@@ -60,12 +64,12 @@
       "id": "F-0003",
       "impact": 3,
       "measured": null,
-      "note": "grep tel: = 0; deferred: footer component styling is a design call",
+      "note": "live pages carry the tel: link in the footer (8 sampled, drift check in sync after FTP deploy)",
       "priority": 1.35,
       "sources": [
         "seo-local"
       ],
-      "status": "verified",
+      "status": "deployed",
       "updated": "2026-10-06"
     },
     {
@@ -124,12 +128,12 @@
       "id": "F-0006",
       "impact": 2,
       "measured": null,
-      "note": "Lighthouse frame-title + grep of iframe tags",
+      "note": "live about, contact and book-now iframes carry title=Map: Mosaic Hostel...",
       "priority": 2.0,
       "sources": [
         "seo-unlighthouse"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-06"
     }
   ],
