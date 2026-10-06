@@ -183,7 +183,31 @@
       ],
       "status": "deployed",
       "updated": "2026-10-06"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-06",
+        "metric": "gsc.urls_indexed",
+        "value": 17
+      },
+      "check": null,
+      "claim": "Dead URLs with GA4 views or Bing impressions return 404: /policies.html, /Website/privacy.html, /backpackers-guide-assi-ghat-varanasi/, /blog/post.html",
+      "commit": "56e110b",
+      "confidence": 0.9,
+      "created": "2026-10-06",
+      "effort": 1,
+      "evidence": "GA4 pages: /policies.html 5 views, /Website/privacy.html 2; Bing page_stats /backpackers-guide... 4 impressions; all 404 live before",
+      "id": "F-0009",
+      "impact": 2,
+      "measured": null,
+      "note": "live: each returns one 301 then 200 (/policies.html lands on /book-now#faq-heading); 44-URL suite 0 failures",
+      "priority": 1.8,
+      "sources": [
+        "seo-technical"
+      ],
+      "status": "deployed",
+      "updated": "2026-10-06"
     }
   ],
-  "next_id": 9
+  "next_id": 10
 }
