@@ -22,20 +22,17 @@ Static website for Mosaic Hostel Varanasi, built with HTML, CSS, and JavaScript.
 ## Key Files
 
 - **index.html** - Homepage
-- **blog.html** - Blog listing page
-- **blog/post.html** - Blog post template (renders via components/blog-renderer.js)
-- **components/blog-renderer.js** - Dynamic blog rendering with markdown fetch
+- **blog/index.html** - Blog listing page
+- **blog/<slug>/index.html** - One static page per blog post
 - **components/site.js** - Site navigation and common functionality
 - **styles/global.css** - Global styles
 - **.htaccess** - Apache server configuration
 
 ## Blog System
 
-Blog posts are markdown files in `/blogs/` directory. The blog system:
-1. Fetches markdown files via `components/blog-renderer.js`
-2. Uses `marked.js` library for markdown parsing
-3. Supports absolute and relative URL fallback for markdown fetching
-4. Includes server-side caching headers for performance
+Blog posts are static HTML pages, one folder per post: `blog/<slug>/index.html`. Each carries its own canonical URL,
+JSON-LD and "Read Next" links, and is listed in `blog/index.html` and `sitemap.xml`. There is no markdown fetching or
+client-side rendering. Old URLs that moved are handled by the 301 rules in `.htaccess`.
 
 ## Deployment
 
@@ -57,7 +54,6 @@ FTP Configuration:
 
 - No build process required for deployment
 - All JavaScript loaded client-side
-- Blog system uses relative URLs for markdown fetch
 - CSS is minified in global.css
 
 ## Last Updated
