@@ -217,6 +217,16 @@
   RewriteRule ^blog/assi-ghate-vs-dashashwamedh-where-to-stay/?$ /blog/assi-ghat-vs-dashashwamedh-where-to-stay/ [R=301,L]
   RewriteRule ^blog/is-vaganas-safe-general-guide/?$ /blog/is-varanasi-safe-general-guide/ [R=301,L]
 
+  # Dead URLs that still got visits or crawls and returned 404 (GA4 page views and Bing
+  # impressions, checked 2026-10-06): /policies.html (5 views; lands on the visible Booking FAQs,
+  # which cover cancellation, ID and check-in/out), /Website/privacy.html (2),
+  # /backpackers-guide-assi-ghat-varanasi/ with no /blog/ prefix (4 Bing impressions).
+  # /blog/post.html was the old blog template (200 + noindex) before it was removed.
+  RewriteRule ^policies(\.html)?/?$ /book-now#faq-heading [R=301,NE,L]
+  RewriteRule ^Website/privacy\.html$ /privacy [R=301,L]
+  RewriteRule ^backpackers-guide-assi-ghat-varanasi/?$ /blog/assi-ghat-varanasi-complete-guide/ [R=301,L]
+  RewriteRule ^blog/post\.html$ /blog/ [R=301,L]
+
   # Normalize trailing slash on core pages to the non-slash canonical form
   # (these are .html files, not directories, unlike /blog/<slug> — both
   # /about and /about/ were silently serving 200 with no redirect, a
