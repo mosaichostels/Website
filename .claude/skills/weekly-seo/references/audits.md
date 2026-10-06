@@ -23,7 +23,7 @@ claude-seo capability belongs in the concurrent batch.
 
 **Local + GBP (2)**
 - `claude-seo:seo-local` — GBP signals, NAP consistency, citations, reviews, local schema, from what the site itself exposes
-- `claude-seo:seo-maps` — Maps Health Score, cross-platform NAP (Google/Bing/Apple/OSM), Tier 0 free APIs (Nominatim, Overpass); upgrades to live GBP profile/review/post data only if DataForSEO MCP tools are connected (not configured here — see the browser deep-dive below for the live-listing gap this leaves)
+- `claude-seo:seo-maps` — Maps Health Score, cross-platform NAP (Google/Bing/Apple/OSM), Tier 0 free APIs (Nominatim, Overpass); upgrades to live GBP profile/review/post data only if DataForSEO MCP tools are connected (not configured here — this leaves the live-listing gap open until GBP API access is used, see the `seo-local` note below)
 
 **Content Quality (3)**
 - `claude-seo:seo-content` — E-E-A-T signals, thin content, AI citation readiness
