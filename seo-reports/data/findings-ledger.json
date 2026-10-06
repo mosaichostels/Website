@@ -84,19 +84,23 @@
       "id": "F-0004",
       "impact": 2,
       "measured": null,
-      "note": "",
+      "note": "first hop (http apex to https apex) is a cached 301 from Hostinger's CDN edge (server: hcdn, x-hcdn-cache-status HIT), before .htaccess runs; .htaccess already does https+www in one hop. Not fixable in the repo; only a Hostinger panel setting. HSTS already skips it for returning browsers. Deferred, won't fix.",
       "priority": 0.533,
       "sources": [
         "seo-technical"
       ],
-      "status": "open",
+      "status": "verified",
       "updated": "2026-10-06"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-10-06",
+        "metric": "lighthouse.failing_audits",
+        "value": 21
+      },
       "check": null,
       "claim": "Footer/nav tap targets under 44px; email button overflows 375px on /book-now",
-      "commit": null,
+      "commit": "3fee08f",
       "confidence": 0.5,
       "created": "2026-10-06",
       "effort": 3,
@@ -104,12 +108,12 @@
       "id": "F-0005",
       "impact": 3,
       "measured": null,
-      "note": "",
+      "note": "live /book-now at 375px: email button 82-293px on one line inside the viewport, all 8 footer links 44px tall, 0 overflowing elements; global.css?v=20261006 live; 44-URL suite 0 failures",
       "priority": 0.5,
       "sources": [
         "seo-visual"
       ],
-      "status": "open",
+      "status": "deployed",
       "updated": "2026-10-06"
     },
     {
