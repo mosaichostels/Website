@@ -62,3 +62,7 @@
     diagnose before rewriting the title.
   - Best non-branded opportunity: `hostels near assi ghat`, 149 impressions at
     position 15.0, zero clicks. High commercial intent, stuck on page two.
+
+## Properties (verified in the Search Console UI, 2026-10-06)
+
+Only the URL-prefix property `https://www.mosaichostels.com/` exists for this account (plus an Instagram channel). There is no `sc-domain:mosaichostels.com` property, so any call to it returns 403 for every account: do not try `sc-domain:` names or other host variants. `mosaic-seo-weekly@ai-seo-manager.iam.gserviceaccount.com` is Owner on the URL-prefix property; `GSC_PROPERTY` and `~/.config/claude-seo/google-api.json` already point at it.
