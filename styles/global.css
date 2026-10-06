@@ -80,3 +80,10 @@ h2.direct-title,h2.section-title{margin-top:0}
 /* Contrast: success text was ~2.9:1, inactive step labels were 10px at 50% opacity. */
 .form-msg.success{color:#0f7a3c}
 .widget-steps li{opacity:.75}
+/* Phones: .email-btn was ~347px wide in a 255px column (4px letter-spacing + 36px padding) and its right edge was
+   clipped; footer links were only 18px tall. Desktop is unchanged. */
+@media (max-width:768px){
+  .email-btn{padding:14px 12px;gap:8px;font-size:10px;letter-spacing:1px;max-width:100%;box-sizing:border-box;overflow-wrap:anywhere}
+  .footer-links{gap:0}
+  .footer-links a{display:flex;align-items:center;min-height:44px}
+}
