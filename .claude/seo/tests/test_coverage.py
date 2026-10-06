@@ -28,7 +28,7 @@ class TestCoverage(unittest.TestCase):
         items = cl.init(self.date, self.tmp)["items"]
         self.assertEqual(items["extract:gsc"]["status"], "done")
         self.assertEqual(items["extract:ga4"]["status"], "pending")
-        self.assertEqual(items["browser:gbp"]["status"], "pending")
+        self.assertEqual(items["audits:claude-seo-14"]["status"], "pending")
         self.assertEqual(items["query-discovery"]["status"], "pending")
 
     def test_query_discovery_marks_stale_data_blocked_with_reason(self):
@@ -53,11 +53,6 @@ class TestCoverage(unittest.TestCase):
         self.assertEqual(item["status"], "blocked")
         self.assertIn("503", item["reason"])
 
-    def test_manual_signal_absence_is_explicit_for_each_source(self):
-        items = cl.init(self.date, self.tmp)["items"]
-        for source in ("gbp-reviews", "bing-ui-links", "rank-ai"):
-            self.assertEqual(items[f"extract:{source}"]["status"], "pending")
-
     def test_informational_notes_keep_a_base_extractor_done(self):
         self.write_metrics("bing", ["link_counts empty: Bing's API undercounts inbound links"])
         item = cl.init(self.date, self.tmp)["items"]["extract:bing"]
@@ -70,7 +65,7 @@ class TestCoverage(unittest.TestCase):
         self.assertIn("HTTP 502", item["reason"])
 
     def test_init_keeps_manual_marks_on_the_new_extractor_items(self):
-        new = ("booking-probe", "gbp-reviews", "bing-ui-links", "rank-ai")
+        new = ("booking-probe",)
         cl.init(self.date, self.tmp)
         for source in new:
             cl.mark(self.date, f"extract:{source}", "skipped", "not run today", self.tmp)
@@ -80,7 +75,7 @@ class TestCoverage(unittest.TestCase):
 
     def test_check_lists_every_pending_item(self):
         cl.init(self.date, self.tmp)
-        self.assertEqual(len(cl.check(self.date, self.tmp)), len(cl.SOURCES) + len(cl.MANUAL) + 5)
+        self.assertEqual(len(cl.check(self.date, self.tmp)), len(cl.SOURCES) + len(cl.MANUAL) + 2)
 
     def test_check_without_a_ledger_says_so(self):
         self.assertIn("no coverage.json", cl.check(self.date, self.tmp)[0])
@@ -88,32 +83,30 @@ class TestCoverage(unittest.TestCase):
     def test_mark_requires_a_reason_unless_done(self):
         cl.init(self.date, self.tmp)
         with self.assertRaises(ValueError):
-            cl.mark(self.date, "browser:gbp", "skipped", "  ", self.tmp)
-        cl.mark(self.date, "browser:gbp", "done", "", self.tmp)
-        cl.mark(self.date, "browser:gcp", "blocked", "login gate", self.tmp)
-        self.assertNotIn("browser:gbp: pending", cl.check(self.date, self.tmp))
+            cl.mark(self.date, "audits:claude-seo-14", "skipped", "  ", self.tmp)
+        cl.mark(self.date, "audits:claude-seo-14", "done", "", self.tmp)
+        cl.mark(self.date, "audits:skill-3", "blocked", "login gate", self.tmp)
+        self.assertNotIn("audits:claude-seo-14: pending", cl.check(self.date, self.tmp))
 
     def test_mark_rejects_unknown_item_and_status(self):
         cl.init(self.date, self.tmp)
         with self.assertRaises(ValueError):
-            cl.mark(self.date, "browser:nope", "done", "", self.tmp)
+            cl.mark(self.date, "audits:nope", "done", "", self.tmp)
         with self.assertRaises(ValueError):
-            cl.mark(self.date, "browser:gbp", "finished", "x", self.tmp)
+            cl.mark(self.date, "audits:claude-seo-14", "finished", "x", self.tmp)
 
     def test_init_keeps_manual_marks_and_explicit_extractor_skips(self):
         cl.init(self.date, self.tmp)
-        cl.mark(self.date, "browser:gbp", "blocked", "login gate", self.tmp)
+        cl.mark(self.date, "audits:claude-seo-14", "blocked", "login gate", self.tmp)
         cl.mark(self.date, "extract:clarity", "skipped", "daily quota used", self.tmp)
         items = cl.init(self.date, self.tmp)["items"]
-        self.assertEqual(items["browser:gbp"], {"status": "blocked", "reason": "login gate"})
+        self.assertEqual(items["audits:claude-seo-14"], {"status": "blocked", "reason": "login gate"})
         self.assertEqual(items["extract:clarity"], {"status": "skipped", "reason": "daily quota used"})
 
     def test_complete_run_passes_check(self):
         for s in cl.SOURCES:
             self.write_metrics(s)
         self.write_metrics("booking-probe")
-        for source in ("gbp-reviews", "bing-ui-links", "rank-ai"):
-            self.write_metrics(source)
         (self.tmp / "data" / self.date / "tracked-queries.json").write_text(json.dumps({
             "stale_queries": False, "errors": [], "google": [{"query": "x"}]}))
         cl.init(self.date, self.tmp)
@@ -125,8 +118,8 @@ class TestCoverage(unittest.TestCase):
         p = self.tmp / "data" / self.date
         p.mkdir(parents=True)
         (p / "coverage.json").write_text(json.dumps(
-            {"date": self.date, "items": {"browser:gbp": {"status": "skipped", "reason": ""}}}))
-        self.assertEqual(cl.check(self.date, self.tmp), ["browser:gbp: skipped without a reason"])
+            {"date": self.date, "items": {"audits:claude-seo-14": {"status": "skipped", "reason": ""}}}))
+        self.assertEqual(cl.check(self.date, self.tmp), ["audits:claude-seo-14: skipped without a reason"])
 
 
 if __name__ == "__main__":

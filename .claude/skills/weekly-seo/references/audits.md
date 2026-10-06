@@ -108,10 +108,10 @@ NAP extraction and cross-source consistency (visible HTML vs JSON-LD vs meta),
 LocalBusiness schema validation, review/rating signals visible in markup,
 Tier-1 citation presence, GBP widgets/embeds on-page. Reads only what
 mosaichostels.com itself exposes — it never touches the live GBP listing.
-That gap is exactly what the browser deep-dive below closes.
+That gap stays open unless the GBP API is approved (not configured).
 
 **`seo-maps` — cross-platform local presence.** Tier 0 (free, no DataForSEO
 configured here): Nominatim geocoding, Overpass competitor discovery in
 Varanasi, a static GBP completeness checklist, and cross-platform presence
 guidance (Bing Places, Apple Maps, OSM). Cannot geo-grid rank or pull live
-review/post data at this tier — same gap, same fix: the browser deep-dive.
+review/post data at this tier — same gap: it needs GBP API access (not configured).

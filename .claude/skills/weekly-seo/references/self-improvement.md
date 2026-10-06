@@ -9,8 +9,8 @@ Two different things live in the matching `references/*.md` file, and only one o
 - **Facts about the world** — standing-finding blocks, discovered URL
   patterns, DOM quirks, resolved gaps. These decay by design and are meant to
   be overwritten. Update these every run, right in the matching `references/*.md` file.
-- **Rules about behavior** — the scope lock, the read-only/exceptions list in
-  the browser deep-dive, anything that would need a permission grant. These
+- **Rules about behavior** — the scope lock, anything that would need a
+  permission grant. These
   never self-update. A rule changes only when the owner asks for it in
   conversation, the same way every boundary in this file changed so far.
   Earlier attempts in this skill's own history to have it grant itself new
