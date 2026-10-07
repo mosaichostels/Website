@@ -100,12 +100,14 @@ assert(parse_strict_date('2026-02-29') === null);
 assert(MAX_STAY_NIGHTS <= 30);
 
 // 6. Refund window. This decides whether a cancelling guest is told they get
-// their money back, so both sides of the 72-hour boundary are pinned. Check-in
-// is 1:00 PM, so the boundary for a 15 Sep check-in is 1:00 PM on 12 Sep.
-$boundary = strtotime('2026-09-12 13:00:00');
+// their money back, so both sides of the 72-hour boundary are pinned. The window
+// is measured from the START of the check-in date (00:00), matching the policy wording, so the
+// boundary for a 15 Sep check-in is midnight at the start of 12 Sep.
+$boundary = strtotime('2026-09-12 00:00:00');
 assert(refund_due_for_checkin('2026-09-15', $boundary - 1) === true);   // a second before: refund
 assert(refund_due_for_checkin('2026-09-15', $boundary) === true);       // exactly 72h: refund
 assert(refund_due_for_checkin('2026-09-15', $boundary + 1) === false);  // a second after: none
+assert(refund_due_for_checkin('2026-09-15', strtotime('2026-09-12 12:00:00')) === false); // was refundable under the old 13:00 cutoff
 assert(refund_due_for_checkin('2026-09-15', strtotime('2026-09-15 12:00:00')) === false);
 assert(refund_due_for_checkin('2026-09-15', strtotime('2026-09-01 09:00:00')) === true);
 // Already past check-in — no refund, and it must not wrap to true.
@@ -115,5 +117,57 @@ assert(refund_due_for_checkin(null) === null);
 assert(refund_due_for_checkin('') === null);
 assert(refund_due_for_checkin('not-a-date') === null);
 assert(refund_due_for_checkin('2026-02-30') === null);
+
+// 5. Automatic refund on an eligible cancellation. The request is a FULL refund (no amount, so the
+// total can never be mis-converted), normal speed, and carries the reservation as the idempotency key
+// so a retried cancel can never refund twice.
+$req = razorpay_refund_request('pay_AbC123', 'mosaic-cancel-RES-1', ['reservation_no' => 'RES-1']);
+assert($req['path'] === '/v1/payments/pay_AbC123/refund');
+assert(!array_key_exists('amount', $req['body']));
+assert($req['body']['speed'] === 'normal');
+assert($req['body']['notes']['reservation_no'] === 'RES-1');
+assert(in_array('X-Refund-Idempotency: mosaic-cancel-RES-1', $req['headers'], true));
+assert(razorpay_refund_request('pay_a/b?x', 'k', [])['path'] === '/v1/payments/pay_a%2Fb%3Fx/refund'); // never injects path
+
+$calls = [];
+$ok = function (string $pid, string $key, array $notes) use (&$calls): array {
+  $calls[] = [$pid, $key]; return ['_ok' => true, 'id' => 'rfnd_X1', 'status' => 'pending'];
+};
+$refusing = function (string $pid, string $key, array $notes) use (&$calls): array {
+  $calls[] = [$pid, $key]; return ['_ok' => false, '_error' => 'The payment has been fully refunded already'];
+};
+$throwing = function (string $pid, string $key, array $notes): array { throw new RuntimeException('network down'); };
+$failedStatus = function (string $pid, string $key, array $notes): array { return ['_ok' => true, 'id' => 'rfnd_X2', 'status' => 'failed']; };
+$noId = function (string $pid, string $key, array $notes): array { return ['_ok' => true]; };
+
+// Inside the 72h window: never refund, never even call Razorpay.
+$calls = []; $r = cancellation_refund_outcome(false, 'pay_1', 'RES-1', $ok);
+assert($r['action'] === 'none' && $calls === [] && str_contains($r['note'], 'not refundable'));
+// Date unreadable: promise nothing, leave it to a person.
+$calls = []; $r = cancellation_refund_outcome(null, 'pay_1', 'RES-1', $ok);
+assert($r['action'] === 'manual' && $calls === [] && str_contains($r['note'], 'confirm'));
+// Eligible but no payment id on record: a person must look.
+foreach ([null, ''] as $noPay) {
+  $calls = []; $r = cancellation_refund_outcome(true, $noPay, 'RES-1', $ok);
+  assert($r['action'] === 'manual' && $calls === []);
+}
+// Eligible and Razorpay accepts: one call, right payment, reservation-keyed idempotency.
+$calls = []; $r = cancellation_refund_outcome(true, 'pay_1', 'RES-1', $ok);
+assert($r['action'] === 'refunded' && $r['refund_id'] === 'rfnd_X1' && $calls === [['pay_1', 'mosaic-cancel-RES-1']]);
+assert(str_contains($r['note'], 'initiated') && str_contains($r['note'], '7–10 business days'));
+// Eligible but Razorpay refuses: fall back to the manual path and keep the reason; the guest is not told it was sent.
+$calls = []; $r = cancellation_refund_outcome(true, 'pay_1', 'RES-1', $refusing);
+assert($r['action'] === 'manual' && str_contains($r['reason'], 'fully refunded already') && !str_contains($r['note'], 'initiated'));
+// A crash or a reply without a refund id is also a failure, never a success.
+$r = cancellation_refund_outcome(true, 'pay_1', 'RES-1', $throwing);
+assert($r['action'] === 'manual' && str_contains($r['reason'], 'network down'));
+$r = cancellation_refund_outcome(true, 'pay_1', 'RES-1', $noId);
+assert($r['action'] === 'manual');
+// A refund object with status 'failed' has an id but no money moves: manual, never "initiated".
+$r = cancellation_refund_outcome(true, 'pay_1', 'RES-1', $failedStatus);
+assert($r['action'] === 'manual' && !str_contains($r['note'], 'initiated') && str_contains($r['reason'], 'failed'));
+// Razorpay needs an idempotency key of at least 10 characters; even a 1-character reservation number must get one.
+$calls = []; cancellation_refund_outcome(true, 'pay_1', 'A', $ok);
+assert(strlen($calls[0][1]) >= 10);
 
 echo "All selftest assertions passed.\n";
