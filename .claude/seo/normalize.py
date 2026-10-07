@@ -207,8 +207,29 @@ def commoncrawl(b):
     return _out("commoncrawl", b["generated"], (gen, gen), m, errors)
 
 
+def gbp(b):
+    rows = [(_day(r["date"]), r["metric"], r["value"]) for r in b.get("daily", [])]
+    errors = list(b.get("errors", []))
+    win = _window([d for d, _, _ in rows], errors)
+    m = dict.fromkeys(("impressions_search", "impressions_maps", "website_clicks", "call_clicks",
+                       "direction_requests", "bookings"))
+    if win:
+        def tot(pred):
+            return sum(v for d, k, v in rows if win[0] <= d <= win[1] and pred(k))
+        m.update(impressions_search=tot(lambda k: k.startswith("BUSINESS_IMPRESSIONS") and "SEARCH" in k),
+                 impressions_maps=tot(lambda k: k.startswith("BUSINESS_IMPRESSIONS") and "MAPS" in k),
+                 website_clicks=tot(lambda k: k == "WEBSITE_CLICKS"), call_clicks=tot(lambda k: k == "CALL_CLICKS"),
+                 direction_requests=tot(lambda k: k == "BUSINESS_DIRECTION_REQUESTS"),
+                 bookings=tot(lambda k: k == "BUSINESS_BOOKINGS"))
+    s = b.get("review_summary") or {}
+    m["rating_avg"] = _num(s.get("averageRating"))
+    m["reviews_total"] = _num(s.get("totalReviewCount"))
+    m["reviews_unanswered"] = sum(1 for r in b.get("reviews", []) if not r.get("reviewReply")) if b.get("reviews") else None
+    return _out("gbp", b["generated"], win, m, errors)
+
+
 NORMALIZERS = {"gsc": gsc, "ga4": ga4, "bing": bing, "clarity": clarity,
-               "cwv": cwv, "lighthouse": lighthouse, "commoncrawl": commoncrawl}
+               "cwv": cwv, "lighthouse": lighthouse, "commoncrawl": commoncrawl, "gbp": gbp}
 
 
 def validate(doc):

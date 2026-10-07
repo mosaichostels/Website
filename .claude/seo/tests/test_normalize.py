@@ -18,7 +18,9 @@ def stage(sources, dates=DATES):
     for s in sources:
         (tmp / s).mkdir()
         for d in dates:
-            shutil.copy(REAL / s / f"{d}.json", tmp / s / f"{d}.json")
+            src = REAL / s / f"{d}.json"
+            if src.exists():  # a source added later (gbp) has no bundle for older fixture dates
+                shutil.copy(src, tmp / s / f"{d}.json")
     return tmp
 
 
@@ -31,7 +33,8 @@ class TestNormalize(unittest.TestCase):
             paths, failures = normalize.run(d, reports=cls.tmp)
             assert not failures, failures
             for source, path in paths.items():
-                cls.docs[(source, d)] = json.loads(path.read_text())
+                if path:
+                    cls.docs[(source, d)] = json.loads(path.read_text())
 
     @classmethod
     def tearDownClass(cls):
@@ -147,11 +150,34 @@ class TestNormalize(unittest.TestCase):
         self.assertTrue(d["errors"][0].startswith("CC-MAIN-2026-30: HTTP 502"))
         self.assertNotIn("\n", d["errors"][0])
 
-    def test_all_seven_sources_are_normalized(self):
+    def test_every_source_is_registered_and_fixtures_normalize(self):
         self.assertEqual(list(normalize.NORMALIZERS),
-                         ["gsc", "ga4", "bing", "clarity", "cwv", "lighthouse", "commoncrawl"])
-        for d in DATES:
-            self.assertEqual({s for s, day in self.docs if day == d}, set(normalize.NORMALIZERS))
+                         ["gsc", "ga4", "bing", "clarity", "cwv", "lighthouse", "commoncrawl", "gbp"])
+        for d in DATES:  # gbp has no committed fixture for these dates
+            self.assertEqual({s for s, day in self.docs if day == d}, set(normalize.NORMALIZERS) - {"gbp"})
+
+    def test_gbp_window_totals_and_review_metrics(self):
+        rows = []
+        for i in range(40):  # 40 days; only the last 28 count
+            day = f"2026-09-{i + 1:02d}" if i < 30 else f"2026-10-{i - 29:02d}"
+            rows += [{"date": day, "metric": "WEBSITE_CLICKS", "value": 1},
+                     {"date": day, "metric": "BUSINESS_IMPRESSIONS_MOBILE_SEARCH", "value": 10},
+                     {"date": day, "metric": "BUSINESS_IMPRESSIONS_DESKTOP_MAPS", "value": 2}]
+        b = {"generated": "2026-10-11T00:00:00", "daily": rows, "errors": [],
+             "review_summary": {"averageRating": 4.5, "totalReviewCount": 71},
+             "reviews": [{"reviewReply": {"comment": "x"}}, {}, {}]}
+        d = normalize.gbp(b)
+        normalize.validate(d)
+        m = d["metrics"]
+        self.assertEqual((m["website_clicks"], m["impressions_search"], m["impressions_maps"]), (28, 280, 56))
+        self.assertEqual((m["rating_avg"], m["reviews_total"], m["reviews_unanswered"]), (4.5, 71, 2))
+        self.assertEqual(d["window"]["days"], 28)
+
+    def test_gbp_without_data_is_null_not_zero(self):
+        d = normalize.gbp({"generated": "2026-10-11T00:00:00", "daily": [], "errors": ["daily_metrics: HTTP 403"]})
+        self.assertIsNone(d["metrics"]["website_clicks"])
+        self.assertIsNone(d["metrics"]["reviews_unanswered"])
+        self.assertIn("daily_metrics: HTTP 403", d["errors"])
 
     def test_run_survives_any_exception_from_a_normalizer(self):
         tmp = stage(["ga4"])
