@@ -238,12 +238,12 @@
       "id": "F-0010",
       "impact": 3,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 1.2,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-07"
     },
     {
@@ -268,12 +268,12 @@
       "id": "F-0011",
       "impact": 3,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 2.7,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-07"
     },
     {
@@ -298,12 +298,12 @@
       "id": "F-0012",
       "impact": 2,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 1.8,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-07"
     },
     {
@@ -328,12 +328,12 @@
       "id": "F-0013",
       "impact": 3,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 3.0,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-07"
     },
     {
@@ -358,12 +358,12 @@
       "id": "F-0014",
       "impact": 1,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 1.0,
       "sources": [
         "seo-schema"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-07"
     },
     {
@@ -388,12 +388,12 @@
       "id": "F-0015",
       "impact": 2,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 1.8,
       "sources": [
         "seo-geo"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-07"
     },
     {
@@ -412,12 +412,12 @@
       "id": "F-0016",
       "impact": 1,
       "measured": null,
-      "note": "ls shows blog/top-7-experiences-varanasi-traveler/index.html and blogs/top-7-experiences-varanasi-traveler.md exist; .htaccess 301 present, no inbound links",
+      "note": "live URL 301s to things-to-do; removed files were never linked and the redirect is unaffected",
       "priority": 1.0,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-07"
     }
   ],
