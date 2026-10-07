@@ -27,6 +27,8 @@ Write `seo-reports/YYYY-MM-DD.md`:
    List `tracked-queries.json` selection and its evidence window; if
    `stale_queries` is true, say why and do not call reused positions fresh.
 
+3a. **Google Business Profile** (no extractor yet, pulled with the `mosaic-gbp` MCP, see `gbp.md`): rating and review count, unanswered reviews, impressions, direction requests, calls, website clicks, top keywords, and any profile gap. Say if the MCP was down.
+3b. **Platform UI findings** (Search Console coverage and links, GA4 Admin settings, Clarity AI Visibility and settings, Bing Recommendations and AI Performance): include when the owner asked for a browser audit; procedure and last snapshot in `browser-audit.md`. Settings the classifier blocked go under "Needs a human".
 3. **AI visibility** — crawler reachability table, Common Crawl capture count,
    Google and Bing index presence. The capture count is the clearest single
    number for whether LLMs can see this site; track it every week.

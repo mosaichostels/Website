@@ -66,3 +66,10 @@
 ## Properties (verified in the Search Console UI, 2026-10-06)
 
 Only the URL-prefix property `https://www.mosaichostels.com/` exists for this account (plus an Instagram channel). There is no `sc-domain:mosaichostels.com` property, so any call to it returns 403 for every account: do not try `sc-domain:` names or other host variants. `mosaic-seo-weekly@ai-seo-manager.iam.gserviceaccount.com` is Owner on the URL-prefix property; `GSC_PROPERTY` and `~/.config/claude-seo/google-api.json` already point at it.
+
+## Added 2026-10-07
+
+- **`gsc-sitemap-submit.py --submit` now resubmits both `sitemap.xml` and `sitemap-images.xml`.** Before this, a changed image sitemap was never resubmitted (it was missed on 2026-10-07). `--self-check` is unchanged.
+- URL Inspection "Request indexing" is not in any API. It was done through the owner's signed-in Chrome for `/blog/dorm-vs-private-room-varanasi-hostel/`, `/about`, `/contact` and `/blog/` (see `browser-audit.md` for the procedure). Re-inspect with the API about a week later.
+- The Search Console UI knows **9 external links from 8 sites**, which corrects any earlier "no inbound links" claim. The 28 non-indexed pages are mostly legacy WordPress URLs that already 301 on the live site; check live status before acting on a coverage row.
+- The `mosaic-gsc` MCP is unauthenticated (use the service-account scripts), and the service account is Owner on the URL-prefix property only.
