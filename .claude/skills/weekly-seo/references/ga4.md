@@ -53,3 +53,10 @@
   - `landingPagePlusQueryString` treats `?fbclid=…` permutations as separate
     pages. The extractor drops rows under 2 sessions from the listing; the raw
     bundle keeps everything.
+
+## Added 2026-10-07
+
+- **Lead events shipped.** `components/site.js` now sends GA4 `generate_lead` with `method` = `phone` (tel: links), `whatsapp` (wa.me links, except the post-payment "I just paid" support link) or `contact_form` (the contact form's WhatsApp hand-off, via `window.MOSAIC.trackLead` in `contact.js`). Cache-bust `?v=20261007` on every page loading `site.js`; verified in a real browser against `window.dataLayer`. GA4 only lists the event after it arrives; the owner must then mark `generate_lead` as a key event in the UI (the classifier blocks scripted setting changes).
+- Admin and funnel findings (retention 2 months, Internal Traffic filter in Testing, USD currency, only `purchase` as key event, checkout to payment-info drop 20 to 6 users) are in `browser-audit.md`. Still owner actions: retention to 14 months, activate the Internal Traffic filter once the owner's IP is defined, currency INR, mark `generate_lead` as a key event.
+- Property id is `507278393` (account `a370253507`). The GA4 MCP's Admin-API tools need the Google Cloud API enabled (see `browser-audit.md`).
+- `/book-now.html`, `/policies.html` and `/Website/privacy.html` still show GA4 views from old links; all 301 on the live site, so no fix is needed.
