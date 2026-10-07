@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-07",
+  "items": {
+    "ai-visibility": {
+      "reason": "ai-visibility.sh ran 2026-10-07; bingbot, Amazonbot and meta-externalagent got 429",
+      "status": "done"
+    },
+    "audits:claude-seo-14": {
+      "reason": "all 14 agents reported 2026-10-07; seo-flow lacked its prompt files, seo-visual used a scratchpad venv",
+      "status": "done"
+    },
+    "audits:skill-3": {
+      "reason": "not run as Skill calls: seo-unlighthouse covered by the lighthouse extractor, seo-bing by the bing extractor, seo-audit duplicates the 14 agents (audits.md: cross-check only); owner informed",
+      "status": "skipped"
+    },
+    "extract:bing": {
+      "reason": "1 informational note(s)",
+      "status": "done"
+    },
+    "extract:booking-probe": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:clarity": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:commoncrawl": {
+      "reason": "CC-MAIN-2026-30: HTTP 502 <html> <head><title>502 Bad Gateway</title></head> ",
+      "status": "blocked"
+    },
+    "extract:cwv": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:ga4": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gsc": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:lighthouse": {
+      "reason": "",
+      "status": "done"
+    },
+    "query-discovery": {
+      "reason": "",
+      "status": "done"
+    }
+  }
+}

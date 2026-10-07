@@ -1,0 +1,20 @@
+{
+  "errors": [
+    "CC-MAIN-2026-30: HTTP 502 <html> <head><title>502 Bad Gateway</title></head> "
+  ],
+  "fetched_at": "2026-10-07T14:31:43",
+  "findings": [],
+  "metrics": {
+    "captures_total": 0,
+    "ccbot_urls_checked": 4,
+    "ccbot_urls_ok": 4,
+    "crawls_checked": 12,
+    "crawls_errored": 1
+  },
+  "source": "commoncrawl",
+  "window": {
+    "days": 1,
+    "end": "2026-10-07",
+    "start": "2026-10-07"
+  }
+}
