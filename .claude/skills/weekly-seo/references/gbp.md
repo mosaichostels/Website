@@ -45,3 +45,12 @@ Writes run only when the owner asks for that exact action (see the MCP rule in S
 ## Owner's reply voice (use for any future reply)
 
 Thank the guest by name; echo one specific thing they said; keep replies short for short reviews; for 3 stars or less apologise sincerely and invite them to contact the hostel directly; end with a hope to welcome them back. No emoji, no prices, no claims the reviewer did not make. Seven replies in this voice were posted on 2026-10-07 (Rajat, Satabdi, Dishant, Sonu, "The Dramatic Things", Shashikant, "shukla sir5").
+
+## Lodging data: amenities, languages, hours (2026-10-07)
+
+For this lodging listing Google allows only 10 normal attributes (LGBTQ+ friendly, Facebook/Instagram/LinkedIn/Pinterest/X/YouTube/WhatsApp links, texting number, preferred chat app). Amenities, languages spoken and check-in times live in the **My Business Lodging API** (`mybusinesslodging.googleapis.com/v1/locations/<id>/lodging`), which the `mosaic-gbp` MCP does not wrap, so it is called directly with the same OAuth login (it must be enabled in the Google Cloud project; the owner enabled it on 2026-10-07).
+
+- Read needs `readMask` (`*` works). Update is `PATCH ...?updateMask=<field paths>` and the body **must include `metadata.updateTime`** (any current UTC timestamp) plus `name`. `allUnits` and `someUnits` are output-only (derived from `guestUnits`); set room features through `guestUnits` instead. Repeated fields such as `languagesSpoken` are replaced whole.
+- Set on 2026-10-07 from site facts: `connectivity.wifiAvailable` and `freeWifi`, `services.twentyFourHourFrontDesk` and `frontDesk`, `services.languagesSpoken` = English and Hindi, `commonLivingArea.eating.kitchenAvailable`, `policies.checkinTime` 13:00 and `checkoutTime` 10:30. The record was empty before. Not set (not clearly stated on the site or needs `guestUnits`): air conditioning, in-room showers, baggage storage, rooftop.
+- There is no "Book a room" place action type (types are appointment, food ordering/delivery/takeout, dining reservation, shop online), so a Book button is not available through the profile API; booking buttons come through Google's hotel programme.
+
