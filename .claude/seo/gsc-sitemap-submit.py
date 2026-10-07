@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Resubmit sitemap.xml to Search Console, or list its state read-only.
+"""Resubmit sitemap.xml and sitemap-images.xml to Search Console, or list their state read-only.
 
     ~/.config/mosaic-seo/venv/bin/python3 .claude/seo/gsc-sitemap-submit.py --self-check
     ~/.config/mosaic-seo/venv/bin/python3 .claude/seo/gsc-sitemap-submit.py --submit
@@ -26,15 +26,17 @@ if not PROP:
     sys.exit(1)
 
 SA = os.path.expanduser("~/.config/mosaic-seo/gcp-sa.json")
-FEED = os.environ.get("SITE_URL", "https://www.mosaichostels.com").rstrip("/") + "/sitemap.xml"
+BASE = os.environ.get("SITE_URL", "https://www.mosaichostels.com").rstrip("/")
+FEEDS = [f"{BASE}/sitemap.xml", f"{BASE}/sitemap-images.xml"]
 
 creds = service_account.Credentials.from_service_account_file(
     SA, scopes=["https://www.googleapis.com/auth/webmasters"])
 svc = build("searchconsole", "v1", credentials=creds, cache_discovery=False)
 
 if mode == "--submit":
-    svc.sitemaps().submit(siteUrl=PROP, feedpath=FEED).execute()
-    print(f"submitted {FEED}")
+    for feed in FEEDS:
+        svc.sitemaps().submit(siteUrl=PROP, feedpath=feed).execute()
+        print(f"submitted {feed}")
 
 for sm in svc.sitemaps().list(siteUrl=PROP).execute().get("sitemap", []):
     print(f"{sm.get('path')}  lastSubmitted={sm.get('lastSubmitted')}  "
