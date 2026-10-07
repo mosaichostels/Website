@@ -131,7 +131,7 @@ teaches crawlers your submissions are noise).
 
 ```bash
 ./scripts/indexnow-submit.sh --since "$BASE"      # $BASE = commit before this run's first fix; Bing, Yandex, Seznam
-"$SEOPY" .claude/seo/gsc-sitemap-submit.py --submit                 # Google: resubmit sitemap.xml
+"$SEOPY" .claude/seo/gsc-sitemap-submit.py --submit                 # Google: resubmit sitemap.xml and sitemap-images.xml
 ```
 
 Do not use Google's Indexing API here: it is limited to `JobPosting` and
