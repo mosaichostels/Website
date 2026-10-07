@@ -215,7 +215,211 @@
       ],
       "status": "deployed",
       "updated": "2026-10-06"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-07",
+        "metric": "gsc.impressions",
+        "value": 2777
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+        "pattern": "is-varanasi-safe-general-guide",
+        "target": "blog/assi-ghat-varanasi-complete-guide/index.html",
+        "where": "local"
+      },
+      "claim": "Pillar Assi Ghat guide does not link to 7 of 13 spokes (is-varanasi-safe, dorm-vs-private, backpacker-budget, co-working, sarnath, 2-day, 3-5-day)",
+      "commit": "015e27c",
+      "confidence": 0.8,
+      "created": "2026-10-07",
+      "effort": 2,
+      "evidence": "grep of pillar body: 0 matches for each spoke slug",
+      "id": "F-0010",
+      "impact": 3,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.2,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-07"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-07",
+        "metric": "gsc.impressions",
+        "value": 2777
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/dorm-vs-private-room-varanasi-hostel/",
+        "pattern": "assi-ghat-varanasi-complete-guide",
+        "target": "blog/dorm-vs-private-room-varanasi-hostel/index.html",
+        "where": "local"
+      },
+      "claim": "dorm-vs-private post has no link back to the Assi Ghat pillar and is unknown to Google",
+      "commit": "015e27c",
+      "confidence": 0.9,
+      "created": "2026-10-07",
+      "effort": 1,
+      "evidence": "GSC inspection: URL unknown to Google; 0 links to pillar",
+      "id": "F-0011",
+      "impact": 3,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 2.7,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-07"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-07",
+        "metric": "gsc.impressions",
+        "value": 2777
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/varanasi-backpacker-budget-daily-cost-breakdown/",
+        "pattern": "assi-ghat-varanasi-complete-guide",
+        "target": "blog/varanasi-backpacker-budget-daily-cost-breakdown/index.html",
+        "where": "local"
+      },
+      "claim": "backpacker-budget post has no link back to the Assi Ghat pillar",
+      "commit": "015e27c",
+      "confidence": 0.9,
+      "created": "2026-10-07",
+      "effort": 1,
+      "evidence": "0 links to pillar",
+      "id": "F-0012",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.8,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-07"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-07",
+        "metric": "gsc.impressions",
+        "value": 2777
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/",
+        "pattern": "assi-ghat-varanasi-complete-guide",
+        "target": "index.html",
+        "where": "local"
+      },
+      "claim": "Homepage does not link to the Assi Ghat pillar guide (pillar at position ~17 for 'assi ghat', 149 impressions, 0 clicks)",
+      "commit": "015e27c",
+      "confidence": 1.0,
+      "created": "2026-10-07",
+      "effort": 1,
+      "evidence": "GSC 90d; index.html 0 links to pillar",
+      "id": "F-0013",
+      "impact": 3,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 3.0,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-07"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-07",
+        "metric": "gsc.impressions",
+        "value": 2777
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/",
+        "pattern": "\"logo\"",
+        "target": "index.html",
+        "where": "local"
+      },
+      "claim": "Hostel JSON-LD on homepage has no logo property",
+      "commit": "015e27c",
+      "confidence": 1.0,
+      "created": "2026-10-07",
+      "effort": 1,
+      "evidence": "grep logo index.html = 0",
+      "id": "F-0014",
+      "impact": 1,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.0,
+      "sources": [
+        "seo-schema"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-07"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-07",
+        "metric": "gsc.clicks",
+        "value": 54
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/robots.txt",
+        "pattern": "(?s)User-agent: GPTBot\\s+Allow: /\\s+Disallow: /api/",
+        "target": "robots.txt",
+        "where": "local"
+      },
+      "claim": "robots.txt named AI-bot groups (GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, CCBot) lack Disallow: /api/ so they ignore the * group rule",
+      "commit": "015e27c",
+      "confidence": 0.9,
+      "created": "2026-10-07",
+      "effort": 1,
+      "evidence": "robots.txt: Disallow /api/ only under User-agent *",
+      "id": "F-0015",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.8,
+      "sources": [
+        "seo-geo"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-07"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-07",
+        "metric": "gsc.impressions",
+        "value": 2777
+      },
+      "check": null,
+      "claim": "Leftover source for merged top-7 post (blog/top-7-experiences-varanasi-traveler/ and blogs/top-7...md) still in repo; URL already 301s",
+      "commit": "015e27c",
+      "confidence": 1.0,
+      "created": "2026-10-07",
+      "effort": 1,
+      "evidence": "ls shows both files; .htaccess 301 live",
+      "id": "F-0016",
+      "impact": 1,
+      "measured": null,
+      "note": "ls shows blog/top-7-experiences-varanasi-traveler/index.html and blogs/top-7-experiences-varanasi-traveler.md exist; .htaccess 301 present, no inbound links",
+      "priority": 1.0,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-07"
     }
   ],
-  "next_id": 10
+  "next_id": 17
 }
