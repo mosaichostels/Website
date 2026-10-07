@@ -1,6 +1,10 @@
 # Google Business Profile (GBP)
 
-> Added 2026-10-07. Facts about the world: overwrite when re-verified. Dated numbers are a snapshot; the newest report in seo-reports/ has current values. There is **no GBP extractor script yet** (not in `extract-all.sh`), so GBP is pulled by hand through the `mosaic-gbp` MCP. Proposed: add `.claude/seo/gbp-extract.py` so the weekly sweep records it.
+> Added 2026-10-07. Facts about the world: overwrite when re-verified. Dated numbers are a snapshot; the newest report in seo-reports/ has current values.
+
+## Extractor
+
+`.claude/seo/gbp-extract.py [days]` (run by `extract-all.sh`, step (b)) pulls the profile, attributes, Voice of Merchant, place action links, all reviews, daily performance (8 metrics, 3-day lag) and monthly keywords with GET requests only, then prints a gap analysis. Bundle: `seo-reports/gbp/<date>.json`; `normalize.py` writes `seo-reports/data/<date>/gbp.metrics.json` (impressions by surface, website clicks, calls, direction requests, bookings, rating, review count, unanswered reviews), so `deltas.py` and the coverage ledger include it. It authenticates with the authorized-user OAuth file in `GBP_CREDENTIALS_FILE` (default `~/.config/gcloud/application_default_credentials.json`) and does **not** need the MCP, so an MCP outage does not block it. The `mosaic-gbp` MCP is still the tool for writes and ad-hoc reads below.
 
 ## Access
 
