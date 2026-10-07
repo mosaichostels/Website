@@ -40,6 +40,22 @@
 
   window.MOSAIC = { LOGO_COLORS, FIVE, PAL, pick, fillStrip, fillById, fillGrid };
 
+  // Lead tracking: phone and WhatsApp links, and the contact form, send a GA4
+  // `generate_lead` event. gtag can be absent (ad blockers, consent tools), and
+  // measurement must never break a page, hence the guard and swallowed error.
+  function trackLead(method) {
+    if (typeof gtag !== 'function') return;
+    try { gtag('event', 'generate_lead', { method: method }); } catch (err) { /* ignore */ }
+  }
+  window.MOSAIC.trackLead = trackLead;
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest && e.target.closest('a[href]');
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+    if (href.startsWith('tel:')) trackLead('phone');
+    else if (/^https?:\/\/wa\.me\//.test(href) && !/just(%20|\+| )paid/i.test(href)) trackLead('whatsapp'); // post-payment support link is not a lead
+  }, true);
+
   // ── UNIVERSAL STRIPE FILLS (only fills IDs present on the page) ──
   const FILL_MAP = {
     heroStripe: LOGO_COLORS,
