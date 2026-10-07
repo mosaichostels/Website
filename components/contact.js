@@ -29,6 +29,7 @@
     if (!fname || !email || !message) { alert('Please fill required fields'); return; }
     const name = fname + (lname ? ' ' + lname : '');
     const waMsg = `Hello Mosaic Hostel,\n\nName: ${name}\nEmail: ${email}\nTopic: ${topic}\n\nMessage:\n${message}`;
+    if (window.MOSAIC.trackLead) window.MOSAIC.trackLead('contact_form');
     window.open(`https://wa.me/919125492225?text=${encodeURIComponent(waMsg)}`, '_blank');
     const msg = document.getElementById('formMsg');
     msg.textContent = 'Opening WhatsApp...';
