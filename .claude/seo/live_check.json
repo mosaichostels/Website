@@ -3,7 +3,8 @@
   "status": {
     "200": ["/", "/about", "/contact", "/gallery", "/book-now", "/privacy", "/blog/",
             "/sitemap.xml", "/sitemap-images.xml", "/robots.txt", "/llms.txt",
-            "/140ef5ae933ea27ef5ec39a4c06690e1.txt", "/BingSiteAuth.xml"],
+            "/140ef5ae933ea27ef5ec39a4c06690e1.txt", "/BingSiteAuth.xml",
+            "/.well-known/apple-developer-merchantid-domain-association"],
     "403": ["/api/", "/api/secrets.php", "/api/lib/selftest.php"],
     "404": ["/blog/zzz/", "/blog/zzz", "/blog/this-post-does-not-exist/", "/totally-missing-page",
             "/components/blog-renderer.js", "/components/footer.html",
