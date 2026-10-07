@@ -44,6 +44,7 @@ EXTRACTORS=(
   "ga4|0|$PY .claude/seo/ga4-extract.py 90"
   "bing|0|$PY .claude/seo/bing-extract.py"
   "clarity|0|$PY .claude/seo/clarity-extract.py"
+  "gbp|0|$PY .claude/seo/gbp-extract.py 90"
   "cwv|1|$PY .claude/seo/cwv-extract.py"
   "lighthouse|1|$PY .claude/seo/lighthouse-drift-extract.py"
 )
