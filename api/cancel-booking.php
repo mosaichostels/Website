@@ -11,6 +11,7 @@
  */
 require __DIR__ . '/lib/config.php';
 require __DIR__ . '/lib/ezee.php';
+require_once __DIR__ . '/lib/razorpay.php';
 
 // Tightest of the three: without a ceiling this is a free oracle for guessing
 // reservation numbers. Nobody legitimately cancels five times in ten minutes.
@@ -47,6 +48,12 @@ if (in_array($status, ['Cancel', 'Void', 'Checked Out'], true)) {
   json_error(409, "This reservation is already $status — nothing to cancel.");
 }
 
+// Leave a recoverable trace BEFORE the irreversible eZee call: if this process dies between eZee
+// cancelling and the refund steps below, a person can still find the reservation and finish the refund.
+$intentFile = PENDING_ORDERS_DIR . '/refunds/' . $reservationNo . '.json';
+@file_put_contents($intentFile, json_encode(['reservation_no' => $reservationNo, 'status' => 'cancelling',
+  'started_at' => date('c')], JSON_PRETTY_PRINT), LOCK_EX);
+
 $cancelResponse = ezee_get('CancelBooking', ['ResNo' => $reservationNo]);
 // CancelBooking returns Errors as an OBJECT ({"ErrorCode":..,"ErrorMessage":..}),
 // documented at docs/eZee-Connectivity-API.md ~L5531 — not the array that the
@@ -57,45 +64,46 @@ $ok = $cancelResponse['_ok']
   && empty($cancelResponse['Errors']['ErrorCode'])
   && stripos((string)($cancelResponse['status'] ?? ''), 'success') !== false;
 if (!$ok) {
+  @unlink($intentFile); // nothing was cancelled, so nothing to recover
   bookings_log("CANCEL FAILED reservation=$reservationNo response=" . json_encode($cancelResponse));
   json_error(502, "We couldn't cancel that automatically. Please WhatsApp us and we'll cancel it for you right away.");
 }
 
-// Refund is NOT automatic — no code moves money back. What this does is decide
-// whether one is owed, tell the guest the truth instead of an unqualified
-// "cancelled", and leave staff a work item naming the exact Razorpay payment to
-// refund. Cancelling is never blocked: inside the window the guest still frees
-// the room, they just aren't refunded for it.
+// The cancellation policy decides the money: 72h or more before check-in the guest gets a full refund,
+// inside the window nothing. cancellation_refund_outcome() (lib/razorpay.php) issues an eligible refund
+// automatically and returns the guest-facing note. Anything unusual (Razorpay refuses, network error, no
+// payment id, unreadable date) falls back to a work item + alert for staff, and the guest is never told a
+// refund was sent unless Razorpay confirmed one. Cancelling is never blocked: inside the window the guest
+// still frees the room, they just aren't refunded for it.
 $record = find_done_record($reservationNo);
 $refundDue = refund_due_for_checkin($record['check_in'] ?? null); // null = undetermined
+$outcome = cancellation_refund_outcome($refundDue, $record['razorpay_payment_id'] ?? null, $reservationNo, 'razorpay_refund_payment');
 
 bookings_log(sprintf(
-  'CANCELLED reservation=%s email=%s payment=%s amount=%s refund_due=%s',
+  'CANCELLED reservation=%s email=%s payment=%s amount=%s refund_due=%s action=%s refund_id=%s',
   $reservationNo,
   $email,
   $record['razorpay_payment_id'] ?? 'unknown',
   $record['total'] ?? 'unknown',
-  $refundDue === null ? 'unknown' : ($refundDue ? 'YES' : 'no')
+  $refundDue === null ? 'unknown' : ($refundDue ? 'YES' : 'no'),
+  $outcome['action'],
+  $outcome['refund_id'] ?? '-'
 ));
 
-// Nothing here moves money, so make sure a person finds out. Without this the
-// only trace was one log line and the guest was promised 7-10 days.
-if ($refundDue !== false) {
-  $refund = ['reservation_no' => $reservationNo, 'razorpay_payment_id' => $record['razorpay_payment_id'] ?? null,
-    'amount' => $record['total'] ?? null, 'refund_due' => $refundDue === null ? 'unknown' : 'yes', 'cancelled_at' => date('c')];
-  @file_put_contents(PENDING_ORDERS_DIR . '/refunds/' . $reservationNo . '.json', json_encode($refund, JSON_PRETTY_PRINT), LOCK_EX);
-  booking_alert('REFUND to review after cancellation', json_encode($refund));
-}
-
-if ($refundDue === true) {
-  $refundNote = 'Your refund will be processed within 7–10 business days.';
-} elseif ($refundDue === false) {
-  $refundNote = 'This is within 72 hours of check-in, so under our cancellation policy the booking amount is not refundable.';
+// Leave a trace a person can find: refunded automatically (for the record) or needs a manual refund.
+if ($outcome['action'] === 'none') {
+  @unlink($intentFile);
 } else {
-  $refundNote = 'We\'ll confirm any refund due with you shortly.';
+  $refund = ['reservation_no' => $reservationNo, 'razorpay_payment_id' => $record['razorpay_payment_id'] ?? null,
+    'amount' => $record['total'] ?? null, 'refund_due' => $refundDue === null ? 'unknown' : 'yes',
+    'status' => $outcome['action'] === 'refunded' ? 'refunded' : 'manual',
+    'razorpay_refund_id' => $outcome['refund_id'] ?? null, 'reason' => $outcome['reason'] ?? null,
+    'cancelled_at' => date('c')];
+  @file_put_contents($intentFile, json_encode($refund, JSON_PRETTY_PRINT), LOCK_EX);
+  booking_alert($outcome['action'] === 'refunded' ? 'REFUND issued automatically' : 'REFUND to review after cancellation', json_encode($refund));
 }
 
-json_ok(['success' => true, 'reservation_no' => $reservationNo, 'refund_note' => $refundNote]);
+json_ok(['success' => true, 'reservation_no' => $reservationNo, 'refund_note' => $outcome['note']]);
 
 /**
  * Our own done/ record, looked up by reservation number. Preferred over eZee's

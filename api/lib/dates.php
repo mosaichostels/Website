@@ -36,11 +36,10 @@ function parse_strict_date(string $value): ?DateTime {
   return $date;
 }
 
-// Free-cancellation window, and the hour check-in opens. Both are stated in the
-// policy shown to guests (book-now.html, "Hostel Rules & Policies"): free up to
-// 72 hours before check-in, check-in from 1:00 PM.
+// Free-cancellation window, stated in the policy shown to guests (book-now.html,
+// "Hostel Rules & Policies"): free up to 72 hours before the check-in date. It is
+// measured from the START of that date (00:00), not from the 1:00 PM check-in time.
 define('FREE_CANCELLATION_HOURS', 72);
-define('CHECKIN_HOUR', 13);
 
 /**
  * Is a cancellation for this check-in date still inside the free window?
@@ -52,7 +51,7 @@ define('CHECKIN_HOUR', 13);
 function refund_due_for_checkin(?string $checkIn, ?int $now = null): ?bool {
   if ($checkIn === null || $checkIn === '') return null;
   if (!parse_strict_date($checkIn)) return null;
-  $checkInAt = strtotime($checkIn . ' ' . str_pad((string)CHECKIN_HOUR, 2, '0', STR_PAD_LEFT) . ':00:00');
+  $checkInAt = strtotime($checkIn . ' 00:00:00');
   if ($checkInAt === false) return null;
   return ($checkInAt - ($now ?? time())) >= FREE_CANCELLATION_HOURS * 3600;
 }
