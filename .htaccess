@@ -25,6 +25,11 @@
   Header set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), interest-cohort=()"
 </IfModule>
 
+# Apple Pay domain verification (Razorpay): the file has no extension, and Razorpay requires text/plain.
+<FilesMatch "^apple-developer-merchantid-domain-association$">
+  ForceType text/plain
+</FilesMatch>
+
 # ════════ CACHING RULES ════════
 <IfModule mod_expires.c>
   ExpiresActive On
