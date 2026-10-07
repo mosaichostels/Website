@@ -7,6 +7,22 @@
       <image:loc>https://www.mosaichostels.com/images/hero-poster.jpg</image:loc>
       <image:caption>Mosaic Hostel Varanasi — Hero Image</image:caption>
     </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1928-room.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — Common Room</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1931-1.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — Private Room</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1933-room.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — 8-Bed Mixed Dorm</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/unnamed.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — 6-Bed Mixed Dorm</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://www.mosaichostels.com/gallery</loc>
@@ -98,15 +114,16 @@
   <url>
     <loc>https://www.mosaichostels.com/about</loc>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/IMG_1928-room.jpg</image:loc>
-      <image:caption>About Mosaic Hostel</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/IMG-20251228-WA0140.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — The Common Room</image:caption>
     </image:image>
-  </url>
-  <url>
-    <loc>https://www.mosaichostels.com/blog/</loc>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/hero-poster.jpg</image:loc>
-      <image:caption>Blog — Mosaic Hostel</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1357.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — Ghat Walk</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG-20251228-WA0137.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — The Rooftop</image:caption>
     </image:image>
   </url>
   <url>

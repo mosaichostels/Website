@@ -1,3 +1,6 @@
+# Declare charset in the Content-Type header (HTML/text were served without it)
+AddDefaultCharset UTF-8
+
 # ════════ SECURITY HEADERS ════════
 <IfModule mod_headers.c>
   # HSTS (force HTTPS for 1 year)
@@ -10,7 +13,7 @@
   Header always set X-Frame-Options "DENY"
 
   # XSS protection (browser-level)
-  Header always set X-XSS-Protection "1; mode=block"
+  Header always set X-XSS-Protection "0"
 
   # Referrer policy
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
