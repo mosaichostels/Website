@@ -26,16 +26,22 @@
     const email = document.getElementById('email').value;
     const topic = document.getElementById('topic').value;
     const message = document.getElementById('message').value;
-    if (!fname || !email || !message) { alert('Please fill required fields'); return; }
+    if (!fname || !message) { showMsg('Please add your first name and a message.', 'error'); return; }
     const name = fname + (lname ? ' ' + lname : '');
-    const waMsg = `Hello Mosaic Hostel,\n\nName: ${name}\nEmail: ${email}\nTopic: ${topic}\n\nMessage:\n${message}`;
+    const waMsg = `Hello Mosaic Hostel,\n\nName: ${name}${email ? '\nEmail: ' + email : ''}${topic ? '\nTopic: ' + topic : ''}\n\nMessage:\n${message}`;
     if (window.MOSAIC.trackLead) window.MOSAIC.trackLead('contact_form');
-    window.open(`https://wa.me/919125492225?text=${encodeURIComponent(waMsg)}`, '_blank');
+    const waUrl = `https://wa.me/919125492225?text=${encodeURIComponent(waMsg)}`;
+    window.open(waUrl, '_blank', 'noopener');
+    // Keep what the guest typed: if WhatsApp did not open, they can retry or email the same text.
+    const mail = `mailto:mosaichostels@gmail.com?subject=${encodeURIComponent('Enquiry from ' + name)}&body=${encodeURIComponent(message)}`;
+    showMsg('', 'success', `WhatsApp should have opened with your message. Nothing happened? <a href="${waUrl}" target="_blank" rel="noopener">Open WhatsApp</a> or <a href="${mail}">send it by email</a>.`);
+  }
+
+  function showMsg(text, kind, html) {
     const msg = document.getElementById('formMsg');
-    msg.textContent = 'Opening WhatsApp...';
-    msg.className = 'form-msg success';
+    if (html) msg.innerHTML = html; else msg.textContent = text;
+    msg.className = 'form-msg ' + kind;
     msg.style.display = 'block';
-    setTimeout(() => { document.getElementById('contactForm').reset(); msg.style.display = 'none'; }, 2000);
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

@@ -25,7 +25,7 @@ Check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception. Free cancellati
 ## Capabilities and Constraints
 
 - Static HTML/CSS/JS with no build step, plus PHP endpoints in `api/` (eZee PMS, Razorpay); deployed by FTP to Hostinger. Assumed to continue; not yet confirmed as binding.
-- Pages: home, about, gallery, book-now, contact, privacy, blog (15 travel guides).
+- Pages: home, about, gallery, book-now, contact, privacy, blog (14 travel guides).
 - Room lineup (owner-confirmed): 5 room types — private room, 8-bed mixed dorm, 6-bed mixed dorm, 4-bed mixed dorm, 6-bed female-only dorm; plus a shared common room that is not a room type.
 - Open decision: whether WCAG AA is a formal requirement.
 
@@ -35,7 +35,7 @@ Name "Mosaic Hostel Varanasi" and the tile idea ("Each guest is a piece. Each st
 
 ## Evidence on Hand
 
-21 gallery photos, hero video and poster, OTA/Hostelworld logos (`images/`), 15 blog guides. Site claims "1500+ guests", "4.8 ★ (427 reviews)" and "60+ countries"; these are owner-supplied and not verifiable from the repo. Future work must not invent further reviews, ratings, prices or counts.
+21 gallery photos, hero video and poster, OTA/Hostelworld logos (`images/`), 14 blog guides. Site claims "1500+ guests", "4.8 ★ (427 reviews)" and "60+ countries"; these are owner-supplied and not verifiable from the repo. Future work must not invent further reviews, ratings, prices or counts.
 
 ## Product Principles
 
