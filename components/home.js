@@ -134,6 +134,12 @@
     lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
+  // Respect reduced-motion: the hero loops indefinitely, so show the poster frame instead.
+  function stopHeroVideo() {
+    const v = document.querySelector('.hero-video');
+    if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) { v.removeAttribute('autoplay'); v.pause(); }
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', () => { init(); stopHeroVideo(); });
+  else { init(); stopHeroVideo(); }
 })();
