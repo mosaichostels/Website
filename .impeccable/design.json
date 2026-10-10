@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-10T00:00:00Z",
+  "title": "Design System: Mosaic Hostel Varanasi",
+  "extensions": {
+    "colorMeta": {
+      "gold": { "role": "primary", "displayName": "Marigold Gold", "canonical": "#C8860A", "tonalRamp": ["#2E1E02", "#503403", "#744B04", "#996307", "#C8860A", "#E8B84B", "#F4D690", "#FBF0D8"] },
+      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#1A1208", "tonalRamp": ["#1A1208", "#2E2416", "#463A28", "#5F513C", "#7A6A50", "#A89878", "#D4C8B0", "#F2E8D5"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Section titles in wide-tracked Cinzel." },
+      "label": { "displayName": "Label", "purpose": "Buttons and eyebrows, 10px uppercase." }
+    },
+    "shadows": [
+      { "name": "soft-card", "value": "0 16px 48px rgba(26,18,8,.1)", "purpose": "Cards at rest or hover." },
+      { "name": "lifted-card", "value": "0 20px 60px rgba(26,18,8,.12)", "purpose": "Raised cards." },
+      { "name": "hero-panel", "value": "0 32px 80px rgba(26,18,8,.12)", "purpose": "Large panels." },
+      { "name": "gold-glow", "value": "0 12px 40px rgba(200,134,10,.1)", "purpose": "Gold accent hover." }
+    ],
+    "motion": [
+      { "name": "ease-standard", "value": "cubic-bezier(.25,.46,.45,.94)", "purpose": "Default transitions." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "480px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Gold Button",
+      "kind": "button",
+      "refersTo": "button-gold",
+      "description": "Primary booking action.",
+      "html": "<button class=\"ds-btn-gold\">Book Your Stay</button>",
+      "css": ".ds-btn-gold{padding:16px 56px;background:var(--gold,#C8860A);color:#fff;font-family:Jost,sans-serif;font-size:10px;letter-spacing:5px;text-transform:uppercase;border:none;border-radius:1px;cursor:pointer;transition:background .3s,transform .2s}.ds-btn-gold:hover{background:#E8B84B;transform:translateY(-2px)}.ds-btn-gold:focus-visible{outline:2px solid #1A1208;outline-offset:3px}"
+    },
+    {
+      "name": "Light Button",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Secondary action on dark bands.",
+      "html": "<button class=\"ds-btn-light\">Get in Touch</button>",
+      "css": ".ds-btn-light{padding:13px 40px;background:#1A1208;border:1px solid rgba(255,255,255,.5);color:#fff;font-family:Jost,sans-serif;font-size:10px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;transition:all .3s}.ds-btn-light:hover{border-color:#fff}.ds-btn-light:focus-visible{outline:2px solid #E8B84B;outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Ghat Tile Mosaic",
+    "overview": "Warm parchment laid with small tiles of gold and jewel colour, echoing each guest as a piece. Flat, sharp surfaces with large soft warm shadows.",
+    "keyCharacteristics": ["Cream and parchment grounds with one gold accent.", "Jewel tones as tile colours only.", "Cinzel wide-tracked capitals.", "Large soft shadows, tiny radii."],
+    "rules": [
+      { "name": "The One Gold Rule", "body": "Gold is the only action colour; jewel tones decorate, never drive actions.", "section": "colors" },
+      { "name": "The Wide Caps Rule", "body": "Uppercase text is always letter-spaced.", "section": "typography" }
+    ],
+    "dos": ["Do keep gold as the single call-to-action colour.", "Do letter-space every uppercase label.", "Do use large, soft, warm shadows for lift."],
+    "donts": ["Don't use rounded pill buttons or heavy 16px+ radii.", "Don't use cool grey neutrals; stay in cream, parchment and ink.", "Don't use jewel tones for buttons."]
+  }
+}
