@@ -1,0 +1,8 @@
+# One item per line; shown in the Backlog panel. Delete a line when it is done.
+Push commit a955d76 to GitHub, then run IndexNow for the changed pages
+Hostinger cache clear is refused (CLI says Unauthenticated): log in again or purge in hPanel
+Pick video stills in the picker (localhost:8766/picker.html), then I place them
+Tell me which room is the female-only dorm (home tile shares a photo with the 8-bed)
+Privacy: retention period, Clarity form masking, cookie banner for EU/UK, grievance contact, ID handling
+Rotate the FTP, Razorpay test and Hostinger tokens that were pasted in chat
+Weekly SEO v2: stages 4-5 still pending
