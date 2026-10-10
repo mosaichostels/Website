@@ -142,3 +142,15 @@ body.has-action-bar{padding-bottom:64px}}
 .post-cta a.btn-light{color:#fff;text-decoration:none}
 .widget-steps li{opacity:1}
 .widget-steps li::before{opacity:.7}
+
+/* critique: OTA listings as a quiet compact row, not a second shop window */
+.platforms-section{padding:48px 24px 64px}
+.platforms-section .section-title{font-size:clamp(22px,3.2vw,30px);letter-spacing:2px}
+.platforms-section .section-note{margin-bottom:24px}
+.platforms-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+.platform-card{flex:0 1 128px;padding:16px 12px;min-height:56px}
+.platform-logo,.platform-logo-cleartrip{height:26px;max-width:110px;filter:grayscale(100%);opacity:.75}
+.platform-card:hover .platform-logo{transform:none;filter:none;opacity:1}
+.platform-name{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);margin:0}
+.platform-arrow{display:none}
+@media(max-width:600px){.platform-card{flex:0 1 calc(50% - 6px)}}
