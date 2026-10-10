@@ -168,7 +168,18 @@
     window.open('https://search.google.com/local/writereview?placeid=0x96411370098acc3b', '_blank');
   };
 
+  // Sticky Book / WhatsApp bar for phones (hidden by CSS on wider screens; the booking page already is the action).
+  function initActionBar() {
+    if (/book-now/.test(location.pathname) || document.querySelector('.mobile-action-bar')) return;
+    const bar = document.createElement('div');
+    bar.className = 'mobile-action-bar';
+    bar.innerHTML = '<a class="mab-book" href="/book-now">Book Now</a><a class="mab-wa" href="https://wa.me/919125492225" target="_blank" rel="noopener">WhatsApp</a>';
+    document.body.appendChild(bar);
+    document.body.classList.add('has-action-bar');
+  }
+
   function init() {
+    initActionBar();
     runUniversalFills();
     initCursor();
     initNavScroll();

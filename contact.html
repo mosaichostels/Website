@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/styles/global.css?v=20261015">
+<link rel="stylesheet" href="/styles/global.css?v=20261018">
 <link rel="canonical" href="https://www.mosaichostels.com/contact">
 <meta name="description" content="Reach Mosaic Hostel at B1/85C, Assi Ghat Road, Varanasi by phone, WhatsApp or email, find us on the map, or send a reservation enquiry. 24-hour front desk.">
 <meta property="og:image" content="https://www.mosaichostels.com/images/IMG_1928.jpg">
@@ -282,8 +282,8 @@
   <div class="form-wrap reveal">
     <div class="form-tile-strip" id="formStrip"></div>
     <div class="form-eyebrow">Send a Message</div>
-    <div class="form-title">We'll Get Back to You</div>
-    <div class="form-sub">Fill in the form and we'll respond within 24 hours. For urgent queries, WhatsApp is faster.</div>
+    <div class="form-title">Message Us on WhatsApp</div>
+    <div class="form-sub">Fill in the form and your message opens in WhatsApp, ready to send. No WhatsApp? Email us at <a href="mailto:mosaichostels@gmail.com">mosaichostels@gmail.com</a>.</div>
 
     <form id="contactForm">
       <!-- WhatsApp config -->
@@ -291,17 +291,17 @@
       <div class="field-row">
         <div class="field">
           <label for="fname">First Name</label>
-          <input type="text" id="fname" name="first_name" placeholder="Your first name" required>
+          <input type="text" id="fname" name="first_name" placeholder="Your first name" autocomplete="given-name" required>
         </div>
         <div class="field">
           <label for="lname">Last Name</label>
-          <input type="text" id="lname" name="last_name" placeholder="Your last name">
+          <input type="text" id="lname" name="last_name" placeholder="Your last name" autocomplete="family-name">
         </div>
       </div>
 
       <div class="field">
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+        <label for="email">Email Address (optional)</label>
+        <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email">
       </div>
 
       <div class="field">
@@ -321,8 +321,8 @@
         <textarea id="message" name="message" placeholder="Tell us what you need..." required></textarea>
       </div>
 
-      <button type="submit" class="form-submit">Send Message</button>
-      <div class="form-msg" id="formMsg"></div>
+      <button type="submit" class="form-submit">Send via WhatsApp</button>
+      <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
     </form>
   </div>
 
@@ -362,8 +362,8 @@
 <div class="tile-accent" id="div1"></div>
 
 
-    <script src="/components/site.js?v=20261007"></script>
-    <script src="/components/contact.js?v=20261007"></script>
+    <script src="/components/site.js?v=20261016"></script>
+    <script src="/components/contact.js?v=20261016"></script>
     <script src="/components/navbar.js?v=20260729"></script>
 <script src="/components/footer.js?v=20260729"></script>
 

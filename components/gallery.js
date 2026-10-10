@@ -37,10 +37,13 @@
       if (noRes) noRes.style.display = visible === 0 ? 'block' : 'none';
     }
 
+    countEl.setAttribute('role', 'status');
+    document.querySelectorAll('.filter-btn').forEach((b) => b.setAttribute('aria-pressed', b.classList.contains('active')));
     document.querySelectorAll('.filter-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach((b) => b.classList.remove('active'));
+        document.querySelectorAll('.filter-btn').forEach((b) => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
         btn.classList.add('active');
+        btn.setAttribute('aria-pressed', 'true');
         applyFilter(btn.dataset.filter);
       });
     });
@@ -57,6 +60,26 @@
     const lbStrip = document.getElementById('lb-strip');
     const lbCounter = document.getElementById('lb-counter');
     let currentIdx = 0;
+    let trigger = null;
+    const lbClose = document.getElementById('lb-close');
+    const lbPrev = document.getElementById('lb-prev');
+    const lbNext = document.getElementById('lb-next');
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Photo viewer');
+    lbClose.setAttribute('aria-label', 'Close photo viewer');
+    lbPrev.setAttribute('aria-label', 'Previous photo');
+    lbNext.setAttribute('aria-label', 'Next photo');
+    if (lbCounter) lbCounter.setAttribute('aria-live', 'polite');
+    // Everything behind the dialog is inert while it is open (keeps Tab out of the Instagram iframe).
+    // The lightbox may sit inside <main>, so inert every sibling along its ancestor path, never the path itself.
+    const behind = () => {
+      const out = [];
+      for (let n = lb; n && n !== document.body; n = n.parentElement) {
+        Array.from(n.parentElement.children).forEach((c) => { if (c !== n && c.tagName !== 'SCRIPT') out.push(c); });
+      }
+      return out;
+    };
     const getVisible = () => items.filter((i) => !i.classList.contains('hidden'));
 
     function open(idx) {
@@ -70,13 +93,20 @@
       if (lbCat) lbCat.textContent = item.querySelector('.gal-cat-tag').textContent;
       if (lbStrip) { lbStrip.innerHTML = ''; fillStrip(lbStrip, LOGO_COLORS.slice(0, 6)); }
       if (lbCounter) lbCounter.textContent = (idx + 1) + ' / ' + visible.length;
-      lb.classList.add('open');
+      if (!lb.classList.contains('open')) {
+        trigger = document.activeElement;
+        lb.classList.add('open');
+        behind().forEach((el) => el.setAttribute('inert', ''));
+        lbClose.focus();
+      }
       document.body.style.overflow = 'hidden';
     }
     function close() {
       lb.classList.remove('open');
+      behind().forEach((el) => el.removeAttribute('inert'));
       document.body.style.overflow = '';
       lbImg.src = '';
+      if (trigger && trigger.focus) trigger.focus();
     }
     function navigate(dir) {
       const visible = getVisible();
@@ -85,7 +115,22 @@
     }
 
     items.forEach((item) => {
+      item.setAttribute('role', 'button');
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('aria-label', 'Open photo: ' + item.dataset.title);
       item.addEventListener('click', () => open(getVisible().indexOf(item)));
+      item.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(getVisible().indexOf(item)); }
+      });
+    });
+    // Swipe left/right on touch screens.
+    let touchX = null;
+    lb.addEventListener('touchstart', (e) => { touchX = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', (e) => {
+      if (touchX === null) return;
+      const dx = e.changedTouches[0].clientX - touchX;
+      touchX = null;
+      if (Math.abs(dx) > 50) navigate(dx < 0 ? 1 : -1);
     });
     document.getElementById('lb-close').addEventListener('click', close);
     document.getElementById('lb-prev').addEventListener('click', () => navigate(-1));
@@ -96,6 +141,12 @@
       if (e.key === 'ArrowLeft') navigate(-1);
       if (e.key === 'ArrowRight') navigate(1);
       if (e.key === 'Escape') close();
+      if (e.key === 'Tab') {
+        const ring = [lbClose, lbPrev, lbNext];
+        const i = ring.indexOf(document.activeElement);
+        e.preventDefault();
+        ring[(i + (e.shiftKey ? -1 : 1) + ring.length) % ring.length].focus();
+      }
     });
   }
 

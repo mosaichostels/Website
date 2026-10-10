@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/styles/global.css?v=20261015">
+<link rel="stylesheet" href="/styles/global.css?v=20261018">
 <link rel="canonical" href="https://www.mosaichostels.com/book-now">
 <meta name="description" content="Book Mosaic Hostel Varanasi direct: dorm beds and private rooms available, instant booking at the best rates steps from Assi Ghat.">
 <meta property="og:site_name" content="Mosaic Hostel Varanasi">
@@ -446,7 +446,8 @@
 <!-- ── MANAGE / CANCEL A BOOKING ── -->
 <div class="direct-section reveal marketing-section">
   <div class="direct-card manage-card">
-    <h2 class="direct-title">Need to Cancel?</h2>
+    <details class="manage-details">
+    <summary class="direct-title">Need to cancel a booking?</summary>
     <div class="direct-sub">Enter your reservation number and the email you booked with — we'll verify and cancel it for you.</div>
     <form id="cancelForm">
       <div class="field-row">
@@ -460,8 +461,9 @@
         </div>
       </div>
       <button type="submit" class="form-submit">Cancel Booking</button>
-      <div class="form-msg" id="cancelMsg"></div>
+      <div class="form-msg" id="cancelMsg" role="status" aria-live="polite"></div>
     </form>
+    </details>
   </div>
 </div>
 
@@ -611,9 +613,9 @@
 <div class="tile-accent" id="div0"></div>
 
 
-    <script src="/components/site.js?v=20261007"></script>
+    <script src="/components/site.js?v=20261016"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="/components/book-now.js?v=20261002"></script>
+    <script src="/components/book-now.js?v=20261016"></script>
     <script src="/components/navbar.js?v=20260729"></script>
 <script src="/components/footer.js?v=20260729"></script>
 

@@ -830,6 +830,16 @@
       const list = document.getElementById('widgetSteps');
       if (!list) return;
       const current = STEP_ORDER.indexOf(name);
+      // Announce the step change to screen readers (the visible indicator alone is silent).
+      let live = document.getElementById('stepLive');
+      if (!live) {
+        live = document.createElement('div');
+        live.id = 'stepLive';
+        live.className = 'visually-hidden';
+        live.setAttribute('role', 'status');
+        list.parentNode.insertBefore(live, list);
+      }
+      if (current >= 0 && list.children[current]) live.textContent = 'Step ' + (current + 1) + ' of ' + STEP_ORDER.length + ': ' + list.children[current].textContent.trim();
       Array.prototype.forEach.call(list.children, (li, i) => {
         li.classList.toggle('is-done', i < current);
         li.classList.toggle('is-current', i === current);
@@ -1028,7 +1038,8 @@
       document.body.appendChild(pop);
       position();
       render();
-      requestAnimationFrame(() => pop.classList.add('open'));
+      requestAnimationFrame(() => { pop.classList.add('open'); if (window.innerWidth < 768) pop.scrollIntoView({ block: 'nearest' }); });
+      inputEl.setAttribute('aria-expanded', 'true');
       document.addEventListener('mousedown', onOutside, true);
       document.addEventListener('keydown', onEscape, true);
     }
@@ -1038,8 +1049,13 @@
       document.removeEventListener('keydown', onEscape, true);
       pop.remove();
       pop = null;
+      inputEl.setAttribute('aria-expanded', 'false');
     }
 
+    inputEl.setAttribute('aria-haspopup', 'dialog');
+    inputEl.setAttribute('aria-expanded', 'false');
+    // A fully typed, valid date is a finished choice: close the popup so it never covers the submit button.
+    inputEl.addEventListener('input', () => { if (pop && parseISO(inputEl.value)) close(); });
     inputEl.addEventListener('click', open);
     // ArrowDown is the conventional "open the picker" key, and unlike the
     // Enter/Space this replaced it doesn't swallow form submission or a

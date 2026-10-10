@@ -50,7 +50,7 @@
           if (!start) start = ts;
           const prog = Math.min((ts - start) / dur, 1);
           const ease = 1 - Math.pow(1 - prog, 3);
-          el.textContent = Math.round(ease * target) + (target === 500 ? '+' : '');
+          el.textContent = Math.round(ease * target) + (target === 1500 ? '+' : '');
           if (prog < 1) requestAnimationFrame(step);
         };
         requestAnimationFrame(step);
