@@ -12,7 +12,7 @@
 
 ## Rooms
 
-- **Dorms** — 6-bed mixed, 6-bed female-only, 4-bed female-only.
+- **Dorms** — 8-bed mixed, 6-bed mixed, 4-bed mixed, 6-bed female-only.
 - **Private rooms** — single, double and triple occupancy, AC, ensuite bathroom.
 - Check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception.
 

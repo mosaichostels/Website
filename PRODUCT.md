@@ -26,7 +26,7 @@ Check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception. Free cancellati
 
 - Static HTML/CSS/JS with no build step, plus PHP endpoints in `api/` (eZee PMS, Razorpay); deployed by FTP to Hostinger. Assumed to continue; not yet confirmed as binding.
 - Pages: home, about, gallery, book-now, contact, privacy, blog (15 travel guides).
-- Open decision: dorm lineup is inconsistent. Homepage lists an 8-bed mixed dorm and "5 room types"; `llms.txt` lists only 6-bed mixed plus 6-bed and 4-bed female-only dorms.
+- Room lineup (owner-confirmed): 5 room types — private room, 8-bed mixed dorm, 6-bed mixed dorm, 4-bed mixed dorm, 6-bed female-only dorm; plus a shared common room that is not a room type.
 - Open decision: whether WCAG AA is a formal requirement.
 
 ## Brand Commitments
