@@ -4,11 +4,11 @@ Tell me which room is the female-only dorm (6-bed female and 8-bed dorm tiles on
 Privacy: add a concrete retention period, a statement on how guest ID is handled, a cookie/consent banner for EU/UK visitors and a named grievance contact (policy text has none of these)
 Rotate the FTP, Razorpay test and Hostinger tokens that were pasted in chat (credential files last changed 2-6 Oct, no sign of rotation)
 Airport time: Assi Ghat guide says 30-40 min by taxi, the transfer guide says 45-60 min. Which is right? Also confirm Banaras station and Kashi Vishwanath distances before I publish them
-OpenStreetMap node N13751993139 (edited by your 'Mosaic Hostels' account): log in at openstreetmap.org, then rename it to "Mosaic Hostels" and add addr:suburb=Anandbagh. Chrome is not logged in there and I will not type passwords
-Claim Bing Places (sign in with a Microsoft account, import from the Google Business Profile) and Apple Business Connect; Chrome is not signed in to either
+Claim Bing Places: Chrome is still not signed in at bing.com/forbusiness (no Microsoft login cookie; the sign-in page offers Microsoft or Continue with Google). Sign in there in the automation Chrome, then I can import the Google Business Profile listing. Apple Business Connect also needs your sign-in
 Ask Hostinger support (hPanel chat) to exempt GPTBot from the edge throttle: about 15% of its requests still get 429. Draft: "Please exempt the GPTBot user agent from rate limiting on mosaichostels.com; it gets 429 on about 15% of requests."
 AdaniOne has a dead Mosaic listing (404): ask them to remove it or fix the link
-Run /seo setup once to refresh the stale claude-seo browser runtime
+/seo setup failed 2026-10-11: claude-seo's dependencies (google-ads etc.) do not install on Python 3.15. Everything the weekly run needs still works (mosaic-seo venv is on 3.14, doctor says browser_ready). Options: wait for a plugin update, or I rebuild its runtime with python3.14
+# done: OpenStreetMap node N13751993139: added addr:suburb=Anandbagh and brand=Mosaic Hostels (uploaded 2026-10-11). Name left as "Mosaic Hostel Varanasi" to match Google and the OTAs; say if you still want it renamed
 # done: Hostinger cache clear (not needed: hPanel Cache Manager says the cache clears itself every 30 minutes; the CLI purge only times out)
 # done: Clarity masking mode checked in the dashboard: already Balanced (2026-10-11)
 # done: Push commit a955d76 to GitHub, then run IndexNow for the changed pages (pushed; IndexNow 200 on 2026-10-11)
