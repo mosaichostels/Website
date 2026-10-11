@@ -182,3 +182,7 @@ body.has-action-bar{padding-bottom:64px}}
 @media(max-width:600px){.rooms-grid{grid-template-columns:1fr}.rooms-grid .room-card{min-height:280px}.shared-space{padding:0 20px 48px;margin-top:32px}.shared-space .room-card{height:240px}}
 .blog-post-image.fig-tall figcaption{background:var(--cream);margin:0;padding:8px 0}
 
+/* Booking room steppers need a comfortable touch target. */
+.booking-widget .qty-btn{width:44px;height:44px}
+.booking-widget .widget-stage{scroll-margin-top:112px}
+
