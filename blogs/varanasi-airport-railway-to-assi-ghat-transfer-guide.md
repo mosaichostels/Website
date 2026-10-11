@@ -24,7 +24,7 @@ Varanasi's airport sits about 25–26 km from Assi Ghat, and the journey by road
 
 ## From Varanasi Junction (Varanasi Cantt) Railway Station
 
-This is the main railway station most travelers arrive at, and it's considerably closer — about 7–8 km from Assi Ghat, a 20 to 30 minute ride depending on traffic through the old city's narrower approach roads.
+This is the main railway station most travelers arrive at, and it's considerably closer — about 6–7 km from Assi Ghat, a 20 to 30 minute ride depending on traffic through the old city's narrower approach roads.
 
 **Auto-rickshaw:** The most common and most economical option. Expect to pay roughly ₹150–₹250 for the ride, though prices are almost always negotiable and can spike late at night or during peak festival periods (see our [seasonal guide](/blog/best-time-to-visit-varanasi-month-by-month) for exactly when). Agree on the price before getting in.
 
