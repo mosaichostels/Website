@@ -49,6 +49,10 @@
       "reason": "",
       "status": "done"
     },
+    "keyword-demand": {
+      "reason": "GSC striking-distance clusters (near Assi Ghat, best hostels, distance, brand) plus Bing cross-check via bing-keywords.py",
+      "status": "done"
+    },
     "query-discovery": {
       "reason": "",
       "status": "done"
