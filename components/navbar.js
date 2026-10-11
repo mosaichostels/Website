@@ -21,23 +21,27 @@
     const hamburger = document.getElementById('navHam');
     const navLinks = document.querySelector('.nav-links');
     if (!hamburger || !navLinks) return;
+    const setOpen = (open) => {
+      navLinks.classList.toggle('open', open);
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    setOpen(false);
 
     hamburger.addEventListener('click', (e) => {
       e.stopPropagation();
-      navLinks.classList.toggle('open');
-      hamburger.classList.toggle('open');
+      setOpen(!navLinks.classList.contains('open'));
     });
 
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        hamburger.classList.remove('open');
+        setOpen(false);
       });
     });
 
     document.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      hamburger.classList.remove('open');
+      setOpen(false);
     });
   }
 

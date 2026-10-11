@@ -59,6 +59,7 @@
     const lbCat = document.getElementById('lb-cat');
     const lbStrip = document.getElementById('lb-strip');
     const lbCounter = document.getElementById('lb-counter');
+    const lbRoomCta = document.getElementById('lb-room-cta');
     let currentIdx = 0;
     let trigger = null;
     const lbClose = document.getElementById('lb-close');
@@ -91,6 +92,11 @@
       lbImg.alt = item.dataset.title;
       if (lbTitle) lbTitle.textContent = item.dataset.title;
       if (lbCat) lbCat.textContent = item.querySelector('.gal-cat-tag').textContent;
+      if (lbRoomCta) {
+        const ctaFocused = document.activeElement === lbRoomCta;
+        lbRoomCta.hidden = item.dataset.cat !== 'rooms';
+        if (lbRoomCta.hidden && ctaFocused) lbClose.focus();
+      }
       if (lbStrip) { lbStrip.innerHTML = ''; fillStrip(lbStrip, LOGO_COLORS.slice(0, 6)); }
       if (lbCounter) lbCounter.textContent = (idx + 1) + ' / ' + visible.length;
       if (!lb.classList.contains('open')) {
@@ -143,6 +149,7 @@
       if (e.key === 'Escape') close();
       if (e.key === 'Tab') {
         const ring = [lbClose, lbPrev, lbNext];
+        if (lbRoomCta && !lbRoomCta.hidden) ring.push(lbRoomCta);
         const i = ring.indexOf(document.activeElement);
         e.preventDefault();
         ring[(i + (e.shiftKey ? -1 : 1) + ring.length) % ring.length].focus();
