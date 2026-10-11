@@ -11,6 +11,10 @@ Answers "which searches could we win with a title, meta or content change, and w
 3. **Bing cross-check.** `source ~/.config/mosaic-seo/env && "$SEOPY" .claude/seo/bing-keywords.py "seed one" "seed two"` for new-post topics. Do not use the `mosaic-bing` keyword MCP tools; they return nothing (`bing.md`). Bing volumes are tiny here (1 to 40), `GetKeyword` is exact match so 0 means no record, and related phrases are often unrelated. A topic with no GSC rows and no Bing rows is unproven, not zero.
 4. **Rank new-post ideas below striking-distance clusters.** A topic with no demand data is an inference; say so.
 
+## Coverage
+
+Mark the item when the step is finished: `coverage_ledger.py mark keyword-demand done "N clusters from GSC, Bing cross-check run"`. Use `skipped` or `blocked` with the reason if GSC or Bing was unavailable.
+
 ## Report
 
 Section "Keyword demand" in the report: one table of clusters (impressions, clicks, position, owning page, suggested change) and one line per new-topic idea with its evidence or "no data". Fixes that need copy go under Deferred as owner decisions.
