@@ -1,10 +1,11 @@
 ---
 name: Mosaic Hostel Varanasi
-description: Warm parchment, gold and jewel-tone tiles for a hostel steps from Assi Ghat.
+description: A clear white canvas with warm parchment, gold and jewel-tone tiles for a hostel steps from Assi Ghat.
 colors:
   gold: "#C8860A"
   gold-light: "#E8B84B"
   gold-pale: "#FBF0D8"
+  gold-text: "#8A5A00"
   ghat-teal: "#1A6B7A"
   burgundy: "#8B1A1A"
   cobalt: "#1A3A6B"
@@ -12,8 +13,10 @@ colors:
   sage: "#3D6B3A"
   ink: "#1A1208"
   cream: "#FAF4EA"
+  canvas: "#FFFFFF"
   parchment: "#F2E8D5"
-  muted: "#7A6A50"
+  muted: "#706048"
+  white: "#FFFFFF"
   whatsapp: "#25D366"
 typography:
   display:
@@ -21,7 +24,7 @@ typography:
     fontSize: "48px"
     fontWeight: 400
     lineHeight: 1.05
-    letterSpacing: "3px"
+    letterSpacing: "1px"
   headline:
     fontFamily: "'Cormorant Garamond', serif"
     fontWeight: 300
@@ -33,6 +36,18 @@ typography:
     fontSize: "10px"
     fontWeight: 400
     letterSpacing: "5px"
+  heading-small:
+    fontFamily: "Cinzel, serif"
+    fontSize: "1.5rem"
+  heading-large:
+    fontFamily: "Cinzel, serif"
+    fontSize: "2.2rem"
+  question:
+    fontFamily: "'Cormorant Garamond', serif"
+    fontSize: "1.3rem"
+  caption:
+    fontFamily: "Jost, sans-serif"
+    fontSize: "12px"
 rounded:
   hairline: "1px"
   sm: "2px"
@@ -58,14 +73,14 @@ components:
 
 **Creative North Star: "The Ghat Tile Mosaic"**
 
-The site reads as warm parchment laid with small tiles of gold and jewel colour, echoing the brand idea that each guest is a piece and each story a tile. Serif display type in wide-tracked capitals gives a ceremonial, temple-city tone; light-weight Jost keeps body copy calm and modern for backpackers.
+The site uses a clear white canvas with warm parchment panels and small tiles of gold and jewel colour, echoing the brand idea that each guest is a piece and each story a tile. Serif display type gives a ceremonial, temple-city tone; light-weight Jost keeps body copy calm and modern for backpackers.
 
 Surfaces are flat and sharp. Corners are near-square, buttons are small wide-tracked uppercase labels, and depth appears as large, diffuse, warm-brown shadows on cards and hover states rather than hard edges.
 
 **Key Characteristics:**
-- Cream and parchment grounds with a single dominant gold accent.
+- A white canvas with cream and parchment panels and a single dominant gold accent.
 - Jewel tones (teal, burgundy, cobalt, sage) used as tile colours, not as UI chrome.
-- Cinzel capitals with generous letter-spacing; Cormorant Garamond italics for warmth.
+- Cinzel display type with restrained spacing; Cormorant Garamond italics for warmth.
 - Large soft shadows, tiny corner radii.
 - Custom cursor on desktop (`cursor:none`), disabled for touch via `(hover:none),(pointer:coarse)`.
 
@@ -74,13 +89,13 @@ Surfaces are flat and sharp. Corners are near-square, buttons are small wide-tra
 Warm, earthy and saturated only in the accents.
 
 ### Primary
-- **Marigold Gold** (#C8860A): buttons, rules, accents. **Lamp Gold** (#E8B84B) is its lighter highlight; **Gold Haze** (#FBF0D8) is the pale tint behind highlights.
+- **Marigold Gold** (#C8860A): buttons, rules, accents. **Lamp Gold** (#E8B84B) is its lighter highlight; **Gold Haze** (#FBF0D8) is the pale tint behind highlights. **Gold Text** (#8A5A00) keeps small gold text readable on cream.
 
 ### Secondary (tile colours)
 - **Ghat Teal** (#1A6B7A), **Temple Burgundy** (#8B1A1A), **Cobalt Blue** (#1A3A6B), **Sage Green** (#3D6B3A), **Sandstone Brown** (#5C3A1E): room tiles and decorative accents.
 
 ### Neutral
-- **Ink** (#1A1208): text and dark bands (stats band, room cards). **Cream** (#FAF4EA): page background. **Parchment** (#F2E8D5): alternate sections. **Muted Umber** (#7A6A50): secondary text. **WhatsApp Green** (#25D366): WhatsApp actions only.
+- **Ink** (#1A1208): text and dark bands (stats band, room cards). **White** (#FFFFFF): page canvas and text on dark surfaces. **Cream** (#FAF4EA): warm panels. **Parchment** (#F2E8D5): alternate sections. **Muted Umber** (#706048): secondary text. **WhatsApp Green** (#25D366): WhatsApp actions only.
 
 ### Named Rules
 **The One Gold Rule.** Gold is the only action colour; jewel tones decorate, never drive actions.
@@ -94,7 +109,7 @@ Warm, earthy and saturated only in the accents.
 **Character:** Roman-inscription capitals paired with a quiet geometric sans and a soft literary italic.
 
 ### Hierarchy
-- **Display** (400, 48px, 1.05, +3px tracking): section titles in Cinzel.
+- **Display** (400, 48px, 1.05, +1px tracking): section titles in Cinzel.
 - **Headline** (300, Cormorant Garamond): intro lines and pull quotes.
 - **Body** (300, Jost): paragraphs and FAQ.
 - **Label** (400, 10px, +4 to +5px tracking, uppercase): buttons and eyebrows.
@@ -104,7 +119,7 @@ Warm, earthy and saturated only in the accents.
 
 ## Layout
 
-Full-width bands alternating cream, parchment and ink, with centred content sections. Breakpoints cluster at 1024px and 768px, with smaller steps at 600, 480. A `prefers-reduced-motion` query is present. Easing is a single curve, `cubic-bezier(.25,.46,.45,.94)`.
+Full-width bands alternate white, cream, parchment and ink, with centred content sections. Breakpoints cluster at 1024px and 768px, with smaller steps at 600, 480. A `prefers-reduced-motion` query is present. Easing is a single curve, `cubic-bezier(.25,.46,.45,.94)`.
 
 ## Elevation & Depth
 
