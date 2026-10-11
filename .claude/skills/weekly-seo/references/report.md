@@ -32,6 +32,7 @@ Write `seo-reports/YYYY-MM-DD.md`:
 3. **AI visibility** — crawler reachability table, Common Crawl capture count,
    Google and Bing index presence. The capture count is the clearest single
    number for whether LLMs can see this site; track it every week.
+3c. **Keyword demand** (`keywords.md`): cluster table of impressions, clicks, position, owning page and suggested change, plus new-topic ideas with their evidence or "no data".
 4. **Indexation detail** — every URL not in `Submitted and indexed`, with its
    coverage state. Call out any 404 still drawing impressions: that is live
    demand hitting a dead end and it is always worth a redirect.

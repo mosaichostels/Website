@@ -57,7 +57,7 @@ numbers there are historical; the newest file in `seo-reports/` has current valu
 - (b) `references/gsc.md` `references/ga4.md` `references/cwv.md` `references/bing.md`
   `references/clarity.md` `references/commoncrawl.md` `references/lighthouse.md`
   `references/gbp.md` `references/browser-audit.md` (UI-only data, GBP, MCP health)
-- (c) `references/audits.md` `references/ai-visibility.md`; (e) `references/fix.md`; (h) `references/report.md`
+- (c) `references/audits.md` `references/ai-visibility.md` `references/keywords.md`; (e) `references/fix.md`; (h) `references/report.md`
 
 ## (a) Health gate
 
@@ -95,10 +95,11 @@ freshness lags. For ad-hoc questions the MCP servers `mosaic-gsc`, `mosaic-ga4`,
 
 ## (c) Audits
 
-Two groups, both required:
+Three groups, all required:
 
 1. **claude-seo audits:** 14 concurrent Agent-tool subagents. The list and the dedupe-and-merge rule are in `references/audits.md`.
 2. **AI platform read-check:** `./.claude/seo/ai-visibility.sh` (`references/ai-visibility.md`).
+3. **Keyword demand:** striking-distance GSC queries plus a Bing cross-check (`references/keywords.md`).
 
 ## (d) Rank the gaps
 
