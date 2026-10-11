@@ -31,6 +31,7 @@ seo-reports/gsc/*.json
 seo-reports/ga4/*.json
 seo-reports/bing/*.json
 seo-reports/clarity/*.json
+seo-reports/gbp/*.json
 seo-reports/cwv/*.json
 seo-reports/lighthouse/*.json
 seo-reports/commoncrawl/*.json
