@@ -19,7 +19,7 @@ ROOT = pathlib.Path(subprocess.run(["git", "rev-parse", "--show-toplevel"],
                                    capture_output=True, text=True).stdout.strip())
 REPORTS = ROOT / "seo-reports"
 SOURCES = ["gsc", "ga4", "bing", "clarity", "cwv", "lighthouse", "commoncrawl", "gbp"]
-MANUAL = ["audits:claude-seo-14", "ai-visibility"]
+MANUAL = ["audits:claude-seo-14", "ai-visibility", "keyword-demand"]
 STATUSES = {"done", "skipped", "blocked"}
 
 
