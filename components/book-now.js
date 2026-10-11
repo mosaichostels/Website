@@ -125,7 +125,7 @@
         // preventScroll below stops focus from jumping the page, but then nothing
         // brought the new stage into view: on a phone, Continue at the foot of a
         // long results list opened the guest form scrolled past its top.
-        if (mode && stages[name].scrollIntoView) stages[name].scrollIntoView({ block: 'start' });
+        if (stages[name].scrollIntoView) stages[name].scrollIntoView({ block: 'start' });
         const heading = stages[name].querySelector('.direct-title');
         if (heading) {
           heading.setAttribute('tabindex', '-1');
@@ -226,6 +226,7 @@
         return;
       }
       showStage(stage, 'none');
+      requestAnimationFrame(() => stages[stage].scrollIntoView({ block: 'start' }));
     });
 
     // Arriving with dates already in the URL — a shared link, a bookmark, an ad
@@ -803,11 +804,12 @@
     // ₹12,500 not ₹12500.00 — Indian digit grouping, and paise only when there
     // actually are any. The rest of the site writes prices this way.
     const INR = new Intl.NumberFormat('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+    const INR_PAISE = new Intl.NumberFormat('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     function fmtPrice(n) {
       if (n === null || n === undefined || n === '') return '—';
       const value = Number(n);
       if (!isFinite(value)) return '—';
-      return INR.format(value);
+      return (Math.round(value * 100) % 100 === 0 ? INR : INR_PAISE).format(value);
     }
 
     // Extracted so the price-change path (N8) can redraw it after the server
