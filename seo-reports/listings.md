@@ -42,6 +42,24 @@ Verified = name and address read on the page. Only Google Maps and Justdial show
 
 Also seen, same property: varanasihotels.net (hostel-mosaic.varanasihotels.net/en/), hotelvaranasi.net (hostelmosaic.hotelvaranasi.net), in.hotels.com, es.hoteles.com, Skyscanner .ie/.com.my/.qa copies.
 
+## Added by the Firecrawl pass (2026-10-11)
+Firecrawl searched each OTA by name plus the address, phone, email and social queries, then scraped the hits. Verified = address B1/85C, Anandbagh, Bhelupur read on the page.
+| Platform | URL | Verified |
+|---|---|---|
+| **Cleartrip** (new) | https://www.cleartrip.com/hotels/details/mosaic-hostel-varanasi-5247325 | name and "Bhelupur, Varanasi" (no street address) |
+| **Hostelz** (new) | https://www.hostelz.com/hostel/527501-Mosaic-Hostel | name and Varanasi; lists Hostelworld and Booking.com as its booking sites |
+| Ctrip (Trip.com China) | https://m.ctrip.com/html5/hotel/hoteldetail/132802842.html | address read; same property as Trip.com 132802842 |
+| LetsBookHotel (new) | https://www.letsbookhotel.com/en/india/varanasi/hotel/mosaic-hostel-varanasi.aspx | address read |
+| Lodging World (new) | https://www.lodging-world.com/in/hotels/mosaic-hostel-varanasi-in-varanasi-915027484 | address read |
+| Mapcarta (new, OpenStreetMap mirror) | https://mapcarta.com/N13751993139 | name and Varanasi; shows that an OSM node exists (N13751993139) |
+| OwnerDirect (new) | https://ownerdirect.com/property/mosaic-hostel-varanasi/BC-15027484 | name only, no address on the page |
+| Mindtrip (new) | https://mindtrip.ai/hotel/varanasi-uttar-pradesh/mosaic-hostel-varanasi/ho-16lEBhpk | **unverified** (page returned almost nothing) |
+
+Extra URLs of properties already listed above: EaseMyTrip https://www.easemytrip.com/hotels/mosaic-hostel-varanasi-10735833/ (address "Assi Ghat Rd"), Agoda https://www.agoda.com/mosaic-hostel-varanasi-h87203796/hotel/varanasi-in.html, Expedia regional copies (.ae, .ca), VacationRenter https://www.vacationrenter.com/p/412232846 (address B1/85C read), Google Hotels copies (.pk, .np).
+Firecrawl scrapes of MakeMyTrip, Trip.com and Expedia returned empty or generic pages (bot protection), so those stay "read by Codex or search result" only.
+
+Still not found after the Firecrawl pass: Airbnb, Vrbo, HostelsClub, Hostels.com, Kayak, Trivago, Yatra, OYO, Zostel, Stayzilla, Treebo, Facebook page, LinkedIn, YouTube channel. A TheHostelCo page appeared but only as a Varanasi category page, not a Mosaic page.
+
 ## Problems
 - **Dead listing:** https://www.adanione.com/india-hotels/mosaic-hostel-varanasi-5221194 returns 404 (appears in Google results).
 - Booking.com and Tripadvisor review URLs are separate pages from the property pages above.
