@@ -58,7 +58,7 @@
       [...PAL.gold, ...PAL.teal], [...PAL.burg, ...PAL.sage],
       [...PAL.cobalt, ...PAL.gold], [...PAL.teal, ...PAL.burg],
     ];
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].forEach((i) => {
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].forEach((i) => {
       const el = document.getElementById('pt' + i);
       if (!el) return;
       const pal = platformPals[(i - 1) % platformPals.length];
