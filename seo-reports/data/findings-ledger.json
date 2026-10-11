@@ -112,7 +112,7 @@
       "id": "F-0005",
       "impact": 3,
       "measured": null,
-      "note": "live /book-now at 375px: email button 82-293px on one line inside the viewport, all 8 footer links 44px tall, 0 overflowing elements; global.css?v=20261006 live; 44-URL suite 0 failures",
+      "note": "live /book-now at 375px: email button 82-293px on one line inside the viewport, all 8 footer links 44px tall, 0 overflowing elements; global.css?v=20261027 live; 44-URL suite 0 failures",
       "priority": 0.5,
       "sources": [
         "seo-visual"
@@ -419,7 +419,127 @@
       ],
       "status": "deployed",
       "updated": "2026-10-07"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "No robots meta (max-image-preview:large) on any indexable page",
+      "commit": "a6a4724",
+      "confidence": 0.8,
+      "created": "2026-10-11",
+      "effort": 1,
+      "evidence": "0 of 20 pages carried name=robots at HEAD",
+      "id": "F-0017",
+      "impact": 2,
+      "measured": null,
+      "note": "read pre-edit HEAD source; defect present",
+      "priority": 1.6,
+      "sources": [
+        "seo-technical"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-11"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Blog index shows 29 Jul 2026 for Assi Ghat guide though datePublished and visible date are 2026-06-15",
+      "commit": "a6a4724",
+      "confidence": 0.95,
+      "created": "2026-10-11",
+      "effort": 1,
+      "evidence": "blog/index.html:250 vs post JSON-LD",
+      "id": "F-0018",
+      "impact": 3,
+      "measured": null,
+      "note": "read pre-edit HEAD source; defect present",
+      "priority": 2.85,
+      "sources": [
+        "seo-content"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-11"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "blog/index.html meta description is 162 characters (truncates)",
+      "commit": "a6a4724",
+      "confidence": 0.9,
+      "created": "2026-10-11",
+      "effort": 1,
+      "evidence": "len=162",
+      "id": "F-0019",
+      "impact": 1,
+      "measured": null,
+      "note": "read pre-edit HEAD source; defect present",
+      "priority": 0.9,
+      "sources": [
+        "seo-content"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-11"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Address, Get Directions and Google-review links are href=# with JS-only handler (not crawlable)",
+      "commit": "a6a4724",
+      "confidence": 0.85,
+      "created": "2026-10-11",
+      "effort": 1,
+      "evidence": "about:288 contact:239,245,273 book-now:600 privacy:181",
+      "id": "F-0020",
+      "impact": 2,
+      "measured": null,
+      "note": "read pre-edit HEAD source; defect present",
+      "priority": 1.7,
+      "sources": [
+        "seo-local"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-11"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Internal link gaps between blog posts (budget, best-time, solo-female, is-safe, things-to-do, airport, assi-vs-dash, sarnath, 2-day, best-hostels)",
+      "commit": "a6a4724",
+      "confidence": 0.9,
+      "created": "2026-10-11",
+      "effort": 1,
+      "evidence": "hrefs checked in post files",
+      "id": "F-0021",
+      "impact": 3,
+      "measured": null,
+      "note": "read pre-edit HEAD source; defect present",
+      "priority": 2.7,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-11"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Post dateModified and sitemap lastmod disagree (assi guide, dorm-vs-private, budget and others)",
+      "commit": "a6a4724",
+      "confidence": 0.9,
+      "created": "2026-10-11",
+      "effort": 1,
+      "evidence": "sitemap vs JSON-LD",
+      "id": "F-0022",
+      "impact": 2,
+      "measured": null,
+      "note": "read pre-edit HEAD source; defect present",
+      "priority": 1.8,
+      "sources": [
+        "seo-content"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-11"
     }
   ],
-  "next_id": 17
+  "next_id": 23
 }

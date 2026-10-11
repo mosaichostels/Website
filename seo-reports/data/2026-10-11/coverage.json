@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-11",
+  "items": {
+    "ai-visibility": {
+      "reason": "ai-visibility.sh run 2026-10-11: 13 agents 200, CC captures 0",
+      "status": "done"
+    },
+    "audits:claude-seo-14": {
+      "reason": "All 14 subagents returned; claude-seo browser runtime stale so visual/sxo/backlinks used raw curl, venv Playwright and direct scripts",
+      "status": "done"
+    },
+    "audits:skill-3": {
+      "reason": "seo-audit duplicates the 14 agents; seo-unlighthouse covered by the lighthouse extractor (15 routes); seo-bing covered by the bing extractor and MCP",
+      "status": "skipped"
+    },
+    "extract:bing": {
+      "reason": "1 informational note(s)",
+      "status": "done"
+    },
+    "extract:booking-probe": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:clarity": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:commoncrawl": {
+      "reason": "CC-MAIN-2026-30: HTTP 502 <html> <head><title>502 Bad Gateway</title></head> ",
+      "status": "blocked"
+    },
+    "extract:cwv": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:ga4": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gbp": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gsc": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:lighthouse": {
+      "reason": "",
+      "status": "done"
+    },
+    "query-discovery": {
+      "reason": "",
+      "status": "done"
+    }
+  }
+}
