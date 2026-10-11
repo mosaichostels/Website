@@ -99,7 +99,23 @@
     const lbImg = document.getElementById('lb-img');
     if (!lb || !lbImg) return;
     let currentIdx = 0;
+    let trigger = null;
     const imgs = () => Array.from(document.querySelectorAll('.room-card .room-photo'));
+    const lbClose = document.getElementById('lb-close');
+    const lbPrev = document.getElementById('lb-prev');
+    const lbNext = document.getElementById('lb-next');
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Room photo viewer');
+    lbPrev.setAttribute('aria-label', 'Previous room photo');
+    lbNext.setAttribute('aria-label', 'Next room photo');
+    const behind = () => {
+      const out = [];
+      for (let n = lb; n && n !== document.body; n = n.parentElement) {
+        Array.from(n.parentElement.children).forEach((c) => { if (c !== n && c.tagName !== 'SCRIPT') out.push(c); });
+      }
+      return out;
+    };
 
     function open(idx) {
       const list = imgs();
@@ -107,13 +123,20 @@
       currentIdx = idx;
       lbImg.src = list[idx].src;
       lbImg.alt = list[idx].alt;
-      lb.classList.add('open');
+      if (!lb.classList.contains('open')) {
+        trigger = document.activeElement;
+        lb.classList.add('open');
+        behind().forEach((el) => el.setAttribute('inert', ''));
+        lbClose.focus();
+      }
       document.body.style.overflow = 'hidden';
     }
     function close() {
       lb.classList.remove('open');
+      behind().forEach((el) => el.removeAttribute('inert'));
       document.body.style.overflow = '';
       lbImg.src = '';
+      if (trigger && trigger.focus) trigger.focus();
     }
     function navigate(dir) {
       const list = imgs();
@@ -121,17 +144,32 @@
       open(currentIdx);
     }
 
-    document.querySelectorAll('.room-photo').forEach((img) => { img.style.cursor = 'pointer'; });
-    document.addEventListener('click', (e) => {
-      if (e.target.classList.contains('room-photo')) {
-        const idx = imgs().indexOf(e.target);
-        if (idx >= 0) open(idx);
+    imgs().forEach((img, idx) => {
+      img.style.cursor = 'pointer';
+      img.setAttribute('role', 'button');
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('aria-label', 'Open photo: ' + img.alt);
+      img.addEventListener('click', () => open(idx));
+      img.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(idx); }
+      });
+    });
+    lbClose.addEventListener('click', close);
+    lbPrev.addEventListener('click', () => navigate(-1));
+    lbNext.addEventListener('click', () => navigate(1));
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'ArrowLeft') navigate(-1);
+      if (e.key === 'ArrowRight') navigate(1);
+      if (e.key === 'Escape') close();
+      if (e.key === 'Tab') {
+        const ring = [lbClose, lbPrev, lbNext];
+        const i = ring.indexOf(document.activeElement);
+        e.preventDefault();
+        ring[(i + (e.shiftKey ? -1 : 1) + ring.length) % ring.length].focus();
       }
     });
-    document.getElementById('lb-close').addEventListener('click', close);
-    document.getElementById('lb-prev').addEventListener('click', () => navigate(-1));
-    document.getElementById('lb-next').addEventListener('click', () => navigate(1));
-    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
   }
 
   // Respect reduced-motion: the hero loops indefinitely, so show the poster frame instead.

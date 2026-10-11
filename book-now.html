@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/styles/global.css?v=20261027">
+<link rel="stylesheet" href="/styles/global.css?v=20261028">
 <link rel="canonical" href="https://www.mosaichostels.com/book-now">
 <meta name="description" content="Book Mosaic Hostel Varanasi direct: dorm beds and private rooms available, instant booking at the best rates steps from Assi Ghat.">
 <meta property="og:site_name" content="Mosaic Hostel Varanasi">
@@ -300,11 +300,7 @@
       <div class="direct-title">Your Details</div>
       <div id="widgetPrice"></div>
       <form id="guestForm" data-clarity-mask="True">
-        <div class="field-row three">
-          <div class="field">
-            <label for="gTitle">Title</label>
-            <select id="gTitle" name="title"><option value=""></option><option>Mr.</option><option>Ms.</option><option>Mrs.</option></select>
-          </div>
+        <div class="field-row">
           <div class="field">
             <label for="gFirstName">First Name</label>
             <input type="text" id="gFirstName" name="first_name" autocomplete="given-name" required>
@@ -313,10 +309,6 @@
             <label for="gLastName">Last Name</label>
             <input type="text" id="gLastName" name="last_name" autocomplete="family-name" required>
           </div>
-        </div>
-        <div class="field">
-          <label for="gGender">Gender</label>
-          <select id="gGender" name="gender"><option value="">Prefer not to say</option><option>Male</option><option>Female</option><option>Other</option></select>
         </div>
         <div class="field-row">
           <div class="field">
@@ -338,25 +330,38 @@
             <input type="tel" id="gPhone" name="phone" autocomplete="tel-national" inputmode="tel" required>
           </div>
         </div>
-        <div class="field">
-          <label for="gNationality">Nationality</label>
-          <select id="gNationality" name="nationality" autocomplete="country-name"></select>
-        </div>
-        <div class="field">
-          <label for="gArrival">Estimated Arrival</label>
-          <select id="gArrival" name="arrival_time">
-            <option value="">Not sure yet</option>
-            <option>Before 12:00 PM</option>
-            <option>12:00 PM – 3:00 PM</option>
-            <option>3:00 PM – 6:00 PM</option>
-            <option>6:00 PM – 9:00 PM</option>
-            <option>After 9:00 PM</option>
-          </select>
-        </div>
-        <div class="field">
-          <label for="gRequest">Special Request</label>
-          <textarea id="gRequest" name="special_request" placeholder="Optional"></textarea>
-        </div>
+        <details class="optional-details">
+          <summary>Optional stay details</summary>
+          <div class="field-row">
+            <div class="field">
+              <label for="gTitle">Title</label>
+              <select id="gTitle" name="title"><option value=""></option><option>Mr.</option><option>Ms.</option><option>Mrs.</option></select>
+            </div>
+            <div class="field">
+              <label for="gGender">Gender</label>
+              <select id="gGender" name="gender"><option value="">Prefer not to say</option><option>Male</option><option>Female</option><option>Other</option></select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="gNationality">Nationality</label>
+            <select id="gNationality" name="nationality" autocomplete="country-name"></select>
+          </div>
+          <div class="field">
+            <label for="gArrival">Estimated Arrival</label>
+            <select id="gArrival" name="arrival_time">
+              <option value="">Not sure yet</option>
+              <option>Before 12:00 PM</option>
+              <option>12:00 PM – 3:00 PM</option>
+              <option>3:00 PM – 6:00 PM</option>
+              <option>6:00 PM – 9:00 PM</option>
+              <option>After 9:00 PM</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="gRequest">Special Request</label>
+            <textarea id="gRequest" name="special_request" placeholder="Optional"></textarea>
+          </div>
+        </details>
         <!-- The terms that cost money if missed are stated here rather than
              only behind the modal, which most guests never open. -->
         <ul class="policy-brief">
@@ -680,7 +685,7 @@
     <script src="/components/site.js?v=20261016"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     <script src="/components/book-now.js?v=20261019"></script>
-    <script src="/components/navbar.js?v=20260729"></script>
+    <script src="/components/navbar.js?v=20261028"></script>
 <script src="/components/footer.js?v=20260729"></script>
 
 <!-- ── FOOTER ── -->
