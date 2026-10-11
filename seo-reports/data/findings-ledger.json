@@ -539,7 +539,107 @@
       ],
       "status": "fixed",
       "updated": "2026-10-11"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Homepage lacks 'hostels near assi ghat' and 'dormitory' wording (about 440 impressions, 0 clicks, pos 10-17)",
+      "commit": "e1a27a3",
+      "confidence": 0.7,
+      "created": "2026-10-11",
+      "effort": 1,
+      "evidence": "GSC 12 Jul-8 Oct; keywords.md cluster 1",
+      "id": "F-0023",
+      "impact": 4,
+      "measured": null,
+      "note": "read pre-edit HEAD page and GSC query data",
+      "priority": 2.8,
+      "sources": [
+        "seo-google"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-11"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "best-hostels post: comparison is 5th H2, no direct answer, title without count, no solo/student FAQ (about 150 impressions, 0 clicks)",
+      "commit": "e1a27a3",
+      "confidence": 0.65,
+      "created": "2026-10-11",
+      "effort": 2,
+      "evidence": "keywords.md cluster 2",
+      "id": "F-0024",
+      "impact": 4,
+      "measured": null,
+      "note": "read pre-edit HEAD page and GSC query data",
+      "priority": 1.3,
+      "sources": [
+        "seo-sxo"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-11"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "No distance answers for Assi Ghat to Dashashwamedh / key places (about 300 impressions, 0 clicks, pos 14-31)",
+      "commit": "e1a27a3",
+      "confidence": 0.6,
+      "created": "2026-10-11",
+      "effort": 1,
+      "evidence": "keywords.md cluster 3",
+      "id": "F-0025",
+      "impact": 3,
+      "measured": null,
+      "note": "read pre-edit HEAD page and GSC query data",
+      "priority": 1.8,
+      "sources": [
+        "seo-google"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-11"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Airport transfer guide title lacks Assi Ghat to airport / railway station wording (pos 6-11, no clicks)",
+      "commit": "e1a27a3",
+      "confidence": 0.6,
+      "created": "2026-10-11",
+      "effort": 1,
+      "evidence": "keywords.md cluster 4",
+      "id": "F-0026",
+      "impact": 3,
+      "measured": null,
+      "note": "read pre-edit HEAD page and GSC query data",
+      "priority": 1.8,
+      "sources": [
+        "seo-google"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-11"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "book-now title lacks Varanasi; H2 'Booking FAQs' holds house rules",
+      "commit": "e1a27a3",
+      "confidence": 0.7,
+      "created": "2026-10-11",
+      "effort": 1,
+      "evidence": "SXO audit 2026-10-11",
+      "id": "F-0027",
+      "impact": 2,
+      "measured": null,
+      "note": "read pre-edit HEAD page and GSC query data",
+      "priority": 1.4,
+      "sources": [
+        "seo-sxo"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-11"
     }
   ],
-  "next_id": 23
+  "next_id": 28
 }
