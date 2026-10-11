@@ -3,11 +3,10 @@ Search Console: request indexing again for /book-now, /privacy and /blog/ (daily
 Tell me which room is the female-only dorm (6-bed female and 8-bed dorm tiles on the home page still share /images/IMG_1933-room)
 Privacy: add a concrete retention period, a statement on how guest ID is handled, a cookie/consent banner for EU/UK visitors and a named grievance contact (policy text has none of these)
 Rotate the FTP, Razorpay test and Hostinger tokens that were pasted in chat (credential files last changed 2-6 Oct, no sign of rotation)
-Airport time: Assi Ghat guide says 30-40 min by taxi, the transfer guide says 45-60 min. Which is right? Also confirm Banaras station and Kashi Vishwanath distances before I publish them
+Confirm the Banaras station (Manduadih) and Kashi Vishwanath distances with me before I publish them; the airport time is settled
 Bing Places (paused 2026-10-11): the imported listing cannot be verified because Bing has no State or country code for it and locks the fields. Plan: sign in to Bing Places in the automation Chrome (finish the Google sign-in popup), then I delete the imported listing, re-add it by hand with the full address (Uttar Pradesh, India) and request the PIN call to 091254 92225 (someone must read the PIN out). Apple Business Connect also needs your sign-in
 Ask Hostinger support (hPanel chat) to exempt GPTBot from the edge throttle: about 15% of its requests still get 429. Draft: "Please exempt the GPTBot user agent from rate limiting on mosaichostels.com; it gets 429 on about 15% of requests."
 AdaniOne has a dead Mosaic listing (404): ask them to remove it or fix the link
-/seo setup failed 2026-10-11: claude-seo's dependencies (google-ads etc.) do not install on Python 3.15. Everything the weekly run needs still works (mosaic-seo venv is on 3.14, doctor says browser_ready). Options: wait for a plugin update, or I rebuild its runtime with python3.14
 # done: OpenStreetMap node N13751993139: added addr:suburb=Anandbagh and brand=Mosaic Hostels (uploaded 2026-10-11). Name left as "Mosaic Hostel Varanasi" to match Google and the OTAs; say if you still want it renamed
 # done: Hostinger cache clear (not needed: hPanel Cache Manager says the cache clears itself every 30 minutes; the CLI purge only times out)
 # done: Clarity masking mode checked in the dashboard: already Balanced (2026-10-11)
@@ -16,3 +15,5 @@ AdaniOne has a dead Mosaic listing (404): ask them to remove it or fix the link
 # done: Weekly SEO v2: stages 4-5 still pending
 # done: Clarity form masking (data-clarity-mask on guest, cancel and contact forms and the confirmation boxes, deployed 2026-10-11)
 # done: Third-party listings inventory (seo-reports/listings.md), sameAs extended to 31 URLs, 14 platform cards on /book-now, all deployed 2026-10-11
+# done: Airport time conflict fixed: Assi Ghat guide now says 45 minutes to an hour, matching the transfer guide, homepage FAQ and its schema (2026-10-11; sources show 43-62 min drive, 45-75 min prepaid taxi)
+# done: /seo setup: rebuilt on Python 3.14 and CLAUDE_SEO_PYTHON=/opt/homebrew/bin/python3.14 added to ~/.claude/settings.json env, doctor says ready (2026-10-11)
