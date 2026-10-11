@@ -85,7 +85,7 @@ class TestCoverage(unittest.TestCase):
         with self.assertRaises(ValueError):
             cl.mark(self.date, "audits:claude-seo-14", "skipped", "  ", self.tmp)
         cl.mark(self.date, "audits:claude-seo-14", "done", "", self.tmp)
-        cl.mark(self.date, "audits:skill-3", "blocked", "login gate", self.tmp)
+        cl.mark(self.date, "ai-visibility", "blocked", "login gate", self.tmp)
         self.assertNotIn("audits:claude-seo-14: pending", cl.check(self.date, self.tmp))
 
     def test_mark_rejects_unknown_item_and_status(self):
