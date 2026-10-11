@@ -4,16 +4,7 @@
 
 ## (c) Audits
 
-17 checks total, split by invocation mechanism — they do not share state.
-**14 are Agent-tool subagents** (`agents/*.md` in the claude-seo plugin —
-confirmed dispatchable via Task tool, run concurrently). **3 are Skill-tool
-only** (`skills/*` or `extensions/*/skills/*` in the same plugin — no
-`agents/` counterpart exists, so the Task tool cannot spawn them; invoke each
-with the Skill tool, one at a time, before or after the concurrent batch).
-Conflating the two groups is why `seo-audit` silently gets skipped when
-someone tries to dispatch all "14" via Task tool — verify against
-`~/.claude/plugins/cache/*/claude-seo/*/agents/` before assuming a new
-claude-seo capability belongs in the concurrent batch.
+14 checks, all Agent-tool subagents (`agents/*.md` in the claude-seo plugin, dispatched concurrently via the Task tool). The claude-seo `seo-audit`, `seo-unlighthouse` and `seo-bing` skills are not part of the weekly run: the 14 agents plus the Lighthouse and Bing extractors cover them. Verify against `~/.claude/plugins/cache/*/claude-seo/*/agents/` before assuming a new claude-seo capability belongs in the batch.
 
 **Concurrent, via Task/Agent tool (14):**
 
@@ -45,20 +36,13 @@ claude-seo capability belongs in the concurrent batch.
 **Drift (1)**
 - `claude-seo:seo-drift` — diff vs baselines: title, meta, canonical, robots, headings, JSON-LD, OG, status, content hash
 
-**Skill-tool only, sequential (3) — no `agents/` definition exists for these:**
-- `claude-seo:seo-audit` (skill) — full site crawl, blocked routes, health score. Internally fans out to its own specialist set; overlaps most of the 12 above, so treat its output as a cross-check, not new signal, unless the 12 disagree with it.
-- `seo-unlighthouse` (skill, `extensions/unlighthouse/`) — multi-page Lighthouse (15 routes), 4 scores, all audits + savings, drift comparison
-- `seo-bing` (skill, `extensions/bing-webmaster/`) — Bing-specific visibility, IndexNow status, Bing index coverage (vs Google)
+### Running the 14
 
-### Running all 17
+Dispatch them concurrently via Task tool; no agent blocks another. Typical
+runtime: 3-8 min depending on site size and API lag. Each returns structured
+output directly.
 
-Dispatch the 14 concurrently via Task tool — no agent blocks another. Typical
-runtime: 3-8 min depending on site size and API lag. Invoke the 3 Skill-tool
-checks separately (each is synchronous in the main thread, not backgroundable
-the way an Agent-tool dispatch is). Each writes its findings to a separate
-report file in the task system or returns structured output directly.
-
-After all 17 complete:
+After all 14 complete:
 1. **Collect every finding** — multiple checks may report the same gap (e.g., missing H2 on `/blog`)
 2. **Deduplicate** — one finding per gap, note which checks found it (confidence boost)
 3. **Merge** into master gap list for step (d) ranking
