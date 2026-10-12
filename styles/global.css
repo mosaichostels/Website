@@ -170,7 +170,7 @@ body.has-action-bar{padding-bottom:64px}}
 .room-cta:hover,.room-cta:focus-visible{background:var(--gold);color:var(--ink)}
 .shared-space{max-width:1240px;margin:48px auto 0;padding:0 80px 80px}
 .shared-space-label{font-family:Cinzel,serif;font-size:20px;letter-spacing:2px;margin-bottom:16px;text-align:center}
-.shared-space .room-card{height:280px;width:100vw;left:50%;transform:translateX(-50%)}
+.shared-space .room-card{width:100vw;aspect-ratio:3/2;left:50%;transform:translateX(-50%)}
 #lb-room-cta{display:inline-flex;align-items:center;min-height:44px;margin-top:12px;padding:9px 16px;background:var(--gold-text);color:#fff;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none}
 #lb-room-cta[hidden]{display:none}
 #lb-room-cta:hover,#lb-room-cta:focus-visible{background:var(--gold);color:var(--ink)}
@@ -178,7 +178,7 @@ body.has-action-bar{padding-bottom:64px}}
 .optional-details summary{min-height:48px;line-height:48px;color:var(--gold-text);font-size:13px;cursor:pointer}
 .optional-details summary:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
 @media(max-width:1024px){.rooms-grid{grid-template-columns:repeat(2,1fr)}.rooms-grid>.room-card{grid-column:auto!important}.shared-space{padding:0 40px 60px}}
-@media(max-width:600px){.rooms-grid{grid-template-columns:1fr}.rooms-grid .room-card{min-height:280px}.shared-space{padding:0 20px 48px;margin-top:32px}.shared-space .room-card{height:240px}}
+@media(max-width:600px){.rooms-grid{grid-template-columns:1fr}.rooms-grid .room-card{min-height:280px}.shared-space{padding:0 20px 48px;margin-top:32px}}
 .blog-post-image.fig-tall figcaption{background:var(--cream);margin:0;padding:8px 0}
 
 /* Booking room steppers need a comfortable touch target. */
