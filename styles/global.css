@@ -170,7 +170,7 @@ body.has-action-bar{padding-bottom:64px}}
 .room-cta:hover,.room-cta:focus-visible{background:var(--gold);color:var(--ink)}
 .shared-space{max-width:1240px;margin:48px auto 0;padding:0 80px 80px}
 .shared-space-label{font-family:Cinzel,serif;font-size:20px;letter-spacing:2px;margin-bottom:16px;text-align:center}
-.shared-space .room-card{width:100vw;aspect-ratio:3/2;left:50%;transform:translateX(-50%)}
+.shared-space .room-card{width:100%;max-width:960px;margin:0 auto;aspect-ratio:3/2}
 #lb-room-cta{display:inline-flex;align-items:center;min-height:44px;margin-top:12px;padding:9px 16px;background:var(--gold-text);color:#fff;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none}
 #lb-room-cta[hidden]{display:none}
 #lb-room-cta:hover,#lb-room-cta:focus-visible{background:var(--gold);color:var(--ink)}
