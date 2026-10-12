@@ -166,12 +166,11 @@ body.has-action-bar{padding-bottom:64px}}
 .room-overlay{pointer-events:none}
 .room-card:focus-within{outline:3px solid var(--gold);outline-offset:3px;z-index:1}
 .rooms-grid .room-meta,.shared-space .room-meta{max-height:none;opacity:1;color:rgba(255,255,255,.85)}
-.room-photo-note{font-size:12px;color:#fff;margin-top:6px}
 .room-cta{pointer-events:auto;display:inline-flex;align-items:center;min-height:44px;align-self:flex-start;margin-top:14px;padding:9px 16px;background:var(--gold-text);color:#fff;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none}
 .room-cta:hover,.room-cta:focus-visible{background:var(--gold);color:var(--ink)}
 .shared-space{max-width:1240px;margin:48px auto 0;padding:0 80px 80px}
 .shared-space-label{font-family:Cinzel,serif;font-size:20px;letter-spacing:2px;margin-bottom:16px}
-.shared-space .room-card{height:280px}
+.shared-space .room-card{height:280px;width:100vw;left:50%;transform:translateX(-50%)}
 #lb-room-cta{display:inline-flex;align-items:center;min-height:44px;margin-top:12px;padding:9px 16px;background:var(--gold-text);color:#fff;font-size:12px;letter-spacing:2px;text-transform:uppercase;text-decoration:none}
 #lb-room-cta[hidden]{display:none}
 #lb-room-cta:hover,#lb-room-cta:focus-visible{background:var(--gold);color:var(--ink)}
