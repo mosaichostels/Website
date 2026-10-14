@@ -695,10 +695,14 @@
       "updated": "2026-10-14"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-10-14",
+        "metric": "gsc.impressions",
+        "value": 2909
+      },
       "check": null,
       "claim": "Default Hostinger 404 page (no branded 404.html or ErrorDocument)",
-      "commit": null,
+      "commit": "24e51cf",
       "confidence": 0.85,
       "created": "2026-10-14",
       "effort": 1,
@@ -711,14 +715,18 @@
       "sources": [
         "seo-technical"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-10-14"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-10-14",
+        "metric": "gsc.impressions",
+        "value": 2909
+      },
       "check": null,
       "claim": "FAQPage questions in 4 posts not found in visible text (safe guide 4/5, things-to-do 4/4, solo-female 4/5, 2-day 1/3)",
-      "commit": null,
+      "commit": "24e51cf",
       "confidence": 0.6,
       "created": "2026-10-14",
       "effort": 2,
@@ -731,14 +739,18 @@
       "sources": [
         "seo-schema"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-10-14"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-10-14",
+        "metric": "gsc.impressions",
+        "value": 2909
+      },
       "check": null,
       "claim": "Homepage title plural/list-style, aimed at OTA listing-grid SERPs; hostels near assi ghat 188 imp, 0 clicks pos 13",
-      "commit": null,
+      "commit": "24e51cf",
       "confidence": 0.8,
       "created": "2026-10-14",
       "effort": 2,
@@ -751,14 +763,18 @@
       "sources": [
         "seo-sxo"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-10-14"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-10-14",
+        "metric": "gsc.impressions",
+        "value": 2909
+      },
       "check": null,
       "claim": "Posts show no visible Updated date though dateModified is bulk 2026-10-11",
-      "commit": null,
+      "commit": "24e51cf",
       "confidence": 0.85,
       "created": "2026-10-14",
       "effort": 1,
@@ -771,14 +787,18 @@
       "sources": [
         "seo-content"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-10-14"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-10-14",
+        "metric": "gsc.impressions",
+        "value": 2909
+      },
       "check": null,
       "claim": "Homepage links to only 3 of 14 posts; no guides section",
-      "commit": null,
+      "commit": "24e51cf",
       "confidence": 0.7,
       "created": "2026-10-14",
       "effort": 2,
@@ -791,14 +811,18 @@
       "sources": [
         "seo-cluster"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-10-14"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-10-14",
+        "metric": "gsc.impressions",
+        "value": 2909
+      },
       "check": null,
       "claim": "No Ganga Aarti or Dev Deepawali post (Bing: ganga aarti 38/40, Dev Deepawali 0)",
-      "commit": null,
+      "commit": "24e51cf",
       "confidence": 0.4,
       "created": "2026-10-14",
       "effort": 3,
@@ -811,14 +835,18 @@
       "sources": [
         "seo-cluster"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-10-14"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-10-14",
+        "metric": "gsc.impressions",
+        "value": 2909
+      },
       "check": null,
       "claim": "GSC outcome: airport guide 1867 imp 4 clicks pos 7.8; assi guide 1382 imp 3 clicks; best-hostels 588 imp 5 clicks",
-      "commit": null,
+      "commit": "24e51cf",
       "confidence": 0.7,
       "created": "2026-10-14",
       "effort": 2,
@@ -831,7 +859,7 @@
       "sources": [
         "seo-google"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-10-14"
     }
   ],
