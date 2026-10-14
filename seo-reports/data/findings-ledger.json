@@ -662,12 +662,12 @@
       "id": "F-0028",
       "impact": 1,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 0.9,
       "sources": [
         "seo-technical"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-14"
     },
     {
@@ -686,12 +686,12 @@
       "id": "F-0029",
       "impact": 2,
       "measured": null,
-      "note": "read co-working Read Next block and cluster link counts",
+      "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 1.6,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-14"
     },
     {
@@ -710,12 +710,12 @@
       "id": "F-0030",
       "impact": 2,
       "measured": null,
-      "note": "curl /nope returns 404 with host default body; no 404.html in repo",
+      "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 1.7,
       "sources": [
         "seo-technical"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-14"
     },
     {
@@ -734,12 +734,12 @@
       "id": "F-0031",
       "impact": 3,
       "measured": null,
-      "note": "4 posts: questions absent or reworded in visible text; read grep output",
+      "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 0.9,
       "sources": [
         "seo-schema"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-14"
     },
     {
@@ -758,12 +758,12 @@
       "id": "F-0032",
       "impact": 4,
       "measured": null,
-      "note": "GSC hostels near assi ghat 188 imp pos 13.3, 0 clicks; title is plural",
+      "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 1.6,
       "sources": [
         "seo-sxo"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-14"
     },
     {
@@ -782,12 +782,12 @@
       "id": "F-0033",
       "impact": 3,
       "measured": null,
-      "note": "grep shows only Published line in blog-meta",
+      "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 2.55,
       "sources": [
         "seo-content"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-14"
     },
     {
@@ -806,12 +806,12 @@
       "id": "F-0034",
       "impact": 3,
       "measured": null,
-      "note": "grep href=/blog/ in index.html: nav, footer, 2 FAQ links",
+      "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 1.05,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-14"
     },
     {
@@ -830,12 +830,12 @@
       "id": "F-0035",
       "impact": 5,
       "measured": null,
-      "note": "GSC 25 imp aarti/boat cluster; Bing ganga aarti 38/40; unproven demand",
+      "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 0.667,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-14"
     },
     {
@@ -854,12 +854,12 @@
       "id": "F-0036",
       "impact": 4,
       "measured": null,
-      "note": "gsc page rows in 2026-10-14 bundle",
+      "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 1.4,
       "sources": [
         "seo-google"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-14"
     }
   ],
