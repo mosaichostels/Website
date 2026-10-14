@@ -1,6 +1,9 @@
 # Declare charset in the Content-Type header (HTML/text were served without it)
 AddDefaultCharset UTF-8
 
+# Branded 404 page (status stays 404, page is noindex)
+ErrorDocument 404 /404.html
+
 # ════════ SECURITY HEADERS ════════
 <IfModule mod_headers.c>
   # HSTS (force HTTPS for 1 year)
