@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-14",
+  "items": {
+    "ai-visibility": {
+      "reason": "ai-visibility.sh: 13 agents 200, CC 0 captures, Bing present",
+      "status": "done"
+    },
+    "audits:claude-seo-14": {
+      "reason": "14 agents returned; seo-flow lacked FLOW prompt files, visual used single unthrottled run",
+      "status": "done"
+    },
+    "extract:bing": {
+      "reason": "1 informational note(s)",
+      "status": "done"
+    },
+    "extract:booking-probe": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:clarity": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:commoncrawl": {
+      "reason": "CC-MAIN-2026-30: HTTP 502 <html> <head><title>502 Bad Gateway</title></head> ",
+      "status": "blocked"
+    },
+    "extract:cwv": {
+      "reason": "--fast run; CrUX/PSI from 2026-10-11 bundle used by seo-google",
+      "status": "skipped"
+    },
+    "extract:ga4": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gbp": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gsc": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:lighthouse": {
+      "reason": "--fast run; Unlighthouse sweep not run this week",
+      "status": "skipped"
+    },
+    "keyword-demand": {
+      "reason": "7 clusters from GSC extract (mosaic-gsc MCP timed out), Bing cross-check run",
+      "status": "done"
+    },
+    "query-discovery": {
+      "reason": "",
+      "status": "done"
+    }
+  }
+}
