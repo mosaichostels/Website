@@ -884,12 +884,12 @@
       "id": "F-0037",
       "impact": 3,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 2.4,
       "sources": [
         "seo-cluster,seo-flow,seo-content"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-16"
     },
     {
@@ -914,12 +914,12 @@
       "id": "F-0038",
       "impact": 2,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 1.8,
       "sources": [
         "seo-drift"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-16"
     },
     {
@@ -944,12 +944,12 @@
       "id": "F-0039",
       "impact": 2,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 1.9,
       "sources": [
         "seo-flow,seo-sitemap"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-16"
     }
   ],
