@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-16",
+  "items": {
+    "ai-visibility": {
+      "reason": "ai-visibility.sh run: 13 UAs 200, Bing present, CC 0 captures",
+      "status": "done"
+    },
+    "audits:claude-seo-14": {
+      "reason": "14 agents returned; findings deduped into F-0037..F-0039, rest deferred/rejected",
+      "status": "done"
+    },
+    "extract:bing": {
+      "reason": "1 informational note(s)",
+      "status": "done"
+    },
+    "extract:booking-probe": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:clarity": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:commoncrawl": {
+      "reason": "CC-MAIN-2026-30: HTTP 502 <html> <head><title>502 Bad Gateway</title></head> ",
+      "status": "blocked"
+    },
+    "extract:cwv": {
+      "reason": "ran 2026-10-16 (cwv.metrics.json)",
+      "status": "done"
+    },
+    "extract:ga4": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gbp": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gsc": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:lighthouse": {
+      "reason": "ran 2026-10-16 (lighthouse.metrics.json)",
+      "status": "done"
+    },
+    "keyword-demand": {
+      "reason": "GSC striking-distance clusters from 10-16 extract; Bing cross-check run (tiny volumes)",
+      "status": "done"
+    },
+    "query-discovery": {
+      "reason": "",
+      "status": "done"
+    }
+  }
+}
