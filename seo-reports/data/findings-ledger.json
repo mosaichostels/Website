@@ -861,7 +861,97 @@
       ],
       "status": "deployed",
       "updated": "2026-10-14"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-16",
+        "metric": "ga4.sessions",
+        "value": 341
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+        "pattern": "dev-deepawali-varanasi-2026-guide",
+        "target": "blog/assi-ghat-varanasi-complete-guide/index.html",
+        "where": "local"
+      },
+      "claim": "Dev Deepawali post (festival 24 Nov 2026) is not linked from the Assi Ghat pillar guide or from the in-text Dev Deepawali mentions in best-hostels and best-time",
+      "commit": "e07d9bd",
+      "confidence": 0.8,
+      "created": "2026-10-16",
+      "effort": 1,
+      "evidence": "grep: no dev-deepawali link in assi-ghat guide; best-time para and best-hostels FAQ mention it as plain text",
+      "id": "F-0037",
+      "impact": 3,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 2.4,
+      "sources": [
+        "seo-cluster,seo-flow,seo-content"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-16"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-16",
+        "metric": "bing.pages_in_index",
+        "value": 30
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/",
+        "pattern": "og:title",
+        "target": "blog/index.html",
+        "where": "local"
+      },
+      "claim": "blog/index.html has no og:title or og:description (other pages have both)",
+      "commit": "e07d9bd",
+      "confidence": 0.9,
+      "created": "2026-10-16",
+      "effort": 1,
+      "evidence": "grep og: blog/index.html shows og:type/url/site_name/image/locale only",
+      "id": "F-0038",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.8,
+      "sources": [
+        "seo-drift"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-16"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-16",
+        "metric": "bing.pages_in_index",
+        "value": 30
+      },
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/",
+        "pattern": "dateModified\": \"2026-10-11",
+        "target": "blog/best-time-to-visit-varanasi-month-by-month/index.html",
+        "where": "local"
+      },
+      "claim": "best-time post: sitemap lastmod 2026-10-14 but dateModified and visible Updated say 2026-10-11 (page was edited 2026-10-14 in 24e51cf)",
+      "commit": "e07d9bd",
+      "confidence": 0.95,
+      "created": "2026-10-16",
+      "effort": 1,
+      "evidence": "sitemap.xml vs blog/best-time-to-visit.../index.html lines 21,78",
+      "id": "F-0039",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.9,
+      "sources": [
+        "seo-flow,seo-sitemap"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-16"
     }
   ],
-  "next_id": 37
+  "next_id": 40
 }
