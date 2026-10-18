@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-18",
+  "items": {
+    "ai-visibility": {
+      "reason": "13 UAs; 429 on GPTBot and ChatGPT-User is the known hCDN burst throttle, 200 when spaced; CC 0 captures",
+      "status": "done"
+    },
+    "audits:claude-seo-14": {
+      "reason": "14 of 14 agents returned; 4 findings verified and fixed, rest deferred or rejected",
+      "status": "done"
+    },
+    "extract:bing": {
+      "reason": "1 informational note(s)",
+      "status": "done"
+    },
+    "extract:booking-probe": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:clarity": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:commoncrawl": {
+      "reason": "CC-MAIN-2026-30: HTTP 502 <html> <head><title>502 Bad Gateway</title></head> ",
+      "status": "blocked"
+    },
+    "extract:cwv": {
+      "reason": "--fast run skips PageSpeed/CrUX sweep",
+      "status": "skipped"
+    },
+    "extract:ga4": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gbp": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gsc": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:lighthouse": {
+      "reason": "--fast run skips Unlighthouse sweep",
+      "status": "skipped"
+    },
+    "keyword-demand": {
+      "reason": "GSC 633 query-page rows, 5 clusters; Bing cross-check returned 0 for the seeds",
+      "status": "done"
+    },
+    "query-discovery": {
+      "reason": "",
+      "status": "done"
+    }
+  }
+}
