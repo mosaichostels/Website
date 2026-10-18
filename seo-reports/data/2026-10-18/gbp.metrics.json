@@ -1,0 +1,22 @@
+{
+  "errors": [],
+  "fetched_at": "2026-10-18T13:02:12",
+  "findings": [],
+  "metrics": {
+    "bookings": 0,
+    "call_clicks": 51,
+    "direction_requests": 144,
+    "impressions_maps": 3367,
+    "impressions_search": 5537,
+    "rating_avg": 4.5,
+    "reviews_total": 78,
+    "reviews_unanswered": 0,
+    "website_clicks": 10
+  },
+  "source": "gbp",
+  "window": {
+    "days": 28,
+    "end": "2026-10-15",
+    "start": "2026-09-18"
+  }
+}

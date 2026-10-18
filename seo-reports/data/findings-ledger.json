@@ -951,7 +951,87 @@
       ],
       "status": "deployed",
       "updated": "2026-10-16"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "article:modified_time meta tag is stale on all 16 blog posts (07-26..08-18) while dateModified is 10-06..10-16; published_time wrong on dev-deepawali and ganga-aarti (07-29 vs 10-14)",
+      "commit": "e44fa26",
+      "confidence": 0.95,
+      "created": "2026-10-18",
+      "effort": 1,
+      "evidence": "grep of all blog/*/index.html 2026-10-18",
+      "id": "F-0040",
+      "impact": 3,
+      "measured": null,
+      "note": "values read from local files; live agent report agrees",
+      "priority": 2.85,
+      "sources": [
+        "seo-geo"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-18"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "/privacy sitemap lastmod 2026-08-20 but page says Last updated 10 October 2026",
+      "commit": "e44fa26",
+      "confidence": 0.85,
+      "created": "2026-10-18",
+      "effort": 1,
+      "evidence": "privacy.html line 161 vs sitemap.xml",
+      "id": "F-0041",
+      "impact": 2,
+      "measured": null,
+      "note": "page says 10 October 2026, sitemap 2026-08-20",
+      "priority": 1.7,
+      "sources": [
+        "seo-sitemap"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-18"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Dev Deepawali post (24 Nov) not linked from budget FAQ; evening Aarti mentions in where-to-stay and 3-5 day itinerary unlinked to the aarti post",
+      "commit": "e44fa26",
+      "confidence": 0.9,
+      "created": "2026-10-18",
+      "effort": 1,
+      "evidence": "budget line 135, assi-vs-dash line 94, 3-5-day line 99",
+      "id": "F-0042",
+      "impact": 4,
+      "measured": null,
+      "note": "anchor text present and unlinked on the named lines",
+      "priority": 3.6,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-18"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "best-time post says Dev Deepawali typically November with no 2026 date, 37 days before the event",
+      "commit": "e44fa26",
+      "confidence": 0.9,
+      "created": "2026-10-18",
+      "effort": 1,
+      "evidence": "best-time line 109; date 24 Nov 2026 consistent across site",
+      "id": "F-0043",
+      "impact": 3,
+      "measured": null,
+      "note": "date 24 Nov 2026 already stated in the Dev Deepawali post",
+      "priority": 2.7,
+      "sources": [
+        "seo-content"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-18"
     }
   ],
-  "next_id": 40
+  "next_id": 44
 }
