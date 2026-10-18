@@ -964,12 +964,12 @@
       "id": "F-0040",
       "impact": 3,
       "measured": null,
-      "note": "values read from local files; live agent report agrees",
+      "note": "live pages fetched 2026-10-18 after FTP deploy; change present; deploy-drift 0, live_check 67 URLs 0 failures",
       "priority": 2.85,
       "sources": [
         "seo-geo"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-18"
     },
     {
@@ -984,12 +984,12 @@
       "id": "F-0041",
       "impact": 2,
       "measured": null,
-      "note": "page says 10 October 2026, sitemap 2026-08-20",
+      "note": "live pages fetched 2026-10-18 after FTP deploy; change present; deploy-drift 0, live_check 67 URLs 0 failures",
       "priority": 1.7,
       "sources": [
         "seo-sitemap"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-18"
     },
     {
@@ -1004,12 +1004,12 @@
       "id": "F-0042",
       "impact": 4,
       "measured": null,
-      "note": "anchor text present and unlinked on the named lines",
+      "note": "live pages fetched 2026-10-18 after FTP deploy; change present; deploy-drift 0, live_check 67 URLs 0 failures",
       "priority": 3.6,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-18"
     },
     {
@@ -1024,12 +1024,12 @@
       "id": "F-0043",
       "impact": 3,
       "measured": null,
-      "note": "date 24 Nov 2026 already stated in the Dev Deepawali post",
+      "note": "live pages fetched 2026-10-18 after FTP deploy; change present; deploy-drift 0, live_check 67 URLs 0 failures",
       "priority": 2.7,
       "sources": [
         "seo-content"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-18"
     }
   ],
