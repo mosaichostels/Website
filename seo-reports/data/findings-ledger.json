@@ -1031,7 +1031,27 @@
       ],
       "status": "deployed",
       "updated": "2026-10-18"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Dev Deepawali post (24 Nov 2026) is thin: about 380 words, no FAQ, no where-to-watch passage, no source for the date",
+      "commit": "95d3de7",
+      "confidence": 0.7,
+      "created": "2026-10-18",
+      "effort": 2,
+      "evidence": "GEO G3 2026-10-18; owner asked for the expansion",
+      "id": "F-0044",
+      "impact": 3,
+      "measured": null,
+      "note": "live page fetched 2026-10-18: Where to Watch, FAQ and FAQPage JSON-LD present; sitemap.xml edge copy still cached at 2026-10-14 (origin shows 2026-10-18)",
+      "priority": 1.05,
+      "sources": [
+        "seo-geo"
+      ],
+      "status": "deployed",
+      "updated": "2026-10-18"
     }
   ],
-  "next_id": 44
+  "next_id": 45
 }
