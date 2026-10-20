@@ -1131,7 +1131,47 @@
       ],
       "status": "deployed",
       "updated": "2026-10-20"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "'24-hour check-in' label (home, book-now, gallery, things-to-do, llms.txt, meta descriptions) and '24/7 Check-in' Hostel schema feature contradict the stated 1:00 PM check-in; reception is open 24x7",
+      "commit": "2d41655",
+      "confidence": 0.9,
+      "created": "2026-10-20",
+      "effort": 1,
+      "evidence": "content audit C1 2026-10-18; owner confirmed reception is 24x7 on 2026-10-20",
+      "id": "F-0049",
+      "impact": 3,
+      "measured": null,
+      "note": "live fetched 2026-10-20 with cache-bust: 0 old labels on 9 URLs; solo-female page, schema, meta and index card all 2026-05-26",
+      "priority": 2.7,
+      "sources": [
+        "seo-content"
+      ],
+      "status": "deployed",
+      "updated": "2026-10-20"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Solo-female post: visible Published and blog index card say 2026-05-10 while datePublished and article:published_time say 2026-05-26",
+      "commit": "2d41655",
+      "confidence": 0.9,
+      "created": "2026-10-20",
+      "effort": 1,
+      "evidence": "GEO G2 2026-10-18; owner said fix it, aligned to the schema date",
+      "id": "F-0050",
+      "impact": 2,
+      "measured": null,
+      "note": "live fetched 2026-10-20 with cache-bust: 0 old labels on 9 URLs; solo-female page, schema, meta and index card all 2026-05-26",
+      "priority": 1.8,
+      "sources": [
+        "seo-content"
+      ],
+      "status": "deployed",
+      "updated": "2026-10-20"
     }
   ],
-  "next_id": 49
+  "next_id": 51
 }
