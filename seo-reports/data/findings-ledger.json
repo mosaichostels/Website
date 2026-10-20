@@ -1171,7 +1171,47 @@
       ],
       "status": "deployed",
       "updated": "2026-10-20"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Home 'Plan Your Trip' guide grid links 6 guides and omits the time-sensitive Dev Deepawali post (24 Nov) and the Sarnath guide",
+      "commit": "0651400",
+      "confidence": 0.8,
+      "created": "2026-10-20",
+      "effort": 1,
+      "evidence": "FLOW item 3 2026-10-18; owner asked 2026-10-20",
+      "id": "F-0051",
+      "impact": 3,
+      "measured": null,
+      "note": "live fetched 2026-10-20 with cache-bust: home grid has 8 cards incl Dev Deepawali and Sarnath; no Last verified line on either post",
+      "priority": 2.4,
+      "sources": [
+        "seo-flow"
+      ],
+      "status": "deployed",
+      "updated": "2026-10-20"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "'Last verified: 2026-07-29' on the two safety posts is stale next to Updated 2026-10-14 and cannot be re-verified from the repo",
+      "commit": "0651400",
+      "confidence": 0.85,
+      "created": "2026-10-20",
+      "effort": 1,
+      "evidence": "content audit C2 2026-10-18; owner chose verify-or-remove, removed",
+      "id": "F-0052",
+      "impact": 2,
+      "measured": null,
+      "note": "live fetched 2026-10-20 with cache-bust: home grid has 8 cards incl Dev Deepawali and Sarnath; no Last verified line on either post",
+      "priority": 1.7,
+      "sources": [
+        "seo-content"
+      ],
+      "status": "deployed",
+      "updated": "2026-10-20"
     }
   ],
-  "next_id": 51
+  "next_id": 53
 }
