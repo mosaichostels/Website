@@ -1051,7 +1051,27 @@
       ],
       "status": "deployed",
       "updated": "2026-10-18"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Under-linked blog posts: Sarnath, aarti, co-working, dorm-vs-private, airport, best-time and Dev Deepawali mentioned or relevant but unlinked in 8 posts (cluster L3-L10, content C6)",
+      "commit": "7818dd9",
+      "confidence": 0.85,
+      "created": "2026-10-20",
+      "effort": 1,
+      "evidence": "cluster audit 2026-10-18, anchors confirmed in visible body",
+      "id": "F-0045",
+      "impact": 3,
+      "measured": null,
+      "note": "live pages fetched 2026-10-20 after FTP deploy; all anchors present; sitemap shows 8 lastmods 2026-10-20",
+      "priority": 2.55,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "deployed",
+      "updated": "2026-10-20"
     }
   ],
-  "next_id": 45
+  "next_id": 46
 }
