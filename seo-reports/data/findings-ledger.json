@@ -1091,7 +1091,27 @@
       ],
       "status": "deployed",
       "updated": "2026-10-20"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Homepage title lacks 'dorm' and leans on the unverified 'steps from' claim; the best-hostels post and Assi Ghat guide link to each other only through Read Next",
+      "commit": "1dfcd0a",
+      "confidence": 0.6,
+      "created": "2026-10-20",
+      "effort": 1,
+      "evidence": "SXO S3 and S5 2026-10-18; owner asked for them 2026-10-20",
+      "id": "F-0047",
+      "impact": 3,
+      "measured": null,
+      "note": "live fetched 2026-10-20: home title, both body links present; live_check 67 URLs 0 failures",
+      "priority": 1.8,
+      "sources": [
+        "seo-sxo"
+      ],
+      "status": "deployed",
+      "updated": "2026-10-20"
     }
   ],
-  "next_id": 47
+  "next_id": 48
 }
