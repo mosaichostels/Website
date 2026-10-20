@@ -1111,7 +1111,27 @@
       ],
       "status": "deployed",
       "updated": "2026-10-20"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Distance to Assi Ghat stated as 'steps from' / 'short walk' against OTA listings (0.4 km) and a competitor at ~300m in the comparison table; no single figure",
+      "commit": "59e0c9d",
+      "confidence": 0.9,
+      "created": "2026-10-20",
+      "effort": 1,
+      "evidence": "SXO D1 2026-10-18; owner confirmed 100 m on 2026-10-20",
+      "id": "F-0048",
+      "impact": 3,
+      "measured": null,
+      "note": "live fetched 2026-10-20 with cache-bust: all 6 changed pages show the 100 m wording",
+      "priority": 2.7,
+      "sources": [
+        "seo-sxo"
+      ],
+      "status": "deployed",
+      "updated": "2026-10-20"
     }
   ],
-  "next_id": 48
+  "next_id": 49
 }
