@@ -57,7 +57,7 @@ numbers there are historical; the newest file in `seo-reports/` has current valu
 - (b) `references/gsc.md` `references/ga4.md` `references/cwv.md` `references/bing.md`
   `references/clarity.md` `references/commoncrawl.md` `references/lighthouse.md`
   `references/gbp.md` `references/browser-audit.md` (UI-only data, GBP, MCP health)
-- (c) `references/audits.md` `references/ai-visibility.md` `references/keywords.md`; (e) `references/fix.md`; (h) `references/report.md`
+- (c) `references/audits.md` `references/ai-visibility.md` `references/keywords.md`; (d) and (e) `references/search-optimization-guidelines.md` (SEO, AEO, GEO, LLMO, SXO, SIO rules and evidence tiers); (e) `references/fix.md`; (h) `references/report.md`
 
 ## (a) Health gate
 
