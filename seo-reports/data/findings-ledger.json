@@ -1282,7 +1282,7 @@
         "where": "local"
       },
       "claim": "SEO [G] 19 of 44 gallery images have no width/height attributes (layout shift risk; field CLS is 0.0 so impact is low)",
-      "commit": null,
+      "commit": "8dc43e9",
       "confidence": 0.5,
       "created": "2026-10-21",
       "effort": 3,
@@ -1295,7 +1295,7 @@
       "sources": [
         "seo-technical"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-10-21"
     },
     {
