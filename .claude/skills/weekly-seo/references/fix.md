@@ -11,7 +11,7 @@ changes, no refactors.
 In scope: verified SEO 301 redirects in `.htaccess`, title and meta description length and uniqueness, robots meta,
 canonicals, heading hierarchy, JSON-LD (Hostel, FAQPage, BreadcrumbList,
 Article), Open Graph and Twitter cards, image `alt` / `width` / `height` /
-`loading`, internal links, `sitemap.xml` entries and `lastmod`, `llms.txt`,
+`loading`, internal links, `sitemap.xml` entries and `lastmod`, `llms.txt` (courtesy only, Google ignores it),
 answer-shaped opening paragraphs for AEO.
 
 Out of scope even when an agent suggests it: rewriting page copy wholesale,
@@ -49,3 +49,7 @@ Record objections or scope findings under "Fixed this week" when addressed, or "
 - Languages spoken: English and Hindi only. Author stays "Mosaic Hostel Team". No café mention on the homepage. Co-working means the common room.
 - The visually hidden H1 plus styled visible title on non-home pages is deliberate (keyword H1 for screen readers); do not "fix" it. No `@id` merge of Hostel, Organization and publisher.
 - Internal-link fixes go on words already in the text; add "Read Next" bullets for the rest.
+
+## Added 2026-10-21
+
+Tag each fix with its discipline and evidence tier from `search-optimization-guidelines.md`. Do not fix on a vendor-claim-only finding; run it as a single-page experiment with a metric. No AI-only rewrites, chunking or fake mentions.

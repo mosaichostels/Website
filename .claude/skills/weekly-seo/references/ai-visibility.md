@@ -99,3 +99,7 @@ assuming it is still open: missing robots meta tags sitewide; `/book-now` and
 varies page to page; Google indexation is thin; thin backlink profile (zero CC
 captures); blog topic overlap (15 posts, potential cannibalization); image
 sitemap missing (blog/gallery); LCP rendering issues (visual audit may flag).
+
+### Source and entity check (added 2026-10-21)
+
+AI answers about lodging lean on OTAs and review sites more than on the property's own site (see `search-optimization-guidelines.md`, LLMO). Each run, compare name, address, distance, check-in times, amenities, languages and rating across the site, GBP, Hostelworld, Booking.com and Tripadvisor, and read Search Console's Generative AI performance report. Mismatches in external listings go under "Needs a human".
