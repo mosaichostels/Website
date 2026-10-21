@@ -1234,12 +1234,12 @@
       "id": "F-0053",
       "impact": 3,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "Live page has the Junction link to the transfer guide (confirmed by fetch); auto pattern also matches the pre-existing generic 'transfer guide' link, which stays.",
       "priority": 1.8,
       "sources": [
         "gsc"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-21"
     },
     {
@@ -1264,12 +1264,12 @@
       "id": "F-0054",
       "impact": 2,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 0.8,
       "sources": [
         "seo-sitemap"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-21"
     },
     {
@@ -1290,12 +1290,12 @@
       "id": "F-0055",
       "impact": 1,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 0.167,
       "sources": [
         "seo-technical"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-21"
     },
     {
@@ -1320,12 +1320,12 @@
       "id": "F-0056",
       "impact": 2,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "Experiment is on /about only: live /about has no vacationrenter/letsbookhotel/lodging-world/ownerdirect/wheree/viamichelin; home keeps 31 entries as control.",
       "priority": 0.6,
       "sources": [
         "seo-schema"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-21"
     },
     {
