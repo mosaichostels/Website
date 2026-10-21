@@ -1299,7 +1299,11 @@
       "updated": "2026-10-21"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-10-21",
+        "metric": "ga4.ai_assistant_sessions_90d",
+        "value": 114
+      },
       "check": {
         "defect_if": "present",
         "live_url": "https://www.mosaichostels.com/",
@@ -1308,7 +1312,7 @@
         "where": "local"
       },
       "claim": "LLMO [V] sameAs lists 31 profiles including thin aggregators (vacationrenter, wheree, viamichelin, letsbookhotel, lodging-world, ownerdirect); dilution is a vendor claim, not Google-documented",
-      "commit": null,
+      "commit": "de70112",
       "confidence": 0.3,
       "created": "2026-10-21",
       "effort": 1,
@@ -1321,7 +1325,7 @@
       "sources": [
         "seo-schema"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-10-21"
     },
     {
