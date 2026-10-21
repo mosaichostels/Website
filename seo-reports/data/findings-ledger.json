@@ -1211,7 +1211,139 @@
       ],
       "status": "deployed",
       "updated": "2026-10-20"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-21",
+        "metric": "gsc.nonbrand_clicks_90d",
+        "value": 13
+      },
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+        "pattern": ">transfer guide</a>",
+        "target": "blog/assi-ghat-varanasi-complete-guide/index.html",
+        "where": "local"
+      },
+      "claim": "SEO [G] Assi Ghat guide competes with the transfer guide for 'varanasi junction to assi ghat distance' (guide pos 9.8, 116 imp, 0 clicks; transfer guide pos 6.1) and its link to the transfer guide uses a generic anchor",
+      "commit": "a6d765d",
+      "confidence": 0.6,
+      "created": "2026-10-21",
+      "effort": 1,
+      "evidence": "GSC 21 Jul-18 Oct, India: guide 116 imp pos 9.8; transfer guide 35 imp pos 6.1; guide links via the words 'transfer guide'",
+      "id": "F-0053",
+      "impact": 3,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.8,
+      "sources": [
+        "gsc"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-21"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-21",
+        "metric": "gsc.nonbrand_clicks_90d",
+        "value": 13
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/sitemap-images.xml",
+        "pattern": "dev-deepawali-varanasi-2026-guide",
+        "target": "sitemap-images.xml",
+        "where": "local"
+      },
+      "claim": "SEO [G] sitemap-images.xml has no entries for the Dev Deepawali and Ganga Aarti posts although each has 2 images",
+      "commit": "a6d765d",
+      "confidence": 0.8,
+      "created": "2026-10-21",
+      "effort": 2,
+      "evidence": "grep: 2 <img> in each post, 0 sitemap-images matches",
+      "id": "F-0054",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 0.8,
+      "sources": [
+        "seo-sitemap"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-21"
+    },
+    {
+      "baseline": null,
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/gallery",
+        "pattern": "<img class=\"gal-photo\" src=\"/images/unnamed \\(1\\)\\.jpg\" alt=\"[^\"]*\" loading",
+        "target": "gallery.html",
+        "where": "local"
+      },
+      "claim": "SEO [G] 19 of 44 gallery images have no width/height attributes (layout shift risk; field CLS is 0.0 so impact is low)",
+      "commit": null,
+      "confidence": 0.5,
+      "created": "2026-10-21",
+      "effort": 3,
+      "evidence": "gallery.html: 19 <img> without width=; CrUX CLS p75 0.0",
+      "id": "F-0055",
+      "impact": 1,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 0.167,
+      "sources": [
+        "seo-technical"
+      ],
+      "status": "verified",
+      "updated": "2026-10-21"
+    },
+    {
+      "baseline": null,
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/",
+        "pattern": "wheree\\.com",
+        "target": "index.html",
+        "where": "local"
+      },
+      "claim": "LLMO [V] sameAs lists 31 profiles including thin aggregators (vacationrenter, wheree, viamichelin, letsbookhotel, lodging-world, ownerdirect); dilution is a vendor claim, not Google-documented",
+      "commit": null,
+      "confidence": 0.3,
+      "created": "2026-10-21",
+      "effort": 1,
+      "evidence": "index.html Hostel JSON-LD: 31 sameAs entries",
+      "id": "F-0056",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 0.6,
+      "sources": [
+        "seo-schema"
+      ],
+      "status": "verified",
+      "updated": "2026-10-21"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "LLMO [S] Bing stores 3 posts as empty stubs (0 B): co-working, ganga-aarti, dev-deepawali; likely crawled during a throttled response; Copilot cannot cite them",
+      "commit": null,
+      "confidence": 0.7,
+      "created": "2026-10-21",
+      "effort": 1,
+      "evidence": "extract-all bing: DocumentSize 0B for 3 URLs; 31 pages in Bing index of 23 sitemap URLs",
+      "id": "F-0057",
+      "impact": 3,
+      "measured": null,
+      "note": "extract-all bing 2026-10-21: DocumentSize 0B for co-working, ganga-aarti, dev-deepawali (listed under stub content)",
+      "priority": 2.1,
+      "sources": [
+        "bing"
+      ],
+      "status": "verified",
+      "updated": "2026-10-21"
     }
   ],
-  "next_id": 53
+  "next_id": 58
 }

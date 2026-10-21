@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-21",
+  "items": {
+    "ai-visibility": {
+      "reason": "ai-visibility.sh run; GPTBot and CCBot 429 treated as burst limiter per standing note; GEO agent's 5 spaced GETs all 200",
+      "status": "done"
+    },
+    "audits:claude-seo-14": {
+      "reason": "14/14 agents returned; findings merged in ledger F-0053..F-0057 plus report deferred list",
+      "status": "done"
+    },
+    "extract:bing": {
+      "reason": "1 informational note(s)",
+      "status": "done"
+    },
+    "extract:booking-probe": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:clarity": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:commoncrawl": {
+      "reason": "CC-MAIN-2026-30: HTTP 502 <html> <head><title>502 Bad Gateway</title></head> ",
+      "status": "blocked"
+    },
+    "extract:cwv": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:ga4": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gbp": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gsc": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:lighthouse": {
+      "reason": "",
+      "status": "done"
+    },
+    "keyword-demand": {
+      "reason": "Assi Ghat query clusters pulled from GSC (query+page); India brand check; Bing Webmaster query stats cross-check",
+      "status": "done"
+    },
+    "query-discovery": {
+      "reason": "",
+      "status": "done"
+    }
+  }
+}
