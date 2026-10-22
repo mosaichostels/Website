@@ -1,6 +1,6 @@
 # Agent context index (Website)
 
-Verified 2026-10-22. Live site: https://www.mosaichostels.com (Mosaic Hostel Varanasi). Older, deeper notes: `.planning/codebase/` (git-ignored: ARCHITECTURE, CONCERNS, CONVENTIONS, INTEGRATIONS, STACK, STRUCTURE, TESTING), `PRODUCT.md`, `DESIGN.md`, `README.md`.
+Verified 2026-10-23. Live site: https://www.mosaichostels.com (Mosaic Hostel Varanasi). Older, deeper notes: `.planning/codebase/` (git-ignored: ARCHITECTURE, CONCERNS, CONVENTIONS, INTEGRATIONS, STACK, STRUCTURE, TESTING), `PRODUCT.md`, `DESIGN.md`, `README.md`.
 
 | File | Read it for |
 |---|---|
