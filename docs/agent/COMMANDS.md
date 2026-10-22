@@ -9,3 +9,5 @@ python3 scripts/test_dashboard.py        # dashboard tests
 ```
 
 Cache busting before deploying edited shared JS/CSS: bump the `?v=YYYYMMDD` query on every HTML file that references it (the `cache-bust-check` skill does this). Commands are from the scripts' own headers; not re-run while writing this file.
+
+Instagram media: `scripts/sync-instagram-media.sh` mirrors the Drive folder (rclone remote `mosaic_hostel_media:`) into git-ignored `instagram-media/`; refuses to run on an empty listing; machine-specific paths.
