@@ -24,6 +24,10 @@ api/secrets.php
 screenshots/
 .playwright-mcp/
 
+# Local mirror of the shared Hostel Content Drive folder
+instagram-media/
+instagram-reels/
+
 # Regenerable API-response caches from SEO report runs — not source content
 seo-reports/**/.cache/
 # Fresh extractor bundles and console logs stay local; committed historical data remains tracked.
