@@ -1347,7 +1347,31 @@
       ],
       "status": "verified",
       "updated": "2026-10-21"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-21",
+        "metric": "gsc.nonbrand_impressions_90d",
+        "value": 3151
+      },
+      "check": null,
+      "claim": "SEO [G] No dedicated dorm page for 'dormitory near assi ghat' cluster (~135 imp/90d, pos 10-13, 0 clicks); built /dorms/",
+      "commit": "00e004f",
+      "confidence": 0.5,
+      "created": "2026-10-23",
+      "effort": 3,
+      "evidence": "",
+      "id": "F-0058",
+      "impact": 3,
+      "measured": null,
+      "note": "owner approved; GSC cluster data",
+      "priority": 0.5,
+      "sources": [
+        "manual"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-23"
     }
   ],
-  "next_id": 58
+  "next_id": 59
 }
