@@ -1,0 +1,19 @@
+{
+  "errors": [],
+  "fetched_at": "2026-10-25T10:15:40",
+  "findings": [],
+  "metrics": {
+    "ai_assistant_sessions_90d": 120,
+    "engagement_rate": 0.6621315192743764,
+    "key_events": 0,
+    "organic_sessions_90d": 158,
+    "sessions": 441,
+    "user_days": 381
+  },
+  "source": "ga4",
+  "window": {
+    "days": 28,
+    "end": "2026-10-23",
+    "start": "2026-09-26"
+  }
+}
