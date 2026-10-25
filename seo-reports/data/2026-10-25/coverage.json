@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-25",
+  "items": {
+    "ai-visibility": {
+      "reason": "ai-visibility.sh run: 12/13 agents 200, meta-externalagent 429 (burst limiter), CC 0 captures",
+      "status": "done"
+    },
+    "audits:claude-seo-14": {
+      "reason": "15 agents reported: technical, backlinks, local, maps, content, flow (resumed after turn limit), cluster, sxo, google, schema, sitemap, visual, geo, agentic, drift",
+      "status": "done"
+    },
+    "extract:bing": {
+      "reason": "1 informational note(s)",
+      "status": "done"
+    },
+    "extract:booking-probe": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:clarity": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:commoncrawl": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:cwv": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:ga4": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gbp": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gsc": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:lighthouse": {
+      "reason": "",
+      "status": "done"
+    },
+    "keyword-demand": {
+      "reason": "8 clusters from GSC 90d (24 Jul-22 Oct, 674 query/page rows), Bing cross-check run (exact matches 0)",
+      "status": "done"
+    },
+    "query-discovery": {
+      "reason": "",
+      "status": "done"
+    }
+  }
+}

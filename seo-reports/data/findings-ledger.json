@@ -1371,7 +1371,331 @@
       ],
       "status": "deployed",
       "updated": "2026-10-23"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-25",
+        "metric": "gsc.nonbrand_impressions_90d",
+        "value": 3475
+      },
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/dorms/",
+        "pattern": "\"about\": \\{\"@id\"",
+        "target": "dorms/index.html",
+        "where": "local"
+      },
+      "claim": "/dorms/ WebPage 'about' points at #hostel but no Hostel node is on the page (cross-page @id does not resolve)",
+      "commit": "227bdbc",
+      "confidence": 0.8,
+      "created": "2026-10-25",
+      "effort": 1,
+      "evidence": "dorms/index.html:21 about->#hostel; schema+local audits 2026-10-25",
+      "id": "F-0059",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.6,
+      "sources": [
+        "technical"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-25"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-25",
+        "metric": "gsc.nonbrand_impressions_90d",
+        "value": 3475
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/sitemap-images.xml",
+        "pattern": "mosaichostels.com/dorms/",
+        "target": "sitemap-images.xml",
+        "where": "local"
+      },
+      "claim": "sitemap-images.xml has no /dorms/ entry; unnamed (1).jpg listed nowhere",
+      "commit": "227bdbc",
+      "confidence": 1.0,
+      "created": "2026-10-25",
+      "effort": 1,
+      "evidence": "sitemap audit 2026-10-25",
+      "id": "F-0060",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 2.0,
+      "sources": [
+        "sitemap"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-25"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-25",
+        "metric": "gsc.nonbrand_impressions_90d",
+        "value": 3475
+      },
+      "check": null,
+      "claim": "sitemap.xml lastmod older than last git change on 16 of 24 URLs",
+      "commit": "227bdbc",
+      "confidence": 1.0,
+      "created": "2026-10-25",
+      "effort": 1,
+      "evidence": "git log -1 --format=%cs vs lastmod, sitemap audit 2026-10-25",
+      "id": "F-0061",
+      "impact": 2,
+      "measured": null,
+      "note": "git log -1 --format=%cs later than lastmod for / (10-20 vs 10-23), dorm-vs-private (10-14 vs 10-23) and others",
+      "priority": 2.0,
+      "sources": [
+        "sitemap"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-25"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-25",
+        "metric": "gsc.nonbrand_impressions_90d",
+        "value": 3475
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+        "pattern": "href=\"/dorms/\"",
+        "target": "blog/best-hostels-in-varanasi/index.html",
+        "where": "local"
+      },
+      "claim": "/dorms/ has few in-text inbound links; best-hostels and budget posts mention dorms without linking (dorm queries land on / at pos ~11, /dorms/ 1 impression)",
+      "commit": "227bdbc",
+      "confidence": 0.6,
+      "created": "2026-10-25",
+      "effort": 1,
+      "evidence": "flow+sxo+cluster audits; GSC dormitory near assi ghat 88 imp pos 10.9 on /",
+      "id": "F-0062",
+      "impact": 4,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 2.4,
+      "sources": [
+        "cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-25"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-25",
+        "metric": "gsc.nonbrand_impressions_90d",
+        "value": 3475
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+        "pattern": "<li><a [^>]*transfer-guide[^>]*>[^<]*railway station",
+        "target": "blog/assi-ghat-varanasi-complete-guide/index.html",
+        "where": "local"
+      },
+      "claim": "Station-distance queries split between complete guide and transfer guide; guide lists stations without linking the transfer guide in text",
+      "commit": "227bdbc",
+      "confidence": 0.6,
+      "created": "2026-10-25",
+      "effort": 1,
+      "evidence": "cluster audit: 160+50+30+43 imp on guide vs 36+24+25 on transfer guide",
+      "id": "F-0063",
+      "impact": 3,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.8,
+      "sources": [
+        "cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-25"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-25",
+        "metric": "gsc.nonbrand_impressions_90d",
+        "value": 3475
+      },
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/about",
+        "pattern": "a hostel a short walk from Assi Ghat",
+        "target": "about.html",
+        "where": "local"
+      },
+      "claim": "about.html meta description says a short walk from Assi Ghat instead of owner-confirmed 100 m",
+      "commit": "227bdbc",
+      "confidence": 0.9,
+      "created": "2026-10-25",
+      "effort": 1,
+      "evidence": "content audit; about.html:16",
+      "id": "F-0064",
+      "impact": 1,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 0.9,
+      "sources": [
+        "content"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-25"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-25",
+        "metric": "gsc.nonbrand_impressions_90d",
+        "value": 3475
+      },
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+        "pattern": "\"author\": \\{\"@type\": \"Organization\", \"name\": \"Mosaic Hostel Varanasi\"",
+        "target": "blog/best-hostels-in-varanasi/index.html",
+        "where": "local"
+      },
+      "claim": "Blog JSON-LD author name Mosaic Hostel Varanasi differs from visible byline Mosaic Hostel Team on all 16 posts",
+      "commit": "227bdbc",
+      "confidence": 0.8,
+      "created": "2026-10-25",
+      "effort": 1,
+      "evidence": "content audit; blog/best-hostels-in-varanasi author object",
+      "id": "F-0065",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.6,
+      "sources": [
+        "content"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-25"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Blog posts open with a restated meta description; the answer comes in paragraph 2-3 (16 posts)",
+      "commit": null,
+      "confidence": 0.5,
+      "created": "2026-10-25",
+      "effort": 4,
+      "evidence": "content audit 2026-10-25; copy rewrite = owner decision",
+      "id": "F-0066",
+      "impact": 4,
+      "measured": null,
+      "note": "",
+      "priority": 0.5,
+      "sources": [
+        "content"
+      ],
+      "status": "open",
+      "updated": "2026-10-25"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Dorms not in main nav; homepage room cards link only to /book-now (navigation restructure out of scope)",
+      "commit": null,
+      "confidence": 0.6,
+      "created": "2026-10-25",
+      "effort": 2,
+      "evidence": "flow+sxo audits 2026-10-25",
+      "id": "F-0067",
+      "impact": 4,
+      "measured": null,
+      "note": "",
+      "priority": 1.2,
+      "sources": [
+        "technical"
+      ],
+      "status": "open",
+      "updated": "2026-10-25"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Heading hierarchy: homepage rooms section and /contact cards are divs; Read Next/Further Reading are H3 under unrelated H2 (about 14 posts)",
+      "commit": null,
+      "confidence": 0.6,
+      "created": "2026-10-25",
+      "effort": 3,
+      "evidence": "flow audit 2026-10-25; styling may depend on tag",
+      "id": "F-0068",
+      "impact": 3,
+      "measured": null,
+      "note": "",
+      "priority": 0.6,
+      "sources": [
+        "technical"
+      ],
+      "status": "open",
+      "updated": "2026-10-25"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Lockers wording contradicts on /dorms/ (included vs rented) and llms.txt claims single/double/triple occupancy the site does not state",
+      "commit": null,
+      "confidence": 0.7,
+      "created": "2026-10-25",
+      "effort": 1,
+      "evidence": "geo audit 2026-10-25; needs owner facts",
+      "id": "F-0069",
+      "impact": 4,
+      "measured": null,
+      "note": "",
+      "priority": 2.8,
+      "sources": [
+        "geo"
+      ],
+      "status": "open",
+      "updated": "2026-10-25"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "GA4 key_events 0 with 441 sessions; no data July 2026 and 12-18 Aug (tag gap)",
+      "commit": null,
+      "confidence": 0.8,
+      "created": "2026-10-25",
+      "effort": 2,
+      "evidence": "ga4.metrics.json; google audit; GA4 Admin is a human task",
+      "id": "F-0070",
+      "impact": 3,
+      "measured": null,
+      "note": "",
+      "priority": 1.2,
+      "sources": [
+        "google"
+      ],
+      "status": "open",
+      "updated": "2026-10-25"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Trip.com lists Mosaic 0.4 km from Assi Ghat vs owner-confirmed 100 m; GBP address wording and OSM differ",
+      "commit": null,
+      "confidence": 0.7,
+      "created": "2026-10-25",
+      "effort": 2,
+      "evidence": "sxo+maps audits; external listings, owner task",
+      "id": "F-0071",
+      "impact": 3,
+      "measured": null,
+      "note": "",
+      "priority": 1.05,
+      "sources": [
+        "local"
+      ],
+      "status": "open",
+      "updated": "2026-10-25"
     }
   ],
-  "next_id": 59
+  "next_id": 72
 }

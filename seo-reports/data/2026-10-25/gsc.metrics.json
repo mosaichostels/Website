@@ -1,0 +1,24 @@
+{
+  "errors": [],
+  "fetched_at": "2026-10-25T10:11:26",
+  "findings": [],
+  "metrics": {
+    "clicks": 61,
+    "ctr": 0.014509990485252141,
+    "impressions": 4204,
+    "nonbrand_clicks_90d": 13,
+    "nonbrand_impressions_90d": 3475,
+    "position": 7.399143672692674,
+    "queries_90d": 581,
+    "sitemap_errors": 0,
+    "sitemap_warnings": 0,
+    "urls_indexed": 25,
+    "urls_inspected": 30
+  },
+  "source": "gsc",
+  "window": {
+    "days": 28,
+    "end": "2026-10-22",
+    "start": "2026-09-25"
+  }
+}
