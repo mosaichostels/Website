@@ -79,7 +79,8 @@ def cached(key, fn):
     if USE_CACHE and cf.exists():
         return json.loads(cf.read_text())
     val = fn()
-    cf.write_text(json.dumps(val))
+    if not (isinstance(val, dict) and "error" in val):      # a 502/504 must not stick forever
+        cf.write_text(json.dumps(val))
     return val
 
 
