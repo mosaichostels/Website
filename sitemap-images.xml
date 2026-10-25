@@ -25,6 +25,21 @@
     </image:image>
   </url>
   <url>
+    <loc>https://www.mosaichostels.com/dorms/</loc>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/unnamed%20(1).jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — 4-Bed Mixed Dorm</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/unnamed.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — 6-Bed Mixed Dorm</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://www.mosaichostels.com/images/IMG_1933-room.jpg</image:loc>
+      <image:caption>Mosaic Hostel Varanasi — 8-Bed Mixed Dorm</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://www.mosaichostels.com/gallery</loc>
     <image:image>
       <image:loc>https://www.mosaichostels.com/images/123e2e1a-479c-4a38-9634-fcbb95683f8b1.jpg</image:loc>
