@@ -4,9 +4,9 @@
 
 ## (c) Audits
 
-14 checks, all Agent-tool subagents (`agents/*.md` in the claude-seo plugin, dispatched concurrently via the Task tool). The claude-seo `seo-audit`, `seo-unlighthouse` and `seo-bing` skills are not part of the weekly run: the 14 agents plus the Lighthouse and Bing extractors cover them. Verify against `~/.claude/plugins/cache/*/claude-seo/*/agents/` before assuming a new claude-seo capability belongs in the batch.
+15 checks, all Agent-tool subagents (`agents/*.md` in the claude-seo plugin, dispatched concurrently via the Task tool). The claude-seo `seo-audit`, `seo-unlighthouse` and `seo-bing` skills are not part of the weekly run: the 15 agents plus the Lighthouse and Bing extractors cover them. Verify against `~/.claude/plugins/cache/*/claude-seo/*/agents/` before assuming a new claude-seo capability belongs in the batch.
 
-**Concurrent, via Task/Agent tool (14):**
+**Concurrent, via Task/Agent tool (15):**
 
 **Discovery + Crawlability (2)**
 - `claude-seo:seo-technical` — crawlability, indexability, URL structure, canonicals, mobile
@@ -29,20 +29,21 @@
 - `claude-seo:seo-schema` — JSON-LD validity and coverage (Hostel, FAQPage, BreadcrumbList, Article)
 - `claude-seo:seo-sitemap` — XML validation, image sitemap gaps, lastmod optimization, priority ranking
 
-**Experience + Authority (2)**
+**Experience + Authority (3)**
 - `claude-seo:seo-visual` — screenshots at 375px/768px/1440px, LCP element, above-fold content, rendering issues
 - `claude-seo:seo-geo` — AI crawler access (real GETs per UA), `llms.txt` presence, passage citability (GEO/AIO/LLMO)
+- `claude-seo:seo-agentic` — (claude-seo 2.5.0+) agent readiness: Lighthouse Agentic Browsing `X/N`, accessibility tree, robots.txt AI groups, Content-Signal, llms.txt, Markdown delivery, WebMCP markup. Never pass `--ua-matrix` (the owner has not authorized agent user-agent testing). Report-only: its `agentic_fix.py` drafts, and a robots.txt Content-Signal or AI-training policy needs the owner's decision, so defer it. If PSI is out of quota the agent records the error; mark any gap in `coverage_ledger.py`
 
 **Drift (1)**
 - `claude-seo:seo-drift` — diff vs baselines: title, meta, canonical, robots, headings, JSON-LD, OG, status, content hash
 
-### Running the 14
+### Running the 15
 
 Dispatch them concurrently via Task tool; no agent blocks another. Typical
 runtime: 3-8 min depending on site size and API lag. Each returns structured
 output directly.
 
-After all 14 complete:
+After all 15 complete:
 1. **Collect every finding** — multiple checks may report the same gap (e.g., missing H2 on `/blog`)
 2. **Deduplicate** — one finding per gap, note which checks found it (confidence boost)
 3. **Merge** into master gap list for step (d) ranking
