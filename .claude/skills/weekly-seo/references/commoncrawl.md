@@ -11,3 +11,6 @@
   the 12 newest crawls, CCBot served 200 on every URL), verified against a control
   domain, while CCBot itself returns 200 — a discovery problem driven by a
   thin backlink profile, not a technical block.
+  Reconfirmed 2026-10-25: all 12 crawls answered, 0 captures (conclusive). An
+  `ERROR` row means the CDX gateway returned 502/504; rerun the extractor (errors
+  are no longer cached since 2026-10-25, before that a cached error stayed forever).

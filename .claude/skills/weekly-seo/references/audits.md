@@ -100,3 +100,5 @@ configured here): Nominatim geocoding, Overpass competitor discovery in
 Varanasi, a static GBP completeness checklist, and cross-platform presence
 guidance (Bing Places, Apple Maps, OSM). Cannot geo-grid rank or pull live
 review/post data at this tier — same gap: it needs GBP API access (not configured).
+
+**Tooling notes (2026-10-25).** `agentic_check.py` needs `lxml` (installed in the mosaic-seo venv that day). `seo-visual` and `agent_ux_check.py` need Playwright, which the mosaic-seo venv lacks; the agent used `~/Library/Application Support/claude-seo/.venv/bin/python`. The `playwright-*` MCP servers failed once with an npm `ENOTEMPTY` in `~/.npm/_npx/<hash>`: remove that one folder and they start.
