@@ -9,7 +9,7 @@ Verified: 2026-10-23 @ 7118c3f
 - 2026-10-25 (uncommitted): `weekly-seo` step (c) now runs 15 audit agents, adding `claude-seo:seo-agentic` (claude-seo 2.5.0; `--ua-matrix` banned, report-only) in `SKILL.md` and `references/audits.md`/`report.md`; coverage id `audits:claude-seo-14` kept as is. Skill structure check passes; full sweep not run. `/weekly-seo` only loads in sessions opened in this folder.
 - 2026-10-25 weekly SEO run done: site fixes `227bdbc` (F-0059 to F-0065, committed, NOT deployed), report `seo-reports/2026-10-25.md`, 15 audit agents, 0 coverage items open. Fixed tooling: Common Crawl extractor no longer caches HTTP errors, `lxml` added to the mosaic-seo venv, drift symlink restored. `meta-externalagent` still gets 429 at the host edge (owner). GA4 has no data for July 2026 and 12-18 Aug.
 - Ledger: 71 findings (F-0059 to F-0065 fixed, not deployed; F-0066 to F-0071 deferred/open; F-0057 still verified), `next_id` 72.
-- Latest weekly report: `seo-reports/2026-10-21.md`.
+- Latest weekly report: `seo-reports/2026-10-25.md`.
 
 ## Open
 | Item | Notes |
