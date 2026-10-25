@@ -1394,12 +1394,12 @@
       "id": "F-0059",
       "impact": 2,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 1.6,
       "sources": [
         "technical"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-25"
     },
     {
@@ -1424,7 +1424,7 @@
       "id": "F-0060",
       "impact": 2,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "defect still on the live page: fix not deployed yet",
       "priority": 2.0,
       "sources": [
         "sitemap"
@@ -1478,12 +1478,12 @@
       "id": "F-0062",
       "impact": 4,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 2.4,
       "sources": [
         "cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-25"
     },
     {
@@ -1508,12 +1508,12 @@
       "id": "F-0063",
       "impact": 3,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 1.8,
       "sources": [
         "cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-25"
     },
     {
@@ -1538,12 +1538,12 @@
       "id": "F-0064",
       "impact": 1,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 0.9,
       "sources": [
         "content"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-25"
     },
     {
@@ -1568,12 +1568,12 @@
       "id": "F-0065",
       "impact": 2,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 1.6,
       "sources": [
         "content"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-25"
     },
     {
