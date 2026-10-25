@@ -97,7 +97,7 @@ freshness lags. For ad-hoc questions the MCP servers `mosaic-gsc`, `mosaic-ga4`,
 
 Three groups, all required:
 
-1. **claude-seo audits:** 14 concurrent Agent-tool subagents. The list and the dedupe-and-merge rule are in `references/audits.md`.
+1. **claude-seo audits:** 15 concurrent Agent-tool subagents. The list and the dedupe-and-merge rule are in `references/audits.md`.
 2. **AI platform read-check:** `./.claude/seo/ai-visibility.sh` (`references/ai-visibility.md`).
 3. **Keyword demand:** striking-distance GSC queries plus a Bing cross-check (`references/keywords.md`).
 
