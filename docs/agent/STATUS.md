@@ -10,6 +10,7 @@ Verified: 2026-10-23 @ 7118c3f
 - 2026-10-25 weekly SEO run done: site fixes `227bdbc` (F-0059 to F-0065, deployed 2026-10-25 by FTP), report `seo-reports/2026-10-25.md`, 15 audit agents, 0 coverage items open. Fixed tooling: Common Crawl extractor no longer caches HTTP errors, `lxml` added to the mosaic-seo venv, drift symlink restored. `meta-externalagent` still gets 429 at the host edge (owner). GA4 has no data for July 2026 and 12-18 Aug.
 - Ledger: 71 findings (F-0059 and F-0062 to F-0065 deployed, F-0060 and F-0061 fixed but the CDN still serves the old sitemaps; F-0066 to F-0071 deferred/open; F-0057 still verified), `next_id` 72.
 - Latest weekly report: `seo-reports/2026-10-25.md`.
+- 2026-10-26: project-scoped Razorpay MCP server added for Claude (`.mcp.json`) and Codex (`.codex/config.toml`); OAuth sign-in still pending.
 
 ## Open
 | Item | Notes |

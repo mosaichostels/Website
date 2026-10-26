@@ -39,3 +39,6 @@ macOS LaunchAgent `~/Library/LaunchAgents/com.mosaichostels.instagram-media-sync
 | `block-diagnostic-file-deploy` | `.claude/settings.json` PreToolUse `Bash` | Blocks `deploy.sh` with diag/debug/test in the command |
 | `project_sync.py pre` | `.claude/settings.local.json` (Claude, ignored) and `.codex/hooks.json` (Codex) | Shared project-sync reminder hook in `~/.agents/hooks/` |
 Codex has no equivalent of the two blocking hooks: keep the same discipline manually.
+
+## MCP (project scope)
+`razorpay` remote MCP (`https://mcp.razorpay.com/mcp`, OAuth, no keys in the repo): Claude via `.mcp.json`, Codex via `.codex/config.toml`. Sign in once per tool: Claude `/mcp`, Codex `codex mcp login razorpay`. Live-mode OAuth can refund and pay out; keep it read-only unless the owner asks.
