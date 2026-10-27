@@ -41,8 +41,8 @@ if ($orderId === '' || $paymentId === '') {
 }
 
 $result = confirm_paid_order($orderId, $paymentId, $payment);
-// A 5xx makes Razorpay redeliver the event. That is what we want when the
-// booking could not be created yet (transient eZee trouble); the claim in
-// confirm_paid_order() keeps redelivery idempotent. done / unknown (not our
-// order) / mismatch (already alerted) are final, so acknowledge those.
-http_response_code(in_array($result['status'], ['failed', 'retry'], true) ? 500 : 200);
+// A 5xx makes Razorpay redeliver, and only 'retry' (a definite eZee rejection with attempts left) gains from
+// that. 'failed' is parked for a human: redelivery cannot change it, and Razorpay switches an endpoint off
+// after about 24 h of 5xx, which would silently remove this backstop for every later guest. done / unknown
+// (not our order) / mismatch (already alerted) are final too, so acknowledge those.
+http_response_code($result['status'] === 'retry' ? 500 : 200);

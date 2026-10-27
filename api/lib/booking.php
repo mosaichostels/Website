@@ -47,6 +47,9 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
     bookings_log('REJECTED malformed order/payment id');
     return ['status' => 'unknown'];
   }
+  // InsertBooking (15 s) + AddPayment (15 s, retried once) can outlast a 30 s host limit, which killed the request
+  // AFTER the reservation existed and left the order stuck in processing/.
+  @set_time_limit(120);
   ensure_pending_dirs();
   $pendingPath = PENDING_ORDERS_DIR . '/pending/' . $orderId . '.json';
   $abandonedPath = PENDING_ORDERS_DIR . '/abandoned/' . $orderId . '.json';
@@ -84,7 +87,13 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
     return ['status' => 'unknown'];
   }
 
-  $record = json_decode(file_get_contents($processingPath), true);
+  $record = json_decode((string)file_get_contents($processingPath), true);
+  if (!is_array($record) || empty($record['room_units']) || !is_array($record['room_units'])) {
+    // Nothing to book from: calling eZee with an empty reservation only wastes the retries.
+    @rename($processingPath, $failedPath);
+    booking_alert('PAID but order record unreadable', "order=$orderId payment=$paymentId — the saved booking details are missing or corrupt; book the guest by hand from Razorpay's payment details");
+    return ['status' => 'failed'];
+  }
 
   if (!empty($record['last_attempt_at']) && time() - (int)$record['last_attempt_at'] < CONFIRM_RETRY_GAP_SECONDS) {
     @rename($processingPath, $pendingPath);
@@ -155,7 +164,7 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
     // booking, so it goes to a human with the evidence.
     $ambiguous = !empty($insertResponse['_transport']) || !empty($insertResponse['_ok']);
     file_put_contents($processingPath, json_encode($record, JSON_PRETTY_PRINT));
-    if (!$ambiguous && $record['attempts'] < MAX_CONFIRM_ATTEMPTS) {
+    if (!$ambiguous && empty($insertResponse['_permanent']) && $record['attempts'] < MAX_CONFIRM_ATTEMPTS) {
       // Back to pending/: reconcile-pending.php re-polls it, and the fresh
       // mtime gives eZee a few minutes before the next attempt.
       @rename($processingPath, $pendingPath);
@@ -175,6 +184,12 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
 
   $reservationNo = $insertResponse['ReservationNo'];
   $subReservationNo = $insertResponse['SubReservationNo'][0] ?? $reservationNo;
+  // The reservation exists from this moment. Write it down BEFORE the slower steps, so a crash or timeout after
+  // this point leaves the number with the order (reconcile-pending.php completes it) instead of a bare claim.
+  $record['reservation_no'] = $reservationNo;
+  $record['sub_reservation_no'] = $subReservationNo;
+  $record['razorpay_payment_id'] = $paymentId;
+  @file_put_contents($processingPath, json_encode($record, JSON_PRETTY_PRINT));
 
   // Reconciliation only — doesn't move money, payment is already captured by
   // Razorpay. A failure here doesn't fail the caller.
@@ -212,12 +227,13 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
     }
   }
 
-  $record['reservation_no'] = $reservationNo;
-  $record['sub_reservation_no'] = $subReservationNo;
-  $record['razorpay_payment_id'] = $paymentId;
   $record['confirmed_at'] = date('c');
-  file_put_contents($donePath, json_encode($record, JSON_PRETTY_PRINT));
-  @unlink($processingPath);
+  if (file_put_contents($donePath, json_encode($record, JSON_PRETTY_PRINT)) === false) {
+    // Keep the claim file (it already holds the reservation number); never delete the only copy of the record.
+    booking_alert('reservation created but done/ record NOT written', "order=$orderId reservation=$reservationNo payment=$paymentId total={$record['total']} — disk full or not writable; the record is in processing/");
+  } else {
+    @unlink($processingPath);
+  }
   bookings_log("CONFIRMED order=$orderId reservation=$reservationNo payment=$paymentId total={$record['total']}");
 
   return ['status' => 'done', 'reservation_no' => $reservationNo, 'sub_reservation_no' => $subReservationNo];
