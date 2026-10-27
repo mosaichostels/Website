@@ -19,6 +19,7 @@
 require __DIR__ . '/lib/config.php';
 require __DIR__ . '/lib/ezee.php';
 require __DIR__ . '/lib/razorpay.php';
+require __DIR__ . '/lib/guest.php';
 
 if (RAZORPAY_KEY_ID === '' || RAZORPAY_KEY_SECRET === '') {
   json_error(503, 'Online payment isn\'t set up yet — please book via WhatsApp for now.');
@@ -97,12 +98,21 @@ $children = 0; // children aren't collected anywhere in the flow yet
 // engine, which collects a single guest identity, not one per room
 // (confirmed live on both our engine and a competitor's eZee engine).
 $guest = is_array($body['guest'] ?? null) ? $body['guest'] : [];
-if (empty($guest['first_name'])) {
-  json_error(400, "Please provide the guest's first name.");
+// Trimmed once, here: eZee refuses a blank name and stores whatever else it is given.
+foreach (['first_name', 'last_name'] as $k) {
+  $guest[$k] = trim($guest[$k] ?? '');
+  $body[$k] = trim($body[$k] ?? '');
+}
+if ($textError = guest_text_error($guest['first_name'], $guest['last_name'], trim($body['special_request'] ?? ''), $body['email'])) {
+  json_error(400, $textError);
 }
 
 $specialRequest = trim($body['special_request'] ?? '');
 $arrivalTime = trim($body['arrival_time'] ?? '');
+// Before any Razorpay order exists: keep values the form does not offer out of the guest record (a translated page used to send "Mâle").
+if ($guestError = guest_values_error($guest, $nationality, $arrivalTime)) {
+  json_error(400, $guestError);
+}
 if ($arrivalTime !== '') {
   $specialRequest = 'Estimated arrival: ' . $arrivalTime . '. ' . $specialRequest;
 }
@@ -168,18 +178,24 @@ foreach ($cart as $item) {
     json_error(409, 'The rate for "' . ($matched['Roomtype_Name'] ?? 'this room') . '" covers up to '
       . $baseAdults . ' guest' . ($baseAdults > 1 ? 's' : '') . ' per room. For a larger group, please WhatsApp us.');
   }
+  // One value per night for all three rates: eZee refuses a multi-night booking otherwise (see ezee_daywise_rates()).
+  $nights = ezee_nights($checkIn, $checkOut);
+  $baseRates = ezee_daywise_rates($matched['room_rates_info']['exclusive_tax'] ?? null, $nights);
+  $extraAdultRates = ezee_daywise_rates($matched['extra_adult_rates_info']['exclusive_tax'] ?? 0, $nights);
+  $extraChildRates = ezee_daywise_rates($matched['extra_child_rates_info']['exclusive_tax'] ?? 0, $nights);
+  if ($baseRates === null || $extraAdultRates === null || $extraChildRates === null) {
+    json_error_upstream(502, 'We couldn\'t confirm live pricing just now. Please try again shortly, or WhatsApp us.', 'rates do not match the number of nights');
+  }
   for ($i = 0; $i < $item['qty']; $i++) {
     $roomUnits[] = [
       'roomtypeunkid' => $item['roomtypeunkid'],
       'ratetypeunkid' => $item['ratetypeunkid'],
       'roomrateunkid' => $item['roomrateunkid'],
-      // Per eZee's documented RoomList shape (docs/eZee-Connectivity-API.md
-      // ~L2158-2290): these rates live nested under room_rates_info /
-      // extra_adult_rates_info / extra_child_rates_info as date-keyed
-      // objects, not flat keys on the entry — ezee_price_scalar() unwraps them.
-      'baserate' => ezee_price_scalar($matched['room_rates_info']['exclusive_tax'] ?? 0),
-      'extradultrate' => ezee_price_scalar($matched['extra_adult_rates_info']['exclusive_tax'] ?? 0),
-      'extrachildrate' => ezee_price_scalar($matched['extra_child_rates_info']['exclusive_tax'] ?? 0),
+      // Day-wise, comma-separated per night ("2099,2099,3500"): RoomList gives them date-keyed under room_rates_info /
+      // extra_adult_rates_info / extra_child_rates_info, and eZee's InsertBooking wants them as that list.
+      'baserate' => $baseRates,
+      'extradultrate' => $extraAdultRates,
+      'extrachildrate' => $extraChildRates,
       'adults' => $item['adults'],
       'children' => $children,
       'child_ages' => '',

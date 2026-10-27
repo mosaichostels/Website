@@ -57,6 +57,32 @@ function ezee_find_room_entries(array $data, array &$found) {
   }
 }
 
+/** Nights between two valid YYYY-MM-DD dates (check-out day not counted). */
+function ezee_nights(string $checkIn, string $checkOut): int {
+  return (int)(new DateTime($checkIn))->diff(new DateTime($checkOut))->days;
+}
+
+/**
+ * eZee's InsertBooking refuses ANY multi-night stay unless baserate, extradultrate and extrachildrate each hold one
+ * comma-separated value per night, in date order ("2099,2099,2099,2099,3500"). Verified live 2026-10-27: a single number,
+ * the stay total, a dated map, or a list for baserate only were all refused with InvalidData, which left every multi-night
+ * guest paid but without a reservation. RoomList gives these rates date-keyed. A flat scalar repeats for each night.
+ * Returns null when the rates cannot be matched to the nights; the caller refuses the order rather than guess a price.
+ */
+function ezee_daywise_rates($rate, int $nights): ?string {
+  if (is_array($rate)) {
+    ksort($rate);
+    $values = array_values($rate);
+  } elseif (is_numeric($rate)) {
+    $values = array_fill(0, max(0, $nights), $rate);
+  } else {
+    return null;
+  }
+  if ($nights < 1 || count($values) !== $nights) return null;
+  foreach ($values as $v) if (!is_numeric($v)) return null;
+  return implode(',', array_map(fn ($v) => (string)(float)$v, $values));
+}
+
 function ezee_get(string $requestType, array $params): array {
   $query = array_merge([
     'request_type' => $requestType,
@@ -123,6 +149,35 @@ function ezee_curl(string $url, ?string $jsonBody, ?array $formFields = null): a
   if ($curlErrno !== 0) {
     return ['_ok' => false, '_transport' => true, '_error' => "eZee request failed: $curlError"];
   }
+  return ezee_interpret_response($httpCode, $response);
+}
+
+/**
+ * The message when a decoded eZee reply is a rejection, else null. eZee reports one in several
+ * shapes, and only the first used to be recognised — the others came back "_ok", so a refused
+ * InsertBooking was filed as ambiguous (no retry, no reason). Seen live:
+ *   {"Errors":{"ErrorMessage":"..."}}                                       RoomList and friends
+ *   {"ErrorCode":"InsertBookingFailed","ErrorDescription":"..."}            2026-08-29
+ *   {"0":{"Error Details":{"Error_Code":"InvalidData","Error_Message":"..."}}}   2026-09-27, 2026-10-26
+ * AddPayment's own Errors LIST (ErrorCode "0" = success) is deliberately not touched here:
+ * ezee_add_payment_once() reads it.
+ */
+function ezee_decoded_error(array $decoded): ?string {
+  if (isset($decoded['Errors']['ErrorMessage'])) {
+    return 'eZee error: ' . $decoded['Errors']['ErrorMessage'];
+  }
+  if (!empty($decoded['ErrorCode']) && $decoded['ErrorCode'] !== '0') {
+    return 'eZee error: ' . $decoded['ErrorCode'] . ' - ' . ($decoded['ErrorDescription'] ?? '');
+  }
+  $details = $decoded['0']['Error Details'] ?? null;
+  if (is_array($details)) {
+    return 'eZee error: ' . ($details['Error_Code'] ?? '') . ' - ' . ($details['Error_Message'] ?? '');
+  }
+  return null;
+}
+
+/** HTTP status + body of an eZee reply -> the array every caller reads (_ok, _transport, _error). Pure, so selftest.php can feed it real replies. */
+function ezee_interpret_response(int $httpCode, $response): array {
   if ($httpCode === 429) {
     return ['_ok' => false, '_error' => 'eZee rate limit hit, please try again shortly.', '_rateLimited' => true];
   }
@@ -131,12 +186,15 @@ function ezee_curl(string $url, ?string $jsonBody, ?array $formFields = null): a
   if ($httpCode >= 500) {
     return ['_ok' => false, '_transport' => true, '_error' => "eZee returned HTTP $httpCode."];
   }
-  $decoded = json_decode($response, true);
+  $decoded = json_decode((string)$response, true);
   if (!is_array($decoded)) {
     return ['_ok' => false, '_transport' => true, '_error' => "eZee returned an unexpected response (HTTP $httpCode)."];
   }
-  if (isset($decoded['Errors']['ErrorMessage'])) {
-    return ['_ok' => false, '_error' => 'eZee error: ' . $decoded['Errors']['ErrorMessage']];
+  $error = ezee_decoded_error($decoded);
+  if ($error !== null) {
+    // A coded rejection (InvalidData, past ArrivalDate...) repeats identically on every retry, so confirm_paid_order()
+    // parks it at once. The plain Errors.ErrorMessage reply may be transient and keeps the normal retries.
+    return ['_ok' => false, '_error' => $error, '_permanent' => !isset($decoded['Errors']['ErrorMessage'])];
   }
   $decoded['_ok'] = true;
   return $decoded;

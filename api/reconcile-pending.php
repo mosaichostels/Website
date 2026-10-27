@@ -62,6 +62,19 @@ foreach (glob(PENDING_ORDERS_DIR . '/processing/*.json') ?: [] as $file) {
   if (preg_match('/^(order_[A-Za-z0-9]+)@(\d+)\.json$/', $name, $m)) {
     [, $orderId, $claimedAt] = $m;
     if ((int)$claimedAt > time() - 600) continue;
+    // confirm_paid_order() writes the reservation number into the claim the moment eZee returns it. One that has it
+    // was interrupted AFTER the booking existed (host time limit, crash): finish it rather than alert a human.
+    $stuck = json_decode((string)@file_get_contents($file), true);
+    if (is_array($stuck) && !empty($stuck['reservation_no'])) {
+      $stuck['confirmed_at'] = $stuck['confirmed_at'] ?? date('c');
+      if (@file_put_contents(PENDING_ORDERS_DIR . '/done/' . $orderId . '.json', json_encode($stuck, JSON_PRETTY_PRINT)) !== false) {
+        @unlink($file);
+        // Alert, not just a log line: the request may have died before AddPayment, leaving eZee showing it unpaid.
+        booking_alert('order recovered after an interruption', "RECOVERED order=$orderId reservation={$stuck['reservation_no']} payment=" . ($stuck['razorpay_payment_id'] ?? '?')
+          . " — InsertBooking had succeeded; check the reservation shows the Razorpay payment in eZee and post it by hand if not");
+        continue;
+      }
+    }
     if (@rename($file, PENDING_ORDERS_DIR . '/failed/' . $orderId . '.json')) {
       booking_alert('order stuck in processing', "order=$orderId — check eZee for an existing reservation BEFORE re-queueing");
     }

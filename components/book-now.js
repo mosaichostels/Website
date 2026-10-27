@@ -40,7 +40,7 @@
       phoneCodeEl.innerHTML = COUNTRIES.map((c) => `<option value="+${c.code}">+${c.code} ${escapeHtml(c.name)}</option>`).join('');
     }
     if (nationalityEl) {
-      nationalityEl.innerHTML = '<option value=""></option>' + COUNTRIES.map((c) => `<option>${escapeHtml(c.name)}</option>`).join('');
+      nationalityEl.innerHTML = '<option value=""></option>' + COUNTRIES.map((c) => `<option value="${escapeHtml(c.name)}">${escapeHtml(c.name)}</option>`).join('');
     }
   }
 

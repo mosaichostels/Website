@@ -170,4 +170,114 @@ assert($r['action'] === 'manual' && !str_contains($r['note'], 'initiated') && st
 $calls = []; cancellation_refund_outcome(true, 'pay_1', 'A', $ok);
 assert(strlen($calls[0][1]) >= 10);
 
+// 6b. Day-wise rates. Verified live 2026-10-27: eZee refuses ANY multi-night InsertBooking unless baserate, extradultrate
+// AND extrachildrate each carry one comma-separated value per night ("599,599"); a single number, a total, a dated map or
+// "599,599" with a single extradultrate are all refused (InvalidData). One night takes a single value.
+$night5 = ['2026-11-16' => '2099.0000', '2026-11-17' => '2099.0000', '2026-11-18' => '2099.0000', '2026-11-19' => '2099.0000', '2026-11-20' => '3500.0000'];
+assert(ezee_daywise_rates($night5, 5) === '2099,2099,2099,2099,3500'); // the 26 Oct order's rates
+assert(ezee_daywise_rates(['2026-11-21' => '699.0000', '2026-11-22' => '899.0000'], 2) === '699,899');   // the 27 Sep order's rates
+assert(ezee_daywise_rates(['2027-02-10' => '599.0000'], 1) === '599');
+assert(ezee_daywise_rates(['2026-11-17' => '2099.5', '2026-11-16' => '1000'], 2) === '1000,2099.5');       // date order, decimals kept
+assert(ezee_daywise_rates('599.0000', 2) === '599,599');                                                    // a flat scalar repeats
+assert(ezee_daywise_rates(['a' => '1000'], 2) === null);                                                    // fewer rates than nights: refuse, never guess
+assert(ezee_daywise_rates($night5, 4) === null);
+assert(ezee_daywise_rates(null, 1) === null && ezee_daywise_rates([], 1) === null && ezee_daywise_rates('abc', 1) === null);
+assert(ezee_daywise_rates('0.0000', 3) === '0,0,0'); // the child rate is 0 and must still be one value per night
+assert(ezee_nights('2026-11-16', '2026-11-21') === 5 && ezee_nights('2026-02-27', '2026-03-01') === 2 && ezee_nights('2026-12-30', '2027-01-02') === 3);
+
+// 7. Guest field values. Live eZee accepts other text (verified 2026-10-27), but a translated page used to submit "Mâle",
+// "M." and "12h00 – 15h00" (the <option>s had no value=, so .value was the visible, translated text) and that ended up in
+// the guest record. They are refused before payment instead.
+require_once __DIR__ . '/guest.php';
+
+assert(guest_values_error(['title' => 'Mr.', 'gender' => 'Male'], 'India', '12:00 PM – 3:00 PM') === null);
+assert(guest_values_error(['title' => 'Ms.', 'gender' => 'Female'], 'France', 'After 9:00 PM') === null);
+assert(guest_values_error([], '', '') === null); // all four are optional on the form
+assert(guest_values_error(['title' => '', 'gender' => ''], '', '') === null);
+assert(str_contains((string)guest_values_error(['gender' => 'Mâle'], '', ''), 'gender'));
+assert(str_contains((string)guest_values_error(['title' => 'M.'], '', ''), 'title'));
+assert(str_contains((string)guest_values_error([], 'Allemagne', ''), 'nationality'));
+assert(str_contains((string)guest_values_error([], '', '12h00 – 15h00'), 'arrival'));
+assert(guest_values_error(['gender' => 'male'], '', '') !== null); // exact match only, no case folding
+
+// The server lists and the form must not drift apart: every <option> the page offers has an
+// explicit value= (so translation cannot change what is sent) and is on the server's list.
+$page = file_get_contents(__DIR__ . '/../../book-now.html');
+foreach (['gTitle' => GUEST_TITLES, 'gGender' => GUEST_GENDERS, 'gArrival' => GUEST_ARRIVAL_TIMES] as $id => $allowed) {
+  preg_match('/<select id="' . $id . '"[^>]*>(.*?)<\/select>/s', $page, $m);
+  assert(isset($m[1]), "select #$id not found");
+  preg_match_all('/<option([^>]*)>/', $m[1], $opts);
+  $values = [];
+  foreach ($opts[1] as $attrs) {
+    assert(preg_match('/\bvalue="([^"]*)"/', $attrs, $v) === 1, "an <option> in #$id has no value=");
+    $values[] = $v[1];
+  }
+  assert(array_values(array_diff($values, [''])) === $allowed, "#$id options differ from the server list");
+}
+// The nationality list lives in book-now.js (COUNTRIES, "name|dial-code,...").
+preg_match("/COUNTRIES = \\((.*?)\\)\\s*\\.split/s", file_get_contents(__DIR__ . '/../../components/book-now.js'), $m);
+preg_match_all("/'([^']*)'/", $m[1], $chunks);
+$jsNames = array_map(fn ($s) => explode('|', $s)[0], explode(',', implode('', $chunks[1])));
+assert($jsNames === GUEST_COUNTRIES, 'COUNTRIES in book-now.js differs from GUEST_COUNTRIES');
+// ...and the nationality <option>s are generated with an explicit value= as well.
+assert(str_contains(file_get_contents(__DIR__ . '/../../components/book-now.js'), '<option value="${escapeHtml(c.name)}">'));
+
+// 7b. Free-text guest fields: a blank first name or oversized text is refused before payment.
+assert(guest_text_error('Rahul', 'Sharma', '', 'a@b.co') === null);
+assert(guest_text_error('राहुल', "O'Brien-Smith", 'late arrival, vegetarian', 'a+b@example.com') === null);
+assert(guest_chars('राहुल') === 5 && guest_chars('é') === 1 && guest_chars('') === 0); // characters, not bytes
+assert(preg_match_all('/./su', 'राहुल') === 5); // the fallback used when mbstring is missing counts the same
+assert(str_contains((string)guest_text_error('', 'Sharma', '', 'a@b.co'), 'first name'));
+assert(str_contains((string)guest_text_error('   ', 'Sharma', '', 'a@b.co'), 'first name'));
+assert(guest_text_error('Rahul', '', '', 'a@b.co') === null);        // live eZee accepts a blank last name
+assert(guest_text_error('Rahul', " \t ", '', 'a@b.co') === null);
+assert(str_contains((string)guest_text_error(str_repeat('a', 61), 'Sharma', '', 'a@b.co'), 'first name'));
+assert(guest_text_error(str_repeat('a', 60), str_repeat('é', 60), '', 'a@b.co') === null); // 60 characters, not 60 bytes
+assert(str_contains((string)guest_text_error('Rahul', 'Sha' . "\n" . 'rma', '', 'a@b.co'), 'last name')); // no control characters in a name
+assert(guest_text_error('Rahul', 'Sharma', str_repeat('x', 500), 'a@b.co') === null);
+assert(str_contains((string)guest_text_error('Rahul', 'Sharma', str_repeat('x', 501), 'a@b.co'), 'request'));
+assert(guest_text_error('Rahul', 'Sharma', "line1\nline2", 'a@b.co') === null); // a request may span lines
+assert(str_contains((string)guest_text_error('Rahul', 'Sharma', '', str_repeat('a', 250) . '@b.co'), 'email'));
+
+// 8. eZee reports a rejection in several shapes; only one used to be recognised, so the others
+// came back "_ok" and an InsertBooking refusal was filed as ambiguous (no retry, no reason).
+// The first three payloads are the real replies from the 2026-08-29, 2026-09-27 and 2026-10-26 orders.
+$pastDate = ['ErrorCode' => 'InsertBookingFailed', 'ErrorDescription' => 'ArrivalDate is Past date.'];
+$invalidData = ['0' => ['Error Details' => ['Error_Code' => 'InvalidData', 'Error_Message' => 'Please check data passed.']]];
+$classic = ['Errors' => ['ErrorMessage' => 'Invalid hotel code']];
+assert(str_contains((string)ezee_decoded_error($pastDate), 'ArrivalDate is Past date.'));
+assert(str_contains((string)ezee_decoded_error($invalidData), 'Please check data passed.'));
+assert(str_contains((string)ezee_decoded_error($invalidData), 'InvalidData'));
+assert(str_contains((string)ezee_decoded_error($classic), 'Invalid hotel code'));
+// Successful replies are not errors: InsertBooking, a RoomList-like body, and AddPayment's
+// Errors LIST whose ErrorCode "0" means success (booking.php reads that one itself).
+assert(ezee_decoded_error(['ReservationNo' => '1615', 'SubReservationNo' => ['1615']]) === null);
+assert(ezee_decoded_error(['RoomList' => ['RoomType' => [['roomtypeunkid' => '1']]], 'SearchCriteria' => []]) === null);
+assert(ezee_decoded_error(['Errors' => [['ErrorCode' => '0', 'ErrorMessage' => 'Success']]]) === null);
+assert(ezee_decoded_error([]) === null);
+
+// The whole reply classification, minus the network: a definite rejection is _ok=false WITHOUT
+// _transport (confirm_paid_order retries those and calls them non-ambiguous); a timeout/5xx/garbage
+// reply is _transport (never retried: the reservation may exist); 429 is refused-before-processing.
+$r = ezee_interpret_response(200, json_encode($invalidData));
+assert($r['_ok'] === false && empty($r['_transport']) && str_contains($r['_error'], 'Please check data passed.'));
+$r = ezee_interpret_response(200, json_encode($pastDate));
+assert($r['_ok'] === false && empty($r['_transport']));
+$r = ezee_interpret_response(200, json_encode(['ReservationNo' => '1615']));
+assert($r['_ok'] === true && $r['ReservationNo'] === '1615');
+$r = ezee_interpret_response(503, '{"ReservationNo":"9"}');
+assert($r['_ok'] === false && $r['_transport'] === true && !isset($r['ReservationNo']));
+$r = ezee_interpret_response(200, '<html>blocked</html>');
+assert($r['_ok'] === false && $r['_transport'] === true);
+$r = ezee_interpret_response(429, '');
+assert($r['_ok'] === false && $r['_rateLimited'] === true && empty($r['_transport']));
+// A coded rejection (bad data, past arrival) can never succeed on a retry: it is marked permanent so the order is parked and
+// the alert goes out at once. The plain Errors.ErrorMessage reply keeps the old behaviour (retried, it may be transient).
+$r = ezee_interpret_response(200, json_encode($invalidData)); assert($r['_permanent'] === true);
+$r = ezee_interpret_response(200, json_encode($pastDate)); assert($r['_permanent'] === true);
+$r = ezee_interpret_response(200, json_encode($classic)); assert($r['_ok'] === false && empty($r['_permanent']));
+// A reply the account's WAF dresses up as success must not become a reservation.
+$r = ezee_interpret_response(200, '[]');
+assert($r['_ok'] === true && empty($r['ReservationNo']));
+
 echo "All selftest assertions passed.\n";
