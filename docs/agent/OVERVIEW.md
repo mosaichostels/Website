@@ -1,5 +1,6 @@
 Read when: you need the product goal, audience, room lineup or repo basics before touching anything.
-Verified: 2026-10-23 @ 7118c3f
+Verified: 2026-10-29 @ fd29588
+Covers: PRODUCT.md,sitemap.xml,.htaccess
 
 # Overview
 
@@ -12,7 +13,7 @@ Verified: 2026-10-23 @ 7118c3f
 | Policies | Check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception, free cancellation up to 72 h before check-in (charged in full inside), valid govt photo ID per guest | `PRODUCT.md` |
 | Contact channel | WhatsApp is first-class (number in `PRODUCT.md`) | `PRODUCT.md` |
 | Live site | https://www.mosaichostels.com (apex and http redirect 301 to https www) | `.htaccess` |
-| Remote | github.com/mosaichostels/Website, `main`, 591 commits, clean tree at verify time | `git` |
+| Remote | github.com/mosaichostels/Website, `main`; local `main` was 2 commits ahead of `origin/main` at verify time (fd29588, 1215f0c unpushed) | `git status -sb` |
 | Hosting | Hostinger, FTP deploy (manual) | `scripts/deploy.sh` |
 
 ## Pages (24 URLs in `sitemap.xml`)

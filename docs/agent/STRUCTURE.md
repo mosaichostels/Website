@@ -1,5 +1,6 @@
 Read when: you need to find where something lives, or decide where a new file goes.
-Verified: 2026-10-23 @ 7118c3f
+Verified: 2026-10-29 @ fd29588
+Covers: api/*.php,api/lib/*.php,components/*.js,scripts/*,.claude/settings.json,.codex/hooks.json,.claude/skills/*/SKILL.md,.agents/skills/*/SKILL.md
 
 # Structure
 
@@ -21,12 +22,13 @@ Verified: 2026-10-23 @ 7118c3f
 | `docs/agent/` | These files |
 | `docs/*.md` eZee/audit notes | Git-ignored local notes (see `.gitignore`); may be absent |
 | `.claude/` | `settings.json` (2 hooks), `settings.local.json` (machine-local, ignored), `hooks/`, `agents/security-reviewer.md`, `skills/{cache-bust-check,reconcile-payment,weekly-seo}`, `seo/` (extractors, `verify.sh`, `live_check.py`, `deploy-drift.sh`, `tests/`) |
-| `.codex/hooks.json` | Codex-only PreToolUse hook (`project_sync.py`) |
-| Root SEO files | `robots.txt`, `sitemap.xml` (24 URLs), `sitemap-images.xml` (19 loc), `llms.txt`, `BingSiteAuth.xml`, `google93f3367f3d9f7ac4.html`, `140ef5ae933ea27ef5ec39a4c06690e1.txt` (IndexNow key file), `.well-known/` |
+| `.codex/hooks.json` | Codex-only PreToolUse hook (`project_sync.py`); `.codex/` is excluded via `.git/info/exclude` (untracked) |
+| `.agents/skills/{cache-bust-check,reconcile-payment,weekly-seo}` | Codex-side copy of `.claude/skills/*` (untracked as of 2026-10-29). Edit both when changing a skill |
+| Root SEO files | `robots.txt`, `sitemap.xml` (24 URLs), `sitemap-images.xml` (20 loc), `llms.txt`, `BingSiteAuth.xml`, `google93f3367f3d9f7ac4.html`, `140ef5ae933ea27ef5ec39a4c06690e1.txt` (IndexNow key file), `.well-known/` |
 | `DESIGN.md`, `PRODUCT.md` | Design tokens, owner-confirmed product facts |
 
 ## Git-ignored / local only (do not commit)
-`api/secrets.php`, `.planning/`, `instagram-media/`, `instagram-reels/`, `screenshots/`, `.playwright-mcp/`, `seo-reports/**/.cache/`, `seo-reports/{gsc,ga4,bing,clarity,gbp,cwv,lighthouse,commoncrawl}/*.json`, `seo-reports/runs/*/`, `__pycache__/`, credential globs (`.env.gcs-*`, `.gcp-*.json`, `*.key`, `*.pem`). `OpenMontage/` is excluded in `.git/info/exclude`. `.remember/`, `.impeccable/` exist locally (tracking status: unknown).
+`api/secrets.php`, `.planning/`, `instagram-media/`, `instagram-reels/`, `screenshots/`, `.playwright-mcp/`, `seo-reports/**/.cache/`, `seo-reports/{gsc,ga4,bing,clarity,gbp,cwv,lighthouse,commoncrawl}/*.json`, `seo-reports/runs/*/`, `__pycache__/`, credential globs (`.env.gcs-*`, `.gcp-*.json`, `*.key`, `*.pem`). `OpenMontage/` is excluded in `.git/info/exclude`. `.remember/` is git-ignored; `.impeccable/` (critique + design.json) is tracked.
 
 ## Where to put new things
 New page: root `<name>.html` plus rewrite blocks in `.htaccess` (see ARCHITECTURE) or a folder with `index.html` like `dorms/`. New post: CONVENTIONS checklist. New endpoint: `api/<name>.php`, `require __DIR__ . '/lib/config.php'` first.

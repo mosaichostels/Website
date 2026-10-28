@@ -1,0 +1,343 @@
+{
+  "files": [
+    {
+      "file": "API.md",
+      "read_when": "calling, changing or adding an `api/*.php` endpoint, or debugging a status code.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/*.php",
+        "api/lib/config.php",
+        "api/.htaccess",
+        "api/lib/.htaccess"
+      ],
+      "tokens_est": 747
+    },
+    {
+      "file": "ARCHITECTURE.md",
+      "read_when": "tracing a request, changing booking/payment/cancel logic, redirects, caching, or the SEO program.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/*.php",
+        "api/lib/*.php",
+        ".htaccess",
+        "components/book-now.js"
+      ],
+      "tokens_est": 951
+    },
+    {
+      "file": "AUTH.md",
+      "read_when": "touching anything that proves identity or protects data (signatures, secrets, cancel lookup, hooks, access to the host).",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/lib/razorpay.php",
+        "api/cancel-booking.php",
+        "api/razorpay-webhook.php",
+        "api/.htaccess",
+        ".htaccess",
+        ".claude/hooks/*"
+      ],
+      "tokens_est": 464
+    },
+    {
+      "file": "COMMANDS.md",
+      "read_when": "you must deploy, test, run SEO tooling, or sync media. Run from the repo root.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "scripts/deploy.sh",
+        "scripts/indexnow-submit.sh",
+        "scripts/sync-instagram-media.sh",
+        ".claude/seo/*.sh",
+        ".claude/seo/live_check.py"
+      ],
+      "tokens_est": 898
+    },
+    {
+      "file": "CONVENTIONS.md",
+      "read_when": "writing or editing pages, copy, blog posts, shared JS/CSS, PHP, or commits.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "components/*.js",
+        "styles/global.css",
+        "PRODUCT.md",
+        ".htaccess",
+        "blog/*/index.html"
+      ],
+      "tokens_est": 850
+    },
+    {
+      "file": "DATA.md",
+      "read_when": "touching order files, rate-limit state, SEO ledger/report data, or asking \"where is X stored\" (there is no database).",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/lib/config.php",
+        "api/lib/booking.php",
+        "api/create-order.php",
+        "api/cancel-booking.php",
+        "api/reconcile-pending.php",
+        "seo-reports/data/*"
+      ],
+      "tokens_est": 727
+    },
+    {
+      "file": "DECISIONS.md",
+      "read_when": "proposing a change that might contradict an earlier choice, or asking why something is the way it is.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [],
+      "tokens_est": 683
+    },
+    {
+      "file": "DEPLOY.md",
+      "read_when": "shipping to production, rolling back, or changing hosting, DNS, redirects or the deploy script.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "scripts/deploy.sh",
+        "scripts/indexnow-submit.sh",
+        ".htaccess",
+        ".claude/seo/deploy-drift.sh",
+        ".claude/seo/live_check.py",
+        ".claude/hooks/block-diagnostic-file-deploy"
+      ],
+      "tokens_est": 594
+    },
+    {
+      "file": "ENVIRONMENT.md",
+      "read_when": "you need credentials by name, local tooling paths, hooks, or scheduled jobs. Names only, never values.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/secrets.example.php",
+        "api/alert-email.php",
+        "scripts/deploy.sh",
+        ".claude/settings.json",
+        ".codex/hooks.json",
+        ".claude/hooks/*"
+      ],
+      "tokens_est": 927
+    },
+    {
+      "file": "EXTERNAL.md",
+      "read_when": "you need to know which outside account, console or document holds something. No secrets here.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [],
+      "tokens_est": 345
+    },
+    {
+      "file": "FLOWS/booking.md",
+      "read_when": "changing or debugging search, price, payment or reservation creation (guest books a bed/room).",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "components/book-now.js",
+        "book-now.html",
+        "api/availability.php",
+        "api/create-order.php",
+        "api/verify-payment.php",
+        "api/razorpay-webhook.php",
+        "api/lib/booking.php",
+        "api/lib/ezee.php",
+        "api/lib/razorpay.php",
+        "api/lib/guest.php",
+        "api/lib/dates.php"
+      ],
+      "tokens_est": 1255
+    },
+    {
+      "file": "FLOWS/cancellation.md",
+      "read_when": "changing or debugging guest cancellation or refunds.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/cancel-booking.php",
+        "api/lib/razorpay.php",
+        "api/lib/dates.php",
+        "components/book-now.js"
+      ],
+      "tokens_est": 524
+    },
+    {
+      "file": "FLOWS/content-publish.md",
+      "read_when": "adding or editing a page, blog post, shared JS/CSS or redirect and shipping it live.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "blog/*/index.html",
+        "sitemap.xml",
+        "sitemap-images.xml",
+        "llms.txt",
+        ".htaccess",
+        "scripts/deploy.sh",
+        "scripts/indexnow-submit.sh",
+        ".claude/seo/verify.sh",
+        ".claude/seo/live_check.py",
+        ".claude/seo/live_check.json"
+      ],
+      "tokens_est": 389
+    },
+    {
+      "file": "FLOWS/payment-recovery.md",
+      "read_when": "a guest paid but has no eZee reservation, an alert email arrived, or you change the cron sweep or order folders.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/reconcile-pending.php",
+        "api/lib/booking.php",
+        "api/lib/config.php",
+        ".claude/skills/reconcile-payment/SKILL.md",
+        ".agents/skills/reconcile-payment/SKILL.md"
+      ],
+      "tokens_est": 583
+    },
+    {
+      "file": "FLOWS/weekly-seo.md",
+      "read_when": "the owner asks for \"weekly SEO\", or you edit the weekly-seo skill, extractors or the findings ledger.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        ".claude/skills/weekly-seo/SKILL.md",
+        ".claude/skills/weekly-seo/references/*.md",
+        ".agents/skills/weekly-seo/SKILL.md",
+        ".claude/seo/*.py",
+        ".claude/seo/*.sh"
+      ],
+      "tokens_est": 470
+    },
+    {
+      "file": "GLOSSARY.md",
+      "read_when": "a term in code, alerts or the owner's messages is unclear.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [],
+      "tokens_est": 453
+    },
+    {
+      "file": "GOTCHAS.md",
+      "read_when": "before editing anything risky: payments, deploys, redirects, cache versions, secrets, worktrees, agent config.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/lib/*.php",
+        "api/*.php",
+        ".htaccess",
+        "scripts/deploy.sh",
+        ".claude/hooks/*"
+      ],
+      "tokens_est": 2169
+    },
+    {
+      "file": "INTEGRATIONS.md",
+      "read_when": "changing anything that talks to eZee, Razorpay, analytics, Google/Bing APIs, IndexNow or Hostinger.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/lib/ezee.php",
+        "api/lib/razorpay.php",
+        "api/lib/booking.php",
+        ".htaccess",
+        ".claude/seo/*.py",
+        "scripts/indexnow-submit.sh"
+      ],
+      "tokens_est": 772
+    },
+    {
+      "file": "JOBS.md",
+      "read_when": "asking what runs on a schedule or in the background, or what to do if it stops.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/reconcile-pending.php",
+        "scripts/sync-instagram-media.sh",
+        "scripts/dashboard-run.sh"
+      ],
+      "tokens_est": 309
+    },
+    {
+      "file": "OBSERVABILITY.md",
+      "read_when": "you need to know what happened in production, who gets alerted, or where logs and dashboards are.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/lib/config.php",
+        "api/alert-email.php",
+        ".claude/seo/health-check.sh",
+        ".claude/seo/live_check.py"
+      ],
+      "tokens_est": 376
+    },
+    {
+      "file": "OVERVIEW.md",
+      "read_when": "you need the product goal, audience, room lineup or repo basics before touching anything.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "PRODUCT.md",
+        "sitemap.xml",
+        ".htaccess"
+      ],
+      "tokens_est": 591
+    },
+    {
+      "file": "RUNBOOKS/paid-no-booking.md",
+      "read_when": "a guest says they paid but got no confirmation, or an alert mail says \"PAID but booking NOT created\" or \"order stuck in processing\".",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/lib/booking.php",
+        "api/reconcile-pending.php",
+        "api/lib/ezee.php",
+        ".claude/skills/reconcile-payment/SKILL.md"
+      ],
+      "tokens_est": 456
+    },
+    {
+      "file": "RUNBOOKS/site-incident.md",
+      "read_when": "the live site misbehaves after a deploy (404s, redirect loops, stale assets, broken booking widget, CSP errors).",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        ".htaccess",
+        "scripts/deploy.sh",
+        ".claude/seo/live_check.py",
+        ".claude/seo/live_check.json",
+        "components/*.js",
+        "styles/global.css"
+      ],
+      "tokens_est": 353
+    },
+    {
+      "file": "STACK.md",
+      "read_when": "choosing tools, libraries or services, or checking what runtime a file needs.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "components/*.js",
+        "styles/global.css",
+        "api/lib/*.php",
+        ".htaccess",
+        "scripts/*.py"
+      ],
+      "tokens_est": 495
+    },
+    {
+      "file": "STATUS.md",
+      "read_when": "starting ANY task (current state, recent work, open items).",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [],
+      "tokens_est": 1294
+    },
+    {
+      "file": "STRUCTURE.md",
+      "read_when": "you need to find where something lives, or decide where a new file goes.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/*.php",
+        "api/lib/*.php",
+        "components/*.js",
+        "scripts/*",
+        ".claude/settings.json",
+        ".codex/hooks.json",
+        ".claude/skills/*/SKILL.md",
+        ".agents/skills/*/SKILL.md"
+      ],
+      "tokens_est": 944
+    },
+    {
+      "file": "TESTING.md",
+      "read_when": "deciding how to verify a change, or interpreting a failing check.",
+      "verified_commit": "2026-10-29 @ fd29588",
+      "covers": [
+        "api/lib/selftest.php",
+        "scripts/flow-test/*",
+        "scripts/e2e-booking-test.php",
+        ".claude/seo/tests/*",
+        ".claude/seo/verify.sh"
+      ],
+      "tokens_est": 888
+    }
+  ],
+  "nested": []
+}

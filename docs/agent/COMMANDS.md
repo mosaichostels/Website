@@ -1,5 +1,6 @@
 Read when: you must deploy, test, run SEO tooling, or sync media. Run from the repo root.
-Verified: 2026-10-23 @ 7118c3f (selftest, SEO tests, test_dashboard run; deploy/E2E/SEO pulls not run)
+Verified: 2026-10-29 @ fd29588
+Covers: scripts/deploy.sh,scripts/indexnow-submit.sh,scripts/sync-instagram-media.sh,.claude/seo/*.sh,.claude/seo/live_check.py
 
 # Commands
 
@@ -21,7 +22,7 @@ Verified: 2026-10-23 @ 7118c3f (selftest, SEO tests, test_dashboard run; deploy/
 | Platform setup | `./.claude/seo/setup-platforms.sh` | Idempotent one-time wiring |
 | Weekly SEO | ask for "weekly SEO"; skill `.claude/skills/weekly-seo` steps (a)-(h) | Dry run = (a)-(d)+(h) |
 | Terminal dashboard | `scripts/dashboard-run.sh <site\|deploy\|search\|traffic\|speed\|backlog\|ui\|gfx\|png <dir>> [seconds]` | Sources env (never printed) |
-| Media sync | `scripts/sync-instagram-media.sh` | rclone `mosaic_hostel_media:` -> `instagram-media/`; aborts on empty listing; `--max-delete 50`; absolute machine paths |
+| Media sync | `scripts/sync-instagram-media.sh` | rclone `mosaic_hostel_media:` -> `~/Projects/Hostel Content` (outside the repo); aborts on empty listing; `--max-delete 50`; absolute rclone path |
 | Local PHP server | `php -S 127.0.0.1:8899 -t .` | Clean-URL rewrites do not apply (no Apache); use `/x.html` |
 | Cache-bust list | `grep -rhoE 'navbar\.js\?v=[0-9a-z]+' . --include='*.html' --exclude-dir=OpenMontage \| sort \| uniq -c` | Same pattern for other assets |
 

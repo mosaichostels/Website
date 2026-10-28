@@ -1,5 +1,6 @@
 Read when: you need credentials by name, local tooling paths, hooks, or scheduled jobs. Names only, never values.
-Verified: 2026-10-23 @ 7118c3f
+Verified: 2026-10-29 @ fd29588
+Covers: api/secrets.example.php,api/alert-email.php,scripts/deploy.sh,.claude/settings.json,.codex/hooks.json,.claude/hooks/*
 
 # Environment
 
@@ -30,7 +31,7 @@ IndexNow key file is public by design: `140ef5ae933ea27ef5ec39a4c06690e1.txt` at
 | Pillow | dashboard scripts (missing in system python3) |
 
 ## Scheduled job
-macOS LaunchAgent `~/Library/LaunchAgents/com.mosaichostels.instagram-media-sync.plist` (exists) runs `scripts/sync-instagram-media.sh` hourly per earlier notes; logs in `~/Library/Logs/` (schedule not re-read).
+None. The `com.mosaichostels.instagram-media-sync` LaunchAgent noted earlier was not found on 2026-10-25 (no plist, no cron, no scheduled task); run `scripts/sync-instagram-media.sh` by hand.
 
 ## Hooks (guardrails)
 | Hook | Where | Effect |
@@ -40,5 +41,5 @@ macOS LaunchAgent `~/Library/LaunchAgents/com.mosaichostels.instagram-media-sync
 | `project_sync.py pre` | `.claude/settings.local.json` (Claude, ignored) and `.codex/hooks.json` (Codex) | Shared project-sync reminder hook in `~/.agents/hooks/` |
 Codex has no equivalent of the two blocking hooks: keep the same discipline manually.
 
-## MCP (project scope)
-`razorpay` remote MCP (`https://mcp.razorpay.com/mcp`, OAuth, no keys in the repo): Claude via `.mcp.json`, Codex via `.codex/config.toml`. Sign in once per tool: Claude `/mcp`, Codex `codex mcp login razorpay`. Live-mode OAuth can refund and pay out; keep it read-only unless the owner asks.
+## MCP
+`razorpay`: official local server (github.com/razorpay/razorpay-mcp-server @ `7950d51d118c`, built with Go into `~/.local/share/mosaic-seo/razorpay-mcp/`), started read-only by `~/.config/mosaic-seo/mcp/razorpay.sh` for Claude and Codex (user scope, via `~/.agents/mcp/servers.json` + `sync.py`). Keys: `RAZORPAY_KEY_ID` / `RAZORPAY_KEY_SECRET` in `~/.config/mosaic-seo/razorpay.env` (mode 600, never in the repo). The hosted `mcp.razorpay.com` OAuth sign-in returns 406 for local callbacks, so it is not used.

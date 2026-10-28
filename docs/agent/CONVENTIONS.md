@@ -1,5 +1,6 @@
 Read when: writing or editing pages, copy, blog posts, shared JS/CSS, PHP, or commits.
-Verified: 2026-10-23 @ 7118c3f
+Verified: 2026-10-29 @ fd29588
+Covers: components/*.js,styles/global.css,PRODUCT.md,.htaccess,blog/*/index.html
 
 # Conventions
 

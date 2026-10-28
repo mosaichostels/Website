@@ -1,5 +1,6 @@
 Read when: before editing anything risky: payments, deploys, redirects, cache versions, secrets, worktrees, agent config.
-Verified: 2026-10-23 @ 7118c3f
+Verified: 2026-10-29 @ fd29588
+Covers: api/lib/*.php,api/*.php,.htaccess,scripts/deploy.sh,.claude/hooks/*
 
 # Gotchas
 
@@ -25,6 +26,12 @@ Verified: 2026-10-23 @ 7118c3f
 | Copy claims (reviews, guest counts) | Owner-supplied, unverifiable from the repo; do not extend |
 | Scratch dirs ignored by git | `.planning/`, `instagram-media/`, `screenshots/`, `.playwright-mcp/`, SEO cache and run dirs |
 | Sensitive docs ignored by git | `docs/eZee-Connectivity-API.md` and other vendor/payment audits may exist locally only; cited line numbers (`~L5531`) point there |
+
+## Accessibility baseline (from the 2026-10-10 site critique, folded from `.impeccable/critique/`)
+- Found: footer address/phone ink-on-ink (1.0:1), low-contrast gold values on parchment, gallery and booking calendar not keyboard operable, no live regions, blog link contrast and 95-char measure, privacy policy missing services and date. Scores 17-26 of 32-40 per page.
+- Fixed in commit `ef42a36` per its message (footer legible, keyboard gallery with focus trap, labelled date popup, step announcements, blog 68ch measure and booking band on all 14 posts then, privacy services and date). Not re-audited in this run.
+- Rule: keep these when editing the footer, gallery, book-now date popup or blog template. WCAG AA as a formal requirement is still undecided (DECISIONS).
+- Token source of truth is `DESIGN.md` (gold `#C8860A`, ink `#1A1208`); the removed `.impeccable/design.json` was a generated sidecar of it.
 
 ## Worktrees and branches
 `git worktree list` shows one worktree (this checkout, `main`). Earlier notes mentioned SEO worktrees with their own `.codex/hooks.json`; none exist now. The real code is here. New worktrees need `.codex/hooks.json` wired.

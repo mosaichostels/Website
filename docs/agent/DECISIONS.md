@@ -1,5 +1,6 @@
 Read when: proposing a change that might contradict an earlier choice, or asking why something is the way it is.
-Verified: 2026-10-23 @ 7118c3f
+Verified: 2026-10-29 @ fd29588
+Covers: -
 
 # Decisions
 

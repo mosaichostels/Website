@@ -1,5 +1,6 @@
 Read when: choosing tools, libraries or services, or checking what runtime a file needs.
-Verified: 2026-10-23 @ 7118c3f
+Verified: 2026-10-29 @ fd29588
+Covers: components/*.js,styles/global.css,api/lib/*.php,.htaccess,scripts/*.py
 
 # Stack
 
@@ -16,7 +17,7 @@ Verified: 2026-10-23 @ 7118c3f
 | Analytics | GA4 (gtag), Microsoft Clarity, Bing; CSP allowlists their hosts | page heads, `.htaccess` CSP |
 | SEO tooling | Python extractors (GSC, GA4, Bing, Clarity, GBP, CWV, Lighthouse, CommonCrawl) | `.claude/seo/*.py` |
 | Terminal dashboard | Python, needs Pillow | `scripts/dashboard*.py` |
-| Media sync | rclone remote `mosaic_hostel_media:` to local `instagram-media/` | `scripts/sync-instagram-media.sh` |
+| Media sync | rclone remote `mosaic_hostel_media:` to `~/Projects/Hostel Content` | `scripts/sync-instagram-media.sh` |
 
 ## Versions seen on this machine (2026-10-23)
 PHP 8.5.12 (`/opt/homebrew/bin/php`), python3 at `/opt/homebrew/bin/python3`. Production PHP version: unknown.
