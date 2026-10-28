@@ -1,33 +1,15 @@
 Read when: tracing a request, changing booking/payment/cancel logic, redirects, caching, or the SEO program.
-Verified: 2026-10-23 @ 7118c3f
+Verified: 2026-10-29 @ fd29588
+Covers: api/*.php,api/lib/*.php,.htaccess,components/book-now.js
 
 # Architecture
 
 ## Page loading
 `browser -> Apache (.htaccess rewrites) -> <page>.html -> <script src=/components/*.js?v=> -> DOM`. Each page includes `components/site.js` (shared, `window.MOSAIC` helpers), `navbar.js`, `footer.js` and its own page script (`home.js`, `about.js`, `gallery.js`, `contact.js`, `book-now.js`). `dorms/index.html` and blog posts load only site/navbar/footer. Inline `<script>` and `onclick=` are used throughout, hence `'unsafe-inline'` in CSP (`.htaccess:28`).
 
-## Booking chain (`components/book-now.js` + `api/`)
-```
-search: book-now.js:300 GET /api/availability.php?check_in&check_out&adults&children&rooms
-        -> rate_limit(60/600s) -> validate_stay_dates (MAX_STAY_NIGHTS=30) -> eZee RoomList -> extract_room_options
-order:  book-now.js:534 POST /api/create-order.php {check_in,check_out,rooms[],guest,email,phone}
-        -> rate_limit(10/600s + 60/600s global) -> RE-FETCH eZee RoomList -> ezee_room_total() (client never sends a price)
-        -> Razorpay Orders API -> pending/<order>.json -> returns order
-pay:    book-now.js:582 openRazorpay (Razorpay Checkout in browser)
-confirm A: book-now.js:732 POST /api/verify-payment.php -> HMAC signature check -> confirm_paid_order()
-confirm B: Razorpay -> POST /api/razorpay-webhook.php (payment.captured) -> confirm_paid_order()
-confirm C: cron php api/reconcile-pending.php (CLI only, every 5 min per earlier notes) -> polls Razorpay -> confirm_paid_order()
-confirm_paid_order (api/lib/booking.php:42): atomic rename() claim (pending/ or abandoned/ -> processing/) -> eZee InsertBooking (<=3 attempts, 120 s gap, only on definite rejection) -> AddPayment -> done/ or failed/
-cancel: book-now.js:1102 POST /api/cancel-booking.php {reservation_no,email} -> rate_limit (5/600s, 60/600s all, 5/3600s per reservation)
-        -> fetch booking, email must match -> breadcrumb file -> eZee CancelBooking -> refund if >=72 h before check-in (razorpay_refund_payment, idempotency key) else manual alert
-```
-- First-to-claim wins; all three confirm paths are idempotent. Whichever fires first books; others see done/failed.
-- `reconcile-pending.php` also parks abandoned (>1 day) pending orders in `abandoned/` (moved, never deleted) and orders stuck in `processing/` into `failed/` with a human alert (not re-queued, to avoid double booking).
-- Alerts: `booking_alert()` in `api/lib/config.php` mails `ALERT_EMAIL` (defined in `api/alert-email.php`, overridable in secrets).
-- `adults` fixed at 1 per room, children 0 (mirrors eZee hosted engine).
-
-## Order state on disk
-`PENDING_ORDERS_DIR = dirname(__DIR__,3)/ezee-pending-orders` (`api/lib/config.php:40`): outside the docroot, untouched by FTP deploys. Subdirs: `pending processing done failed abandoned ratelimit refunds`. Rate-limit files are disposable JSON keyed by sha256 of bucket+client IP.
+## Booking, cancel and recovery
+Chains, failure paths and files: FLOWS/booking.md, FLOWS/cancellation.md, FLOWS/payment-recovery.md. Order folders and record keys: DATA.md. Endpoints: API.md. Invariant: three confirm paths (browser, webhook, cron) share one atomic `rename()` claim; whichever fires first books, the rest read `done/`/`failed/`.
+- Alerts: `booking_alert()` in `api/lib/config.php` mails `ALERT_EMAIL` (OBSERVABILITY.md).
 
 ## Where logic must live
 - Stay total: only `ezee_room_total()` in `api/lib/ezee.php:28` (availability and create-order must agree; a mismatch once 502'd every booking). Add shapes there, never in callers.
