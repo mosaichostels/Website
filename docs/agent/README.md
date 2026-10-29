@@ -1,7 +1,7 @@
 # Agent context router (Website)
 
 Mosaic Hostel Varanasi: static HTML site + PHP booking/payment API (eZee + Razorpay), manual FTP deploy. Live https://www.mosaichostels.com.
-Verified 2026-10-29 @ c019c06. Branch `main` (level with `origin/main`); single worktree, the real code is this checkout.
+Verified 2026-10-29 @ 56c440f. Branch `main` (level with `origin/main`); single worktree, the real code is this checkout.
 Never read `api/secrets.php`. Pushing/deploying needs the owner's approval.
 
 ## Task -> files (always read STATUS.md)
