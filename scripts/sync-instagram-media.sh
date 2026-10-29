@@ -2,7 +2,7 @@
 set -euo pipefail
 
 remote='mosaic_hostel_media:'
-destination='/Users/naveen/Projects/hostel/Website/instagram-media'
+destination="$HOME/Projects/Hostel Content"
 rclone='/opt/homebrew/bin/rclone'
 
 # A failed or empty Drive listing must not erase the local mirror.
