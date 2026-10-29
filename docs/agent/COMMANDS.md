@@ -24,7 +24,7 @@ Covers: scripts/deploy.sh,scripts/indexnow-submit.sh,scripts/sync-instagram-medi
 | Terminal dashboard | `scripts/dashboard-run.sh <site\|deploy\|search\|traffic\|speed\|backlog\|ui\|gfx\|png <dir>> [seconds]` | Sources env (never printed) |
 | Media sync | `scripts/sync-instagram-media.sh` | rclone `mosaic_hostel_media:` -> `~/Projects/Hostel Content` (outside the repo); aborts on empty listing; `--max-delete 50`; absolute rclone path |
 | Local PHP server | `php -S 127.0.0.1:8899 -t .` | Clean-URL rewrites do not apply (no Apache); use `/x.html` |
-| Cache-bust list | `grep -rhoE 'navbar\.js\?v=[0-9a-z]+' . --include='*.html' --exclude-dir=OpenMontage \| sort \| uniq -c` | Same pattern for other assets |
+| Cache-bust list | `grep -rhoE 'navbar\.js\?v=[0-9a-z]+' . --include='*.html' \| sort \| uniq -c` | Same pattern for other assets |
 
 ## Bumping a shared asset version
 `grep -rl 'components/<file>.js?v=' --include='*.html' . | xargs sed -i '' 's/<file>\.js?v=[0-9a-z]*/<file>.js?v=NEWDATE/g'` (macOS sed; header of `scripts/deploy.sh`). Skill: `.claude/skills/cache-bust-check`.

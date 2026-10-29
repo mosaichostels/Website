@@ -7,10 +7,10 @@ Covers: api/*.php,api/lib/*.php,components/*.js,scripts/*,.claude/settings.json,
 | Path | Role |
 |---|---|
 | `index.html`, `about.html`, `gallery.html`, `book-now.html`, `contact.html`, `privacy.html`, `404.html` | Core pages (clean URLs via `.htaccess`) |
+| `favicon.ico`, `favicon.png` | Site icons served from the root (browser default `/favicon.ico` lookup) |
 | `dorms/index.html` | Dorm landing page (F-0058), canonical `/dorms/`, has BreadcrumbList + FAQPage JSON-LD |
 | `blog/index.html` | Blog listing |
 | `blog/<slug>/index.html` | One static post each (16 slugs), own canonical, JSON-LD, Read Next |
-| `blogs/*.md` | 14 markdown sources, FTP-deployed as-is but NOT rendered by any page; fewer than the 16 live posts, so not the source of truth. Never edit them for site changes |
 | `components/` | `site.js` (shared, `window.MOSAIC`), `navbar.js`, `footer.js`, `home.js`, `about.js`, `gallery.js`, `contact.js`, `book-now.js` (1132 lines, booking widget) |
 | `styles/global.css` | The only stylesheet |
 | `images/` | 69 files, jpg+webp pairs, `images/varanasi/` subfolder |
@@ -28,7 +28,7 @@ Covers: api/*.php,api/lib/*.php,components/*.js,scripts/*,.claude/settings.json,
 | `DESIGN.md`, `PRODUCT.md` | Design tokens, owner-confirmed product facts |
 
 ## Git-ignored / local only (do not commit)
-`api/secrets.php`, `.planning/`, `instagram-media/`, `instagram-reels/`, `screenshots/`, `.playwright-mcp/`, `seo-reports/**/.cache/`, `seo-reports/{gsc,ga4,bing,clarity,gbp,cwv,lighthouse,commoncrawl}/*.json`, `seo-reports/runs/*/`, `__pycache__/`, credential globs (`.env.gcs-*`, `.gcp-*.json`, `*.key`, `*.pem`). `OpenMontage/` is excluded in `.git/info/exclude`. `.remember/` is git-ignored; `.impeccable/` (critique + design.json) is tracked.
+`api/secrets.php`, `.planning/`, `instagram-media/`, `instagram-reels/` (deleted by owner 2026-10-29, raw dorm-tour footage, no copy known), `screenshots/`, `.playwright-mcp/` (deleted 2026-10-29, regenerates), `seo-reports/**/.cache/`, `seo-reports/{gsc,ga4,bing,clarity,gbp,cwv,lighthouse,commoncrawl}/*.json`, `seo-reports/runs/*/`, `__pycache__/`, credential globs (`.env.gcs-*`, `.gcp-*.json`, `*.key`, `*.pem`). `OpenMontage/` is excluded in `.git/info/exclude`. `.remember/` is git-ignored; `.impeccable/` (critique + design.json) is tracked.
 
 ## Where to put new things
 New page: root `<name>.html` plus rewrite blocks in `.htaccess` (see ARCHITECTURE) or a folder with `index.html` like `dorms/`. New post: CONVENTIONS checklist. New endpoint: `api/<name>.php`, `require __DIR__ . '/lib/config.php'` first.

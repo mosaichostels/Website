@@ -16,12 +16,13 @@ One level above the docroot: never web-reachable, never touched by FTP deploy, c
 | `failed/` | needs a human | `<order_id>.json` | manual |
 | `abandoned/` | unpaid cart after 24 h | `<order_id>.json` | back to `processing/` if paid late |
 | `refunds/` | cancel trace | `<reservation_no>.json` | `status`: cancelling, refunded, manual |
+| `processing/<order>.alerted` | marker for the legacy-claim alert (touched by cron, repeats daily) | | |
 | `ratelimit/` | disposable counters `{start,hits}` | sha256(bucket\|ip or subject).json | pruned by cron after 1 h |
-| (root) | `bookings.log` | append-only text | never rotated (unknown: size policy) |
+| (root) | `bookings.log` | append-only text | never rotated by the app; 2245 B / 18 lines on 2026-10-29 (first entry 2026-08-29), so size is not a concern |
 Order id shape `^order_[A-Za-z0-9]{6,40}$`; payment id `^pay_[A-Za-z0-9]{6,40}$` (enforced in `confirm_paid_order`).
 
 ### Order record keys (`create-order.php` writes; booking adds)
-`order_id, amount (paise), total (rupees), check_in, check_out, room_units[] (per physical room: roomtypeunkid, ratetypeunkid, roomrateunkid, baserate/extradultrate/extrachildrate as per-night comma lists, adults, children, title, first_name, last_name, gender, special_request), first_name, last_name, email, phone ("<code> <digits>"), nationality, special_request, created_at`.
+`order_id, amount (paise), total (rupees), check_in, check_out, room_units[] (per physical room: roomtypeunkid, ratetypeunkid, roomrateunkid, baserate/extradultrate/extrachildrate as per-night comma lists, adults, children, child_ages, title, first_name, last_name, gender, special_request), first_name, last_name, email, phone ("<code> <digits>"), nationality, special_request, created_at`.
 Added later: `attempts, last_attempt_at, last_failure, reservation_no, sub_reservation_no, razorpay_payment_id, confirmed_at`.
 PII: names, email, phone live in these files and in eZee. Treat as personal data; never paste into docs or logs.
 

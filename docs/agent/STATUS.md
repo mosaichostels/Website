@@ -26,8 +26,10 @@ Covers: -
 | Razorpay go-live checklist | In `.planning/razorpay-live-readiness.md` (local); live-vs-test status of the production keys: unknown |
 | WCAG AA | Undecided (DECISIONS) |
 | SEO venv | Exists at `~/.config/mosaic-seo/venv` (lxml added 2026-10-25); lacks `playwright` |
-| `blogs/*.md` | 14 stale files; decision on removal unknown |
 | Root `README.md` | Partly stale (says 2026-09-23, omits `dorms/`, `.claude/seo`); `PRODUCT.md` says 14 blog guides, sitemap has 16 |
 
 ## Update rule
 After code changes, edit the affected file here and add a line above with the commit.
+
+- 2026-10-29: removed (staged, uncommitted) `blogs/*.md` (14), `images/varanasi/poha-bowl-2-*` (4 unreferenced), local `__pycache__` and `.DS_Store`. Untracked `.playwright-mcp/`, `.remember/`, `instagram-reels/` deleted by owner.
+- 2026-10-29: `OpenMontage/` (840M untracked clone) deleted by owner; `projects/` outputs moved to `~/Documents/openmontage-projects`. The global `openmontage` skill (`~/.agents/skills/openmontage`) is marked UNAVAILABLE in its SKILL.md; re-clone and repoint it before reuse.

@@ -21,7 +21,7 @@ Covers: components/*.js,styles/global.css,PRODUCT.md,.htaccess,blog/*/index.html
 ## New blog post checklist
 1. `blog/<slug>/index.html` with canonical `https://www.mosaichostels.com/blog/<slug>/`, JSON-LD, Read Next links; copy an existing post as the template.
 2. Add to `blog/index.html` and `sitemap.xml` (and `sitemap-images.xml` if it has images); mention in `llms.txt` if relevant.
-3. Do not create a `blogs/<slug>.md`; those 14 files are legacy and not rendered.
+3. Posts are HTML only; the legacy `blogs/*.md` sources were removed 2026-10-29, do not recreate them.
 4. `./.claude/seo/verify.sh`, then deploy (COMMANDS), then `python3 .claude/seo/live_check.py`, add the URL to `.claude/seo/live_check.json` if it tracks pages, then `scripts/indexnow-submit.sh --since <ref>`.
 
 ## New page checklist

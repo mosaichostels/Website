@@ -26,7 +26,7 @@ POST /api/cancel-booking.php {reservation_no, email}
 - Undetermined check-in date (`null`) -> no automatic refund, manual.
 
 ## Known gap
-End to end NOT verified live: eZee FetchSingleBooking returns "No Reservation Found" for a reservation without a posted payment (60 s tested), so a real test needs AddPayment first (leaves a payment line in eZee). `scripts/flow-test` covers it against the mock only.
+Owner-confirmed 2026-10-29: never tested end to end. End to end NOT verified live: eZee FetchSingleBooking returns "No Reservation Found" for a reservation without a posted payment (60 s tested), so a real test needs AddPayment first (leaves a payment line in eZee). `scripts/flow-test` covers it against the mock only.
 
 ## Do not
 Return different errors for "not found" and "email mismatch". Skip the `refunds/` trace before CancelBooking.

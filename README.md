@@ -6,7 +6,6 @@ Static website for Mosaic Hostel Varanasi, built with HTML, CSS, and JavaScript.
 
 ```
 ├── blog/                 # Blog post routing (HTML templates)
-├── blogs/                # Blog content (Markdown files)
 ├── components/           # Reusable JS components
 ├── styles/               # CSS stylesheets
 ├── images/               # Image assets
@@ -36,7 +35,7 @@ client-side rendering. Old URLs that moved are handled by the 301 rules in `.hta
 
 ## Deployment
 
-The site is deployed to Hostinger via FTP using `scripts/deploy.sh` (requires `FTP_HOST`/`FTP_USER`/`FTP_PASS` env vars). All files in root, components/, styles/, images/, and blogs/ are deployed as-is. After a content deploy, run `scripts/indexnow-submit.sh` to push updated URLs to Bing/Yandex/Seznam.
+The site is deployed to Hostinger via FTP using `scripts/deploy.sh` (requires `FTP_HOST`/`FTP_USER`/`FTP_PASS` env vars). All files in root, components/, styles/, and images/ are deployed as-is. After a content deploy, run `scripts/indexnow-submit.sh` to push updated URLs to Bing/Yandex/Seznam.
 
 FTP Configuration:
 - **Host**: 147.93.17.169

@@ -20,8 +20,8 @@ Covers: components/*.js,styles/global.css,api/lib/*.php,.htaccess,scripts/*.py
 | Media sync | rclone remote `mosaic_hostel_media:` to `~/Projects/Hostel Content` | `scripts/sync-instagram-media.sh` |
 
 ## Versions seen on this machine (2026-10-23)
-PHP 8.5.12 (`/opt/homebrew/bin/php`), python3 at `/opt/homebrew/bin/python3`. Production PHP version: unknown.
+PHP 8.5.12 (`/opt/homebrew/bin/php`), python3 at `/opt/homebrew/bin/python3`. Production PHP: 8.2.35 (`X-Powered-By` header on `/api/create-order.php`, checked 2026-10-29); local 8.5 is newer, avoid 8.3+ only syntax.
 
 ## Not part of the site
-`OpenMontage/` is a vendored video-production checkout; ignore it.
+OpenMontage (video tool) was removed from this checkout 2026-10-29; its outputs moved to `~/Documents/openmontage-projects`.
 No CI: `.github/` does not exist. No package.json, composer.json or Dockerfile at the root.
