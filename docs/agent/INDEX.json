@@ -81,9 +81,9 @@
     {
       "file": "DECISIONS.md",
       "read_when": "proposing a change that might contradict an earlier choice, or asking why something is the way it is.",
-      "verified_commit": "2026-10-29 @ c019c06",
+      "verified_commit": "2026-10-29 @ 56c440f",
       "covers": [],
-      "tokens_est": 1023
+      "tokens_est": 1019
     },
     {
       "file": "DEPLOY.md",
@@ -185,7 +185,7 @@
     {
       "file": "FLOWS/weekly-seo.md",
       "read_when": "the owner asks for \"weekly SEO\", or you edit the weekly-seo skill, extractors or the findings ledger.",
-      "verified_commit": "2026-10-29 @ c019c06",
+      "verified_commit": "2026-10-29 @ 56c440f",
       "covers": [
         ".claude/skills/weekly-seo/SKILL.md",
         ".claude/skills/weekly-seo/references/*.md",
@@ -194,7 +194,7 @@
         ".claude/seo/*.py",
         ".claude/seo/*.sh"
       ],
-      "tokens_est": 575
+      "tokens_est": 566
     },
     {
       "file": "GLOSSARY.md",
@@ -305,14 +305,14 @@
     {
       "file": "STATUS.md",
       "read_when": "starting ANY task (current state, recent work, open items).",
-      "verified_commit": "2026-10-29 @ c019c06",
+      "verified_commit": "2026-10-29 @ 56c440f",
       "covers": [],
-      "tokens_est": 1598
+      "tokens_est": 1648
     },
     {
       "file": "STRUCTURE.md",
       "read_when": "you need to find where something lives, or decide where a new file goes.",
-      "verified_commit": "2026-10-29 @ c019c06",
+      "verified_commit": "2026-10-29 @ 56c440f",
       "covers": [
         "api/*.php",
         "api/lib/*.php",
@@ -323,7 +323,7 @@
         ".claude/skills/*/SKILL.md",
         ".agents/skills/*/SKILL.md"
       ],
-      "tokens_est": 962
+      "tokens_est": 961
     },
     {
       "file": "TESTING.md",

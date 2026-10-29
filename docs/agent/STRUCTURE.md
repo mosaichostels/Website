@@ -1,5 +1,5 @@
 Read when: you need to find where something lives, or decide where a new file goes.
-Verified: 2026-10-29 @ c019c06
+Verified: 2026-10-29 @ 56c440f
 Covers: api/*.php,api/lib/*.php,components/*.js,scripts/*,.claude/settings.json,.codex/hooks.json,.claude/skills/*/SKILL.md,.agents/skills/*/SKILL.md
 
 # Structure
@@ -23,7 +23,7 @@ Covers: api/*.php,api/lib/*.php,components/*.js,scripts/*,.claude/settings.json,
 | `docs/*.md` eZee/audit notes | Git-ignored local notes (see `.gitignore`); may be absent |
 | `.claude/` | `settings.json` (2 hooks), `settings.local.json` (machine-local, ignored), `hooks/`, `agents/security-reviewer.md`, `skills/{cache-bust-check,reconcile-payment,weekly-seo}`, `seo/` (extractors, `verify.sh`, `live_check.py`, `deploy-drift.sh`, `tests/`) |
 | `.codex/` | `hooks.json` (Codex-only PreToolUse `project_sync.py`), `agents/security-reviewer.toml`, `skills/weekly-seo` (symlink to `.claude/skills/weekly-seo`); excluded via `.git/info/exclude` (untracked) |
-| `.agents/skills/{cache-bust-check,reconcile-payment,weekly-seo}` | Codex-side copy of `.claude/skills/*` (untracked as of 2026-10-29). Edit both when changing a skill |
+| `.agents/skills/{cache-bust-check,reconcile-payment,weekly-seo}` | Codex-side copy of `.claude/skills/*` (tracked since `56c440f`). Edit both when changing a skill |
 | Root SEO files | `robots.txt`, `sitemap.xml` (24 URLs), `sitemap-images.xml` (20 loc), `llms.txt`, `BingSiteAuth.xml`, `google93f3367f3d9f7ac4.html`, `140ef5ae933ea27ef5ec39a4c06690e1.txt` (IndexNow key file), `.well-known/` |
 | `DESIGN.md`, `PRODUCT.md` | Design tokens, owner-confirmed product facts |
 

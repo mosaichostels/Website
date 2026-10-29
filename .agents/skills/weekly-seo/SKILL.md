@@ -144,15 +144,16 @@ The URL is positional (no `--url` flag). Add `--skip-cwv` while the PageSpeed ke
 is unconfigured.
 
 ```bash
-DRIFT_CACHE="$HOME/.cache/${SEO_CACHE_NAME:-claude-seo}/drift"
+[[ "${SEO_CLIENT:-claude}" == codex ]] && CACHE_DEFAULT=codex-seo || CACHE_DEFAULT=claude-seo
+DRIFT_CACHE="$HOME/.cache/${SEO_CACHE_NAME:-$CACHE_DEFAULT}/drift"
 [ -L "$DRIFT_CACHE" ] || [ -d "$DRIFT_CACHE" ] || mkdir -p "$DRIFT_CACHE"
 for u in / /book-now /blog/; do
   "$SEOPY" "$SEO/drift_baseline.py" --skip-cwv "https://www.mosaichostels.com$u"
 done
 ```
 
-Set `SEO_CACHE_NAME=claude-seo` for Claude or `codex-seo` for Codex. Keep the
-baselines separate. Skip this step while drift is unresolved; with no baseline,
+The cache follows `SEO_CLIENT` (`claude-seo`, or `codex-seo` for Codex); override
+with `SEO_CACHE_NAME`. Keep the baselines separate. Skip this step while drift is unresolved; with no baseline,
 capture one and note the week had no comparison.
 
 ## (h) Report
