@@ -1,5 +1,5 @@
 Read when: deciding how to verify a change, or interpreting a failing check.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-10-29 @ c019c06
 Covers: api/lib/selftest.php,scripts/flow-test/*,scripts/e2e-booking-test.php,.claude/seo/tests/*,.claude/seo/verify.sh
 
 # Testing
@@ -15,7 +15,6 @@ No CI (`.github/` absent) and no JS test suite. Verification is script-based and
 | Booking flow end to end (live eZee) | `php -S 127.0.0.1:8899 -t .` + `php scripts/e2e-booking-test.php` | Not run: needs real eZee + `rzp_test_` secrets; never live keys; creates real reservations |
 | Any HTML/sitemap/JSON-LD | `./.claude/seo/verify.sh` (changed files) or `--all` | Not run |
 | SEO scripts in `.claude/seo/` | `cd .claude/seo && python3 -m unittest discover -s tests` | PASS 100 tests 2026-10-23 |
-| Terminal dashboard | `python3 scripts/test_dashboard.py` | FAIL on system python3 (no Pillow); needs the missing SEO venv |
 | Shared JS/CSS edits | Cache-bust consistency (COMMANDS) / skill `cache-bust-check` | Consistent now: one version per asset |
 | After deploy | `python3 .claude/seo/live_check.py`, `./.claude/seo/deploy-drift.sh` | Not run (hits live site) |
 | Payment stuck | Skill `.claude/skills/reconcile-payment` (diagnose before touching eZee) | n/a |

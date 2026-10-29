@@ -1,5 +1,5 @@
 Read when: adding or editing a page, blog post, shared JS/CSS or redirect and shipping it live.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-10-29 @ c019c06
 Covers: blog/*/index.html,sitemap.xml,sitemap-images.xml,llms.txt,.htaccess,scripts/deploy.sh,scripts/indexnow-submit.sh,.claude/seo/verify.sh,.claude/seo/live_check.py,.claude/seo/live_check.json
 
 # Flow: change a page and ship it
@@ -18,4 +18,4 @@ edit html / components / styles / .htaccess
 ```
 Failure paths: verify.sh fails -> fix, commit nothing. Drift not clean -> do not IndexNow. A redirect target that is a directory must end in `/` (GOTCHAS).
 Files involved by change type: CONVENTIONS "New blog post checklist" / "New page checklist".
-Push: local `main` is ahead of `origin/main`; pushing needs the owner's approval. Site deploy is by FTP, not by git push (no CI).
+Push: pushing needs the owner's approval. Site deploy is by FTP, not by git push (no CI).

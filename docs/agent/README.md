@@ -1,7 +1,7 @@
 # Agent context router (Website)
 
 Mosaic Hostel Varanasi: static HTML site + PHP booking/payment API (eZee + Razorpay), manual FTP deploy. Live https://www.mosaichostels.com.
-Verified 2026-10-29 @ fd29588. Branch `main` (2 commits ahead of `origin/main`); single worktree, the real code is this checkout.
+Verified 2026-10-29 @ c019c06. Branch `main` (level with `origin/main`); single worktree, the real code is this checkout.
 Never read `api/secrets.php`. Pushing/deploying needs the owner's approval.
 
 ## Task -> files (always read STATUS.md)
@@ -43,6 +43,6 @@ Never read `api/secrets.php`. Pushing/deploying needs the owner's approval.
 | [GOTCHAS](GOTCHAS.md) | Pitfalls, booking root cause, agent config layout |
 | [STATUS](STATUS.md) | Current state, recent work, open items |
 
-[COVERAGE.md](COVERAGE.md): 10 topics `unknown`. Full read of every doc is about 19.3k tokens (sum of `tokens_est` in `INDEX.json`); read only the table rows for your task.
+[COVERAGE.md](COVERAGE.md): 0 topics `unknown`. Full read of every doc is about 20.7k tokens (sum of `tokens_est` in `INDEX.json`); read only the table rows for your task.
 Other sources: `PRODUCT.md` (owner-confirmed facts), `DESIGN.md` (tokens), `.claude/skills/*/SKILL.md`, `.planning/` (local).
 After changing code, update the affected file and STATUS.md, then `python3 /Users/naveen/.agents/hooks/project_context_index.py docs/agent`.

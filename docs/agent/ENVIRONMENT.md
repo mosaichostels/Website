@@ -1,5 +1,5 @@
 Read when: you need credentials by name, local tooling paths, hooks, or scheduled jobs. Names only, never values.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-10-29 @ c019c06
 Covers: api/secrets.example.php,api/alert-email.php,scripts/deploy.sh,.claude/settings.json,.codex/hooks.json,.claude/hooks/*
 
 # Environment
@@ -28,7 +28,6 @@ IndexNow key file is public by design: `140ef5ae933ea27ef5ec39a4c06690e1.txt` at
 | `lftp` | `deploy.sh` |
 | `rclone` (`/opt/homebrew/bin/rclone`) with remote `mosaic_hostel_media:` | `sync-instagram-media.sh` |
 | `jq` | the two Claude hooks |
-| Pillow | dashboard scripts (missing in system python3) |
 
 ## Scheduled job
 None. The `com.mosaichostels.instagram-media-sync` LaunchAgent noted earlier was not found on 2026-10-25 (no plist, no cron, no scheduled task); run `scripts/sync-instagram-media.sh` by hand.

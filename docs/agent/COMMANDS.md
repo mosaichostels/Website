@@ -1,5 +1,5 @@
 Read when: you must deploy, test, run SEO tooling, or sync media. Run from the repo root.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-10-29 @ c019c06
 Covers: scripts/deploy.sh,scripts/indexnow-submit.sh,scripts/sync-instagram-media.sh,.claude/seo/*.sh,.claude/seo/live_check.py
 
 # Commands
@@ -12,7 +12,6 @@ Covers: scripts/deploy.sh,scripts/indexnow-submit.sh,scripts/sync-instagram-medi
 | Booking selftest | `php -d zend.assertions=1 -d assert.exception=1 api/lib/selftest.php` | Prints "All selftest assertions passed." (passed 2026-10-23, PHP 8.5.12) |
 | Booking E2E | `php -S 127.0.0.1:8899 -t . &` then `php scripts/e2e-booking-test.php` | Integration: needs real eZee + Razorpay `rzp_test_` secrets; NEVER live keys. Exit 2 without eZee |
 | SEO unit tests | `cd .claude/seo && python3 -m unittest discover -s tests` | 100 tests OK on 2026-10-23 |
-| Dashboard tests | `python3 scripts/test_dashboard.py` | FAILS on system python3: `ModuleNotFoundError: PIL`. Needs the SEO venv (not found at `~/.config/mosaic-seo/venv/bin/python3` on 2026-10-23) |
 | Pre-commit SEO gate | `./.claude/seo/verify.sh` (`--all` for every page) | HTML parses, internal links, sitemap, JSON-LD valid; exit 1 = restore, commit nothing |
 | Live check | `python3 .claude/seo/live_check.py` | Post-deploy: sitemap URLs 200, redirects single 301, data in `.claude/seo/live_check.json` |
 | Deploy drift | `./.claude/seo/deploy-drift.sh` | Repo vs live, page by page |
@@ -21,7 +20,6 @@ Covers: scripts/deploy.sh,scripts/indexnow-submit.sh,scripts/sync-instagram-medi
 | Data pull | `./.claude/seo/extract-all.sh [--fast] [gsc bing ...]` | Needs env file and venv; writes `seo-reports/<name>/` |
 | Platform setup | `./.claude/seo/setup-platforms.sh` | Idempotent one-time wiring |
 | Weekly SEO | ask for "weekly SEO"; skill `.claude/skills/weekly-seo` steps (a)-(h) | Dry run = (a)-(d)+(h) |
-| Terminal dashboard | `scripts/dashboard-run.sh <site\|deploy\|search\|traffic\|speed\|backlog\|ui\|gfx\|png <dir>> [seconds]` | Sources env (never printed) |
 | Media sync | `scripts/sync-instagram-media.sh` | rclone `mosaic_hostel_media:` -> `~/Projects/Hostel Content` (outside the repo); aborts on empty listing; `--max-delete 50`; absolute rclone path |
 | Local PHP server | `php -S 127.0.0.1:8899 -t .` | Clean-URL rewrites do not apply (no Apache); use `/x.html` |
 | Cache-bust list | `grep -rhoE 'navbar\.js\?v=[0-9a-z]+' . --include='*.html' \| sort \| uniq -c` | Same pattern for other assets |
@@ -33,4 +31,4 @@ Covers: scripts/deploy.sh,scripts/indexnow-submit.sh,scripts/sync-instagram-medi
 `deploy.sh` commands whose text matches `deploy\.sh.+(diag|debug|test)` are refused (`.claude/hooks/block-diagnostic-file-deploy`).
 
 ## Not run (unknown)
-`deploy.sh`, `indexnow-submit.sh`, `extract-all.sh`, E2E, dashboards: need credentials or touch production.
+`deploy.sh`, `indexnow-submit.sh`, `extract-all.sh`, E2E: need credentials or touch production.
