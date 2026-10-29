@@ -23,7 +23,7 @@ Remote docroot: `/home/u738123768/domains/mosaichostels.com/public_html` (root `
 No tooling. Checkout the previous commit's file and redeploy it with `deploy.sh <file>`; for `.htaccess` redeploy the previous version and run `live_check.py`. CDN may serve stale: clear cache in hPanel. A bad PHP deploy cannot lose orders (state is outside docroot).
 
 ## Hosting facts
-Hostinger (LiteSpeed + Apache `.htaccess`), HTTPS + `www` canonical enforced in `.htaccess:165`, HSTS preload. DNS provider/registrar: unknown (COVERAGE). Production PHP version: unknown.
+Hostinger (LiteSpeed + Apache `.htaccess`), HTTPS + `www` canonical enforced in `.htaccess:165`, HSTS preload. DNS: Hostinger DNS (owner-confirmed 2026-10-29). Rollback = redeploy an old file over FTP, nothing else. Production PHP 8.2.35.
 
 ## Hook
 Claude hook refuses `deploy.sh` commands matching `deploy\.sh.+(diag|debug|test)`. Codex has no equivalent: apply the rule manually.

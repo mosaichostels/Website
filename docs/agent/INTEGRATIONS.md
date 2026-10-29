@@ -19,5 +19,5 @@ Covers: api/lib/ezee.php,api/lib/razorpay.php,api/lib/booking.php,.htaccess,.cla
 | Razorpay MCP (local, read-only) | Agent lookups of payments | user-scope MCP `razorpay` | `~/.config/mosaic-seo/razorpay.env` | off until keys present; see ENVIRONMENT.md |
 | Apple Pay merchant verification | domain association file | `.well-known/apple-developer-merchantid-domain-association` | n/a | must stay served 200 (live_check) |
 
-Which account/mode: test vs live is decided ONLY by the key pair in `api/secrets.php` (`rzp_test_*` vs `rzp_live_*`). Whether production currently holds live keys: unknown (COVERAGE).
+Which account/mode: test vs live is decided ONLY by the key pair in `api/secrets.php` (`rzp_test_*` vs `rzp_live_*`). Owner-confirmed 2026-10-29: production holds LIVE keys (real money). Test keys only via `~/.config/mosaic-seo/deploy-test.env`.
 Rates in eZee change between search and pay: `create-order.php` re-fetches and returns 409 `price_changed`.

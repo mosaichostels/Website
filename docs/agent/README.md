@@ -2,7 +2,7 @@
 
 Mosaic Hostel Varanasi: static HTML site + PHP booking/payment API (eZee + Razorpay), manual FTP deploy. Live https://www.mosaichostels.com.
 Verified 2026-10-29 @ fd29588. Branch `main` (2 commits ahead of `origin/main`); single worktree, the real code is this checkout.
-Skip `OpenMontage/` (vendored video tool). Never read `api/secrets.php`. Pushing/deploying needs the owner's approval.
+Never read `api/secrets.php`. Pushing/deploying needs the owner's approval.
 
 ## Task -> files (always read STATUS.md)
 | Task | Read |

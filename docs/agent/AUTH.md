@@ -18,7 +18,7 @@ The public site has NO user accounts, sessions or roles. Trust is established pe
 - `api/secrets.php`: git-ignored, uploaded by hand, denied by `api/.htaccess` and the Claude hook `block-creds-edit`. Agents never read/print/edit it. Template: `api/secrets.example.php`.
 - Env files `~/.config/mosaic-seo/env` and `razorpay.env` (mode 600): source in the same shell, never print.
 - `bookings_log()` strips control chars and masks `APIKey=` values.
-- Owner-level access (not in repo): Hostinger hPanel/FTP, eZee extranet, Razorpay dashboard, Google/Bing consoles. Who holds them: COVERAGE unknown.
+- Owner-level access (not in repo): Hostinger hPanel/FTP, eZee extranet, Razorpay dashboard, Google/Bing consoles. Only the owner holds them (owner-confirmed 2026-10-29).
 
 ## Hardening already in place
 Security headers and CSP (`.htaccess:8-31`), `api/lib/` 403, HTTPS+www redirect, rate limits (speed bumps only; `X-Forwarded-For` is spoofable), error text from upstreams never shown to guests.

@@ -10,7 +10,7 @@ Covers: -
 | Code | github.com/mosaichostels/Website, branch `main` | no CI; push does not deploy |
 | Hosting/FTP/cron/email | Hostinger hPanel (user `u738123768`) | credentials only in owner env |
 | PMS | eZee extranet (hotel code in `api/secrets.php`) | |
-| Payments | Razorpay dashboard (webhook URL `/api/razorpay-webhook.php`, event `payment.captured`) | live-vs-test of production keys: unknown |
+| Payments | Razorpay dashboard (webhook URL `/api/razorpay-webhook.php`, event `payment.captured`) | production keys are LIVE (owner-confirmed 2026-10-29) |
 | Analytics/search | GA4, Clarity, Google Search Console, Bing Webmaster, Google Business Profile | property ids in `~/.config/mosaic-seo/env` |
 | Media | Google Drive folder via rclone remote `mosaic_hostel_media:` -> `~/Projects/Hostel Content` | |
 | Owner contact for guests | WhatsApp (number in `PRODUCT.md`) | |

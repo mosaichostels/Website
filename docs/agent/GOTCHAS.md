@@ -18,8 +18,6 @@ Covers: api/lib/*.php,api/*.php,.htaccess,scripts/deploy.sh,.claude/hooks/*
 | `config.php` missing from a PHP `require` chain silently broke payment resolution once | Every endpoint requires it first |
 | `selftest.php` does not need `secrets.php`; real endpoints do | Do not require `config.php` from the test (it exits without secrets) |
 | `scripts/deploy.sh` with `.php` files runs selftest and aborts without `php` | Install PHP or deploy non-PHP separately |
-| `OpenMontage/` is untracked (via `.git/info/exclude`), large, vendored | Do not search it for site code, do not commit it |
-| `blogs/*.md` are not the posts | Live posts are `blog/<slug>/index.html`; markdown is stale (14 vs 16) |
 | Missing SEO venv | `~/.config/mosaic-seo/venv` not found 2026-10-23; extractors and dashboard fail until `setup-platforms.sh` is rerun |
 | Data lag | Google data lags 2-3 days; Clarity allows about 10 calls/day |
 | Submitting IndexNow before the deploy is live | Wait for `deploy-drift.sh` clean |
@@ -54,3 +52,8 @@ Covers: api/lib/*.php,api/*.php,.htaccess,scripts/deploy.sh,.claude/hooks/*
 - `.claude/` is the source: `settings.json` (tracked), `settings.local.json` (machine-local, git-ignored, never symlink), `hooks/`, `agents/`, `skills/`, `seo/`.
 - `.codex/hooks.json` kept: Codex-only hook format; Claude's equivalent lives in `settings.local.json`. No `.agents/` folder (no skills shared with Codex). No symlinks in the repo.
 - `AGENTS.md` is the single instruction file; `CLAUDE.md` is `@AGENTS.md`. `AGENTS.md` also says "follow `~/.codex/AGENTS.md`", the global rules file.
+
+- `book-now.js:379` silently caps a room quantity at `room.available` with no message to the guest.
+- Drift baselines: the plugin hardcodes `~/.cache/claude-seo/drift`, which cleanups wipe. Already mitigated: it is a symlink to `~/.local/share/mosaic-seo/drift` (Codex: `~/.cache/codex-seo/drift` -> `.../drift-codex`), set up by `.claude/seo/lighthouse-drift-extract.py:72`. If a symlink is missing, recreate it before running or baselines are lost.
+- FTP (`deploy-test.env`) lands in the docroot `/`; `ezee-pending-orders/` and `bookings.log` sit above it (`api/lib/config.php:40`) and cannot be read over FTP. Use hPanel File Manager (checked 2026-10-29).
+- `bookings.log` is readable only by downloading `ezee-pending-orders` from hPanel File Manager (zip). The 2026-10-29 copy shows an `ALERT PAID but booking NOT created` on 2026-10-26 (the multi-night bug fixed in `fd29588`); order folders then held 7 abandoned, 2 done, 3 failed.

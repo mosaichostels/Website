@@ -10,7 +10,7 @@
         "api/.htaccess",
         "api/lib/.htaccess"
       ],
-      "tokens_est": 747
+      "tokens_est": 779
     },
     {
       "file": "ARCHITECTURE.md",
@@ -36,7 +36,7 @@
         ".htaccess",
         ".claude/hooks/*"
       ],
-      "tokens_est": 464
+      "tokens_est": 469
     },
     {
       "file": "COMMANDS.md",
@@ -49,7 +49,7 @@
         ".claude/seo/*.sh",
         ".claude/seo/live_check.py"
       ],
-      "tokens_est": 898
+      "tokens_est": 891
     },
     {
       "file": "CONVENTIONS.md",
@@ -62,7 +62,7 @@
         ".htaccess",
         "blog/*/index.html"
       ],
-      "tokens_est": 850
+      "tokens_est": 855
     },
     {
       "file": "DATA.md",
@@ -76,14 +76,14 @@
         "api/reconcile-pending.php",
         "seo-reports/data/*"
       ],
-      "tokens_est": 727
+      "tokens_est": 774
     },
     {
       "file": "DECISIONS.md",
       "read_when": "proposing a change that might contradict an earlier choice, or asking why something is the way it is.",
       "verified_commit": "2026-10-29 @ fd29588",
       "covers": [],
-      "tokens_est": 683
+      "tokens_est": 919
     },
     {
       "file": "DEPLOY.md",
@@ -97,7 +97,7 @@
         ".claude/seo/live_check.py",
         ".claude/hooks/block-diagnostic-file-deploy"
       ],
-      "tokens_est": 594
+      "tokens_est": 607
     },
     {
       "file": "ENVIRONMENT.md",
@@ -118,7 +118,7 @@
       "read_when": "you need to know which outside account, console or document holds something. No secrets here.",
       "verified_commit": "2026-10-29 @ fd29588",
       "covers": [],
-      "tokens_est": 345
+      "tokens_est": 348
     },
     {
       "file": "FLOWS/booking.md",
@@ -137,7 +137,7 @@
         "api/lib/guest.php",
         "api/lib/dates.php"
       ],
-      "tokens_est": 1255
+      "tokens_est": 1442
     },
     {
       "file": "FLOWS/cancellation.md",
@@ -149,7 +149,7 @@
         "api/lib/dates.php",
         "components/book-now.js"
       ],
-      "tokens_est": 524
+      "tokens_est": 537
     },
     {
       "file": "FLOWS/content-publish.md",
@@ -200,7 +200,7 @@
       "read_when": "a term in code, alerts or the owner's messages is unclear.",
       "verified_commit": "2026-10-29 @ fd29588",
       "covers": [],
-      "tokens_est": 453
+      "tokens_est": 435
     },
     {
       "file": "GOTCHAS.md",
@@ -213,7 +213,7 @@
         "scripts/deploy.sh",
         ".claude/hooks/*"
       ],
-      "tokens_est": 2169
+      "tokens_est": 2346
     },
     {
       "file": "INTEGRATIONS.md",
@@ -227,7 +227,7 @@
         ".claude/seo/*.py",
         "scripts/indexnow-submit.sh"
       ],
-      "tokens_est": 772
+      "tokens_est": 788
     },
     {
       "file": "JOBS.md",
@@ -238,7 +238,7 @@
         "scripts/sync-instagram-media.sh",
         "scripts/dashboard-run.sh"
       ],
-      "tokens_est": 309
+      "tokens_est": 348
     },
     {
       "file": "OBSERVABILITY.md",
@@ -250,7 +250,7 @@
         ".claude/seo/health-check.sh",
         ".claude/seo/live_check.py"
       ],
-      "tokens_est": 376
+      "tokens_est": 391
     },
     {
       "file": "OVERVIEW.md",
@@ -300,14 +300,14 @@
         ".htaccess",
         "scripts/*.py"
       ],
-      "tokens_est": 495
+      "tokens_est": 536
     },
     {
       "file": "STATUS.md",
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-10-29 @ fd29588",
       "covers": [],
-      "tokens_est": 1294
+      "tokens_est": 1405
     },
     {
       "file": "STRUCTURE.md",
@@ -323,7 +323,7 @@
         ".claude/skills/*/SKILL.md",
         ".agents/skills/*/SKILL.md"
       ],
-      "tokens_est": 944
+      "tokens_est": 951
     },
     {
       "file": "TESTING.md",
