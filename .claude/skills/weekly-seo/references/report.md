@@ -60,4 +60,4 @@ and zero is a very different claim from "not measured".
 - `extract:<source>` for gsc, ga4, bing, clarity, cwv, lighthouse, commoncrawl: set automatically from the data; mark `skipped` or `blocked` yourself when a platform is DOWN. An extractor you deliberately did not run (a subset like `extract-all.sh gsc bing`, or `--fast`) must also be marked `skipped` with that reason. Read the `coverage: N item(s) still open` line that extract-all.sh prints before step (c): a CWV or Lighthouse gap found at step (h) is too late for ranking.
 - `audits:claude-seo-14`: the 15 concurrent audit agents (the id keeps its old number so the ledger and tests stay stable); `ai-visibility`: `ai-visibility.sh`; `keyword-demand`: the keyword step in `keywords.md`.
 
-Item 2 of the report (metric deltas) is generated: paste the output of `python3 .claude/seo/deltas.py`. `not measured` is never zero; `_90d` rows overlap between runs.
+Item 2 of the report (metric deltas) is generated: paste the output of `$SEOPY .claude/seo/deltas.py`. `not measured` is never zero; `_90d` rows overlap between runs.

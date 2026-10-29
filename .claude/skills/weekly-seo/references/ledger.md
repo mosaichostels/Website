@@ -1,6 +1,6 @@
 # Findings ledger
 
-`python3 .claude/seo/ledger.py` keeps `seo-reports/data/findings-ledger.json`: one entry per finding, from claim to measured outcome. The file is committed with the run.
+`$SEOPY .claude/seo/ledger.py` keeps `seo-reports/data/findings-ledger.json`: one entry per finding, from claim to measured outcome. The file is committed with the run.
 
 ## Flow
 

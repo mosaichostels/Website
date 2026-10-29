@@ -4,9 +4,18 @@
 
 ## (c) Audits
 
-15 checks, all Agent-tool subagents (`agents/*.md` in the claude-seo plugin, dispatched concurrently via the Task tool). The claude-seo `seo-audit`, `seo-unlighthouse` and `seo-bing` skills are not part of the weekly run: the 15 agents plus the Lighthouse and Bing extractors cover them. Verify against `~/.claude/plugins/cache/*/claude-seo/*/agents/` before assuming a new claude-seo capability belongs in the batch.
+The weekly audit has 15 specialist checks. Claude runs the `claude-seo` agents
+through its Agent/Task tools; Codex runs the matching `seo-*` specialist skills
+through the installed `seo` orchestrator. The `seo-audit`, `seo-unlighthouse`
+and `seo-bing` entry skills are not separate weekly checks: the specialists plus
+the Lighthouse and Bing extractors cover them. Verify the active client's
+specialist files before assuming a new capability belongs in the batch.
 
-**Concurrent, via Task/Agent tool (15):**
+**Concurrent, via the active client's native delegation (15 checks):**
+
+For Codex, read each `claude-seo:seo-*` label below as the corresponding
+`seo-*` skill from `~/.codex/skills/`; the audit intent and dedupe rules are
+shared, while delegation syntax is client-native.
 
 **Discovery + Crawlability (2)**
 - `claude-seo:seo-technical` — crawlability, indexability, URL structure, canonicals, mobile
@@ -101,4 +110,4 @@ Varanasi, a static GBP completeness checklist, and cross-platform presence
 guidance (Bing Places, Apple Maps, OSM). Cannot geo-grid rank or pull live
 review/post data at this tier — same gap: it needs GBP API access (not configured).
 
-**Tooling notes (2026-10-25).** `agentic_check.py` needs `lxml` (installed in the mosaic-seo venv that day). `seo-visual` and `agent_ux_check.py` need Playwright, which the mosaic-seo venv lacks; the agent used `~/Library/Application Support/claude-seo/.venv/bin/python`. The `playwright-*` MCP servers failed once with an npm `ENOTEMPTY` in `~/.npm/_npx/<hash>`: remove that one folder and they start.
+**Tooling notes (2026-10-25).** `agentic_check.py` needs `lxml` (installed in the mosaic-seo venv that day). `seo-visual` and `agent_ux_check.py` need Playwright; Claude can use its plugin venv, while Codex uses `~/.codex/skills/seo/.venv/bin/python`. The `playwright-*` MCP servers failed once with an npm `ENOTEMPTY` in `~/.npm/_npx/<hash>`: remove that one folder and they start.
