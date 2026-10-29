@@ -1,5 +1,5 @@
 Read when: before editing anything risky: payments, deploys, redirects, cache versions, secrets, worktrees, agent config.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-10-29 @ c019c06
 Covers: api/lib/*.php,api/*.php,.htaccess,scripts/deploy.sh,.claude/hooks/*
 
 # Gotchas
@@ -18,7 +18,7 @@ Covers: api/lib/*.php,api/*.php,.htaccess,scripts/deploy.sh,.claude/hooks/*
 | `config.php` missing from a PHP `require` chain silently broke payment resolution once | Every endpoint requires it first |
 | `selftest.php` does not need `secrets.php`; real endpoints do | Do not require `config.php` from the test (it exits without secrets) |
 | `scripts/deploy.sh` with `.php` files runs selftest and aborts without `php` | Install PHP or deploy non-PHP separately |
-| Missing SEO venv | `~/.config/mosaic-seo/venv` not found 2026-10-23; extractors and dashboard fail until `setup-platforms.sh` is rerun |
+| Missing SEO venv | `~/.config/mosaic-seo/venv` not found 2026-10-23; extractors fail until `setup-platforms.sh` is rerun |
 | Data lag | Google data lags 2-3 days; Clarity allows about 10 calls/day |
 | Submitting IndexNow before the deploy is live | Wait for `deploy-drift.sh` clean |
 | Copy claims (reviews, guest counts) | Owner-supplied, unverifiable from the repo; do not extend |
@@ -50,7 +50,7 @@ Covers: api/lib/*.php,api/*.php,.htaccess,scripts/deploy.sh,.claude/hooks/*
 
 ## Agent config layout (consolidation checked 2026-10-23)
 - `.claude/` is the source: `settings.json` (tracked), `settings.local.json` (machine-local, git-ignored, never symlink), `hooks/`, `agents/`, `skills/`, `seo/`.
-- `.codex/hooks.json` kept: Codex-only hook format; Claude's equivalent lives in `settings.local.json`. No `.agents/` folder (no skills shared with Codex). No symlinks in the repo.
+- `.codex/hooks.json` kept: Codex-only hook format; Claude's equivalent lives in `settings.local.json`. `.codex/agents/security-reviewer.toml` is Codex's copy of `.claude/agents/security-reviewer.md`. `.codex/skills/weekly-seo` is a symlink to `.claude/skills/weekly-seo` (`.codex/` is git-excluded). `.agents/skills/{cache-bust-check,reconcile-payment,weekly-seo}` (untracked, 2026-10-29) are separate copies, NOT symlinks, and `weekly-seo` already differs from `.claude/` (wording of credentials, toolchain, tooling notes): edit `.claude/` first, then sync `.agents/` by hand and `diff -r` them.
 - `AGENTS.md` is the single instruction file; `CLAUDE.md` is `@AGENTS.md`. `AGENTS.md` also says "follow `~/.codex/AGENTS.md`", the global rules file.
 
 - `book-now.js:379` silently caps a room quantity at `room.available` with no message to the guest.

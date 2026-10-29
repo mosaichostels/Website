@@ -1,5 +1,5 @@
 Read when: proposing a change that might contradict an earlier choice, or asking why something is the way it is.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-10-29 @ c019c06
 Covers: -
 
 # Decisions
@@ -22,6 +22,7 @@ Covers: -
 | 2026-10-20 | "24-hour reception" wording aligned | Commit `2d41655` |
 | 2026-10-23 | New `/dorms/` page for "dormitory near Assi Ghat" (F-0058, owner approved) | ~135 impressions/90d at pos 10-13, 0 clicks |
 | 2026-10-23 | Single `AGENTS.md`; `CLAUDE.md` is `@AGENTS.md`; `.claude/` holds the real skills, no `.agents/` folder | Consolidation (`a02ca7c`); opencli skill removed |
+| 2026-10-28 | weekly-seo skill is client-neutral: `SEO_CLIENT=codex` selects Codex SEO tools/venv (default Claude); drift cache is chosen separately by `SEO_CACHE_NAME` (default `claude-seo`, set `codex-seo` for Codex or Codex overwrites Claude's baseline). `.agents/skills/` added as Codex-side skill copies (supersedes "no `.agents/` folder" above) | `docs/superpowers/plans/2026-10-28-codex-seo-weekly-run.md` |
 | - | Positioning copy stays as the SEO work set it | `PRODUCT.md` principle 5 |
 
 ## Open

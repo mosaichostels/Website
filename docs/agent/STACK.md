@@ -1,5 +1,5 @@
 Read when: choosing tools, libraries or services, or checking what runtime a file needs.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-10-29 @ c019c06
 Covers: components/*.js,styles/global.css,api/lib/*.php,.htaccess,scripts/*.py
 
 # Stack
@@ -16,7 +16,6 @@ Covers: components/*.js,styles/global.css,api/lib/*.php,.htaccess,scripts/*.py
 | Payments | Razorpay Orders API, Checkout in browser, HMAC signature verify, webhook `payment.captured`, auto full refund | `api/lib/razorpay.php` |
 | Analytics | GA4 (gtag), Microsoft Clarity, Bing; CSP allowlists their hosts | page heads, `.htaccess` CSP |
 | SEO tooling | Python extractors (GSC, GA4, Bing, Clarity, GBP, CWV, Lighthouse, CommonCrawl) | `.claude/seo/*.py` |
-| Terminal dashboard | Python, needs Pillow | `scripts/dashboard*.py` |
 | Media sync | rclone remote `mosaic_hostel_media:` to `~/Projects/Hostel Content` | `scripts/sync-instagram-media.sh` |
 
 ## Versions seen on this machine (2026-10-23)

@@ -1,10 +1,10 @@
 Read when: starting ANY task (current state, recent work, open items).
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-10-29 @ c019c06
 Covers: -
 
 # Status (2026-10-29)
 
-- HEAD `fd29588` (booking fix), branch `main`, 2 commits ahead of `origin/main` (unpushed; pushing to `main` is the owner's call). Uncommitted at 2026-10-29: `.claude/skills/weekly-seo/*` edits, deleted `.mcp.json`, `scripts/sync-instagram-media.sh`, `docs/agent/{COMMANDS,ENVIRONMENT,STACK,STATUS}.md`, untracked `.agents/` and `docs/superpowers/plans/2026-10-28-codex-seo-weekly-run.md`. These belong to other sessions: do not revert.
+- HEAD `c019c06` (docs refresh), branch `main`, level with `origin/main` (0 ahead, 0 behind at 2026-10-29). Uncommitted at 2026-10-29: `.claude/skills/weekly-seo/{SKILL.md,references/{audits,ledger,report}.md}` edits (Claude/Codex `SEO_CLIENT` toolchain), deleted `.mcp.json`, `scripts/sync-instagram-media.sh`, untracked `.agents/` and `docs/superpowers/plans/2026-10-28-codex-seo-weekly-run.md`. These belong to other sessions: do not revert.
 - Done today: `/dorms/` page (`00e004f`, F-0058, status `fixed`, not yet verified live in the ledger); sitemap and `llms.txt` list it.
 - Done recently: agent docs + single `AGENTS.md` (`a02ca7c`); Instagram media mirror script (`0d50bc7`) and gitignore (`2c7f83c`); SEO step (f) with deploy-check of F-0053/F-0056 (`65a9c6e`, 2026-10-21); "100 m" wording on 17 pages (`749cc58`); image width/height on 18 gallery images (F-0055).
 - 2026-10-25 (uncommitted): `weekly-seo` step (c) now runs 15 audit agents, adding `claude-seo:seo-agentic` (claude-seo 2.5.0; `--ua-matrix` banned, report-only) in `SKILL.md` and `references/audits.md`/`report.md`; coverage id `audits:claude-seo-14` kept as is. Skill structure check passes; full sweep not run. `/weekly-seo` only loads in sessions opened in this folder.
@@ -15,6 +15,8 @@ Covers: -
 - 2026-10-26: Razorpay MCP installed as a local read-only server for Claude and Codex (see ENVIRONMENT.md); it stays off until `~/.config/mosaic-seo/razorpay.env` holds the keys. The earlier project `.mcp.json` (hosted OAuth) was removed.
 - 2026-10-25 (uncommitted): `scripts/sync-instagram-media.sh` now mirrors Drive to `~/Projects/Hostel Content` (was `instagram-media/` in the repo); no LaunchAgent exists, so it runs by hand only. Synced 2026-10-25: 366 files, 6.5 GB, checksums match; Drive holds 19 more files whose names duplicate another (rclone keeps one per name).
 - 2026-10-28 (uncommitted): Codex SEO `v1.9.6-codex.5` runtime verified ready; Codex Google config mirrored to `~/.config/codex-seo/google-api.json` (0600) and durable separate drift cache linked at `~/.cache/codex-seo/drift`; shared `.agents/skills/weekly-seo` updated for Claude/Codex-native audits and 15 checks. Skill structure check and 100 SEO unit tests pass.
+
+- 2026-10-29: project-context sweep: 4,271 files listed (3,524 in `.git`; `git fsck --full` reported only dangling objects, no corruption). No `proven unused` file found. Zero-reference files are dated `seo-reports/` records (read by date glob in `.claude/seo/deltas.py`), old `docs/superpowers/plans/`, and `scripts/dashboard_{pages,render}.py` (imported by `dashboard-gfx.py`; need Pillow). Nothing removed by the sweep itself; at the owner's request (the dashboard no longer exists) the 8 terminal-dashboard files in `scripts/` (`dashboard*.py`, `dashboard-run.sh`, `dashboard-todo.txt`, `test_dashboard.py`) were removed; the owner also had the backup deleted, so recovery is only via git history (`git show HEAD:scripts/dashboard.py`; added in `6f95fbc`).
 
 ## Open
 | Item | Notes |

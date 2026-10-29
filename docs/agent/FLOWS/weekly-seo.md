@@ -1,10 +1,10 @@
 Read when: the owner asks for "weekly SEO", or you edit the weekly-seo skill, extractors or the findings ledger.
-Verified: 2026-10-29 @ fd29588
-Covers: .claude/skills/weekly-seo/SKILL.md,.claude/skills/weekly-seo/references/*.md,.agents/skills/weekly-seo/SKILL.md,.claude/seo/*.py,.claude/seo/*.sh
+Verified: 2026-10-29 @ c019c06
+Covers: .claude/skills/weekly-seo/SKILL.md,.claude/skills/weekly-seo/references/*.md,.agents/skills/weekly-seo/SKILL.md,.agents/skills/weekly-seo/references/*.md,.claude/seo/*.py,.claude/seo/*.sh
 
 # Flow: weekly SEO run
 
-Entry: skill `.claude/skills/weekly-seo/SKILL.md` (Claude; Codex copy in `.agents/skills/weekly-seo/`). Only loads in sessions opened in this repo. Design: `docs/superpowers/specs/2026-10-02-weekly-seo-v2-design.md`.
+Entry: skill `.claude/skills/weekly-seo/SKILL.md` (Claude; Codex reads it via symlink `.codex/skills/weekly-seo`; a diverging copy sits in `.agents/skills/weekly-seo/`). Client switch: `SEO_CLIENT=codex` sets `$SEO`/`$SEOPY` to `~/.codex/skills/seo/{scripts,.venv}`, default Claude plugin + `~/.config/mosaic-seo/venv`; run Python as `$SEOPY`; drift cache `~/.cache/${SEO_CACHE_NAME:-claude-seo}/drift` (NOT tied to `SEO_CLIENT`: also export `SEO_CACHE_NAME=codex-seo` for Codex). Only loads in sessions opened in this repo. Design: `docs/superpowers/specs/2026-10-02-weekly-seo-v2-design.md`.
 
 | Step | What | Tooling |
 |---|---|---|

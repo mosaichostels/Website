@@ -1,6 +1,6 @@
 Read when: asking what runs on a schedule or in the background, or what to do if it stops.
-Verified: 2026-10-29 @ fd29588
-Covers: api/reconcile-pending.php,scripts/sync-instagram-media.sh,scripts/dashboard-run.sh
+Verified: 2026-10-29 @ c019c06
+Covers: api/reconcile-pending.php,scripts/sync-instagram-media.sh
 
 # Jobs
 
