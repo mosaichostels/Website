@@ -27,6 +27,8 @@ Check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception. Free cancellati
 - Static HTML/CSS/JS with no build step, plus PHP endpoints in `api/` (eZee PMS, Razorpay); deployed by FTP to Hostinger. Assumed to continue; not yet confirmed as binding.
 - Pages: home, about, gallery, book-now, contact, privacy, blog (14 travel guides).
 - Room lineup (owner-confirmed): 5 room types — private room, 8-bed mixed dorm, 6-bed mixed dorm, 4-bed mixed dorm, 6-bed female-only dorm; plus a shared common room that is not a room type.
+- Owner-confirmed 2026-10-30 (may stay in copy): 24-hour security; the hostel was founded by a group of hospitality professionals; yoga sessions with local teachers; the phrase "I came for two nights and stayed for ten" appears in more than one review.
+- Owner-denied 2026-10-30 (must not appear as a Mosaic offering): cooking classes. Generic mentions of cooking classes in Varanasi are fine.
 - Open decision: whether WCAG AA is a formal requirement.
 
 ## Brand Commitments
