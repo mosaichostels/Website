@@ -2,23 +2,23 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash",
+        "matcher": "Bash|Write|Edit",
         "hooks": [
           {
             "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/block-diagnostic-file-deploy"
-          }
-        ]
-      },
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "$CLAUDE_PROJECT_DIR/.claude/hooks/block-creds-edit"
+            "command": "python3 /Users/naveen/.agents/hooks/project_sync.py pre",
+            "timeout": 10
           }
         ]
       }
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "mosaic-bing",
+    "mosaic-clarity",
+    "mosaic-ga4",
+    "mosaic-gbp",
+    "mosaic-gsc",
+    "razorpay"
+  ]
 }
