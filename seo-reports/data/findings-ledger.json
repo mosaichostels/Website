@@ -2279,10 +2279,14 @@
       "updated": "2026-10-30"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-10-30",
+        "metric": "gbp.website_clicks",
+        "value": 8
+      },
       "check": null,
       "claim": "Unconfirmed hostel claims on site (24-hour security, cooking classes, yoga, founder story, review quote); Mosaic-vs-market price ambiguity in posts",
-      "commit": null,
+      "commit": "6c4d1ac",
       "confidence": 0.8,
       "created": "2026-10-30",
       "effort": 1,
@@ -2290,12 +2294,12 @@
       "id": "F-0086",
       "impact": 3,
       "measured": null,
-      "note": "",
+      "note": "cooking-class removals live on index and about (fetched 2026-10-30); price figures confirmed by owner, no change",
       "priority": 2.4,
       "sources": [
         "seo-content"
       ],
-      "status": "open",
+      "status": "deployed",
       "updated": "2026-10-30"
     },
     {

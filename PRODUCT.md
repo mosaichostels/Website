@@ -29,6 +29,7 @@ Check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception. Free cancellati
 - Room lineup (owner-confirmed): 5 room types — private room, 8-bed mixed dorm, 6-bed mixed dorm, 4-bed mixed dorm, 6-bed female-only dorm; plus a shared common room that is not a room type.
 - Owner-confirmed 2026-10-30 (may stay in copy): 24-hour security; the hostel was founded by a group of hospitality professionals; yoga sessions with local teachers; the phrase "I came for two nights and stayed for ten" appears in more than one review.
 - Owner-denied 2026-10-30 (must not appear as a Mosaic offering): cooking classes. Generic mentions of cooking classes in Varanasi are fine.
+- Owner-confirmed 2026-10-30: the ₹ figures in blog posts (hostel dorm ₹499–700, private room ₹1,500–2,500+ and similar) are general Varanasi market ranges, not Mosaic's own rates. They may stay; Mosaic's own prices still never appear on public pages.
 - Open decision: whether WCAG AA is a formal requirement.
 
 ## Brand Commitments
