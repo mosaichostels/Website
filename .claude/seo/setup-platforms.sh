@@ -32,8 +32,8 @@ if [[ ! -x "$VENV/bin/python3" ]]; then
   python3 -m venv "$VENV"
   "$VENV/bin/pip" install -q --upgrade pip
 fi
-if ! "$VENV/bin/python3" -c 'import requests, bs4, google.auth' 2>/dev/null; then
-  "$VENV/bin/pip" install -q requests beautifulsoup4 google-auth \
+if ! "$VENV/bin/python3" -c 'import requests, bs4, lxml, google.auth' 2>/dev/null; then
+  "$VENV/bin/pip" install -q requests beautifulsoup4 lxml google-auth \
     google-auth-oauthlib google-api-python-client
 fi
 ok "claude-seo venv at $VENV"
