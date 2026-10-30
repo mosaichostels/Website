@@ -1946,12 +1946,12 @@
       "id": "F-0072",
       "impact": 4,
       "measured": null,
-      "note": "defect still on the live page: fix not deployed yet",
+      "note": "live page no longer shows the defect",
       "priority": 3.6,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-30"
     },
     {
@@ -1976,12 +1976,12 @@
       "id": "F-0073",
       "impact": 4,
       "measured": null,
-      "note": "defect still on the live page: fix not deployed yet",
+      "note": "live page no longer shows the defect",
       "priority": 3.4,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-30"
     },
     {
@@ -2006,12 +2006,12 @@
       "id": "F-0074",
       "impact": 3,
       "measured": null,
-      "note": "defect still on the live page: fix not deployed yet",
+      "note": "live page no longer shows the defect",
       "priority": 2.55,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-30"
     },
     {
@@ -2036,12 +2036,12 @@
       "id": "F-0075",
       "impact": 3,
       "measured": null,
-      "note": "defect still on the live page: fix not deployed yet",
+      "note": "live page no longer shows the defect",
       "priority": 2.4,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-30"
     },
     {
@@ -2066,12 +2066,12 @@
       "id": "F-0076",
       "impact": 3,
       "measured": null,
-      "note": "defect still on the live page: fix not deployed yet",
+      "note": "live page no longer shows the defect",
       "priority": 2.4,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-30"
     },
     {
@@ -2096,12 +2096,12 @@
       "id": "F-0077",
       "impact": 3,
       "measured": null,
-      "note": "defect still on the live page: fix not deployed yet",
+      "note": "live page no longer shows the defect",
       "priority": 2.25,
       "sources": [
         "seo-cluster"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-30"
     },
     {
@@ -2126,12 +2126,12 @@
       "id": "F-0078",
       "impact": 1,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "live page no longer shows the defect",
       "priority": 0.9,
       "sources": [
         "seo-content"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-10-30"
     },
     {
@@ -2235,10 +2235,14 @@
       "updated": "2026-10-30"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-10-30",
+        "metric": "gbp.website_clicks",
+        "value": 8
+      },
       "check": null,
       "claim": "contact.html writereview link uses hex feature-ID tail 0x96411370098acc3b, not a ChIJ Place ID; needs the real ID or g.page link from the owner",
-      "commit": null,
+      "commit": "6c4d1ac",
       "confidence": 0.6,
       "created": "2026-10-30",
       "effort": 1,
@@ -2246,12 +2250,12 @@
       "id": "F-0084",
       "impact": 4,
       "measured": null,
-      "note": "",
+      "note": "2026-10-30 live: contact page href and components/site.js both carry placeid=ChIJkZttFu8xjjkRO8yKCXATQZY (fetched with cache-buster)",
       "priority": 2.4,
       "sources": [
         "seo-local"
       ],
-      "status": "open",
+      "status": "deployed",
       "updated": "2026-10-30"
     },
     {
