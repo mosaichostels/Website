@@ -1,0 +1,40 @@
+{
+  "mcpServers": {
+    "mosaic-gsc": {
+      "type": "stdio",
+      "command": "/Users/naveen/.config/mosaic-seo/mcp/gsc.sh",
+      "args": [],
+      "env": {}
+    },
+    "mosaic-ga4": {
+      "type": "stdio",
+      "command": "/Users/naveen/.config/mosaic-seo/mcp/ga4.sh",
+      "args": [],
+      "env": {}
+    },
+    "mosaic-clarity": {
+      "type": "stdio",
+      "command": "/Users/naveen/.config/mosaic-seo/mcp/clarity.sh",
+      "args": [],
+      "env": {}
+    },
+    "mosaic-bing": {
+      "type": "stdio",
+      "command": "/Users/naveen/.config/mosaic-seo/mcp/bing.sh",
+      "args": [],
+      "env": {}
+    },
+    "mosaic-gbp": {
+      "type": "stdio",
+      "command": "/Users/naveen/.config/mosaic-seo/mcp/gbp.sh",
+      "args": [],
+      "env": {}
+    },
+    "razorpay": {
+      "type": "stdio",
+      "command": "/Users/naveen/.config/mosaic-seo/mcp/razorpay.sh",
+      "args": [],
+      "env": {}
+    }
+  }
+}
