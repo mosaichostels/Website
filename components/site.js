@@ -165,7 +165,7 @@
 
   window.openGoogleReview = function (e) {
     if (e) e.preventDefault();
-    window.open('https://search.google.com/local/writereview?placeid=0x96411370098acc3b', '_blank');
+    window.open('https://search.google.com/local/writereview?placeid=ChIJkZttFu8xjjkRO8yKCXATQZY', '_blank');
   };
 
   // Sticky Book / WhatsApp bar for phones (hidden by CSS on wider screens; the booking page already is the action).
