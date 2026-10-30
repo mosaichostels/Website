@@ -1,5 +1,5 @@
 Read when: the owner asks for "weekly SEO", or you edit the weekly-seo skill, extractors or the findings ledger.
-Verified: 2026-10-29 @ 56c440f
+Verified: 2026-10-30 @ 022a75c
 Covers: .claude/skills/weekly-seo/SKILL.md,.claude/skills/weekly-seo/references/*.md,.agents/skills/weekly-seo/SKILL.md,.agents/skills/weekly-seo/references/*.md,.claude/seo/*.py,.claude/seo/*.sh
 
 # Flow: weekly SEO run
@@ -18,6 +18,6 @@ Entry: skill `.claude/skills/weekly-seo/SKILL.md` (Claude; Codex reads it via sy
 | h | Report | `seo-reports/<date>.md`, then `verify.sh` and commit |
 Dry run = a-d + h.
 
-State files: `seo-reports/data/findings-ledger.json` (`findings`, `next_id`; 71 entries, next F-0072 at 2026-10-29), `.claude/seo/live_check.json`. Commits `chore(seo): ... (F-00xx)`.
+State files: `seo-reports/data/findings-ledger.json` (`findings`, `next_id`; 90 entries, next F-0091 at 2026-10-30), `.claude/seo/live_check.json`. Commits `chore(seo): ... (F-00xx)`.
 Limits: Google data lags 2-3 days; Clarity ~10 API calls/day; `meta-externalagent` gets 429 at host edge (owner); GA4 gaps July 2026 and 12-18 Aug.
 Do not: delete `seo-reports/` (baselines and ledger live there); run a pull without sourcing the env file in the same shell; print env values.

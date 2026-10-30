@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-30",
+  "items": {
+    "ai-visibility": {
+      "reason": "ai-visibility.sh run 2026-10-30; 429s on several bot UAs are the burst limiter, 7 UAs 200 on paced GEO re-test",
+      "status": "done"
+    },
+    "audits:claude-seo-14": {
+      "reason": "16 agents reported (15 checks + performance), none blocked",
+      "status": "done"
+    },
+    "extract:bing": {
+      "reason": "1 informational note(s)",
+      "status": "done"
+    },
+    "extract:booking-probe": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:clarity": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:commoncrawl": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:cwv": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:ga4": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gbp": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gsc": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:lighthouse": {
+      "reason": "",
+      "status": "done"
+    },
+    "keyword-demand": {
+      "reason": "GSC 90d striking-distance clusters from the google agent; Bing cross-check run, near-zero volumes",
+      "status": "done"
+    },
+    "query-discovery": {
+      "reason": "",
+      "status": "done"
+    }
+  }
+}

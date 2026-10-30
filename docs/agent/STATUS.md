@@ -1,8 +1,8 @@
 Read when: starting ANY task (current state, recent work, open items).
-Verified: 2026-10-29 @ 56c440f
+Verified: 2026-10-30 @ 022a75c
 Covers: -
 
-# Status (2026-10-29)
+# Status (2026-10-30)
 
 - HEAD `56c440f`, branch `main`, level with `origin/main` after push 2026-10-29. Last commits: `372219a` (docs refresh, dashboard scripts removed), `56c440f` (weekly-seo shared with Codex, `.agents/` copies, `.mcp.json` removed). Working tree clean before this edit; earlier uncommitted list was: `.claude/skills/weekly-seo/{SKILL.md,references/{audits,ledger,report}.md}` edits (Claude/Codex `SEO_CLIENT` toolchain), deleted `.mcp.json`, `scripts/sync-instagram-media.sh`, untracked `.agents/` and `docs/superpowers/plans/2026-10-28-codex-seo-weekly-run.md`. These belong to other sessions: do not revert.
 - Done today: `/dorms/` page (`00e004f`, F-0058, status `fixed`, not yet verified live in the ledger); sitemap and `llms.txt` list it.
@@ -18,12 +18,14 @@ Covers: -
 
 - 2026-10-29: project-context sweep: 4,271 files listed (3,524 in `.git`; `git fsck --full` reported only dangling objects, no corruption). No `proven unused` file found. Zero-reference files are dated `seo-reports/` records (read by date glob in `.claude/seo/deltas.py`), old `docs/superpowers/plans/`, and `scripts/dashboard_{pages,render}.py` (imported by `dashboard-gfx.py`; need Pillow). Nothing removed by the sweep itself; at the owner's request (the dashboard no longer exists) the 8 terminal-dashboard files in `scripts/` (`dashboard*.py`, `dashboard-run.sh`, `dashboard-todo.txt`, `test_dashboard.py`) were removed; the owner also had the backup deleted, so recovery is only via git history (`git show HEAD:scripts/dashboard.py`; added in `6f95fbc`).
 
+- 2026-10-30 weekly SEO run done: report `seo-reports/2026-10-30.md`, 16 audit agents, 0 coverage items open. The mosaic-seo venv was missing and was rebuilt (venv only, `setup-platforms.sh` not run). Site fixes `022a75c` (F-0072 to F-0078: internal links on existing words, Read Next items, `/about` stat "1500+") are committed but **not deployed**: 7 pages show DRIFT, so step (f) IndexNow/sitemap submit and step (g) re-baseline wait for the owner's FTP deploy. Live sitemaps now match the repo (F-0060, F-0061 closed). Ledger 90 findings, `next_id` 91; F-0079 to F-0090 deferred (reasons in the report). Open owner items: real `ChIJ` Place ID for the `contact.html` review link (F-0084), unverified hostel claims (F-0086), Bing 0 B stubs (F-0057), `setup-platforms.sh` lacks `lxml`.
+
 ## Open
 | Item | Notes |
 |---|---|
 | F-0057 | Bing holds 3 posts as 0 B stubs (co-working, ganga-aarti, dev-deepawali); status `verified`, follow up in the next weekly run |
 | F-0056 | Measure `sameAs` experiment on `/about` in later weekly reports |
-| F-0058 | Confirm `/dorms/` is deployed (`deploy-drift.sh`), then IndexNow it; consider navbar link |
+| F-0058 | `/dorms/` is deployed (drift clean 2026-10-30); Bing still holds it as a 0 B stub (F-0057); IndexNow after the next deploy; consider navbar link |
 | Deploy state | `227bdbc` is live (drift clean, live_check 0 failures). The CDN serves stale `sitemap.xml` and `sitemap-images.xml`: clear the cache in hPanel, resubmit both sitemaps, then `ledger.py deploy-check F-0060` and `F-0061 --manual`. Then recheck Bing stub posts (F-0057) |
 | Razorpay go-live checklist | In `.planning/razorpay-live-readiness.md` (local); live-vs-test status of the production keys: unknown |
 | WCAG AA | Undecided (DECISIONS) |
