@@ -15,14 +15,20 @@
       "evidence": "git log last commit 10-05 vs sitemap 09-09/08-20/08-18",
       "id": "F-0001",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 24,
+        "before": 17,
+        "date": "2026-10-30",
+        "delta": 7,
+        "metric": "gsc.urls_indexed"
+      },
       "note": "live sitemap.xml: / lastmod 2026-10-05, about/contact/book-now 2026-10-06 (fetched 2026-10-06 after FTP deploy)",
       "priority": 1.8,
       "sources": [
         "seo-sitemap"
       ],
-      "status": "deployed",
-      "updated": "2026-10-06"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -39,14 +45,20 @@
       "evidence": "grep -c things-to-do-varanasi-local-guide = 0 in 7 posts",
       "id": "F-0002",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 68,
+        "before": 51,
+        "date": "2026-10-30",
+        "delta": 17,
+        "metric": "gsc.clicks"
+      },
       "note": "live co-working post contains the things-to-do link; drift check in sync for all 7 posts",
       "priority": 2.7,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-06"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -63,14 +75,20 @@
       "evidence": "grep tel: finds 0 in index.html and components/*.js",
       "id": "F-0003",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 68,
+        "before": 51,
+        "date": "2026-10-30",
+        "delta": 17,
+        "metric": "gsc.clicks"
+      },
       "note": "live pages carry the tel: link in the footer (8 sampled, drift check in sync after FTP deploy)",
       "priority": 1.35,
       "sources": [
         "seo-local"
       ],
-      "status": "deployed",
-      "updated": "2026-10-06"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -87,14 +105,20 @@
       "evidence": "agent curl -sIL chain",
       "id": "F-0004",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 24,
+        "before": 17,
+        "date": "2026-10-30",
+        "delta": 7,
+        "metric": "gsc.urls_indexed"
+      },
       "note": "Hostinger HTTPS-redirect toggled off for mosaichostels.com (hostinger CLI, run by the owner 2026-10-06); http apex now one 301 hop to https://www (was two), deep paths and query strings preserved, HSTS intact, live_check 64 URLs 0 failures",
       "priority": 0.533,
       "sources": [
         "seo-technical"
       ],
-      "status": "deployed",
-      "updated": "2026-10-06"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -111,14 +135,20 @@
       "evidence": "agent DOM probe, unverified visually",
       "id": "F-0005",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 15,
+        "before": 21,
+        "date": "2026-10-30",
+        "delta": -6,
+        "metric": "lighthouse.failing_audits"
+      },
       "note": "live /book-now at 375px: email button 82-293px on one line inside the viewport, all 8 footer links 44px tall, 0 overflowing elements; global.css?v=20261027 live; 44-URL suite 0 failures",
       "priority": 0.5,
       "sources": [
         "seo-visual"
       ],
-      "status": "deployed",
-      "updated": "2026-10-06"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -135,14 +165,20 @@
       "evidence": "Lighthouse frame-title fails on 3 pages",
       "id": "F-0006",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 15,
+        "before": 21,
+        "date": "2026-10-30",
+        "delta": -6,
+        "metric": "lighthouse.failing_audits"
+      },
       "note": "live about, contact and book-now iframes carry title=Map: Mosaic Hostel...",
       "priority": 2.0,
       "sources": [
         "seo-unlighthouse"
       ],
-      "status": "deployed",
-      "updated": "2026-10-06"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -159,14 +195,20 @@
       "evidence": "live GET /blog/zzz/ = 200 14475B noindex before; 404 after",
       "id": "F-0007",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 24,
+        "before": 17,
+        "date": "2026-10-30",
+        "delta": 7,
+        "metric": "gsc.urls_indexed"
+      },
       "note": "live /blog/zzz/, /blog/zzz and /blog/this-post-does-not-exist/ return 404; 38-URL live suite 0 failures, run twice",
       "priority": 3.0,
       "sources": [
         "seo-technical"
       ],
-      "status": "deployed",
-      "updated": "2026-10-06"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -183,14 +225,20 @@
       "evidence": "FTP listing vs repo and reference search; 7 files removed",
       "id": "F-0008",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 24,
+        "before": 17,
+        "date": "2026-10-30",
+        "delta": 7,
+        "metric": "gsc.urls_indexed"
+      },
       "note": "fresh FTP listing: none of the 7 files remain; their URLs return 404; only api/secrets.php is untracked (expected)",
       "priority": 2.0,
       "sources": [
         "repo-audit"
       ],
-      "status": "deployed",
-      "updated": "2026-10-06"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -207,14 +255,20 @@
       "evidence": "GA4 pages: /policies.html 5 views, /Website/privacy.html 2; Bing page_stats /backpackers-guide... 4 impressions; all 404 live before",
       "id": "F-0009",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 24,
+        "before": 17,
+        "date": "2026-10-30",
+        "delta": 7,
+        "metric": "gsc.urls_indexed"
+      },
       "note": "live: each returns one 301 then 200 (/policies.html lands on /book-now#faq-heading); 44-URL suite 0 failures",
       "priority": 1.8,
       "sources": [
         "seo-technical"
       ],
-      "status": "deployed",
-      "updated": "2026-10-06"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -237,14 +291,20 @@
       "evidence": "grep of pillar body: 0 matches for each spoke slug",
       "id": "F-0010",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2777,
+        "date": "2026-10-30",
+        "delta": 3258,
+        "metric": "gsc.impressions"
+      },
       "note": "live page no longer shows the defect",
       "priority": 1.2,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-07"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -267,14 +327,20 @@
       "evidence": "GSC inspection: URL unknown to Google; 0 links to pillar",
       "id": "F-0011",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2777,
+        "date": "2026-10-30",
+        "delta": 3258,
+        "metric": "gsc.impressions"
+      },
       "note": "live page no longer shows the defect",
       "priority": 2.7,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-07"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -297,14 +363,20 @@
       "evidence": "0 links to pillar",
       "id": "F-0012",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2777,
+        "date": "2026-10-30",
+        "delta": 3258,
+        "metric": "gsc.impressions"
+      },
       "note": "live page no longer shows the defect",
       "priority": 1.8,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-07"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -327,14 +399,20 @@
       "evidence": "GSC 90d; index.html 0 links to pillar",
       "id": "F-0013",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2777,
+        "date": "2026-10-30",
+        "delta": 3258,
+        "metric": "gsc.impressions"
+      },
       "note": "live page no longer shows the defect",
       "priority": 3.0,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-07"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -357,14 +435,20 @@
       "evidence": "grep logo index.html = 0",
       "id": "F-0014",
       "impact": 1,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2777,
+        "date": "2026-10-30",
+        "delta": 3258,
+        "metric": "gsc.impressions"
+      },
       "note": "live page no longer shows the defect",
       "priority": 1.0,
       "sources": [
         "seo-schema"
       ],
-      "status": "deployed",
-      "updated": "2026-10-07"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -387,14 +471,20 @@
       "evidence": "robots.txt: Disallow /api/ only under User-agent *",
       "id": "F-0015",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 68,
+        "before": 54,
+        "date": "2026-10-30",
+        "delta": 14,
+        "metric": "gsc.clicks"
+      },
       "note": "live page no longer shows the defect",
       "priority": 1.8,
       "sources": [
         "seo-geo"
       ],
-      "status": "deployed",
-      "updated": "2026-10-07"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -411,14 +501,20 @@
       "evidence": "ls shows both files; .htaccess 301 live",
       "id": "F-0016",
       "impact": 1,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2777,
+        "date": "2026-10-30",
+        "delta": 3258,
+        "metric": "gsc.impressions"
+      },
       "note": "live URL 301s to things-to-do; removed files were never linked and the redirect is unaffected",
       "priority": 1.0,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-07"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": null,
@@ -661,14 +757,20 @@
       "evidence": "grep name=\"robots\" blog/index.html = 0",
       "id": "F-0028",
       "impact": 1,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2909,
+        "date": "2026-10-30",
+        "delta": 3126,
+        "metric": "gsc.impressions"
+      },
       "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 0.9,
       "sources": [
         "seo-technical"
       ],
-      "status": "deployed",
-      "updated": "2026-10-14"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -685,14 +787,20 @@
       "evidence": "cluster audit item 7",
       "id": "F-0029",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2909,
+        "date": "2026-10-30",
+        "delta": 3126,
+        "metric": "gsc.impressions"
+      },
       "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 1.6,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-14"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -709,14 +817,20 @@
       "evidence": "curl /nope returns host default body",
       "id": "F-0030",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2909,
+        "date": "2026-10-30",
+        "delta": 3126,
+        "metric": "gsc.impressions"
+      },
       "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 1.7,
       "sources": [
         "seo-technical"
       ],
-      "status": "deployed",
-      "updated": "2026-10-14"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -733,14 +847,20 @@
       "evidence": "normalised exact-string check; 2-day pack question is present with different wording",
       "id": "F-0031",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2909,
+        "date": "2026-10-30",
+        "delta": 3126,
+        "metric": "gsc.impressions"
+      },
       "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 0.9,
       "sources": [
         "seo-schema"
       ],
-      "status": "deployed",
-      "updated": "2026-10-14"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -757,14 +877,20 @@
       "evidence": "GSC + SERP review",
       "id": "F-0032",
       "impact": 4,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2909,
+        "date": "2026-10-30",
+        "delta": 3126,
+        "metric": "gsc.impressions"
+      },
       "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 1.6,
       "sources": [
         "seo-sxo"
       ],
-      "status": "deployed",
-      "updated": "2026-10-14"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -781,14 +907,20 @@
       "evidence": "flow+content audits",
       "id": "F-0033",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2909,
+        "date": "2026-10-30",
+        "delta": 3126,
+        "metric": "gsc.impressions"
+      },
       "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 2.55,
       "sources": [
         "seo-content"
       ],
-      "status": "deployed",
-      "updated": "2026-10-14"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -805,14 +937,20 @@
       "evidence": "index.html has only FAQ inline links",
       "id": "F-0034",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2909,
+        "date": "2026-10-30",
+        "delta": 3126,
+        "metric": "gsc.impressions"
+      },
       "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 1.05,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-14"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -829,14 +967,20 @@
       "evidence": "Bing cross-check; GSC 25 imp for aarti/boat cluster",
       "id": "F-0035",
       "impact": 5,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2909,
+        "date": "2026-10-30",
+        "delta": 3126,
+        "metric": "gsc.impressions"
+      },
       "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 0.667,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-14"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -853,14 +997,20 @@
       "evidence": "GSC page rows",
       "id": "F-0036",
       "impact": 4,
-      "measured": null,
+      "measured": {
+        "after": 6035,
+        "before": 2909,
+        "date": "2026-10-30",
+        "delta": 3126,
+        "metric": "gsc.impressions"
+      },
       "note": "deployed 2026-10-14; deploy-drift 0, live_check 0 failures",
       "priority": 1.4,
       "sources": [
         "seo-google"
       ],
-      "status": "deployed",
-      "updated": "2026-10-14"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -883,14 +1033,20 @@
       "evidence": "grep: no dev-deepawali link in assi-ghat guide; best-time para and best-hostels FAQ mention it as plain text",
       "id": "F-0037",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 508,
+        "before": 341,
+        "date": "2026-10-30",
+        "delta": 167,
+        "metric": "ga4.sessions"
+      },
       "note": "live page no longer shows the defect",
       "priority": 2.4,
       "sources": [
         "seo-cluster,seo-flow,seo-content"
       ],
-      "status": "deployed",
-      "updated": "2026-10-16"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -913,14 +1069,20 @@
       "evidence": "grep og: blog/index.html shows og:type/url/site_name/image/locale only",
       "id": "F-0038",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 33,
+        "before": 30,
+        "date": "2026-10-30",
+        "delta": 3,
+        "metric": "bing.pages_in_index"
+      },
       "note": "live page no longer shows the defect",
       "priority": 1.8,
       "sources": [
         "seo-drift"
       ],
-      "status": "deployed",
-      "updated": "2026-10-16"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -943,14 +1105,20 @@
       "evidence": "sitemap.xml vs blog/best-time-to-visit.../index.html lines 21,78",
       "id": "F-0039",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 33,
+        "before": 30,
+        "date": "2026-10-30",
+        "delta": 3,
+        "metric": "bing.pages_in_index"
+      },
       "note": "live page no longer shows the defect",
       "priority": 1.9,
       "sources": [
         "seo-flow,seo-sitemap"
       ],
-      "status": "deployed",
-      "updated": "2026-10-16"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": null,
@@ -1233,14 +1401,20 @@
       "evidence": "GSC 21 Jul-18 Oct, India: guide 116 imp pos 9.8; transfer guide 35 imp pos 6.1; guide links via the words 'transfer guide'",
       "id": "F-0053",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 14,
+        "before": 13,
+        "date": "2026-10-30",
+        "delta": 1,
+        "metric": "gsc.nonbrand_clicks_90d"
+      },
       "note": "Live page has the Junction link to the transfer guide (confirmed by fetch); auto pattern also matches the pre-existing generic 'transfer guide' link, which stays.",
       "priority": 1.8,
       "sources": [
         "gsc"
       ],
-      "status": "deployed",
-      "updated": "2026-10-21"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -1263,14 +1437,20 @@
       "evidence": "grep: 2 <img> in each post, 0 sitemap-images matches",
       "id": "F-0054",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 14,
+        "before": 13,
+        "date": "2026-10-30",
+        "delta": 1,
+        "metric": "gsc.nonbrand_clicks_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 0.8,
       "sources": [
         "seo-sitemap"
       ],
-      "status": "deployed",
-      "updated": "2026-10-21"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": null,
@@ -1319,14 +1499,20 @@
       "evidence": "index.html Hostel JSON-LD: 31 sameAs entries",
       "id": "F-0056",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 152,
+        "before": 114,
+        "date": "2026-10-30",
+        "delta": 38,
+        "metric": "ga4.ai_assistant_sessions_90d"
+      },
       "note": "Experiment is on /about only: live /about has no vacationrenter/letsbookhotel/lodging-world/ownerdirect/wheree/viamichelin; home keeps 31 entries as control.",
       "priority": 0.6,
       "sources": [
         "seo-schema"
       ],
-      "status": "deployed",
-      "updated": "2026-10-21"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": null,
@@ -1363,14 +1549,20 @@
       "evidence": "",
       "id": "F-0058",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 4427,
+        "before": 3151,
+        "date": "2026-10-30",
+        "delta": 1276,
+        "metric": "gsc.nonbrand_impressions_90d"
+      },
       "note": "deployed 2026-10-23; /dorms/ 200 live, in sync; IndexNow 200; sitemap resubmitted; indexing requested (Discovered, not yet indexed)",
       "priority": 0.5,
       "sources": [
         "manual"
       ],
-      "status": "deployed",
-      "updated": "2026-10-23"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -1393,14 +1585,20 @@
       "evidence": "dorms/index.html:21 about->#hostel; schema+local audits 2026-10-25",
       "id": "F-0059",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 4427,
+        "before": 3475,
+        "date": "2026-10-30",
+        "delta": 952,
+        "metric": "gsc.nonbrand_impressions_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 1.6,
       "sources": [
         "technical"
       ],
-      "status": "deployed",
-      "updated": "2026-10-25"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -1423,14 +1621,20 @@
       "evidence": "sitemap audit 2026-10-25",
       "id": "F-0060",
       "impact": 2,
-      "measured": null,
-      "note": "defect still on the live page: fix not deployed yet",
+      "measured": {
+        "after": 4427,
+        "before": 3475,
+        "date": "2026-10-30",
+        "delta": 952,
+        "metric": "gsc.nonbrand_impressions_90d"
+      },
+      "note": "live page no longer shows the defect",
       "priority": 2.0,
       "sources": [
         "sitemap"
       ],
-      "status": "fixed",
-      "updated": "2026-10-25"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -1448,13 +1652,13 @@
       "id": "F-0061",
       "impact": 2,
       "measured": null,
-      "note": "git log -1 --format=%cs later than lastmod for / (10-20 vs 10-23), dorm-vs-private (10-14 vs 10-23) and others",
+      "note": "2026-10-30: live sitemap.xml and sitemap-images.xml md5 equal the repo files, and ?cb=N returns the same bytes, so the CDN no longer serves stale copies. Newer edits since 10-25 make some lastmod stale again; tracked as F-0083",
       "priority": 2.0,
       "sources": [
         "sitemap"
       ],
-      "status": "fixed",
-      "updated": "2026-10-25"
+      "status": "deployed",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -1477,14 +1681,20 @@
       "evidence": "flow+sxo+cluster audits; GSC dormitory near assi ghat 88 imp pos 10.9 on /",
       "id": "F-0062",
       "impact": 4,
-      "measured": null,
+      "measured": {
+        "after": 4427,
+        "before": 3475,
+        "date": "2026-10-30",
+        "delta": 952,
+        "metric": "gsc.nonbrand_impressions_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 2.4,
       "sources": [
         "cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-25"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -1507,14 +1717,20 @@
       "evidence": "cluster audit: 160+50+30+43 imp on guide vs 36+24+25 on transfer guide",
       "id": "F-0063",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 4427,
+        "before": 3475,
+        "date": "2026-10-30",
+        "delta": 952,
+        "metric": "gsc.nonbrand_impressions_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 1.8,
       "sources": [
         "cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-25"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -1537,14 +1753,20 @@
       "evidence": "content audit; about.html:16",
       "id": "F-0064",
       "impact": 1,
-      "measured": null,
+      "measured": {
+        "after": 4427,
+        "before": 3475,
+        "date": "2026-10-30",
+        "delta": 952,
+        "metric": "gsc.nonbrand_impressions_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 0.9,
       "sources": [
         "content"
       ],
-      "status": "deployed",
-      "updated": "2026-10-25"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": {
@@ -1567,14 +1789,20 @@
       "evidence": "content audit; blog/best-hostels-in-varanasi author object",
       "id": "F-0065",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 4427,
+        "before": 3475,
+        "date": "2026-10-30",
+        "delta": 952,
+        "metric": "gsc.nonbrand_impressions_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 1.6,
       "sources": [
         "content"
       ],
-      "status": "deployed",
-      "updated": "2026-10-25"
+      "status": "measured",
+      "updated": "2026-10-30"
     },
     {
       "baseline": null,
@@ -1695,7 +1923,457 @@
       ],
       "status": "open",
       "updated": "2026-10-25"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-30",
+        "metric": "ga4.organic_sessions_90d",
+        "value": 189
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/best-hostels-in-varanasi/",
+        "pattern": "solo female traveller guide</a>",
+        "target": "blog/best-hostels-in-varanasi/index.html",
+        "where": "local"
+      },
+      "claim": "best-hostels body text names the solo female guide, Assi Ghat vs Dashashwamedh and trip-length/season guides without linking them",
+      "commit": "022a75c",
+      "confidence": 0.9,
+      "created": "2026-10-30",
+      "effort": 1,
+      "evidence": "blog/best-hostels-in-varanasi/index.html lines 128,153,159,161,163,174",
+      "id": "F-0072",
+      "impact": 4,
+      "measured": null,
+      "note": "defect still on the live page: fix not deployed yet",
+      "priority": 3.6,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-30",
+        "metric": "ga4.organic_sessions_90d",
+        "value": 189
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/dev-deepawali-varanasi-2026-guide/",
+        "pattern": "href=\"/blog/best-hostels-in-varanasi/\"",
+        "target": "blog/dev-deepawali-varanasi-2026-guide/index.html",
+        "where": "local"
+      },
+      "claim": "dev-deepawali post does not link best-hostels or is-varanasi-safe from its Stay and Crowds bullets",
+      "commit": "022a75c",
+      "confidence": 0.85,
+      "created": "2026-10-30",
+      "effort": 1,
+      "evidence": "blog/dev-deepawali-varanasi-2026-guide/index.html lines 99,101; festival 24 Nov 2026",
+      "id": "F-0073",
+      "impact": 4,
+      "measured": null,
+      "note": "defect still on the live page: fix not deployed yet",
+      "priority": 3.4,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-30",
+        "metric": "ga4.organic_sessions_90d",
+        "value": 189
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/ganga-aarti-varanasi-assi-vs-dashashwamedh/",
+        "pattern": "href=\"/blog/best-hostels-in-varanasi/\"",
+        "target": "blog/ganga-aarti-varanasi-assi-vs-dashashwamedh/index.html",
+        "where": "local"
+      },
+      "claim": "ganga-aarti post Read Next omits best-hostels",
+      "commit": "022a75c",
+      "confidence": 0.85,
+      "created": "2026-10-30",
+      "effort": 1,
+      "evidence": "blog/ganga-aarti-varanasi-assi-vs-dashashwamedh/index.html Read Next list",
+      "id": "F-0074",
+      "impact": 3,
+      "measured": null,
+      "note": "defect still on the live page: fix not deployed yet",
+      "priority": 2.55,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-30",
+        "metric": "ga4.organic_sessions_90d",
+        "value": 189
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/",
+        "pattern": "solo female travellers</a>",
+        "target": "index.html",
+        "where": "local"
+      },
+      "claim": "homepage female-only dorm FAQ does not link the solo female travellers guide",
+      "commit": "022a75c",
+      "confidence": 0.8,
+      "created": "2026-10-30",
+      "effort": 1,
+      "evidence": "index.html line 400",
+      "id": "F-0075",
+      "impact": 3,
+      "measured": null,
+      "note": "defect still on the live page: fix not deployed yet",
+      "priority": 2.4,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-30",
+        "metric": "ga4.organic_sessions_90d",
+        "value": 189
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/",
+        "pattern": "is-varanasi-safe-general-guide",
+        "target": "blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/index.html",
+        "where": "local"
+      },
+      "claim": "airport transfer post Read Next omits the two safety posts and the 3-5 day itinerary",
+      "commit": "022a75c",
+      "confidence": 0.8,
+      "created": "2026-10-30",
+      "effort": 1,
+      "evidence": "blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/index.html lines 115-123",
+      "id": "F-0076",
+      "impact": 3,
+      "measured": null,
+      "note": "defect still on the live page: fix not deployed yet",
+      "priority": 2.4,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-30",
+        "metric": "ga4.organic_sessions_90d",
+        "value": 189
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+        "pattern": "where-to-stay/\">Dashashwamedh",
+        "target": "blog/assi-ghat-varanasi-complete-guide/index.html",
+        "where": "local"
+      },
+      "claim": "Assi Ghat guide distance list gives the Dashashwamedh distance with no link to the comparison post that owns the question",
+      "commit": "022a75c",
+      "confidence": 0.75,
+      "created": "2026-10-30",
+      "effort": 1,
+      "evidence": "blog/assi-ghat-varanasi-complete-guide/index.html line 101",
+      "id": "F-0077",
+      "impact": 3,
+      "measured": null,
+      "note": "defect still on the live page: fix not deployed yet",
+      "priority": 2.25,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": {
+        "date": "2026-10-30",
+        "metric": "ga4.organic_sessions_90d",
+        "value": 189
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/about",
+        "pattern": "data-count=\"1500\">1500\\+",
+        "target": "about.html",
+        "where": "local"
+      },
+      "claim": "about.html static stat shows 1500 where the owner-approved figure is 1500+ (JS adds the plus only at runtime)",
+      "commit": "022a75c",
+      "confidence": 0.9,
+      "created": "2026-10-30",
+      "effort": 1,
+      "evidence": "about.html line 261; components/about.js adds + when target==1500",
+      "id": "F-0078",
+      "impact": 1,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 0.9,
+      "sources": [
+        "seo-content"
+      ],
+      "status": "fixed",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Distance and near-Assi-Ghat queries sit at positions 8.5-17 with 0 clicks (about 1,500 impressions); needs a distances section or page",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-10-30",
+      "effort": 2,
+      "evidence": "GSC 90d: varanasi junction to assi ghat distance 265 imp pos 9.5; hostels near assi ghat 191 pos 13.1; assi ghat distance 121 pos 14.6",
+      "id": "F-0079",
+      "impact": 5,
+      "measured": null,
+      "note": "",
+      "priority": 2.5,
+      "sources": [
+        "seo-google"
+      ],
+      "status": "open",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "No private-rooms page; most 'hostel near Assi Ghat' results are guesthouses and hotels",
+      "commit": null,
+      "confidence": 0.55,
+      "created": "2026-10-30",
+      "effort": 3,
+      "evidence": "sitemap has /dorms/ only; a new page is an owner decision",
+      "id": "F-0080",
+      "impact": 3,
+      "measured": null,
+      "note": "",
+      "priority": 0.55,
+      "sources": [
+        "seo-sxo"
+      ],
+      "status": "open",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "best-hostels list has 5 entries vs 7-10 on ranking pages; adding hostels needs verified facts about other businesses",
+      "commit": null,
+      "confidence": 0.7,
+      "created": "2026-10-30",
+      "effort": 2,
+      "evidence": "blog/best-hostels-in-varanasi/index.html",
+      "id": "F-0081",
+      "impact": 4,
+      "measured": null,
+      "note": "",
+      "priority": 1.4,
+      "sources": [
+        "seo-sxo"
+      ],
+      "status": "open",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "month-by-month post covers four seasons not twelve months; needs verified weather and crowd data or a retitle",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-10-30",
+      "effort": 2,
+      "evidence": "blog/best-time-to-visit-varanasi-month-by-month/index.html:7,68,76,93,99,103",
+      "id": "F-0082",
+      "impact": 4,
+      "measured": null,
+      "note": "",
+      "priority": 1.8,
+      "sources": [
+        "seo-flow"
+      ],
+      "status": "open",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Sitemap lastmod older than git last-modified for about 10 blog posts and book-now; substance of the 10-25 and 10-27 edits unchecked",
+      "commit": null,
+      "confidence": 0.6,
+      "created": "2026-10-30",
+      "effort": 1,
+      "evidence": "sitemap.xml vs git log; JSON-LD dateModified and visible Updated dates also disagree (FLOW)",
+      "id": "F-0083",
+      "impact": 2,
+      "measured": null,
+      "note": "",
+      "priority": 1.2,
+      "sources": [
+        "seo-sitemap"
+      ],
+      "status": "open",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "contact.html writereview link uses hex feature-ID tail 0x96411370098acc3b, not a ChIJ Place ID; needs the real ID or g.page link from the owner",
+      "commit": null,
+      "confidence": 0.6,
+      "created": "2026-10-30",
+      "effort": 1,
+      "evidence": "contact.html:316",
+      "id": "F-0084",
+      "impact": 4,
+      "measured": null,
+      "note": "",
+      "priority": 2.4,
+      "sources": [
+        "seo-local"
+      ],
+      "status": "open",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Airport/railway post title about 68 chars; shortening would drop 'Distance' which the 265-impression query uses",
+      "commit": null,
+      "confidence": 0.6,
+      "created": "2026-10-30",
+      "effort": 1,
+      "evidence": "blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/index.html:7",
+      "id": "F-0085",
+      "impact": 1,
+      "measured": null,
+      "note": "",
+      "priority": 0.6,
+      "sources": [
+        "seo-technical"
+      ],
+      "status": "open",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Unconfirmed hostel claims on site (24-hour security, cooking classes, yoga, founder story, review quote); Mosaic-vs-market price ambiguity in posts",
+      "commit": null,
+      "confidence": 0.8,
+      "created": "2026-10-30",
+      "effort": 1,
+      "evidence": "about.html:227,240-242; best-hostels:122,124; dorm-vs-private:108,113 (owner facts needed)",
+      "id": "F-0086",
+      "impact": 3,
+      "measured": null,
+      "note": "",
+      "priority": 2.4,
+      "sources": [
+        "seo-content"
+      ],
+      "status": "open",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "aggregateRating missing from the Hostel node on blog index, contact, gallery, privacy; Google ignores self-serving ratings so the benefit is nil",
+      "commit": null,
+      "confidence": 0.85,
+      "created": "2026-10-30",
+      "effort": 1,
+      "evidence": "blog/index.html:43; contact.html:44; gallery.html:44; privacy.html:38",
+      "id": "F-0087",
+      "impact": 1,
+      "measured": null,
+      "note": "",
+      "priority": 0.85,
+      "sources": [
+        "seo-schema"
+      ],
+      "status": "open",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Mobile lab: image delivery, render-blocking scripts, lcp-discovery (lazy first image) on 16 pages; field CWV all good",
+      "commit": null,
+      "confidence": 0.65,
+      "created": "2026-10-30",
+      "effort": 3,
+      "evidence": "seo-reports/data/2026-10-30 cwv+lighthouse; needs a rendered per-page LCP check before editing",
+      "id": "F-0088",
+      "impact": 3,
+      "measured": null,
+      "note": "",
+      "priority": 0.65,
+      "sources": [
+        "seo-performance"
+      ],
+      "status": "open",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Inline text links about 23 px and WhatsApp link 18 px tall on book-now; nav links 22 px",
+      "commit": null,
+      "confidence": 0.8,
+      "created": "2026-10-30",
+      "effort": 2,
+      "evidence": "Playwright 375/768/1440 run 2026-10-30; a CSS change needs a cache-bust on every page",
+      "id": "F-0089",
+      "impact": 2,
+      "measured": null,
+      "note": "",
+      "priority": 0.8,
+      "sources": [
+        "seo-visual"
+      ],
+      "status": "open",
+      "updated": "2026-10-30"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "No Content-Signal or AI-training policy, WebMCP, ai-catalog.json or llms-full.txt (Lighthouse Agentic Browsing 3/3)",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-10-30",
+      "effort": 2,
+      "evidence": "owner policy decision needed; report-only",
+      "id": "F-0090",
+      "impact": 2,
+      "measured": null,
+      "note": "",
+      "priority": 0.9,
+      "sources": [
+        "seo-agentic"
+      ],
+      "status": "open",
+      "updated": "2026-10-30"
     }
   ],
-  "next_id": 72
+  "next_id": 91
 }

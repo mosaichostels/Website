@@ -185,7 +185,7 @@
     {
       "file": "FLOWS/weekly-seo.md",
       "read_when": "the owner asks for \"weekly SEO\", or you edit the weekly-seo skill, extractors or the findings ledger.",
-      "verified_commit": "2026-10-29 @ 56c440f",
+      "verified_commit": "2026-10-30 @ 022a75c",
       "covers": [
         ".claude/skills/weekly-seo/SKILL.md",
         ".claude/skills/weekly-seo/references/*.md",
@@ -305,9 +305,9 @@
     {
       "file": "STATUS.md",
       "read_when": "starting ANY task (current state, recent work, open items).",
-      "verified_commit": "2026-10-29 @ 56c440f",
+      "verified_commit": "2026-10-30 @ 022a75c",
       "covers": [],
-      "tokens_est": 1648
+      "tokens_est": 1859
     },
     {
       "file": "STRUCTURE.md",
