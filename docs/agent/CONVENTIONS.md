@@ -14,7 +14,7 @@ Covers: components/*.js,styles/global.css,PRODUCT.md,.htaccess,blog/*/index.html
 | Policy wording | Only what `PRODUCT.md` says: check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception, free cancellation up to 72 h before check-in |
 | Rooms | Exactly the 5 owner-confirmed types (OVERVIEW). Common room is not a room type |
 | Positioning | Keep "Premium budget hostel near Assi Ghat" and SEO-established copy structure unless the owner says otherwise |
-| Scope lock (SEO runs) | Touch only html, `styles/`, `components/`, `sitemap.xml`, `robots.txt`, `llms.txt`, verified SEO 301s in `.htaccess`, `seo-reports/` |
+| Scope lock (SEO runs) | Touch only html, `styles/`, `components/`, `sitemap.xml`, `sitemap-images.xml`, `robots.txt`, `llms.txt`, verified SEO 301s in `.htaccess`, `seo-reports/` |
 | Debug files | Never deploy diagnostic/debug/test files (a hook blocks the obvious names) |
 | Credentials | Never edit or print `api/secrets.php`; hook blocks Write/Edit (`.claude/hooks/block-creds-edit`) |
 

@@ -12,7 +12,7 @@ Entry: skill `.claude/skills/weekly-seo/SKILL.md` (Claude; Codex reads it via sy
 | b | Data pull | `.claude/seo/extract-all.sh [--fast] [gsc ga4 bing clarity gbp cwv lighthouse commoncrawl]` -> `seo-reports/<source>/` |
 | c | Audits | 15 audit agents (claude-seo:*; Codex runs native equivalents) per `references/audits.md` |
 | d | Rank gaps | `query_discovery.py`, keywords reference |
-| e | Fix | scope lock: html, `styles/`, `components/`, `sitemap.xml`, `robots.txt`, `llms.txt`, SEO 301s, `seo-reports/` |
+| e | Fix | scope lock: html, `styles/`, `components/`, `sitemap.xml`, `sitemap-images.xml`, `robots.txt`, `llms.txt`, SEO 301s, `seo-reports/` |
 | f | Submit | deploy -> `live_check.py` -> `deploy-drift.sh` -> `indexnow-submit.sh`; `ledger.py deploy-check F-xxxx` |
 | g | Re-baseline | `deltas.py`, snapshots in `seo-reports/data/<date>/` |
 | h | Report | `seo-reports/<date>.md`, then `verify.sh` and commit |

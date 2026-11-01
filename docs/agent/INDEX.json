@@ -62,7 +62,7 @@
         ".htaccess",
         "blog/*/index.html"
       ],
-      "tokens_est": 914
+      "tokens_est": 919
     },
     {
       "file": "DATA.md",
@@ -194,7 +194,7 @@
         ".claude/seo/*.py",
         ".claude/seo/*.sh"
       ],
-      "tokens_est": 566
+      "tokens_est": 572
     },
     {
       "file": "GLOSSARY.md",
