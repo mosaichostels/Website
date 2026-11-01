@@ -62,7 +62,7 @@
         ".htaccess",
         "blog/*/index.html"
       ],
-      "tokens_est": 855
+      "tokens_est": 914
     },
     {
       "file": "DATA.md",
@@ -167,7 +167,7 @@
         ".claude/seo/live_check.py",
         ".claude/seo/live_check.json"
       ],
-      "tokens_est": 379
+      "tokens_est": 410
     },
     {
       "file": "FLOWS/payment-recovery.md",
@@ -307,7 +307,7 @@
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-10-30 @ 022a75c",
       "covers": [],
-      "tokens_est": 2185
+      "tokens_est": 2231
     },
     {
       "file": "STRUCTURE.md",
