@@ -130,9 +130,10 @@ function razorpay_refund_payment(string $paymentId, string $idempotencyKey, arra
  * 'manual' so staff are alerted as before. $refund is injected so selftest.php needs no network.
  * Returns ['action' => 'none'|'manual'|'refunded', 'note' => guest-facing text, 'reason' => ?, 'refund_id' => ?].
  */
-function cancellation_refund_outcome(?bool $refundDue, ?string $paymentId, string $reservationNo, callable $refund): array {
+function cancellation_refund_outcome(?bool $refundDue, ?string $paymentId, string $reservationNo, callable $refund, string $payOption = 'full'): array {
   if ($refundDue === false) {
-    return ['action' => 'none', 'note' => 'This is within 72 hours of check-in, so under our cancellation policy the booking amount is not refundable.'];
+    $what = $payOption === 'deposit' ? 'your deposit' : 'the booking amount';
+    return ['action' => 'none', 'note' => "This is within 72 hours of check-in, so under our cancellation policy $what is not refundable."];
   }
   if ($refundDue === null) {
     return ['action' => 'manual', 'note' => 'We\'ll confirm any refund due with you shortly.', 'reason' => 'check-in date unreadable'];
