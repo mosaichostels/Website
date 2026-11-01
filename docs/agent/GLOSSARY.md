@@ -23,4 +23,4 @@ Covers: -
 | IndexNow | Protocol to push changed URLs to Bing/Yandex/Seznam |
 | GEO / LLMO / `llms.txt` | Optimising for AI answer engines; the file that describes the site to them |
 | Assi Ghat | Varanasi riverfront, 100 m from the hostel (owner-confirmed) |
-| Dorm types | 8-bed mixed, 6-bed mixed, 4-bed mixed, 6-bed female-only; plus Private room |
+| Dorm types | 10-bed mixed, 8-bed mixed, 6-bed mixed, 4-bed mixed, 6-bed female-only; plus Private room |

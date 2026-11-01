@@ -20,7 +20,7 @@
       [...PAL.cobalt, ...PAL.sage],
       [...PAL.sage, ...PAL.gold],
     ];
-    [0, 1, 2, 3, 4, 5].forEach((i) => {
+    [0, 1, 2, 3, 4, 5, 6].forEach((i) => {
       const el = document.getElementById('ra' + i);
       if (!el) return;
       const pal = roomPals[i % roomPals.length];

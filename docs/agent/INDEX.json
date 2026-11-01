@@ -201,7 +201,7 @@
       "read_when": "a term in code, alerts or the owner's messages is unclear.",
       "verified_commit": "2026-10-29 @ fd29588",
       "covers": [],
-      "tokens_est": 435
+      "tokens_est": 439
     },
     {
       "file": "GOTCHAS.md",
@@ -261,7 +261,7 @@
         "sitemap.xml",
         ".htaccess"
       ],
-      "tokens_est": 583
+      "tokens_est": 591
     },
     {
       "file": "RUNBOOKS/paid-no-booking.md",
@@ -307,7 +307,7 @@
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-10-30 @ 022a75c",
       "covers": [],
-      "tokens_est": 2307
+      "tokens_est": 2388
     },
     {
       "file": "STRUCTURE.md",

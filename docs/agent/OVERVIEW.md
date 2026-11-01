@@ -9,7 +9,7 @@ Covers: PRODUCT.md,sitemap.xml,.htaccess
 | Product | Mosaic Hostel Varanasi direct-booking site, "Premium budget hostel near Assi Ghat", est. 2025 | `PRODUCT.md` |
 | Success | A completed direct booking (eZee availability + Razorpay payment) or a WhatsApp enquiry, no OTA | `PRODUCT.md` |
 | Audience | International backpackers and solo travellers (incl. solo women) and domestic Indian travellers, equal weight, mostly mobile, arriving via Google and the blog | `PRODUCT.md` |
-| Rooms (owner-confirmed) | Private room; 8-bed mixed; 6-bed mixed; 4-bed mixed; 6-bed female-only dorm. Common room is NOT a room type | `PRODUCT.md` |
+| Rooms (owner-confirmed) | Private room; 10-bed mixed (added Nov 2026); 8-bed mixed; 6-bed mixed; 4-bed mixed; 6-bed female-only dorm. Common room is NOT a room type | `PRODUCT.md` |
 | Policies | Check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception, free cancellation up to 72 h before check-in (charged in full inside), valid govt photo ID per guest | `PRODUCT.md` |
 | Contact channel | WhatsApp is first-class (number in `PRODUCT.md`) | `PRODUCT.md` |
 | Live site | https://www.mosaichostels.com (apex and http redirect 301 to https www) | `.htaccess` |
