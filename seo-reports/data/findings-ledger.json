@@ -2381,7 +2381,239 @@
       ],
       "status": "open",
       "updated": "2026-10-30"
+    },
+    {
+      "baseline": {
+        "date": "2026-11-01",
+        "metric": "gsc.nonbrand_clicks_90d",
+        "value": 14
+      },
+      "check": null,
+      "claim": "/dorms/ is nearly orphaned: no header or footer nav link, 4 inbound links",
+      "commit": "04f2ca8",
+      "confidence": 0.9,
+      "created": "2026-11-01",
+      "effort": 2,
+      "evidence": "FLOW audit 2026-11-01; nav in all 25 pages lacked /dorms/ at ec26e93",
+      "id": "F-0091",
+      "impact": 4,
+      "measured": null,
+      "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
+      "priority": 1.8,
+      "sources": [
+        "flow"
+      ],
+      "status": "deployed",
+      "updated": "2026-11-01"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Hostel sameAs differs across 7 pages (22-31 entries) and lists scraper sites",
+      "commit": "04f2ca8",
+      "confidence": 0.9,
+      "created": "2026-11-01",
+      "effort": 1,
+      "evidence": "schema, local, geo audits 2026-11-01; about 25, privacy 29, others 31 at ec26e93",
+      "id": "F-0092",
+      "impact": 3,
+      "measured": null,
+      "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
+      "priority": 2.7,
+      "sources": [
+        "schema"
+      ],
+      "status": "deployed",
+      "updated": "2026-11-01"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "dorms Hostel stub lacks aggregateRating; privacy.html lacks checkinTime/checkoutTime",
+      "commit": "04f2ca8",
+      "confidence": 0.9,
+      "created": "2026-11-01",
+      "effort": 1,
+      "evidence": "schema audit 2026-11-01",
+      "id": "F-0093",
+      "impact": 2,
+      "measured": null,
+      "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
+      "priority": 1.8,
+      "sources": [
+        "schema"
+      ],
+      "status": "deployed",
+      "updated": "2026-11-01"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Opening date absent from site and schema (only Est. 2025, no foundingDate)",
+      "commit": "04f2ca8",
+      "confidence": 0.9,
+      "created": "2026-11-01",
+      "effort": 1,
+      "evidence": "content, local, geo audits; PRODUCT.md owner-confirmed November 2025",
+      "id": "F-0094",
+      "impact": 3,
+      "measured": null,
+      "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
+      "priority": 2.7,
+      "sources": [
+        "content"
+      ],
+      "status": "deployed",
+      "updated": "2026-11-01"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "No named people on site or schema (generic Mosaic Hostel Team)",
+      "commit": "65b0aa0",
+      "confidence": 0.8,
+      "created": "2026-11-01",
+      "effort": 1,
+      "evidence": "content, geo audits 2026-11-01; owner approved first names Naveen and Sanket as founders",
+      "id": "F-0095",
+      "impact": 4,
+      "measured": null,
+      "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
+      "priority": 3.2,
+      "sources": [
+        "content"
+      ],
+      "status": "deployed",
+      "updated": "2026-11-01"
+    },
+    {
+      "baseline": {
+        "date": "2026-11-01",
+        "metric": "gsc.nonbrand_clicks_90d",
+        "value": 14
+      },
+      "check": null,
+      "claim": "Ganga Aarti queries land on the where-to-stay post; 5 posts lack a link to the aarti post",
+      "commit": "04f2ca8",
+      "confidence": 0.8,
+      "created": "2026-11-01",
+      "effort": 2,
+      "evidence": "cluster audit 2026-11-01, GSC query_page 2-29 Oct (33 aarti queries on where-to-stay vs 16 on aarti post)",
+      "id": "F-0096",
+      "impact": 4,
+      "measured": null,
+      "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
+      "priority": 1.6,
+      "sources": [
+        "cluster"
+      ],
+      "status": "deployed",
+      "updated": "2026-11-01"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Aarti timing not concrete; Assi guide states unverified 5:30 AM Subah-e-Banaras start",
+      "commit": "12bbd34",
+      "confidence": 0.8,
+      "created": "2026-11-01",
+      "effort": 1,
+      "evidence": "content audit 2026-11-01; owner: Assi evening aarti at sunset, Subah-e-Banaras at sunrise, Dashashwamedh around sunset",
+      "id": "F-0097",
+      "impact": 4,
+      "measured": null,
+      "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
+      "priority": 3.2,
+      "sources": [
+        "content"
+      ],
+      "status": "deployed",
+      "updated": "2026-11-01"
+    },
+    {
+      "baseline": {
+        "date": "2026-11-01",
+        "metric": "gsc.nonbrand_clicks_90d",
+        "value": 14
+      },
+      "check": null,
+      "claim": "Co-working post names no cafes or spaces despite its title",
+      "commit": "12bbd34",
+      "confidence": 0.8,
+      "created": "2026-11-01",
+      "effort": 2,
+      "evidence": "content audit 2026-11-01; owner supplied Terracotta Cafe (good wifi) and approved a remote-work retitle",
+      "id": "F-0098",
+      "impact": 4,
+      "measured": null,
+      "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
+      "priority": 1.6,
+      "sources": [
+        "content"
+      ],
+      "status": "deployed",
+      "updated": "2026-11-01"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Five titles over 60 characters (transfer guide 72, best-hostels 66, gallery 65, dev-deepawali 63, book-now 62)",
+      "commit": "04f2ca8",
+      "confidence": 0.9,
+      "created": "2026-11-01",
+      "effort": 1,
+      "evidence": "technical audit 2026-11-01",
+      "id": "F-0099",
+      "impact": 2,
+      "measured": null,
+      "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
+      "priority": 1.8,
+      "sources": [
+        "technical"
+      ],
+      "status": "deployed",
+      "updated": "2026-11-01"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Image sitemap misses 20 gallery images and mixes URL encodings of the same file",
+      "commit": "fc60b6e",
+      "confidence": 0.9,
+      "created": "2026-11-01",
+      "effort": 2,
+      "evidence": "sitemap audit 2026-11-01",
+      "id": "F-0100",
+      "impact": 2,
+      "measured": null,
+      "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
+      "priority": 0.9,
+      "sources": [
+        "sitemap"
+      ],
+      "status": "deployed",
+      "updated": "2026-11-01"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Posts state 499 rupee dorm bed, which is Mosaic's own rate",
+      "commit": "60975a6",
+      "confidence": 0.8,
+      "created": "2026-11-01",
+      "effort": 1,
+      "evidence": "content audit 2026-11-01; owner confirmed 499 is Mosaic's rate",
+      "id": "F-0101",
+      "impact": 2,
+      "measured": null,
+      "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
+      "priority": 1.6,
+      "sources": [
+        "content"
+      ],
+      "status": "deployed",
+      "updated": "2026-11-01"
     }
   ],
-  "next_id": 91
+  "next_id": 102
 }
