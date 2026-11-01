@@ -1147,10 +1147,14 @@
       if (!res.ok || !result || result.error) throw new Error((result && result.error) || fallback);
       return result;
     }
-    function row(label, value) {
-      const dt = document.createElement('dt'); dt.textContent = label;
-      const dd = document.createElement('dd'); dd.textContent = value;
-      list.append(dt, dd);
+    // Same price-row look as the confirmation screen; `divider` separates the money rows from the stay rows.
+    function row(label, value, divider) {
+      const line = document.createElement('div');
+      line.className = 'price-row' + (divider ? ' price-row-divider' : '');
+      const l = document.createElement('span'); l.textContent = label;
+      const v = document.createElement('span'); v.textContent = value;
+      line.append(l, v);
+      list.append(line);
     }
     const rupees = (n) => '₹' + Number(n).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
@@ -1172,7 +1176,7 @@
         row('Check-out', r.check_out || '-');
         row('Rooms', (r.rooms || []).join(', ') || '-');
         if (r.paid != null && !['Cancel', 'Void', 'Checked Out'].includes(r.status)) {
-          row('Paid', rupees(r.paid));
+          row('Paid', rupees(r.paid), true);
           row('Due at check-in', rupees(r.due || 0));
         }
         current = { resNo: r.reservation_no, email };
