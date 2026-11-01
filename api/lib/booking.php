@@ -250,3 +250,19 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
 
   return ['status' => 'done', 'reservation_no' => $reservationNo, 'sub_reservation_no' => $subReservationNo];
 }
+
+/**
+ * Our own done/ record, looked up by reservation number. Preferred over eZee's
+ * FetchSingleBooking for the check-in date because this shape is one we write
+ * ourselves (create-order.php) and is the only place the Razorpay payment id
+ * lives — eZee's date field names for a reservation aren't pinned down.
+ * ponytail: linear scan over done/, fine at hostel volume; index by
+ * reservation number if the directory ever gets large.
+ */
+function find_done_record(string $reservationNo): ?array {
+  foreach (glob(PENDING_ORDERS_DIR . '/done/*.json') ?: [] as $file) {
+    $record = json_decode((string)file_get_contents($file), true);
+    if (is_array($record) && (string)($record['reservation_no'] ?? '') === $reservationNo) return $record;
+  }
+  return null;
+}

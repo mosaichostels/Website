@@ -1120,47 +1120,92 @@
   }
 
   // ── MANAGE / CANCEL A BOOKING ──
+  // Step 1 looks the booking up (reservation number + email); the details view then offers Cancel.
   function initCancelForm() {
     const form = document.getElementById('cancelForm');
     if (!form) return;
     const msg = document.getElementById('cancelMsg');
+    const details = document.getElementById('bookingDetails');
+    const list = document.getElementById('bookingDetailsList');
+    const cancelBtn = document.getElementById('cancelBookingBtn');
+    const lookupBtn = form.querySelector('.form-submit');
+    let current = null; // { resNo, email } of the booking on screen
+
+    function show(text, kind) {
+      msg.textContent = text;
+      msg.className = 'form-msg ' + kind;
+      msg.style.display = 'block';
+    }
+    async function post(url, payload, fallback) {
+      let res, result = null;
+      try {
+        res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+        try { result = await res.json(); } catch (err) { result = null; }
+      } catch (err) {
+        throw new Error('We couldn\'t reach the booking system. Check your connection, or WhatsApp us.');
+      }
+      if (!res.ok || !result || result.error) throw new Error((result && result.error) || fallback);
+      return result;
+    }
+    function row(label, value) {
+      const dt = document.createElement('dt'); dt.textContent = label;
+      const dd = document.createElement('dd'); dd.textContent = value;
+      list.append(dt, dd);
+    }
+    const rupees = (n) => '₹' + Number(n).toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       msg.style.display = 'none';
+      details.hidden = true;
+      current = null;
+      const resNo = document.getElementById('cResNo').value.trim();
+      const email = document.getElementById('cEmail').value.trim();
+      lookupBtn.disabled = true;
+      lookupBtn.textContent = 'Looking up...';
+      try {
+        const r = await post('/api/lookup-booking.php', { reservation_no: resNo, email }, 'We couldn\'t look that up right now. Please WhatsApp us.');
+        list.textContent = '';
+        row('Reservation', '#' + r.reservation_no);
+        row('Status', r.status || 'Unknown');
+        row('Check-in', r.check_in || '-');
+        row('Check-out', r.check_out || '-');
+        row('Rooms', (r.rooms || []).join(', ') || '-');
+        if (r.paid != null) {
+          row('Paid', rupees(r.paid));
+          row('Due at check-in', rupees(r.due || 0));
+        }
+        current = { resNo: r.reservation_no, email };
+        cancelBtn.hidden = ['Cancel', 'Void', 'Checked Out'].includes(r.status);
+        details.hidden = false;
+      } catch (err) {
+        show(err.message || 'Something went wrong. Please try WhatsApp instead.', 'error');
+      } finally {
+        lookupBtn.disabled = false;
+        lookupBtn.textContent = 'Look up booking';
+      }
+    });
+
+    cancelBtn.addEventListener('click', async () => {
+      if (!current) return;
+      msg.style.display = 'none';
       // One click used to cancel outright, while the policy right above says a
       // cancellation inside 72 hours of check-in is not refunded.
-      const resNo = document.getElementById('cResNo').value.trim();
-      if (!window.confirm('Cancel reservation ' + resNo + '? This cannot be undone. Cancelling within 72 hours of check-in is not refundable under our policy.')) return;
-      const btn = form.querySelector('.form-submit');
-      btn.disabled = true;
-      btn.textContent = 'Cancelling...';
+      if (!window.confirm('Cancel reservation ' + current.resNo + '? This cannot be undone. Cancelling within 72 hours of check-in is not refundable under our policy.')) return;
+      cancelBtn.disabled = true;
+      cancelBtn.textContent = 'Cancelling...';
       try {
-        let res, result = null;
-        try {
-          res = await fetch('/api/cancel-booking.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              reservation_no: resNo,
-              email: document.getElementById('cEmail').value.trim(),
-            }),
-          });
-          try { result = await res.json(); } catch (err) { result = null; }
-        } catch (err) {
-          throw new Error('We couldn\'t reach the booking system. Check your connection, or WhatsApp us.');
-        }
-        if (!res.ok || !result || result.error) throw new Error((result && result.error) || 'We couldn\'t cancel that automatically. Please WhatsApp us and we\'ll cancel it for you.');
-        msg.textContent = `Reservation #${result.reservation_no} has been cancelled. ${result.refund_note || ''}`.trim();
-        msg.className = 'form-msg success';
-        msg.style.display = 'block';
+        const result = await post('/api/cancel-booking.php', { reservation_no: current.resNo, email: current.email },
+          'We couldn\'t cancel that automatically. Please WhatsApp us and we\'ll cancel it for you.');
+        show(`Reservation #${result.reservation_no} has been cancelled. ${result.refund_note || ''}`.trim(), 'success');
+        details.hidden = true;
+        current = null;
         form.reset();
       } catch (err) {
-        msg.textContent = err.message || 'Something went wrong. Please try WhatsApp instead.';
-        msg.className = 'form-msg error';
-        msg.style.display = 'block';
+        show(err.message || 'Something went wrong. Please try WhatsApp instead.', 'error');
       } finally {
-        btn.disabled = false;
-        btn.textContent = 'Cancel Booking';
+        cancelBtn.disabled = false;
+        cancelBtn.textContent = 'Cancel Booking';
       }
     });
   }

@@ -4,6 +4,8 @@ Covers: -
 
 # Status (2026-10-30)
 
+- 2026-11-01 (branch `feature/deposit-option`, not pushed): guest booking lookup. `api/lookup-booking.php` plus a "Look up booking" step in the book-now manage card (cancel sits under the details); `find_done_record()` moved to `api/lib/booking.php`; `book-now.js?v=20261101c`. flow-test 189 checks, selftest pass.
+
 - HEAD `56c440f`, branch `main`, level with `origin/main` after push 2026-10-29. Last commits: `372219a` (docs refresh, dashboard scripts removed), `56c440f` (weekly-seo shared with Codex, `.agents/` copies, `.mcp.json` removed). Working tree clean before this edit; earlier uncommitted list was: `.claude/skills/weekly-seo/{SKILL.md,references/{audits,ledger,report}.md}` edits (Claude/Codex `SEO_CLIENT` toolchain), deleted `.mcp.json`, `scripts/sync-instagram-media.sh`, untracked `.agents/` and `docs/superpowers/plans/2026-10-28-codex-seo-weekly-run.md`. These belong to other sessions: do not revert.
 - Done today: `/dorms/` page (`00e004f`, F-0058, status `fixed`, not yet verified live in the ledger); sitemap and `llms.txt` list it.
 - Done recently: agent docs + single `AGENTS.md` (`a02ca7c`); Instagram media mirror script (`0d50bc7`) and gitignore (`2c7f83c`); SEO step (f) with deploy-check of F-0053/F-0056 (`65a9c6e`, 2026-10-21); "100 m" wording on 17 pages (`749cc58`); image width/height on 18 gallery images (F-0055).

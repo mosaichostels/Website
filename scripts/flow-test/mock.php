@@ -109,7 +109,8 @@ if (str_starts_with($path, '/ezee/booking/reservation_api/listing.php')) {
       }
     }
     $b = st('bookings', []); $no = (string)(1800 + count($b) + 1);
-    $b[$no] = ['ReservationNo' => $no, 'Email' => $bd['Email_Address'], 'CurrentStatus' => 'Confirmed', 'check_in' => $bd['check_in_date'], 'rooms' => count($bd['Room_Details'])];
+    $b[$no] = ['ReservationNo' => $no, 'Email' => $bd['Email_Address'], 'CurrentStatus' => 'Confirmed', 'check_in' => $bd['check_in_date'], 'rooms' => count($bd['Room_Details']), 'check_out' => $bd['check_out_date'],
+      'room_ids' => array_values(array_map(fn ($r) => $r['Roomtype_Id'] ?? '', $bd['Room_Details']))];
     put('bookings', $b); out(['ReservationNo' => $no, 'SubReservationNo' => [$no], 'Inventory_Mode' => 'REGULAR', 'lang_key' => 'en']);
   }
   if ($type === 'ProcessBooking') { // seen live 2026-11-01: assigns a room to a reservation InsertBooking left unassigned
@@ -129,7 +130,9 @@ if (str_starts_with($path, '/ezee/booking/reservation_api/listing.php')) {
 if (str_starts_with($path, '/ezee/pmsinterface/pms_connectivity.php')) {
   $no = $json['RES_Request']['BookingId'] ?? ''; $b = st('bookings', [])[$no] ?? null;
   if (!$b) out(['Errors' => ['ErrorCode' => '1', 'ErrorMessage' => 'No booking found']]);
-  out(['Reservations' => ['Reservation' => [['Email' => $b['Email'], 'BookingTran' => [['CurrentStatus' => $b['CurrentStatus']]]]]]]);
+  $names = ['5767700000000000006' => '4 - Bed Mixed Dorm', '5767700000000000001' => '8 - Bed Mixed Dorm', '5767700000000000007' => 'Double Room']; // same ids as RoomList above
+  $tran = array_map(fn ($id) => ['CurrentStatus' => $b['CurrentStatus'], 'RoomTypeName' => $names[$id] ?? $id, 'Start' => $b['check_in'], 'End' => $b['check_out'] ?? ''], $b['room_ids'] ?? [null]);
+  out(['Reservations' => ['Reservation' => [['Email' => $b['Email'], 'BookingTran' => $tran]]]]);
 }
 if (str_starts_with($path, '/ezee/index.php/page/service.kioskconnectivity')) {
   logcall(['ezee' => 'AddPayment', 'req' => $json['RES_Request']['Reservation'][0] ?? null]);
