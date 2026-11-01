@@ -191,6 +191,12 @@ check('InsertBooking sent via POST (the WAF rejects long GET query strings)', (i
 check('InsertBooking carries dates, guest, English values, Razorpay payment mode', ($ins['check_in_date'] ?? '') === d(30) && ($ins['check_out_date'] ?? '') === d(31) && ($r1['Gender'] ?? '') === 'Male' && ($r1['Title'] ?? '') === 'Mr.' && ($ins['Email_Address'] ?? '') === 'test@example.com' && ($ins['Booking_Payment_Mode'] ?? '') === 'Online Payment (Razorpay)' && ($ins['Country'] ?? '') === 'India', json_encode($ins));
 $ap = calls('ezee', 'AddPayment')[0]['req'] ?? [];
 check('AddPayment posts the exact total against the reservation', ($ap['Payment'] ?? '') === '733.95' && ($ap['BookingId'] ?? '') === ($v['json']['reservation_no'] ?? 'x'), json_encode($ap));
+// A booking InsertBooking leaves without a room/bed is assigned one by ProcessBooking ConfirmBooking (live 2026-11-01), before the payment is posted.
+$pb = calls('ezee', 'ProcessBooking');
+check('ProcessBooking ConfirmBooking is sent once for the new reservation, with the Inventory_Mode InsertBooking returned',
+  count($pb) === 1 && ($pb[0]['data']['Action'] ?? '') === 'ConfirmBooking' && ($pb[0]['data']['ReservationNo'] ?? '') === ($v['json']['reservation_no'] ?? 'x') && ($pb[0]['data']['Inventory_Mode'] ?? '') === 'REGULAR', json_encode($pb));
+$seq = array_values(array_map(fn ($c) => $c['ezee'], array_filter(ctl('/ctl/calls') ?: [], fn ($c) => isset($c['ezee']))));
+check('eZee call order is InsertBooking, ProcessBooking, AddPayment', array_slice($seq, -3) === ['InsertBooking', 'ProcessBooking', 'AddPayment'], json_encode($seq));
 $v2 = verify($o, $p);
 check('verify again (guest double-clicks / reloads) -> same reservation, NO second booking', $v2['code'] === 200 && $v2['json']['reservation_no'] === $v['json']['reservation_no'] && count(inserts()) === 1, $v2['raw']);
 check('log has CONFIRMED line', str_contains(log_text(), "CONFIRMED order=$o"));
@@ -201,6 +207,12 @@ check('missing fields -> 400', app('POST', '/api/verify-payment.php', ['razorpay
 ctl('/ctl/set?addpayment_mode=fail');
 [$o2, $p2, $v3] = confirmed();
 check('AddPayment failing twice still confirms the booking, and alerts', $v3['code'] === 200 && where_is($o2) === 'done' && str_contains(log_text(), 'ACTION REQUIRED AddPayment failed twice'), $v3['raw']);
+// A failed room assignment must not fail or block the paid booking: staff can assign the bed by hand.
+ctl('/ctl/set?addpayment_mode=ok&process_mode=fail');
+$apBefore = count(calls('ezee', 'AddPayment'));
+[$o2, $p2, $v3] = confirmed();
+check('ProcessBooking failing still books the guest, still posts the payment, and alerts', $v3['code'] === 200 && where_is($o2) === 'done' && count(calls('ezee', 'AddPayment')) === $apBefore + 1 && str_contains(log_text(), 'room NOT assigned'), $v3['raw']);
+ctl('/ctl/set?process_mode=ok');
 
 // ============================================================================
 section('Multi-night stays: eZee needs one rate per night (the cause of the 27 Sep and 26 Oct failures)');
