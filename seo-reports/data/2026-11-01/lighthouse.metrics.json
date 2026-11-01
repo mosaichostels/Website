@@ -1,0 +1,20 @@
+{
+  "errors": [],
+  "fetched_at": "2026-11-01T08:50:47",
+  "findings": [],
+  "metrics": {
+    "drift_baselines": 34,
+    "failing_audits": 13,
+    "lh_accessibility": 1,
+    "lh_best_practices": 0.77,
+    "lh_performance": 0.91,
+    "lh_seo": 1,
+    "routes": 16
+  },
+  "source": "lighthouse",
+  "window": {
+    "days": 1,
+    "end": "2026-11-01",
+    "start": "2026-11-01"
+  }
+}
