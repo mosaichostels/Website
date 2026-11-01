@@ -525,7 +525,7 @@ check('slow AddPayment (2 x 18 s): reservation exists, so the guest must get suc
 section('Cancellation edge cases');
 [$o, $p, $v] = confirmed(); $no = $v['json']['reservation_no']; unlink("$PEND/done/$o.json");
 $c = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com']);
-check('booking with no done/ record (made by hand in eZee): cancelled, no auto-refund, staff alerted', $c['code'] === 200 && count(calls('rzp', 'refund')) === 0 && str_contains(log_text(), 'REFUND to review'), $c['raw']);
+check('booking with no done/ record (made by hand in eZee): the generic 404, eZee CancelBooking never called, no refund', $c['code'] === 404 && str_contains($c['raw'], 'Reservation not found or email does not match') && count(calls('ezee', 'CancelBooking')) === 0 && count(calls('rzp', 'refund')) === 0, $c['raw']);
 ctl('/ctl/reset'); [$o, $p, $v] = confirmed(); $no = $v['json']['reservation_no']; patch_rec($o, ['check_in' => d(-1)]);
 $c = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com']);
 check('cancel after check-in date: no refund, Razorpay never called', $c['code'] === 200 && count(calls('rzp', 'refund')) === 0, $c['raw']);
@@ -547,7 +547,7 @@ check('(a) deposit booking: 200, status, dates and room name from eZee', $l['cod
 check('(a) deposit booking: paid is the deposit, due is the balance, paid + due = total', ($j['paid'] ?? 0) == ($rc = rec($o))['pay_now'] && ($j['due'] ?? 0) == $rc['due_at_hotel'] && ($j['total'] ?? 0) == $rc['total'] && abs($j['paid'] + $j['due'] - $j['total']) < 0.005 && $j['due'] > 0, $l['raw']);
 $w = $lk($no, 'someone.else@example.com'); $u = $lk('987654', 'lookup@example.com');
 check('(b) wrong email and unknown reservation: both 404 with the identical generic body', $w['code'] === 404 && $u['code'] === 404 && $w['raw'] === $u['raw'] && str_contains($w['raw'], 'Reservation not found or email does not match'), $w['raw'] . ' / ' . $u['raw']);
-check('(d) reply never contains the email, phone or surname', !preg_match('/lookup@example|9811122233|Zxsurname|email|phone/i', $l['raw']), $l['raw']);
+check('(d) reply carries the guest details: name, email, phone, nationality, guest count', ($j['guest_name'] ?? '') === ($rc['first_name'] . ' ' . 'Zxsurname') && ($j['email'] ?? '') === 'lookup@example.com' && preg_match('/^\S+ •{6}2233$/u', $j['phone'] ?? '') === 1 && !str_contains($l['raw'], '9811122233') && !str_contains($l['raw'], '981112') && ($j['nationality'] ?? '') === $rc['nationality'] && ($j['adults'] ?? 0) >= 1 && array_key_exists('children', $j) && array_key_exists('special_request', $j), $l['raw']);
 [$o2, $p2, $v2] = confirmed(['check_in' => $ci, 'check_out' => $co, 'email' => 'full@example.com']); $no2 = $v2['json']['reservation_no'];
 $f = $lk($no2, 'full@example.com'); $fj = $f['json'] ?? [];
 check('(f) full-payment booking: paid equals total, due is 0', $f['code'] === 200 && ($fj['paid'] ?? -1) == ($fj['total'] ?? -2) && ($fj['due'] ?? -1) == 0 && ($fj['total'] ?? 0) > 0, $f['raw']);
@@ -557,7 +557,7 @@ $g = $lk($no3, 'old@example.com'); $gj = $g['json'] ?? [];
 check('record from before the deposit option (no pay_now): paid = total, due = 0', $g['code'] === 200 && ($gj['paid'] ?? -1) == ($gj['total'] ?? -2) && ($gj['due'] ?? -1) == 0, $g['raw']);
 [$o4, $p4, $v4] = confirmed(['check_in' => $ci, 'check_out' => $co, 'email' => 'staff@example.com']); $no4 = $v4['json']['reservation_no']; unlink("$PEND/done/$o4.json");
 $s = $lk($no4, 'staff@example.com'); $sj = $s['json'] ?? [];
-check('(c) booking only in eZee (no done/ record): 200 with details and no paid/due/total keys', $s['code'] === 200 && ($sj['status'] ?? '') === 'Confirmed' && !array_key_exists('paid', $sj) && !array_key_exists('due', $sj) && !array_key_exists('total', $sj), $s['raw']);
+check('(c) booking only in eZee (no done/ record, not made on the website): the same generic 404 as a wrong email', $s['code'] === 404 && $s['raw'] === $w['raw'], $s['raw']);
 // Odd eZee replies (mock fetch_shape): never a 500, never a different 404 body.
 ctl('/ctl/set?fetch_shape=string'); $x = $lk($no, 'lookup@example.com');
 check('(g) BookingTran is a string: the generic 404, no 500', $x['code'] === 404 && str_contains($x['raw'], 'Reservation not found or email does not match'), $x['raw']);

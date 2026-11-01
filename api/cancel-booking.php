@@ -7,7 +7,9 @@
  * reservation number — no guest verification built in — so anyone who
  * guessed/saw a reservation number could cancel someone else's stay.
  * We close that gap ourselves: fetch the booking first, require the
- * submitted email to match the one on file before cancelling.
+ * submitted email to match the one on file before cancelling. Only bookings
+ * made on this website can be cancelled here (an order record must exist); a
+ * reservation made by hand in eZee is cancelled by the front desk.
  */
 require __DIR__ . '/lib/config.php';
 require __DIR__ . '/lib/ezee.php';
@@ -32,6 +34,11 @@ if (!preg_match('/^[A-Za-z0-9-]{1,32}$/', $reservationNo)) {
   json_error(404, 'Reservation not found or email does not match. Please check the details or WhatsApp us.');
 }
 rate_limit('cancel-reservation', 5, 3600, $reservationNo);
+
+$record = find_done_record($reservationNo);
+if (!$record) {
+  json_error(404, 'Reservation not found or email does not match. Please check the details or WhatsApp us.');
+}
 
 $booking = ezee_fetch_booking($reservationNo);
 $reservation = $booking['Reservations']['Reservation'][0] ?? null;
@@ -76,7 +83,6 @@ if (!$ok) {
 // payment id, unreadable date) falls back to a work item + alert for staff, and the guest is never told a
 // refund was sent unless Razorpay confirmed one. Cancelling is never blocked: inside the window the guest
 // still frees the room, they just aren't refunded for it.
-$record = find_done_record($reservationNo);
 $refundDue = refund_due_for_checkin($record['check_in'] ?? null); // null = undetermined
 $paid = $record['pay_now'] ?? $record['total'] ?? 'unknown';
 $outcome = cancellation_refund_outcome($refundDue, $record['razorpay_payment_id'] ?? null, $reservationNo, 'razorpay_refund_payment', (string)($record['pay_option'] ?? 'full'));

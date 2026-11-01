@@ -1175,6 +1175,13 @@
         row('Check-in', r.check_in || '-');
         row('Check-out', r.check_out || '-');
         row('Rooms', (r.rooms || []).join(', ') || '-');
+        const guests = [r.adults ? r.adults + (r.adults === 1 ? ' adult' : ' adults') : '', r.children ? r.children + (r.children === 1 ? ' child' : ' children') : ''].filter(Boolean).join(', ');
+        if (guests) row('Guests', guests);
+        row('Guest name', r.guest_name || '-', true);
+        row('Email', r.email || '-');
+        row('Phone', r.phone || '-');
+        if (r.nationality) row('Nationality', r.nationality);
+        if (r.special_request) row('Special request', r.special_request);
         if (r.paid != null && !['Cancel', 'Void', 'Checked Out'].includes(r.status)) {
           row('Paid', rupees(r.paid), true);
           row('Due at check-in', rupees(r.due || 0));
