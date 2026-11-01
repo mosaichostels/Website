@@ -10,7 +10,7 @@
         "api/.htaccess",
         "api/lib/.htaccess"
       ],
-      "tokens_est": 874
+      "tokens_est": 907
     },
     {
       "file": "ARCHITECTURE.md",
@@ -149,7 +149,7 @@
         "api/lib/dates.php",
         "components/book-now.js"
       ],
-      "tokens_est": 643
+      "tokens_est": 702
     },
     {
       "file": "FLOWS/content-publish.md",
@@ -307,7 +307,7 @@
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-10-30 @ 022a75c",
       "covers": [],
-      "tokens_est": 2958
+      "tokens_est": 3061
     },
     {
       "file": "STRUCTURE.md",

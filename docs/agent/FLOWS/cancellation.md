@@ -6,7 +6,7 @@ Covers: api/cancel-booking.php,api/lib/razorpay.php,api/lib/dates.php,components
 
 Actor: guest with reservation number + email (cancel form on `/book-now`, `book-now.js:1085 initCancelForm`, POST at `:1102`).
 
-Guests can first look the booking up (`POST /api/lookup-booking.php`, same gate as cancel: reservation + email must match eZee; returns status, dates, rooms, and total/paid/due when a `done/` record exists; never email/phone/name). The manage card shows details, with cancel under them.
+Guests can first look the booking up (`POST /api/lookup-booking.php`, same gate as cancel: reservation + email must match eZee; returns status, dates, rooms and, from the `done/` record, the guest details and total/paid/due). Lookup AND cancel only work for bookings made on this website: no `done/` record gives the generic 404 before eZee is called. The manage card shows details, with cancel under them.
 
 ## Chain
 ```
@@ -23,7 +23,7 @@ POST /api/cancel-booking.php {reservation_no, email}
  -> {success:true, reservation_no, refund_note}
 ```
 - Cancelling is never blocked by the policy: inside 72 h the room is freed and the amount paid (the whole payment, or the deposit) is not refunded.
-- `record` (payment id, total, check_in) is read from `done/<order>.json` by reservation number.
+- `record` (payment id, total, check_in) is read from `done/<order>.json` by reservation number, before any eZee call; a hand-made eZee reservation has none, so it cannot be cancelled here (front desk does it).
 - Eligible refund that Razorpay does not confirm -> `status:'manual'` + alert "REFUND to review after cancellation".
 - Undetermined check-in date (`null`) -> no automatic refund, manual.
 
