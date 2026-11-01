@@ -38,7 +38,10 @@
     }
   }
 
-  window.MOSAIC = { LOGO_COLORS, FIVE, PAL, pick, fillStrip, fillById, fillGrid };
+  // Pointer-following effects (cursor trail, magnetic buttons, ripple, card tilt) are decoration: off when the visitor asks for less motion.
+  const reducedMotion = () => !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  window.MOSAIC = { LOGO_COLORS, FIVE, PAL, pick, fillStrip, fillById, fillGrid, reducedMotion };
 
   // Lead tracking: phone and WhatsApp links, and the contact form, send a GA4
   // `generate_lead` event. gtag can be absent (ad blockers, consent tools), and
@@ -67,6 +70,8 @@
   };
   function runUniversalFills() {
     Object.entries(FILL_MAP).forEach(([id, cols]) => fillById(id, cols));
+    // Any element can ask for the tile strip: <div data-tile-strip></div>.
+    document.querySelectorAll('[data-tile-strip]').forEach((el) => fillStrip(el, LOGO_COLORS));
   }
 
   // ── CUSTOM CURSOR ──
@@ -181,12 +186,14 @@
   function init() {
     initActionBar();
     runUniversalFills();
-    initCursor();
+    if (!reducedMotion()) {
+      initCursor();
+      initMagnetic();
+      initRipple();
+    }
     initNavScroll();
     initProgress();
     initReveal();
-    initMagnetic();
-    initRipple();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

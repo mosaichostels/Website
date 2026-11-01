@@ -9,7 +9,8 @@
  * We close that gap ourselves: fetch the booking first, require the
  * submitted email to match the one on file before cancelling. Only bookings
  * made on this website can be cancelled here (an order record must exist); a
- * reservation made by hand in eZee is cancelled by the front desk.
+ * reservation made by hand in eZee is cancelled by the front desk, and so is a
+ * stay that has already begun (cancel_blocked_reason() in lib/booking.php).
  */
 require __DIR__ . '/lib/config.php';
 require __DIR__ . '/lib/ezee.php';
@@ -51,10 +52,8 @@ if ($onFileEmail === '' || $onFileEmail !== strtolower($email)) {
   json_error(404, 'Reservation not found or email does not match. Please check the details or WhatsApp us.');
 }
 
-$status = $reservation['BookingTran'][0]['CurrentStatus'] ?? '';
-if (in_array($status, ['Cancel', 'Void', 'Checked Out'], true)) {
-  json_error(409, "This reservation is already $status — nothing to cancel.");
-}
+$status = (string)(ezee_booking_trans($reservation)[0]['CurrentStatus'] ?? '');
+if ($blocked = cancel_blocked_reason($status, $record['check_in'] ?? null)) json_error(409, $blocked);
 
 // Leave a recoverable trace BEFORE the irreversible eZee call: if this process dies between eZee
 // cancelling and the refund steps below, a person can still find the reservation and finish the refund.

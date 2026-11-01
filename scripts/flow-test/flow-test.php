@@ -528,7 +528,21 @@ $c = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' =>
 check('booking with no done/ record (made by hand in eZee): the generic 404, eZee CancelBooking never called, no refund', $c['code'] === 404 && str_contains($c['raw'], 'Reservation not found or email does not match') && count(calls('ezee', 'CancelBooking')) === 0 && count(calls('rzp', 'refund')) === 0, $c['raw']);
 ctl('/ctl/reset'); [$o, $p, $v] = confirmed(); $no = $v['json']['reservation_no']; patch_rec($o, ['check_in' => d(-1)]);
 $c = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com']);
-check('cancel after check-in date: no refund, Razorpay never called', $c['code'] === 200 && count(calls('rzp', 'refund')) === 0, $c['raw']);
+check('stay already started (check-in was yesterday): 409 "already started", eZee CancelBooking never called, no refund', $c['code'] === 409 && str_contains($c['raw'], 'already started') && count(calls('ezee', 'CancelBooking')) === 0 && count(calls('rzp', 'refund')) === 0, $c['raw']);
+ctl('/ctl/reset'); [$o, $p, $v] = confirmed(); $no = $v['json']['reservation_no']; patch_rec($o, ['check_in' => d(0)]);
+$c = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com']);
+check('arrival day itself is still cancellable: 200, inside 72 h so no refund', $c['code'] === 200 && count(calls('ezee', 'CancelBooking')) === 1 && count(calls('rzp', 'refund')) === 0, $c['raw']);
+ctl('/ctl/reset'); [$o, $p, $v] = confirmed(['check_in' => d(40), 'check_out' => d(42)]); $no = $v['json']['reservation_no']; ctl('/ctl/set?status_override=Arrived');
+$c = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com']);
+$l = app('POST', '/api/lookup-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com']);
+check('checked-in guest (eZee status Arrived), stay far in the future on file: cancel 409, CancelBooking never called, no refund', $c['code'] === 409 && str_contains($c['raw'], 'already started') && count(calls('ezee', 'CancelBooking')) === 0 && count(calls('rzp', 'refund')) === 0, $c['raw']);
+check('lookup of that booking says can_cancel=false with a note, so the page hides the Cancel button', $l['code'] === 200 && ($l['json']['can_cancel'] ?? null) === false && str_contains($l['json']['cancel_note'] ?? '', 'already started'), $l['raw']);
+ctl('/ctl/set?fetch_shape=object');
+$c = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com']);
+check('same, with the transaction arriving as a bare object instead of a list: still refused', $c['code'] === 409 && count(calls('ezee', 'CancelBooking')) === 0, $c['raw']);
+ctl('/ctl/set?fetch_shape=&status_override=');
+$l = app('POST', '/api/lookup-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com']);
+check('ordinary confirmed booking far out: lookup says can_cancel=true', ($l['json']['can_cancel'] ?? null) === true && ($l['json']['cancel_note'] ?? 'x') === '', $l['raw']);
 ctl('/ctl/reset'); [$o, $p, $v] = confirmed(); $no = $v['json']['reservation_no'];
 $mh = curl_multi_init(); $hs = [];
 for ($i = 0; $i < 2; $i++) { $ch = curl_init(APP . '/api/cancel-booking.php'); curl_setopt_array($ch, [CURLOPT_RETURNTRANSFER => true, CURLOPT_POST => true, CURLOPT_POSTFIELDS => json_encode(['reservation_no' => $no, 'email' => 'test@example.com']), CURLOPT_HTTPHEADER => ['Content-Type: application/json', "X-Forwarded-For: 10.0.0.$i"]]); curl_multi_add_handle($mh, $ch); $hs[] = $ch; }

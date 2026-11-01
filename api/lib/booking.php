@@ -92,7 +92,7 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
   if (!is_array($record) || empty($record['room_units']) || !is_array($record['room_units'])) {
     // Nothing to book from: calling eZee with an empty reservation only wastes the retries.
     @rename($processingPath, $failedPath);
-    booking_alert('PAID but order record unreadable', "order=$orderId payment=$paymentId — the saved booking details are missing or corrupt; book the guest by hand from Razorpay's payment details");
+    booking_alert('PAID but order record unreadable', "order=$orderId payment=$paymentId; the saved booking details are missing or corrupt; book the guest by hand from Razorpay's payment details");
     return ['status' => 'failed'];
   }
   $paid = $record['pay_now'] ?? $record['total']; // rupees Razorpay took; records from before the deposit option have no pay_now
@@ -201,7 +201,7 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
     'Inventory_Mode' => $insertResponse['Inventory_Mode'] ?? 'REGULAR', 'Error_Text' => '',
   ])]);
   if (!$assign['_ok']) {
-    booking_alert('reservation created but room NOT assigned', "reservation=$reservationNo order=$orderId — assign a bed in eZee by hand. response=" . json_encode($assign));
+    booking_alert('reservation created but room NOT assigned', "reservation=$reservationNo order=$orderId; assign a bed in eZee by hand. response=" . json_encode($assign));
   }
 
   // Reconciliation only — doesn't move money, payment is already captured by
@@ -243,13 +243,37 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
   $record['confirmed_at'] = date('c');
   if (file_put_contents($donePath, json_encode($record, JSON_PRETTY_PRINT)) === false) {
     // Keep the claim file (it already holds the reservation number); never delete the only copy of the record.
-    booking_alert('reservation created but done/ record NOT written', "order=$orderId reservation=$reservationNo payment=$paymentId total={$record['total']} paid=$paid — disk full or not writable; the record is in processing/");
+    booking_alert('reservation created but done/ record NOT written', "order=$orderId reservation=$reservationNo payment=$paymentId total={$record['total']} paid=$paid; disk full or not writable; the record is in processing/");
   } else {
     @unlink($processingPath);
   }
   bookings_log("CONFIRMED order=$orderId reservation=$reservationNo payment=$paymentId total={$record['total']} paid=$paid");
 
   return ['status' => 'done', 'reservation_no' => $reservationNo, 'sub_reservation_no' => $subReservationNo];
+}
+
+/**
+ * BookingTran of an eZee FetchSingleBooking reservation as a plain list of transactions. One transaction can arrive as a
+ * bare object, and an odd reply as a string; anything that is not a list of objects counts as none.
+ */
+function ezee_booking_trans(array $reservation): array {
+  $trans = $reservation['BookingTran'] ?? [];
+  if (is_array($trans) && $trans && array_keys($trans) !== range(0, count($trans) - 1)) $trans = [$trans];
+  return is_array($trans) ? array_values(array_filter($trans, 'is_array')) : [];
+}
+
+/**
+ * Why a reservation cannot be cancelled on the website, as a message for the guest, or null when it can. Closed
+ * reservations have nothing to cancel. A stay that has begun is for the front desk: eZee calls a checked-in guest
+ * "Arrived" (docs/eZee-Connectivity-API.md, BookingTran.CurrentStatus), and a check-in date before today covers
+ * statuses we have not seen. Arrival day itself is still cancellable (inside 72 h, so not refunded).
+ */
+function cancel_blocked_reason(string $status, ?string $checkIn, ?int $now = null): ?string {
+  if (in_array($status, ['Cancel', 'Void', 'Checked Out'], true)) return "This reservation is already $status, nothing to cancel.";
+  if ($status === 'Arrived' || stay_started($checkIn, $now)) {
+    return 'This stay has already started, so it can\'t be cancelled online. Please WhatsApp us or ask at reception.';
+  }
+  return null;
 }
 
 /**

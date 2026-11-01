@@ -299,4 +299,23 @@ $r = ezee_interpret_response(200, json_encode($classic)); assert($r['_ok'] === f
 $r = ezee_interpret_response(200, '[]');
 assert($r['_ok'] === true && empty($r['ReservationNo']));
 
+// 8. Online cancellation guard. A stay that has begun (eZee calls a checked-in guest "Arrived") or one eZee has already
+// closed is not cancelled on the website: the front desk handles it. Arrival day itself is still cancellable.
+require_once __DIR__ . '/booking.php';
+$now = strtotime('2026-09-15 12:00:00');
+assert(stay_started('2026-09-14', $now) === true);
+assert(stay_started('2026-09-15', $now) === false);
+assert(stay_started('2026-09-16', $now) === false);
+assert(stay_started(null, $now) === false && stay_started('', $now) === false && stay_started('not-a-date', $now) === false);
+foreach (['Cancel', 'Void', 'Checked Out'] as $closed) assert(str_contains((string)cancel_blocked_reason($closed, '2026-10-01', $now), "already $closed"));
+assert(str_contains((string)cancel_blocked_reason('Arrived', '2026-10-01', $now), 'already started'));
+assert(str_contains((string)cancel_blocked_reason('Confirmed', '2026-09-14', $now), 'already started'));
+assert(cancel_blocked_reason('Confirmed', '2026-09-15', $now) === null);
+assert(cancel_blocked_reason('Confirmed', '2026-10-01', $now) === null);
+assert(cancel_blocked_reason('Confirmed', null, $now) === null); // unreadable date: the refund path alerts staff, cancelling is not blocked
+// A lone transaction can arrive as a bare object, and an odd reply as a string: the status must still be read.
+assert(ezee_booking_trans(['BookingTran' => ['CurrentStatus' => 'Arrived']])[0]['CurrentStatus'] === 'Arrived');
+assert(count(ezee_booking_trans(['BookingTran' => [['CurrentStatus' => 'A'], ['CurrentStatus' => 'B']]])) === 2);
+assert(ezee_booking_trans(['BookingTran' => 'No transactions']) === [] && ezee_booking_trans([]) === []);
+
 echo "All selftest assertions passed.\n";

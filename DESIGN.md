@@ -82,7 +82,7 @@ Surfaces are flat and sharp. Corners are near-square, buttons are small wide-tra
 - Jewel tones (teal, burgundy, cobalt, sage) used as tile colours, not as UI chrome.
 - Cinzel display type with restrained spacing; Cormorant Garamond italics for warmth.
 - Large soft shadows, tiny corner radii.
-- Custom cursor on desktop (`cursor:none`), disabled for touch via `(hover:none),(pointer:coarse)`.
+- A gold dot and ring trail the system cursor on desktop (the system cursor stays visible); off for touch via `(hover:none),(pointer:coarse)` and under `prefers-reduced-motion`.
 
 ## Colors
 

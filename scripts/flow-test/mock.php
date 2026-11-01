@@ -131,7 +131,7 @@ if (str_starts_with($path, '/ezee/pmsinterface/pms_connectivity.php')) {
   $no = $json['RES_Request']['BookingId'] ?? ''; $b = st('bookings', [])[$no] ?? null;
   if (!$b) out(['Errors' => ['ErrorCode' => '1', 'ErrorMessage' => 'No booking found']]);
   $names = ['5767700000000000006' => '4 - Bed Mixed Dorm', '5767700000000000001' => '8 - Bed Mixed Dorm', '5767700000000000007' => 'Double Room']; // same ids as RoomList above
-  $tran = array_map(fn ($id) => ['CurrentStatus' => $b['CurrentStatus'], 'RoomTypeName' => $names[$id] ?? $id, 'Start' => $b['check_in'], 'End' => $b['check_out'] ?? ''], $b['room_ids'] ?? [null]);
+  $tran = array_map(fn ($id) => ['CurrentStatus' => cfg('status_override') ?: $b['CurrentStatus'], 'RoomTypeName' => $names[$id] ?? $id, 'Start' => $b['check_in'], 'End' => $b['check_out'] ?? ''], $b['room_ids'] ?? [null]);
   $shape = cfg('fetch_shape'); // odd replies live eZee could give: string | object | nodates | email_array
   if ($shape === 'string') $tran = 'No transactions';
   if ($shape === 'object') $tran = $tran[0];

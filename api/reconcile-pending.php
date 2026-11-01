@@ -71,12 +71,12 @@ foreach (glob(PENDING_ORDERS_DIR . '/processing/*.json') ?: [] as $file) {
         @unlink($file);
         // Alert, not just a log line: the request may have died before AddPayment, leaving eZee showing it unpaid.
         booking_alert('order recovered after an interruption', "RECOVERED order=$orderId reservation={$stuck['reservation_no']} payment=" . ($stuck['razorpay_payment_id'] ?? '?')
-          . " — InsertBooking had succeeded; check the reservation shows the Razorpay payment in eZee and post it by hand if not, and assign a bed (ProcessBooking may not have run)");
+          . "; InsertBooking had succeeded; check the reservation shows the Razorpay payment in eZee and post it by hand if not, and assign a bed (ProcessBooking may not have run)");
         continue;
       }
     }
     if (@rename($file, PENDING_ORDERS_DIR . '/failed/' . $orderId . '.json')) {
-      booking_alert('order stuck in processing', "order=$orderId — check eZee for an existing reservation BEFORE re-queueing");
+      booking_alert('order stuck in processing', "order=$orderId; check eZee for an existing reservation BEFORE re-queueing");
     }
     continue;
   }
@@ -91,7 +91,7 @@ foreach (glob(PENDING_ORDERS_DIR . '/processing/*.json') ?: [] as $file) {
   // daily until a human moves the file, instead of going silent for good.
   if ((int)@filemtime($file) < time() - 3600 && (!file_exists($marker) || (int)@filemtime($marker) < time() - 86400)) {
     @touch($marker);
-    booking_alert('legacy claim lingering in processing', "order=$orderId — may be a crashed old-version claim OR a live one around a deploy; check eZee for an existing reservation, then move the file to failed/ or pending/ by hand");
+    booking_alert('legacy claim lingering in processing', "order=$orderId; may be a crashed old-version claim OR a live one around a deploy; check eZee for an existing reservation, then move the file to failed/ or pending/ by hand");
   }
 }
 

@@ -39,10 +39,7 @@ if (!is_array($reservation) || !is_string($reservation['Email'] ?? '')) json_err
 $onFileEmail = strtolower(trim($reservation['Email'] ?? ''));
 if ($onFileEmail === '' || $onFileEmail !== strtolower($email)) json_error(404, LOOKUP_NOT_FOUND);
 
-$trans = $reservation['BookingTran'] ?? [];
-// One transaction can arrive as a bare object; anything that is not a list of objects counts as none.
-if (is_array($trans) && $trans && array_keys($trans) !== range(0, count($trans) - 1)) $trans = [$trans];
-$trans = is_array($trans) ? array_values(array_filter($trans, 'is_array')) : [];
+$trans = ezee_booking_trans($reservation);
 if (!$trans) json_error(404, LOOKUP_NOT_FOUND);
 $starts = array_filter(array_column($trans, 'Start'), 'is_string');
 $ends = array_filter(array_column($trans, 'End'), 'is_string');
@@ -54,6 +51,10 @@ $reply = [
   'check_out' => $ends ? max($ends) : null,
   'rooms' => array_values(array_filter(array_column($trans, 'RoomTypeName'))),
 ];
+// Same rule cancel-booking.php applies, so the page hides a Cancel button that would only be refused.
+$cancelBlocked = cancel_blocked_reason($reply['status'], $record['check_in'] ?? null);
+$reply['can_cancel'] = $cancelBlocked === null;
+$reply['cancel_note'] = $cancelBlocked ?? '';
 // No dates from eZee: use what we stored when the booking was made.
 if (!$starts) $reply['check_in'] = $record['check_in'] ?? null;
 if (!$ends) $reply['check_out'] = $record['check_out'] ?? null;

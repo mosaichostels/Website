@@ -57,6 +57,15 @@ function refund_due_for_checkin(?string $checkIn, ?int $now = null): ?bool {
 }
 
 /**
+ * Has the stay already begun, i.e. is the check-in date before today (hotel-local)? An unreadable date is "not started":
+ * the caller must not turn a bad date into a refusal. Compared as Y-m-d strings, which sort correctly once validated.
+ */
+function stay_started(?string $checkIn, ?int $now = null): bool {
+  if ($checkIn === null || !parse_strict_date($checkIn)) return false;
+  return $checkIn < date('Y-m-d', $now ?? time());
+}
+
+/**
  * Validates a stay's dates and returns the night count. Both availability.php
  * and create-order.php go through this: create-order.php is reachable without
  * ever calling the search, and used to enforce strictly less than it, so a
@@ -77,7 +86,7 @@ function validate_stay_dates(string $checkIn, string $checkOut): int {
   }
   $nights = (int)$dCheckIn->diff($dCheckOut)->days;
   if ($nights > MAX_STAY_NIGHTS) {
-    json_error(400, 'Stays longer than ' . MAX_STAY_NIGHTS . ' nights can\'t be booked online — please WhatsApp us directly.');
+    json_error(400, 'Stays longer than ' . MAX_STAY_NIGHTS . ' nights can\'t be booked online. Please WhatsApp us directly.');
   }
   return $nights;
 }

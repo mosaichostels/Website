@@ -12,8 +12,8 @@
 
 ## Rooms
 
-- **Dorms** (https://www.mosaichostels.com/dorms/) — 10-bed mixed, 8-bed mixed, 6-bed mixed, 4-bed mixed, 6-bed female-only.
-- **Private rooms** — single, double and triple occupancy, AC, ensuite bathroom.
+- **Dorms** (https://www.mosaichostels.com/dorms/): 10-bed mixed, 8-bed mixed, 6-bed mixed, 4-bed mixed, 6-bed female-only.
+- **Private rooms**: single, double and triple occupancy, AC, ensuite bathroom.
 - Check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception.
 
 ## Amenities
@@ -22,12 +22,12 @@ Free high-speed WiFi, air conditioning, hot-water showers, lockers, shared kitch
 
 ## Core Pages
 
-- [Homepage](https://www.mosaichostels.com/) — overview, rooms, amenities, FAQ, booking
-- [About](https://www.mosaichostels.com/about) — story, philosophy, team
-- [Gallery](https://www.mosaichostels.com/gallery) — property and room photos
-- [Book Now](https://www.mosaichostels.com/book-now) — direct booking and room availability
-- [Contact](https://www.mosaichostels.com/contact) — contact form, WhatsApp, map
-- [Blog](https://www.mosaichostels.com/blog/) — Varanasi and Assi Ghat travel guides
+- [Homepage](https://www.mosaichostels.com/): overview, rooms, amenities, FAQ, booking
+- [About](https://www.mosaichostels.com/about): story, philosophy, team
+- [Gallery](https://www.mosaichostels.com/gallery): property and room photos
+- [Book Now](https://www.mosaichostels.com/book-now): direct booking and room availability
+- [Contact](https://www.mosaichostels.com/contact): contact form, WhatsApp, map
+- [Blog](https://www.mosaichostels.com/blog/): Varanasi and Assi Ghat travel guides
 - [Privacy Policy](https://www.mosaichostels.com/privacy)
 
 ## Travel Guides (Blog)

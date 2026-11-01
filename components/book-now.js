@@ -58,7 +58,7 @@
       [...PAL.gold, ...PAL.teal], [...PAL.burg, ...PAL.sage],
       [...PAL.cobalt, ...PAL.gold], [...PAL.teal, ...PAL.burg],
     ];
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14].forEach((i) => {
+    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16].forEach((i) => {
       const el = document.getElementById('pt' + i);
       if (!el) return;
       const pal = platformPals[(i - 1) % platformPals.length];
@@ -69,8 +69,8 @@
     [[...PAL.gold, ...PAL.teal], [...PAL.burg, ...PAL.cobalt], [...PAL.sage, ...PAL.gold], [...PAL.teal, ...PAL.burg]]
       .forEach((pal, i) => fillGrid(document.getElementById('bi' + (i + 1)), pal, 9, { radius: '2px' }));
 
-    // Platform card 3D tilt
-    document.querySelectorAll('.platform-card').forEach((card) => {
+    // Platform card 3D tilt (decoration: skipped under reduced motion)
+    if (!(M.reducedMotion && M.reducedMotion())) document.querySelectorAll('.platform-card').forEach((card) => {
       card.addEventListener('mousemove', (e) => {
         const r = card.getBoundingClientRect();
         const x = ((e.clientX - r.left) / r.width - 0.5) * 8;
@@ -327,7 +327,7 @@
       cart = [];
       updateCartBar();
       if (rooms.length === 0) {
-        roomOptions.innerHTML = '<div class="widget-empty">No rooms available for these dates. Try different dates or WhatsApp us — we may have options not shown here.</div>';
+        roomOptions.innerHTML = '<div class="widget-empty">No rooms available for these dates. Try different dates or WhatsApp us, we may have options not shown here.</div>';
         return;
       }
       rooms.forEach((room) => {
@@ -544,7 +544,7 @@
           selection.total = order.new_total;
           renderPriceSummary();
           showMsg(guestMsg, `The rate for these dates changed from ₹${fmtPrice(order.old_total)} to ₹${fmtPrice(order.new_total)}. `
-            + `The summary above is updated — press "${payButtonText()}" again to continue at the new rate.`, 'error');
+            + `The summary above is updated. Press "${payButtonText()}" again to continue at the new rate.`, 'error');
           return;
         }
         if (!res.ok || !order || order.error) throw new Error((order && order.error) || 'We couldn\'t start the payment just now. Please try again, or WhatsApp us.');
@@ -611,13 +611,13 @@
           ondismiss: function () {
             paymentOpen = false;
             track('payment_dismissed', { currency: 'INR', value: paidAmount() });
-            offerRetry('Payment cancelled. Your rooms are still selected — pick up where you left off below.');
+            offerRetry('Payment cancelled. Your rooms are still selected, so pick up where you left off below.');
           },
         },
       });
       rzp.on('payment.failed', function () {
         track('payment_failed', { currency: 'INR', value: paidAmount() });
-        offerRetry('That payment didn\'t go through. No money has been taken — try again, or book over WhatsApp.');
+        offerRetry('That payment didn\'t go through. No money has been taken. Try again, or book over WhatsApp.');
       });
       hideRetry();
       track('add_payment_info', {
@@ -798,7 +798,7 @@
         const transient = !res || res.status === 409;
         if (transient && attempt < VERIFY_RETRY_DELAYS.length) {
           if (attempt === 0) {
-            showMsg(guestMsg, 'Still confirming — this takes a few seconds. Please keep this page open.', 'success');
+            showMsg(guestMsg, 'Still confirming. This takes a few seconds. Please keep this page open.', 'success');
           }
           await new Promise((resolve) => setTimeout(resolve, VERIFY_RETRY_DELAYS[attempt]));
           continue;
@@ -808,8 +808,8 @@
           badge: 'Confirmation Pending',
           pending: true,
           title: 'Payment Received',
-          bodyHtml: `Your payment went through but we couldn't auto-confirm the reservation. Our team will confirm it shortly — `
-            + `for immediate help, <a href="https://wa.me/919125492225?text=${encodeURIComponent('Hi, I just paid for a booking (order ' + response.razorpay_order_id + ') and need help confirming it.')}" target="_blank">message us on WhatsApp</a>.`,
+          bodyHtml: `Your payment went through but we couldn't auto-confirm the reservation. Our team will confirm it shortly. `
+            + `For immediate help, <a href="https://wa.me/919125492225?text=${encodeURIComponent('Hi, I just paid for a booking (order ' + response.razorpay_order_id + ') and need help confirming it.')}" target="_blank">message us on WhatsApp</a>.`,
         });
         return;
       }
@@ -820,9 +820,9 @@
     const INR = new Intl.NumberFormat('en-IN', { minimumFractionDigits: 0, maximumFractionDigits: 2 });
     const INR_PAISE = new Intl.NumberFormat('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     function fmtPrice(n) {
-      if (n === null || n === undefined || n === '') return '—';
+      if (n === null || n === undefined || n === '') return '-';
       const value = Number(n);
-      if (!isFinite(value)) return '—';
+      if (!isFinite(value)) return '-';
       return (Math.round(value * 100) % 100 === 0 ? INR : INR_PAISE).format(value);
     }
 
@@ -1012,9 +1012,8 @@
         cell.className = 'cal-day';
         cell.textContent = String(day);
         // Selectable days are real controls, so they carry a role, a readable
-        // name and a tab stop. ponytail: Tab-through only, no arrow-key grid
-        // navigation — the input itself accepts a typed YYYY-MM-DD, which is
-        // the faster keyboard path anyway. Add roving tabindex if that changes.
+        // name and a tab stop; arrows move between days (onPopKey) and the
+        // input still accepts a typed YYYY-MM-DD.
         if (disabled) {
           cell.classList.add('cal-disabled');
           cell.setAttribute('aria-disabled', 'true');
@@ -1041,22 +1040,52 @@
         });
         daysEl.appendChild(cell);
       }
+      // render() replaces the buttons, so focus is put back on the one that was used.
       pop.querySelector('.cal-prev').addEventListener('click', () => {
         viewMonth--;
         if (viewMonth < 0) { viewMonth = 11; viewYear--; }
         render();
+        pop.querySelector('.cal-prev').focus();
       });
       pop.querySelector('.cal-next').addEventListener('click', () => {
         viewMonth++;
         if (viewMonth > 11) { viewMonth = 0; viewYear++; }
         render();
+        pop.querySelector('.cal-next').focus();
       });
     }
 
     function position() {
       const r = inputEl.getBoundingClientRect();
       pop.style.top = (window.scrollY + r.bottom + 8) + 'px';
-      pop.style.left = (window.scrollX + r.left) + 'px';
+      // Whole popup on screen: on a phone the input sits well in from the edge.
+      const left = Math.max(16, Math.min(r.left, document.documentElement.clientWidth - pop.offsetWidth - 16));
+      pop.style.left = (window.scrollX + left) + 'px';
+    }
+    // Keyboard users enter the popup (it sits at the end of <body>, so Tab alone would never reach it): selected day,
+    // else the first selectable day. Mouse and touch keep focus in the field so a typed date still works.
+    function focusPop() {
+      if (!pop) return;
+      const target = pop.querySelector('.cal-selected') || pop.querySelector('.cal-day[tabindex="0"]') || pop.querySelector('.cal-nav');
+      if (target) target.focus();
+    }
+    // Tab loops inside the open popup; arrows move between days; Escape (onEscape) closes and returns to the field.
+    function onPopKey(e) {
+      if (e.key === 'Tab') {
+        const items = Array.from(pop.querySelectorAll('button, .cal-day[tabindex="0"]'));
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        return;
+      }
+      const step = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -7, ArrowDown: 7 }[e.key];
+      const cell = document.activeElement;
+      if (step === undefined || !cell || !cell.classList.contains('cal-day')) return;
+      e.preventDefault();
+      const cells = Array.from(pop.querySelectorAll('.cal-day'));
+      const next = cells[cells.indexOf(cell) + step];
+      if (next && next.getAttribute('tabindex') === '0') next.focus();
     }
     function onOutside(e) {
       if (pop && !pop.contains(e.target) && e.target !== inputEl) close();
@@ -1075,6 +1104,7 @@
       pop.className = 'cal-pop';
       pop.setAttribute('role', 'dialog');
       pop.setAttribute('aria-label', 'Choose a date');
+      pop.addEventListener('keydown', onPopKey);
       document.body.appendChild(pop);
       position();
       render();
@@ -1101,7 +1131,9 @@
     // Enter/Space this replaced it doesn't swallow form submission or a
     // keystroke now that the field accepts a typed YYYY-MM-DD.
     inputEl.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowDown') { e.preventDefault(); open(); }
+      if (e.key === 'ArrowDown') { e.preventDefault(); open(); focusPop(); }
+      // With the popup open, Tab goes into it rather than past it to the end of the page.
+      else if (e.key === 'Tab' && !e.shiftKey && pop) { e.preventDefault(); focusPop(); }
     });
   }
 
@@ -1182,12 +1214,15 @@
         row('Phone', r.phone || '-');
         if (r.nationality) row('Nationality', r.nationality);
         if (r.special_request) row('Special request', r.special_request);
-        if (r.paid != null && !['Cancel', 'Void', 'Checked Out'].includes(r.status)) {
+        const closed = ['Cancel', 'Void', 'Checked Out'].includes(r.status);
+        if (r.paid != null && !closed) {
           row('Paid', rupees(r.paid), true);
           row('Due at check-in', rupees(r.due || 0));
         }
+        // The server decides (a stay that has begun is for the front desk); the button follows it.
+        if (r.can_cancel === false && !closed && r.cancel_note) row('Cancellation', r.cancel_note, true);
         current = { resNo: r.reservation_no, email };
-        cancelBtn.hidden = ['Cancel', 'Void', 'Checked Out'].includes(r.status);
+        cancelBtn.hidden = closed || r.can_cancel === false;
         details.hidden = false;
       } catch (err) {
         show(err.message || 'Something went wrong. Please try WhatsApp instead.', 'error');
