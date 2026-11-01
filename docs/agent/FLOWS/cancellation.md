@@ -6,6 +6,8 @@ Covers: api/cancel-booking.php,api/lib/razorpay.php,api/lib/dates.php,components
 
 Actor: guest with reservation number + email (cancel form on `/book-now`, `book-now.js:1085 initCancelForm`, POST at `:1102`).
 
+Guests can first look the booking up (`POST /api/lookup-booking.php`, same gate as cancel: reservation + email must match eZee; returns status, dates, rooms, and total/paid/due when a `done/` record exists; never email/phone/name). The manage card shows details, with cancel under them.
+
 ## Chain
 ```
 POST /api/cancel-booking.php {reservation_no, email}
@@ -16,11 +18,11 @@ POST /api/cancel-booking.php {reservation_no, email}
  -> write refunds/<reservation_no>.json {status:'cancelling'}   (recoverable trace)
  -> ezee_get CancelBooking {ResNo}   fail -> delete trace, 502 "WhatsApp us"
  -> refund_due_for_checkin(record.check_in) (>= FREE_CANCELLATION_HOURS=72 h before check-in, IST)
- -> cancellation_refund_outcome(...) -> razorpay_refund_payment (idempotency key, full refund)
+ -> cancellation_refund_outcome(...) -> razorpay_refund_payment (idempotency key; refund amount = what was paid, i.e. `pay_now`, so a deposit booking refunds the deposit)
  -> refunds/<reservation_no>.json = refunded | manual ; booking_alert mail either way
  -> {success:true, reservation_no, refund_note}
 ```
-- Cancelling is never blocked by the policy: inside 72 h the room is freed, no refund.
+- Cancelling is never blocked by the policy: inside 72 h the room is freed and the amount paid (the whole payment, or the deposit) is not refunded.
 - `record` (payment id, total, check_in) is read from `done/<order>.json` by reservation number.
 - Eligible refund that Razorpay does not confirm -> `status:'manual'` + alert "REFUND to review after cancellation".
 - Undetermined check-in date (`null`) -> no automatic refund, manual.
