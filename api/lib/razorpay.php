@@ -9,6 +9,16 @@ function razorpay_api_base(): string {
   return defined('RAZORPAY_API_BASE') ? RAZORPAY_API_BASE : 'https://api.razorpay.com';
 }
 
+/**
+ * Paise to charge now: the whole total ('full') or half rounded up ('deposit'), never below Razorpay's
+ * 100-paise minimum and never above the total. Null for any other option string.
+ */
+function pay_now_paise(int $totalPaise, string $option): ?int {
+  if ($option === 'full') return $totalPaise;
+  if ($option === 'deposit') return min($totalPaise, max(100, (int)ceil($totalPaise / 2)));
+  return null;
+}
+
 function razorpay_create_order(int $amountPaise, string $receipt, array $notes): array {
   $ch = curl_init(razorpay_api_base() . '/v1/orders');
   curl_setopt_array($ch, [
