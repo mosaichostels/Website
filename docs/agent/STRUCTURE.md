@@ -20,6 +20,7 @@ Covers: api/*.php,api/lib/*.php,components/*.js,scripts/*,.claude/settings.json,
 | `seo-reports/` | Dated reports `YYYY-MM-DD.md`, audits, `data/findings-ledger.json`, `data/<date>/` run snapshots, per-source subfolders (`gsc/ ga4/ bing/ clarity/ gbp/ cwv/ lighthouse/ commoncrawl/`) |
 | `docs/superpowers/` | `specs/` (weekly-seo v2 design) and `plans/` (6 plans, Oct 2026) |
 | `docs/agent/` | These files |
+| `anti-slop/` | antislop AFTER-mode audit reports (`audit-NNN-YYYY-MM-DD.md`); not deployed |
 | `docs/*.md` eZee/audit notes | Git-ignored local notes (see `.gitignore`); may be absent |
 | `.claude/` | `settings.json` (2 hooks), `settings.local.json` (machine-local, ignored), `hooks/`, `agents/security-reviewer.md`, `skills/{cache-bust-check,reconcile-payment,weekly-seo}`, `seo/` (extractors, `verify.sh`, `live_check.py`, `deploy-drift.sh`, `tests/`) |
 | `.codex/` | `hooks.json` (Codex-only PreToolUse `project_sync.py`), `agents/security-reviewer.toml`, `skills/weekly-seo` (symlink to `.claude/skills/weekly-seo`); excluded via `.git/info/exclude` (untracked) |

@@ -62,7 +62,7 @@
         ".htaccess",
         "blog/*/index.html"
       ],
-      "tokens_est": 947
+      "tokens_est": 985
     },
     {
       "file": "DATA.md",
@@ -307,7 +307,7 @@
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-10-30 @ 022a75c",
       "covers": [],
-      "tokens_est": 3126
+      "tokens_est": 3495
     },
     {
       "file": "STRUCTURE.md",
@@ -323,7 +323,7 @@
         ".claude/skills/*/SKILL.md",
         ".agents/skills/*/SKILL.md"
       ],
-      "tokens_est": 961
+      "tokens_est": 985
     },
     {
       "file": "TESTING.md",
