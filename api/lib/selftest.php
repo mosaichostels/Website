@@ -39,6 +39,16 @@ assert((int)round(1300.50 * 100) === 130050);
 assert((int)round(999.99 * 100) === 99999);
 assert((int)round(1.005 * 100) === 101 || (int)round(1.005 * 100) === 100); // float boundary, either rounding is acceptable — just must not throw/drift wildly
 
+// 3b. Amount charged now: full, or a 50% deposit rounded up, never below Razorpay's 100-paise minimum
+// and never above the total. Anything but the exact strings 'full' / 'deposit' is null.
+assert(pay_now_paise(73395, 'full') === 73395);
+assert(pay_now_paise(73395, 'deposit') === 36698);
+assert(pay_now_paise(73394, 'deposit') === 36697);
+assert(pay_now_paise(150, 'deposit') === 100);
+assert(pay_now_paise(100, 'deposit') === 100);
+assert(pay_now_paise(73395, 'half') === null);
+assert(pay_now_paise(73395, 'Deposit') === null);
+
 // 4. Stay-total resolution. eZee puts the total either nested under
 // room_rates_info or at the entry top level depending on account config.
 // availability.php and create-order.php both go through ezee_room_total(), and
