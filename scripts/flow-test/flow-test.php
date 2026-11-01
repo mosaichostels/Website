@@ -537,6 +537,39 @@ $rf = calls('rzp', 'refund'); $keys = array_unique(array_column($rf, 'key'));
 check('two simultaneous cancels: every refund call carries the SAME idempotency key (Razorpay pays once)', count($keys) === 1 && $keys[0] === "mosaic-cancel-$no", json_encode($keys));
 
 // ============================================================================
+section('Booking lookup');
+$lk = fn (string $no, string $email) => app('POST', '/api/lookup-booking.php', ['reservation_no' => $no, 'email' => $email]);
+$ci = d(40); $co = d(42);
+[$o, $p, $v] = confirmed(['pay_option' => 'deposit', 'check_in' => $ci, 'check_out' => $co, 'email' => 'lookup@example.com', 'phone' => '9811122233', 'last_name' => 'Zxsurname']); $no = $v['json']['reservation_no'];
+$l = $lk($no, 'Lookup@Example.com');
+$j = $l['json'] ?? [];
+check('(a) deposit booking: 200, status, dates and room name from eZee', $l['code'] === 200 && ($j['success'] ?? false) === true && ($j['status'] ?? '') === 'Confirmed' && ($j['check_in'] ?? '') === $ci && ($j['check_out'] ?? '') === $co && ($j['rooms'] ?? []) === ['8 - Bed Mixed Dorm'] && ($j['reservation_no'] ?? '') === $no, $l['raw']);
+check('(a) deposit booking: paid is the deposit, due is the balance, paid + due = total', ($j['paid'] ?? 0) == ($rc = rec($o))['pay_now'] && ($j['due'] ?? 0) == $rc['due_at_hotel'] && ($j['total'] ?? 0) == $rc['total'] && abs($j['paid'] + $j['due'] - $j['total']) < 0.005 && $j['due'] > 0, $l['raw']);
+$w = $lk($no, 'someone.else@example.com'); $u = $lk('987654', 'lookup@example.com');
+check('(b) wrong email and unknown reservation: both 404 with the identical generic body', $w['code'] === 404 && $u['code'] === 404 && $w['raw'] === $u['raw'] && str_contains($w['raw'], 'Reservation not found or email does not match'), $w['raw'] . ' / ' . $u['raw']);
+check('(d) reply never contains the email, phone or surname', !preg_match('/lookup@example|9811122233|Zxsurname|email|phone/i', $l['raw']), $l['raw']);
+[$o2, $p2, $v2] = confirmed(['check_in' => $ci, 'check_out' => $co, 'email' => 'full@example.com']); $no2 = $v2['json']['reservation_no'];
+$f = $lk($no2, 'full@example.com'); $fj = $f['json'] ?? [];
+check('(f) full-payment booking: paid equals total, due is 0', $f['code'] === 200 && ($fj['paid'] ?? -1) == ($fj['total'] ?? -2) && ($fj['due'] ?? -1) == 0 && ($fj['total'] ?? 0) > 0, $f['raw']);
+[$o3, $p3, $v3] = confirmed(['check_in' => $ci, 'check_out' => $co, 'email' => 'old@example.com']); $no3 = $v3['json']['reservation_no'];
+patch_rec($o3, [], ['pay_now', 'pay_option', 'due_at_hotel']);
+$g = $lk($no3, 'old@example.com'); $gj = $g['json'] ?? [];
+check('record from before the deposit option (no pay_now): paid = total, due = 0', $g['code'] === 200 && ($gj['paid'] ?? -1) == ($gj['total'] ?? -2) && ($gj['due'] ?? -1) == 0, $g['raw']);
+[$o4, $p4, $v4] = confirmed(['check_in' => $ci, 'check_out' => $co, 'email' => 'staff@example.com']); $no4 = $v4['json']['reservation_no']; unlink("$PEND/done/$o4.json");
+$s = $lk($no4, 'staff@example.com'); $sj = $s['json'] ?? [];
+check('(c) booking only in eZee (no done/ record): 200 with details and no paid/due/total keys', $s['code'] === 200 && ($sj['status'] ?? '') === 'Confirmed' && !array_key_exists('paid', $sj) && !array_key_exists('due', $sj) && !array_key_exists('total', $sj), $s['raw']);
+$c = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => 'lookup@example.com']);
+$cl = $lk($no, 'lookup@example.com');
+check('after cancelling, lookup shows status Cancel', $c['code'] === 200 && ($cl['json']['status'] ?? '') === 'Cancel', $cl['raw']);
+check('missing fields -> 400, bad reservation characters -> the generic 404', $lk('', '')['code'] === 400 && $lk('12 3;', 'a@b.co')['code'] === 404);
+// (e) five lookups from one client pass, the sixth is refused.
+foreach (glob("$PEND/ratelimit/*.json") ?: [] as $rf) @unlink($rf);
+$keep_limits = true; $codes = [];
+for ($i = 0; $i < 6; $i++) $codes[] = $lk($no2, 'full@example.com')['code'];
+$keep_limits = false;
+check('(e) sixth lookup from one client inside the window -> 429 (first five 200)', $codes === [200, 200, 200, 200, 200, 429], json_encode($codes));
+
+// ============================================================================
 echo "\n----------------------------------------\n";
 echo "PASS $pass   FAIL $fail\n";
 if ($failures) { echo "Failures:\n"; foreach ($failures as $f) echo " - $f\n"; }

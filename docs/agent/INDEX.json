@@ -10,7 +10,7 @@
         "api/.htaccess",
         "api/lib/.htaccess"
       ],
-      "tokens_est": 779
+      "tokens_est": 869
     },
     {
       "file": "ARCHITECTURE.md",
@@ -307,7 +307,7 @@
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-10-30 @ 022a75c",
       "covers": [],
-      "tokens_est": 2565
+      "tokens_est": 2644
     },
     {
       "file": "STRUCTURE.md",

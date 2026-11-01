@@ -12,6 +12,7 @@
 require __DIR__ . '/lib/config.php';
 require __DIR__ . '/lib/ezee.php';
 require_once __DIR__ . '/lib/razorpay.php';
+require_once __DIR__ . '/lib/booking.php';
 
 // Tightest of the three: without a ceiling this is a free oracle for guessing
 // reservation numbers. Nobody legitimately cancels five times in ten minutes.
@@ -106,19 +107,3 @@ if ($outcome['action'] === 'none') {
 }
 
 json_ok(['success' => true, 'reservation_no' => $reservationNo, 'refund_note' => $outcome['note']]);
-
-/**
- * Our own done/ record, looked up by reservation number. Preferred over eZee's
- * FetchSingleBooking for the check-in date because this shape is one we write
- * ourselves (create-order.php) and is the only place the Razorpay payment id
- * lives — eZee's date field names for a reservation aren't pinned down.
- * ponytail: linear scan over done/, fine at hostel volume; index by
- * reservation number if the directory ever gets large.
- */
-function find_done_record(string $reservationNo): ?array {
-  foreach (glob(PENDING_ORDERS_DIR . '/done/*.json') ?: [] as $file) {
-    $record = json_decode((string)file_get_contents($file), true);
-    if (is_array($record) && (string)($record['reservation_no'] ?? '') === $reservationNo) return $record;
-  }
-  return null;
-}

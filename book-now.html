@@ -474,8 +474,8 @@
 <div class="direct-section reveal marketing-section">
   <div class="direct-card manage-card">
     <details class="manage-details">
-    <summary class="direct-title">Need to cancel a booking?</summary>
-    <div class="direct-sub">Enter your reservation number and the email you booked with — we'll verify and cancel it for you.</div>
+    <summary class="direct-title">Look up or cancel a booking</summary>
+    <div class="direct-sub">Enter your reservation number and the email you booked with to see your booking. You can cancel it from there.</div>
     <form id="cancelForm" data-clarity-mask="True">
       <div class="field-row">
         <div class="field">
@@ -487,9 +487,13 @@
           <input type="email" id="cEmail" name="email" autocomplete="email" required>
         </div>
       </div>
-      <button type="submit" class="form-submit">Cancel Booking</button>
+      <button type="submit" class="form-submit">Look up booking</button>
       <div class="form-msg" id="cancelMsg" role="status" aria-live="polite"></div>
     </form>
+    <div id="bookingDetails" hidden>
+      <dl id="bookingDetailsList" class="manage-details-list"></dl>
+      <button type="button" class="form-submit" id="cancelBookingBtn">Cancel Booking</button>
+    </div>
     </details>
   </div>
 </div>
@@ -683,7 +687,7 @@
 
     <script src="/components/site.js?v=20261030"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="/components/book-now.js?v=20261101b"></script>
+    <script src="/components/book-now.js?v=20261101c"></script>
     <script src="/components/navbar.js?v=20261028"></script>
 <script src="/components/footer.js?v=20260729"></script>
 
