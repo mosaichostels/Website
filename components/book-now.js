@@ -544,7 +544,7 @@
           selection.total = order.new_total;
           renderPriceSummary();
           showMsg(guestMsg, `The rate for these dates changed from ₹${fmtPrice(order.old_total)} to ₹${fmtPrice(order.new_total)}. `
-            + 'The summary above is updated — press Pay & Confirm Booking again to continue at the new rate.', 'error');
+            + 'The summary above is updated — press ${payButtonText()} again to continue at the new rate.', 'error');
           return;
         }
         if (!res.ok || !order || order.error) throw new Error((order && order.error) || 'We couldn\'t start the payment just now. Please try again, or WhatsApp us.');
@@ -573,7 +573,7 @@
         // Rates and availability move; past the reuse window we re-price rather
         // than reopen a stale order.
         hideRetry();
-        showMsg(guestMsg, 'This payment session has expired. Please press "Pay & Confirm Booking" to start a fresh one.', 'error');
+        showMsg(guestMsg, `This payment session has expired. Please press "${payButtonText()}" to start a fresh one.`, 'error');
         return;
       }
       if (lastOrder.payload.pay_option !== payOption()) {
@@ -1171,7 +1171,7 @@
         row('Check-in', r.check_in || '-');
         row('Check-out', r.check_out || '-');
         row('Rooms', (r.rooms || []).join(', ') || '-');
-        if (r.paid != null) {
+        if (r.paid != null && !['Cancel', 'Void', 'Checked Out'].includes(r.status)) {
           row('Paid', rupees(r.paid));
           row('Due at check-in', rupees(r.due || 0));
         }

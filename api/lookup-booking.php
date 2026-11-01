@@ -31,12 +31,17 @@ $booking = ezee_fetch_booking($reservationNo);
 $reservation = $booking['Reservations']['Reservation'][0] ?? null;
 if (!$booking['_ok'] || !$reservation) json_error(404, LOOKUP_NOT_FOUND);
 
+if (!is_array($reservation) || !is_string($reservation['Email'] ?? '')) json_error(404, LOOKUP_NOT_FOUND);
 $onFileEmail = strtolower(trim($reservation['Email'] ?? ''));
 if ($onFileEmail === '' || $onFileEmail !== strtolower($email)) json_error(404, LOOKUP_NOT_FOUND);
 
 $trans = $reservation['BookingTran'] ?? [];
-$starts = array_filter(array_column($trans, 'Start'));
-$ends = array_filter(array_column($trans, 'End'));
+// One transaction can arrive as a bare object; anything that is not a list of objects counts as none.
+if (is_array($trans) && $trans && array_keys($trans) !== range(0, count($trans) - 1)) $trans = [$trans];
+$trans = is_array($trans) ? array_values(array_filter($trans, 'is_array')) : [];
+if (!$trans) json_error(404, LOOKUP_NOT_FOUND);
+$starts = array_filter(array_column($trans, 'Start'), 'is_string');
+$ends = array_filter(array_column($trans, 'End'), 'is_string');
 $reply = [
   'success' => true,
   'reservation_no' => $reservationNo,
@@ -46,6 +51,9 @@ $reply = [
   'rooms' => array_values(array_filter(array_column($trans, 'RoomTypeName'))),
 ];
 $record = find_done_record($reservationNo);
+// No dates from eZee: use what we stored when the booking was made.
+if ($record && !$starts) $reply['check_in'] = $record['check_in'] ?? null;
+if ($record && !$ends) $reply['check_out'] = $record['check_out'] ?? null;
 if ($record && isset($record['total'])) {
   // Records from before the deposit option have no pay_now: everything was paid up front.
   $reply['total'] = $record['total'];

@@ -50,6 +50,7 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
   // InsertBooking (15 s) + AddPayment (15 s, retried once) can outlast a 30 s host limit, which killed the request
   // AFTER the reservation existed and left the order stuck in processing/.
   @set_time_limit(120);
+  ignore_user_abort(true); // the browser gives up after 25 s; the host must not kill us between InsertBooking and AddPayment
   ensure_pending_dirs();
   $pendingPath = PENDING_ORDERS_DIR . '/pending/' . $orderId . '.json';
   $abandonedPath = PENDING_ORDERS_DIR . '/abandoned/' . $orderId . '.json';
@@ -242,7 +243,7 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
   $record['confirmed_at'] = date('c');
   if (file_put_contents($donePath, json_encode($record, JSON_PRETTY_PRINT)) === false) {
     // Keep the claim file (it already holds the reservation number); never delete the only copy of the record.
-    booking_alert('reservation created but done/ record NOT written', "order=$orderId reservation=$reservationNo payment=$paymentId total={$record['total']} — disk full or not writable; the record is in processing/");
+    booking_alert('reservation created but done/ record NOT written', "order=$orderId reservation=$reservationNo payment=$paymentId total={$record['total']} paid=$paid — disk full or not writable; the record is in processing/");
   } else {
     @unlink($processingPath);
   }

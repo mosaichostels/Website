@@ -132,7 +132,11 @@ if (str_starts_with($path, '/ezee/pmsinterface/pms_connectivity.php')) {
   if (!$b) out(['Errors' => ['ErrorCode' => '1', 'ErrorMessage' => 'No booking found']]);
   $names = ['5767700000000000006' => '4 - Bed Mixed Dorm', '5767700000000000001' => '8 - Bed Mixed Dorm', '5767700000000000007' => 'Double Room']; // same ids as RoomList above
   $tran = array_map(fn ($id) => ['CurrentStatus' => $b['CurrentStatus'], 'RoomTypeName' => $names[$id] ?? $id, 'Start' => $b['check_in'], 'End' => $b['check_out'] ?? ''], $b['room_ids'] ?? [null]);
-  out(['Reservations' => ['Reservation' => [['Email' => $b['Email'], 'BookingTran' => $tran]]]]);
+  $shape = cfg('fetch_shape'); // odd replies live eZee could give: string | object | nodates | email_array
+  if ($shape === 'string') $tran = 'No transactions';
+  if ($shape === 'object') $tran = $tran[0];
+  if ($shape === 'nodates') $tran = array_map(fn ($t) => array_diff_key($t, ['Start' => 1, 'End' => 1]), $tran);
+  out(['Reservations' => ['Reservation' => [['Email' => $shape === 'email_array' ? [$b['Email']] : $b['Email'], 'BookingTran' => $tran]]]]);
 }
 if (str_starts_with($path, '/ezee/index.php/page/service.kioskconnectivity')) {
   logcall(['ezee' => 'AddPayment', 'req' => $json['RES_Request']['Reservation'][0] ?? null]);
