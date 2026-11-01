@@ -230,6 +230,9 @@ foreach (['gTitle' => GUEST_TITLES, 'gGender' => GUEST_GENDERS, 'gArrival' => GU
   }
   assert(array_values(array_diff($values, [''])) === $allowed, "#$id options differ from the server list");
 }
+// The pay-option radios carry exactly the two values create-order.php accepts.
+preg_match_all('/<input[^>]*name="pay_option"[^>]*value="([^"]*)"/', $page, $po);
+assert($po[1] === ['full', 'deposit'], 'pay_option radios on book-now.html must be exactly full and deposit');
 // The nationality list lives in book-now.js (COUNTRIES, "name|dial-code,...").
 preg_match("/COUNTRIES = \\((.*?)\\)\\s*\\.split/s", file_get_contents(__DIR__ . '/../../components/book-now.js'), $m);
 preg_match_all("/'([^']*)'/", $m[1], $chunks);
