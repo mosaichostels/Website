@@ -576,6 +576,12 @@
         showMsg(guestMsg, 'This payment session has expired. Please press "Pay & Confirm Booking" to start a fresh one.', 'error');
         return;
       }
+      if (lastOrder.payload.pay_option !== payOption()) {
+        // The order was created for the other option; reopening it would charge that amount.
+        hideRetry();
+        showMsg(guestMsg, `You changed how you'd like to pay. Please press "${payButtonText()}" to start a fresh payment.`, 'error');
+        return;
+      }
       hideRetry();
       clearMsg(guestMsg);
       openRazorpay(lastOrder.order, lastOrder.payload);
@@ -665,14 +671,17 @@
       // for the same reason: rows that don't add up to the total read as an
       // error, and this screen's job is what was booked and what was paid.
       const paid = paidAmount();
+      // Integer paise: cart totals are float sums (785.9100000000001) and must not read as underpaid.
+      const paidPaise = Math.round(paid * 100);
+      const totalPaise = Math.round(sel.total * 100);
       const rooms = sel.items.map((c) =>
         `<div class="price-row"><span>Room</span><span>${c.qty}× ${escapeHtml(c.name)}${guestSuffix(c)}</span></div>`).join('');
       return `<div class="price-row"><span>Dates</span><span>${escapeHtml(sel.check_in)} → ${escapeHtml(sel.check_out)}</span></div>`
         + `<div class="price-row"><span>Nights</span><span>${nights}</span></div>`
         + rooms
-        + (paid < sel.total
+        + (paidPaise < totalPaise
           ? `<div class="price-row price-row-divider"><span>Paid now</span><span>₹${fmtPrice(paid)}</span></div>`
-            + `<div class="price-row"><span>Due at check-in</span><span>₹${fmtPrice(Math.round((sel.total - paid) * 100) / 100)}</span></div>`
+            + `<div class="price-row"><span>Due at check-in</span><span>₹${fmtPrice((totalPaise - paidPaise) / 100)}</span></div>`
           : `<div class="price-row price-row-divider"><span>Total paid</span><span>₹${fmtPrice(paid)}</span></div>`);
     }
 
