@@ -18,7 +18,7 @@ as Codex SEO's migration fallback; Codex-native credentials belong under
 `~/.config/codex-seo/`. Source the env for Bing, Clarity and IndexNow calls:
 `source ~/.config/mosaic-seo/env &&`. **Never** expose credentials in transcript or logs.
 ## Scope lock
-Touchable: `*.html`, `styles/`, `components/`, `sitemap.xml`, `robots.txt`,
+Touchable: `*.html`, `styles/`, `components/`, `sitemap.xml`, `sitemap-images.xml`, `robots.txt`,
 `llms.txt`, verified SEO 301 redirects in `.htaccess`, `seo-reports/`, and,
 for facts only and never rules (see
 Self-improvement), `.claude/skills/weekly-seo/SKILL.md` and `references/*.md`; Codex exposes this source through `.codex/skills/weekly-seo`.
