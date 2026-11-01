@@ -94,6 +94,7 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
     booking_alert('PAID but order record unreadable', "order=$orderId payment=$paymentId — the saved booking details are missing or corrupt; book the guest by hand from Razorpay's payment details");
     return ['status' => 'failed'];
   }
+  $paid = $record['pay_now'] ?? $record['total']; // rupees Razorpay took; records from before the deposit option have no pay_now
 
   if (!empty($record['last_attempt_at']) && time() - (int)$record['last_attempt_at'] < CONFIRM_RETRY_GAP_SECONDS) {
     @rename($processingPath, $pendingPath);
@@ -176,7 +177,7 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
     unset($record['last_attempt_at']);
     file_put_contents($processingPath, json_encode($record, JSON_PRETTY_PRINT));
     @rename($processingPath, $failedPath);
-    booking_alert('PAID but booking NOT created', "order=$orderId payment=$paymentId amount={$record['total']} email={$record['email']}"
+    booking_alert('PAID but booking NOT created', "order=$orderId payment=$paymentId amount=$paid email={$record['email']}"
       . ' ambiguous=' . ($ambiguous ? 'yes (check eZee for an existing reservation BEFORE re-queueing)' : 'no')
       . ' response=' . json_encode($insertResponse));
     return ['status' => 'failed'];
@@ -213,7 +214,7 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
           'BookingId' => $reservationNo,
           'PaymentId' => EZEE_PAYMENT_ID,
           'CurrencyId' => EZEE_CURRENCY_ID,
-          'Payment' => (string)$record['total'],
+          'Payment' => (string)$paid,
           'Comment' => 'Razorpay payment ' . $paymentId,
         ]],
       ],
@@ -234,7 +235,7 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
       // Deliberately loud and greppable: this is a manual reconciliation item.
       // Everything needed to post the payment by hand is on this one line.
       booking_alert('ACTION REQUIRED AddPayment failed twice', "reservation=$reservationNo"
-        . " payment=$paymentId amount={$record['total']} response=" . json_encode($paymentResponse));
+        . " payment=$paymentId amount=$paid response=" . json_encode($paymentResponse));
     }
   }
 
@@ -245,7 +246,7 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
   } else {
     @unlink($processingPath);
   }
-  bookings_log("CONFIRMED order=$orderId reservation=$reservationNo payment=$paymentId total={$record['total']}");
+  bookings_log("CONFIRMED order=$orderId reservation=$reservationNo payment=$paymentId total={$record['total']} paid=$paid");
 
   return ['status' => 'done', 'reservation_no' => $reservationNo, 'sub_reservation_no' => $subReservationNo];
 }
