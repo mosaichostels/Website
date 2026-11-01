@@ -253,6 +253,26 @@ ctl('/ctl/set?insert_mode=invaliddata');
 $o = new_order(['pay_option' => 'deposit'])['json']['order_id']; $p = pay($o)['id']; verify($o, $p);
 check('deposit + InsertBooking rejected: PAID-but-NOT-created alert prints amount=366.98', preg_match('/PAID but booking NOT created order=' . $o . ' payment=' . $p . ' amount=366\.98 /', log_text()) === 1);
 ctl('/ctl/set?insert_mode=ok');
+// Cancelling a deposit booking: the one captured payment is the deposit, and the wording must say so.
+ctl('/ctl/reset');
+[$o, $p, $v] = confirmed(['pay_option' => 'deposit', 'check_in' => d(20), 'check_out' => d(21)]); $no = $v['json']['reservation_no'];
+$c = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com']);
+$rf = calls('rzp', 'refund');
+$wi = json_decode((string)@file_get_contents("$PEND/refunds/$no.json"), true) ?: [];
+check('deposit, 20 days out: cancelled, one refund call for the deposit payment', $c['code'] === 200 && str_contains($c['json']['refund_note'] ?? '', 'initiated') && count($rf) === 1 && $rf[0]['payment'] === $p, $c['raw'] . json_encode($rf));
+check('deposit refund work item and CANCELLED log show the deposit 366.98, not the total', ($wi['amount'] ?? 0) == 366.98 && preg_match('/CANCELLED reservation=' . $no . ' .* amount=366\.98 /', log_text()) === 1, json_encode($wi));
+ctl('/ctl/reset');
+[$o, $p, $v] = confirmed(['pay_option' => 'deposit', 'check_in' => d(20), 'check_out' => d(21)]); $no = $v['json']['reservation_no'];
+patch_rec($o, ['check_in' => d(1), 'check_out' => d(2)]);
+$c = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com']);
+check('deposit inside 72 h: cancelled, no refund call, note says the deposit is not refundable', $c['code'] === 200 && str_contains($c['json']['refund_note'] ?? '', 'your deposit is not refundable') && count(calls('rzp', 'refund')) === 0, $c['raw']);
+ctl('/ctl/reset');
+[$o, $p, $v] = confirmed(['check_in' => d(20), 'check_out' => d(21)]); $no = $v['json']['reservation_no'];
+patch_rec($o, [], ['pay_now', 'pay_option', 'due_at_hotel']);
+$c = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com']);
+$wi = json_decode((string)@file_get_contents("$PEND/refunds/$no.json"), true) ?: [];
+check('pre-deploy record (no pay_now): refund work item amount falls back to total 733.95', $c['code'] === 200 && ($wi['amount'] ?? 0) == 733.95, json_encode($wi));
+ctl('/ctl/reset');
 
 // ============================================================================
 section('Multi-night stays: eZee needs one rate per night (the cause of the 27 Sep and 26 Oct failures)');

@@ -77,13 +77,15 @@ if (!$ok) {
 // still frees the room, they just aren't refunded for it.
 $record = find_done_record($reservationNo);
 $refundDue = refund_due_for_checkin($record['check_in'] ?? null); // null = undetermined
-$outcome = cancellation_refund_outcome($refundDue, $record['razorpay_payment_id'] ?? null, $reservationNo, 'razorpay_refund_payment');
+$paid = $record['pay_now'] ?? $record['total'] ?? 'unknown';
+$outcome = cancellation_refund_outcome($refundDue, $record['razorpay_payment_id'] ?? null, $reservationNo, 'razorpay_refund_payment', (string)($record['pay_option'] ?? 'full'));
 
 bookings_log(sprintf(
-  'CANCELLED reservation=%s email=%s payment=%s amount=%s refund_due=%s action=%s refund_id=%s',
+  'CANCELLED reservation=%s email=%s payment=%s amount=%s total=%s refund_due=%s action=%s refund_id=%s',
   $reservationNo,
   $email,
   $record['razorpay_payment_id'] ?? 'unknown',
+  $paid, // the refund is of what was paid (the deposit, or the total for full and pre-deposit records)
   $record['total'] ?? 'unknown',
   $refundDue === null ? 'unknown' : ($refundDue ? 'YES' : 'no'),
   $outcome['action'],
@@ -95,7 +97,7 @@ if ($outcome['action'] === 'none') {
   @unlink($intentFile);
 } else {
   $refund = ['reservation_no' => $reservationNo, 'razorpay_payment_id' => $record['razorpay_payment_id'] ?? null,
-    'amount' => $record['total'] ?? null, 'refund_due' => $refundDue === null ? 'unknown' : 'yes',
+    'amount' => $record['pay_now'] ?? $record['total'] ?? null, 'refund_due' => $refundDue === null ? 'unknown' : 'yes',
     'status' => $outcome['action'] === 'refunded' ? 'refunded' : 'manual',
     'razorpay_refund_id' => $outcome['refund_id'] ?? null, 'reason' => $outcome['reason'] ?? null,
     'cancelled_at' => date('c')];

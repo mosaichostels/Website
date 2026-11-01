@@ -153,6 +153,12 @@ $noId = function (string $pid, string $key, array $notes): array { return ['_ok'
 // Inside the 72h window: never refund, never even call Razorpay.
 $calls = []; $r = cancellation_refund_outcome(false, 'pay_1', 'RES-1', $ok);
 assert($r['action'] === 'none' && $calls === [] && str_contains($r['note'], 'not refundable'));
+// Deposit inside the window: same, but the note says deposit.
+$calls = []; $r = cancellation_refund_outcome(false, 'pay_1', 'RES-1', $ok, 'deposit');
+assert($r['action'] === 'none' && $calls === [] && str_contains($r['note'], 'your deposit is not refundable'));
+// Deposit outside the window: the one payment is refunded as usual.
+$calls = []; $r = cancellation_refund_outcome(true, 'pay_1', 'RES-1', $ok, 'deposit');
+assert($r['action'] === 'refunded' && $calls === [['pay_1', 'mosaic-cancel-RES-1']]);
 // Date unreadable: promise nothing, leave it to a person.
 $calls = []; $r = cancellation_refund_outcome(null, 'pay_1', 'RES-1', $ok);
 assert($r['action'] === 'manual' && $calls === [] && str_contains($r['note'], 'confirm'));
