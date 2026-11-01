@@ -544,7 +544,7 @@
           selection.total = order.new_total;
           renderPriceSummary();
           showMsg(guestMsg, `The rate for these dates changed from ₹${fmtPrice(order.old_total)} to ₹${fmtPrice(order.new_total)}. `
-            + 'The summary above is updated — press ${payButtonText()} again to continue at the new rate.', 'error');
+            + `The summary above is updated — press "${payButtonText()}" again to continue at the new rate.`, 'error');
           return;
         }
         if (!res.ok || !order || order.error) throw new Error((order && order.error) || 'We couldn\'t start the payment just now. Please try again, or WhatsApp us.');
