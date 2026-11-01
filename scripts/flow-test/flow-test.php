@@ -215,6 +215,24 @@ check('ProcessBooking failing still books the guest, still posts the payment, an
 ctl('/ctl/set?process_mode=ok');
 
 // ============================================================================
+section('Deposit option: pay_option picks how much Razorpay charges');
+$r = new_order(['pay_option' => 'deposit']);
+$oid = $r['json']['order_id'] ?? 'x';
+$rc = rec($oid);
+check('deposit: 200 and Razorpay is asked for 36698 paise', $r['code'] === 200 && ($r['json']['amount'] ?? 0) === 36698, $r['raw']);
+check('deposit record: pay_option, pay_now, due_at_hotel, total, amount', ($rc['pay_option'] ?? '') === 'deposit' && ($rc['pay_now'] ?? 0) === 366.98 && ($rc['due_at_hotel'] ?? 0) === 366.97 && ($rc['total'] ?? 0) === 733.95 && ($rc['amount'] ?? 0) === 36698, json_encode($rc));
+$r = new_order();
+$rc = rec($r['json']['order_id'] ?? 'x');
+check('no pay_option -> full: 73395 paise, pay_option full, nothing due at hotel', ($r['json']['amount'] ?? 0) === 73395 && ($rc['pay_option'] ?? '') === 'full' && ($rc['pay_now'] ?? 0) === 733.95 && ($rc['due_at_hotel'] ?? -1) == 0, json_encode($rc));
+foreach (['half', 'Deposit', '', ['deposit']] as $bad) {
+  $before = rzp_orders();
+  $r = new_order(['pay_option' => $bad]);
+  check('pay_option ' . json_encode($bad) . ' -> 400, no Razorpay order', $r['code'] === 400 && rzp_orders() === $before, $r['raw']);
+}
+$r = new_order(['pay_option' => 'deposit', 'expected_total' => 1.00]);
+check('deposit with stale expected_total still compares the FULL total -> 409', $r['code'] === 409 && ($r['json']['price_changed'] ?? false) === true && ($r['json']['new_total'] ?? 0) === 733.95, $r['raw']);
+
+// ============================================================================
 section('Multi-night stays: eZee needs one rate per night (the cause of the 27 Sep and 26 Oct failures)');
 [$o, $p, $v] = confirmed(['check_in' => d(40), 'check_out' => d(45), 'rooms' => [ROOM_DOUBLE()], 'guest' => ['title' => 'Ms.', 'gender' => 'Female'], 'nationality' => '']);
 check('Double Room, 5 nights, rate changing on the last night, empty nationality (the 26 Oct order) now confirms', $v['code'] === 200 && rec($o)['amount'] === 1249080, $v['raw']);

@@ -36,7 +36,7 @@ rate_limit('create-order-all', 60, 600, 'all');
 $body = read_json_body();
 // Scalars must really be strings: an array here used to reach preg_replace()
 // or strlen() below and die as a 500 with an empty body.
-foreach (['check_in', 'check_out', 'first_name', 'last_name', 'email', 'phone', 'phone_code', 'nationality', 'special_request', 'arrival_time'] as $k) {
+foreach (['check_in', 'check_out', 'first_name', 'last_name', 'email', 'phone', 'phone_code', 'nationality', 'special_request', 'arrival_time', 'pay_option'] as $k) {
   if (isset($body[$k]) && !is_string($body[$k])) json_error(400, 'Invalid request.');
 }
 if (isset($body['guest'])) {
@@ -208,7 +208,11 @@ foreach ($cart as $item) {
     $total += $perUnitTotal;
   }
 }
-$amountPaise = (int)round($total * 100); // integer math — avoids float rounding drift on paise conversion
+$totalPaise = (int)round($total * 100); // integer math — avoids float rounding drift on paise conversion
+// Only the pay_now_paise() values are accepted; refused before any Razorpay call.
+$payOption = $body['pay_option'] ?? 'full';
+$amountPaise = pay_now_paise($totalPaise, $payOption);
+if ($amountPaise === null) json_error(400, 'Please choose how to pay.');
 
 // The price above is authoritative and always has been — the client never sets
 // it. What was missing is TELLING the guest when it moved. eZee rates can
@@ -242,6 +246,9 @@ $pendingRecord = [
   'order_id' => $order['id'],
   'amount' => $amountPaise,
   'total' => $total,
+  'pay_option' => $payOption,
+  'pay_now' => $amountPaise / 100,
+  'due_at_hotel' => round($total - $amountPaise / 100, 2),
   'check_in' => $checkIn,
   'check_out' => $checkOut,
   'room_units' => $roomUnits,
