@@ -7,7 +7,7 @@ Covers: blog/*/index.html,sitemap.xml,sitemap-images.xml,llms.txt,.htaccess,scri
 ```
 edit html / components / styles / .htaccess
  -> shared JS/CSS edited? bump ?v= on every HTML (CONVENTIONS, skill cache-bust-check)
- -> new post/page? blog/index.html + sitemap.xml (+ sitemap-images.xml, llms.txt) + .htaccess rules (root pages)
+ -> new post/page? blog/index.html + sitemap.xml (+ sitemap-images.xml, llms.txt) + .htaccess rules (root pages); header/footer links are per-page HTML (see CONVENTIONS); Hostel JSON-LD `sameAs` must stay identical on all 7 Hostel pages
  -> ./.claude/seo/verify.sh [--all]   (HTML parses, internal links, sitemap, JSON-LD) exit 1 = stop
  -> git commit (conventional; SEO work carries F-id)
  -> ./scripts/deploy.sh <files> | all   (FTP via lftp; selftest gate if .php) -> DEPLOY.md

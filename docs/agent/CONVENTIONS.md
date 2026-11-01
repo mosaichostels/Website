@@ -25,7 +25,7 @@ Covers: components/*.js,styles/global.css,PRODUCT.md,.htaccess,blog/*/index.html
 4. `./.claude/seo/verify.sh`, then deploy (COMMANDS), then `python3 .claude/seo/live_check.py`, add the URL to `.claude/seo/live_check.json` if it tracks pages, then `scripts/indexnow-submit.sh --since <ref>`.
 
 ## New page checklist
-Folder + `index.html` (like `dorms/`) needs no `.htaccess` rule. A root `.html` page needs the three rewrite pieces in `.htaccess` (`foo.html` -> `/foo` 301, `foo/` -> `/foo` 301, `foo` -> `foo.html` with the `!-f`,`!-d`,`!/blogs/` conds). Add to `sitemap.xml`, link from `components/navbar.js`/`footer.js` if it should be navigable (`/dorms/` currently is not in the navbar).
+Folder + `index.html` (like `dorms/`) needs no `.htaccess` rule. A root `.html` page needs the three rewrite pieces in `.htaccess` (`foo.html` -> `/foo` 301, `foo/` -> `/foo` 301, `foo` -> `foo.html` with the `!-f`,`!-d`,`!/blogs/` conds). Add to `sitemap.xml`, link it if it should be navigable: the header nav and footer are written into every HTML page by hand (not `navbar.js`), and nav order comes from `.nav-link[data-page=...]{order:N}` rules in `styles/global.css` (a link with no rule jumps to the front; `/dorms/` has one and is hidden at 769-900 px for fit). Bump the `?v=` after touching that CSS.
 
 ## Code style seen in repo
 - JS: IIFE per file, `function` declarations, `window.MOSAIC` for shared helpers, `fetch` with timeouts via `fetchJson` (`components/book-now.js:252`).
