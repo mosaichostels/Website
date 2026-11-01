@@ -558,6 +558,16 @@ check('record from before the deposit option (no pay_now): paid = total, due = 0
 [$o4, $p4, $v4] = confirmed(['check_in' => $ci, 'check_out' => $co, 'email' => 'staff@example.com']); $no4 = $v4['json']['reservation_no']; unlink("$PEND/done/$o4.json");
 $s = $lk($no4, 'staff@example.com'); $sj = $s['json'] ?? [];
 check('(c) booking only in eZee (no done/ record): 200 with details and no paid/due/total keys', $s['code'] === 200 && ($sj['status'] ?? '') === 'Confirmed' && !array_key_exists('paid', $sj) && !array_key_exists('due', $sj) && !array_key_exists('total', $sj), $s['raw']);
+// Odd eZee replies (mock fetch_shape): never a 500, never a different 404 body.
+ctl('/ctl/set?fetch_shape=string'); $x = $lk($no, 'lookup@example.com');
+check('(g) BookingTran is a string: the generic 404, no 500', $x['code'] === 404 && str_contains($x['raw'], 'Reservation not found or email does not match'), $x['raw']);
+ctl('/ctl/set?fetch_shape=object'); $x = $lk($no, 'lookup@example.com');
+check('(g) BookingTran is a single object: 200 with status and dates', $x['code'] === 200 && ($x['json']['status'] ?? '') === 'Confirmed' && ($x['json']['check_in'] ?? '') === $ci && ($x['json']['check_out'] ?? '') === $co, $x['raw']);
+ctl('/ctl/set?fetch_shape=nodates'); $x = $lk($no, 'lookup@example.com');
+check('(g) eZee gives no Start/End: dates come from the done/ record', $x['code'] === 200 && ($x['json']['check_in'] ?? '') === $ci && ($x['json']['check_out'] ?? '') === $co, $x['raw']);
+ctl('/ctl/set?fetch_shape=email_array'); $x = $lk($no, 'lookup@example.com');
+check('(g) Email is not a string: the generic 404', $x['code'] === 404 && str_contains($x['raw'], 'Reservation not found or email does not match'), $x['raw']);
+ctl('/ctl/set?fetch_shape=');
 $c = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => 'lookup@example.com']);
 $cl = $lk($no, 'lookup@example.com');
 check('after cancelling, lookup shows status Cancel', $c['code'] === 200 && ($cl['json']['status'] ?? '') === 'Cancel', $cl['raw']);

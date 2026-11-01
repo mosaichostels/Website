@@ -71,7 +71,7 @@ foreach (glob(PENDING_ORDERS_DIR . '/processing/*.json') ?: [] as $file) {
         @unlink($file);
         // Alert, not just a log line: the request may have died before AddPayment, leaving eZee showing it unpaid.
         booking_alert('order recovered after an interruption', "RECOVERED order=$orderId reservation={$stuck['reservation_no']} payment=" . ($stuck['razorpay_payment_id'] ?? '?')
-          . " — InsertBooking had succeeded; check the reservation shows the Razorpay payment in eZee and post it by hand if not");
+          . " — InsertBooking had succeeded; check the reservation shows the Razorpay payment in eZee and post it by hand if not, and assign a bed (ProcessBooking may not have run)");
         continue;
       }
     }
