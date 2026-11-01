@@ -11,7 +11,7 @@ Covers: components/*.js,styles/global.css,PRODUCT.md,.htaccess,blog/*/index.html
 | Cache bust | After editing any `components/*.js` or `styles/global.css`, change the `?v=` string on EVERY HTML file referencing it (25 files today, includes `dorms/` and `blog/*`). Format `YYYYMMDD` (+ suffix like `r6`). Skill `cache-bust-check`. Check: all references to one asset show a single version (COMMANDS) |
 | Clean URLs | Link to `/about`, `/book-now`, `/gallery`, `/contact`, `/privacy`, `/blog/`, `/dorms/` (no `.html`, folders keep trailing slash) |
 | Copy claims | Owner-supplied only: "100 m from Assi Ghat", "1500+ guests", "4.8 (427 reviews)", "60+ countries". Never invent reviews, ratings, prices, counts, distances |
-| Policy wording | Only what `PRODUCT.md` says: check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception, free cancellation up to 72 h before check-in |
+| Policy wording | Only what `PRODUCT.md` says: check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception, free cancellation up to 72 h before check-in, inside 72 h the amount paid is not refunded, pay in full or a 50% deposit now with the balance due at check-in |
 | Rooms | Exactly the 5 owner-confirmed types (OVERVIEW). Common room is not a room type |
 | Positioning | Keep "Premium budget hostel near Assi Ghat" and SEO-established copy structure unless the owner says otherwise |
 | Scope lock (SEO runs) | Touch only html, `styles/`, `components/`, `sitemap.xml`, `sitemap-images.xml`, `robots.txt`, `llms.txt`, verified SEO 301s in `.htaccess`, `seo-reports/` |

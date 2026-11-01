@@ -20,7 +20,7 @@ Kept as already set by the SEO work and live site copy: "Premium budget hostel n
 
 ## Operating Context
 
-Check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception. Free cancellation up to 72 hours before check-in, charged in full inside 72 hours. Valid government photo ID required from every guest. WhatsApp +91-9125492225 is the fastest channel.
+Check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception. Free cancellation up to 72 hours before check-in. Inside 72 hours the amount paid is not refunded. Pay in full, or a 50% deposit now with the balance due at check-in. Valid government photo ID required from every guest. WhatsApp +91-9125492225 is the fastest channel.
 
 ## Capabilities and Constraints
 

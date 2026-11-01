@@ -10,7 +10,7 @@
         "api/.htaccess",
         "api/lib/.htaccess"
       ],
-      "tokens_est": 869
+      "tokens_est": 874
     },
     {
       "file": "ARCHITECTURE.md",
@@ -62,7 +62,7 @@
         ".htaccess",
         "blog/*/index.html"
       ],
-      "tokens_est": 919
+      "tokens_est": 947
     },
     {
       "file": "DATA.md",
@@ -76,7 +76,7 @@
         "api/reconcile-pending.php",
         "seo-reports/data/*"
       ],
-      "tokens_est": 774
+      "tokens_est": 838
     },
     {
       "file": "DECISIONS.md",
@@ -137,7 +137,7 @@
         "api/lib/guest.php",
         "api/lib/dates.php"
       ],
-      "tokens_est": 1525
+      "tokens_est": 1587
     },
     {
       "file": "FLOWS/cancellation.md",
@@ -149,7 +149,7 @@
         "api/lib/dates.php",
         "components/book-now.js"
       ],
-      "tokens_est": 537
+      "tokens_est": 643
     },
     {
       "file": "FLOWS/content-publish.md",
@@ -261,7 +261,7 @@
         "sitemap.xml",
         ".htaccess"
       ],
-      "tokens_est": 591
+      "tokens_est": 612
     },
     {
       "file": "RUNBOOKS/paid-no-booking.md",
@@ -307,7 +307,7 @@
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-10-30 @ 022a75c",
       "covers": [],
-      "tokens_est": 2644
+      "tokens_est": 2805
     },
     {
       "file": "STRUCTURE.md",

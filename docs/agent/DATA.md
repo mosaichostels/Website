@@ -23,6 +23,7 @@ Order id shape `^order_[A-Za-z0-9]{6,40}$`; payment id `^pay_[A-Za-z0-9]{6,40}$`
 
 ### Order record keys (`create-order.php` writes; booking adds)
 `order_id, amount (paise), total (rupees), check_in, check_out, room_units[] (per physical room: roomtypeunkid, ratetypeunkid, roomrateunkid, baserate/extradultrate/extrachildrate as per-night comma lists, adults, children, child_ages, title, first_name, last_name, gender, special_request), first_name, last_name, email, phone ("<code> <digits>"), nationality, special_request, created_at`.
+Deposit option (create-order writes): `pay_option` (`full`|`deposit`), `pay_now` (rupees Razorpay charges; `amount` is the same in paise), `due_at_hotel` (total minus pay_now, rupees). Records from before the option lack them; readers fall back to `total`.
 Added later: `attempts, last_attempt_at, last_failure, reservation_no, sub_reservation_no, razorpay_payment_id, confirmed_at`.
 PII: names, email, phone live in these files and in eZee. Treat as personal data; never paste into docs or logs.
 
