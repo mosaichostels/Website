@@ -363,6 +363,17 @@
           <li>Valid government photo ID required at check-in, for every guest.</li>
           <li>Payment is taken now, in full, to hold the room.</li>
         </ul>
+        <fieldset id="payOption" style="border:0;padding:0;margin:0 0 20px">
+          <legend style="font-size:13px;color:var(--ink);padding:0;margin-bottom:10px">How would you like to pay?</legend>
+          <label class="field-check" style="margin-bottom:10px">
+            <input type="radio" name="pay_option" value="full" checked>
+            <span>Pay in full</span>
+          </label>
+          <label class="field-check" style="margin-bottom:0">
+            <input type="radio" name="pay_option" value="deposit">
+            <span>Pay 50% now, the rest at check-in</span>
+          </label>
+        </fieldset>
         <label class="field-check">
           <input type="checkbox" id="gTerms" required>
           <span>I agree to Mosaic Hostel's <a href="#" id="openPolicyModal" onclick="event.stopPropagation()">booking terms and cancellation policy</a>. Prepayment secures this reservation; valid photo ID is required at check-in.</span>
@@ -672,7 +683,7 @@
 
     <script src="/components/site.js?v=20261030"></script>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="/components/book-now.js?v=20261027"></script>
+    <script src="/components/book-now.js?v=20261101a"></script>
     <script src="/components/navbar.js?v=20261028"></script>
 <script src="/components/footer.js?v=20260729"></script>
 

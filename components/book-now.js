@@ -515,6 +515,8 @@
         // Advisory: what the guest was shown. The server prices independently
         // and stops to ask if the two disagree — it never trusts this figure.
         expected_total: selection.total,
+        // Part of payloadKey on purpose: switching option must create a new order.
+        pay_option: payOption(),
       };
       const btn = guestForm.querySelector('.form-submit');
       btn.disabled = true;
@@ -552,7 +554,7 @@
         showMsg(guestMsg, err.message || 'Something went wrong. Please try WhatsApp instead.', 'error');
       } finally {
         btn.disabled = false;
-        btn.textContent = 'Pay & Confirm Booking';
+        btn.textContent = payButtonText();
       }
     });
 
@@ -668,7 +670,10 @@
       return `<div class="price-row"><span>Dates</span><span>${escapeHtml(sel.check_in)} → ${escapeHtml(sel.check_out)}</span></div>`
         + `<div class="price-row"><span>Nights</span><span>${nights}</span></div>`
         + rooms
-        + `<div class="price-row price-row-divider"><span>Total paid</span><span>₹${fmtPrice(paid)}</span></div>`;
+        + (paid < sel.total
+          ? `<div class="price-row price-row-divider"><span>Paid now</span><span>₹${fmtPrice(paid)}</span></div>`
+            + `<div class="price-row"><span>Due at check-in</span><span>₹${fmtPrice(Math.round((sel.total - paid) * 100) / 100)}</span></div>`
+          : `<div class="price-row price-row-divider"><span>Total paid</span><span>₹${fmtPrice(paid)}</span></div>`);
     }
 
     // "Make another booking" has to put the widget back to a genuinely clean
@@ -689,7 +694,7 @@
         const payBtn = guestForm.querySelector('.form-submit');
         if (payBtn) {
           payBtn.disabled = false;
-          payBtn.textContent = 'Pay & Confirm Booking';
+          payBtn.textContent = payButtonText();
         }
       }
       clearMsg(searchMsg);
@@ -819,13 +824,37 @@
       const baseSum = selection.items.reduce((n, c) => n + (c.base_total ?? 0) * c.qty, 0);
       const taxSum = selection.items.reduce((n, c) => n + (c.tax_total ?? 0) * c.qty, 0);
       const nights = nightsBetween(selection.check_in, selection.check_out);
+      const payNow = payNowRupees(selection.total);
       const itemRows = selection.items.map((c) =>
         `<div class="price-row"><span>${c.qty}× ${escapeHtml(c.name)}${guestSuffix(c)}</span><span>₹${fmtPrice(c.total * c.qty)}</span></div>`).join('');
       widgetPrice.innerHTML = `<div class="price-header"><small>${escapeHtml(selection.check_in)} → ${escapeHtml(selection.check_out)} · ${nights} ${plural(nights, 'night')}</small><span>₹${fmtPrice(selection.total)}</span></div>`
         + `<div class="price-breakdown">${itemRows}`
         + `<div class="price-row price-row-divider"><span>Room rate</span><span>₹${fmtPrice(baseSum)}</span></div>`
-        + `<div class="price-row"><span>Tax</span><span>₹${fmtPrice(taxSum)}</span></div></div>`;
+        + `<div class="price-row"><span>Tax</span><span>₹${fmtPrice(taxSum)}</span></div>`
+        + (payOption() === 'deposit'
+          ? `<div class="price-row price-row-divider"><span>Pay now</span><span>₹${fmtPrice(payNow)}</span></div>`
+            + `<div class="price-row"><span>Due at check-in</span><span>₹${fmtPrice(Math.round(selection.total * 100 - payNow * 100) / 100)}</span></div>`
+          : '')
+        + '</div>';
+      const payBtn = guestForm && guestForm.querySelector('.form-submit');
+      if (payBtn && !payBtn.disabled) payBtn.textContent = payButtonText();
     }
+
+    function payOption() {
+      const r = document.querySelector('input[name="pay_option"]:checked');
+      return r && r.value === 'deposit' ? 'deposit' : 'full';
+    }
+    // Same rounding as pay_now_paise() in api/lib: half, at least ₹1, never above the total.
+    function payNowRupees(total) {
+      const t = Math.round(total * 100);
+      return Math.min(t, Math.max(100, Math.ceil(t / 2))) / 100;
+    }
+    function payButtonText() {
+      return payOption() === 'deposit' && selection
+        ? `Pay ₹${fmtPrice(payNowRupees(selection.total))} now & Confirm Booking`
+        : 'Pay & Confirm Booking';
+    }
+    document.querySelectorAll('input[name="pay_option"]').forEach((r) => r.addEventListener('change', renderPriceSummary));
 
     const STEP_ORDER = ['search', 'results', 'guest', 'confirm'];
     function updateSteps(name) {
