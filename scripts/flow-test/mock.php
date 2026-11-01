@@ -110,7 +110,13 @@ if (str_starts_with($path, '/ezee/booking/reservation_api/listing.php')) {
     }
     $b = st('bookings', []); $no = (string)(1800 + count($b) + 1);
     $b[$no] = ['ReservationNo' => $no, 'Email' => $bd['Email_Address'], 'CurrentStatus' => 'Confirmed', 'check_in' => $bd['check_in_date'], 'rooms' => count($bd['Room_Details'])];
-    put('bookings', $b); out(['ReservationNo' => $no, 'SubReservationNo' => [$no]]);
+    put('bookings', $b); out(['ReservationNo' => $no, 'SubReservationNo' => [$no], 'Inventory_Mode' => 'REGULAR', 'lang_key' => 'en']);
+  }
+  if ($type === 'ProcessBooking') { // seen live 2026-11-01: assigns a room to a reservation InsertBooking left unassigned
+    $pd = json_decode($_GET['Process_Data'] ?? $_POST['Process_Data'] ?? '', true);
+    logcall(['ezee' => 'ProcessBooking', 'data' => $pd]);
+    if (cfg('process_mode') === 'fail') out(['Errors' => ['ErrorCode' => 'ReservationAlreadyProcessed', 'ErrorMessage' => 'Reservation is already processed']]);
+    out(['result' => 'success', 'message' => 'Booking Processed Succesfully']);
   }
   if ($type === 'CancelBooking') {
     $b = st('bookings', []); $no = $_GET['ResNo'] ?? '';

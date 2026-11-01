@@ -24,6 +24,7 @@ Success = eZee reservation exists AND the Razorpay payment is posted to it (AddP
            C cron php api/reconcile-pending.php -> FLOWS/payment-recovery.md
 5 book     confirm_paid_order (api/lib/booking.php:42): atomic rename pending|abandoned -> processing/<order>@<unixtime>.json
            -> ezee InsertBooking (POSTed form body, one Room_N per physical room, per-night comma rate lists) -> record.reservation_no saved
+           -> ezee ProcessBooking ConfirmBooking (assigns the room/bed; InsertBooking already returns the reservation Confirmed but unassigned; failure only alerts)
            -> ezee AddPayment (skipped when `EZEE_PAYMENT_ID`/`EZEE_CURRENCY_ID` are empty; else once, retried once) -> done/<order>.json -> {status:'done',reservation_no,sub_reservation_no}
 6 show     verify-payment replies {success,reservation_no,sub_reservation_no}; widget shows the confirmation screen
 ```
@@ -50,6 +51,7 @@ Success = eZee reservation exists AND the Razorpay payment is posted to it (AddP
 | InsertBooking plain `Errors.ErrorMessage` | retry (max 3, `CONFIRM_RETRY_GAP_SECONDS=120` apart) then `failed/` | pending message |
 | InsertBooking transport error or no ReservationNo | ambiguous: parked, NEVER retried, alert | pending message |
 | unreadable order record at claim time | parked in `failed/`, alert "PAID but order record unreadable", eZee not called | pending message |
+| ProcessBooking ConfirmBooking fails | alert "reservation created but room NOT assigned"; booking and AddPayment continue | success (staff assign the bed by hand) |
 | AddPayment fails twice | alert "ACTION REQUIRED AddPayment failed twice"; reservation stays, order -> `done/` | success (guest not told) |
 | `done/` write fails | claim file kept, alert | success |
 

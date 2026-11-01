@@ -191,6 +191,17 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
   $record['razorpay_payment_id'] = $paymentId;
   @file_put_contents($processingPath, json_encode($record, JSON_PRETTY_PRINT));
 
+  // InsertBooking leaves the reservation Confirmed but with no room or bed; ProcessBooking ConfirmBooking assigns one
+  // (verified live 2026-11-01 on test reservations). Not fatal: the guest is booked and paid, staff can assign by hand.
+  // shortcut: the cron path that finishes an interrupted claim does not repeat this, upgrade if that case shows up.
+  $assign = ezee_get('ProcessBooking', ['Process_Data' => json_encode([
+    'Action' => 'ConfirmBooking', 'ReservationNo' => (string)$reservationNo,
+    'Inventory_Mode' => $insertResponse['Inventory_Mode'] ?? 'REGULAR', 'Error_Text' => '',
+  ])]);
+  if (!$assign['_ok']) {
+    booking_alert('reservation created but room NOT assigned', "reservation=$reservationNo order=$orderId — assign a bed in eZee by hand. response=" . json_encode($assign));
+  }
+
   // Reconciliation only — doesn't move money, payment is already captured by
   // Razorpay. A failure here doesn't fail the caller.
   if (EZEE_PAYMENT_ID !== '' && EZEE_CURRENCY_ID !== '') {

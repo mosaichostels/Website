@@ -22,6 +22,8 @@ Covers: -
 
 - 2026-11-01 weekly SEO run done, pushed and deployed by FTP (28 site files, then `sitemap-images.xml`; `main` at `fc60b6e` before the ledger commit): Dorms nav/footer/home links, shared Hostel `sameAs`, `foundingDate`, `founder` (Naveen and Sanket, first names), aarti links and timing (owner: Assi evening at sunset, Subah-e-Banaras at sunrise, Dashashwamedh around sunset), Terracotta Cafe and the remote-work retitle, 5 shorter titles, 499 rupee figure reworded, image sitemap (scope lock widened to include it by the owner), `global.css?v=20261101d`. Drift clean, live_check 0 failures, IndexNow 24 URLs, both sitemaps resubmitted. Ledger F-0091 to F-0101 deployed; `next_id` F-0102. Report `seo-reports/2026-11-01.md`. Open: booking-site distances (owner), Bing stubs F-0057 recheck, Business Profile Book link, title/F-0077 re-measure about 20 Nov.
 
+- 2026-11-01: live ZZTEST probe (reservations 1828 and 1829, both cancelled, no payment): eZee's InsertBooking already returns "Confirmed Reservation" / "Confirm Booking", but with `RoomNo` empty; `ProcessBooking` `ConfirmBooking` assigns a room (Double Room got 101). `confirm_paid_order()` now calls it right after InsertBooking and before AddPayment; a failure only raises an alert. `scripts/flow-test` has a mock for it (161 checks pass). Edited locally, NOT committed or deployed: deploy `api/lib/booking.php`. Reservation 1827 (6-bed female dorm, paid in full) was confirmed by the owner by hand. Not tested live on a dorm bed; the cron path that finishes an interrupted claim does not repeat the call.
+
 ## Open
 | Item | Notes |
 |---|---|

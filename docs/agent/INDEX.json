@@ -137,7 +137,7 @@
         "api/lib/guest.php",
         "api/lib/dates.php"
       ],
-      "tokens_est": 1442
+      "tokens_est": 1525
     },
     {
       "file": "FLOWS/cancellation.md",
@@ -307,7 +307,7 @@
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-10-30 @ 022a75c",
       "covers": [],
-      "tokens_est": 2388
+      "tokens_est": 2565
     },
     {
       "file": "STRUCTURE.md",
