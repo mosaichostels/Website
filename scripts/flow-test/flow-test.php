@@ -231,6 +231,28 @@ foreach (['half', 'Deposit', '', ['deposit']] as $bad) {
 }
 $r = new_order(['pay_option' => 'deposit', 'expected_total' => 1.00]);
 check('deposit with stale expected_total still compares the FULL total -> 409', $r['code'] === 409 && ($r['json']['price_changed'] ?? false) === true && ($r['json']['new_total'] ?? 0) === 733.95, $r['raw']);
+// AddPayment must post what Razorpay actually took.
+[$o, $p, $v] = confirmed(['pay_option' => 'deposit']);
+$ap = array_slice(calls('ezee', 'AddPayment'), -1)[0]['req'] ?? [];
+check('deposit order: AddPayment posts 366.98 (the deposit), booking done', $v['code'] === 200 && where_is($o) === 'done' && ($ap['Payment'] ?? '') === '366.98' && ($ap['BookingId'] ?? '') === ($v['json']['reservation_no'] ?? 'x'), json_encode($ap));
+check('deposit CONFIRMED log line shows total and paid', str_contains(log_text(), "CONFIRMED order=$o") && preg_match('/CONFIRMED order=' . $o . '.* total=733\.95 paid=366\.98/', log_text()) === 1);
+$o = new_order(['pay_option' => 'deposit'])['json']['order_id']; $pay = pay($o);
+$w = webhook($pay);
+$ap = array_slice(calls('ezee', 'AddPayment'), -1)[0]['req'] ?? [];
+check('deposit order via webhook: books once and AddPayment posts 366.98', $w['code'] === 200 && where_is($o) === 'done' && ($ap['Payment'] ?? '') === '366.98', $w['raw'] . json_encode($ap));
+$o = new_order()['json']['order_id'];
+patch_rec($o, [], ['pay_now', 'pay_option', 'due_at_hotel']);
+$p = pay($o)['id']; $v = verify($o, $p);
+$ap = array_slice(calls('ezee', 'AddPayment'), -1)[0]['req'] ?? [];
+check('pre-deploy pending record (no pay_now): AddPayment falls back to total 733.95', $v['code'] === 200 && where_is($o) === 'done' && ($ap['Payment'] ?? '') === '733.95', json_encode($ap));
+ctl('/ctl/set?addpayment_mode=fail');
+[$o, $p, $v] = confirmed(['pay_option' => 'deposit']);
+check('deposit + AddPayment failed twice: alert prints the paid amount 366.98, not the total', $v['code'] === 200 && preg_match('/ACTION REQUIRED AddPayment failed twice reservation=\S+ payment=' . $p . ' amount=366\.98 /', log_text()) === 1, $v['raw']);
+ctl('/ctl/set?addpayment_mode=ok');
+ctl('/ctl/set?insert_mode=invaliddata');
+$o = new_order(['pay_option' => 'deposit'])['json']['order_id']; $p = pay($o)['id']; verify($o, $p);
+check('deposit + InsertBooking rejected: PAID-but-NOT-created alert prints amount=366.98', preg_match('/PAID but booking NOT created order=' . $o . ' payment=' . $p . ' amount=366\.98 /', log_text()) === 1);
+ctl('/ctl/set?insert_mode=ok');
 
 // ============================================================================
 section('Multi-night stays: eZee needs one rate per night (the cause of the 27 Sep and 26 Oct failures)');
