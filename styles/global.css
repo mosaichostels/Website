@@ -161,8 +161,7 @@ body.has-action-bar{padding-bottom:64px}}
 
 /* Five bookable rooms stay together; the common room is shared space. */
 .rooms-grid{grid-template-columns:repeat(6,1fr)}
-.rooms-grid>.room-card:nth-child(-n+3){grid-column:span 2}
-.rooms-grid>.room-card:nth-child(n+4){grid-column:span 3}
+.rooms-grid>.room-card{grid-column:span 2}
 .room-overlay{pointer-events:none}
 .room-card:focus-within{outline:3px solid var(--gold);outline-offset:3px;z-index:1}
 .rooms-grid .room-meta,.shared-space .room-meta{max-height:none;opacity:1;color:rgba(255,255,255,.85)}
