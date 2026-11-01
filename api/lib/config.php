@@ -149,7 +149,7 @@ function rate_limit(string $bucket, int $maxHits, int $windowSeconds, ?string $s
     $retryAfter = max(1, ($state['start'] + $windowSeconds) - $now);
     header('Retry-After: ' . $retryAfter);
     bookings_log("RATELIMIT bucket=$bucket ip=" . client_ip() . " hits={$state['hits']}");
-    json_error(429, 'Too many requests just now — please wait a moment and try again, or WhatsApp us.');
+    json_error(429, 'Too many requests just now. Please wait a moment and try again, or WhatsApp us.');
   }
 }
 

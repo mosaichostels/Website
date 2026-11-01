@@ -22,7 +22,7 @@ require __DIR__ . '/lib/razorpay.php';
 require __DIR__ . '/lib/guest.php';
 
 if (RAZORPAY_KEY_ID === '' || RAZORPAY_KEY_SECRET === '') {
-  json_error(503, 'Online payment isn\'t set up yet — please book via WhatsApp for now.');
+  json_error(503, 'Online payment isn\'t set up yet. Please book via WhatsApp for now.');
 }
 
 // Each call creates a REAL Razorpay order and a pending file. A genuine guest
@@ -90,7 +90,7 @@ if ($totalUnits === 0) {
   json_error(400, 'Please select at least one room.');
 }
 if ($totalUnits > 8) {
-  json_error(400, 'This quick booking covers up to 8 rooms — for larger groups, please WhatsApp us.');
+  json_error(400, 'This quick booking covers up to 8 rooms. For larger groups, please WhatsApp us.');
 }
 $children = 0; // children aren't collected anywhere in the flow yet
 
@@ -141,7 +141,7 @@ $ezeeResponse = ezee_get('RoomList', [
   'showtax' => 1,
 ]);
 if (!$ezeeResponse['_ok']) {
-  if (!empty($ezeeResponse['_rateLimited'])) json_error(429, 'Our booking system is busy — please try again in a moment.');
+  if (!empty($ezeeResponse['_rateLimited'])) json_error(429, 'Our booking system is busy. Please try again in a moment.');
   json_error_upstream(502, 'We couldn\'t confirm live pricing just now. Please try again shortly, or WhatsApp us.', $ezeeResponse['_error']);
 }
 
@@ -162,7 +162,7 @@ foreach ($cart as $item) {
   $rateKey = (string)$item['roomrateunkid'];
   $requestedByRate[$rateKey] = ($requestedByRate[$rateKey] ?? 0) + $item['qty'];
   if ($available !== null && $requestedByRate[$rateKey] > (int)$available) {
-    json_error(409, 'Only ' . (int)$available . ' left of "' . ($matched['Roomtype_Name'] ?? 'this room') . '" — please adjust quantity.');
+    json_error(409, 'Only ' . (int)$available . ' left of "' . ($matched['Roomtype_Name'] ?? 'this room') . '". Please adjust quantity.');
   }
   // Same resolver availability.php used to render the price the guest saw —
   // when these two disagreed, search worked and checkout 502'd every time.

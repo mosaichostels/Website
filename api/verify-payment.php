@@ -43,6 +43,6 @@ if ($result['status'] === 'done') {
   ]);
 }
 if ($result['status'] === 'failed' || $result['status'] === 'retry') {
-  json_error(502, 'Payment received but booking confirmation is still pending — our team will follow up shortly.');
+  json_error(502, 'Payment received but booking confirmation is still pending. Our team will follow up shortly.');
 }
 json_error(409, 'This booking is already being processed. Please wait a moment and refresh.');

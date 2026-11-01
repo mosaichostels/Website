@@ -79,6 +79,7 @@
   }
 
   function initRoomTilt() {
+    if (window.MOSAIC.reducedMotion()) return;
     document.querySelectorAll('.room-card').forEach((card) => {
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();

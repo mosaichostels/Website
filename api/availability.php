@@ -43,7 +43,7 @@ $ezeeResponse = ezee_get('RoomList', [
 ]);
 
 if (!$ezeeResponse['_ok']) {
-  if (!empty($ezeeResponse['_rateLimited'])) json_error(429, 'Our booking system is busy — please try again in a moment.');
+  if (!empty($ezeeResponse['_rateLimited'])) json_error(429, 'Our booking system is busy. Please try again in a moment.');
   json_error_upstream(502, 'We couldn\'t load live availability just now. Please try again shortly, or WhatsApp us.', $ezeeResponse['_error']);
 }
 
