@@ -36,9 +36,14 @@ Covers: -
 
 - 2026-11-03 weekly SEO run done, committed and pushed, NOT deployed: report `seo-reports/2026-11-03.md`, 15 audit agents, `--fast` (CWV and Lighthouse skipped), drift clean, coverage check passes. Fixes F-0102 (`.htaccess` 301 `/dorms/index.html` to `/dorms/`), F-0103 (Read Next links in 4 blog posts), F-0104 (`llms.txt` lists `/dorms/`), sitemap lastmod for the 4 posts. Deploy: `.htaccess` alone first, then `llms.txt`, `sitemap.xml`, the 4 posts; then step (f) and `ledger.py deploy-check F-0102 F-0103 F-0104`. Ledger `next_id` F-0105. The two `browser-audit.md` edits in the tree are another session's and were not committed.
 
+- 2026-11-03 design review (read-only, antislop AFTER + taste-skill + impeccable context): `anti-slop/audit-002-2026-11-03.md`, 16 numbered findings from lint plus the live inspector on 10 of 24 pages. HIGH: content hidden under reduced motion on `/blog/` and `/gallery`, text covered at 390 px on several pages (needs a phone check), tap targets under 44 px. No site file changed; fixes await the owner's choice of numbers and would go on a separate branch, not the SEO commit. Report file is untracked (not committed).
+- 2026-11-03 design fixes for audit-002 on LOCAL branch `design/audit-002-fixes` (committed, NOT merged, NOT pushed, NOT deployed): eyebrows removed from all pages, labels in sentence case, tiny text raised, hover-only reveals now visible on touch/focus/reduced motion, borders and hairlines replaced by tone steps, text-shadows removed, hearts and stars replaced, 44 px controls, wider hero/section measures. Appended sections in `styles/global.css` marked `Audit 002`. Cache strings `global.css?v=20261103c`, `site.js` and `home.js?v=20261103a`. Deferred: card photos on the blog index (owner picks), dorm photos for the 10-bed and female cards, phone headline lengths (SEO wording). See the Resolution table in `anti-slop/audit-002-2026-11-03.md`. Merge only after a phone check; deploy `styles/global.css`, `components/{site,home}.js` and all HTML together.
+
 ## Open
 | Item | Notes |
 |---|---|
+| TODO blog card photos | Blog index cards have no pictures. Three posts (co-working, Dev Deepawali, Ganga Aarti) share one `og:image` (`IMG_1928`, the common room), so owner must pick the photo for each of the 16 cards before they are added. Do not auto-pair photos. |
+| TODO dorm photos | The 10-bed mixed and 6-bed female dorm cards on `/dorms/` show a tile graphic; owner to supply real room photos. |
 | F-0057 | Bing holds 3 posts as 0 B stubs (co-working, ganga-aarti, dev-deepawali); status `verified`, follow up in the next weekly run |
 | F-0056 | Measure `sameAs` experiment on `/about` in later weekly reports |
 | F-0058 | `/dorms/` is deployed (drift clean 2026-10-30); Bing still holds it as a 0 B stub (F-0057); IndexNow after the next deploy; consider navbar link |
