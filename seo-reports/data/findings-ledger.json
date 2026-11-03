@@ -2615,10 +2615,14 @@
       "updated": "2026-11-01"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-11-03",
+        "metric": "gsc.urls_indexed",
+        "value": 23
+      },
       "check": null,
       "claim": "/dorms/index.html returns 200 beside /dorms/ (duplicate URL, no 301)",
-      "commit": null,
+      "commit": "5a0f050",
       "confidence": 0.9,
       "created": "2026-11-03",
       "effort": 1,
@@ -2626,19 +2630,23 @@
       "id": "F-0102",
       "impact": 2,
       "measured": null,
-      "note": "read .htaccess: rule absent, dorms/index.html returns 200 per live probe",
+      "note": "deployed 2026-11-03 by FTP; live_check 69 URLs 0 failures; deploy-drift clean; /dorms/index.html now 301 to /dorms/",
       "priority": 1.8,
       "sources": [
         "technical"
       ],
-      "status": "verified",
+      "status": "deployed",
       "updated": "2026-11-03"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-11-03",
+        "metric": "gsc.clicks",
+        "value": 63
+      },
       "check": null,
       "claim": "Blog spoke links missing: best-hostels->2-day itinerary; co-working->aarti, stay, sarnath, 2-day; transfer->aarti; dorm-vs-private->transfer",
-      "commit": null,
+      "commit": "5a0f050",
       "confidence": 0.8,
       "created": "2026-11-03",
       "effort": 1,
@@ -2646,19 +2654,23 @@
       "id": "F-0103",
       "impact": 2,
       "measured": null,
-      "note": "read the four posts: links were absent before edit",
+      "note": "deployed 2026-11-03 by FTP; live_check 69 URLs 0 failures; deploy-drift clean; /dorms/index.html now 301 to /dorms/",
       "priority": 1.6,
       "sources": [
         "cluster"
       ],
-      "status": "verified",
+      "status": "deployed",
       "updated": "2026-11-03"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-11-03",
+        "metric": "ga4.ai_assistant_sessions_90d",
+        "value": 175
+      },
       "check": null,
       "claim": "llms.txt Core Pages omits /dorms/",
-      "commit": null,
+      "commit": "5a0f050",
       "confidence": 0.9,
       "created": "2026-11-03",
       "effort": 1,
@@ -2666,12 +2678,12 @@
       "id": "F-0104",
       "impact": 1,
       "measured": null,
-      "note": "read llms.txt: Core Pages list lacked dorms",
+      "note": "deployed 2026-11-03 by FTP; live_check 69 URLs 0 failures; deploy-drift clean; /dorms/index.html now 301 to /dorms/",
       "priority": 0.9,
       "sources": [
         "geo"
       ],
-      "status": "verified",
+      "status": "deployed",
       "updated": "2026-11-03"
     }
   ],
