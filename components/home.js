@@ -4,8 +4,7 @@
   const FIVE_B = ['#C8860A', '#8B1A1A', '#1A6B7A', '#1A3A6B', '#5C3A1E'];
 
   function init() {
-    // Hero tile icons + divider
-    ['heroTileL', 'heroTileR'].forEach((id) => fillStrip(document.getElementById(id), LOGO_COLORS.slice(0, 9)));
+    // Hero divider
     fillById('heroDivider', FIVE_B);
     fillById('expStrip', LOGO_COLORS);
 
@@ -61,7 +60,7 @@
         const el = entry.target;
         const text = el.textContent;
         const num = parseFloat(text.replace(/[^0-9.]/g, ''));
-        if (!num || text.includes('★') || text.includes('Est')) return;
+        if (!num || text.includes('/') || text.includes('Est')) return;
         const suffix = text.replace(/[\d.]/g, '');
         let start = 0; const dur = 1800;
         const step = (ts) => {
