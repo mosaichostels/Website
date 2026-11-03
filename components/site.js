@@ -107,7 +107,7 @@
     let bar = document.getElementById('progress');
     if (!bar) {
       bar = document.createElement('div');
-      bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,#C8860A,#8B1A1A,#1A6B7A);z-index:9999;width:0%;transition:width 0.1s;pointer-events:none;';
+      bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;background:#C8860A;z-index:9999;width:0%;transition:width 0.1s;pointer-events:none;';
       document.body.appendChild(bar);
     }
     window.addEventListener('scroll', () => {

@@ -34,3 +34,4 @@ Covers: -
 - `razorpay_create_order` has no idempotency key (`api/lib/razorpay.php:12`); a repeated POST makes a second unpaid Razorpay order. Accepted: the widget reuses the last order on retry and unpaid orders expire unused.
 - AddPayment has one retry and no outbox (`api/lib/booking.php:217`, ponytail note): a double failure raises an alert for a manual post in eZee. Upgrade path is an outbox plus a cron, only if failures appear in pairs.
 - Whether `/dorms/` should be in the navbar: unknown; currently linked from the home page only.
+- 2026-11-03: owner approved "fix all issues" from audit-002. Eyebrow labels and tiny uppercase tracked labels are removed site-wide; typefaces (Cinzel, Cormorant Garamond, Jost) and the cream palette stay as brand identity. Rating text reads "4.3 out of 5" instead of using a star glyph.
