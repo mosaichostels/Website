@@ -34,6 +34,8 @@ Covers: -
 
 - 2026-11-01 audit fixes #1, #8 to #11, #15 plus dorms redesign and two platform tiles, EDITED LOCALLY, NOT committed or deployed (needs the PHP files too: `api/cancel-booking.php`, `api/lookup-booking.php`, `api/lib/{booking,dates,config}.php`, `api/{availability,create-order,verify-payment,reconcile-pending}.php`, plus all HTML, `styles/global.css?v=20261101h`, `components/{site,book-now,home}.js`, `llms.txt`, `sitemap-images.xml`). #1: cancel refused for Arrived or a started stay (`cancel_blocked_reason`, lookup returns `can_cancel`). #8: `cursor:none` removed. #9: pointer effects off under reduced motion. #10: calendar keyboard focus, arrows, Tab loop. #11: 44 px targets (qty buttons already were). #15: em dashes removed from visible text (comments left). `/dorms/` rebuilt in the home visual language; its body still says 4.8 / 427 on the LIVE site until deployed. HostelCo and MixDorm tiles added to book-now (text wordmarks, no logo files); HostelBird was already there. Checks: selftest pass, flow-test 198/198, verify.sh pass, browser checks of #8 to #10 pass.
 
+- 2026-11-03 weekly SEO run done, committed and pushed, NOT deployed: report `seo-reports/2026-11-03.md`, 15 audit agents, `--fast` (CWV and Lighthouse skipped), drift clean, coverage check passes. Fixes F-0102 (`.htaccess` 301 `/dorms/index.html` to `/dorms/`), F-0103 (Read Next links in 4 blog posts), F-0104 (`llms.txt` lists `/dorms/`), sitemap lastmod for the 4 posts. Deploy: `.htaccess` alone first, then `llms.txt`, `sitemap.xml`, the 4 posts; then step (f) and `ledger.py deploy-check F-0102 F-0103 F-0104`. Ledger `next_id` F-0105. The two `browser-audit.md` edits in the tree are another session's and were not committed.
+
 ## Open
 | Item | Notes |
 |---|---|
