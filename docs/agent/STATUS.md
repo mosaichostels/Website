@@ -59,3 +59,5 @@ After code changes, edit the affected file here and add a line above with the co
 - 2026-11-01: 10-bed mixed dorm added (live in eZee roomtype 5767700000000000009; booking page lists it from the API). Site copy updated: homepage card (reuses the 8-bed photo, no photo of its own yet), `/dorms/`, `llms.txt`, two blog posts, `PRODUCT.md`; `.rooms-grid` is now 3 columns x 2 rows. Uncommitted, not deployed.
 - 2026-10-29: removed (committed in `c019c06`) `blogs/*.md` (14), `images/varanasi/poha-bowl-2-*` (4 unreferenced), local `__pycache__` and `.DS_Store`. Untracked `.playwright-mcp/`, `.remember/`, `instagram-reels/` deleted by owner.
 - 2026-10-29: `OpenMontage/` (840M untracked clone) deleted by owner; `projects/` outputs moved to `~/Documents/openmontage-projects`. The global `openmontage` skill (`~/.agents/skills/openmontage`) is marked UNAVAILABLE in its SKILL.md; re-clone and repoint it before reuse.
+
+- 2026-11-03 ui-ux review fixes (committed, not deployed): blog list links padded to 44px tap height (`.blog-post li>a:only-child`), lightbox `<img src>` on index/gallery now a 1px data URI, global.css ?v=20261103d on 25 pages.
