@@ -42,6 +42,8 @@ Covers: -
 ## Open
 | Item | Notes |
 |---|---|
+| TODO blog card photos | Blog index cards have no pictures. Three posts (co-working, Dev Deepawali, Ganga Aarti) share one `og:image` (`IMG_1928`, the common room), so owner must pick the photo for each of the 16 cards before they are added. Do not auto-pair photos. |
+| TODO dorm photos | The 10-bed mixed and 6-bed female dorm cards on `/dorms/` show a tile graphic; owner to supply real room photos. |
 | F-0057 | Bing holds 3 posts as 0 B stubs (co-working, ganga-aarti, dev-deepawali); status `verified`, follow up in the next weekly run |
 | F-0056 | Measure `sameAs` experiment on `/about` in later weekly reports |
 | F-0058 | `/dorms/` is deployed (drift clean 2026-10-30); Bing still holds it as a 0 B stub (F-0057); IndexNow after the next deploy; consider navbar link |
