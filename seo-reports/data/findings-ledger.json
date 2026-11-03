@@ -2613,7 +2613,67 @@
       ],
       "status": "deployed",
       "updated": "2026-11-01"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "/dorms/index.html returns 200 beside /dorms/ (duplicate URL, no 301)",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-11-03",
+      "effort": 1,
+      "evidence": "technical audit 2026-11-03: https://www.mosaichostels.com/dorms/index.html -> 200, canonical /dorms/ limits harm",
+      "id": "F-0102",
+      "impact": 2,
+      "measured": null,
+      "note": "read .htaccess: rule absent, dorms/index.html returns 200 per live probe",
+      "priority": 1.8,
+      "sources": [
+        "technical"
+      ],
+      "status": "verified",
+      "updated": "2026-11-03"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Blog spoke links missing: best-hostels->2-day itinerary; co-working->aarti, stay, sarnath, 2-day; transfer->aarti; dorm-vs-private->transfer",
+      "commit": null,
+      "confidence": 0.8,
+      "created": "2026-11-03",
+      "effort": 1,
+      "evidence": "cluster audit 2026-11-03, link counts read from local files",
+      "id": "F-0103",
+      "impact": 2,
+      "measured": null,
+      "note": "read the four posts: links were absent before edit",
+      "priority": 1.6,
+      "sources": [
+        "cluster"
+      ],
+      "status": "verified",
+      "updated": "2026-11-03"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "llms.txt Core Pages omits /dorms/",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-11-03",
+      "effort": 1,
+      "evidence": "geo audit 2026-11-03: dorms URL only under Rooms",
+      "id": "F-0104",
+      "impact": 1,
+      "measured": null,
+      "note": "read llms.txt: Core Pages list lacked dorms",
+      "priority": 0.9,
+      "sources": [
+        "geo"
+      ],
+      "status": "verified",
+      "updated": "2026-11-03"
     }
   ],
-  "next_id": 102
+  "next_id": 105
 }

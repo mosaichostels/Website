@@ -24,6 +24,7 @@ Free high-speed WiFi, air conditioning, hot-water showers, lockers, shared kitch
 
 - [Homepage](https://www.mosaichostels.com/): overview, rooms, amenities, FAQ, booking
 - [About](https://www.mosaichostels.com/about): story, philosophy, team
+- [Dorms](https://www.mosaichostels.com/dorms/): the five dorms, bed counts and what each includes
 - [Gallery](https://www.mosaichostels.com/gallery): property and room photos
 - [Book Now](https://www.mosaichostels.com/book-now): direct booking and room availability
 - [Contact](https://www.mosaichostels.com/contact): contact form, WhatsApp, map
