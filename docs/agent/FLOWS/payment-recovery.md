@@ -13,7 +13,8 @@ for pending/*.json older than 180 s:
    captured payment found -> confirm_paid_order(order, payment_id, payment)  (amount/currency/status re-checked)
    none captured and file older than 86400 s -> MOVE to abandoned/ (never deleted; a late payment still finds it)
 for processing/<order>@<claimedAt>.json older than 600 s:
-   record has reservation_no -> write done/, unlink claim, alert "order recovered after an interruption" (check AddPayment in eZee)
+   record has reservation_no -> if no room_assigned_at, ProcessBooking ConfirmBooking (ezee_assign_room); write done/, unlink claim,
+                                 alert "order recovered after an interruption" (says whether the room was assigned; check AddPayment in eZee)
    else -> move to failed/, alert "order stuck in processing" (check eZee for an existing reservation BEFORE re-queueing)
 processing/<order>.json (old-format claim) older than 1 h -> alert once per day (marker .alerted), do not move
 ratelimit/*.json older than 1 h -> unlink

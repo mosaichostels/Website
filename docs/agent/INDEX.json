@@ -179,7 +179,7 @@
         ".claude/skills/reconcile-payment/SKILL.md",
         ".agents/skills/reconcile-payment/SKILL.md"
       ],
-      "tokens_est": 583
+      "tokens_est": 618
     },
     {
       "file": "FLOWS/weekly-seo.md",
@@ -305,7 +305,7 @@
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-10-30 @ 022a75c",
       "covers": [],
-      "tokens_est": 4542
+      "tokens_est": 4715
     },
     {
       "file": "STRUCTURE.md",
@@ -334,7 +334,7 @@
         ".claude/seo/tests/*",
         ".claude/seo/verify.sh"
       ],
-      "tokens_est": 856
+      "tokens_est": 861
     }
   ],
   "nested": []

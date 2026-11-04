@@ -191,17 +191,18 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
   $record['reservation_no'] = $reservationNo;
   $record['sub_reservation_no'] = $subReservationNo;
   $record['razorpay_payment_id'] = $paymentId;
+  $record['inventory_mode'] = $insertResponse['Inventory_Mode'] ?? 'REGULAR';
   @file_put_contents($processingPath, json_encode($record, JSON_PRETTY_PRINT));
 
   // InsertBooking leaves the reservation Confirmed but with no room or bed; ProcessBooking ConfirmBooking assigns one
   // (verified live 2026-11-01 on test reservations). Not fatal: the guest is booked and paid, staff can assign by hand.
-  // shortcut: the cron path that finishes an interrupted claim does not repeat this, upgrade if that case shows up.
-  $assign = ezee_get('ProcessBooking', ['Process_Data' => json_encode([
-    'Action' => 'ConfirmBooking', 'ReservationNo' => (string)$reservationNo,
-    'Inventory_Mode' => $insertResponse['Inventory_Mode'] ?? 'REGULAR', 'Error_Text' => '',
-  ])]);
+  // room_assigned_at tells reconcile-pending.php, which finishes an interrupted claim, that this step already ran.
+  $assign = ezee_assign_room((string)$reservationNo, $record['inventory_mode']);
   if (!$assign['_ok']) {
     booking_alert('reservation created but room NOT assigned', "reservation=$reservationNo order=$orderId; assign a bed in eZee by hand. response=" . json_encode($assign));
+  } else {
+    $record['room_assigned_at'] = date('c');
+    @file_put_contents($processingPath, json_encode($record, JSON_PRETTY_PRINT));
   }
 
   // Reconciliation only — doesn't move money, payment is already captured by
@@ -250,6 +251,13 @@ function confirm_paid_order(string $orderId, string $paymentId, ?array $payment 
   bookings_log("CONFIRMED order=$orderId reservation=$reservationNo payment=$paymentId total={$record['total']} paid=$paid");
 
   return ['status' => 'done', 'reservation_no' => $reservationNo, 'sub_reservation_no' => $subReservationNo];
+}
+
+/** ProcessBooking ConfirmBooking: gives a reservation InsertBooking left unassigned its room or bed. */
+function ezee_assign_room(string $reservationNo, string $inventoryMode = 'REGULAR'): array {
+  return ezee_get('ProcessBooking', ['Process_Data' => json_encode([
+    'Action' => 'ConfirmBooking', 'ReservationNo' => $reservationNo, 'Inventory_Mode' => $inventoryMode, 'Error_Text' => '',
+  ])]);
 }
 
 /**
