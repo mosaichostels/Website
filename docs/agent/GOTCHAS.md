@@ -22,7 +22,7 @@ Covers: api/lib/*.php,api/*.php,.htaccess,scripts/deploy.sh,.claude/hooks/*
 | Data lag | Google data lags 2-3 days; Clarity allows about 10 calls/day |
 | Submitting IndexNow before the deploy is live | Wait for `deploy-drift.sh` clean |
 | Copy claims (reviews, guest counts) | Owner-supplied, unverifiable from the repo; do not extend |
-| Scratch dirs ignored by git | `.planning/`, `instagram-media/`, `screenshots/`, `.playwright-mcp/`, SEO cache and run dirs |
+| Scratch dirs ignored by git | `.planning/`, `screenshots/`, `.playwright-mcp/`, SEO cache and run dirs |
 | Sensitive docs ignored by git | `docs/eZee-Connectivity-API.md` and other vendor/payment audits may exist locally only; cited line numbers (`~L5531`) point there |
 
 ## Accessibility baseline (from the 2026-10-10 site critique, folded from `.impeccable/critique/`)

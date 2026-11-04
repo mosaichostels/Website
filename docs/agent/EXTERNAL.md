@@ -12,7 +12,6 @@ Covers: -
 | PMS | eZee extranet (hotel code in `api/secrets.php`) | |
 | Payments | Razorpay dashboard (webhook URL `/api/razorpay-webhook.php`, event `payment.captured`) | production keys are LIVE (owner-confirmed 2026-10-29) |
 | Analytics/search | GA4, Clarity, Google Search Console, Bing Webmaster, Google Business Profile | property ids in `~/.config/mosaic-seo/env` |
-| Media | Google Drive folder via rclone remote `mosaic_hostel_media:` -> `~/Projects/Hostel Content` | |
 | Owner contact for guests | WhatsApp (number in `PRODUCT.md`) | |
 | Local-only notes | `.planning/` (git-ignored; Razorpay go-live checklist in `razorpay-live-readiness.md`), vendor/audit docs in `docs/*.md` (git-ignored, eZee API reference ~590 KB) | may be absent on other machines |
 | Shared agent memory | `~/.agents/memory/projects/-Users-naveen-Projects-hostel-Website/` | eZee rules, test creds location, weekly-seo progress |

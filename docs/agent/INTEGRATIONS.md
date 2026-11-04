@@ -15,7 +15,6 @@ Covers: api/lib/ezee.php,api/lib/razorpay.php,api/lib/booking.php,.htaccess,.cla
 | Bing Webmaster + IndexNow | Indexing, URL submit | `bing-extract.py`, `scripts/indexnow-submit.sh` | `BING_WEBMASTER_API_KEY`, `INDEXNOW_KEY` (+ public key file at site root) | submit only after deploy drift is clean |
 | Clarity API | Behaviour data | `clarity-extract.py` | `CLARITY_API_TOKEN` | ~10 calls/day |
 | Common Crawl | Backlink-ish data | `commoncrawl-extract.py` | none | HTTP errors no longer cached |
-| Google Drive via rclone `mosaic_hostel_media:` | Instagram/media mirror | `scripts/sync-instagram-media.sh` | rclone remote | aborts on empty listing, `--max-delete 50` |
 | Razorpay MCP (local, read-only) | Agent lookups of payments | user-scope MCP `razorpay` | `~/.config/mosaic-seo/razorpay.env` | off until keys present; see ENVIRONMENT.md |
 | Apple Pay merchant verification | domain association file | `.well-known/apple-developer-merchantid-domain-association` | n/a | must stay served 200 (live_check) |
 
