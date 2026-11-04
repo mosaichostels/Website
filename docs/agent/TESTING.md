@@ -13,7 +13,7 @@ No CI (`.github/` absent) and no JS test suite. Verification is script-based and
 | Booking page in a browser | Playwright against `scripts/flow-test/run.sh`'s site with a fake Razorpay popup (see STATUS 2026-10-27) | PASS 2026-10-27 (14 checks): translated page still sends English values, success and "Payment Received" screens, tampered value shows a message and opens no payment window |
 | Live eZee probe (create + cancel fake reservations) | See GOTCHAS "Live test method"; real site code + live eZee + mocked Razorpay worked for 26 Oct / 27 Sep / 1-night stays on 2026-10-27 | PASS 2026-10-27. Creates real reservations: cancel each at once, never post a payment |
 | Booking flow end to end (live eZee) | `php -S 127.0.0.1:8899 -t .` + `php scripts/e2e-booking-test.php` | Not run: needs real eZee + `rzp_test_` secrets; never live keys; creates real reservations |
-| Any HTML/sitemap/JSON-LD | `./.claude/seo/verify.sh` (changed files) or `--all` | Not run |
+| Any HTML/sitemap/JSON-LD | `./.claude/seo/verify.sh` (changed files) or `--all`; also fails when the 25 static footers differ | PASS 2026-11-04 (`--all`, 26 files) |
 | SEO scripts in `.claude/seo/` | `cd .claude/seo && python3 -m unittest discover -s tests` | PASS 100 tests 2026-10-23 |
 | Shared JS/CSS edits | Cache-bust consistency (COMMANDS) / skill `cache-bust-check` | Consistent now: one version per asset |
 | After deploy | `python3 .claude/seo/live_check.py`, `./.claude/seo/deploy-drift.sh` | Not run (hits live site) |

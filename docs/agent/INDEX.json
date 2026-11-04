@@ -10,7 +10,7 @@
         "api/.htaccess",
         "api/lib/.htaccess"
       ],
-      "tokens_est": 907
+      "tokens_est": 923
     },
     {
       "file": "ARCHITECTURE.md",
@@ -213,7 +213,7 @@
         "scripts/deploy.sh",
         ".claude/hooks/*"
       ],
-      "tokens_est": 2442
+      "tokens_est": 2448
     },
     {
       "file": "INTEGRATIONS.md",
@@ -303,9 +303,9 @@
     {
       "file": "STATUS.md",
       "read_when": "starting ANY task (current state, recent work, open items).",
-      "verified_commit": "2026-10-30 @ 022a75c",
+      "verified_commit": "2026-11-04 @ 99f73d0",
       "covers": [],
-      "tokens_est": 4796
+      "tokens_est": 5306
     },
     {
       "file": "STRUCTURE.md",
@@ -334,7 +334,7 @@
         ".claude/seo/tests/*",
         ".claude/seo/verify.sh"
       ],
-      "tokens_est": 861
+      "tokens_est": 880
     }
   ],
   "nested": []

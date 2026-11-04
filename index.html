@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/styles/global.css?v=20261103d">
+<link rel="stylesheet" href="/styles/global.css?v=20261104a">
 <link rel="canonical" href="https://www.mosaichostels.com/">
 
     <meta name="description" content="Backpacker hostel 100 m from Assi Ghat, Varanasi. Dormitory beds and private rooms, 24-hour reception, free WiFi, rooftop, kitchen. Book direct.">
@@ -422,49 +422,54 @@
   </div>
 </div>
 
-<!-- ════════ FOOTER (injected by footer.js) ════════ -->
-<!-- ── FOOTER ── -->
 </main>
+<!-- Footer: static markup, identical on every page (check-footers in .claude/seo/verify.sh). footer.js only paints the colour strip. -->
 <footer>
   <div class="footer-top">
-    <div>
-      <img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="110" height="110" style="display:block;height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:16px;">
-      <p class="footer-tagline">A hostel rooted in community, warmth, and the spirit of Varanasi. Every guest who stays becomes part of our story.</p>
-      <p style="font-size:13px;line-height:1.5;margin-top:12px;opacity:0.7;">
-        <strong>B1/85C, Assi Ghat Road, Anandbagh, Varanasi, UP 221005</strong><br>
-        <a href="tel:+919125492225" style="color:inherit;text-decoration:none">+91 91254 92225</a>
+    <div class="footer-brand">
+      <img class="footer-logo" src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="110" height="110">
+      <p class="footer-tagline">A hostel 100 m from Assi Ghat, Varanasi. Dorm beds and private rooms, a female-only dorm and a 24-hour reception.</p>
+      <p class="footer-address">
+        <a href="https://www.google.com/maps?cid=10826956351092739131" target="_blank" rel="noopener"><strong>B1/85C, Assi Ghat Road, Anandbagh, Varanasi, UP 221005</strong></a><br>
+        <a href="tel:+919125492225">+91 91254 92225</a>
       </p>
+      <div google-add-preferred-source-btn></div>
     </div>
-    <div></div>
-    <div>
-      <div class="footer-heading">Explore</div>
-      <div class="footer-links">
-        <a href="/dorms/">Dorm Beds</a>
-        <a href="/gallery">Gallery</a>
-        <a href="/about">About Us</a>
-        <a href="/blog/">Blog</a>
-        <a href="/contact">Contact</a>
-        <a href="/privacy">Privacy Policy</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-heading">Connect</div>
-      <div class="footer-links">
-        <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
-        <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
-        <a href="mailto:mosaichostels@gmail.com">Email Us</a>
-        <div google-add-preferred-source-btn></div>
-      </div>
-    </div>
+    <nav aria-labelledby="footer-explore">
+      <h2 class="footer-heading" id="footer-explore">Explore</h2>
+      <ul class="footer-links">
+        <li><a href="/book-now">Book Your Stay</a></li>
+        <li><a href="/dorms/">Dorm Beds</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="footer-policies">
+      <h2 class="footer-heading" id="footer-policies">Good to know</h2>
+      <ul class="footer-links">
+        <li><a href="/book-now#faq-heading">Cancellation and house rules</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="footer-connect">
+      <h2 class="footer-heading" id="footer-connect">Connect</h2>
+      <ul class="footer-links">
+        <li><a href="https://www.instagram.com/mosaichostels" target="_blank" rel="noopener" aria-label="Instagram (opens in a new tab)">Instagram</a></li>
+        <li><a href="https://wa.me/919125492225" target="_blank" rel="noopener" aria-label="WhatsApp (opens in a new tab)">WhatsApp</a></li>
+        <li><a href="mailto:mosaichostels@gmail.com">Email Us</a></li>
+      </ul>
+    </nav>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Mosaic Hostel. All rights reserved.</div>
+    <div class="footer-copy">&copy; 2026 Mosaic Hostel Varanasi</div>
     <div class="footer-tile-strip" id="footerStrip"></div>
     <div class="footer-copy">Made with care in Varanasi</div>
   </div>
 </footer>
 
-    <script src="/components/site.js?v=20261103a"></script>
+    <script src="/components/site.js?v=20261104a"></script>
     <script src="/components/home.js?v=20261103a"></script>
     <script src="/components/navbar.js?v=20261028"></script>
 <script src="/components/footer.js?v=20260729"></script>

@@ -1,8 +1,8 @@
 Read when: starting ANY task (current state, recent work, open items).
-Verified: 2026-10-30 @ 022a75c
+Verified: 2026-11-04 @ 99f73d0
 Covers: -
 
-# Status (2026-10-30)
+# Status (2026-11-04)
 
 - 2026-11-01 deposit option + guest lookup implemented on local branch `feature/deposit-option` (commits after `ede5071`: spec `2cb4b00`, then code from `b91bdf2`), 193 flow-test checks. DEPLOYED to the live site by FTP on 2026-11-01 (8 files read back byte-identical, `live_check.py` 69 URLs 0 failures, `deploy-drift.sh` clean; branch not merged or pushed, `main` still lacks these commits, so the next deploy from `main` would REVERT them: merge `feature/deposit-option` first). Rollback copies of the 7 previous live files: scratchpad `rollback-2026-11-01` (session-local); otherwise `git show main:<file>` and redeploy, and delete `api/lookup-booking.php` from the host. Guests choose full payment or 50% deposit now with the balance at check-in (record keys `pay_option`, `pay_now`, `due_at_hotel`); policy copy reworded (inside 72 h the amount paid is not refunded). Deploy set: `api/create-order.php`, `api/cancel-booking.php`, `api/lookup-booking.php`, `api/lib/razorpay.php`, `api/lib/booking.php`, `api/reconcile-pending.php`, `book-now.html`, `components/book-now.js`. Live lookup of reservation 1827 returned status, dates, room name, paid and due with no guest details (2026-11-01). Still to watch: the first live deposit booking (room assigned, 50% paid, 50% due in eZee).
 - 2026-11-01 (same branch): guest booking lookup. `api/lookup-booking.php` plus a "Look up booking" step in the book-now manage card (cancel sits under the details); `find_done_record()` moved to `api/lib/booking.php`; `book-now.js?v=20261101f`. flow-test 189 checks, selftest pass.
@@ -51,7 +51,7 @@ Covers: -
 | Razorpay go-live checklist | In `.planning/razorpay-live-readiness.md` (local); live-vs-test status of the production keys: unknown |
 | WCAG AA | Undecided (DECISIONS) |
 | SEO venv | Exists at `~/.config/mosaic-seo/venv` (lxml added 2026-10-25); lacks `playwright` |
-| Root `README.md` | Partly stale (says 2026-09-23, omits `dorms/`, `.claude/seo`); `PRODUCT.md` says 14 blog guides, sitemap has 16 |
+| Root `README.md` | Refreshed 2026-11-04 (dorms, tooling, deploy scope); `PRODUCT.md` now says 16 blog guides |
 
 ## Update rule
 After code changes, edit the affected file here and add a line above with the commit.
@@ -61,6 +61,8 @@ After code changes, edit the affected file here and add a line above with the co
 
 - 2026-11-03 ui-ux review fixes (deployed 2026-11-03, 26 files, drift clean): blog list links padded to 44px tap height (`.blog-post li>a:only-child`), lightbox `<img src>` on index/gallery now a 1px data URI, global.css ?v=20261103d on 25 pages.
 
+- 2026-11-04 audit-001 leftovers, EDITED LOCALLY, NOT committed or deployed: #2 `availability.php` gets a site-wide ceiling (1200 per 600 s); #5 `.htaccess` now 403s `api/alert-email.php`; #12 the Maps `confirm()` is gone, the 5 address links (about, contact x3, book-now, privacy) are plain `target="_blank"` Google Maps links (`openMapsDialog` and `GBP_CID` removed from `components/site.js`, now `?v=20261104a` on all 24 pages). #4 was already fixed (`ezee_booking_trans()`). Also: #17 `defer` on Razorpay `checkout.js` (book-now) and `snapwidget.js` (gallery; browser-checked: `Razorpay` defined, widget iframe sized); #7 `live_check.json` now expects 403 for `/api/lib/config.php` and `/api/alert-email.php` (fails until `.htaccess` is deployed); #18 kept: only `index.html` loads `publisher.js`, for the `google-add-preferred-source-btn` at line 456 (the audit said every page). Left as is: #3 (per-reservation lock before the email check), #13 (native cancel `confirm()` is accessible; a styled dialog is new UI), rest of #7 (no tests for `components/*.js`, no CI). flow-test 202/202. Deploy: `.htaccess` first, then `api/availability.php`, `components/site.js` and ALL 24 HTML pages together (cache string, includes `book-now.html` and `gallery.html` with the `defer` change); check `/api/alert-email.php` returns 403.
+- 2026-11-04 footer audit `anti-slop/audit-003-2026-11-04.md` (13 findings), ALL fixed locally, NOT committed or deployed: new footer on all 25 pages (Book Your Stay, "Good to know" column with cancellation and privacy, nav landmarks with h2 headings, address link, Preferred Source button in the brand column, `publisher.js` in every `<head>`), `styles/global.css` Audit 003 block and `?v=20261104a` on 25 pages, `privacy.html` mentions the button, `verify.sh` now fails when footers differ. Deploy with the audit-001 set: `.htaccess` first, `api/availability.php`, `components/site.js`, `styles/global.css` and ALL 25 HTML pages together; then `live_check.py`, drift, and look at the real button on the live domain at 390 and 1440 px.
 - 2026-11-04: removed OpenMontage and Instagram media-sync leftovers from the repo (`scripts/sync-instagram-media.sh`, `.gitignore` and `.git/info/exclude` entries, doc rows). Recovery via git history.
 
 - 2026-11-04: `deploy-drift.sh` now compares the 14 deployed `api/` PHP files over FTP when FTP creds are exported (all in sync; pages-only before). Live `api/` matched `main` byte for byte.

@@ -5,15 +5,18 @@ Static website for Mosaic Hostel Varanasi, built with HTML, CSS, and JavaScript.
 ## Directory Structure
 
 ```
-├── blog/                 # Blog post routing (HTML templates)
+├── blog/                 # One static page per post: blog/<slug>/index.html (16 posts)
+├── dorms/                # /dorms/ room-type page
 ├── components/           # Reusable JS components
 ├── styles/               # CSS stylesheets
 ├── images/               # Image assets
 ├── api/                  # Booking/payment PHP endpoints (eZee + Razorpay)
-├── docs/                 # Documentation
-├── scripts/              # deploy.sh, indexnow-submit.sh, E2E test scripts
-├── seo-reports/          # SEO audit data (SEO cache dirs are gitignored)
-├── robots.txt, sitemap.xml, .htaccess,
+├── docs/agent/           # Agent docs: start with docs/agent/README.md
+├── scripts/              # deploy.sh, indexnow-submit.sh, flow-test/, e2e-booking-test.php
+├── anti-slop/            # Design and accessibility audit reports
+├── .claude/seo/          # Weekly SEO tooling: deploy-drift.sh, live_check.py, ledger.py
+├── seo-reports/          # Weekly SEO reports (SEO cache dirs are gitignored)
+├── robots.txt, sitemap*.xml, llms.txt, .htaccess,
 │   BingSiteAuth.xml, google*.html      # SEO/verification files (root-level)
 └── *.html                # Root-level pages
 ```
@@ -35,7 +38,7 @@ client-side rendering. Old URLs that moved are handled by the 301 rules in `.hta
 
 ## Deployment
 
-The site is deployed to Hostinger via FTP using `scripts/deploy.sh` (requires `FTP_HOST`/`FTP_USER`/`FTP_PASS` env vars). All files in root, components/, styles/, and images/ are deployed as-is. After a content deploy, run `scripts/indexnow-submit.sh` to push updated URLs to Bing/Yandex/Seznam.
+The site is deployed to Hostinger via FTP using `scripts/deploy.sh` (requires `FTP_HOST`/`FTP_USER`/`FTP_PASS` env vars). `./scripts/deploy.sh <files>` uploads the named files and `all` uploads every site file (html, css, js, images, txt, xml, php; not docs, scripts, `.claude`, seo-reports or `secrets.php`). `git push` does not deploy. Uploading PHP runs the selftest first. `.claude/seo/deploy-drift.sh` compares the repo with the live site. After a content deploy, run `scripts/indexnow-submit.sh` to push updated URLs to Bing/Yandex/Seznam.
 
 FTP Configuration:
 - **Host**: 147.93.17.169
@@ -57,4 +60,4 @@ FTP Configuration:
 
 ## Last Updated
 
-2026-09-23 - Repo cleanup and README sync with actual structure
+2026-11-04 - Directory map and deploy notes refreshed
