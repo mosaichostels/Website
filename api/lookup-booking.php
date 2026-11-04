@@ -25,7 +25,7 @@ if ($reservationNo === '' || $email === '') {
 }
 const LOOKUP_NOT_FOUND = 'Reservation not found or email does not match. Please check the details or WhatsApp us.';
 if (!preg_match('/^[A-Za-z0-9-]{1,32}$/', $reservationNo)) json_error(404, LOOKUP_NOT_FOUND);
-rate_limit('lookup-reservation', 5, 3600, $reservationNo);
+rate_limit('lookup-reservation', 5, 3600, $reservationNo, 'check'); // misses only, see the email test below
 
 // Website bookings only: a reservation made by hand in eZee has no order record and gets the same 404.
 $record = find_done_record($reservationNo);
@@ -37,7 +37,10 @@ if (!$booking['_ok'] || !$reservation) json_error(404, LOOKUP_NOT_FOUND);
 
 if (!is_array($reservation) || !is_string($reservation['Email'] ?? '')) json_error(404, LOOKUP_NOT_FOUND);
 $onFileEmail = strtolower(trim($reservation['Email'] ?? ''));
-if ($onFileEmail === '' || $onFileEmail !== strtolower($email)) json_error(404, LOOKUP_NOT_FOUND);
+if ($onFileEmail === '' || $onFileEmail !== strtolower($email)) {
+  rate_limit('lookup-reservation', 5, 3600, $reservationNo, 'record');
+  json_error(404, LOOKUP_NOT_FOUND);
+}
 
 $trans = ezee_booking_trans($reservation);
 if (!$trans) json_error(404, LOOKUP_NOT_FOUND);

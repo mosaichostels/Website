@@ -34,7 +34,7 @@ if ($reservationNo === '' || $email === '') {
 if (!preg_match('/^[A-Za-z0-9-]{1,32}$/', $reservationNo)) {
   json_error(404, 'Reservation not found or email does not match. Please check the details or WhatsApp us.');
 }
-rate_limit('cancel-reservation', 5, 3600, $reservationNo);
+rate_limit('cancel-reservation', 5, 3600, $reservationNo, 'check'); // misses only, see the email test below
 
 $record = find_done_record($reservationNo);
 if (!$record) {
@@ -49,6 +49,7 @@ if (!$booking['_ok'] || !$reservation) {
 
 $onFileEmail = strtolower(trim($reservation['Email'] ?? ''));
 if ($onFileEmail === '' || $onFileEmail !== strtolower($email)) {
+  rate_limit('cancel-reservation', 5, 3600, $reservationNo, 'record');
   json_error(404, 'Reservation not found or email does not match. Please check the details or WhatsApp us.');
 }
 

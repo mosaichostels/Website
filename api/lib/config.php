@@ -121,7 +121,10 @@ function client_ip(): string {
  * up to six times while the booking confirms (see VERIFY_RETRY_DELAYS in
  * book-now.js), and refusing one of those strands a paid booking.
  */
-function rate_limit(string $bucket, int $maxHits, int $windowSeconds, ?string $subject = null): void {
+function rate_limit(string $bucket, int $maxHits, int $windowSeconds, ?string $subject = null, string $mode = 'hit'): void {
+  // $mode 'hit' counts this request and refuses past the cap. A guess cap on one booking uses two calls
+  // instead: 'check' refuses once $maxHits misses are recorded (writes nothing), 'record' adds one miss
+  // and never refuses. A stranger's wrong guesses lock a booking; the real guest's right ones do not.
   ensure_pending_dirs();
   // $subject replaces the client address as the counter key. Pass a fixed
   // string for a site-wide ceiling, or a reservation number to cap guesses
@@ -138,14 +141,14 @@ function rate_limit(string $bucket, int $maxHits, int $windowSeconds, ?string $s
   if (!is_array($state) || ($state['start'] ?? 0) + $windowSeconds <= $now) {
     $state = ['start' => $now, 'hits' => 0];
   }
-  $state['hits']++;
+  if ($mode !== 'check') $state['hits']++;
   rewind($handle);
   ftruncate($handle, 0);
   fwrite($handle, json_encode($state));
   flock($handle, LOCK_UN);
   fclose($handle);
 
-  if ($state['hits'] > $maxHits) {
+  if ($mode !== 'record' && ($mode === 'check' ? $state['hits'] >= $maxHits : $state['hits'] > $maxHits)) {
     $retryAfter = max(1, ($state['start'] + $windowSeconds) - $now);
     header('Retry-After: ' . $retryAfter);
     bookings_log("RATELIMIT bucket=$bucket ip=" . client_ip() . " hits={$state['hits']}");

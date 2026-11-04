@@ -96,7 +96,7 @@
         ".claude/seo/live_check.py",
         ".claude/hooks/block-diagnostic-file-deploy"
       ],
-      "tokens_est": 607
+      "tokens_est": 622
     },
     {
       "file": "ENVIRONMENT.md",
@@ -117,7 +117,7 @@
       "read_when": "you need to know which outside account, console or document holds something. No secrets here.",
       "verified_commit": "2026-10-29 @ fd29588",
       "covers": [],
-      "tokens_est": 322
+      "tokens_est": 339
     },
     {
       "file": "FLOWS/booking.md",
@@ -148,7 +148,7 @@
         "api/lib/dates.php",
         "components/book-now.js"
       ],
-      "tokens_est": 702
+      "tokens_est": 747
     },
     {
       "file": "FLOWS/content-publish.md",
@@ -236,7 +236,7 @@
       "covers": [
         "api/reconcile-pending.php"
       ],
-      "tokens_est": 284
+      "tokens_est": 294
     },
     {
       "file": "OBSERVABILITY.md",
@@ -298,14 +298,14 @@
         ".htaccess",
         "scripts/*.py"
       ],
-      "tokens_est": 457
+      "tokens_est": 470
     },
     {
       "file": "STATUS.md",
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-11-04 @ 99f73d0",
       "covers": [],
-      "tokens_est": 5581
+      "tokens_est": 5838
     },
     {
       "file": "STRUCTURE.md",
@@ -334,7 +334,7 @@
         ".claude/seo/tests/*",
         ".claude/seo/verify.sh"
       ],
-      "tokens_est": 880
+      "tokens_est": 917
     }
   ],
   "nested": []
