@@ -62,3 +62,5 @@ After code changes, edit the affected file here and add a line above with the co
 - 2026-11-03 ui-ux review fixes (deployed 2026-11-03, 26 files, drift clean): blog list links padded to 44px tap height (`.blog-post li>a:only-child`), lightbox `<img src>` on index/gallery now a 1px data URI, global.css ?v=20261103d on 25 pages.
 
 - 2026-11-04: removed OpenMontage and Instagram media-sync leftovers from the repo (`scripts/sync-instagram-media.sh`, `.gitignore` and `.git/info/exclude` entries, doc rows). Recovery via git history.
+
+- 2026-11-04: `deploy-drift.sh` now compares the 14 deployed `api/` PHP files over FTP when FTP creds are exported (all in sync; pages-only before). Live `api/` matched `main` byte for byte.

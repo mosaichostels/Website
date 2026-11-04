@@ -48,7 +48,7 @@
         ".claude/seo/*.sh",
         ".claude/seo/live_check.py"
       ],
-      "tokens_est": 740
+      "tokens_est": 773
     },
     {
       "file": "CONVENTIONS.md",
@@ -305,7 +305,7 @@
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-10-30 @ 022a75c",
       "covers": [],
-      "tokens_est": 4494
+      "tokens_est": 4542
     },
     {
       "file": "STRUCTURE.md",
