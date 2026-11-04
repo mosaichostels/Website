@@ -16,7 +16,7 @@ Covers: api/*.php,api/lib/*.php,components/*.js,scripts/*,.claude/settings.json,
 | `images/` | 148 files (incl. `varanasi/`), jpg+webp pairs, `images/varanasi/` subfolder |
 | `api/` | `availability`, `create-order`, `verify-payment`, `razorpay-webhook`, `reconcile-pending`, `cancel-booking` (.php), `alert-email.php`, `secrets.example.php`, `secrets.php` (git-ignored, never read) |
 | `api/lib/` | `config.php` (bootstrap), `dates.php`, `ezee.php`, `razorpay.php`, `booking.php`, `selftest.php`; blocked from web by `.htaccess:161` |
-| `scripts/` | `deploy.sh`, `indexnow-submit.sh`, `sync-instagram-media.sh`, `e2e-booking-test.php`, `flow-test/` |
+| `scripts/` | `deploy.sh`, `indexnow-submit.sh`, `e2e-booking-test.php`, `flow-test/` |
 | `seo-reports/` | Dated reports `YYYY-MM-DD.md`, audits, `data/findings-ledger.json`, `data/<date>/` run snapshots, per-source subfolders (`gsc/ ga4/ bing/ clarity/ gbp/ cwv/ lighthouse/ commoncrawl/`) |
 | `docs/superpowers/` | `specs/` (weekly-seo v2 design) and `plans/` (6 plans, Oct 2026) |
 | `docs/agent/` | These files |
@@ -29,7 +29,7 @@ Covers: api/*.php,api/lib/*.php,components/*.js,scripts/*,.claude/settings.json,
 | `DESIGN.md`, `PRODUCT.md` | Design tokens, owner-confirmed product facts |
 
 ## Git-ignored / local only (do not commit)
-`api/secrets.php`, `.planning/`, `instagram-media/`, `instagram-reels/` (deleted by owner 2026-10-29, raw dorm-tour footage, no copy known), `screenshots/`, `.playwright-mcp/` (deleted 2026-10-29, regenerates), `seo-reports/**/.cache/`, `seo-reports/{gsc,ga4,bing,clarity,gbp,cwv,lighthouse,commoncrawl}/*.json`, `seo-reports/runs/*/`, `__pycache__/`, credential globs (`.env.gcs-*`, `.gcp-*.json`, `*.key`, `*.pem`). `OpenMontage/` is excluded in `.git/info/exclude`. `.remember/` is git-ignored; `.impeccable/` was removed in `221d0fb` (nothing tracked).
+`api/secrets.php`, `.planning/`, `screenshots/`, `.playwright-mcp/` (deleted 2026-10-29, regenerates), `seo-reports/**/.cache/`, `seo-reports/{gsc,ga4,bing,clarity,gbp,cwv,lighthouse,commoncrawl}/*.json`, `seo-reports/runs/*/`, `__pycache__/`, credential globs (`.env.gcs-*`, `.gcp-*.json`, `*.key`, `*.pem`). `.remember/` is git-ignored; `.impeccable/` was removed in `221d0fb` (nothing tracked).
 
 ## Where to put new things
 New page: root `<name>.html` plus rewrite blocks in `.htaccess` (see ARCHITECTURE) or a folder with `index.html` like `dorms/`. New post: CONVENTIONS checklist. New endpoint: `api/<name>.php`, `require __DIR__ . '/lib/config.php'` first.

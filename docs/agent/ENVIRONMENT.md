@@ -26,11 +26,9 @@ IndexNow key file is public by design: `140ef5ae933ea27ef5ec39a4c06690e1.txt` at
 |---|---|
 | `php` CLI | selftest, E2E, deploy of PHP (8.5.12 here) |
 | `lftp` | `deploy.sh` |
-| `rclone` (`/opt/homebrew/bin/rclone`) with remote `mosaic_hostel_media:` | `sync-instagram-media.sh` |
 | `jq` | the two Claude hooks |
 
 ## Scheduled job
-None. The `com.mosaichostels.instagram-media-sync` LaunchAgent noted earlier was not found on 2026-10-25 (no plist, no cron, no scheduled task); run `scripts/sync-instagram-media.sh` by hand.
 
 ## Hooks (guardrails)
 | Hook | Where | Effect |

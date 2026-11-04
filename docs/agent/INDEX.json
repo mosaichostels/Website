@@ -45,11 +45,10 @@
       "covers": [
         "scripts/deploy.sh",
         "scripts/indexnow-submit.sh",
-        "scripts/sync-instagram-media.sh",
         ".claude/seo/*.sh",
         ".claude/seo/live_check.py"
       ],
-      "tokens_est": 798
+      "tokens_est": 740
     },
     {
       "file": "CONVENTIONS.md",
@@ -111,14 +110,14 @@
         ".codex/hooks.json",
         ".claude/hooks/*"
       ],
-      "tokens_est": 912
+      "tokens_est": 838
     },
     {
       "file": "EXTERNAL.md",
       "read_when": "you need to know which outside account, console or document holds something. No secrets here.",
       "verified_commit": "2026-10-29 @ fd29588",
       "covers": [],
-      "tokens_est": 348
+      "tokens_est": 322
     },
     {
       "file": "FLOWS/booking.md",
@@ -214,7 +213,7 @@
         "scripts/deploy.sh",
         ".claude/hooks/*"
       ],
-      "tokens_est": 2447
+      "tokens_est": 2442
     },
     {
       "file": "INTEGRATIONS.md",
@@ -228,17 +227,16 @@
         ".claude/seo/*.py",
         "scripts/indexnow-submit.sh"
       ],
-      "tokens_est": 788
+      "tokens_est": 744
     },
     {
       "file": "JOBS.md",
       "read_when": "asking what runs on a schedule or in the background, or what to do if it stops.",
       "verified_commit": "2026-10-29 @ c019c06",
       "covers": [
-        "api/reconcile-pending.php",
-        "scripts/sync-instagram-media.sh"
+        "api/reconcile-pending.php"
       ],
-      "tokens_est": 342
+      "tokens_est": 284
     },
     {
       "file": "OBSERVABILITY.md",
@@ -300,14 +298,14 @@
         ".htaccess",
         "scripts/*.py"
       ],
-      "tokens_est": 518
+      "tokens_est": 457
     },
     {
       "file": "STATUS.md",
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-10-30 @ 022a75c",
       "covers": [],
-      "tokens_est": 4512
+      "tokens_est": 4494
     },
     {
       "file": "STRUCTURE.md",
@@ -323,7 +321,7 @@
         ".claude/skills/*/SKILL.md",
         ".agents/skills/*/SKILL.md"
       ],
-      "tokens_est": 985
+      "tokens_est": 938
     },
     {
       "file": "TESTING.md",
