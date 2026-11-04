@@ -10,7 +10,11 @@
 # that has not changed.
 #
 # Whitespace is normalised before comparison so indentation churn does not
-# register as drift. Exit 1 means at least one page differs.
+# register as drift. Exit 1 means at least one page or API file differs.
+#
+# PHP under api/ is executed by the host, so HTTP cannot return its source. When
+# FTP_HOST, FTP_USER and FTP_PASS are set, those files are read back over FTP
+# (read-only) and compared too; without them the API check is skipped.
 
 set -uo pipefail
 cd "$(git rev-parse --show-toplevel)"
@@ -62,6 +66,27 @@ while IFS= read -r f; do
     DRIFT=1
   fi
 done <<< "$FILES"
+
+if [[ -n "${FTP_HOST:-}" && -n "${FTP_USER:-}" && -n "${FTP_PASS:-}" ]]; then
+  # selftest.php and secrets.example.php are repo-only helpers, not part of a release.
+  API=$(git ls-files 'api/*.php' 'api/**/*.php' | grep -v -E 'api/lib/selftest\.php|secrets\.example\.php')
+  TMP=$(mktemp -d); trap 'rm -rf "$TMP"' EXIT
+  { echo 'set net:timeout 30'; echo 'set ssl:verify-certificate no'; echo "open $FTP_HOST"; echo "user $FTP_USER $FTP_PASS"
+    while IFS= read -r f; do mkdir -p "$TMP/$(dirname "$f")"; echo "get -O $TMP/$(dirname "$f") $f"; done <<< "$API"
+    echo bye; } | lftp >/dev/null 2>&1
+  printf '\n| API file (FTP read-back) | Local | Live | State |\n|---|---|---|---|\n'
+  while IFS= read -r f; do
+    if [[ ! -f "$TMP/$f" ]]; then printf '| %s | — | — | **NOT ON HOST** |\n' "$f"; DRIFT=1; continue; fi
+    lb=$(norm < "$f" | wc -c | tr -d ' '); vb=$(norm < "$TMP/$f" | wc -c | tr -d ' ')
+    if diff -q <(norm < "$f") <(norm < "$TMP/$f") >/dev/null 2>&1; then
+      printf '| %s | %s | %s | in sync |\n' "$f" "$lb" "$vb"
+    else
+      printf '| %s | %s | %s | **DRIFT** |\n' "$f" "$lb" "$vb"; DRIFT=1
+    fi
+  done <<< "$API"
+else
+  echo; echo "API files not compared: set FTP_HOST, FTP_USER and FTP_PASS to read them back over FTP."
+fi
 
 echo
 if [[ $DRIFT -eq 1 ]]; then

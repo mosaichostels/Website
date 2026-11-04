@@ -14,7 +14,7 @@ Covers: scripts/deploy.sh,scripts/indexnow-submit.sh,.claude/seo/*.sh,.claude/se
 | SEO unit tests | `cd .claude/seo && python3 -m unittest discover -s tests` | 100 tests OK on 2026-10-23 |
 | Pre-commit SEO gate | `./.claude/seo/verify.sh` (`--all` for every page) | HTML parses, internal links, sitemap, JSON-LD valid; exit 1 = restore, commit nothing |
 | Live check | `python3 .claude/seo/live_check.py` | Post-deploy: sitemap URLs 200, redirects single 301, data in `.claude/seo/live_check.json` |
-| Deploy drift | `./.claude/seo/deploy-drift.sh` | Repo vs live, page by page |
+| Deploy drift | `./.claude/seo/deploy-drift.sh` | Repo vs live, page by page; with `FTP_HOST FTP_USER FTP_PASS` exported it also reads the 14 `api/` PHP files back over FTP (read-only), otherwise skips them |
 | IndexNow | `./scripts/indexnow-submit.sh --since <ref>` / `<paths>` / `--all` (`--dry-run`) | Run after changes are LIVE and drift clean. Sends only sitemap URLs |
 | Platform health | `./.claude/seo/health-check.sh [--quiet]` | Read-only; sources `~/.config/mosaic-seo/env` |
 | Data pull | `./.claude/seo/extract-all.sh [--fast] [gsc bing ...]` | Needs env file and venv; writes `seo-reports/<name>/` |
