@@ -196,6 +196,7 @@ $pb = calls('ezee', 'ProcessBooking');
 check('ProcessBooking ConfirmBooking is sent once for the new reservation, with the Inventory_Mode InsertBooking returned',
   count($pb) === 1 && ($pb[0]['data']['Action'] ?? '') === 'ConfirmBooking' && ($pb[0]['data']['ReservationNo'] ?? '') === ($v['json']['reservation_no'] ?? 'x') && ($pb[0]['data']['Inventory_Mode'] ?? '') === 'REGULAR', json_encode($pb));
 $seq = array_values(array_map(fn ($c) => $c['ezee'], array_filter(ctl('/ctl/calls') ?: [], fn ($c) => isset($c['ezee']))));
+check('done record carries room_assigned_at so the cron does not repeat the assignment', !empty(rec($o)['room_assigned_at'] ?? ''));
 check('eZee call order is InsertBooking, ProcessBooking, AddPayment', array_slice($seq, -3) === ['InsertBooking', 'ProcessBooking', 'AddPayment'], json_encode($seq));
 $v2 = verify($o, $p);
 check('verify again (guest double-clicks / reloads) -> same reservation, NO second booking', $v2['code'] === 200 && $v2['json']['reservation_no'] === $v['json']['reservation_no'] && count(inserts()) === 1, $v2['raw']);
@@ -511,7 +512,15 @@ chmod("$PEND/pending", 0700);
 ctl('/ctl/reset'); $o = new_order()['json']['order_id']; $p = pay($o)['id']; chmod("$PEND/done", 0500);
 $v = verify($o, $p); chmod("$PEND/done", 0700);
 $rec = 'order_RECOVERXXX1'; file_put_contents("$PEND/processing/$rec@" . (time() - 1000) . '.json', json_encode(['order_id' => $rec, 'total' => 1, 'reservation_no' => '1888', 'razorpay_payment_id' => 'pay_X']));
-cron(); check('claim interrupted AFTER eZee returned a reservation number: the cron completes it into done/ (no alert, no double booking)', is_file("$PEND/done/$rec.json") && !glob("$PEND/processing/$rec*") && str_contains(log_text(), "RECOVERED order=$rec"));
+$pb0 = count(calls('ezee', 'ProcessBooking')); cron();
+check('claim interrupted AFTER eZee returned a reservation number: the cron completes it into done/ (no alert, no double booking)', is_file("$PEND/done/$rec.json") && !glob("$PEND/processing/$rec*") && str_contains(log_text(), "RECOVERED order=$rec"));
+check('...and assigns the room it never got (ProcessBooking ConfirmBooking once for that reservation), noting it in the record', count(calls('ezee', 'ProcessBooking')) === $pb0 + 1 && (calls('ezee', 'ProcessBooking')[$pb0]['data']['ReservationNo'] ?? '') === '1888' && !empty(json_decode(file_get_contents("$PEND/done/$rec.json"), true)['room_assigned_at'] ?? ''));
+$rec2 = 'order_RECOVERXXX2'; file_put_contents("$PEND/processing/$rec2@" . (time() - 1000) . '.json', json_encode(['order_id' => $rec2, 'total' => 1, 'reservation_no' => '1889', 'razorpay_payment_id' => 'pay_Y', 'room_assigned_at' => date('c')]));
+$pb0 = count(calls('ezee', 'ProcessBooking')); cron();
+check('claim whose room was already assigned: the cron completes it without calling ProcessBooking again', is_file("$PEND/done/$rec2.json") && count(calls('ezee', 'ProcessBooking')) === $pb0);
+$rec3 = 'order_RECOVERXXX3'; file_put_contents("$PEND/processing/$rec3@" . (time() - 1000) . '.json', json_encode(['order_id' => $rec3, 'total' => 1, 'reservation_no' => '1890', 'razorpay_payment_id' => 'pay_Z']));
+ctl('/ctl/set?process_mode=fail'); cron(); ctl('/ctl/set?process_mode=ok');
+check('cron cannot assign the room: the booking is still completed into done/ and the alert says to assign a bed by hand', is_file("$PEND/done/$rec3.json") && preg_match('/RECOVERED order=' . $rec3 . '[^\n]*room NOT assigned/', log_text()) === 1 && empty(json_decode(file_get_contents("$PEND/done/$rec3.json"), true)['room_assigned_at'] ?? ''));
 check('booking made but done/ not writable: guest still told success AND the record is not lost', $v['code'] === 200 && where_is($o) !== 'nowhere', $v['code'] . ' record in: ' . where_is($o));
 
 // ============================================================================

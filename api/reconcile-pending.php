@@ -67,11 +67,18 @@ foreach (glob(PENDING_ORDERS_DIR . '/processing/*.json') ?: [] as $file) {
     $stuck = json_decode((string)@file_get_contents($file), true);
     if (is_array($stuck) && !empty($stuck['reservation_no'])) {
       $stuck['confirmed_at'] = $stuck['confirmed_at'] ?? date('c');
+      // The request may have died before the room was assigned; do it now unless the claim says it already was.
+      $roomNote = 'room was already assigned';
+      if (empty($stuck['room_assigned_at'])) {
+        $assign = ezee_assign_room((string)$stuck['reservation_no'], $stuck['inventory_mode'] ?? 'REGULAR');
+        if ($assign['_ok']) { $stuck['room_assigned_at'] = date('c'); $roomNote = 'room assigned by the cron'; }
+        else $roomNote = 'room NOT assigned (' . json_encode($assign) . '), assign a bed in eZee by hand';
+      }
       if (@file_put_contents(PENDING_ORDERS_DIR . '/done/' . $orderId . '.json', json_encode($stuck, JSON_PRETTY_PRINT)) !== false) {
         @unlink($file);
         // Alert, not just a log line: the request may have died before AddPayment, leaving eZee showing it unpaid.
         booking_alert('order recovered after an interruption', "RECOVERED order=$orderId reservation={$stuck['reservation_no']} payment=" . ($stuck['razorpay_payment_id'] ?? '?')
-          . "; InsertBooking had succeeded; check the reservation shows the Razorpay payment in eZee and post it by hand if not, and assign a bed (ProcessBooking may not have run)");
+          . "; InsertBooking had succeeded; $roomNote; check the reservation shows the Razorpay payment in eZee and post it by hand if not");
         continue;
       }
     }
