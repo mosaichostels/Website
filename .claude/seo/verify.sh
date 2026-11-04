@@ -93,6 +93,18 @@ if os.path.exists("sitemap.xml"):
     except Exception as e:
         errors.append(f"sitemap.xml: invalid XML — {e}")
 
+# The footer is static markup copied into every page, so one edited copy is a bug.
+footers = {}
+for root, _, names in os.walk("."):
+    if "node_modules" in root or "/." in root: continue
+    for n in names:
+        if n.endswith(".html"):
+            m = re.search(r"<footer>.*?</footer>", open(os.path.join(root, n), encoding="utf-8", errors="replace").read(), re.S)
+            if m: footers.setdefault(m.group(0), []).append(os.path.join(root, n)[2:])
+if len(footers) > 1:
+    odd = sorted(footers.values(), key=len)[0]
+    errors.append(f"footer differs between pages (odd one out: {', '.join(odd[:4])})")
+
 print(f"checked {len(files)} HTML file(s) + sitemap.xml")
 if errors:
     print(f"\nFAIL ({len(errors)} problem(s)):")

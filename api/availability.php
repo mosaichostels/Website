@@ -11,6 +11,8 @@ require __DIR__ . '/lib/ezee.php';
 // a guest comparing dates never notices it.
 require_method('GET');
 rate_limit('availability', 60, 600);
+// The per-client key above is a header a caller can rotate; this ceiling is per site (about 2 searches a second).
+rate_limit('availability-all', 1200, 600, 'all');
 
 // check_in[]=1 gives an array, which used to 500 downstream.
 $checkIn = is_string($_GET['check_in'] ?? null) ? $_GET['check_in'] : '';

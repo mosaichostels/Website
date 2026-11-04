@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500&display=swap"></noscript>
-<link rel="stylesheet" href="/styles/global.css?v=20261103d">
+<link rel="stylesheet" href="/styles/global.css?v=20261104a">
 <link rel="canonical" href="https://www.mosaichostels.com/privacy">
 <meta property="og:image" content="https://www.mosaichostels.com/images/IMG_1928.jpg">
 
@@ -116,6 +116,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.mosaichostels.com/"},{"@type":"ListItem","position":2,"name":"Privacy Policy","item":"https://www.mosaichostels.com/privacy"}]}
 </script>
+  <script async src="https://news.google.com/swg/js/v1/publisher.js"></script>
 </head>
 <body class="privacy-page">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -184,7 +185,7 @@
   <p>We take reasonable steps to protect your information from unauthorized access, alteration, disclosure or destruction. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee absolute security.</p>
 
   <h2>Cookies and Tracking</h2>
-  <p>Google Analytics and Microsoft Clarity use cookies or similar identifiers to recognise visits and measure how the site is used, and embedded content from Google and SnapWidget may set its own. You can control or block cookies in your browser settings or with privacy tools. Some features may not work properly if cookies are disabled.</p>
+  <p>Google Analytics and Microsoft Clarity use cookies or similar identifiers to recognise visits and measure how the site is used, and embedded content from Google (the map and the "Add as Preferred Source" button in the footer) and SnapWidget may set its own. You can control or block cookies in your browser settings or with privacy tools. Some features may not work properly if cookies are disabled.</p>
 
   <h2>Your Rights</h2>
   <p>You can ask to access, correct or delete your personal information, or to withdraw consent where we rely on it, by contacting us using the details below. We aim to respond within 30 days. If you are not satisfied with our reply, you may complain to your local data protection authority (in India, the Data Protection Board of India).</p>
@@ -199,53 +200,59 @@
   <p>If you have questions about this Privacy Policy or our privacy practices, please contact us at:<br>
   <strong>Email:</strong> <a href="mailto:mosaichostels@gmail.com">mosaichostels@gmail.com</a><br>
   <strong>WhatsApp:</strong> <a href="https://wa.me/919125492225">+91 91254 92225</a><br>
-  <strong>Address:</strong> <a href="https://www.google.com/maps?cid=10826956351092739131" onclick="openMapsDialog(event)">B1/85C, Assi Ghat Road, Anandbagh, Varanasi 221005, India</a></p>
+  <strong>Address:</strong> <a href="https://www.google.com/maps?cid=10826956351092739131" target="_blank" rel="noopener">B1/85C, Assi Ghat Road, Anandbagh, Varanasi 221005, India</a></p>
 </main>
 
 <!-- TILE DIVIDER -->
 <div class="tile-accent" id="div1"></div>
 
-<!-- ── FOOTER (injected by footer.js) ── -->
-<!-- ── FOOTER ── -->
+<!-- Footer: static markup, identical on every page (check-footers in .claude/seo/verify.sh). footer.js only paints the colour strip. -->
 <footer>
   <div class="footer-top">
-    <div>
-      <img src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="110" height="110" style="display:block;height:110px;width:auto;filter:brightness(0) invert(1);opacity:0.9;margin-bottom:16px;">
-      <p class="footer-tagline">A hostel rooted in community, warmth, and the spirit of Varanasi. Every guest who stays becomes part of our story.</p>
-      <p style="font-size:13px;line-height:1.5;margin-top:12px;opacity:0.7;">
-        <strong>B1/85C, Assi Ghat Road, Anandbagh, Varanasi, UP 221005</strong><br>
-        <a href="tel:+919125492225" style="color:inherit;text-decoration:none">+91 91254 92225</a>
+    <div class="footer-brand">
+      <img class="footer-logo" src="/images/mosaic-logo-main.png" alt="Mosaic Hostel" width="110" height="110">
+      <p class="footer-tagline">A hostel 100 m from Assi Ghat, Varanasi. Dorm beds and private rooms, a female-only dorm and a 24-hour reception.</p>
+      <p class="footer-address">
+        <a href="https://www.google.com/maps?cid=10826956351092739131" target="_blank" rel="noopener"><strong>B1/85C, Assi Ghat Road, Anandbagh, Varanasi, UP 221005</strong></a><br>
+        <a href="tel:+919125492225">+91 91254 92225</a>
       </p>
+      <div google-add-preferred-source-btn></div>
     </div>
-    <div></div>
-    <div>
-      <div class="footer-heading">Explore</div>
-      <div class="footer-links">
-        <a href="/dorms/">Dorm Beds</a>
-        <a href="/gallery">Gallery</a>
-        <a href="/about">About Us</a>
-        <a href="/blog/">Blog</a>
-        <a href="/contact">Contact</a>
-        <a href="/privacy">Privacy Policy</a>
-      </div>
-    </div>
-    <div>
-      <div class="footer-heading">Connect</div>
-      <div class="footer-links">
-        <a href="https://www.instagram.com/mosaichostels" target="_blank">Instagram</a>
-        <a href="https://wa.me/919125492225" target="_blank">WhatsApp</a>
-        <a href="mailto:mosaichostels@gmail.com">Email Us</a>
-      </div>
-    </div>
+    <nav aria-labelledby="footer-explore">
+      <h2 class="footer-heading" id="footer-explore">Explore</h2>
+      <ul class="footer-links">
+        <li><a href="/book-now">Book Your Stay</a></li>
+        <li><a href="/dorms/">Dorm Beds</a></li>
+        <li><a href="/gallery">Gallery</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="footer-policies">
+      <h2 class="footer-heading" id="footer-policies">Good to know</h2>
+      <ul class="footer-links">
+        <li><a href="/book-now#faq-heading">Cancellation and house rules</a></li>
+        <li><a href="/privacy">Privacy Policy</a></li>
+      </ul>
+    </nav>
+    <nav aria-labelledby="footer-connect">
+      <h2 class="footer-heading" id="footer-connect">Connect</h2>
+      <ul class="footer-links">
+        <li><a href="https://www.instagram.com/mosaichostels" target="_blank" rel="noopener" aria-label="Instagram (opens in a new tab)">Instagram</a></li>
+        <li><a href="https://wa.me/919125492225" target="_blank" rel="noopener" aria-label="WhatsApp (opens in a new tab)">WhatsApp</a></li>
+        <li><a href="mailto:mosaichostels@gmail.com">Email Us</a></li>
+      </ul>
+    </nav>
   </div>
   <div class="footer-bottom">
-    <div class="footer-copy">© 2026 Mosaic Hostel. All rights reserved.</div>
+    <div class="footer-copy">&copy; 2026 Mosaic Hostel Varanasi</div>
     <div class="footer-tile-strip" id="footerStrip"></div>
     <div class="footer-copy">Made with care in Varanasi</div>
   </div>
 </footer>
 
-    <script src="/components/site.js?v=20261103a"></script>
+    <script src="/components/site.js?v=20261104a"></script>
     <script src="/components/navbar.js?v=20261028"></script>
 <script src="/components/footer.js?v=20260729"></script>
 </body>

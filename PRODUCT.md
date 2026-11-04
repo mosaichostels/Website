@@ -40,7 +40,7 @@ Name "Mosaic Hostel Varanasi" and the tile idea ("Each guest is a piece. Each st
 
 ## Evidence on Hand
 
-21 gallery photos, hero video and poster, OTA/Hostelworld logos (`images/`), 14 blog guides. Site claims "1500+ guests", "4.3 ★ average across platforms (394 reviews)" (recomputed 2026-11-01 from live platform pages, review-weighted; see `anti-slop/audit-001-2026-11-01.md` appendix; replaces the old 4.8 / 427) and "60+ countries"; these are owner-supplied and not verifiable from the repo. Future work must not invent further reviews, ratings, prices or counts.
+21 gallery photos, hero video and poster, OTA/Hostelworld logos (`images/`), 16 blog guides. Site claims "1500+ guests", "4.3 ★ average across platforms (394 reviews)" (recomputed 2026-11-01 from live platform pages, review-weighted; see `anti-slop/audit-001-2026-11-01.md` appendix; replaces the old 4.8 / 427) and "60+ countries"; these are owner-supplied and not verifiable from the repo. Future work must not invent further reviews, ratings, prices or counts.
 
 ## Product Principles
 

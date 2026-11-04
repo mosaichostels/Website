@@ -159,6 +159,8 @@ ErrorDocument 404 /404.html
   # ezee/razorpay/mock helpers) — these are only ever `require`d by api/*.php,
   # never requested directly, but had no server-side deny.
   RewriteRule ^api/lib/ - [F,L]
+  # alert-email.php is an include too (it defines the owner's alert address).
+  RewriteRule ^api/alert-email\.php$ - [F,L]
 
   # Force HTTPS + www in a single hop (http apex, http www, and https apex
   # all used to bounce through an intermediate hop before landing here)
