@@ -21,4 +21,4 @@ Covers: components/*.js,styles/global.css,api/lib/*.php,.htaccess,scripts/*.py
 PHP 8.5.12 (`/opt/homebrew/bin/php`), python3 at `/opt/homebrew/bin/python3`. Production PHP: 8.2.35 (`X-Powered-By` header on `/api/create-order.php`, checked 2026-10-29); local 8.5 is newer, avoid 8.3+ only syntax.
 
 ## Not part of the site
-No CI: `.github/` does not exist. No package.json, composer.json or Dockerfile at the root.
+CI: `.github/workflows/check.yml` only (verify.sh --all, PHP and JS syntax, flow-test). No package.json, composer.json or Dockerfile at the root.

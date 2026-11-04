@@ -1,0 +1,23 @@
+# Runs the checks that already exist; nothing here deploys (deploys stay manual, scripts/deploy.sh).
+name: check
+on: [push, pull_request]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: curl, mbstring
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: HTML, internal links, JSON-LD, sitemap, identical footers
+        run: ./.claude/seo/verify.sh --all
+      - name: PHP syntax
+        run: find api -name '*.php' ! -name secrets.php -print0 | xargs -0 -n1 php -l > /dev/null
+      - name: Browser JS syntax
+        run: for f in components/*.js; do node --check "$f"; done
+      - name: Booking flow against the local eZee and Razorpay mock
+        run: sh scripts/flow-test/run.sh

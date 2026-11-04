@@ -11,7 +11,7 @@ Guests can first look the booking up (`POST /api/lookup-booking.php`, same gate 
 ## Chain
 ```
 POST /api/cancel-booking.php {reservation_no, email}
- -> rate_limit('cancel-booking',5/600s per IP) + ('cancel-all',60/600s) + ('cancel-reservation',5/3600s keyed by reservation number)
+ -> rate_limit('cancel-booking',5/600s per IP) + ('cancel-all',60/600s) + ('cancel-reservation',5/3600s keyed by reservation number; counts WRONG emails only: `rate_limit(..., 'check')` before the lookup, `'record'` on a mismatch, so a stranger's guesses lock the booking and the real guest's right ones never do)
  -> ezee_fetch_booking (FetchSingleBooking, pms_connectivity.php, HotelCode+AuthCode)
  -> reservation found AND Email on file == email (case-insensitive) else 404 (same text for both: no oracle)
  -> BookingTran[0].CurrentStatus in Cancel|Void|Checked Out -> 409 "already <status>"

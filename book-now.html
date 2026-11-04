@@ -456,6 +456,13 @@
 <!-- ── FAQ (visible copy of the FAQPage markup above) ── -->
 <section class="faq" aria-labelledby="faq-heading">
   <style>
+    #cancelConfirm{margin:auto;border:0;border-radius:12px;padding:28px;max-width:min(440px,calc(100vw - 32px));background:var(--canvas);color:var(--ink)}
+    #cancelConfirm::backdrop{background:rgba(26,18,8,.6)}
+    #cancelConfirm h2{font-family:Cinzel,serif;font-weight:500;font-size:1.3rem;margin-bottom:12px}
+    #cancelConfirm p{margin-bottom:12px;line-height:1.5}
+    .cancel-confirm-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
+    .cancel-confirm-actions .form-submit{flex:1 1 150px;margin:0}
+    .cancel-keep{background:transparent;color:var(--ink);border:1px solid var(--ink)}
     .faq{max-width:820px;margin:0 auto;padding:48px 24px}
     .faq h2{scroll-margin-top:120px;font-family:Cinzel,serif;font-weight:500;font-size:clamp(1.5rem,4vw,2.2rem);color:var(--ink);text-align:center;margin:0 0 28px}
     .faq details{background:var(--cream);border-radius:8px;padding:4px 12px;margin-bottom:8px}
@@ -514,6 +521,18 @@
     </details>
   </div>
 </div>
+
+<dialog id="cancelConfirm" aria-labelledby="cancelConfirmTitle">
+  <form method="dialog">
+    <h2 id="cancelConfirmTitle">Cancel this booking?</h2>
+    <p id="cancelConfirmText"></p>
+    <p>This cannot be undone. Cancelling within 72 hours of check-in is not refundable under our policy.</p>
+    <div class="cancel-confirm-actions">
+      <button value="keep" class="form-submit cancel-keep" autofocus>Keep booking</button>
+      <button value="cancel" class="form-submit cancel-go">Cancel booking</button>
+    </div>
+  </form>
+</dialog>
 
 <!-- ── HOSTEL RULES & POLICIES (modal) ── -->
 <div class="policy-modal-overlay" id="policyModal" role="dialog" aria-modal="true" aria-label="Booking terms and policies">
@@ -690,7 +709,7 @@
   <iframe
     title="Map: Mosaic Hostel Varanasi near Assi Ghat"
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.0!2d83.0031634!3d25.2872587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e31ef166d9b91%3A0x96411370098acc3b!2sMosaic%20Hostel%20Varanasi!5e0!3m2!1sen!2sin!4v1735000000000!5m2!1sen!2sin"
-    allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1">
   </iframe>
 </div>
 
@@ -716,7 +735,7 @@
 
     <script src="/components/site.js?v=20261104a"></script>
     <script defer src="https://checkout.razorpay.com/v1/checkout.js"></script>
-    <script src="/components/book-now.js?v=20261101i"></script>
+    <script src="/components/book-now.js?v=20261104a"></script>
     <script src="/components/navbar.js?v=20261028"></script>
 <script src="/components/footer.js?v=20260729"></script>
 

@@ -4,7 +4,7 @@ Covers: scripts/deploy.sh,scripts/indexnow-submit.sh,.htaccess,.claude/seo/deplo
 
 # Deploy
 
-Manual FTP to Hostinger. No CI, no build, no staging. `git push` does NOT deploy.
+Manual FTP to Hostinger. No build, no staging; CI (`.github/workflows/check.yml`) only checks, it never deploys. `git push` does NOT deploy.
 
 ## Release
 1. Verify: `./.claude/seo/verify.sh` (HTML/links/JSON-LD); PHP changed -> selftest (deploy runs it).

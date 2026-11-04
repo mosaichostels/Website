@@ -1237,7 +1237,7 @@
       msg.style.display = 'none';
       // One click used to cancel outright, while the policy right above says a
       // cancellation inside 72 hours of check-in is not refunded.
-      if (!window.confirm('Cancel reservation ' + current.resNo + '? This cannot be undone. Cancelling within 72 hours of check-in is not refundable under our policy.')) return;
+      if (!(await confirmCancel(current.resNo))) return;
       cancelBtn.disabled = true;
       cancelBtn.textContent = 'Cancelling...';
       try {
@@ -1253,6 +1253,21 @@
         cancelBtn.disabled = false;
         cancelBtn.textContent = 'Cancel Booking';
       }
+    });
+  }
+
+  // Styled replacement for window.confirm: a native <dialog> gives focus trapping, Esc and a backdrop for free.
+  // Without dialog support (very old browsers) fall back to the plain confirm so cancelling still asks first.
+  function confirmCancel(resNo) {
+    const dlg = document.getElementById('cancelConfirm');
+    if (!dlg || typeof dlg.showModal !== 'function') {
+      return Promise.resolve(window.confirm('Cancel reservation ' + resNo + '? This cannot be undone. Cancelling within 72 hours of check-in is not refundable under our policy.'));
+    }
+    document.getElementById('cancelConfirmText').textContent = 'Reservation ' + resNo + ' will be cancelled.';
+    dlg.returnValue = '';
+    return new Promise((resolve) => {
+      dlg.addEventListener('close', () => resolve(dlg.returnValue === 'cancel'), { once: true });
+      dlg.showModal();
     });
   }
 

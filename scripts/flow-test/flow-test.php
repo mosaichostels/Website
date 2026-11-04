@@ -437,6 +437,29 @@ $keep_limits = true;
 for ($i = 0; $i < 6; $i++) $last = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => "x$i@example.com"]);
 check('guessing: more than 5 tries in 10 minutes -> 429', $last['code'] === 429, (string)$last['code']);
 $keep_limits = false;
+// The per-reservation cap (5 an hour) counts wrong emails only. Every other bucket is cleared before each call,
+// so a 429 here can only come from that one counter.
+function only_reservation_cap(string $bucket, string $no) {
+  global $PEND; $keep = hash('sha256', "$bucket|$no") . '.json';
+  foreach (glob("$PEND/ratelimit/*.json") ?: [] as $f) if (basename($f) !== $keep) @unlink($f);
+}
+ctl('/ctl/reset'); [$o, $p, $v] = confirmed(); $no = $v['json']['reservation_no'];
+$keep_limits = true;
+for ($i = 0; $i < 5; $i++) { only_reservation_cap('lookup-reservation', $no); $w = app('POST', '/api/lookup-booking.php', ['reservation_no' => $no, 'email' => "x$i@example.com"]); }
+check('5 wrong emails on one booking are each answered 404', $w['code'] === 404, (string)$w['code']);
+only_reservation_cap('lookup-reservation', $no);
+$l = app('POST', '/api/lookup-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com']);
+check('the 6th try is refused 429 even with the right email (guessing is capped per booking)', $l['code'] === 429, (string)$l['code']);
+ctl('/ctl/reset'); foreach (glob("$PEND/ratelimit/*.json") ?: [] as $f) @unlink($f); // numbers restart after a reset, so the old booking's counter must go too
+[$o, $p, $v] = confirmed(); $no = $v['json']['reservation_no']; $codes = [];
+for ($i = 0; $i < 8; $i++) { only_reservation_cap('lookup-reservation', $no); $codes[] = app('POST', '/api/lookup-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com'])['code']; }
+check('8 lookups with the right email never lock the guest out', $codes === array_fill(0, 8, 200), implode(',', $codes));
+only_reservation_cap('cancel-reservation', $no);
+for ($i = 0; $i < 3; $i++) { only_reservation_cap('cancel-reservation', $no); app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => "y$i@example.com"]); }
+only_reservation_cap('cancel-reservation', $no);
+$c = app('POST', '/api/cancel-booking.php', ['reservation_no' => $no, 'email' => 'test@example.com']);
+check('3 strangers\' wrong emails leave room for the real guest to cancel', $c['code'] === 200, $c['raw']);
+$keep_limits = false;
 
 // ============================================================================
 section('Rate limiting and abuse');

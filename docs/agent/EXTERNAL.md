@@ -7,7 +7,7 @@ Covers: -
 | What | Where | Notes |
 |---|---|---|
 | Live site | https://www.mosaichostels.com | |
-| Code | github.com/mosaichostels/Website, branch `main` | no CI; push does not deploy |
+| Code | github.com/mosaichostels/Website, branch `main` | CI runs the checks (`.github/workflows/check.yml`, not yet seen running); push does not deploy |
 | Hosting/FTP/cron/email | Hostinger hPanel (user `u738123768`) | credentials only in owner env |
 | PMS | eZee extranet (hotel code in `api/secrets.php`) | |
 | Payments | Razorpay dashboard (webhook URL `/api/razorpay-webhook.php`, event `payment.captured`) | production keys are LIVE (owner-confirmed 2026-10-29) |
