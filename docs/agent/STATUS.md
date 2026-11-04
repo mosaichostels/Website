@@ -44,9 +44,9 @@ Covers: -
 |---|---|
 | TODO blog card photos | Blog index cards have no pictures. Three posts (co-working, Dev Deepawali, Ganga Aarti) share one `og:image` (`IMG_1928`, the common room), so owner must pick the photo for each of the 16 cards before they are added. Do not auto-pair photos. |
 | TODO dorm photos | The 10-bed mixed and 6-bed female dorm cards on `/dorms/` show a tile graphic; owner to supply real room photos. |
-| F-0057 | Bing holds 3 posts as 0 B stubs (co-working, ganga-aarti, dev-deepawali); status `verified`, follow up in the next weekly run |
-| F-0056 | Measure `sameAs` experiment on `/about` in later weekly reports |
-| F-0058 | `/dorms/` is deployed (drift clean 2026-10-30); Bing still holds it as a 0 B stub (F-0057); IndexNow after the next deploy; consider navbar link |
+| F-0057 | Bing recheck 2026-11-04: co-working fixed (12,456 B, crawled 29 Oct); ganga-aarti and dev-deepawali still 0 B, last crawled 14 Oct (before the IndexNow of 30 Oct and 3 Nov); `/dorms/` crawled 2 Nov, still 0 B. Likely the host serving Bingbot a block/empty response (spoofed bingbot got 403 on 30 Oct): owner to check hPanel bot protection/WAF/rate limits, then resubmit via IndexNow and recheck |
+| F-0056 | Ledger status `measured` (already closed); `sameAs` experiment on `/about` can still be read in later weekly reports |
+| F-0058 | Ledger status `measured`; `/dorms/` deployed, navbar link and IndexNow (3 Nov) done; only the Bing 0 B stub remains (F-0057) |
 | Deploy state | Everything through the 2026-10-30 sitemap commit is live (drift clean). `sitemap-images.xml` matches the edge; `sitemap.xml` on the plain URL is still the previous copy: clear the cache in hPanel, resubmit both sitemaps to Google and Bing, then `ledger.py deploy-check F-0083`. Recheck Bing stub posts (F-0057) |
 | Razorpay go-live checklist | In `.planning/razorpay-live-readiness.md` (local); live-vs-test status of the production keys: unknown |
 | WCAG AA | Undecided (DECISIONS) |
@@ -65,4 +65,4 @@ After code changes, edit the affected file here and add a line above with the co
 
 - 2026-11-04: `deploy-drift.sh` now compares the 14 deployed `api/` PHP files over FTP when FTP creds are exported (all in sync; pages-only before). Live `api/` matched `main` byte for byte.
 
-- 2026-11-04 (committed, NOT deployed): the cron recovery of an interrupted claim (`reconcile-pending.php`) now assigns the room via `ezee_assign_room()` (new in `api/lib/booking.php`) unless the claim carries `room_assigned_at`, which `confirm_paid_order()` now writes after a successful ProcessBooking (it also stores `inventory_mode`). A failed assignment still completes the order and the alert says to assign a bed by hand. flow-test 202/202 (4 new checks), selftest pass. Deploy: `api/lib/booking.php` and `api/reconcile-pending.php` together. Whether eZee tolerates a repeated ConfirmBooking was not probed live; the marker avoids repeating it, and the mock returns ReservationAlreadyProcessed on a repeat.
+- 2026-11-04 (committed and DEPLOYED by FTP the same day; `api/` read back identical to `main`, `live_check.py` 69 URLs 0 failures): the cron recovery of an interrupted claim (`reconcile-pending.php`) now assigns the room via `ezee_assign_room()` (new in `api/lib/booking.php`) unless the claim carries `room_assigned_at`, which `confirm_paid_order()` now writes after a successful ProcessBooking (it also stores `inventory_mode`). A failed assignment still completes the order and the alert says to assign a bed by hand. flow-test 202/202 (4 new checks), selftest pass. Whether eZee tolerates a repeated ConfirmBooking was not probed live; the marker avoids repeating it, and the mock returns ReservationAlreadyProcessed on a repeat.
