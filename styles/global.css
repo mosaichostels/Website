@@ -343,3 +343,7 @@ body.has-action-bar{padding-bottom:64px}}
   .footer-bottom{display:flex;flex-direction:column;text-align:center;gap:12px}
   .footer-bottom>:last-child{justify-self:auto}
 }
+/* Tap targets >=44px for inline links (audit 2026-11-05); balance the hero tagline so no word sits alone. */
+@media(max-width:768px){.form-note a,.form-sub a[href^="mailto:"],footer p a[href^="tel:"]{display:inline-block;padding:12px 0}}
+.hero-tagline{text-wrap:balance}
+@media(max-width:480px){.widget-steps{flex-wrap:nowrap;gap:10px;justify-content:space-between}.widget-steps li{gap:5px;font-size:13px}.widget-steps li::before{width:18px;height:18px;font-size:12px}}
