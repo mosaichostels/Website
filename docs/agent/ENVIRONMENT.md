@@ -1,5 +1,5 @@
 Read when: you need credentials by name, local tooling paths, hooks, or scheduled jobs. Names only, never values.
-Verified: 2026-10-29 @ c019c06
+Verified: 2026-11-06 @ 57a98c6
 Covers: api/secrets.example.php,api/alert-email.php,scripts/deploy.sh,.claude/settings.json,.codex/hooks.json,.claude/hooks/*
 
 # Environment

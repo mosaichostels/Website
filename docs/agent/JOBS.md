@@ -1,5 +1,5 @@
 Read when: asking what runs on a schedule or in the background, or what to do if it stops.
-Verified: 2026-10-29 @ c019c06
+Verified: 2026-11-06 @ 57a98c6
 Covers: api/reconcile-pending.php
 
 # Jobs

@@ -1,5 +1,5 @@
 Read when: before editing anything risky: payments, deploys, redirects, cache versions, secrets, worktrees, agent config.
-Verified: 2026-10-29 @ c019c06
+Verified: 2026-11-06 @ 57a98c6
 Covers: api/lib/*.php,api/*.php,.htaccess,scripts/deploy.sh,.claude/hooks/*
 
 # Gotchas
@@ -53,7 +53,7 @@ Covers: api/lib/*.php,api/*.php,.htaccess,scripts/deploy.sh,.claude/hooks/*
 - `.codex/hooks.json` kept: Codex-only hook format; Claude's equivalent lives in `settings.local.json`. `.codex/agents/security-reviewer.toml` is Codex's copy of `.claude/agents/security-reviewer.md`. `.codex/skills/weekly-seo` is a symlink to `.claude/skills/weekly-seo` (`.codex/` is git-excluded). `.agents/skills/{cache-bust-check,reconcile-payment,weekly-seo}` (untracked, 2026-10-29) are separate copies, NOT symlinks, and `weekly-seo` already differs from `.claude/` (wording of credentials, toolchain, tooling notes): edit `.claude/` first, then sync `.agents/` by hand and `diff -r` them.
 - `AGENTS.md` is the single instruction file; `CLAUDE.md` is `@AGENTS.md`. `AGENTS.md` also says "follow `~/.codex/AGENTS.md`", the global rules file.
 
-- `book-now.js:379` (`setQty`) caps a room quantity at `room.available`; past the cap it shows "Only N rooms left" (line 383).
+- `book-now.js:378` (`setQty`) caps a room quantity at `room.available`; past the cap it shows "Only N rooms left" (line 383).
 - Drift baselines: the plugin hardcodes `~/.cache/claude-seo/drift`, which cleanups wipe. Already mitigated: it is a symlink to `~/.local/share/mosaic-seo/drift` (Codex: `~/.cache/codex-seo/drift` -> `.../drift-codex`), set up by `.claude/seo/lighthouse-drift-extract.py:72`. If a symlink is missing, recreate it before running or baselines are lost.
 - FTP (`deploy-test.env`) lands in the docroot `/`; `ezee-pending-orders/` and `bookings.log` sit above it (`api/lib/config.php:40`) and cannot be read over FTP. Use hPanel File Manager (checked 2026-10-29).
 - `bookings.log` is readable only by downloading `ezee-pending-orders` from hPanel File Manager (zip). The 2026-10-29 copy shows an `ALERT PAID but booking NOT created` on 2026-10-26 (the multi-night bug fixed in `fd29588`); order folders then held 7 abandoned, 2 done, 3 failed.

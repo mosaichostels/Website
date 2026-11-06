@@ -1,5 +1,5 @@
 Read when: touching order files, rate-limit state, SEO ledger/report data, or asking "where is X stored" (there is no database).
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-11-06 @ 57a98c6
 Covers: api/lib/config.php,api/lib/booking.php,api/create-order.php,api/cancel-booking.php,api/reconcile-pending.php,seo-reports/data/*
 
 # Data
@@ -12,7 +12,7 @@ One level above the docroot: never web-reachable, never touched by FTP deploy, c
 |---|---|---|---|
 | `pending/` | order created, unpaid or unconfirmed | `<order_id>.json` | `processing/` (claim), `abandoned/` (>24 h unpaid) |
 | `processing/` | claimed, eZee being called | `<order_id>@<unixtime>.json` | `done/`, `failed/`, back to `pending/` (retry) |
-| `done/` | booked | `<order_id>.json` | terminal; `cancel-booking.php` scans it by `reservation_no` |
+| `done/` | booked | `<order_id>.json` | terminal; `find_done_record()` (`api/lib/booking.php`) scans it by `reservation_no` for cancel and lookup |
 | `failed/` | needs a human | `<order_id>.json` | manual |
 | `abandoned/` | unpaid cart after 24 h | `<order_id>.json` | back to `processing/` if paid late |
 | `refunds/` | cancel trace | `<reservation_no>.json` | `status`: cancelling, refunded, manual |
@@ -23,7 +23,7 @@ Order id shape `^order_[A-Za-z0-9]{6,40}$`; payment id `^pay_[A-Za-z0-9]{6,40}$`
 
 ### Order record keys (`create-order.php` writes; booking adds)
 `order_id, amount (paise), total (rupees), check_in, check_out, room_units[] (per physical room: roomtypeunkid, ratetypeunkid, roomrateunkid, baserate/extradultrate/extrachildrate as per-night comma lists, adults, children, child_ages, title, first_name, last_name, gender, special_request), first_name, last_name, email, phone ("<code> <digits>"), nationality, special_request, created_at`.
-Deposit option (create-order writes): `pay_option` (`full`|`deposit`), `pay_now` (rupees Razorpay charges; `amount` is the same in paise), `due_at_hotel` (total minus pay_now, rupees). Records from before the option lack them; readers fall back to `total`.
+Deposit option (create-order writes): `pay_option` (`full`|`deposit`), `pay_now` (rupees Razorpay charges; `amount` is the same in paise), `due_at_hotel` (total minus pay_now, rupees). Records from before the option lack them; readers fall back to `total`. `confirm_paid_order` also writes `inventory_mode` (from InsertBooking, default `REGULAR`) and `room_assigned_at` (set once ProcessBooking ConfirmBooking succeeds; the cron skips the assign step when present).
 Added later: `attempts, last_attempt_at, last_failure, reservation_no, sub_reservation_no, razorpay_payment_id, confirmed_at`.
 PII: names, email, phone live in these files and in eZee. Treat as personal data; never paste into docs or logs.
 

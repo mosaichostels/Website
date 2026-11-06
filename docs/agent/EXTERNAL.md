@@ -1,5 +1,5 @@
 Read when: you need to know which outside account, console or document holds something. No secrets here.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-11-06 @ 57a98c6
 Covers: -
 
 # External

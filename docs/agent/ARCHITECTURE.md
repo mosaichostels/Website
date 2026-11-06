@@ -1,5 +1,5 @@
 Read when: tracing a request, changing booking/payment/cancel logic, redirects, caching, or the SEO program.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-11-06 @ 57a98c6
 Covers: api/*.php,api/lib/*.php,.htaccess,components/book-now.js
 
 # Architecture
@@ -17,16 +17,16 @@ Chains, failure paths and files: FLOWS/booking.md, FLOWS/cancellation.md, FLOWS/
 - Mode (test/live): decided only by key pair in `api/secrets.php`; no code branching. eZee sandbox vs prod likewise by hotel code/key.
 
 ## URL handling (`.htaccess`)
-- Order: 404 doc, security headers, expires, cache headers, LSCache, `DirectoryIndex` (L151), then rewrite block (L154+).
-- `api/lib/` returns 403 (L161). HTTP and apex redirect 301 to `https://www.mosaichostels.com` (L165).
+- Order: 404 doc, security headers, expires, cache headers, LSCache, `DirectoryIndex` (L151), then rewrite block (L155+).
+- `api/lib/` and `api/alert-email.php` return 403 (L161, L163). HTTP and apex redirect 301 to `https://www.mosaichostels.com` (L165).
 - `*.html` core pages 301 to the clean URL; `/about/` style trailing slashes 301 to non-slash; clean URL -> `.html` rewrites repeat the `!-f`, `!-d`, `!/blogs/` conds before EVERY rule.
-- Many legacy WordPress and AI-invented URLs 301 to blog posts (cannibalization merges into `assi-ghat-varanasi-complete-guide`, `things-to-do-varanasi-local-guide`). Folders (`/dorms/`, `/blog/<slug>/`) rely on `DirectoryIndex`, no rewrite needed.
+- Many legacy WordPress and AI-invented URLs 301 to blog posts (cannibalization merges into `assi-ghat-varanasi-complete-guide`, `things-to-do-varanasi-local-guide`). Folders (`/dorms/`, `/blog/<slug>/`) rely on `DirectoryIndex`, no rewrite needed; `/dorms/index.html` 301s to `/dorms/` (L179).
 - Adding a redirect: append a `RewriteRule ... [R=301,L]` in the block, add it to `.claude/seo/live_check.json`, run `live_check.py` after deploy.
 
 ## Caching
 HTML 5 min. `.css`/`.js` `max-age=2592000, immutable` for ALL css/js (not only components/styles, `.htaccess:75-82`). Images 90 days immutable, fonts 1 year. Therefore every shared asset reference carries `?v=` (CONVENTIONS). Current versions: `navbar.js?v=20261028` (25 files), `site.js?v=20261016` (24), `global.css?v=20261012r6` (25).
 
-## Security headers (`.htaccess:8-31`)
+## Security headers (`.htaccess:8-32`)
 HSTS preload, nosniff, X-Frame-Options DENY, Referrer-Policy, CSP allowlist (jsdelivr, clarity, bing, razorpay, googletagmanager, ...), Permissions-Policy allowing `payment` for Razorpay only. Razorpay checkout verified against this CSP 2026-10-06 (earlier notes). Any new third-party script/frame needs a CSP edit.
 
 ## SEO program

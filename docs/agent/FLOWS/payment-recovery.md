@@ -1,5 +1,5 @@
 Read when: a guest paid but has no eZee reservation, an alert email arrived, or you change the cron sweep or order folders.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-11-06 @ 57a98c6
 Covers: api/reconcile-pending.php,api/lib/booking.php,api/lib/config.php,.claude/skills/reconcile-payment/SKILL.md,.agents/skills/reconcile-payment/SKILL.md
 
 # Flow: paid order recovery (backstop)

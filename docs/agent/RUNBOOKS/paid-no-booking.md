@@ -1,12 +1,12 @@
 Read when: a guest says they paid but got no confirmation, or an alert mail says "PAID but booking NOT created" or "order stuck in processing".
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-11-06 @ 57a98c6
 Covers: api/lib/booking.php,api/reconcile-pending.php,api/lib/ezee.php,.claude/skills/reconcile-payment/SKILL.md
 
 # Runbook: paid but no eZee reservation
 
 1. Identify: order id / payment id from the alert or Razorpay dashboard (or the read-only Razorpay MCP). Find the file: `ezee-pending-orders/{pending,processing,failed,done,abandoned}/<order>*.json` (one level above the docroot, via hPanel file manager or FTP).
 2. Folder tells the state:
-   - `done/` -> booked; check reservation and that eZee shows the payment (alert "AddPayment failed twice": post it by hand).
+   - `done/` -> booked; check reservation and that eZee shows the payment (alert "AddPayment failed twice": post it by hand; alert "room NOT assigned": assign a bed in eZee by hand).
    - `pending/` -> not confirmed yet; cron (5 min) should pick it up. If it does not within ~10 min, check the cron (JOBS.md) and the webhook delivery log in Razorpay.
    - `processing/` older than 10 min -> cron parks it; treat as `failed/`.
    - `failed/` -> read `last_failure`, alert `ambiguous=yes|no`.

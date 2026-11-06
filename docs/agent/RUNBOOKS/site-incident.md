@@ -1,5 +1,5 @@
 Read when: the live site misbehaves after a deploy (404s, redirect loops, stale assets, broken booking widget, CSP errors).
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-11-06 @ 57a98c6
 Covers: .htaccess,scripts/deploy.sh,.claude/seo/live_check.py,.claude/seo/live_check.json,components/*.js,styles/global.css
 
 # Runbook: site misbehaves after a change

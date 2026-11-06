@@ -1,5 +1,5 @@
 Read when: calling, changing or adding an `api/*.php` endpoint, or debugging a status code.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-11-06 @ 57a98c6
 Covers: api/*.php,api/lib/config.php,api/.htaccess,api/lib/.htaccess
 
 # API (PHP, no framework)

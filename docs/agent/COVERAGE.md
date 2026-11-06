@@ -1,4 +1,4 @@
-# Coverage (2026-10-29 @ c019c06)
+# Coverage (2026-11-06 @ 57a98c6)
 
 Status per topic: `documented`, `unknown: <question for the owner>`, `not applicable: <reason>`.
 

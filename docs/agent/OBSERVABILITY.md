@@ -1,5 +1,5 @@
 Read when: you need to know what happened in production, who gets alerted, or where logs and dashboards are.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-11-06 @ 57a98c6
 Covers: api/lib/config.php,api/alert-email.php,.claude/seo/health-check.sh,.claude/seo/live_check.py
 
 # Observability
@@ -7,7 +7,7 @@ Covers: api/lib/config.php,api/alert-email.php,.claude/seo/health-check.sh,.clau
 | Signal | Where | Notes |
 |---|---|---|
 | Booking log | `ezee-pending-orders/bookings.log` on the host (above docroot) | one line per event: CONFIRMED, RETRY, RECONCILE, ABANDONED, CANCELLED, RATELIMIT, UPSTREAM, FATAL, ALERT. Control chars stripped, `APIKey=` masked. Not rotated (unknown) |
-| Alert email | `booking_alert()` -> `mail()` to `ALERT_EMAIL` (default in `api/alert-email.php`; secrets can override) | subjects `[Mosaic booking] ...`: PAID but booking NOT created, order stuck in processing, order recovered after an interruption, ACTION REQUIRED AddPayment failed twice, REFUND to review after cancellation, payment does not match order. Confirmed working in production 2026-10-26 |
+| Alert email | `booking_alert()` -> `mail()` to `ALERT_EMAIL` (default in `api/alert-email.php`; secrets can override) | subjects `[Mosaic booking] ...`: PAID but booking NOT created, order stuck in processing, order recovered after an interruption, ACTION REQUIRED AddPayment failed twice, REFUND to review after cancellation, REFUND issued automatically, reservation created but room NOT assigned (assign a bed in eZee by hand), reservation created but done/ record NOT written, payment does not match order. Confirmed working in production 2026-10-26 |
 | PHP errors | host error log (hPanel); `error_log()` used in `create-order.php` | location/retention unknown (no check in place) |
 | Payments | Razorpay dashboard + webhook delivery log; read-only Razorpay MCP | |
 | Reservations | eZee extranet | |

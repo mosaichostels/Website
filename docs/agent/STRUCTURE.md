@@ -1,5 +1,5 @@
 Read when: you need to find where something lives, or decide where a new file goes.
-Verified: 2026-10-29 @ 56c440f
+Verified: 2026-11-06 @ 57a98c6
 Covers: api/*.php,api/lib/*.php,components/*.js,scripts/*,.claude/settings.json,.codex/hooks.json,.claude/skills/*/SKILL.md,.agents/skills/*/SKILL.md
 
 # Structure
@@ -11,14 +11,15 @@ Covers: api/*.php,api/lib/*.php,components/*.js,scripts/*,.claude/settings.json,
 | `dorms/index.html` | Dorm landing page (F-0058), canonical `/dorms/`, has BreadcrumbList + FAQPage JSON-LD |
 | `blog/index.html` | Blog listing |
 | `blog/<slug>/index.html` | One static post each (16 slugs), own canonical, JSON-LD, Read Next |
-| `components/` | `site.js` (shared, `window.MOSAIC`), `navbar.js`, `footer.js`, `home.js`, `about.js`, `gallery.js`, `contact.js`, `book-now.js` (1132 lines, booking widget) |
+| `components/` | `site.js` (shared, `window.MOSAIC`), `navbar.js`, `footer.js`, `home.js`, `about.js`, `gallery.js`, `contact.js`, `book-now.js` (1276 lines, booking widget) |
 | `styles/global.css` | The only stylesheet |
 | `images/` | 148 files (incl. `varanasi/`), jpg+webp pairs, `images/varanasi/` subfolder |
 | `api/` | `availability`, `create-order`, `verify-payment`, `razorpay-webhook`, `reconcile-pending`, `cancel-booking` (.php), `alert-email.php`, `secrets.example.php`, `secrets.php` (git-ignored, never read) |
 | `api/lib/` | `config.php` (bootstrap), `dates.php`, `ezee.php`, `razorpay.php`, `booking.php`, `selftest.php`; blocked from web by `.htaccess:161` |
 | `scripts/` | `deploy.sh`, `indexnow-submit.sh`, `e2e-booking-test.php`, `flow-test/` |
 | `seo-reports/` | Dated reports `YYYY-MM-DD.md`, audits, `data/findings-ledger.json`, `data/<date>/` run snapshots, per-source subfolders (`gsc/ ga4/ bing/ clarity/ gbp/ cwv/ lighthouse/ commoncrawl/`) |
-| `docs/superpowers/` | `specs/` (weekly-seo v2 design) and `plans/` (6 plans, Oct 2026) |
+| `.github/workflows/check.yml` | CI on push and PR: `verify.sh --all` (incl. identical footers), `php -l` on `api/`, `node --check` on `components/*.js`, `scripts/flow-test/run.sh`. Never deploys |
+| `docs/superpowers/` | `specs/` (weekly-seo v2 design) and `plans/` (7 plans, Oct 2026) |
 | `docs/agent/` | These files |
 | `anti-slop/` | antislop AFTER-mode audit reports (`audit-NNN-YYYY-MM-DD.md`); not deployed |
 | `docs/*.md` eZee/audit notes | Git-ignored local notes (see `.gitignore`); may be absent |

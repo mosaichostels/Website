@@ -1,5 +1,5 @@
 Read when: shipping to production, rolling back, or changing hosting, DNS, redirects or the deploy script.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-11-06 @ 57a98c6
 Covers: scripts/deploy.sh,scripts/indexnow-submit.sh,.htaccess,.claude/seo/deploy-drift.sh,.claude/seo/live_check.py,.claude/hooks/block-diagnostic-file-deploy
 
 # Deploy
