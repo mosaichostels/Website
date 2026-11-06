@@ -1,5 +1,5 @@
 Read when: deciding how to verify a change, or interpreting a failing check.
-Verified: 2026-10-29 @ c019c06
+Verified: 2026-11-06 @ 57a98c6
 Covers: api/lib/selftest.php,scripts/flow-test/*,scripts/e2e-booking-test.php,.claude/seo/tests/*,.claude/seo/verify.sh
 
 # Testing

@@ -1,10 +1,10 @@
 Read when: changing or debugging guest cancellation or refunds.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-11-06 @ 57a98c6
 Covers: api/cancel-booking.php,api/lib/razorpay.php,api/lib/dates.php,components/book-now.js
 
 # Flow: guest cancels a booking
 
-Actor: guest with reservation number + email (cancel form on `/book-now`, `book-now.js:1085 initCancelForm`, POST at `:1102`).
+Actor: guest with reservation number + email (cancel form on `/book-now`, `book-now.js:1156 initCancelForm`, POST at `:1244`).
 
 Guests can first look the booking up (`POST /api/lookup-booking.php`, same gate as cancel: reservation + email must match eZee; returns status, dates, rooms and, from the `done/` record, the guest details and total/paid/due). Lookup AND cancel only work for bookings made on this website: no `done/` record gives the generic 404 before eZee is called. The manage card shows details, with cancel under them.
 

@@ -1,5 +1,5 @@
 Read when: you must deploy, test, run SEO tooling, or sync media. Run from the repo root.
-Verified: 2026-10-29 @ c019c06
+Verified: 2026-11-06 @ 57a98c6
 Covers: scripts/deploy.sh,scripts/indexnow-submit.sh,.claude/seo/*.sh,.claude/seo/live_check.py
 
 # Commands
@@ -12,7 +12,7 @@ Covers: scripts/deploy.sh,scripts/indexnow-submit.sh,.claude/seo/*.sh,.claude/se
 | Booking selftest | `php -d zend.assertions=1 -d assert.exception=1 api/lib/selftest.php` | Prints "All selftest assertions passed." (passed 2026-10-23, PHP 8.5.12) |
 | Booking E2E | `php -S 127.0.0.1:8899 -t . &` then `php scripts/e2e-booking-test.php` | Integration: needs real eZee + Razorpay `rzp_test_` secrets; NEVER live keys. Exit 2 without eZee |
 | SEO unit tests | `cd .claude/seo && python3 -m unittest discover -s tests` | 100 tests OK on 2026-10-23 |
-| Pre-commit SEO gate | `./.claude/seo/verify.sh` (`--all` for every page) | HTML parses, internal links, sitemap, JSON-LD valid; exit 1 = restore, commit nothing |
+| Pre-commit SEO gate | `./.claude/seo/verify.sh` (`--all` for every page) | HTML parses, internal links, sitemap, JSON-LD valid, `<footer>` identical on every page; exit 1 = restore, commit nothing |
 | Live check | `python3 .claude/seo/live_check.py` | Post-deploy: sitemap URLs 200, redirects single 301, data in `.claude/seo/live_check.json` |
 | Deploy drift | `./.claude/seo/deploy-drift.sh` | Repo vs live, page by page; with `FTP_HOST FTP_USER FTP_PASS` exported it also reads the 14 `api/` PHP files back over FTP (read-only), otherwise skips them |
 | IndexNow | `./scripts/indexnow-submit.sh --since <ref>` / `<paths>` / `--all` (`--dry-run`) | Run after changes are LIVE and drift clean. Sends only sitemap URLs |

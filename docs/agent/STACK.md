@@ -1,5 +1,5 @@
 Read when: choosing tools, libraries or services, or checking what runtime a file needs.
-Verified: 2026-10-29 @ c019c06
+Verified: 2026-11-06 @ 57a98c6
 Covers: components/*.js,styles/global.css,api/lib/*.php,.htaccess,scripts/*.py
 
 # Stack

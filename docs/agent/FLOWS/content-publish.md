@@ -1,5 +1,5 @@
 Read when: adding or editing a page, blog post, shared JS/CSS or redirect and shipping it live.
-Verified: 2026-10-29 @ c019c06
+Verified: 2026-11-06 @ 57a98c6
 Covers: blog/*/index.html,sitemap.xml,sitemap-images.xml,llms.txt,.htaccess,scripts/deploy.sh,scripts/indexnow-submit.sh,.claude/seo/verify.sh,.claude/seo/live_check.py,.claude/seo/live_check.json
 
 # Flow: change a page and ship it
@@ -7,7 +7,7 @@ Covers: blog/*/index.html,sitemap.xml,sitemap-images.xml,llms.txt,.htaccess,scri
 ```
 edit html / components / styles / .htaccess
  -> shared JS/CSS edited? bump ?v= on every HTML (CONVENTIONS, skill cache-bust-check)
- -> new post/page? blog/index.html + sitemap.xml (+ sitemap-images.xml, llms.txt) + .htaccess rules (root pages); header/footer links are per-page HTML (see CONVENTIONS); Hostel JSON-LD `sameAs` must stay identical on all 7 Hostel pages
+ -> new post/page? blog/index.html + sitemap.xml (+ sitemap-images.xml, llms.txt) + .htaccess rules (root pages); header/footer links are per-page HTML and the `<footer>` must stay identical on all pages (see CONVENTIONS; `verify.sh` fails otherwise); Hostel JSON-LD `sameAs` must stay identical on all 7 Hostel pages
  -> ./.claude/seo/verify.sh [--all]   (HTML parses, internal links, sitemap, JSON-LD) exit 1 = stop
  -> git commit (conventional; SEO work carries F-id)
  -> ./scripts/deploy.sh <files> | all   (FTP via lftp; selftest gate if .php) -> DEPLOY.md

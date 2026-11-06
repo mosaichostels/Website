@@ -1,5 +1,5 @@
 Read when: proposing a change that might contradict an earlier choice, or asking why something is the way it is.
-Verified: 2026-10-29 @ 56c440f
+Verified: 2026-11-06 @ 57a98c6
 Covers: -
 
 # Decisions
@@ -29,9 +29,9 @@ Covers: -
 - WCAG AA as a formal requirement (undecided).
 - Whether Hostinger/FTP stays the platform (assumed).
 - 2026-10-29: owner decided to retire `blogs/*.md` (14 unused files); removed from git the same day. `.htaccess` keeps its `!/blogs/` guards (harmless).
-- Guest email: the PHP sends no guest email (only `booking_alert` mail to the owner, `api/lib/config.php:69`), yet `components/book-now.js:766` tells the guest "A confirmation has been sent to your email". Unknown whether eZee sends one itself; verify with a test booking before changing the sentence or building email.
+- Guest email: the PHP sends no guest email (only `booking_alert` mail to the owner, `api/lib/config.php:69`), yet `components/book-now.js:780` tells the guest "A confirmation has been sent to your email". Unknown whether eZee sends one itself; verify with a test booking before changing the sentence or building email.
 - No booking-modify endpoint (`api/modify-booking.php` absent): changes go through WhatsApp. Not planned.
 - `razorpay_create_order` has no idempotency key (`api/lib/razorpay.php:12`); a repeated POST makes a second unpaid Razorpay order. Accepted: the widget reuses the last order on retry and unpaid orders expire unused.
-- AddPayment has one retry and no outbox (`api/lib/booking.php:217`, ponytail note): a double failure raises an alert for a manual post in eZee. Upgrade path is an outbox plus a cron, only if failures appear in pairs.
+- AddPayment has one retry and no outbox (`api/lib/booking.php:213`, ponytail note): a double failure raises an alert for a manual post in eZee. Upgrade path is an outbox plus a cron, only if failures appear in pairs.
 - Whether `/dorms/` should be in the navbar: unknown; currently linked from the home page only.
 - 2026-11-03: owner approved "fix all issues" from audit-002. Eyebrow labels and tiny uppercase tracked labels are removed site-wide; typefaces (Cinzel, Cormorant Garamond, Jost) and the cream palette stay as brand identity. Rating text reads "4.3 out of 5" instead of using a star glyph.

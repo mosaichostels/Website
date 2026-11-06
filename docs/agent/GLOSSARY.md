@@ -1,5 +1,5 @@
 Read when: a term in code, alerts or the owner's messages is unclear.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-11-06 @ 57a98c6
 Covers: -
 
 # Glossary

@@ -1,5 +1,5 @@
 Read when: you need the product goal, audience, room lineup or repo basics before touching anything.
-Verified: 2026-10-29 @ c019c06
+Verified: 2026-11-06 @ 57a98c6
 Covers: PRODUCT.md,sitemap.xml,.htaccess
 
 # Overview
@@ -13,13 +13,13 @@ Covers: PRODUCT.md,sitemap.xml,.htaccess
 | Policies | Check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception, free cancellation up to 72 h before check-in (inside 72 h the amount paid is not refunded), pay in full or 50% deposit now with the balance at check-in, valid govt photo ID per guest | `PRODUCT.md` |
 | Contact channel | WhatsApp is first-class (number in `PRODUCT.md`) | `PRODUCT.md` |
 | Live site | https://www.mosaichostels.com (apex and http redirect 301 to https www) | `.htaccess` |
-| Remote | github.com/mosaichostels/Website, `main`; local `main` level with `origin/main` at c019c06 (2026-10-29) | `git status -sb` |
+| Remote | github.com/mosaichostels/Website, `main`; local `main` level with `origin/main` at 57a98c6 (2026-11-06) | `git status -sb` |
 | Hosting | Hostinger, FTP deploy (manual) | `scripts/deploy.sh` |
 
 ## Pages (24 URLs in `sitemap.xml`)
 - Core: `/`, `/dorms/`, `/gallery`, `/about`, `/contact`, `/book-now`, `/privacy`, plus `404.html` (noindex).
 - Blog: `/blog/` listing + 16 posts under `/blog/<slug>/` (all in `sitemap.xml`).
-- `/dorms/` added 2026-10-23 (F-0058) for "dormitory near Assi Ghat" queries; linked from `index.html` and `llms.txt`, not from `components/navbar.js`.
+- `/dorms/` added 2026-10-23 (F-0058) for "dormitory near Assi Ghat" queries; linked from the hand-written header nav on each page (`data-page="dorms"`), `index.html` and `llms.txt`; `components/navbar.js` is not involved.
 
 ## Brand
 Name and tile idea ("Each guest is a piece. Each story is a tile.") are in use; palette and type are in `DESIGN.md` (incumbent, not declared binding).

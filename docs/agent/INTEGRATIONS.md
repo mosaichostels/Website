@@ -1,5 +1,5 @@
 Read when: changing anything that talks to eZee, Razorpay, analytics, Google/Bing APIs, IndexNow or Hostinger.
-Verified: 2026-10-29 @ fd29588
+Verified: 2026-11-06 @ 57a98c6
 Covers: api/lib/ezee.php,api/lib/razorpay.php,api/lib/booking.php,.htaccess,.claude/seo/*.py,scripts/indexnow-submit.sh
 
 # Integrations
@@ -11,6 +11,7 @@ Covers: api/lib/ezee.php,api/lib/razorpay.php,api/lib/booking.php,.htaccess,.cla
 | Sucuri WAF (in front of eZee account) | Rejects long GET query strings | n/a | n/a | why InsertBooking is POSTed form data (`ezee.php:ezee_get`) |
 | Hostinger | Hosting, FTP, cron, CDN/LSCache, email (`mail()`) | `scripts/deploy.sh`, hPanel | `FTP_HOST/USER/PASS`; `HOSTINGER_API_TOKEN`, `HOSTINGER_USERNAME` (SEO env) | stale CDN sitemap after deploy: clear cache in hPanel |
 | Google Analytics 4, Microsoft Clarity, Bing UET | Site analytics | page `<head>` scripts, allowed in CSP (`.htaccess:28`) | public IDs in pages | blocked scripts = CSP edit needed |
+| Google Preferred Source button (`https://news.google.com/swg/js/v1/publisher.js`) | Footer button on every page; also privacy page wording | `<script async>` in every `<head>`; `news.google.com` in CSP `script-src` and `frame-src` (`.htaccess:28`) | none | blocked script = button absent, page still works |
 | Google Search Console / GA4 / GBP / CrUX / PageSpeed | SEO pulls | `.claude/seo/*-extract.py` | `GOOGLE_API_KEY`, `GSC_PROPERTY`, `GA4_PROPERTY_ID`, `GCP_PROJECT_ID`, service-account JSON in `~/.config/mosaic-seo/` | data lags 2-3 days |
 | Bing Webmaster + IndexNow | Indexing, URL submit | `bing-extract.py`, `scripts/indexnow-submit.sh` | `BING_WEBMASTER_API_KEY`, `INDEXNOW_KEY` (+ public key file at site root) | submit only after deploy drift is clean |
 | Clarity API | Behaviour data | `clarity-extract.py` | `CLARITY_API_TOKEN` | ~10 calls/day |

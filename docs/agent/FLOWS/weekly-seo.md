@@ -1,5 +1,5 @@
 Read when: the owner asks for "weekly SEO", or you edit the weekly-seo skill, extractors or the findings ledger.
-Verified: 2026-10-30 @ 022a75c
+Verified: 2026-11-06 @ 57a98c6
 Covers: .claude/skills/weekly-seo/SKILL.md,.claude/skills/weekly-seo/references/*.md,.agents/skills/weekly-seo/SKILL.md,.agents/skills/weekly-seo/references/*.md,.claude/seo/*.py,.claude/seo/*.sh
 
 # Flow: weekly SEO run
@@ -11,11 +11,12 @@ Entry: skill `.claude/skills/weekly-seo/SKILL.md` (Claude; Codex reads it via sy
 | a | Health gate | `.claude/seo/health-check.sh [--quiet]` (read-only, sources `~/.config/mosaic-seo/env`) |
 | b | Data pull | `.claude/seo/extract-all.sh [--fast] [gsc ga4 bing clarity gbp cwv lighthouse commoncrawl]` -> `seo-reports/<source>/` |
 | c | Audits | 15 audit agents (claude-seo:*; Codex runs native equivalents) per `references/audits.md` |
+| b2 | Platform UI audit | removed 2026-11-06: no browser pass over platform UIs; only API data (b) feeds the report. MCP health notes: `references/mcp-health.md` |
 | d | Rank gaps | `query_discovery.py`, keywords reference |
 | e | Fix | scope lock: html, `styles/`, `components/`, `sitemap.xml`, `sitemap-images.xml`, `robots.txt`, `llms.txt`, SEO 301s, `seo-reports/` |
-| f | Submit | deploy -> `live_check.py` -> `deploy-drift.sh` -> `indexnow-submit.sh`; `ledger.py deploy-check F-xxxx` |
+| f | Submit | deploy -> `live_check.py` -> `deploy-drift.sh` (with `FTP_HOST FTP_USER FTP_PASS` it also reads the `api/` PHP back over FTP) -> `indexnow-submit.sh`; `ledger.py deploy-check F-xxxx` |
 | g | Re-baseline | `deltas.py`, snapshots in `seo-reports/data/<date>/` |
-| h | Report | `seo-reports/<date>.md`, then `verify.sh` and commit |
+| h | Report | `seo-reports/<date>.md`, then `verify.sh` (also fails if the `<footer>` markup differs between pages) and commit |
 Dry run = a-d + h.
 
 State files: `seo-reports/data/findings-ledger.json` (`findings`, `next_id`; 90 entries, next F-0091 at 2026-10-30), `.claude/seo/live_check.json`. Commits `chore(seo): ... (F-00xx)`.
