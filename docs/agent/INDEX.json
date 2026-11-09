@@ -61,7 +61,7 @@
         ".htaccess",
         "blog/*/index.html"
       ],
-      "tokens_est": 1031
+      "tokens_est": 1043
     },
     {
       "file": "DATA.md",
@@ -305,7 +305,7 @@
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-11-06 @ 57a98c6",
       "covers": [],
-      "tokens_est": 6012
+      "tokens_est": 6113
     },
     {
       "file": "STRUCTURE.md",
