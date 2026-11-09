@@ -75,7 +75,7 @@
         "api/reconcile-pending.php",
         "seo-reports/data/*"
       ],
-      "tokens_est": 902
+      "tokens_est": 933
     },
     {
       "file": "DECISIONS.md",
@@ -305,7 +305,7 @@
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-11-06 @ 57a98c6",
       "covers": [],
-      "tokens_est": 5870
+      "tokens_est": 6012
     },
     {
       "file": "STRUCTURE.md",
