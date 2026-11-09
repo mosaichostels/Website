@@ -2687,7 +2687,11 @@
       "updated": "2026-11-03"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-11-09",
+        "metric": "gsc.nonbrand_clicks_90d",
+        "value": 13
+      },
       "check": {
         "defect_if": "absent",
         "live_url": "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
@@ -2696,7 +2700,7 @@
         "where": "local"
       },
       "claim": "Dev Deepawali post (24 Nov) not linked from where-to-stay, is-varanasi-safe and solo-female posts",
-      "commit": null,
+      "commit": "8d37838",
       "confidence": 0.7,
       "created": "2026-11-09",
       "effort": 1,
@@ -2704,16 +2708,20 @@
       "id": "F-0105",
       "impact": 3,
       "measured": null,
-      "note": "pre-fix source (git HEAD) had no dev-deepawali link in the 3 posts; confirmed with git show HEAD:<file> grep",
+      "note": "live page no longer shows the defect",
       "priority": 2.1,
       "sources": [
         "seo-cluster"
       ],
-      "status": "verified",
+      "status": "deployed",
       "updated": "2026-11-09"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-11-09",
+        "metric": "gsc.nonbrand_clicks_90d",
+        "value": 13
+      },
       "check": {
         "defect_if": "absent",
         "live_url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
@@ -2722,7 +2730,7 @@
         "where": "local"
       },
       "claim": "Distance searches split across guide and where-to-stay post; guide has no #distances anchor and where-to-stay does not link it",
-      "commit": null,
+      "commit": "8d37838",
       "confidence": 0.7,
       "created": "2026-11-09",
       "effort": 1,
@@ -2730,19 +2738,23 @@
       "id": "F-0106",
       "impact": 3,
       "measured": null,
-      "note": "pre-fix HEAD where-to-stay had plain text '3 km south' and guide h2 had no id",
+      "note": "live page no longer shows the defect",
       "priority": 2.1,
       "sources": [
         "seo-cluster"
       ],
-      "status": "verified",
+      "status": "deployed",
       "updated": "2026-11-09"
     },
     {
-      "baseline": null,
+      "baseline": {
+        "date": "2026-11-09",
+        "metric": "gsc.nonbrand_clicks_90d",
+        "value": 13
+      },
       "check": null,
       "claim": "All 24 sitemap lastmod values identical (2026-11-04)",
-      "commit": null,
+      "commit": "8d37838",
       "confidence": 0.6,
       "created": "2026-11-09",
       "effort": 1,
@@ -2750,12 +2762,12 @@
       "id": "F-0107",
       "impact": 2,
       "measured": null,
-      "note": "sitemap.xml HEAD: 24 identical lastmod; matches sitemap and technical audits",
+      "note": "live sitemap.xml (also with cache-bust) shows 4 lastmod 2026-11-09 for the 4 edited posts, 2026-11-09 fetch",
       "priority": 1.2,
       "sources": [
         "seo-sitemap"
       ],
-      "status": "verified",
+      "status": "deployed",
       "updated": "2026-11-09"
     }
   ],
