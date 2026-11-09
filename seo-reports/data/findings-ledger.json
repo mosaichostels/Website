@@ -2685,7 +2685,79 @@
       ],
       "status": "deployed",
       "updated": "2026-11-03"
+    },
+    {
+      "baseline": null,
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/is-varanasi-safe-general-guide/",
+        "pattern": "dev-deepawali-varanasi-2026-guide",
+        "target": "blog/is-varanasi-safe-general-guide/index.html",
+        "where": "local"
+      },
+      "claim": "Dev Deepawali post (24 Nov) not linked from where-to-stay, is-varanasi-safe and solo-female posts",
+      "commit": null,
+      "confidence": 0.7,
+      "created": "2026-11-09",
+      "effort": 1,
+      "evidence": "cluster audit 2026-11-09: 9 incoming links, none from these 3 posts; event 15 days away",
+      "id": "F-0105",
+      "impact": 3,
+      "measured": null,
+      "note": "pre-fix source (git HEAD) had no dev-deepawali link in the 3 posts; confirmed with git show HEAD:<file> grep",
+      "priority": 2.1,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "verified",
+      "updated": "2026-11-09"
+    },
+    {
+      "baseline": null,
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+        "pattern": "complete-guide/#distances",
+        "target": "blog/assi-ghat-vs-dashashwamedh-where-to-stay/index.html",
+        "where": "local"
+      },
+      "claim": "Distance searches split across guide and where-to-stay post; guide has no #distances anchor and where-to-stay does not link it",
+      "commit": null,
+      "confidence": 0.7,
+      "created": "2026-11-09",
+      "effort": 1,
+      "evidence": "cluster audit: ~430 vs ~160 impressions, 0 clicks",
+      "id": "F-0106",
+      "impact": 3,
+      "measured": null,
+      "note": "pre-fix HEAD where-to-stay had plain text '3 km south' and guide h2 had no id",
+      "priority": 2.1,
+      "sources": [
+        "seo-cluster"
+      ],
+      "status": "verified",
+      "updated": "2026-11-09"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "All 24 sitemap lastmod values identical (2026-11-04)",
+      "commit": null,
+      "confidence": 0.6,
+      "created": "2026-11-09",
+      "effort": 1,
+      "evidence": "sitemap + technical audits; footer rebuild touched every page; 4 pages changed 2026-11-09",
+      "id": "F-0107",
+      "impact": 2,
+      "measured": null,
+      "note": "sitemap.xml HEAD: 24 identical lastmod; matches sitemap and technical audits",
+      "priority": 1.2,
+      "sources": [
+        "seo-sitemap"
+      ],
+      "status": "verified",
+      "updated": "2026-11-09"
     }
   ],
-  "next_id": 105
+  "next_id": 108
 }
