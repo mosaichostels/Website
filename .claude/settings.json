@@ -20,5 +20,40 @@
     "mosaic-gbp",
     "mosaic-gsc",
     "razorpay"
-  ]
+  ],
+  "permissions": {
+    "deny": [
+      "mcp__razorpay__capture_payment",
+      "mcp__razorpay__create_instant_settlement",
+      "mcp__razorpay__create_order",
+      "mcp__razorpay__create_payment_link",
+      "mcp__razorpay__create_qr_code",
+      "mcp__razorpay__create_refund",
+      "mcp__razorpay__create_registration_link",
+      "mcp__razorpay__initiate_payment",
+      "mcp__razorpay__resend_otp",
+      "mcp__razorpay__submit_otp",
+      "mcp__razorpay__update_order",
+      "mcp__razorpay__update_payment_link",
+      "mcp__razorpay__update_payment",
+      "mcp__razorpay__update_refund",
+      "mcp__razorpay__close_qr_code",
+      "mcp__razorpay__revoke_token",
+      "mcp__mosaic-gbp__create_account_admin",
+      "mcp__mosaic-gbp__delete_account_admin",
+      "mcp__mosaic-gbp__create_location_admin",
+      "mcp__mosaic-gbp__delete_location_admin",
+      "mcp__mosaic-gbp__create_location",
+      "mcp__mosaic-gbp__update_location",
+      "mcp__mosaic-gbp__delete_location",
+      "mcp__mosaic-gbp__update_location_attributes",
+      "mcp__mosaic-gbp__create_verification",
+      "mcp__mosaic-gbp__complete_verification",
+      "mcp__mosaic-gbp__update_notification_settings",
+      "mcp__mosaic-gbp__create_place_action_link",
+      "mcp__mosaic-gbp__update_place_action_link",
+      "mcp__mosaic-gbp__delete_place_action_link",
+      "mcp__mosaic-gbp__delete_review_reply"
+    ]
+  }
 }
