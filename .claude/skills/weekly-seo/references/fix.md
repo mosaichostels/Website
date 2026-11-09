@@ -54,3 +54,10 @@ Record objections or scope findings under "Fixed this week" when addressed, or "
 ## Added 2026-10-21
 
 Tag each fix with its discipline and evidence tier from `search-optimization-guidelines.md`. Do not fix on a vendor-claim-only finding; run it as a single-page experiment with a metric. No AI-only rewrites, chunking or fake mentions.
+
+## Owner decisions (2026-11-09), standing until the owner changes them
+
+- No `aggregateRating` in any JSON-LD (cross-platform blend is self-serving markup). The labelled visible "4.3 average across platforms" stat stays. Do not re-add the markup or re-flag it.
+- `best-hostels-in-varanasi` gets a short disclosure that Mosaic wrote the list and is one of the five hostels; the owner approves the wording before it goes in.
+- Dates: bump `dateModified` and the visible date only for substantive edits, never for link, wording or cosmetic fixes. Do not add visible "Updated" lines to the other posts. Sitemap `lastmod` follows the same rule.
+- `robots.txt` carries `Content-Signal: search=yes, ai-input=yes, ai-train=no` in the `*` group. Named AI-bot groups stay Allow.
