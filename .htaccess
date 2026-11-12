@@ -178,6 +178,10 @@ ErrorDocument 404 /404.html
   RewriteRule ^blog/index\.html$ /blog/ [R=301,L]
   RewriteCond %{THE_REQUEST} \s/dorms/index\.html[\s?]
   RewriteRule ^dorms/index\.html$ /dorms/ [R=301,L]
+  # Same pattern, generalized to every blog post directory (F-0108): each
+  # post was reachable at both /blog/<slug>/ and /blog/<slug>/index.html.
+  RewriteCond %{THE_REQUEST} \s/blog/([^/]+)/index\.html[\s?]
+  RewriteRule ^blog/([^/]+)/index\.html$ /blog/$1/ [R=301,L]
   RewriteRule ^about\.html$ /about [R=301,L]
   RewriteRule ^contact\.html$ /contact [R=301,L]
   RewriteRule ^book-now\.html$ /book-now [R=301,L]
