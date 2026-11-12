@@ -1,0 +1,380 @@
+{
+  "ai_prompts": [
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "kind": "money",
+      "landing_page": "/",
+      "landing_page_basis": "GA4 top AI Assistant landing; topic match inferred",
+      "page": null,
+      "position": 7,
+      "prompt": "Where can I find best hotel stay for solo female in varanasi?",
+      "query": "best hotel stay for solo female in varanasi",
+      "score": 2.282,
+      "small_sample": true,
+      "source": "bing",
+      "window": {
+        "end": "2026-11-12",
+        "start": "2026-10-16"
+      }
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "kind": "funnel",
+      "page": null,
+      "position": 5,
+      "prompt": "is it very dirty and dandgerous in varanasi india?",
+      "query": "is it very dirty and dandgerous in varanasi india?",
+      "score": 4.565,
+      "small_sample": true,
+      "source": "bing",
+      "window": {
+        "end": "2026-11-12",
+        "start": "2026-10-16"
+      }
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "kind": "funnel",
+      "page": null,
+      "position": 7,
+      "prompt": "is varanasi busy and crowded in dasara timings?",
+      "query": "is varanasi busy and crowded in dasara timings",
+      "score": 2.282,
+      "small_sample": true,
+      "source": "bing",
+      "window": {
+        "end": "2026-11-12",
+        "start": "2026-10-16"
+      }
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "kind": "funnel",
+      "page": null,
+      "position": 6,
+      "prompt": "What should I know about india travel advice varanasi scams ghats safety crime?",
+      "query": "india travel advice varanasi scams ghats safety crime",
+      "score": 2.282,
+      "small_sample": true,
+      "source": "bing",
+      "window": {
+        "end": "2026-11-12",
+        "start": "2026-10-16"
+      }
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "kind": "funnel",
+      "page": null,
+      "position": 10,
+      "prompt": "when is best time to visit varanasi with weather?",
+      "query": "when is best time to visit varanasi with weather?",
+      "score": 2.282,
+      "small_sample": true,
+      "source": "bing",
+      "window": {
+        "end": "2026-11-12",
+        "start": "2026-10-16"
+      }
+    }
+  ],
+  "date": "2026-11-12",
+  "errors": [],
+  "google": [
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 1,
+      "kind": "brand",
+      "misses": 3,
+      "page": "/",
+      "position": 42,
+      "query": "mosaic house hostel",
+      "score": 1.146,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 0,
+      "window": {
+        "end": "2026-10-29",
+        "start": "2026-10-02"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 1,
+      "kind": "brand",
+      "misses": 1,
+      "page": "/",
+      "position": 2,
+      "query": "hotel mosaic",
+      "score": 0.428,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 0,
+      "window": {
+        "end": "2026-11-06",
+        "start": "2026-10-10"
+      }
+    },
+    {
+      "clicks": 17,
+      "core": true,
+      "impressions": 296,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 1.5912162162162162,
+      "query": "mosaic hostel varanasi",
+      "score": 126.671,
+      "small_sample": false,
+      "source": "gsc",
+      "streak": 14,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 10,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/gallery",
+      "position": 17.4,
+      "query": "mosaic hostel",
+      "score": 25.423,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 14,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 10,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 5.1,
+      "query": "mosaic",
+      "score": 22.824,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 14,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 2,
+      "core": true,
+      "impressions": 37,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/gallery",
+      "position": 3.108108108108108,
+      "query": "mosaic hostel varanasi photos",
+      "score": 17.637,
+      "small_sample": false,
+      "source": "gsc",
+      "streak": 11,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 1,
+      "core": true,
+      "impressions": 31,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 1.3548387096774195,
+      "query": "mosaic hotel varanasi",
+      "score": 13.266,
+      "small_sample": false,
+      "source": "gsc",
+      "streak": 14,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 1,
+      "core": true,
+      "impressions": 19,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 1.4736842105263157,
+      "query": "mosaic varanasi",
+      "score": 8.131,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 14,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 3,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 12,
+      "query": "mosaic hostel varanasi reviews",
+      "score": 6.847,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 11,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 1,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 6,
+      "query": "hostel mosaic",
+      "score": 2.282,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 8,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 1,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 5,
+      "query": "mosaic guesthouse",
+      "score": 2.282,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 3,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 3,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 4.666666666666666,
+      "query": "mosaic company",
+      "score": 1.284,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 3,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 3,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 2,
+      "query": "mosaic hotel",
+      "score": 1.284,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 6,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 1,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 44,
+      "query": "mosaic hostel marrakech",
+      "score": 0.856,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 11,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 1,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 4,
+      "query": "mosaic cleaning",
+      "score": 0.428,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 5,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 1,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 3,
+      "query": "mosaic hotels",
+      "score": 0.428,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 7,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    }
+  ],
+  "notes": [],
+  "stale_queries": false
+}
