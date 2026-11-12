@@ -30,23 +30,27 @@ more than one path before calling it a block.
 
 Standing findings, re-verify rather than assume:
 
-- **GPTBot is real but probabilistic edge throttling (~17% success), not a
-  hard block on every GET** — corrected 2026-09-28 via a controlled test (6
-  rounds, ~140 requests, 20s spacing, OAI-SearchBot always sent first in each
-  pair as a control). Result: GPTBot 1/6 success vs. OAI-SearchBot 6/6 on
-  identical alternating paths; aggregate GPTBot 3/18 (~17%) vs. OAI-SearchBot
-  11/13 (~85%) and plain Chrome 7/9 (~78%). GPTBot failed 4/5 even completely
-  alone at 30s spacing, ruling out ordering/concurrency as the cause — this is
-  UA-targeted, from `server: hcdn` (Hostinger), no `Retry-After` header.
-  `HEAD` still returns 200 for GPTBot; `robots.txt` still says `Allow: /`.
-  **Impact is narrower than the throttle suggests**: GPTBot is OpenAI's
-  *training* crawler only — OAI-SearchBot, which governs ChatGPT Search
-  citability, is clean. This costs training-corpus inclusion, not citation
-  visibility. There is also a **separate, UA-agnostic per-IP burst limiter**
-  on top — any UA (including plain Chrome) draws 429s under rapid sequential
-  requests, which is what earlier, faster test passes were picking up and
-  over-generalizing from. Any future retest of this must space GETs ≥20s with
-  zero parallel fetches, or it will reproduce the burst limiter instead of
+- **GPTBot is real but probabilistic edge throttling, not a hard block on
+  every GET** — the success rate moves between retests and should not be
+  quoted as a fixed number. 2026-09-28 (6 rounds, ~140 requests, 20s spacing,
+  OAI-SearchBot as a control): GPTBot 1/6 vs. OAI-SearchBot 6/6 on identical
+  alternating paths; aggregate GPTBot 3/18 (~17%) vs. OAI-SearchBot 11/13
+  (~85%). 2026-11-12 retest (paced, 22s spacing): GPTBot 4/6, refused with a
+  mix of 429 and 403 (not just 429) — a wider range than the first sample, on
+  too small an N to call it a trend either way. Both retests: UA-targeted,
+  from `server: hcdn` (Hostinger), no `Retry-After` header; `HEAD` still 200
+  for GPTBot; `robots.txt` still `Allow: /`. **Impact is narrower than the
+  throttle suggests**: GPTBot is OpenAI's *training* crawler only —
+  OAI-SearchBot, which governs ChatGPT Search citability, stayed clean both
+  times. This costs training-corpus inclusion, not citation visibility. There
+  is also a **separate, UA-agnostic per-IP burst limiter** on top — any UA
+  (including plain Chrome) draws 429s under rapid sequential requests, which
+  is what earlier, faster test passes were picking up and over-generalizing
+  from. On 2026-11-12 this burst limiter also caught bingbot, Applebot and
+  Amazonbot with fresh 403s/429s that a 2026-11-09 run didn't see — likely
+  the same non-crawler-IP effect, not a new real-world block (real Bingbot
+  crawl stats stayed clean). Any future retest must space GETs ≥20s with zero
+  parallel fetches, or it will reproduce the burst limiter instead of
   measuring the real per-UA throttle.
 - **Zero Common Crawl captures**, reconfirmed 2026-09-28 across a wider range
   (CC-MAIN-2026-04 through -39, plus 2025-43/47/51) than the original

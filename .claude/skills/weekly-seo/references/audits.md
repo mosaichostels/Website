@@ -70,8 +70,11 @@ Does not provide: Ahrefs, SEMrush backlink counts (paid APIs; Common Crawl free 
 LinkAccess (internal link distribution), OutlineQuality (H1 hierarchy, sections),
 WordCount (depth). Scores every page. Identifies thin content, poor hierarchy,
 orphaned pages. Matters for AEO/LLMO citability — LLMs prefer well-structured,
-authoritative content. Standing finding: `/book-now` and `/blog` jump H1→H3
-(no H2), a hierarchy failure.
+authoritative content. The former standing finding ("`/book-now` and `/blog`
+jump H1→H3, no H2") is resolved as of 2026-11-12 — both pages have correct
+H1→H2→H3 nesting now (fixed by the 2026-11-03/11-04 footer rebuild, which
+added H2 nav landmarks); confirmed via direct markup read plus Lighthouse's
+`heading-order` audit, absent (passing) since the 2026-11-01 run.
 
 **`seo-cluster` — topic clustering for blog.** Semantic analysis of all blog posts.
 Detects overlapping topics, cannibalization, orphaned keywords, gaps. Designs
