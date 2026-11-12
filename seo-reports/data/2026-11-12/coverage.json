@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-12",
+  "items": {
+    "ai-visibility": {
+      "reason": "",
+      "status": "pending"
+    },
+    "audits:claude-seo-14": {
+      "reason": "",
+      "status": "pending"
+    },
+    "extract:bing": {
+      "reason": "1 informational note(s)",
+      "status": "done"
+    },
+    "extract:booking-probe": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:clarity": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:commoncrawl": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:cwv": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:ga4": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gbp": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:gsc": {
+      "reason": "",
+      "status": "done"
+    },
+    "extract:lighthouse": {
+      "reason": "",
+      "status": "done"
+    },
+    "keyword-demand": {
+      "reason": "",
+      "status": "pending"
+    },
+    "query-discovery": {
+      "reason": "",
+      "status": "done"
+    }
+  }
+}

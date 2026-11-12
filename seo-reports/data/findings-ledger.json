@@ -1868,7 +1868,7 @@
       "baseline": null,
       "check": null,
       "claim": "Lockers wording contradicts on /dorms/ (included vs rented) and llms.txt claims single/double/triple occupancy the site does not state",
-      "commit": null,
+      "commit": "b951a8b",
       "confidence": 0.7,
       "created": "2026-10-25",
       "effort": 1,
@@ -1876,13 +1876,13 @@
       "id": "F-0069",
       "impact": 4,
       "measured": null,
-      "note": "",
+      "note": "re-confirmed 2026-11-12: llms.txt:16 still claims single/double/triple private-room occupancy; PRODUCT.md:29 confirms exactly one private room type; site HTML never uses occupancy-variant language. Fixing the llms.txt occupancy claim only this run; the lockers wording half of this finding is separate and deferred (needs owner fact-check)",
       "priority": 2.8,
       "sources": [
         "geo"
       ],
-      "status": "open",
-      "updated": "2026-10-25"
+      "status": "fixed",
+      "updated": "2026-11-12"
     },
     {
       "baseline": null,
@@ -2769,7 +2769,151 @@
       ],
       "status": "deployed",
       "updated": "2026-11-09"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "16 blog posts serve /blog/<slug>/index.html as a live 200 instead of 301 to the canonical /blog/<slug>/, duplicating every post at two URLs (mitigated only by canonical tag, not closed server-side)",
+      "commit": "b951a8b",
+      "confidence": 0.9,
+      "created": "2026-11-12",
+      "effort": 1,
+      "evidence": "direct HTTP checks on 4 sampled posts, systemic across all 16; .htaccess already has the same 301 pattern for /dorms/index.html and /blog/index.html but never generalized to post directories",
+      "id": "F-0108",
+      "impact": 3,
+      "measured": null,
+      "note": "curl -I confirms /blog/<slug>/index.html returns 200 with no redirect on 4 sampled posts; .htaccess has the identical pattern already for /dorms/index.html and /blog/index.html, never generalized to post dirs",
+      "priority": 2.7,
+      "sources": [
+        "seo-technical"
+      ],
+      "status": "fixed",
+      "updated": "2026-11-12"
+    },
+    {
+      "baseline": null,
+      "check": {
+        "defect_if": "present",
+        "pattern": "stat-num\">5</div><div class=\"stat-label\">Room Types",
+        "target": "index.html",
+        "where": "local"
+      },
+      "claim": "Homepage and About stat card say '5 Room Types' but PRODUCT.md confirms 6 (10-bed mixed dorm added Nov 2026)",
+      "commit": "b951a8b",
+      "confidence": 0.95,
+      "created": "2026-11-12",
+      "effort": 1,
+      "evidence": "index.html:209, about.html:261-262; PRODUCT.md:29 room lineup is 6 types",
+      "id": "F-0109",
+      "impact": 3,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 2.85,
+      "sources": [
+        "seo-content"
+      ],
+      "status": "fixed",
+      "updated": "2026-11-12"
+    },
+    {
+      "baseline": null,
+      "check": {
+        "defect_if": "present",
+        "pattern": "Safety Guide 2025",
+        "target": "blog/index.html",
+        "where": "local"
+      },
+      "claim": "blog/index.html CollectionPage mainEntity headline for the solo-female post says 'Safety Guide 2025', while the post's own title/OG/BlogPosting headline all say 2026",
+      "commit": "b951a8b",
+      "confidence": 0.95,
+      "created": "2026-11-12",
+      "effort": 1,
+      "evidence": "blog/index.html:225 vs blog/varanasi-solo-female-travelers-safety-travel-guide/index.html title",
+      "id": "F-0110",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.9,
+      "sources": [
+        "seo-schema"
+      ],
+      "status": "fixed",
+      "updated": "2026-11-12"
+    },
+    {
+      "baseline": {
+        "date": "2026-11-12",
+        "metric": "lighthouse.lh_performance",
+        "value": 0.88
+      },
+      "check": {
+        "defect_if": "present",
+        "pattern": "IMG_1912\\.jpg\" alt=\"Common Space, Mosaic Hostel Varanasi\" loading=\"lazy\"",
+        "target": "blog/best-hostels-in-varanasi/index.html",
+        "where": "local"
+      },
+      "claim": "best-hostels-in-varanasi post's hero image is its own LCP element but has loading=\"lazy\", delaying the metric it's supposed to help",
+      "commit": "b951a8b",
+      "confidence": 0.85,
+      "created": "2026-11-12",
+      "effort": 1,
+      "evidence": "blog/best-hostels-in-varanasi/index.html:95, confirmed via live Playwright LCP PerformanceObserver",
+      "id": "F-0111",
+      "impact": 4,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 3.4,
+      "sources": [
+        "seo-visual"
+      ],
+      "status": "fixed",
+      "updated": "2026-11-12"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "sitemap.xml lastmod stuck at 2026-11-04 for 5 URLs (/, /dorms/, /about, /book-now, /blog/best-hostels-in-varanasi/) despite real schema/content edits shipped 2026-11-09 (aggregateRating removal, authorship disclosure)",
+      "commit": "b951a8b",
+      "confidence": 0.9,
+      "created": "2026-11-12",
+      "effort": 1,
+      "evidence": "git log -- sitemap.xml: commit 8d37838 (lastmod bump) landed before 845a30f and 283c346 (same day, later)",
+      "id": "F-0112",
+      "impact": 2,
+      "measured": null,
+      "note": "sitemap.xml lastmod 2026-11-04 on /, /dorms/, /about, /book-now, /blog/best-hostels-in-varanasi/ confirmed via grep; git log shows 845a30f and 283c346 landed after the 8d37838 lastmod bump, same day",
+      "priority": 1.8,
+      "sources": [
+        "seo-sitemap"
+      ],
+      "status": "fixed",
+      "updated": "2026-11-12"
+    },
+    {
+      "baseline": null,
+      "check": {
+        "defect_if": "present",
+        "pattern": "single, double and triple occupancy",
+        "target": "llms.txt",
+        "where": "local"
+      },
+      "claim": "llms.txt says private rooms come in single/double/triple occupancy; PRODUCT.md confirms exactly one private room type and the live site never makes this claim anywhere",
+      "commit": "b951a8b",
+      "confidence": 0.85,
+      "created": "2026-11-12",
+      "effort": 1,
+      "evidence": "llms.txt:16 vs PRODUCT.md:29 (room lineup: one 'private room', not 3 occupancy variants); grep of dorms/index.html and book-now.html shows no occupancy-variant language",
+      "id": "F-0113",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.7,
+      "sources": [
+        "seo-geo"
+      ],
+      "status": "fixed",
+      "updated": "2026-11-12"
     }
   ],
-  "next_id": 108
+  "next_id": 114
 }
