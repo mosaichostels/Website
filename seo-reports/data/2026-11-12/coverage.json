@@ -2,12 +2,12 @@
   "date": "2026-11-12",
   "items": {
     "ai-visibility": {
-      "reason": "",
-      "status": "pending"
+      "reason": "ai-visibility.sh run: crawler reachability table, Common Crawl 0 captures, Bing index present",
+      "status": "done"
     },
     "audits:claude-seo-14": {
-      "reason": "",
-      "status": "pending"
+      "reason": "15 claude-seo specialist agents dispatched and completed (technical, backlinks, local, maps, content, flow, cluster, sxo, google, schema, sitemap, visual, geo, agentic, drift)",
+      "status": "done"
     },
     "extract:bing": {
       "reason": "1 informational note(s)",
@@ -46,8 +46,8 @@
       "status": "done"
     },
     "keyword-demand": {
-      "reason": "",
-      "status": "pending"
+      "reason": "striking-distance clusters pulled from the 2026-11-12 GSC raw bundle (mosaic-gsc MCP was down, used the extractor's query-level rows instead, 28-day window not 90-day)",
+      "status": "done"
     },
     "query-discovery": {
       "reason": "",
