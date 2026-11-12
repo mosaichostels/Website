@@ -303,9 +303,9 @@
     {
       "file": "STATUS.md",
       "read_when": "starting ANY task (current state, recent work, open items).",
-      "verified_commit": "2026-11-06 @ 57a98c6",
+      "verified_commit": "2026-11-12 @ bb4ee6e",
       "covers": [],
-      "tokens_est": 6174
+      "tokens_est": 6642
     },
     {
       "file": "STRUCTURE.md",
