@@ -303,7 +303,7 @@
     {
       "file": "STATUS.md",
       "read_when": "starting ANY task (current state, recent work, open items).",
-      "verified_commit": "2026-11-12 @ bb4ee6e",
+      "verified_commit": "2026-11-12 @ ff4aa3c",
       "covers": [],
       "tokens_est": 6642
     },
