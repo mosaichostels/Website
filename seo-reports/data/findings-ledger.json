@@ -2918,7 +2918,7 @@
       "baseline": null,
       "check": null,
       "claim": "7 blog-post hero images were generic Mosaic Hostel interior/stock photos unrelated to each post's topic (owner-approved swap to topical images/varanasi/* photos)",
-      "commit": null,
+      "commit": "b00f481",
       "confidence": 0.5,
       "created": "2026-11-13",
       "effort": 2,
@@ -2931,7 +2931,7 @@
       "sources": [
         "seo-visual"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-13"
     }
   ],
