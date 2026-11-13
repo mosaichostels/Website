@@ -2933,7 +2933,27 @@
       ],
       "status": "fixed",
       "updated": "2026-11-13"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Homepage private-room card omitted occupancy (single/double), the only amenity-level private-room listing on the site",
+      "commit": null,
+      "confidence": 0.6,
+      "created": "2026-11-13",
+      "effort": 1,
+      "evidence": "owner-confirmed 2026-11-12: single/double occupancy only",
+      "id": "F-0115",
+      "impact": 1,
+      "measured": null,
+      "note": "Owner-confirmed fact, fix applied to the only on-site private-room amenity listing (index.html room card)",
+      "priority": 0.6,
+      "sources": [
+        "seo-content"
+      ],
+      "status": "verified",
+      "updated": "2026-11-13"
     }
   ],
-  "next_id": 115
+  "next_id": 116
 }
