@@ -2913,7 +2913,27 @@
       ],
       "status": "fixed",
       "updated": "2026-11-12"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "7 blog-post hero images were generic Mosaic Hostel interior/stock photos unrelated to each post's topic (owner-approved swap to topical images/varanasi/* photos)",
+      "commit": null,
+      "confidence": 0.5,
+      "created": "2026-11-13",
+      "effort": 2,
+      "evidence": "owner Q&A 2026-11-12: approved all 7 swaps",
+      "id": "F-0114",
+      "impact": 2,
+      "measured": null,
+      "note": "Owner approved all 7 hero-image swaps in Q&A round 2026-11-12",
+      "priority": 0.5,
+      "sources": [
+        "seo-visual"
+      ],
+      "status": "verified",
+      "updated": "2026-11-13"
     }
   ],
-  "next_id": 114
+  "next_id": 115
 }
