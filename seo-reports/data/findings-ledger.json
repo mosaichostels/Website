@@ -1876,13 +1876,13 @@
       "id": "F-0069",
       "impact": 4,
       "measured": null,
-      "note": "re-confirmed 2026-11-12: llms.txt:16 still claims single/double/triple private-room occupancy; PRODUCT.md:29 confirms exactly one private room type; site HTML never uses occupancy-variant language. Fixing the llms.txt occupancy claim only this run; the lockers wording half of this finding is separate and deferred (needs owner fact-check)",
+      "note": "Lockers wording fixed at 3c59739 (dorms/index.html FAQ + book-now.html Security section), confirmed in sync via deploy-drift.sh 2026-11-13; llms.txt occupancy half fixed as F-0113/F-0115.",
       "priority": 2.8,
       "sources": [
         "geo"
       ],
-      "status": "fixed",
-      "updated": "2026-11-12"
+      "status": "deployed",
+      "updated": "2026-11-13"
     },
     {
       "baseline": null,
@@ -2782,13 +2782,13 @@
       "id": "F-0108",
       "impact": 3,
       "measured": null,
-      "note": "curl -I confirms /blog/<slug>/index.html returns 200 with no redirect on 4 sampled posts; .htaccess has the identical pattern already for /dorms/index.html and /blog/index.html, never generalized to post dirs",
+      "note": "/blog/<slug>/index.html -> /blog/<slug>/ 301 redirect live in .htaccess, confirmed via curl -I on 4 sampled posts after deploy 2026-11-13.",
       "priority": 2.7,
       "sources": [
         "seo-technical"
       ],
-      "status": "fixed",
-      "updated": "2026-11-12"
+      "status": "deployed",
+      "updated": "2026-11-13"
     },
     {
       "baseline": null,
@@ -2807,13 +2807,13 @@
       "id": "F-0109",
       "impact": 3,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "6 Room Types live on / and /about, confirmed via deploy-drift.sh 2026-11-13 (byte-identical to local).",
       "priority": 2.85,
       "sources": [
         "seo-content"
       ],
-      "status": "fixed",
-      "updated": "2026-11-12"
+      "status": "deployed",
+      "updated": "2026-11-13"
     },
     {
       "baseline": null,
@@ -2832,13 +2832,13 @@
       "id": "F-0110",
       "impact": 2,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "blog/index.html CollectionPage headline says 2026, confirmed via deploy-drift.sh 2026-11-13 (byte-identical to local); check target is local-scoped, no live-URL mapping for deploy-check.",
       "priority": 1.9,
       "sources": [
         "seo-schema"
       ],
-      "status": "fixed",
-      "updated": "2026-11-12"
+      "status": "deployed",
+      "updated": "2026-11-13"
     },
     {
       "baseline": {
@@ -2861,13 +2861,13 @@
       "id": "F-0111",
       "impact": 4,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "loading=lazy removed from best-hostels-in-varanasi hero img, confirmed via deploy-drift.sh 2026-11-13 (byte-identical to local).",
       "priority": 3.4,
       "sources": [
         "seo-visual"
       ],
-      "status": "fixed",
-      "updated": "2026-11-12"
+      "status": "deployed",
+      "updated": "2026-11-13"
     },
     {
       "baseline": null,
@@ -2881,13 +2881,13 @@
       "id": "F-0112",
       "impact": 2,
       "measured": null,
-      "note": "sitemap.xml lastmod 2026-11-04 on /, /dorms/, /about, /book-now, /blog/best-hostels-in-varanasi/ confirmed via grep; git log shows 845a30f and 283c346 landed after the 8d37838 lastmod bump, same day",
+      "note": "sitemap.xml lastmod bumped values confirmed live via deploy-drift.sh 2026-11-13 (byte-identical to local).",
       "priority": 1.8,
       "sources": [
         "seo-sitemap"
       ],
-      "status": "fixed",
-      "updated": "2026-11-12"
+      "status": "deployed",
+      "updated": "2026-11-13"
     },
     {
       "baseline": null,
@@ -2906,13 +2906,13 @@
       "id": "F-0113",
       "impact": 2,
       "measured": null,
-      "note": "check confirmed the defect",
+      "note": "llms.txt occupancy claim removed, confirmed via deploy-drift.sh 2026-11-13 (byte-identical to local); check target is local-scoped, no live-URL mapping for deploy-check.",
       "priority": 1.7,
       "sources": [
         "seo-geo"
       ],
-      "status": "fixed",
-      "updated": "2026-11-12"
+      "status": "deployed",
+      "updated": "2026-11-13"
     },
     {
       "baseline": null,
@@ -2926,12 +2926,12 @@
       "id": "F-0114",
       "impact": 2,
       "measured": null,
-      "note": "Owner approved all 7 hero-image swaps in Q&A round 2026-11-12",
+      "note": "All 7 hero-image swaps confirmed live (verified marigold-diya-basket-1600 on dev-deepawali post via curl 2026-11-13).",
       "priority": 0.5,
       "sources": [
         "seo-visual"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-13"
     },
     {
@@ -2946,12 +2946,12 @@
       "id": "F-0115",
       "impact": 1,
       "measured": null,
-      "note": "Owner-confirmed fact, fix applied to the only on-site private-room amenity listing (index.html room card)",
+      "note": "'Single/Double \u00b7 AC \u00b7 Ensuite \u00b7 WiFi' confirmed live on homepage room card via curl 2026-11-13.",
       "priority": 0.6,
       "sources": [
         "seo-content"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-13"
     }
   ],
