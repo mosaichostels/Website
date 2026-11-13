@@ -2938,7 +2938,7 @@
       "baseline": null,
       "check": null,
       "claim": "Homepage private-room card omitted occupancy (single/double), the only amenity-level private-room listing on the site",
-      "commit": null,
+      "commit": "fe72b9a",
       "confidence": 0.6,
       "created": "2026-11-13",
       "effort": 1,
@@ -2951,7 +2951,7 @@
       "sources": [
         "seo-content"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-13"
     }
   ],
