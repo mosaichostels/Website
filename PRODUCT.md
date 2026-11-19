@@ -27,6 +27,7 @@ Check-in from 1:00 PM, check-out by 10:30 AM, 24-hour reception. Free cancellati
 - Static HTML/CSS/JS with no build step, plus PHP endpoints in `api/` (eZee PMS, Razorpay); deployed by FTP to Hostinger. Assumed to continue; not yet confirmed as binding.
 - Pages: home, about, gallery, book-now, contact, privacy, blog (14 travel guides).
 - Room lineup (owner-confirmed): 6 room types — private room, 10-bed mixed dorm (added Nov 2026, seen live in eZee), 8-bed mixed dorm, 6-bed mixed dorm, 4-bed mixed dorm, 6-bed female-only dorm; plus a shared common room that is not a room type.
+- Owner-confirmed 2026-11-12: the private room comes in single and double occupancy only (no triple).
 - Owner-confirmed 2026-10-30 (may stay in copy): 24-hour security; the hostel was founded by a group of hospitality professionals; yoga sessions with local teachers; the phrase "I came for two nights and stayed for ten" appears in more than one review.
 - Owner-confirmed 2026-10-30: Mosaic Hostel opened in November 2025 (set as the opening date on the Business Profile; `llms.txt` already says "Established 2025").
 - Owner-confirmed 2026-10-30: the café is for guests only (not open to the public). The Business Profile "Cafe" category was removed for that reason; do not describe the café as publicly open.

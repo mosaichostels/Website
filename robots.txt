@@ -6,22 +6,27 @@ Content-Signal: search=yes, ai-input=yes, ai-train=no
 User-agent: GPTBot
 Allow: /
 Disallow: /api/
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /api/
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 User-agent: ClaudeBot
 Allow: /
 Disallow: /api/
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 User-agent: PerplexityBot
 Allow: /
 Disallow: /api/
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 User-agent: CCBot
 Allow: /
 Disallow: /api/
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 Sitemap: https://www.mosaichostels.com/sitemap.xml
 Sitemap: https://www.mosaichostels.com/sitemap-images.xml
