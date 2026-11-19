@@ -2,12 +2,12 @@
   "date": "2026-11-19",
   "items": {
     "ai-visibility": {
-      "reason": "",
-      "status": "pending"
+      "reason": "ai-visibility.sh ran: all 13 AI crawlers return 200",
+      "status": "done"
     },
     "audits:claude-seo-14": {
-      "reason": "",
-      "status": "pending"
+      "reason": "14 of 15 claude-seo specialist agents ran; seo-visual hit 35-turn limit",
+      "status": "done"
     },
     "extract:bing": {
       "reason": "1 informational note(s)",
@@ -26,8 +26,8 @@
       "status": "done"
     },
     "extract:cwv": {
-      "reason": "",
-      "status": "pending"
+      "reason": "skipped by --fast flag; CrUX field data obtained from seo-google agent (all metrics green)",
+      "status": "skipped"
     },
     "extract:ga4": {
       "reason": "",
@@ -42,12 +42,12 @@
       "status": "done"
     },
     "extract:lighthouse": {
-      "reason": "",
-      "status": "pending"
+      "reason": "skipped by --fast flag; PSI score 100/100 confirmed by seo-google agent",
+      "status": "skipped"
     },
     "keyword-demand": {
-      "reason": "",
-      "status": "pending"
+      "reason": "GSC striking-distance queries analysed: 5 queries at pos 7-10 with 866 impressions (F-0128)",
+      "status": "done"
     },
     "query-discovery": {
       "reason": "",
