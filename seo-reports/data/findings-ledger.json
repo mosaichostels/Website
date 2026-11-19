@@ -2966,12 +2966,12 @@
       "id": "F-0116",
       "impact": 2,
       "measured": null,
-      "note": "book-now.html:0 logo, about.html:0 logo; contact has logo in Organization block only",
+      "note": "live as of 2026-11-19 deploy 47aa3f8",
       "priority": 2.0,
       "sources": [
         "seo-schema"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-19"
     },
     {
@@ -2986,12 +2986,12 @@
       "id": "F-0117",
       "impact": 2,
       "measured": null,
-      "note": "grep confirms 1 Organization @type block on contact.html with no @id",
+      "note": "live as of 2026-11-19 deploy 47aa3f8",
       "priority": 2.0,
       "sources": [
         "seo-schema"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-19"
     },
     {
@@ -3006,12 +3006,12 @@
       "id": "F-0118",
       "impact": 1,
       "measured": null,
-      "note": "schema foundingDate is 2025-11 on homepage Hostel block",
+      "note": "live as of 2026-11-19 deploy 47aa3f8",
       "priority": 1.0,
       "sources": [
         "seo-schema"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-19"
     },
     {
@@ -3026,12 +3026,12 @@
       "id": "F-0119",
       "impact": 2,
       "measured": null,
-      "note": "sitemap.xml confirms: /, things-to-do, best-time, assi-vs-dash, 2-day, 3-5-day, ganga-aarti, dev-deepawali need 2026-11-13",
+      "note": "live as of 2026-11-19 deploy 47aa3f8",
       "priority": 2.0,
       "sources": [
         "seo-sitemap"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-19"
     },
     {
@@ -3046,12 +3046,12 @@
       "id": "F-0120",
       "impact": 2,
       "measured": null,
-      "note": "sitemap agent confirmed new varanasi/* heroes not in image sitemap; og:image check needed",
+      "note": "live as of 2026-11-19 deploy 47aa3f8",
       "priority": 1.0,
       "sources": [
         "seo-sitemap"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-19"
     },
     {
@@ -3066,12 +3066,12 @@
       "id": "F-0121",
       "impact": 3,
       "measured": null,
-      "note": "gallery.html: only CTA in body is btn-gold at line 604, after all 42 photos; nav and footer links excluded",
+      "note": "live as of 2026-11-19 deploy 47aa3f8",
       "priority": 2.7,
       "sources": [
         "seo-flow"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-19"
     },
     {
@@ -3086,12 +3086,12 @@
       "id": "F-0122",
       "impact": 2,
       "measured": null,
-      "note": "index.html: div.section-title Six Ways to Stay not wrapped in H2",
+      "note": "live as of 2026-11-19 deploy 47aa3f8",
       "priority": 2.0,
       "sources": [
         "seo-flow"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-19"
     },
     {
@@ -3106,12 +3106,12 @@
       "id": "F-0123",
       "impact": 2,
       "measured": null,
-      "note": "dateModified=2026-11-12 in schema but article:modified_time=2026-10-20 and visible Updated: 2026-10-20",
+      "note": "live as of 2026-11-19 deploy 47aa3f8",
       "priority": 2.0,
       "sources": [
         "seo-content"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-19"
     },
     {
@@ -3126,12 +3126,12 @@
       "id": "F-0124",
       "impact": 1,
       "measured": null,
-      "note": "llms.txt blog links confirmed to have no description after the URL",
+      "note": "live as of 2026-11-19 deploy 47aa3f8",
       "priority": 0.7,
       "sources": [
         "seo-geo"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-19"
     },
     {
@@ -3146,12 +3146,12 @@
       "id": "F-0125",
       "impact": 3,
       "measured": null,
-      "note": "index.html has no <link rel=preload as=image> for hero-poster.jpg; only preload=metadata on video tag",
+      "note": "live as of 2026-11-19 deploy 47aa3f8",
       "priority": 2.4,
       "sources": [
         "seo-technical"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-19"
     },
     {
@@ -3166,12 +3166,12 @@
       "id": "F-0126",
       "impact": 2,
       "measured": null,
-      "note": "video tag has no width/height attributes: <video class=hero-video autoplay muted loop playsinline>",
+      "note": "live as of 2026-11-19 deploy 47aa3f8",
       "priority": 1.6,
       "sources": [
         "seo-technical"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-19"
     },
     {
@@ -3186,12 +3186,12 @@
       "id": "F-0127",
       "impact": 4,
       "measured": null,
-      "note": "GSC confirms 2751 impressions, 1 click, 0.04% CTR, avg pos 8.9 for /blog/assi-ghat-varanasi-complete-guide/",
+      "note": "live as of 2026-11-19 deploy 47aa3f8",
       "priority": 2.0,
       "sources": [
         "seo-google"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-19"
     },
     {
@@ -3246,12 +3246,12 @@
       "id": "F-0130",
       "impact": 1,
       "measured": null,
-      "note": "llms.txt confirmed: private room has no URL in Rooms section",
+      "note": "live as of 2026-11-19 deploy 47aa3f8",
       "priority": 1.0,
       "sources": [
         "seo-agentic"
       ],
-      "status": "fixed",
+      "status": "deployed",
       "updated": "2026-11-19"
     },
     {
