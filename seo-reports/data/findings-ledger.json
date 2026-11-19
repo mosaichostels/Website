@@ -2958,7 +2958,7 @@
       "baseline": null,
       "check": null,
       "claim": "Hostel block missing logo on /book-now, /about, /contact; homepage has it; inner pages need same logo field",
-      "commit": null,
+      "commit": "332080a",
       "confidence": 1.0,
       "created": "2026-11-19",
       "effort": 1,
@@ -2971,14 +2971,14 @@
       "sources": [
         "seo-schema"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-19"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "Contact page has standalone Organization block with no @id creating disconnected entity; remove it and add contactPoint to Hostel block",
-      "commit": null,
+      "commit": "332080a",
       "confidence": 1.0,
       "created": "2026-11-19",
       "effort": 1,
@@ -2991,14 +2991,14 @@
       "sources": [
         "seo-schema"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-19"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "foundingDate is partial 2025-11 on all Hostel blocks; should be full ISO 8601 2025-11-01",
-      "commit": null,
+      "commit": "332080a",
       "confidence": 1.0,
       "created": "2026-11-19",
       "effort": 1,
@@ -3011,14 +3011,14 @@
       "sources": [
         "seo-schema"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-19"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "sitemap.xml: 8 URLs need lastmod updated to 2026-11-13 (homepage and 7 blog posts changed by F-0114/F-0115 deploy)",
-      "commit": null,
+      "commit": "332080a",
       "confidence": 1.0,
       "created": "2026-11-19",
       "effort": 1,
@@ -3031,14 +3031,14 @@
       "sources": [
         "seo-sitemap"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-19"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "sitemap-images.xml missing 7 new varanasi/* hero images swapped by F-0114; also og:image on those 7 posts not updated to match",
-      "commit": null,
+      "commit": "332080a",
       "confidence": 1.0,
       "created": "2026-11-19",
       "effort": 2,
@@ -3051,14 +3051,14 @@
       "sources": [
         "seo-sitemap"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-19"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "Gallery page has zero body CTAs or internal links; 19 organic sessions with 36.8% engagement rate; no booking link, no link to /dorms/ or /book-now in body",
-      "commit": null,
+      "commit": "332080a",
       "confidence": 0.9,
       "created": "2026-11-19",
       "effort": 1,
@@ -3071,14 +3071,14 @@
       "sources": [
         "seo-flow"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-19"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "Homepage Six Ways to Stay section uses div.section-title not H2; rooms section invisible in heading outline to crawlers and screen readers",
-      "commit": null,
+      "commit": "332080a",
       "confidence": 1.0,
       "created": "2026-11-19",
       "effort": 1,
@@ -3091,14 +3091,14 @@
       "sources": [
         "seo-flow"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-19"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "Assi Ghat guide: dateModified 2026-11-12 in JSON-LD but visible Updated: and article:modified_time still show 2026-10-20; keep all three in sync",
-      "commit": null,
+      "commit": "332080a",
       "confidence": 1.0,
       "created": "2026-11-19",
       "effort": 1,
@@ -3111,14 +3111,14 @@
       "sources": [
         "seo-content"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-19"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "llms.txt 16 blog links have no descriptions; format expects '- [name](url): note' for AI tool citability; core pages already follow this pattern",
-      "commit": null,
+      "commit": "332080a",
       "confidence": 0.7,
       "created": "2026-11-19",
       "effort": 1,
@@ -3131,14 +3131,14 @@
       "sources": [
         "seo-geo"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-19"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "Homepage hero video poster hero-poster.jpg has no preload hint in <head>; browser discovers it late causing LCP delay; add <link rel=preload as=image> before stylesheet",
-      "commit": null,
+      "commit": "332080a",
       "confidence": 0.8,
       "created": "2026-11-19",
       "effort": 1,
@@ -3151,14 +3151,14 @@
       "sources": [
         "seo-technical"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-19"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "Homepage hero video element has no explicit width/height attributes; relies on CSS only causing CLS if stylesheet is delayed; add width=1920 height=1080",
-      "commit": null,
+      "commit": "332080a",
       "confidence": 0.8,
       "created": "2026-11-19",
       "effort": 1,
@@ -3171,14 +3171,14 @@
       "sources": [
         "seo-technical"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-19"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "assi-ghat-varanasi-complete-guide has 2751 impressions in 28d but 1 click (0.04% CTR); title/meta don't match distance-query intent (avg pos 8.9)",
-      "commit": null,
+      "commit": "332080a",
       "confidence": 1.0,
       "created": "2026-11-19",
       "effort": 2,
@@ -3191,7 +3191,7 @@
       "sources": [
         "seo-google"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-19"
     },
     {
@@ -3238,7 +3238,7 @@
       "baseline": null,
       "check": null,
       "claim": "llms.txt Rooms section: private room entry has no URL; dorm page URL is linked but private room has none; agents cannot navigate to private room details",
-      "commit": null,
+      "commit": "332080a",
       "confidence": 1.0,
       "created": "2026-11-19",
       "effort": 1,
@@ -3251,7 +3251,7 @@
       "sources": [
         "seo-agentic"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-19"
     },
     {
