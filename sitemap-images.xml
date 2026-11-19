@@ -50,12 +50,12 @@
       <image:caption>Dorm Room with View</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/IMG_1294.jpg</image:loc>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/painted-doorway-1600.jpg</image:loc>
       <image:caption>Private Room</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/IMG_1316.jpg</image:loc>
-      <image:caption>Shared Kitchen</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/boat-vendor-night-1600.jpg</image:loc>
+      <image:caption>A boat vendor on the Ganga at night, Varanasi</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://www.mosaichostels.com/images/IMG_1357.jpg</image:loc>
@@ -70,8 +70,8 @@
       <image:caption>Guest Interaction Space</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/IMG_1928.jpg</image:loc>
-      <image:caption>Mosaic Hostel Varanasi: Room View</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/marigold-diya-basket-1600.jpg</image:loc>
+      <image:caption>Earthen lamps lit along the ghats during Dev Deepawali</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://www.mosaichostels.com/images/IMG_1930.jpg</image:loc>
@@ -98,16 +98,16 @@
       <image:caption>Assi Ghat, Varanasi: Near Mosaic Hostel</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/IMG-20251228-WA0140.jpg</image:loc>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/festival-procession-1600.jpg</image:loc>
       <image:caption>Varanasi: Near Mosaic Hostel</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/PXL_20260119_064300909.MP_.jpg</image:loc>
-      <image:caption>Assi Ghat, Varanasi</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/ghat-boats-dusk-1600.jpg</image:loc>
+      <image:caption>Boats along the Ganga ghats at dusk, Varanasi</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/PXL_20260119_064603355.MP_.jpg</image:loc>
-      <image:caption>Varanasi Ghats</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/har-har-mahadev-gate-1600.jpg</image:loc>
+      <image:caption>A gateway near the ghats marked Har Har Mahadev, Varanasi</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://www.mosaichostels.com/images/unnamed.jpg</image:loc>
@@ -127,7 +127,7 @@
     </image:image>
       <image:image>
       <image:loc>https://www.mosaichostels.com/images/varanasi/ghat-boats-dusk-1600.jpg</image:loc>
-      <image:caption>Boats moored along the Ganga ghats at dusk, with visitors on the steps</image:caption>
+      <image:caption>Boats along the Ganga ghats at dusk, Varanasi</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://www.mosaichostels.com/images/varanasi/clay-bowl-dessert-1600.jpg</image:loc>
@@ -135,11 +135,11 @@
     </image:image>
     <image:image>
       <image:loc>https://www.mosaichostels.com/images/varanasi/marigold-diya-basket-1600.jpg</image:loc>
-      <image:caption>Basket of marigolds with a lit lamp and boats behind at night</image:caption>
+      <image:caption>Earthen lamps lit along the ghats during Dev Deepawali</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://www.mosaichostels.com/images/varanasi/boat-vendor-night-1600.jpg</image:loc>
-      <image:caption>Vendor with marigold offerings on a boat beside the ghat at night</image:caption>
+      <image:caption>A boat vendor on the Ganga at night, Varanasi</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://www.mosaichostels.com/images/varanasi/sadhu-by-the-ghat-1600.jpg</image:loc>
@@ -179,7 +179,7 @@
     </image:image>
     <image:image>
       <image:loc>https://www.mosaichostels.com/images/varanasi/pilgrims-on-steps-1600.jpg</image:loc>
-      <image:caption>Pilgrims and a sadhu in orange on the wet ghat steps</image:caption>
+      <image:caption>Pilgrims on the ghat steps at dusk, Varanasi</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://www.mosaichostels.com/images/varanasi/festival-procession-1600.jpg</image:loc>
@@ -195,7 +195,7 @@
     </image:image>
     <image:image>
       <image:loc>https://www.mosaichostels.com/images/varanasi/har-har-mahadev-gate-1600.jpg</image:loc>
-      <image:caption>Blue gateway painted with Har Har Mahadev above a seated vendor</image:caption>
+      <image:caption>A gateway near the ghats marked Har Har Mahadev, Varanasi</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://www.mosaichostels.com/images/varanasi/golden-flatbread-1600.jpg</image:loc>
@@ -289,7 +289,7 @@
   <url>
     <loc>https://www.mosaichostels.com/about</loc>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/IMG-20251228-WA0140.jpg</image:loc>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/festival-procession-1600.jpg</image:loc>
       <image:caption>Mosaic Hostel Varanasi: The Common Room</image:caption>
     </image:image>
     <image:image>
@@ -325,15 +325,15 @@
   <url>
     <loc>https://www.mosaichostels.com/blog/things-to-do-varanasi-local-guide/</loc>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/IMG_1294.jpg</image:loc>
-      <image:caption>Things to Do in Varanasi: Local's Guide</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/painted-doorway-1600.jpg</image:loc>
+      <image:caption>Painted doorway with a carved wooden door in the old city</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://www.mosaichostels.com/blog/best-time-to-visit-varanasi-month-by-month/</loc>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/IMG-20251228-WA0140.jpg</image:loc>
-      <image:caption>Best Time to Visit Varanasi: Month-by-Month Guide</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/festival-procession-1600.jpg</image:loc>
+      <image:caption>A festival procession through the old city, Varanasi</image:caption>
     </image:image>
   </url>
   <url>
@@ -367,8 +367,8 @@
   <url>
     <loc>https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/</loc>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/PXL_20260119_064300909.MP_.jpg</image:loc>
-      <image:caption>Assi Ghat vs Dashashwamedh: Where Should You Stay in Varanasi?</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/ghat-boats-dusk-1600.jpg</image:loc>
+      <image:caption>Boats along the Ganga ghats at dusk, Varanasi</image:caption>
     </image:image>
   </url>
   <url>
@@ -381,36 +381,36 @@
   <url>
     <loc>https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/</loc>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/IMG_1316.jpg</image:loc>
-      <image:caption>2-Day Varanasi Itinerary for Backpackers</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/boat-vendor-night-1600.jpg</image:loc>
+      <image:caption>A boat vendor on the Ganga at night, Varanasi</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://www.mosaichostels.com/blog/varanasi-3-5-day-itinerary-slow-travel/</loc>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/PXL_20260119_064603355.MP_.jpg</image:loc>
-      <image:caption>3-5 Day Varanasi Itinerary for Slow Travelers</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/har-har-mahadev-gate-1600.jpg</image:loc>
+      <image:caption>A gateway near the ghats marked Har Har Mahadev, Varanasi</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://www.mosaichostels.com/blog/co-working-spaces-cafes-assi-ghat/</loc>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/IMG_1928.jpg</image:loc>
-      <image:caption>Remote Work at the Hostel: WiFi &amp; Cafes Near Assi Ghat</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/marigold-diya-basket-1600.jpg</image:loc>
+      <image:caption>Earthen lamps lit along the ghats during Dev Deepawali</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://www.mosaichostels.com/blog/dev-deepawali-varanasi-2026-guide/</loc>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/IMG_1928.jpg</image:loc>
-      <image:caption>Dev Deepawali in Varanasi 2026: Date, Ghats &amp; Planning Tips</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/marigold-diya-basket-1600.jpg</image:loc>
+      <image:caption>Earthen lamps lit along the ghats during Dev Deepawali</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://www.mosaichostels.com/blog/ganga-aarti-varanasi-assi-vs-dashashwamedh/</loc>
     <image:image>
-      <image:loc>https://www.mosaichostels.com/images/IMG_1928.jpg</image:loc>
-      <image:caption>Ganga Aarti in Varanasi: Assi Ghat vs Dashashwamedh</image:caption>
+      <image:loc>https://www.mosaichostels.com/images/varanasi/pilgrims-on-steps-1600.jpg</image:loc>
+      <image:caption>Pilgrims on the ghat steps at dusk, Varanasi</image:caption>
     </image:image>
   </url>
 </urlset>

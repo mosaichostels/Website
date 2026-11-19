@@ -1,0 +1,17 @@
+{
+  "errors": [],
+  "fetched_at": "2026-11-19T17:30:17.528789+00:00",
+  "findings": [],
+  "metrics": {
+    "availability_latency_ms": 1356,
+    "availability_status": 200,
+    "booking_latency_ms": 265,
+    "booking_status": 200
+  },
+  "source": "booking-probe",
+  "window": {
+    "days": 1,
+    "end": "2026-11-19",
+    "start": "2026-11-19"
+  }
+}

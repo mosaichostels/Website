@@ -2953,7 +2953,387 @@
       ],
       "status": "deployed",
       "updated": "2026-11-13"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Hostel block missing logo on /book-now, /about, /contact; homepage has it; inner pages need same logo field",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0116",
+      "impact": 2,
+      "measured": null,
+      "note": "book-now.html:0 logo, about.html:0 logo; contact has logo in Organization block only",
+      "priority": 2.0,
+      "sources": [
+        "seo-schema"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Contact page has standalone Organization block with no @id creating disconnected entity; remove it and add contactPoint to Hostel block",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0117",
+      "impact": 2,
+      "measured": null,
+      "note": "grep confirms 1 Organization @type block on contact.html with no @id",
+      "priority": 2.0,
+      "sources": [
+        "seo-schema"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "foundingDate is partial 2025-11 on all Hostel blocks; should be full ISO 8601 2025-11-01",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0118",
+      "impact": 1,
+      "measured": null,
+      "note": "schema foundingDate is 2025-11 on homepage Hostel block",
+      "priority": 1.0,
+      "sources": [
+        "seo-schema"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "sitemap.xml: 8 URLs need lastmod updated to 2026-11-13 (homepage and 7 blog posts changed by F-0114/F-0115 deploy)",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0119",
+      "impact": 2,
+      "measured": null,
+      "note": "sitemap.xml confirms: /, things-to-do, best-time, assi-vs-dash, 2-day, 3-5-day, ganga-aarti, dev-deepawali need 2026-11-13",
+      "priority": 2.0,
+      "sources": [
+        "seo-sitemap"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "sitemap-images.xml missing 7 new varanasi/* hero images swapped by F-0114; also og:image on those 7 posts not updated to match",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-11-19",
+      "effort": 2,
+      "evidence": "",
+      "id": "F-0120",
+      "impact": 2,
+      "measured": null,
+      "note": "sitemap agent confirmed new varanasi/* heroes not in image sitemap; og:image check needed",
+      "priority": 1.0,
+      "sources": [
+        "seo-sitemap"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Gallery page has zero body CTAs or internal links; 19 organic sessions with 36.8% engagement rate; no booking link, no link to /dorms/ or /book-now in body",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0121",
+      "impact": 3,
+      "measured": null,
+      "note": "gallery.html: only CTA in body is btn-gold at line 604, after all 42 photos; nav and footer links excluded",
+      "priority": 2.7,
+      "sources": [
+        "seo-flow"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Homepage Six Ways to Stay section uses div.section-title not H2; rooms section invisible in heading outline to crawlers and screen readers",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0122",
+      "impact": 2,
+      "measured": null,
+      "note": "index.html: div.section-title Six Ways to Stay not wrapped in H2",
+      "priority": 2.0,
+      "sources": [
+        "seo-flow"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Assi Ghat guide: dateModified 2026-11-12 in JSON-LD but visible Updated: and article:modified_time still show 2026-10-20; keep all three in sync",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0123",
+      "impact": 2,
+      "measured": null,
+      "note": "dateModified=2026-11-12 in schema but article:modified_time=2026-10-20 and visible Updated: 2026-10-20",
+      "priority": 2.0,
+      "sources": [
+        "seo-content"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "llms.txt 16 blog links have no descriptions; format expects '- [name](url): note' for AI tool citability; core pages already follow this pattern",
+      "commit": null,
+      "confidence": 0.7,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0124",
+      "impact": 1,
+      "measured": null,
+      "note": "llms.txt blog links confirmed to have no description after the URL",
+      "priority": 0.7,
+      "sources": [
+        "seo-geo"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Homepage hero video poster hero-poster.jpg has no preload hint in <head>; browser discovers it late causing LCP delay; add <link rel=preload as=image> before stylesheet",
+      "commit": null,
+      "confidence": 0.8,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0125",
+      "impact": 3,
+      "measured": null,
+      "note": "index.html has no <link rel=preload as=image> for hero-poster.jpg; only preload=metadata on video tag",
+      "priority": 2.4,
+      "sources": [
+        "seo-technical"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Homepage hero video element has no explicit width/height attributes; relies on CSS only causing CLS if stylesheet is delayed; add width=1920 height=1080",
+      "commit": null,
+      "confidence": 0.8,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0126",
+      "impact": 2,
+      "measured": null,
+      "note": "video tag has no width/height attributes: <video class=hero-video autoplay muted loop playsinline>",
+      "priority": 1.6,
+      "sources": [
+        "seo-technical"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "assi-ghat-varanasi-complete-guide has 2751 impressions in 28d but 1 click (0.04% CTR); title/meta don't match distance-query intent (avg pos 8.9)",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-11-19",
+      "effort": 2,
+      "evidence": "",
+      "id": "F-0127",
+      "impact": 4,
+      "measured": null,
+      "note": "GSC confirms 2751 impressions, 1 click, 0.04% CTR, avg pos 8.9 for /blog/assi-ghat-varanasi-complete-guide/",
+      "priority": 2.0,
+      "sources": [
+        "seo-google"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "5 queries at pos 7-10 earn zero clicks, 866 combined impressions: assi-ghat guide (4 distance queries) and best-hostels-in-varanasi (1 query); internal linking + freshness bump could move them to p1",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-11-19",
+      "effort": 2,
+      "evidence": "",
+      "id": "F-0128",
+      "impact": 2,
+      "measured": null,
+      "note": "GSC confirms 5 queries at pos 7-10 with 866 impressions and zero clicks",
+      "priority": 0.9,
+      "sources": [
+        "seo-google"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "llms-full.txt returns 404; llms.txt has no Optional: link pointing to full-text version; AI agents must crawl individual pages instead of one consolidated fetch",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0129",
+      "impact": 2,
+      "measured": null,
+      "note": "agentic audit confirmed llms-full.txt 404 and no Optional: link in llms.txt",
+      "priority": 2.0,
+      "sources": [
+        "seo-agentic"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "llms.txt Rooms section: private room entry has no URL; dorm page URL is linked but private room has none; agents cannot navigate to private room details",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0130",
+      "impact": 1,
+      "measured": null,
+      "note": "llms.txt confirmed: private room has no URL in Rooms section",
+      "priority": 1.0,
+      "sources": [
+        "seo-agentic"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "openingHours, checkInTime, checkOutTime absent from Hostel schema; factor 5 in Whitespark 2026 ranking signals; hostel operates 24h with fixed check-in/out windows",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0131",
+      "impact": 2,
+      "measured": null,
+      "note": "index.html schema confirmed: no openingHours checkInTime checkOutTime",
+      "priority": 2.0,
+      "sources": [
+        "seo-maps"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Bing Places listing not in sameAs and status unconfirmed; Bing Places powers ChatGPT Copilot Alexa (900M queries/day); claim and add URL to sameAs - owner action required",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0132",
+      "impact": 3,
+      "measured": null,
+      "note": "sameAs array confirmed: no Bing Places URL present",
+      "priority": 2.7,
+      "sources": [
+        "seo-maps"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Apple Business/Maps listing absent from sameAs; Apple Maps usage jumped from 14% to 27% in 2026 (BrightLocal); claim at businessconnect.apple.com - owner action required",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0133",
+      "impact": 2,
+      "measured": null,
+      "note": "sameAs array confirmed: no Apple Maps/Business URL present",
+      "priority": 1.8,
+      "sources": [
+        "seo-maps"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "2 Google reviews have no owner response; benchmark is 80%+ response rate; reply needed for Sakshi Singh and priya roy (5-star 2026-11-11) - owner action",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-11-19",
+      "effort": 1,
+      "evidence": "",
+      "id": "F-0134",
+      "impact": 1,
+      "measured": null,
+      "note": "extraction confirmed 2 reviews without owner response",
+      "priority": 1.0,
+      "sources": [
+        "seo-gbp"
+      ],
+      "status": "verified",
+      "updated": "2026-11-19"
     }
   ],
-  "next_id": 116
+  "next_id": 135
 }
