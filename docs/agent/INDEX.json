@@ -305,7 +305,7 @@
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-11-19 @ 7be47e1",
       "covers": [],
-      "tokens_est": 7325
+      "tokens_est": 7320
     },
     {
       "file": "STRUCTURE.md",
