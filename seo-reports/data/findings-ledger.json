@@ -3333,7 +3333,87 @@
       ],
       "status": "verified",
       "updated": "2026-11-19"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Sitemap lastmod dates lag the 2026-11-19 content changes on 13 submitted URLs",
+      "commit": null,
+      "confidence": 1.0,
+      "created": "2026-11-22",
+      "effort": 1,
+      "evidence": "git show 332080a --name-only; sitemap.xml entries still dated 2026-11-04 through 2026-11-13 for changed pages",
+      "id": "F-0135",
+      "impact": 3,
+      "measured": null,
+      "note": "Sitemap entries checked against 2026-11-19 changed-file list; stale dates confirmed.",
+      "priority": 3.0,
+      "sources": [
+        "seo-sitemap"
+      ],
+      "status": "verified",
+      "updated": "2026-11-22"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Hostel schema sameAs uses Mapcarta instead of the canonical OpenStreetMap node URL on seven pages",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-11-22",
+      "effort": 1,
+      "evidence": "index.html, about.html, contact.html, book-now.html, gallery.html, privacy.html and blog/index.html contain https://mapcarta.com/N13751993139",
+      "id": "F-0136",
+      "impact": 2,
+      "measured": null,
+      "note": "Seven core Hostel schema blocks contain Mapcarta URL; canonical OSM node is the intended replacement.",
+      "priority": 1.8,
+      "sources": [
+        "seo-maps"
+      ],
+      "status": "verified",
+      "updated": "2026-11-22"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Hostel schema descriptions omit the owner-confirmed 100 m from Assi Ghat proximity claim",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-11-22",
+      "effort": 1,
+      "evidence": "seven core Hostel JSON-LD blocks use the same description without the 100 m detail",
+      "id": "F-0137",
+      "impact": 2,
+      "measured": null,
+      "note": "Owner-confirmed 100 m claim is already visible in page copy and FAQ; schema description omits it.",
+      "priority": 1.8,
+      "sources": [
+        "seo-schema"
+      ],
+      "status": "verified",
+      "updated": "2026-11-22"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "Homepage WebSite JSON-LD is missing a stable #website @id",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-11-22",
+      "effort": 1,
+      "evidence": "index.html WebSite block has name and url but no @id",
+      "id": "F-0138",
+      "impact": 2,
+      "measured": null,
+      "note": "Homepage WebSite JSON-LD lacks @id while other entities use stable IDs.",
+      "priority": 1.8,
+      "sources": [
+        "seo-schema"
+      ],
+      "status": "verified",
+      "updated": "2026-11-22"
     }
   ],
-  "next_id": 135
+  "next_id": 139
 }

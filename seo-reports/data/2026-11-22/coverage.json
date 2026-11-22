@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-22",
+  "items": {
+    "ai-visibility": {
+      "reason": "Retested crawlers with >=20s spacing; all sampled UAs returned 200.",
+      "status": "done"
+    },
+    "audits:claude-seo-14": {
+      "reason": "All 15 specialist audits completed; seo-visual had no Playwright screenshots.",
+      "status": "done"
+    },
+    "extract:bing": {
+      "reason": "Extractor stopped after URL-info progress and produced no normalized JSON bundle.",
+      "status": "blocked"
+    },
+    "extract:booking-probe": {
+      "reason": "Not run in this SEO continuation; no booking-path change.",
+      "status": "skipped"
+    },
+    "extract:clarity": {
+      "reason": "Not run in this continuation to avoid quota use.",
+      "status": "skipped"
+    },
+    "extract:commoncrawl": {
+      "reason": "Normalized bundle exists; 0 captures across 12 indexes and CCBot GETs were 200.",
+      "status": "done"
+    },
+    "extract:cwv": {
+      "reason": "Not run in this continuation; prior run had green field CWV.",
+      "status": "skipped"
+    },
+    "extract:ga4": {
+      "reason": "Normalized 90-day GA4 bundle exists.",
+      "status": "done"
+    },
+    "extract:gbp": {
+      "reason": "GBP daily metrics request timed out after 60 seconds.",
+      "status": "blocked"
+    },
+    "extract:gsc": {
+      "reason": "Normalized GSC bundle exists with indexation and query tables.",
+      "status": "done"
+    },
+    "extract:lighthouse": {
+      "reason": "Not run in this continuation; prior run had field and lab checks.",
+      "status": "skipped"
+    },
+    "keyword-demand": {
+      "reason": "GSC striking-distance query table reviewed; Bing keyword cross-check unavailable.",
+      "status": "done"
+    },
+    "query-discovery": {
+      "reason": "GSC query rows and page/indexation rows reviewed from 2026-11-22 bundle.",
+      "status": "done"
+    }
+  }
+}
