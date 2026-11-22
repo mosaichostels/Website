@@ -3338,7 +3338,7 @@
       "baseline": null,
       "check": null,
       "claim": "Sitemap lastmod dates lag the 2026-11-19 content changes on 13 submitted URLs",
-      "commit": null,
+      "commit": "7b1c8d5",
       "confidence": 1.0,
       "created": "2026-11-22",
       "effort": 1,
@@ -3351,14 +3351,14 @@
       "sources": [
         "seo-sitemap"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-22"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "Hostel schema sameAs uses Mapcarta instead of the canonical OpenStreetMap node URL on seven pages",
-      "commit": null,
+      "commit": "7b1c8d5",
       "confidence": 0.9,
       "created": "2026-11-22",
       "effort": 1,
@@ -3371,14 +3371,14 @@
       "sources": [
         "seo-maps"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-22"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "Hostel schema descriptions omit the owner-confirmed 100 m from Assi Ghat proximity claim",
-      "commit": null,
+      "commit": "7b1c8d5",
       "confidence": 0.9,
       "created": "2026-11-22",
       "effort": 1,
@@ -3391,14 +3391,14 @@
       "sources": [
         "seo-schema"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-22"
     },
     {
       "baseline": null,
       "check": null,
       "claim": "Homepage WebSite JSON-LD is missing a stable #website @id",
-      "commit": null,
+      "commit": "7b1c8d5",
       "confidence": 0.9,
       "created": "2026-11-22",
       "effort": 1,
@@ -3411,7 +3411,7 @@
       "sources": [
         "seo-schema"
       ],
-      "status": "verified",
+      "status": "fixed",
       "updated": "2026-11-22"
     }
   ],
