@@ -14,3 +14,7 @@
   Reconfirmed 2026-10-25: all 12 crawls answered, 0 captures (conclusive). An
   `ERROR` row means the CDX gateway returned 502/504; rerun the extractor (errors
   are no longer cached since 2026-10-25, before that a cached error stayed forever).
+  **Changed 2026-11-26: first captures.** CC-MAIN-2026-47 holds 2 captures
+  (`/` and `/robots.txt`, crawled 2026-11-10, HTTP 200); the other 11 crawls
+  still 0. The zero-capture finding above is now historical; track whether
+  deeper pages appear in later crawls.

@@ -56,7 +56,13 @@ Standing findings, re-verify rather than assume:
   (CC-MAIN-2026-04 through -39, plus 2025-43/47/51) than the original
   2026-09-07 finding (CC-MAIN-2026-12 through -34). CCBot itself returns 200,
   so this is a discovery problem driven by a thin backlink profile, not a
-  technical block.
+  technical block. **Changed 2026-11-26:** CC-MAIN-2026-47 holds 2 captures
+  (`/`, `/robots.txt`), the first ever; deeper pages still absent.
+- **Spoofed Googlebot and bingbot UAs get 403** (2026-11-26, at 25 s spacing,
+  `/dorms/`) while CCBot gets 200: the host filters search-bot UAs from
+  non-search-engine IPs. Not a real block: GSC shows Googlebot crawling on
+  2026-11-25 and 24/24 sitemap URLs indexed. Use GSC/Bing crawl data, not a
+  spoofed GET, for these two.
 
 ### Google Preferred Sources
 
