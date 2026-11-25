@@ -1,0 +1,21 @@
+{
+  "errors": [],
+  "fetched_at": "2026-11-26T00:27:59",
+  "findings": [],
+  "metrics": {
+    "dead_click_events": 0,
+    "dead_click_pct": 0,
+    "quickback_pct": 37.31,
+    "rage_click_events": 0,
+    "rage_click_pct": 0,
+    "script_error_pct": 1.49,
+    "sessions_bot": 16,
+    "sessions_human": 67
+  },
+  "source": "clarity",
+  "window": {
+    "days": 3,
+    "end": "2026-11-26",
+    "start": "2026-11-24"
+  }
+}

@@ -1,0 +1,380 @@
+{
+  "ai_prompts": [
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "kind": "money",
+      "landing_page": "/",
+      "landing_page_basis": "GA4 top AI Assistant landing; topic match inferred",
+      "page": null,
+      "position": 20,
+      "prompt": "Where can I find best dorm in dashaswamedh ghat for laptop safety?",
+      "query": "best dorm in dashaswamedh ghat for laptop safety",
+      "score": 3.717,
+      "small_sample": true,
+      "source": "bing",
+      "window": {
+        "end": "2026-11-26",
+        "start": "2026-10-30"
+      }
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "kind": "funnel",
+      "page": null,
+      "position": 7,
+      "prompt": "What should I know about downtown varanasi to assi ghat distance?",
+      "query": "downtown varanasi to assi ghat distance",
+      "score": 7.433,
+      "small_sample": true,
+      "source": "bing",
+      "window": {
+        "end": "2026-11-26",
+        "start": "2026-10-30"
+      }
+    },
+    {
+      "clicks": 0,
+      "impressions": 2,
+      "kind": "funnel",
+      "page": null,
+      "position": 7,
+      "prompt": "What should I know about map route from airport to assi ghat varanaasi?",
+      "query": "map route from airport to assi ghat varanaasi",
+      "score": 7.433,
+      "small_sample": true,
+      "source": "bing",
+      "window": {
+        "end": "2026-11-26",
+        "start": "2026-10-30"
+      }
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "kind": "funnel",
+      "page": null,
+      "position": 8,
+      "prompt": "how to reach from varanasi railway station to assi ghat?",
+      "query": "how to reach from varanasi railway station to assi ghat",
+      "score": 3.717,
+      "small_sample": true,
+      "source": "bing",
+      "window": {
+        "end": "2026-11-26",
+        "start": "2026-10-30"
+      }
+    },
+    {
+      "clicks": 0,
+      "impressions": 1,
+      "kind": "funnel",
+      "page": null,
+      "position": 5,
+      "prompt": "what is the best season to recommend for travelers visiting varanasi?#n#april\u2013june#n#july\u2013september#n#october\u2013march#n#anytime after midnight?",
+      "query": "what is the best season to recommend for travelers visiting varanasi?#n#april\u2013june#n#july\u2013september#n#october\u2013march#n#anytime after midnight",
+      "score": 3.717,
+      "small_sample": true,
+      "source": "bing",
+      "window": {
+        "end": "2026-11-26",
+        "start": "2026-10-30"
+      }
+    }
+  ],
+  "date": "2026-11-26",
+  "errors": [],
+  "google": [
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 1,
+      "kind": "brand",
+      "misses": 2,
+      "page": "/",
+      "position": 6,
+      "query": "hostel mosaic",
+      "score": 2.282,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 0,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 1,
+      "kind": "brand",
+      "misses": 2,
+      "page": "/",
+      "position": 44,
+      "query": "mosaic hostel marrakech",
+      "score": 0.856,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 0,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 1,
+      "kind": "brand",
+      "misses": 2,
+      "page": "/",
+      "position": 3,
+      "query": "mosaic hotels",
+      "score": 0.428,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 0,
+      "window": {
+        "end": "2026-11-09",
+        "start": "2026-10-13"
+      }
+    },
+    {
+      "clicks": 15,
+      "core": true,
+      "impressions": 389,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 2.097686375321337,
+      "query": "mosaic hostel varanasi",
+      "score": 271.088,
+      "small_sample": false,
+      "source": "gsc",
+      "streak": 16,
+      "window": {
+        "end": "2026-11-23",
+        "start": "2026-10-27"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 13,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 6.076923076923077,
+      "query": "mosaic",
+      "score": 48.317,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 16,
+      "window": {
+        "end": "2026-11-23",
+        "start": "2026-10-27"
+      }
+    },
+    {
+      "clicks": 2,
+      "core": true,
+      "impressions": 62,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 1.8548387096774195,
+      "query": "mosaic hotel varanasi",
+      "score": 43.207,
+      "small_sample": false,
+      "source": "gsc",
+      "streak": 16,
+      "window": {
+        "end": "2026-11-23",
+        "start": "2026-10-27"
+      }
+    },
+    {
+      "clicks": 2,
+      "core": true,
+      "impressions": 49,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 4.918367346938775,
+      "query": "mosaic hostel",
+      "score": 34.147,
+      "small_sample": false,
+      "source": "gsc",
+      "streak": 16,
+      "window": {
+        "end": "2026-11-23",
+        "start": "2026-10-27"
+      }
+    },
+    {
+      "clicks": 1,
+      "core": true,
+      "impressions": 34,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 1.9705882352941178,
+      "query": "mosaic varanasi",
+      "score": 23.694,
+      "small_sample": false,
+      "source": "gsc",
+      "streak": 16,
+      "window": {
+        "end": "2026-11-23",
+        "start": "2026-10-27"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 4,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 7,
+      "query": "mosaic hostel varanasi photos",
+      "score": 14.867,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 13,
+      "window": {
+        "end": "2026-11-23",
+        "start": "2026-10-27"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 3,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 5,
+      "query": "mosaic hotel",
+      "score": 11.15,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 8,
+      "window": {
+        "end": "2026-11-23",
+        "start": "2026-10-27"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 2,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 11,
+      "query": "mosaic hostel varanasi reviews",
+      "score": 7.433,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 13,
+      "window": {
+        "end": "2026-11-23",
+        "start": "2026-10-27"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 1,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 5,
+      "query": "mosaic guesthouse",
+      "score": 3.717,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 5,
+      "window": {
+        "end": "2026-11-23",
+        "start": "2026-10-27"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 3,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 4.666666666666666,
+      "query": "mosaic company",
+      "score": 2.091,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 5,
+      "window": {
+        "end": "2026-11-23",
+        "start": "2026-10-27"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 2,
+      "kind": "brand",
+      "misses": 0,
+      "page": null,
+      "position": 4,
+      "query": "mosaic varanasi hostel",
+      "score": 1.394,
+      "small_sample": true,
+      "source": "bing",
+      "streak": 2,
+      "window": {
+        "end": "2026-11-26",
+        "start": "2026-10-30"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 2,
+      "kind": "brand",
+      "misses": 0,
+      "page": null,
+      "position": 4,
+      "query": "mosiac varabani hostel",
+      "score": 1.394,
+      "small_sample": true,
+      "source": "bing",
+      "streak": 2,
+      "window": {
+        "end": "2026-11-26",
+        "start": "2026-10-30"
+      }
+    },
+    {
+      "clicks": 0,
+      "core": true,
+      "impressions": 1,
+      "kind": "brand",
+      "misses": 0,
+      "page": "/",
+      "position": 2,
+      "query": "hotel mosaic",
+      "score": 0.697,
+      "small_sample": true,
+      "source": "gsc",
+      "streak": 2,
+      "window": {
+        "end": "2026-11-23",
+        "start": "2026-10-27"
+      }
+    }
+  ],
+  "notes": [],
+  "stale_queries": false
+}

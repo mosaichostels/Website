@@ -2,7 +2,9 @@ Read when: starting ANY task (current state, recent work, open items).
 Verified: 2026-11-19 @ 7be47e1
 Covers: -
 
-# Status (2026-11-22)
+# Status (2026-11-26)
+
+- 2026-11-26 weekly-seo run (scheduled, branch `t3/weekly-seo-sweep`, NOT deployed): health gate passed (200, deploy drift clean). Fixes F-0139 to F-0143 and F-0145: Varanasi Junction distance 6–7 km -> owner-confirmed 5–6 km on transfer guide and best-hostels; `llms.txt` drops the unsourced "1 million lamps" and matches the Sarnath post (about 10 km); Hostel JSON-LD on gallery, privacy and blog index gains `logo` and `foundingDate` 2025-11-01; 6 same-cluster Read Next links; 2-day itinerary "Sunrise boat ride" at 9:00 relabelled "Morning". Report `seo-reports/2026-11-26.md`.
 
 - 2026-11-22 weekly-seo continuation (commits `7b1c8d5`, `594bbe7`, `7b41252`, `9861cf8`; deployed 2026-11-22): health gate passed (HTTP 200, deploy drift clean); GSC, GA4 and Common Crawl bundles refreshed, GBP timed out, Bing/other slow extractors incomplete. Fifteen specialist audits completed. Four verified in-scope fixes are live: F-0135 updates 13 sitemap lastmod dates to the 2026-11-19 content-change date; F-0136 replaces Mapcarta with the canonical OpenStreetMap node in seven Hostel schemas; F-0137 adds the owner-confirmed 100 m Assi Ghat proximity to seven Hostel schema descriptions; F-0138 adds a stable `#website` WebSite `@id` on the homepage. `verify.sh --all` passes; live_check and deploy-drift are clean. IndexNow returned HTTP 200 for 7 URLs; both GSC sitemaps were accepted with zero errors/warnings on 2026-11-22. Deferred: transfer-guide distance table (needs verified figures), social-card tags (needs per-page image choices), Publisher.js removal, content/factual claims, Bing/Apple listing claims, and Common Crawl discovery/link building.
 

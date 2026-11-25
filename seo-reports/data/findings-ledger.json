@@ -1651,14 +1651,20 @@
       "evidence": "git log -1 --format=%cs vs lastmod, sitemap audit 2026-10-25",
       "id": "F-0061",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 8250,
+        "before": 3475,
+        "date": "2026-11-26",
+        "delta": 4775,
+        "metric": "gsc.nonbrand_impressions_90d"
+      },
       "note": "2026-10-30: live sitemap.xml and sitemap-images.xml md5 equal the repo files, and ?cb=N returns the same bytes, so the CDN no longer serves stale copies. Newer edits since 10-25 make some lastmod stale again; tracked as F-0083",
       "priority": 2.0,
       "sources": [
         "sitemap"
       ],
-      "status": "deployed",
-      "updated": "2026-10-30"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": {
@@ -1945,14 +1951,20 @@
       "evidence": "blog/best-hostels-in-varanasi/index.html lines 128,153,159,161,163,174",
       "id": "F-0072",
       "impact": 4,
-      "measured": null,
+      "measured": {
+        "after": 371,
+        "before": 189,
+        "date": "2026-11-26",
+        "delta": 182,
+        "metric": "ga4.organic_sessions_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 3.6,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-30"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": {
@@ -1975,14 +1987,20 @@
       "evidence": "blog/dev-deepawali-varanasi-2026-guide/index.html lines 99,101; festival 24 Nov 2026",
       "id": "F-0073",
       "impact": 4,
-      "measured": null,
+      "measured": {
+        "after": 371,
+        "before": 189,
+        "date": "2026-11-26",
+        "delta": 182,
+        "metric": "ga4.organic_sessions_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 3.4,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-30"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": {
@@ -2005,14 +2023,20 @@
       "evidence": "blog/ganga-aarti-varanasi-assi-vs-dashashwamedh/index.html Read Next list",
       "id": "F-0074",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 371,
+        "before": 189,
+        "date": "2026-11-26",
+        "delta": 182,
+        "metric": "ga4.organic_sessions_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 2.55,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-30"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": {
@@ -2035,14 +2059,20 @@
       "evidence": "index.html line 400",
       "id": "F-0075",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 371,
+        "before": 189,
+        "date": "2026-11-26",
+        "delta": 182,
+        "metric": "ga4.organic_sessions_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 2.4,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-30"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": {
@@ -2065,14 +2095,20 @@
       "evidence": "blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/index.html lines 115-123",
       "id": "F-0076",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 371,
+        "before": 189,
+        "date": "2026-11-26",
+        "delta": 182,
+        "metric": "ga4.organic_sessions_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 2.4,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-30"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": {
@@ -2095,14 +2131,20 @@
       "evidence": "blog/assi-ghat-varanasi-complete-guide/index.html line 101",
       "id": "F-0077",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 371,
+        "before": 189,
+        "date": "2026-11-26",
+        "delta": 182,
+        "metric": "ga4.organic_sessions_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 2.25,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-10-30"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": {
@@ -2125,14 +2167,20 @@
       "evidence": "about.html line 261; components/about.js adds + when target==1500",
       "id": "F-0078",
       "impact": 1,
-      "measured": null,
+      "measured": {
+        "after": 371,
+        "before": 189,
+        "date": "2026-11-26",
+        "delta": 182,
+        "metric": "ga4.organic_sessions_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 0.9,
       "sources": [
         "seo-content"
       ],
-      "status": "deployed",
-      "updated": "2026-10-30"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": null,
@@ -2249,14 +2297,20 @@
       "evidence": "contact.html:316",
       "id": "F-0084",
       "impact": 4,
-      "measured": null,
+      "measured": {
+        "after": 20,
+        "before": 8,
+        "date": "2026-11-26",
+        "delta": 12,
+        "metric": "gbp.website_clicks"
+      },
       "note": "2026-10-30 live: contact page href and components/site.js both carry placeid=ChIJkZttFu8xjjkRO8yKCXATQZY (fetched with cache-buster)",
       "priority": 2.4,
       "sources": [
         "seo-local"
       ],
-      "status": "deployed",
-      "updated": "2026-10-30"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": null,
@@ -2293,14 +2347,20 @@
       "evidence": "about.html:227,240-242; best-hostels:122,124; dorm-vs-private:108,113 (owner facts needed)",
       "id": "F-0086",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 20,
+        "before": 8,
+        "date": "2026-11-26",
+        "delta": 12,
+        "metric": "gbp.website_clicks"
+      },
       "note": "cooking-class removals live on index and about (fetched 2026-10-30); price figures confirmed by owner, no change",
       "priority": 2.4,
       "sources": [
         "seo-content"
       ],
-      "status": "deployed",
-      "updated": "2026-10-30"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": null,
@@ -2397,14 +2457,20 @@
       "evidence": "FLOW audit 2026-11-01; nav in all 25 pages lacked /dorms/ at ec26e93",
       "id": "F-0091",
       "impact": 4,
-      "measured": null,
+      "measured": {
+        "after": 17,
+        "before": 14,
+        "date": "2026-11-26",
+        "delta": 3,
+        "metric": "gsc.nonbrand_clicks_90d"
+      },
       "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
       "priority": 1.8,
       "sources": [
         "flow"
       ],
-      "status": "deployed",
-      "updated": "2026-11-01"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": null,
@@ -2501,14 +2567,20 @@
       "evidence": "cluster audit 2026-11-01, GSC query_page 2-29 Oct (33 aarti queries on where-to-stay vs 16 on aarti post)",
       "id": "F-0096",
       "impact": 4,
-      "measured": null,
+      "measured": {
+        "after": 17,
+        "before": 14,
+        "date": "2026-11-26",
+        "delta": 3,
+        "metric": "gsc.nonbrand_clicks_90d"
+      },
       "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
       "priority": 1.6,
       "sources": [
         "cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-11-01"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": null,
@@ -2545,14 +2617,20 @@
       "evidence": "content audit 2026-11-01; owner supplied Terracotta Cafe (good wifi) and approved a remote-work retitle",
       "id": "F-0098",
       "impact": 4,
-      "measured": null,
+      "measured": {
+        "after": 17,
+        "before": 14,
+        "date": "2026-11-26",
+        "delta": 3,
+        "metric": "gsc.nonbrand_clicks_90d"
+      },
       "note": "Live 2026-11-01 after FTP deploy; deploy-drift clean, live_check 0 failures",
       "priority": 1.6,
       "sources": [
         "content"
       ],
-      "status": "deployed",
-      "updated": "2026-11-01"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": null,
@@ -2629,14 +2707,20 @@
       "evidence": "technical audit 2026-11-03: https://www.mosaichostels.com/dorms/index.html -> 200, canonical /dorms/ limits harm",
       "id": "F-0102",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 24,
+        "before": 23,
+        "date": "2026-11-26",
+        "delta": 1,
+        "metric": "gsc.urls_indexed"
+      },
       "note": "deployed 2026-11-03 by FTP; live_check 69 URLs 0 failures; deploy-drift clean; /dorms/index.html now 301 to /dorms/",
       "priority": 1.8,
       "sources": [
         "technical"
       ],
-      "status": "deployed",
-      "updated": "2026-11-03"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": {
@@ -2653,14 +2737,20 @@
       "evidence": "cluster audit 2026-11-03, link counts read from local files",
       "id": "F-0103",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 77,
+        "before": 63,
+        "date": "2026-11-26",
+        "delta": 14,
+        "metric": "gsc.clicks"
+      },
       "note": "deployed 2026-11-03 by FTP; live_check 69 URLs 0 failures; deploy-drift clean; /dorms/index.html now 301 to /dorms/",
       "priority": 1.6,
       "sources": [
         "cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-11-03"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": {
@@ -2677,14 +2767,20 @@
       "evidence": "geo audit 2026-11-03: dorms URL only under Rooms",
       "id": "F-0104",
       "impact": 1,
-      "measured": null,
+      "measured": {
+        "after": 268,
+        "before": 175,
+        "date": "2026-11-26",
+        "delta": 93,
+        "metric": "ga4.ai_assistant_sessions_90d"
+      },
       "note": "deployed 2026-11-03 by FTP; live_check 69 URLs 0 failures; deploy-drift clean; /dorms/index.html now 301 to /dorms/",
       "priority": 0.9,
       "sources": [
         "geo"
       ],
-      "status": "deployed",
-      "updated": "2026-11-03"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": {
@@ -2707,14 +2803,20 @@
       "evidence": "cluster audit 2026-11-09: 9 incoming links, none from these 3 posts; event 15 days away",
       "id": "F-0105",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 17,
+        "before": 13,
+        "date": "2026-11-26",
+        "delta": 4,
+        "metric": "gsc.nonbrand_clicks_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 2.1,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-11-09"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": {
@@ -2737,14 +2839,20 @@
       "evidence": "cluster audit: ~430 vs ~160 impressions, 0 clicks",
       "id": "F-0106",
       "impact": 3,
-      "measured": null,
+      "measured": {
+        "after": 17,
+        "before": 13,
+        "date": "2026-11-26",
+        "delta": 4,
+        "metric": "gsc.nonbrand_clicks_90d"
+      },
       "note": "live page no longer shows the defect",
       "priority": 2.1,
       "sources": [
         "seo-cluster"
       ],
-      "status": "deployed",
-      "updated": "2026-11-09"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": {
@@ -2761,14 +2869,20 @@
       "evidence": "sitemap + technical audits; footer rebuild touched every page; 4 pages changed 2026-11-09",
       "id": "F-0107",
       "impact": 2,
-      "measured": null,
+      "measured": {
+        "after": 17,
+        "before": 13,
+        "date": "2026-11-26",
+        "delta": 4,
+        "metric": "gsc.nonbrand_clicks_90d"
+      },
       "note": "live sitemap.xml (also with cache-bust) shows 4 lastmod 2026-11-09 for the 4 edited posts, 2026-11-09 fetch",
       "priority": 1.2,
       "sources": [
         "seo-sitemap"
       ],
-      "status": "deployed",
-      "updated": "2026-11-09"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": null,
@@ -2860,14 +2974,20 @@
       "evidence": "blog/best-hostels-in-varanasi/index.html:95, confirmed via live Playwright LCP PerformanceObserver",
       "id": "F-0111",
       "impact": 4,
-      "measured": null,
+      "measured": {
+        "after": 0.85,
+        "before": 0.88,
+        "date": "2026-11-26",
+        "delta": -0.03,
+        "metric": "lighthouse.lh_performance"
+      },
       "note": "loading=lazy removed from best-hostels-in-varanasi hero img, confirmed via deploy-drift.sh 2026-11-13 (byte-identical to local).",
       "priority": 3.4,
       "sources": [
         "seo-visual"
       ],
-      "status": "deployed",
-      "updated": "2026-11-13"
+      "status": "measured",
+      "updated": "2026-11-26"
     },
     {
       "baseline": null,
@@ -3413,7 +3533,259 @@
       ],
       "status": "deployed",
       "updated": "2026-11-22"
+    },
+    {
+      "baseline": {
+        "date": "2026-11-26",
+        "metric": "gsc.nonbrand_clicks_90d",
+        "value": 17
+      },
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/",
+        "pattern": "6\u20137 km from Varanasi Junction",
+        "target": "blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/index.html",
+        "where": "local"
+      },
+      "claim": "Varanasi Junction distance stated as 6-7 km on transfer guide and best-hostels; owner-confirmed 5-6 km (commit 3c59739)",
+      "commit": "ec604dc",
+      "confidence": 1.0,
+      "created": "2026-11-26",
+      "effort": 1,
+      "evidence": "transfer guide 'about 6\u20137 km from Varanasi Junction'; best-hostels '(Varanasi Junction / Varanasi Cantt) is 6\u20137km'; Assi guide and llms.txt say 5\u20136 km; GSC 'varanasi junction to assi ghat distance' 323 impr pos 10.4",
+      "id": "F-0139",
+      "impact": 3,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 3.0,
+      "sources": [
+        "seo-content,seo-geo"
+      ],
+      "status": "fixed",
+      "updated": "2026-11-26"
+    },
+    {
+      "baseline": {
+        "date": "2026-11-26",
+        "metric": "ga4.ai_assistant_sessions_90d",
+        "value": 268
+      },
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/llms.txt",
+        "pattern": "1 million lamps",
+        "target": "llms.txt",
+        "where": "local"
+      },
+      "claim": "llms.txt claims '1 million lamps' for Dev Deepawali; no source and the post makes no such claim",
+      "commit": "ec604dc",
+      "confidence": 0.9,
+      "created": "2026-11-26",
+      "effort": 1,
+      "evidence": "llms.txt:55; grep million in post = 0",
+      "id": "F-0140",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.8,
+      "sources": [
+        "seo-content,seo-geo"
+      ],
+      "status": "fixed",
+      "updated": "2026-11-26"
+    },
+    {
+      "baseline": {
+        "date": "2026-11-26",
+        "metric": "ga4.ai_assistant_sessions_90d",
+        "value": 268
+      },
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/llms.txt",
+        "pattern": "site 11 km from Varanasi",
+        "target": "llms.txt",
+        "where": "local"
+      },
+      "claim": "llms.txt says Sarnath is 11 km from Varanasi; the Sarnath post says about 10 km from central Varanasi",
+      "commit": "ec604dc",
+      "confidence": 0.9,
+      "created": "2026-11-26",
+      "effort": 1,
+      "evidence": "llms.txt:52 vs sarnath post line 96",
+      "id": "F-0141",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.8,
+      "sources": [
+        "seo-geo"
+      ],
+      "status": "fixed",
+      "updated": "2026-11-26"
+    },
+    {
+      "baseline": {
+        "date": "2026-11-26",
+        "metric": "gsc.urls_indexed",
+        "value": 24
+      },
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/gallery",
+        "pattern": "\"foundingDate\": \"2025-11\"",
+        "target": "gallery.html",
+        "where": "local"
+      },
+      "claim": "Hostel JSON-LD on gallery, privacy and blog index lacks logo and uses foundingDate 2025-11 vs 2025-11-01 on the other core pages",
+      "commit": "ec604dc",
+      "confidence": 0.9,
+      "created": "2026-11-26",
+      "effort": 1,
+      "evidence": "gallery.html:87, privacy.html:81, blog/index.html:86 foundingDate 2025-11; grep -c logo = 0 on those three",
+      "id": "F-0142",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.8,
+      "sources": [
+        "seo-local,seo-schema,seo-content"
+      ],
+      "status": "fixed",
+      "updated": "2026-11-26"
+    },
+    {
+      "baseline": {
+        "date": "2026-11-26",
+        "metric": "gsc.nonbrand_impressions_90d",
+        "value": 8250
+      },
+      "check": {
+        "defect_if": "absent",
+        "live_url": "https://www.mosaichostels.com/blog/assi-ghat-vs-dashashwamedh-where-to-stay/",
+        "pattern": "href=\"/blog/varanasi-airport-railway-to-assi-ghat-transfer-guide/\"",
+        "target": "blog/assi-ghat-vs-dashashwamedh-where-to-stay/index.html",
+        "where": "local"
+      },
+      "claim": "Missing same-cluster blog links: assi-vs-dashashwamedh and ganga-aarti lack transfer guide; assi-vs-dashashwamedh lacks budget; 3-5 day lacks best-time; budget and 2-day lack solo-female",
+      "commit": "ec604dc",
+      "confidence": 0.7,
+      "created": "2026-11-26",
+      "effort": 1,
+      "evidence": "rg -L per pair (seo-cluster F4,F5,F7,F8)",
+      "id": "F-0143",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 1.4,
+      "sources": [
+        "seo-cluster,seo-flow"
+      ],
+      "status": "fixed",
+      "updated": "2026-11-26"
+    },
+    {
+      "baseline": null,
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/blog/assi-ghat-varanasi-complete-guide/",
+        "pattern": "\"headline\": \"Assi Ghat, Varanasi \u2014",
+        "target": "blog/assi-ghat-varanasi-complete-guide/index.html",
+        "where": "local"
+      },
+      "claim": "BlogPosting headline uses an em dash where the visible H1 uses a colon on 3 posts (assi guide, best-hostels, solo-female)",
+      "commit": null,
+      "confidence": 0.8,
+      "created": "2026-11-26",
+      "effort": 1,
+      "evidence": "JSON-LD headline vs h1 text diff",
+      "id": "F-0144",
+      "impact": 1,
+      "measured": null,
+      "note": "check found no defect: the claim was wrong",
+      "priority": 0.8,
+      "sources": [
+        "seo-schema"
+      ],
+      "status": "rejected",
+      "updated": "2026-11-26"
+    },
+    {
+      "baseline": {
+        "date": "2026-11-26",
+        "metric": "gsc.nonbrand_clicks_90d",
+        "value": 17
+      },
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/blog/varanasi-2-day-itinerary-backpackers/",
+        "pattern": "9:00 AM, Sunrise boat ride",
+        "target": "blog/varanasi-2-day-itinerary-backpackers/index.html",
+        "where": "local"
+      },
+      "claim": "2-day itinerary labels a 9:00 AM slot 'Sunrise boat ride' while sunrise is at 5:30 AM in the same post",
+      "commit": "ec604dc",
+      "confidence": 0.9,
+      "created": "2026-11-26",
+      "effort": 1,
+      "evidence": "varanasi-2-day-itinerary-backpackers:97 vs :95",
+      "id": "F-0145",
+      "impact": 1,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 0.9,
+      "sources": [
+        "seo-content"
+      ],
+      "status": "fixed",
+      "updated": "2026-11-26"
+    },
+    {
+      "baseline": null,
+      "check": {
+        "defect_if": "present",
+        "live_url": "https://www.mosaichostels.com/blog/dev-deepawali-varanasi-2026-guide/",
+        "pattern": "24 November 2026",
+        "target": "blog/dev-deepawali-varanasi-2026-guide/index.html",
+        "where": "local"
+      },
+      "claim": "Dev Deepawali 2026 post still frames 24 November 2026 as upcoming; event has passed and the homepage still features it",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-11-26",
+      "effort": 3,
+      "evidence": "post lines 90,93; dateModified 2026-10-18; index.html:354; Bing demand uses 'dev diwali 2026' (162 impr)",
+      "id": "F-0146",
+      "impact": 2,
+      "measured": null,
+      "note": "check confirmed the defect",
+      "priority": 0.6,
+      "sources": [
+        "seo-flow,seo-content,seo-technical,seo-geo"
+      ],
+      "status": "verified",
+      "updated": "2026-11-26"
+    },
+    {
+      "baseline": null,
+      "check": null,
+      "claim": "/404.html answers HTTP 200 when requested directly (meta noindex only)",
+      "commit": null,
+      "confidence": 0.9,
+      "created": "2026-11-26",
+      "effort": 2,
+      "evidence": "HEAD /404.html -> 200 text/html, no X-Robots-Tag",
+      "id": "F-0147",
+      "impact": 1,
+      "measured": null,
+      "note": "agent HEAD request; not in sitemap, noindex meta present",
+      "priority": 0.45,
+      "sources": [
+        "seo-technical"
+      ],
+      "status": "verified",
+      "updated": "2026-11-26"
     }
   ],
-  "next_id": 139
+  "next_id": 148
 }
