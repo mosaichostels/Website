@@ -11,7 +11,7 @@ Covers: api/lib/booking.php,api/reconcile-pending.php,api/lib/ezee.php,.claude/s
    - `processing/` older than 10 min -> cron parks it; treat as `failed/`.
    - `failed/` -> read `last_failure`, alert `ambiguous=yes|no`.
 3. `ambiguous=yes`: look in the eZee extranet for a reservation for that email and dates BEFORE anything else. Found -> add the Razorpay payment to it; not found -> step 4.
-4. Create the reservation by hand in eZee (or ask the guest on WhatsApp), then post the payment. Move the order file to `done/` with `reservation_no` added, or leave in `failed/` and note it in STATUS.
+4. Create the reservation by hand in eZee (or ask the guest on WhatsApp), then post the payment. Move the order file to `done/` with `reservation_no` added, or leave in `failed/` and note it in STATUS. Do not issue a refund when the owner confirms the guest is being kept booked manually.
 5. Known cause fixed 2026-10-27: multi-night stays sent one rate instead of per-night lists (`ezee_daywise_rates`). If failures return, read `last_failure` first.
 6. Never: re-queue to `pending/` before step 3, refund before deciding whether the guest keeps the booking, or run live probes that post payments (GOTCHAS "Live test method").
 Diagnosis helper: skill `.claude/skills/reconcile-payment`.

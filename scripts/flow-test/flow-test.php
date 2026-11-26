@@ -378,7 +378,7 @@ check('paid and 10 min old: booked by the cron', where_is($o) === 'done' && str_
 $u = new_order()['json']['order_id']; age($u, 600); cron();
 check('unpaid order older than 3 min is left pending (guest may still be paying)', where_is($u) === 'pending');
 age($u, 2 * 86400); cron();
-check('unpaid for over 24 h -> moved to abandoned/ (never deleted)', where_is($u) === 'abandoned' && str_contains(log_text(), "ABANDONED order=$u"));
+check('unpaid for over 24 h -> moved to abandoned/ and alerts owner (never deleted)', where_is($u) === 'abandoned' && str_contains(log_text(), "ALERT unpaid order abandoned order=$u"));
 $late = pay($u); $v = verify($u, $late['id']);
 check('a payment arriving for an abandoned order still books it', $v['code'] === 200 && where_is($u) === 'done', $v['raw']);
 $o = new_order()['json']['order_id']; pay($o); age($o, 600); ctl('/ctl/set?rzp_429=1'); cron();

@@ -16,7 +16,7 @@ Covers: api/*.php,api/lib/*.php,components/*.js,scripts/*,.claude/settings.json,
 | `images/` | 148 files (incl. `varanasi/`), jpg+webp pairs, `images/varanasi/` subfolder |
 | `api/` | `availability`, `create-order`, `verify-payment`, `razorpay-webhook`, `reconcile-pending`, `cancel-booking` (.php), `alert-email.php`, `secrets.example.php`, `secrets.php` (git-ignored, never read) |
 | `api/lib/` | `config.php` (bootstrap), `dates.php`, `ezee.php`, `razorpay.php`, `booking.php`, `selftest.php`; blocked from web by `.htaccess:161` |
-| `scripts/` | `deploy.sh`, `indexnow-submit.sh`, `e2e-booking-test.php`, `flow-test/` |
+| `scripts/` | `deploy.sh`, `indexnow-submit.sh`, `e2e-booking-test.php`, `flow-test/` (includes cron unpaid-alert coverage) |
 | `seo-reports/` | Dated reports `YYYY-MM-DD.md`, audits, `data/findings-ledger.json`, `data/<date>/` run snapshots, per-source subfolders (`gsc/ ga4/ bing/ clarity/ gbp/ cwv/ lighthouse/ commoncrawl/`) |
 | `.github/workflows/check.yml` | CI on push and PR: `verify.sh --all` (incl. identical footers), `php -l` on `api/`, `node --check` on `components/*.js`, `scripts/flow-test/run.sh`. Never deploys |
 | `docs/superpowers/` | `specs/` (weekly-seo v2 design) and `plans/` (7 plans, Oct 2026) |

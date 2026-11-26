@@ -14,7 +14,7 @@ One level above the docroot: never web-reachable, never touched by FTP deploy, c
 | `processing/` | claimed, eZee being called | `<order_id>@<unixtime>.json` | `done/`, `failed/`, back to `pending/` (retry) |
 | `done/` | booked | `<order_id>.json` | terminal; `find_done_record()` (`api/lib/booking.php`) scans it by `reservation_no` for cancel and lookup |
 | `failed/` | needs a human | `<order_id>.json` | manual |
-| `abandoned/` | unpaid cart after 24 h | `<order_id>.json` | back to `processing/` if paid late |
+| `abandoned/` | unpaid cart after 24 h; cron emails an owner alert once when it moves the file | `<order_id>.json` | back to `processing/` if paid late |
 | `refunds/` | cancel trace | `<reservation_no>.json` | `status`: cancelling, refunded, manual |
 | `processing/<order>.alerted` | marker for the legacy-claim alert (touched by cron, repeats daily) | | |
 | `ratelimit/` | disposable counters `{start,hits}` | sha256(bucket\|ip or subject).json | pruned by cron after 1 h |

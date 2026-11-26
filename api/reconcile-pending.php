@@ -41,8 +41,15 @@ foreach (glob(PENDING_ORDERS_DIR . '/pending/*.json') ?: [] as $file) {
   if (!$captured) {
     // Confirmed unpaid by Razorpay itself, not merely quiet.
     if (filemtime($file) < $abandonCutoff) {
-      @rename($file, PENDING_ORDERS_DIR . '/abandoned/' . $orderId . '.json');
-      bookings_log("ABANDONED order=$orderId (unpaid for over 24h)");
+      if (@rename($file, PENDING_ORDERS_DIR . '/abandoned/' . $orderId . '.json')) {
+        bookings_log("ABANDONED order=$orderId (unpaid for over 24h)");
+        $record = json_decode((string)@file_get_contents(PENDING_ORDERS_DIR . '/abandoned/' . $orderId . '.json'), true);
+        $checkIn = is_array($record) ? (string)($record['check_in'] ?? '?') : '?';
+        $checkOut = is_array($record) ? (string)($record['check_out'] ?? '?') : '?';
+        $total = is_array($record) ? (string)($record['total'] ?? '?') : '?';
+        $payOption = is_array($record) ? (string)($record['pay_option'] ?? 'full') : 'full';
+        booking_alert('unpaid order abandoned', "order=$orderId check_in=$checkIn check_out=$checkOut total=$total pay_option=$payOption; no Razorpay payment captured after 24h");
+      }
     }
     continue;
   }

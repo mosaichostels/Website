@@ -11,7 +11,7 @@ Three confirmers share one `confirm_paid_order()` claim (FLOWS/booking.md): brow
 for pending/*.json older than 180 s:
    razorpay_fetch_order_payments(order)    error -> log RECONCILE fetch failed, skip
    captured payment found -> confirm_paid_order(order, payment_id, payment)  (amount/currency/status re-checked)
-   none captured and file older than 86400 s -> MOVE to abandoned/ (never deleted; a late payment still finds it)
+   none captured and file older than 86400 s -> MOVE to abandoned/ (never deleted; a late payment still finds it) + booking_alert() to the owner with order/date/amount metadata
 for processing/<order>@<claimedAt>.json older than 600 s:
    record has reservation_no -> if no room_assigned_at, ProcessBooking ConfirmBooking (ezee_assign_room); write done/, unlink claim,
                                  alert "order recovered after an interruption" (says whether the room was assigned; check AddPayment in eZee)
@@ -24,7 +24,7 @@ Schedule: every 5 min on Hostinger per earlier notes; the hPanel cron entry itse
 ## Human recovery (order in `failed/`)
 1. Read the alert mail ("PAID but booking NOT created", `ambiguous=yes|no`) and `bookings.log` lines for the order.
 2. `ambiguous=yes`: search eZee for an existing reservation first (guest email/dates). Only then book by hand.
-3. Book the guest in the eZee extranet or re-queue by moving `failed/<order>.json` back to `pending/` (cron then retries). Never re-queue before step 2.
+3. Book the guest in the eZee extranet or re-queue by moving `failed/<order>.json` back to `pending/` (cron then retries). Never re-queue before step 2. If the guest was booked manually, add the reservation number to the order record and keep the payment/reconciliation evidence with it.
 4. Skill `.claude/skills/reconcile-payment` automates the diagnosis. Live probe method: GOTCHAS "Live test method".
 
 ## Order folders (`PENDING_ORDERS_DIR`) -> DATA.md

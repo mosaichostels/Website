@@ -10,7 +10,7 @@
         "api/.htaccess",
         "api/lib/.htaccess"
       ],
-      "tokens_est": 923
+      "tokens_est": 977
     },
     {
       "file": "ARCHITECTURE.md",
@@ -22,7 +22,7 @@
         ".htaccess",
         "components/book-now.js"
       ],
-      "tokens_est": 970
+      "tokens_est": 1000
     },
     {
       "file": "AUTH.md",
@@ -75,7 +75,7 @@
         "api/reconcile-pending.php",
         "seo-reports/data/*"
       ],
-      "tokens_est": 938
+      "tokens_est": 952
     },
     {
       "file": "DECISIONS.md",
@@ -179,7 +179,7 @@
         ".claude/skills/reconcile-payment/SKILL.md",
         ".agents/skills/reconcile-payment/SKILL.md"
       ],
-      "tokens_est": 618
+      "tokens_est": 668
     },
     {
       "file": "FLOWS/weekly-seo.md",
@@ -213,7 +213,7 @@
         "scripts/deploy.sh",
         ".claude/hooks/*"
       ],
-      "tokens_est": 2448
+      "tokens_est": 2489
     },
     {
       "file": "INTEGRATIONS.md",
@@ -236,7 +236,7 @@
       "covers": [
         "api/reconcile-pending.php"
       ],
-      "tokens_est": 294
+      "tokens_est": 310
     },
     {
       "file": "OBSERVABILITY.md",
@@ -271,7 +271,7 @@
         "api/lib/ezee.php",
         ".claude/skills/reconcile-payment/SKILL.md"
       ],
-      "tokens_est": 471
+      "tokens_est": 492
     },
     {
       "file": "RUNBOOKS/site-incident.md",
@@ -305,7 +305,7 @@
       "read_when": "starting ANY task (current state, recent work, open items).",
       "verified_commit": "2026-11-19 @ 7be47e1",
       "covers": [],
-      "tokens_est": 7334
+      "tokens_est": 7465
     },
     {
       "file": "STRUCTURE.md",
@@ -321,7 +321,7 @@
         ".claude/skills/*/SKILL.md",
         ".agents/skills/*/SKILL.md"
       ],
-      "tokens_est": 988
+      "tokens_est": 998
     },
     {
       "file": "TESTING.md",
@@ -334,7 +334,7 @@
         ".claude/seo/tests/*",
         ".claude/seo/verify.sh"
       ],
-      "tokens_est": 917
+      "tokens_est": 885
     }
   ],
   "nested": []

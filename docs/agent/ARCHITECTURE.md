@@ -9,7 +9,7 @@ Covers: api/*.php,api/lib/*.php,.htaccess,components/book-now.js
 
 ## Booking, cancel and recovery
 Chains, failure paths and files: FLOWS/booking.md, FLOWS/cancellation.md, FLOWS/payment-recovery.md. Order folders and record keys: DATA.md. Endpoints: API.md. Invariant: three confirm paths (browser, webhook, cron) share one atomic `rename()` claim; whichever fires first books, the rest read `done/`/`failed/`.
-- Alerts: `booking_alert()` in `api/lib/config.php` mails `ALERT_EMAIL` (OBSERVABILITY.md).
+- Alerts: `booking_alert()` in `api/lib/config.php` mails `ALERT_EMAIL` (OBSERVABILITY.md), including a notification when cron confirms an order has remained unpaid for over 24 hours and moves it to `abandoned/`.
 
 ## Where logic must live
 - Stay total: only `ezee_room_total()` in `api/lib/ezee.php:28` (availability and create-order must agree; a mismatch once 502'd every booking). Add shapes there, never in callers.
